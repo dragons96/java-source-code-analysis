@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/ForkJoinPool.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ForkJoinPool"><a href="#ForkJoinPool" class="headerlink" title="ForkJoinPool"></a>ForkJoinPool</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.ForkJoinPool</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractExecutorService</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SMASK: int</strong></td>
+<td align="center">0xffff</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Class for artificial tasks that are used to replace the target of local joins if they are removed from an interior queue slot in WorkQueue.tryRemoveAndExec. We don’t need the proxy to actually do anything beyond having a unique identity.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_CAP: int</strong></td>
+<td align="center">0x7fff</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EVENMASK: int</strong></td>
+<td align="center">0xfffe</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SQMASK: int</strong></td>
+<td align="center">0x007e</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SCANNING: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>INACTIVE: int</strong></td>
+<td align="center">1 &lt;&lt; 31</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SS_SEQ: int</strong></td>
+<td align="center">1 &lt;&lt; 16</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MODE_MASK: int</strong></td>
+<td align="center">0xffff &lt;&lt; 16</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LIFO_QUEUE: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>FIFO_QUEUE: int</strong></td>
+<td align="center">1 &lt;&lt; 16</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SHARED_QUEUE: int</strong></td>
+<td align="center">1 &lt;&lt; 31</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modifyThreadPermission: RuntimePermission</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Permission required for callers of methods that may start or kill threads.</td>
+</tr>
+<tr>
+<td align="center"><strong>common: ForkJoinPool</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Common (static) pool. Non-null for public use unless a static construction exception, but internal usages null-check on use to paranoically avoid potential initialization circularities as well as to simplify generated code.</td>
+</tr>
+<tr>
+<td align="center"><strong>commonParallelism: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Common pool parallelism. To allow simpler use and management when common pool threads are disabled, we allow the underlying common.parallelism field to be zero, but in that case still report parallelism as 1 to reflect resulting caller-runs mechanics.</td>
+</tr>
+<tr>
+<td align="center"><strong>commonMaxSpares: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Limit on spare thread construction in tryCompensate.</td>
+</tr>
+<tr>
+<td align="center"><strong>poolNumberSequence: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sequence number for creating workerNamePrefix.</td>
+</tr>
+<tr>
+<td align="center"><strong>IDLE_TIMEOUT: long</strong></td>
+<td align="center">2000L * 1000L * 1000L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initial timeout value (in nanoseconds) for the thread triggering quiescence to park waiting for new work. On timeout, the thread will instead try to shrink the number of workers. The value should be large enough to avoid overly aggressive shrinkage during most transient stalls (long GCs etc).</td>
+</tr>
+<tr>
+<td align="center"><strong>TIMEOUT_SLOP: long</strong></td>
+<td align="center">20L * 1000L * 1000L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tolerance for idle timeouts, to cope with timer undershoots</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_COMMON_MAX_SPARES: int</strong></td>
+<td align="center">256</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The initial value for commonMaxSpares during static initialization. The value is far in excess of normal requirements, but also far short of MAX_CAP and typical OS thread limits, so allows JVMs to catch misuse&#x2F;abuse before running out of resources needed to do so.</td>
+</tr>
+<tr>
+<td align="center"><strong>SPINS: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Number of times to spin-wait before blocking. The spins (in awaitRunStateLock and awaitWork) currently use randomized spins. Currently set to zero to reduce CPU usage.  If greater than zero the value of SPINS must be a power of two, at least 4.  A value of 2048 causes spinning for a small fraction of typical context-switch times.  If&#x2F;when MWAIT-like intrinsics becomes available, they may allow quieter spinning.</td>
+</tr>
+<tr>
+<td align="center"><strong>SEED_INCREMENT: int</strong></td>
+<td align="center">0x9e3779b9</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Increment for seed generators. See class ThreadLocal for explanation.</td>
+</tr>
+<tr>
+<td align="center"><strong>SP_MASK: long</strong></td>
+<td align="center">0xffffffffL</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Bits and masks for field ctl, packed with 4 16 bit subfields: AC: Number of active running workers minus target parallelism TC: Number of total workers minus target parallelism SS: version count and status of top waiting thread ID: poolIndex of top of Treiber stack of waiters  When convenient, we can extract the lower 32 stack top bits (including version bits) as sp&#x3D;(int)ctl.  The offsets of counts by the target parallelism and the positionings of fields makes it possible to perform the most common checks via sign tests of fields: When ac is negative, there are not enough active workers, when tc is negative, there are not enough total workers.  When sp is non-zero, there are waiting workers.  To deal with possibly negative fields, we use casts in and out of “short” and&#x2F;or signed shifts to maintain signedness.  Because it occupies uppermost bits, we can add one active count using getAndAddLong of AC_UNIT, rather than CAS, when returning from a blocked join.  Other updates entail multiple subfields and masking, requiring CAS.</td>
+</tr>
+<tr>
+<td align="center"><strong>UC_MASK: long</strong></td>
+<td align="center">~SP_MASK</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">48</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AC_UNIT: long</strong></td>
+<td align="center">0x0001L &lt;&lt; AC_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AC_MASK: long</strong></td>
+<td align="center">0xffffL &lt;&lt; AC_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">32</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TC_UNIT: long</strong></td>
+<td align="center">0x0001L &lt;&lt; TC_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TC_MASK: long</strong></td>
+<td align="center">0xffffL &lt;&lt; TC_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ADD_WORKER: long</strong></td>
+<td align="center">0x0001L &lt;&lt; (TC_SHIFT + 15)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">1 &lt;&lt; 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">1 &lt;&lt; 2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">1 &lt;&lt; 29</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">1 &lt;&lt; 30</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">1 &lt;&lt; 31</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ctl: long</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runState: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>config: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexSeed: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>workQueues: WorkQueue[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>factory: ForkJoinWorkerThreadFactory</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ueh: UncaughtExceptionHandler</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>workerNamePrefix: String</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stealCounter: AtomicLong</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>U: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CTL: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RUNSTATE: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>STEALCOUNTER: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>PARKBLOCKER: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>QTOP: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>QLOCK: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>QSCANSTATE: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>QPARKER: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>QCURRENTSTEAL: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>QCURRENTJOIN: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>checkPermission(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If there is a security manager, makes sure caller has permission to modify threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextPoolId(): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the next sequence number. We don’t expect this to ever contend, so use simple builtin sync.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockRunState(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Acquires the runState lock; returns current (locked) runState.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>awaitRunStateLock(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Spins and&#x2F;or blocks until runstate lock is available.  See above for explanation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlockRunState(int oldRunState, int newRunState): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlocks and sets runState to newRunState.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createWorker(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to construct and start one worker. Assumes that total count has already been incremented as a reservation.  Invokes deregisterWorker on any failure.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryAddWorker(long c): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to add one worker, incrementing ctl counts before doing so, relying on createWorker to back out on failure.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>registerWorker(ForkJoinWorkerThread wt): WorkQueue</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Callback from ForkJoinWorkerThread constructor to establish and record its WorkQueue.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deregisterWorker(ForkJoinWorkerThread wt, Throwable ex): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Final callback from terminating worker, as well as upon failure to construct or start a worker.  Removes record of worker from array, and adjusts counts. If pool is shutting down, tries to complete termination.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signalWork(WorkQueue[] ws, WorkQueue q): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to create or activate a worker if too few are active.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryRelease(long c, WorkQueue v, long inc): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Signals and releases worker v if it is top of idle worker stack.  This performs a one-shot version of signalWork only if there is (apparently) at least one idle worker.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runWorker(WorkQueue w): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Top-level runloop for workers, called by ForkJoinWorkerThread.run.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scan(WorkQueue w, int r): ForkJoinTask&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans for and tries to steal a top-level task. Scans start at a random location, randomly moving on apparent contention, otherwise continuing linearly until reaching two consecutive empty passes over all queues with the same checksum (summing each base index of each queue, that moves on each steal), at which point the worker tries to inactivate and then re-scans, attempting to re-activate (itself or some other worker) if finding a task; otherwise returning null to await work.  Scans otherwise touch as little memory as possible, to reduce disruption on other scanning threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>awaitWork(WorkQueue w, int r): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possibly blocks worker w waiting for a task to steal, or returns false if the worker should terminate.  If inactivating w has caused the pool to become quiescent, checks for pool termination, and, so long as this is not the only worker, waits for up to a given duration.  On timeout, if ctl has not changed, terminates the worker, which will in turn wake up another worker to possibly repeat this process.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>helpComplete(WorkQueue w, CountedCompleter&lt;?&gt; task,int maxTasks): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to steal and run tasks within the target’s computation. Uses a variant of the top-level algorithm, restricted to tasks with the given task as ancestor: It prefers taking and running eligible tasks popped from the worker’s own queue (via popCC). Otherwise it scans others, randomly moving on contention or execution, deciding to give up based on a checksum (via return codes frob pollAndExecCC). The maxTasks argument supports external usages; internal calls use zero, allowing unbounded steps (external calls trap non-positive values).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>helpStealer(WorkQueue w, ForkJoinTask&lt;?&gt; task): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to locate and execute tasks for a stealer of the given task, or in turn one of its stealers, Traces currentSteal -&gt; currentJoin links looking for a thread working on a descendant of the given task and with a non-empty queue to steal back and execute tasks from. The first call to this method upon a waiting join will often entail scanning&#x2F;search, (which is OK because the joiner has nothing better to do), but this method leaves hints in workers to speed up subsequent calls.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryCompensate(WorkQueue w): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to decrement active count (sometimes implicitly) and possibly release or create a compensating worker in preparation for blocking. Returns false (retryable by caller), on contention, detected staleness, instability, or termination.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>awaitJoin(WorkQueue w, ForkJoinTask&lt;?&gt; task, long deadline): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Helps and&#x2F;or blocks until the given task is done or timeout.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findNonEmptyStealQueue(): WorkQueue</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a (probably) non-empty steal queue, if one is found during a scan, else null.  This method must be retried by caller if, by the time it tries to use the queue, it is empty.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>helpQuiescePool(WorkQueue w): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Runs tasks until ‘isQuiescent()’. We piggyback on active count ctl maintenance, but rather than blocking when tasks cannot be found, we rescan until all others cannot find tasks either.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextTaskFor(WorkQueue w): ForkJoinTask&lt;?&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets and removes a local or stolen task for the given worker.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSurplusQueuedTaskCount(): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a cheap heuristic guide for task partitioning when programmers, frameworks, tools, or languages have little or no idea about task granularity.  In essence, by offering this method, we ask users only about tradeoffs in overhead vs expected throughput and its variance, rather than how finely to partition tasks.  In a steady state strict (tree-structured) computation, each thread makes available for stealing enough tasks for other threads to remain active. Inductively, if all threads play by the same rules, each thread should make available only a constant number of tasks.  The minimum useful constant is just 1. But using a value of 1 would require immediate replenishment upon each steal to maintain enough tasks, which is infeasible.  Further, partitionings&#x2F;granularities of offered tasks should minimize steal rates, which in general means that threads nearer the top of computation tree should generate more than those nearer the bottom. In perfect steady state, each thread is at approximately the same level of computation tree. However, producing extra tasks amortizes the uncertainty of progress and diffusion assumptions.  So, users will want to use values larger (but not much larger) than 1 to both smooth over transient shortages and hedge against uneven progress; as traded off against the cost of extra task overhead. We leave the user to pick a threshold value to compare with the results of this call to guide decisions, but recommend values such as 3.  When all threads are active, it is on average OK to estimate surplus strictly locally. In steady-state, if one thread is maintaining say 2 surplus tasks, then so are others. So we can just use estimated queue length.  However, this strategy alone leads to serious mis-estimates in some non-steady-state conditions (ramp-up, ramp-down, other stalls). We can detect many of these by further considering the number of “idle” threads, that are known to have zero queued tasks, so compensate by a factor of (#idle&#x2F;#active) threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryTerminate(boolean now, boolean enable): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possibly initiates and&#x2F;or completes termination.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>externalSubmit(ForkJoinTask&lt;?&gt; task): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Full version of externalPush, handling uncommon cases, as well as performing secondary initialization upon the first submission of the first task to the pool.  It also detects first submission by an external thread and creates a new shared queue if the one at index if empty or contended.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>externalPush(ForkJoinTask&lt;?&gt; task): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to add the given task to a submission queue at submitter’s current queue. Only the (vastly) most common path is directly handled in this method, while screening for need for externalSubmit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>commonSubmitterQueue(): WorkQueue</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns common pool queue for an external thread.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryExternalUnpush(ForkJoinTask&lt;?&gt; task): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs tryUnpush for an external submitter: Finds queue, locks if apparently non-empty, validates upon locking, and adjusts top. Each check can fail but rarely does.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>externalHelpComplete(CountedCompleter&lt;?&gt; task, int maxTasks): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs helpComplete for an external submitter.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ForkJoinPool()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘ForkJoinPool’ with parallelism equal to ‘java.lang.Runtime#availableProcessors’, using the ‘#defaultForkJoinWorkerThreadFactory default thread factory’, no UncaughtExceptionHandler, and non-async LIFO processing mode.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>ForkJoinPool(int parallelism)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘ForkJoinPool’ with the indicated parallelism level, the ‘#defaultForkJoinWorkerThreadFactory default thread factory’, no UncaughtExceptionHandler, and non-async LIFO processing mode.</td>
+<td align="left">SecurityException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ForkJoinPool(int parallelism,ForkJoinWorkerThreadFactory factory,UncaughtExceptionHandler handler,boolean asyncMode)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘ForkJoinPool’ with the given parameters.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException<br/>SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkParallelism(int parallelism): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ForkJoinPool(int parallelism,ForkJoinWorkerThreadFactory factory,UncaughtExceptionHandler handler,int mode,String workerNamePrefix)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘ForkJoinPool’ with the given parameters, without any security checks or parameter validation.  Invoked directly by makeCommonPool.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>commonPool(): ForkJoinPool</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the common pool instance. This pool is statically constructed; its run state is unaffected by attempts to ‘#shutdown’ or ‘#shutdownNow’. However this pool and any ongoing processing are automatically terminated upon program ‘System#exit’.  Any program that relies on asynchronous task processing to complete before program termination should invoke ‘commonPool().’’#awaitQuiescence awaitQuiescence’, before exit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>invoke(ForkJoinTask&lt;T&gt; task): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given task, returning its result upon completion. If the computation encounters an unchecked Exception or Error, it is rethrown as the outcome of this invocation.  Rethrown exceptions behave in the same way as regular exceptions, but, when possible, contain stack traces (as displayed for example using ‘ex.printStackTrace()’) of both the current thread as well as the thread actually encountering the exception; minimally only the latter.</td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(ForkJoinTask&lt;?&gt; task): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Arranges for (asynchronous) execution of the given task.</td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(Runnable task): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(ForkJoinTask&lt;T&gt; task): ForkJoinTask<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Submits a ForkJoinTask for execution.</td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(Callable&lt;T&gt; task): ForkJoinTask<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(Runnable task, T result): ForkJoinTask<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(Runnable task): ForkJoinTask&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks): List&lt;Future<T>&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFactory(): ForkJoinWorkerThreadFactory</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the factory used for constructing new workers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getUncaughtExceptionHandler(): UncaughtExceptionHandler</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the handler for internal worker threads that terminate due to unrecoverable errors encountered while executing tasks.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getParallelism(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the targeted parallelism level of this pool.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCommonPoolParallelism(): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the targeted parallelism level of the common pool.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPoolSize(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of worker threads that have started but not yet terminated.  The result returned by this method may differ from ‘#getParallelism’ when threads are created to maintain parallelism when others are cooperatively blocked.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAsyncMode(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this pool uses local first-in-first-out scheduling mode for forked tasks that are never joined.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRunningThreadCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of worker threads that are not blocked waiting to join tasks or for other managed synchronization. This method may overestimate the number of running threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getActiveThreadCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of threads that are currently stealing or executing tasks. This method may overestimate the number of active threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isQuiescent(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if all worker threads are currently idle. An idle worker is one that cannot obtain a task to execute because none are available to steal from other threads, and there are no pending submissions to the pool. This method is conservative; it might not return ‘true’ immediately upon idleness of all threads, but will eventually become true if threads remain inactive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getStealCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the total number of tasks stolen from one thread’s work queue by another. The reported value underestimates the actual total number of steals when the pool is not quiescent. This value may be useful for monitoring and tuning fork&#x2F;join programs: in general, steal counts should be high enough to keep threads busy, but low enough to avoid overhead and contention across threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getQueuedTaskCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the total number of tasks currently held in queues by worker threads (but not including tasks submitted to the pool that have not begun executing). This value is only an approximation, obtained by iterating across all threads in the pool. This method may be useful for tuning task granularities.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getQueuedSubmissionCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of tasks submitted to this pool that have not yet begun executing.  This method may take time proportional to the number of submissions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasQueuedSubmissions(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if there are any tasks submitted to this pool that have not yet begun executing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pollSubmission(): ForkJoinTask&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes and returns the next unexecuted submission if one is available.  This method may be useful in extensions to this class that re-assign work in systems with multiple pools.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>drainTasksTo(Collection&lt;? super ForkJoinTask&lt;?&gt;&gt; c): int</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all available unexecuted submitted and forked tasks from scheduling queues and adds them to the given collection, without altering their execution status. These may include artificially generated or wrapped tasks. This method is designed to be invoked only when the pool is known to be quiescent. Invocations at other times may not remove all tasks. A failure encountered while attempting to add elements to collection ‘c’ may result in elements being in neither, either or both collections when the associated exception is thrown.  The behavior of this operation is undefined if the specified collection is modified while the operation is in progress.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string identifying this pool, as well as its state, including indications of run state, parallelism level, and worker and task counts.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shutdown(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possibly initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no effect on execution state if this is the ‘#commonPool()’, and no additional effect if already shut down.  Tasks that are in the process of being submitted concurrently during the course of this method may or may not be rejected.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>shutdownNow(): List<Runnable></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possibly attempts to cancel and&#x2F;or stop all tasks, and reject all subsequently submitted tasks.  Invocation has no effect on execution state if this is the ‘#commonPool()’, and no additional effect if already shut down. Otherwise, tasks that are in the process of being submitted or executed concurrently during the course of this method may or may not be rejected. This method cancels both existing and unexecuted tasks, in order to permit termination in the presence of task dependencies. So the method always returns an empty list (unlike the case for some other Executors).</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>isTerminated(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if all tasks have completed following shut down.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isTerminating(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if the process of termination has commenced but not yet completed.  This method may be useful for debugging. A return of ‘true’ reported a sufficient period after shutdown may indicate that submitted tasks have ignored or suppressed interruption, or are waiting for I&#x2F;O, causing this executor not to properly terminate. (See the advisory notes for class ‘ForkJoinTask’ stating that tasks should not normally entail blocking operations.  But if they do, they must abort them on interrupt.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isShutdown(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this pool has been shut down.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>awaitTermination(long timeout, TimeUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first. Because the ‘#commonPool()’ never terminates until program shutdown, when applied to the common pool, this method is equivalent to ‘#awaitQuiescence(long, TimeUnit)’ but always returns ‘false’.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>awaitQuiescence(long timeout, TimeUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If called by a ForkJoinTask operating in this pool, equivalent in effect to ‘ForkJoinTask#helpQuiesce’. Otherwise, waits and&#x2F;or attempts to assist performing tasks until this pool ‘#isQuiescent’ or the indicated timeout elapses.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>quiesceCommonPool(): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Waits and&#x2F;or attempts to assist performing tasks indefinitely until the ‘#commonPool()’ ‘#isQuiescent’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>managedBlock(ManagedBlocker blocker): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Runs the given possibly blocking task.  When ‘ForkJoinTask#inForkJoinPool() running in a ForkJoinPool’, this method possibly arranges for a spare thread to be activated if necessary to ensure sufficient parallelism while the current thread is blocked in ‘ManagedBlocker#block blocker.block()’.  <p>This method repeatedly calls ‘blocker.isReleasable()’ and ‘blocker.block()’ until either method returns ‘true’. Every call to ‘blocker.block()’ is preceded by a call to ‘blocker.isReleasable()’ that returned ‘false’.  <p>If not running in a ForkJoinPool, this method is behaviorally equivalent to <pre> 'while (!blocker.isReleasable()) if (blocker.block()) break;'</pre>  If running in a ForkJoinPool, the pool may first be expanded to ensure sufficient parallelism available during the call to ‘blocker.block()’.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>newTaskFor(Runnable runnable, T value): RunnableFuture<T></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newTaskFor(Callable&lt;T&gt; callable): RunnableFuture<T></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeCommonPool(): ForkJoinPool</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates and returns the common pool, respecting user settings specified via system properties.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ForkJoinPool-ForkJoinWorkerThreadFactory"><a href="#ForkJoinPool-ForkJoinWorkerThreadFactory" class="headerlink" title="ForkJoinPool$ForkJoinWorkerThreadFactory"></a><a href="./ForkJoinPool$ForkJoinWorkerThreadFactory.html">ForkJoinPool$ForkJoinWorkerThreadFactory</a></h3><h3 id="ForkJoinPool-DefaultForkJoinWorkerThreadFactory"><a href="#ForkJoinPool-DefaultForkJoinWorkerThreadFactory" class="headerlink" title="ForkJoinPool$DefaultForkJoinWorkerThreadFactory"></a><a href="./ForkJoinPool$DefaultForkJoinWorkerThreadFactory.html">ForkJoinPool$DefaultForkJoinWorkerThreadFactory</a></h3><h3 id="ForkJoinPool-EmptyTask"><a href="#ForkJoinPool-EmptyTask" class="headerlink" title="ForkJoinPool$EmptyTask"></a><a href="./ForkJoinPool$EmptyTask.html">ForkJoinPool$EmptyTask</a></h3><h3 id="ForkJoinPool-WorkQueue"><a href="#ForkJoinPool-WorkQueue" class="headerlink" title="ForkJoinPool$WorkQueue"></a><a href="./ForkJoinPool$WorkQueue.html">ForkJoinPool$WorkQueue</a></h3><h3 id="ForkJoinPool-ManagedBlocker"><a href="#ForkJoinPool-ManagedBlocker" class="headerlink" title="ForkJoinPool$ManagedBlocker"></a><a href="./ForkJoinPool$ManagedBlocker.html">ForkJoinPool$ManagedBlocker</a></h3><h3 id="ForkJoinPool-InnocuousForkJoinWorkerThreadFactory"><a href="#ForkJoinPool-InnocuousForkJoinWorkerThreadFactory" class="headerlink" title="ForkJoinPool$InnocuousForkJoinWorkerThreadFactory"></a><a href="./ForkJoinPool$InnocuousForkJoinWorkerThreadFactory.html">ForkJoinPool$InnocuousForkJoinWorkerThreadFactory</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

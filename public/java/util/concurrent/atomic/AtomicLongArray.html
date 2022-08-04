@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/atomic/AtomicLongArray.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AtomicLongArray"><a href="#AtomicLongArray" class="headerlink" title="AtomicLongArray"></a>AtomicLongArray</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.atomic.AtomicLongArray</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-2308431214976778248L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unsafe: Unsafe</strong></td>
+<td align="center">Unsafe.getUnsafe()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>base: int</strong></td>
+<td align="center">unsafe.arrayBaseOffset(long[].class)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shift: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>array: long[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>checkedByteOffset(int i): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>byteOffset(int i): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AtomicLongArray(int length)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new AtomicLongArray of the given length, with all elements initially zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AtomicLongArray(long[] array)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new AtomicLongArray with the same length as, and all elements copied from, the given array.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>length(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(int i): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the current value at position ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRaw(long offset): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>set(int i, long newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the element at position ‘i’ to the given value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lazySet(int i, long newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Eventually sets the element at position ‘i’ to the given value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndSet(int i, long newValue): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically sets the element at position ‘i’ to the given value and returns the old value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareAndSet(int i, long expect, long update): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically sets the element at position ‘i’ to the given updated value if the current value ‘&#x3D;&#x3D;’ the expected value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareAndSetRaw(long offset, long expect, long update): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>weakCompareAndSet(int i, long expect, long update): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically sets the element at position ‘i’ to the given updated value if the current value ‘&#x3D;&#x3D;’ the expected value.  <p><a href="package-summary.html#weakCompareAndSet">May fail spuriously and does not provide ordering guarantees</a>, so is only rarely an appropriate alternative to ‘compareAndSet’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndIncrement(int i): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically increments by one the element at index ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndDecrement(int i): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically decrements by one the element at index ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndAdd(int i, long delta): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically adds the given value to the element at index ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>incrementAndGet(int i): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically increments by one the element at index ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decrementAndGet(int i): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically decrements by one the element at index ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addAndGet(int i, long delta): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically adds the given value to the element at index ‘i’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndUpdate(int i, LongUnaryOperator updateFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the element at index ‘i’ with the results of applying the given function, returning the previous value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateAndGet(int i, LongUnaryOperator updateFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the element at index ‘i’ with the results of applying the given function, returning the updated value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndAccumulate(int i, long x,LongBinaryOperator accumulatorFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the element at index ‘i’ with the results of applying the given function to the current and given values, returning the previous value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.  The function is applied with the current value at index ‘i’ as its first argument, and the given update as the second argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>accumulateAndGet(int i, long x,LongBinaryOperator accumulatorFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the element at index ‘i’ with the results of applying the given function to the current and given values, returning the updated value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.  The function is applied with the current value at index ‘i’ as its first argument, and the given update as the second argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the String representation of the current values of array.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/LinkedBlockingQueue.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="LinkedBlockingQueue"><a href="#LinkedBlockingQueue" class="headerlink" title="LinkedBlockingQueue"></a>LinkedBlockingQueue<E></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.LinkedBlockingQueue&lt;E&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractQueue&lt;E&gt;implements</td>
+<td align="center">BlockingQueue&lt;E&gt;,java.io.Serializable</td>
+<td align="center">&lt;E&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-6903933977591709194L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>capacity: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The capacity bound, or Integer.MAX_VALUE if none</td>
+</tr>
+<tr>
+<td align="center"><strong>count: AtomicInteger</strong></td>
+<td align="center">new AtomicInteger()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Current number of elements</td>
+</tr>
+<tr>
+<td align="center"><strong>head: Node&lt;E&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Head of linked list. Invariant: head.item &#x3D;&#x3D; null</td>
+</tr>
+<tr>
+<td align="center"><strong>last: Node&lt;E&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tail of linked list. Invariant: last.next &#x3D;&#x3D; null</td>
+</tr>
+<tr>
+<td align="center"><strong>takeLock: ReentrantLock</strong></td>
+<td align="center">new ReentrantLock()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Lock held by take, poll, etc</td>
+</tr>
+<tr>
+<td align="center"><strong>notEmpty: Condition</strong></td>
+<td align="center">takeLock.newCondition()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Wait queue for waiting takes</td>
+</tr>
+<tr>
+<td align="center"><strong>putLock: ReentrantLock</strong></td>
+<td align="center">new ReentrantLock()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Lock held by put, offer, etc</td>
+</tr>
+<tr>
+<td align="center"><strong>notFull: Condition</strong></td>
+<td align="center">putLock.newCondition()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Wait queue for waiting puts</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>signalNotEmpty(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Signals a waiting take. Called only from put&#x2F;offer (which do not otherwise ordinarily lock takeLock.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signalNotFull(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Signals a waiting put. Called only from take&#x2F;poll.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enqueue(Node&lt;E&gt; node): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Links node at end of queue.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dequeue(): E</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a node from head of queue.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fullyLock()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Locks to prevent both puts and takes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fullyUnlock()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlocks to allow both puts and takes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedBlockingQueue()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘LinkedBlockingQueue’ with a capacity of ‘Integer#MAX_VALUE’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedBlockingQueue(int capacity)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘LinkedBlockingQueue’ with the given (fixed) capacity.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedBlockingQueue(Collection&lt;? extends E&gt; c)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘LinkedBlockingQueue’ with a capacity of ‘Integer#MAX_VALUE’, initially containing the elements of the given collection, added in traversal order of the collection’s iterator.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of elements in this queue.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remainingCapacity(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of additional elements that this queue can ideally (in the absence of memory or resource constraints) accept without blocking. This is always equal to the initial capacity of this queue less the current ‘size’ of this queue.  <p>Note that you <em>cannot</em> always tell if an attempt to insert an element will succeed by inspecting ‘remainingCapacity’ because it may be the case that another thread is about to insert or remove an element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>put(E e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this queue, waiting if necessary for space to become available.</td>
+<td align="left">NullPointerException<br/>InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>offer(E e, long timeout, TimeUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this queue, waiting if necessary up to the specified wait time for space to become available.</td>
+<td align="left">NullPointerException<br/>InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>offer(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this queue if it is possible to do so immediately without exceeding the queue’s capacity, returning ‘true’ upon success and ‘false’ if this queue is full. When using a capacity-restricted queue, this method is generally preferable to method ‘BlockingQueue#add add’, which can fail to insert an element only by throwing an exception.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>take(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>poll(long timeout, TimeUnit unit): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>poll(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peek(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlink(Node&lt;E&gt; p, Node&lt;E&gt; trail)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlinks interior Node p with predecessor trail.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a single instance of the specified element from this queue, if it is present.  More formally, removes an element ‘e’ such that ‘o.equals(e)’, if this queue contains one or more such elements. Returns ‘true’ if this queue contained the specified element (or equivalently, if this queue changed as a result of the call).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this queue contains the specified element. More formally, returns ‘true’ if and only if this queue contains at least one element ‘e’ such that ‘o.equals(e)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this queue, in proper sequence.  <p>The returned array will be “safe” in that no references to it are maintained by this queue.  (In other words, this method must allocate a new array).  The caller is thus free to modify the returned array.  <p>This method acts as bridge between array-based and collection-based APIs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(T[] a): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this queue, in proper sequence; the runtime type of the returned array is that of the specified array.  If the queue fits in the specified array, it is returned therein.  Otherwise, a new array is allocated with the runtime type of the specified array and the size of this queue.  <p>If this queue fits in the specified array with room to spare (i.e., the array has more elements than this queue), the element in the array immediately following the end of the queue is set to ‘null’.  <p>Like the ‘#toArray()’ method, this method acts as bridge between array-based and collection-based APIs.  Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs.  <p>Suppose ‘x’ is a queue known to contain only strings. The following code can be used to dump the queue into a newly allocated array of ‘String’:  <pre> 'String[] y = x.toArray(new String[0]);'</pre>  Note that ‘toArray(new Object[0])’ is identical in function to ‘toArray()’.</td>
+<td align="left">NullPointerException<br/>ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically removes all of the elements from this queue. The queue will be empty after this call returns.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>drainTo(Collection&lt;? super E&gt; c): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>UnsupportedOperationException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>drainTo(Collection&lt;? super E&gt; c, int maxElements): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>UnsupportedOperationException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>iterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this queue in proper sequence. The elements will be returned in order from first (head) to last (tail).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(): Spliterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ over the elements in this queue.  <p>The returned spliterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The ‘Spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#ORDERED’, and ‘Spliterator#NONNULL’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Saves this queue to a stream (that is, serializes it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes this queue from a stream (that is, deserializes it).</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="LinkedBlockingQueue-Node"><a href="#LinkedBlockingQueue-Node" class="headerlink" title="LinkedBlockingQueue$Node"></a><a href="./LinkedBlockingQueue$Node.html">LinkedBlockingQueue$Node</a></h3><h3 id="LinkedBlockingQueue-Itr"><a href="#LinkedBlockingQueue-Itr" class="headerlink" title="LinkedBlockingQueue$Itr"></a><a href="./LinkedBlockingQueue$Itr.html">LinkedBlockingQueue$Itr</a></h3><h3 id="LinkedBlockingQueue-LBQSpliterator"><a href="#LinkedBlockingQueue-LBQSpliterator" class="headerlink" title="LinkedBlockingQueue$LBQSpliterator"></a><a href="./LinkedBlockingQueue$LBQSpliterator.html">LinkedBlockingQueue$LBQSpliterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

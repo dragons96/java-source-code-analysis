@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/atomic/AtomicLong.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AtomicLong"><a href="#AtomicLong" class="headerlink" title="AtomicLong"></a>AtomicLong</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.atomic.AtomicLong</strong></td>
+<td align="center">class</td>
+<td align="center">Number</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">1927816293512124184L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unsafe: Unsafe</strong></td>
+<td align="center">Unsafe.getUnsafe()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VM_SUPPORTS_LONG_CAS: boolean</strong></td>
+<td align="center">VMSupportsCS8()</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Records whether the underlying JVM supports lockless compareAndSwap for longs. While the Unsafe.compareAndSwapLong method works in either case, some constructions should be handled at Java level to avoid locking user-visible locks.</td>
+</tr>
+<tr>
+<td align="center"><strong>value: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>VMSupportsCS8(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether underlying JVM supports lockless CompareAndSet for longs. Called only once and cached in VM_SUPPORTS_LONG_CAS.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AtomicLong(long initialValue)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new AtomicLong with the given initial value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AtomicLong()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new AtomicLong with initial value ‘0’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>set(long newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets to the given value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lazySet(long newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Eventually sets to the given value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndSet(long newValue): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically sets to the given value and returns the old value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareAndSet(long expect, long update): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically sets the value to the given updated value if the current value ‘&#x3D;&#x3D;’ the expected value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>weakCompareAndSet(long expect, long update): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically sets the value to the given updated value if the current value ‘&#x3D;&#x3D;’ the expected value.  <p><a href="package-summary.html#weakCompareAndSet">May fail spuriously and does not provide ordering guarantees</a>, so is only rarely an appropriate alternative to ‘compareAndSet’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndIncrement(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically increments by one the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndDecrement(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically decrements by one the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndAdd(long delta): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically adds the given value to the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>incrementAndGet(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically increments by one the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decrementAndGet(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically decrements by one the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addAndGet(long delta): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically adds the given value to the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndUpdate(LongUnaryOperator updateFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the current value with the results of applying the given function, returning the previous value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateAndGet(LongUnaryOperator updateFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the current value with the results of applying the given function, returning the updated value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAndAccumulate(long x,LongBinaryOperator accumulatorFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the current value with the results of applying the given function to the current and given values, returning the previous value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.  The function is applied with the current value as its first argument, and the given update as the second argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>accumulateAndGet(long x,LongBinaryOperator accumulatorFunction): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Atomically updates the current value with the results of applying the given function to the current and given values, returning the updated value. The function should be side-effect-free, since it may be re-applied when attempted updates fail due to contention among threads.  The function is applied with the current value as its first argument, and the given update as the second argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the String representation of the current value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intValue(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘AtomicLong’ as an ‘int’ after a narrowing primitive conversion.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longValue(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘AtomicLong’ as a ‘long’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>floatValue(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘AtomicLong’ as a ‘float’ after a widening primitive conversion.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doubleValue(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘AtomicLong’ as a ‘double’ after a widening primitive conversion.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

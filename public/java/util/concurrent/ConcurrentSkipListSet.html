@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/ConcurrentSkipListSet.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ConcurrentSkipListSet"><a href="#ConcurrentSkipListSet" class="headerlink" title="ConcurrentSkipListSet"></a>ConcurrentSkipListSet<E></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.ConcurrentSkipListSet&lt;E&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractSet&lt;E&gt;implements</td>
+<td align="center">NavigableSet&lt;E&gt;,Cloneable,java.io.Serializable</td>
+<td align="center">&lt;E&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-2479143111061671589L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>m: ConcurrentNavigableMap&lt;E,Object&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The underlying map. Uses Boolean.TRUE as value for each element.  This field is declared final for the sake of thread safety, which entails some ugliness in clone().</td>
+</tr>
+<tr>
+<td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mapOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ConcurrentSkipListSet()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new, empty set that orders its elements according to their ‘Comparable natural ordering’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentSkipListSet(Comparator&lt;? super E&gt; comparator)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new, empty set that orders its elements according to the specified comparator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentSkipListSet(Collection&lt;? extends E&gt; c)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new set containing the elements in the specified collection, that orders its elements according to their ‘Comparable natural ordering’.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentSkipListSet(SortedSet&lt;E&gt; s)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new set containing the same elements and using the same ordering as the specified sorted set.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentSkipListSet(ConcurrentNavigableMap&lt;E,Object&gt; m)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">For use by submaps</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): ConcurrentSkipListSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shallow copy of this ‘ConcurrentSkipListSet’ instance. (The elements themselves are not cloned.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of elements in this set.  If this set contains more than ‘Integer.MAX_VALUE’ elements, it returns ‘Integer.MAX_VALUE’.  <p>Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation. Because of the asynchronous nature of these sets, determining the current number of elements requires traversing them all to count them. Additionally, it is possible for the size to change during execution of this method, in which case the returned result will be inaccurate. Thus, this method is typically not very useful in concurrent applications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this set contains no elements.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this set contains the specified element. More formally, returns ‘true’ if and only if this set contains an element ‘e’ such that ‘o.equals(e)’.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>add(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified element to this set if it is not already present. More formally, adds the specified element ‘e’ to this set if the set contains no element ‘e2’ such that ‘e.equals(e2)’. If this set already contains the element, the call leaves the set unchanged and returns ‘false’.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified element from this set if it is present. More formally, removes an element ‘e’ such that ‘o.equals(e)’, if this set contains such an element. Returns ‘true’ if this set contained the element (or equivalently, if this set changed as a result of the call). (This set will not contain the element once the call returns.)</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the elements from this set.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>iterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this set in ascending order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingIterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this set in descending order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the specified object with this set for equality.  Returns ‘true’ if the specified object is also a set, the two sets have the same size, and every member of the specified set is contained in this set (or equivalently, every member of this set is contained in the specified set).  This definition ensures that the equals method works properly across different implementations of the set interface.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeAll(Collection&lt;?&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes from this set all of its elements that are contained in the specified collection.  If the specified collection is also a set, this operation effectively modifies this set so that its value is the <i>asymmetric set difference</i> of the two sets.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>lower(E e): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>floor(E e): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>ceiling(E e): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>higher(E e): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>pollFirst(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pollLast(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>comparator(): E&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">—————- SortedSet operations ————–</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>first(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">java.util.NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>last(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">java.util.NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>subSet(E fromElement,boolean fromInclusive,E toElement,boolean toInclusive): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>headSet(E toElement, boolean inclusive): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>tailSet(E fromElement, boolean inclusive): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>subSet(E fromElement, E toElement): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>headSet(E toElement): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>tailSet(E fromElement): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>descendingSet(): NavigableSet<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a reverse order view of the elements contained in this set. The descending set is backed by this set, so changes to the set are reflected in the descending set, and vice-versa.  <p>The returned set has an ordering equivalent to ‘Collections#reverseOrder(Comparator) Collections.reverseOrder’’(comparator())’. The expression ‘s.descendingSet().descendingSet()’ returns a view of ‘s’ essentially equivalent to ‘s’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(): Spliterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ over the elements in this set.  <p>The ‘Spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#NONNULL’, ‘Spliterator#DISTINCT’, ‘Spliterator#SORTED’ and ‘Spliterator#ORDERED’, with an encounter order that is ascending order.  Overriding implementations should document the reporting of additional characteristic values.  <p>The spliterator’s comparator (see ‘java.util.Spliterator#getComparator()’) is ‘null’ if the set’s comparator (see ‘#comparator()’) is ‘null’. Otherwise, the spliterator’s comparator is the same as or imposes the same total ordering as the set’s comparator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMap(ConcurrentNavigableMap&lt;E,Object&gt; map): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AbstractQueuedLongSynchronizer-Node"><a href="#AbstractQueuedLongSynchronizer-Node" class="headerlink" title="AbstractQueuedLongSynchronizer$Node"></a>AbstractQueuedLongSynchronizer$Node</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SHARED: Node</strong></td>
+<td align="center">new Node()</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Marker to indicate a node is waiting in shared mode</td>
+</tr>
+<tr>
+<td align="center"><strong>EXCLUSIVE: Node</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Marker to indicate a node is waiting in exclusive mode</td>
+</tr>
+<tr>
+<td align="center"><strong>CANCELLED: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">waitStatus value to indicate thread has cancelled</td>
+</tr>
+<tr>
+<td align="center"><strong>SIGNAL: int</strong></td>
+<td align="center">-1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">waitStatus value to indicate successor’s thread needs unparking</td>
+</tr>
+<tr>
+<td align="center"><strong>CONDITION: int</strong></td>
+<td align="center">-2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">waitStatus value to indicate thread is waiting on condition</td>
+</tr>
+<tr>
+<td align="center"><strong>PROPAGATE: int</strong></td>
+<td align="center">-3</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">waitStatus value to indicate the next acquireShared should unconditionally propagate</td>
+</tr>
+<tr>
+<td align="center"><strong>waitStatus: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Status field, taking on only the values: SIGNAL:     The successor of this node is (or will soon be) blocked (via park), so the current node must unpark its successor when it releases or cancels. To avoid races, acquire methods must first indicate they need a signal, then retry the atomic acquire, and then, on failure, block. CANCELLED:  This node is cancelled due to timeout or interrupt. Nodes never leave this state. In particular, a thread with cancelled node never again blocks. CONDITION:  This node is currently on a condition queue. It will not be used as a sync queue node until transferred, at which time the status will be set to 0. (Use of this value here has nothing to do with the other uses of the field, but simplifies mechanics.) PROPAGATE:  A releaseShared should be propagated to other nodes. This is set (for head node only) in doReleaseShared to ensure propagation continues, even if other operations have since intervened. 0:          None of the above  The values are arranged numerically to simplify use. Non-negative values mean that a node doesn’t need to signal. So, most code doesn’t need to check for particular values, just for sign.  The field is initialized to 0 for normal sync nodes, and CONDITION for condition nodes.  It is modified using CAS (or when possible, unconditional volatile writes).</td>
+</tr>
+<tr>
+<td align="center"><strong>prev: Node</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Link to predecessor node that current node&#x2F;thread relies on for checking waitStatus. Assigned during enqueuing, and nulled out (for sake of GC) only upon dequeuing.  Also, upon cancellation of a predecessor, we short-circuit while finding a non-cancelled one, which will always exist because the head node is never cancelled: A node becomes head only as a result of successful acquire. A cancelled thread never succeeds in acquiring, and a thread only cancels itself, not any other node.</td>
+</tr>
+<tr>
+<td align="center"><strong>next: Node</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Link to the successor node that the current node&#x2F;thread unparks upon release. Assigned during enqueuing, adjusted when bypassing cancelled predecessors, and nulled out (for sake of GC) when dequeued.  The enq operation does not assign next field of a predecessor until after attachment, so seeing a null next field does not necessarily mean that node is at end of queue. However, if a next field appears to be null, we can scan prev’s from the tail to double-check.  The next field of cancelled nodes is set to point to the node itself instead of null, to make life easier for isOnSyncQueue.</td>
+</tr>
+<tr>
+<td align="center"><strong>thread: Thread</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The thread that enqueued this node.  Initialized on construction and nulled out after use.</td>
+</tr>
+<tr>
+<td align="center"><strong>nextWaiter: Node</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Link to next node waiting on condition, or the special value SHARED.  Because condition queues are accessed only when holding in exclusive mode, we just need a simple linked queue to hold nodes while they are waiting on conditions. They are then transferred to the queue to re-acquire. And because conditions can only be exclusive, we save a field by using special value to indicate shared mode.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>isShared(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if node is waiting in shared mode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>predecessor(): Node</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns previous node, or throws NullPointerException if null. Use when predecessor cannot be null.  The null check could be elided, but is present to help the VM.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>Node()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Node(Thread thread, Node mode)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Node(Thread thread, int waitStatus)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="外部类"><a href="#外部类" class="headerlink" title="外部类"></a>外部类</h4><h3 id="AbstractQueuedLongSynchronizer"><a href="#AbstractQueuedLongSynchronizer" class="headerlink" title="AbstractQueuedLongSynchronizer"></a><a href="./AbstractQueuedLongSynchronizer.html">AbstractQueuedLongSynchronizer</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

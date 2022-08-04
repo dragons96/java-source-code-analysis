@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AbstractQueuedSynchronizer-ConditionObject"><a href="#AbstractQueuedSynchronizer-ConditionObject" class="headerlink" title="AbstractQueuedSynchronizer$ConditionObject"></a>AbstractQueuedSynchronizer$ConditionObject</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject</strong></td>
+<td align="center">class</td>
+<td align="center">Condition,java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">1173984872572414699L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>firstWaiter: Node</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">First node of condition queue.</td>
+</tr>
+<tr>
+<td align="center"><strong>lastWaiter: Node</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Last node of condition queue.</td>
+</tr>
+<tr>
+<td align="center"><strong>REINTERRUPT: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Mode meaning to reinterrupt on exit from wait</td>
+</tr>
+<tr>
+<td align="center"><strong>THROW_IE: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Mode meaning to throw InterruptedException on exit from wait</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>addConditionWaiter(): Node</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a new waiter to wait queue.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doSignal(Node first): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes and transfers nodes until hit non-cancelled one or null. Split out from signal in part to encourage compilers to inline the case of no waiters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doSignalAll(Node first): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes and transfers all nodes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlinkCancelledWaiters(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlinks cancelled waiter nodes from condition queue. Called only while holding lock. This is called when cancellation occurred during condition wait, and upon insertion of a new waiter when lastWaiter is seen to have been cancelled. This method is needed to avoid garbage retention in the absence of signals. So even though it may require a full traversal, it comes into play only when timeouts or cancellations occur in the absence of signals. It traverses all nodes rather than stopping at a particular target to unlink all pointers to garbage nodes without requiring many re-traversals during cancellation storms.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signal(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Moves the longest-waiting thread, if one exists, from the wait queue for this condition to the wait queue for the owning lock.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>signalAll(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Moves all threads from the wait queue for this condition to the wait queue for the owning lock.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>awaitUninterruptibly(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements uninterruptible condition wait. <ol> <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. </ol></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkInterruptWhileWaiting(Node node): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks for interrupt, returning THROW_IE if interrupted before signalled, REINTERRUPT if after signalled, or 0 if not interrupted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reportInterruptAfterWait(int interruptMode): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws InterruptedException, reinterrupts current thread, or does nothing, depending on mode.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>await(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements interruptible condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled or interrupted. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. </ol></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>awaitNanos(long nanosTimeout): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements timed condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled, interrupted, or timed out. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. </ol></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>awaitUntil(Date deadline): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements absolute timed condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled, interrupted, or timed out. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. <li> If timed out while blocked in step 4, return false, else true. </ol></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>await(long time, TimeUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements timed condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled, interrupted, or timed out. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. <li> If timed out while blocked in step 4, return false, else true. </ol></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>isOwnedBy(AbstractQueuedSynchronizer sync): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if this condition was created by the given synchronization object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasWaiters(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries whether any threads are waiting on this condition. Implements ‘AbstractQueuedSynchronizer#hasWaiters(ConditionObject)’.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getWaitQueueLength(): int</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of threads waiting on this condition. Implements ‘AbstractQueuedSynchronizer#getWaitQueueLength(ConditionObject)’.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getWaitingThreads(): Collection<Thread></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a collection containing those threads that may be waiting on this Condition. Implements ‘AbstractQueuedSynchronizer#getWaitingThreads(ConditionObject)’.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+</tbody></table>
+<h4 id="外部类"><a href="#外部类" class="headerlink" title="外部类"></a>外部类</h4><h3 id="AbstractQueuedSynchronizer"><a href="#AbstractQueuedSynchronizer" class="headerlink" title="AbstractQueuedSynchronizer"></a><a href="./AbstractQueuedSynchronizer.html">AbstractQueuedSynchronizer</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

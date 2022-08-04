@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/ConcurrentLinkedQueue.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ConcurrentLinkedQueue"><a href="#ConcurrentLinkedQueue" class="headerlink" title="ConcurrentLinkedQueue"></a>ConcurrentLinkedQueue<E></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.ConcurrentLinkedQueue&lt;E&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractQueue&lt;E&gt;implements</td>
+<td align="center">Queue&lt;E&gt;,java.io.Serializable</td>
+<td align="center">&lt;E&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">196745693267521676L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>head: Node&lt;E&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A node from which the first live (non-deleted) node (if any) can be reached in O(1) time. Invariants: - all live nodes are reachable from head via succ() - head !&#x3D; null - (tmp &#x3D; head).next !&#x3D; tmp</td>
+</tr>
+<tr>
+<td align="center"><strong>tail: Node&lt;E&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A node from which the last node on list (that is, the unique node with node.next &#x3D;&#x3D; null) can be reached in O(1) time. Invariants: - the last node is always reachable from tail via succ() - tail !&#x3D; null Non-invariants: - tail.item may or may not be null. - it is permitted for tail to lag behind head, that is, for tail to not be reachable from head! - tail.next may or may not be self-pointing to tail.</td>
+</tr>
+<tr>
+<td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>headOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tailOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ConcurrentLinkedQueue()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘ConcurrentLinkedQueue’ that is initially empty.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentLinkedQueue(Collection&lt;? extends E&gt; c)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a ‘ConcurrentLinkedQueue’ initially containing the elements of the given collection, added in traversal order of the collection’s iterator.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>add(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this queue. As the queue is unbounded, this method will never throw ‘IllegalStateException’ or return ‘false’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>updateHead(Node&lt;E&gt; h, Node&lt;E&gt; p): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to CAS head to p. If successful, repoint old head to itself as sentinel for succ(), below.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>succ(Node&lt;E&gt; p): Node<E></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the successor of p, or the head node if p.next has been linked to self, which will only be true if traversing with a stale pointer that is now off the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>offer(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this queue. As the queue is unbounded, this method will never return ‘false’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>poll(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peek(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>first()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the first live (non-deleted) node on list, or null if none. This is yet another variant of poll&#x2F;peek; here returning the first node, not element.  We could make peek() a wrapper around first(), but that would cost an extra volatile read of item, and the need to add a retry loop to deal with the possibility of losing a race to a concurrent poll().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this queue contains no elements.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of elements in this queue.  If this queue contains more than ‘Integer.MAX_VALUE’ elements, returns ‘Integer.MAX_VALUE’.  <p>Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation. Because of the asynchronous nature of these queues, determining the current number of elements requires an O(n) traversal. Additionally, if elements are added or removed during execution of this method, the returned result may be inaccurate.  Thus, this method is typically not very useful in concurrent applications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this queue contains the specified element. More formally, returns ‘true’ if and only if this queue contains at least one element ‘e’ such that ‘o.equals(e)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a single instance of the specified element from this queue, if it is present.  More formally, removes an element ‘e’ such that ‘o.equals(e)’, if this queue contains one or more such elements. Returns ‘true’ if this queue contained the specified element (or equivalently, if this queue changed as a result of the call).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addAll(Collection&lt;? extends E&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends all of the elements in the specified collection to the end of this queue, in the order that they are returned by the specified collection’s iterator.  Attempts to ‘addAll’ of a queue to itself result in ‘IllegalArgumentException’.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this queue, in proper sequence.  <p>The returned array will be “safe” in that no references to it are maintained by this queue.  (In other words, this method must allocate a new array).  The caller is thus free to modify the returned array.  <p>This method acts as bridge between array-based and collection-based APIs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(T[] a): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this queue, in proper sequence; the runtime type of the returned array is that of the specified array.  If the queue fits in the specified array, it is returned therein.  Otherwise, a new array is allocated with the runtime type of the specified array and the size of this queue.  <p>If this queue fits in the specified array with room to spare (i.e., the array has more elements than this queue), the element in the array immediately following the end of the queue is set to ‘null’.  <p>Like the ‘#toArray()’ method, this method acts as bridge between array-based and collection-based APIs.  Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs.  <p>Suppose ‘x’ is a queue known to contain only strings. The following code can be used to dump the queue into a newly allocated array of ‘String’:  <pre> 'String[] y = x.toArray(new String[0]);'</pre>  Note that ‘toArray(new Object[0])’ is identical in function to ‘toArray()’.</td>
+<td align="left">NullPointerException<br/>ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>iterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this queue in proper sequence. The elements will be returned in order from first (head) to last (tail).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Saves this queue to a stream (that is, serializes it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes this queue from a stream (that is, deserializes it).</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(): Spliterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ over the elements in this queue.  <p>The returned spliterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The ‘Spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#ORDERED’, and ‘Spliterator#NONNULL’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkNotNull(Object v): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws NullPointerException if argument is null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>casTail(Node&lt;E&gt; cmp, Node&lt;E&gt; val): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>casHead(Node&lt;E&gt; cmp, Node&lt;E&gt; val): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ConcurrentLinkedQueue-Node"><a href="#ConcurrentLinkedQueue-Node" class="headerlink" title="ConcurrentLinkedQueue$Node"></a><a href="./ConcurrentLinkedQueue$Node.html">ConcurrentLinkedQueue$Node</a></h3><h3 id="ConcurrentLinkedQueue-Itr"><a href="#ConcurrentLinkedQueue-Itr" class="headerlink" title="ConcurrentLinkedQueue$Itr"></a><a href="./ConcurrentLinkedQueue$Itr.html">ConcurrentLinkedQueue$Itr</a></h3><h3 id="ConcurrentLinkedQueue-CLQSpliterator"><a href="#ConcurrentLinkedQueue-CLQSpliterator" class="headerlink" title="ConcurrentLinkedQueue$CLQSpliterator"></a><a href="./ConcurrentLinkedQueue$CLQSpliterator.html">ConcurrentLinkedQueue$CLQSpliterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

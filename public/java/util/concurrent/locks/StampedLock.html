@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/locks/StampedLock.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="StampedLock"><a href="#StampedLock" class="headerlink" title="StampedLock"></a>StampedLock</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.locks.StampedLock</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-6001602636862214147L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Algorithmic notes:  The design employs elements of Sequence locks (as used in linux kernels; see Lameter’s http: and elsewhere; see Boehm’s http: and Ordered RW locks (see Shirako et al http:  Conceptually, the primary state of the lock includes a sequence number that is odd when write-locked and even otherwise. However, this is offset by a reader count that is non-zero when read-locked.  The read count is ignored when validating “optimistic” seqlock-reader-style stamps.  Because we must use a small finite number of bits (currently 7) for readers, a supplementary reader overflow word is used when the number of readers exceeds the count field. We do this by treating the max reader count value (RBITS) as a spinlock protecting overflow updates.  Waiters use a modified form of CLH lock used in AbstractQueuedSynchronizer (see its internal documentation for a fuller account), where each node is tagged (field mode) as either a reader or writer. Sets of waiting readers are grouped (linked) under a common node (field cowait) so act as a single node with respect to most CLH mechanics.  By virtue of the queue structure, wait nodes need not actually carry sequence numbers; we know each is greater than its predecessor.  This simplifies the scheduling policy to a mainly-FIFO scheme that incorporates elements of Phase-Fair locks (see Brandenburg &amp; Anderson, especially http: particular, we use the phase-fair anti-barging rule: If an incoming reader arrives while read lock is held but there is a queued writer, this incoming reader is queued.  (This rule is responsible for some of the complexity of method acquireRead, but without it, the lock becomes highly unfair.) Method release does not (and sometimes cannot) itself wake up cowaiters. This is done by the primary thread, but helped by any other threads with nothing better to do in methods acquireRead and acquireWrite.  These rules apply to threads actually queued. All tryLock forms opportunistically try to acquire locks regardless of preference rules, and so may “barge” their way in.  Randomized spinning is used in the acquire methods to reduce (increasingly expensive) context switching while also avoiding sustained memory thrashing among many threads.  We limit spins to the head of queue. A thread spin-waits up to SPINS times (where each iteration decreases spin count with 50% probability) before blocking. If, upon wakening it fails to obtain lock, and is still (or becomes) the first waiting thread (which indicates that some other thread barged and obtained lock), it escalates spins (up to MAX_HEAD_SPINS) to reduce the likelihood of continually losing to barging threads.  Nearly all of these mechanics are carried out in methods acquireWrite and acquireRead, that, as typical of such code, sprawl out because actions and retries rely on consistent sets of locally cached reads.  As noted in Boehm’s paper (above), sequence validation (mainly method validate()) requires stricter ordering rules than apply to normal volatile reads (of “state”).  To force orderings of reads before a validation and the validation itself in those cases where this is not already forced, we use Unsafe.loadFence.  The memory layout keeps lock state and queue pointers together (normally on the same cache line). This usually works well for read-mostly loads. In most other cases, the natural tendency of adaptive-spin CLH locks to reduce memory contention lessens motivation to further spread out contended locations, but might be subject to future improvements.</td>
+</tr>
+<tr>
+<td align="center"><strong>NCPU: int</strong></td>
+<td align="center">Runtime.getRuntime().availableProcessors()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Number of processors, for spin control</td>
+</tr>
+<tr>
+<td align="center"><strong>1): int SPINS &#x3D; (NCPU &gt;</strong></td>
+<td align="center">(NCPU &gt; 1) ? 1 &lt;&lt; 6 : 0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum number of retries before enqueuing on acquisition</td>
+</tr>
+<tr>
+<td align="center"><strong>1): int HEAD_SPINS &#x3D; (NCPU &gt;</strong></td>
+<td align="center">(NCPU &gt; 1) ? 1 &lt;&lt; 10 : 0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum number of retries before blocking at head on acquisition</td>
+</tr>
+<tr>
+<td align="center"><strong>1): int MAX_HEAD_SPINS &#x3D; (NCPU &gt;</strong></td>
+<td align="center">(NCPU &gt; 1) ? 1 &lt;&lt; 16 : 0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum number of retries before re-blocking</td>
+</tr>
+<tr>
+<td align="center"><strong>OVERFLOW_YIELD_RATE: int</strong></td>
+<td align="center">7</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The period for yielding when waiting for overflow spinlock</td>
+</tr>
+<tr>
+<td align="center"><strong>LG_READERS: int</strong></td>
+<td align="center">7</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of bits to use for reader count before overflowing</td>
+</tr>
+<tr>
+<td align="center"><strong>RUNIT: long</strong></td>
+<td align="center">1L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WBIT: long</strong></td>
+<td align="center">1L &lt;&lt; LG_READERS</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RBITS: long</strong></td>
+<td align="center">WBIT - 1L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RFULL: long</strong></td>
+<td align="center">RBITS - 1L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ABITS: long</strong></td>
+<td align="center">RBITS</td>
+<td align="center">WBIT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>SBITS: long</strong></td>
+<td align="center">~RBITS</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ORIGIN: long</strong></td>
+<td align="center">WBIT &lt;&lt; 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>INTERRUPTED: long</strong></td>
+<td align="center">1L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WAITING: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CANCELLED: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RMODE: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WMODE: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>whead: WNode</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Head of CLH queue</td>
+</tr>
+<tr>
+<td align="center"><strong>wtail: WNode</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tail (last) of CLH queue</td>
+</tr>
+<tr>
+<td align="center"><strong>readLockView: ReadLockView</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeLockView: WriteLockView</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readWriteLockView: ReadWriteLockView</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>state: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Lock sequence&#x2F;state</td>
+</tr>
+<tr>
+<td align="center"><strong>readerOverflow: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">extra reader count when state read count saturated</td>
+</tr>
+<tr>
+<td align="center"><strong>U: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>STATE: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WHEAD: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WTAIL: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WNEXT: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WSTATUS: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WCOWAIT: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>PARKBLOCKER: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>StampedLock()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new lock, initially in unlocked state.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeLock(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Exclusively acquires the lock, blocking if necessary until available.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryWriteLock(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Exclusively acquires the lock if it is immediately available.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryWriteLock(long time, TimeUnit unit): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Exclusively acquires the lock if it is available within the given time and the current thread has not been interrupted. Behavior under timeout and interruption matches that specified for method ‘Lock#tryLock(long,TimeUnit)’.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeLockInterruptibly(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Exclusively acquires the lock, blocking if necessary until available or the current thread is interrupted. Behavior under interruption matches that specified for method ‘Lock#lockInterruptibly()’.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLock(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Non-exclusively acquires the lock, blocking if necessary until available.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryReadLock(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Non-exclusively acquires the lock if it is immediately available.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryReadLock(long time, TimeUnit unit): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Non-exclusively acquires the lock if it is available within the given time and the current thread has not been interrupted. Behavior under timeout and interruption matches that specified for method ‘Lock#tryLock(long,TimeUnit)’.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLockInterruptibly(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Non-exclusively acquires the lock, blocking if necessary until available or the current thread is interrupted. Behavior under interruption matches that specified for method ‘Lock#lockInterruptibly()’.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>tryOptimisticRead(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stamp that can later be validated, or zero if exclusively locked.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validate(long stamp): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the lock has not been exclusively acquired since issuance of the given stamp. Always returns false if the stamp is zero. Always returns true if the stamp represents a currently held lock. Invoking this method with a value not obtained from ‘#tryOptimisticRead’ or a locking method for this lock has no defined effect or result.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlockWrite(long stamp): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the lock state matches the given stamp, releases the exclusive lock.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>unlockRead(long stamp): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the lock state matches the given stamp, releases the non-exclusive lock.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>unlock(long stamp): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the lock state matches the given stamp, releases the corresponding mode of the lock.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>tryConvertToWriteLock(long stamp): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the lock state matches the given stamp, performs one of the following actions. If the stamp represents holding a write lock, returns it.  Or, if a read lock, if the write lock is available, releases the read lock and returns a write stamp. Or, if an optimistic read, returns a write stamp only if immediately available. This method returns zero in all other cases.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryConvertToReadLock(long stamp): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the lock state matches the given stamp, performs one of the following actions. If the stamp represents holding a write lock, releases it and obtains a read lock.  Or, if a read lock, returns it. Or, if an optimistic read, acquires a read lock and returns a read stamp only if immediately available. This method returns zero in all other cases.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryConvertToOptimisticRead(long stamp): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the lock state matches the given stamp then, if the stamp represents holding a lock, releases it and returns an observation stamp.  Or, if an optimistic read, returns it if validated. This method returns zero in all other cases, and so may be useful as a form of “tryUnlock”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryUnlockWrite(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Releases the write lock if it is held, without requiring a stamp value. This method may be useful for recovery after errors.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryUnlockRead(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Releases one hold of the read lock if it is held, without requiring a stamp value. This method may be useful for recovery after errors.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getReadLockCount(long s): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns combined state-held and overflow read count for given state s.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isWriteLocked(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if the lock is currently held exclusively.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isReadLocked(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if the lock is currently held non-exclusively.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getReadLockCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries the number of read locks held for this lock. This method is designed for use in monitoring system state, not for synchronization control.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string identifying this lock, as well as its lock state.  The state, in brackets, includes the String ‘“Unlocked”‘ or the String ‘“Write-locked”‘ or the String ‘“Read-locks:”‘ followed by the current number of read-locks held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asReadLock(): Lock</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a plain ‘Lock’ view of this StampedLock in which the ‘Lock#lock’ method is mapped to ‘#readLock’, and similarly for other methods. The returned Lock does not support a ‘Condition’; method ‘Lock#newCondition()’ throws ‘UnsupportedOperationException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asWriteLock(): Lock</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a plain ‘Lock’ view of this StampedLock in which the ‘Lock#lock’ method is mapped to ‘#writeLock’, and similarly for other methods. The returned Lock does not support a ‘Condition’; method ‘Lock#newCondition()’ throws ‘UnsupportedOperationException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asReadWriteLock(): ReadWriteLock</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘ReadWriteLock’ view of this StampedLock in which the ‘ReadWriteLock#readLock()’ method is mapped to ‘#asReadLock()’, and ‘ReadWriteLock#writeLock()’ to ‘#asWriteLock()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unstampedUnlockWrite(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unstampedUnlockRead(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>tryIncReaderOverflow(long s): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to increment readerOverflow by first setting state access bits value to RBITS, indicating hold of spinlock, then updating, then releasing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryDecReaderOverflow(long s): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to decrement readerOverflow.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>release(WNode h): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Wakes up the successor of h (normally whead). This is normally just h.next, but may require traversal from wtail if next pointers are lagging. This may fail to wake up an acquiring thread when one or more have been cancelled, but the cancel methods themselves provide extra safeguards to ensure liveness.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>acquireWrite(boolean interruptible, long deadline): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">See above for explanation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>acquireRead(boolean interruptible, long deadline): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">See above for explanation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cancelWaiter(WNode node, WNode group, boolean interrupted): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If node non-null, forces cancel status and unsplices it from queue if possible and wakes up any cowaiters (of the node, or group, as applicable), and in any case helps release current first waiter if lock is free. (Calling with null arguments serves as a conditional form of release, which is not currently needed but may be needed under possible future cancellation policies). This is a variant of cancellation methods in AbstractQueuedSynchronizer (see its detailed explanation in AQS internal documentation).</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="StampedLock-WNode"><a href="#StampedLock-WNode" class="headerlink" title="StampedLock$WNode"></a><a href="./StampedLock$WNode.html">StampedLock$WNode</a></h3><h3 id="StampedLock-ReadLockView"><a href="#StampedLock-ReadLockView" class="headerlink" title="StampedLock$ReadLockView"></a><a href="./StampedLock$ReadLockView.html">StampedLock$ReadLockView</a></h3><h3 id="StampedLock-WriteLockView"><a href="#StampedLock-WriteLockView" class="headerlink" title="StampedLock$WriteLockView"></a><a href="./StampedLock$WriteLockView.html">StampedLock$WriteLockView</a></h3><h3 id="StampedLock-ReadWriteLockView"><a href="#StampedLock-ReadWriteLockView" class="headerlink" title="StampedLock$ReadWriteLockView"></a><a href="./StampedLock$ReadWriteLockView.html">StampedLock$ReadWriteLockView</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

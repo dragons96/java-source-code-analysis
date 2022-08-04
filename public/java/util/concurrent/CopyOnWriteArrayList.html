@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/CopyOnWriteArrayList.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList<E></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.CopyOnWriteArrayList&lt;E&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">List&lt;E&gt;,RandomAccess,Cloneable,java.io.Serializable</td>
+<td align="center">&lt;E&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">8673264195747942595L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lock: ReentrantLock</strong></td>
+<td align="center">new ReentrantLock()</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The lock protecting all mutators</td>
+</tr>
+<tr>
+<td align="center"><strong>array: Object[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The array, accessed only via getArray&#x2F;setArray.</td>
+</tr>
+<tr>
+<td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getArray(): Object[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the array.  Non-private so as to also be accessible from CopyOnWriteArraySet class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setArray(Object[] a): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CopyOnWriteArrayList()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an empty list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CopyOnWriteArrayList(Collection&lt;? extends E&gt; c)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a list containing the elements of the specified collection, in the order they are returned by the collection’s iterator.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>CopyOnWriteArrayList(E[] toCopyIn)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a list holding a copy of the given array.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of elements in this list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this list contains no elements.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eq(Object o1, Object o2): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests for equality, coping with nulls.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(Object o, Object[] elements,int index, int fence): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">static version of indexOf, to allow repeated calls without needing to re-acquire array each time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(Object o, Object[] elements, int index): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">static version of lastIndexOf.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this list contains the specified element. More formally, returns ‘true’ if and only if this list contains at least one element ‘e’ such that <tt>(o&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;e&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;o.equals(e))</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(Object o): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(E e, int index): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the first occurrence of the specified element in this list, searching forwards from ‘index’, or returns -1 if the element is not found. More formally, returns the lowest index ‘i’ such that <tt>(i&amp;nbsp;&gt;&#x3D;&amp;nbsp;index&amp;nbsp;&amp;&amp;&amp;nbsp;(e&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;get(i)&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;e.equals(get(i))))</tt>, or -1 if there is no such index.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(Object o): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(E e, int index): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the last occurrence of the specified element in this list, searching backwards from ‘index’, or returns -1 if the element is not found. More formally, returns the highest index ‘i’ such that <tt>(i&amp;nbsp;&lt;&#x3D;&amp;nbsp;index&amp;nbsp;&amp;&amp;&amp;nbsp;(e&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;get(i)&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;e.equals(get(i))))</tt>, or -1 if there is no such index.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shallow copy of this list.  (The elements themselves are not copied.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this list in proper sequence (from first to last element).  <p>The returned array will be “safe” in that no references to it are maintained by this list.  (In other words, this method must allocate a new array).  The caller is thus free to modify the returned array.  <p>This method acts as bridge between array-based and collection-based APIs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(T a[]): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.  If the list fits in the specified array, it is returned therein.  Otherwise, a new array is allocated with the runtime type of the specified array and the size of this list.  <p>If this list fits in the specified array with room to spare (i.e., the array has more elements than this list), the element in the array immediately following the end of the list is set to ‘null’.  (This is useful in determining the length of this list <i>only</i> if the caller knows that this list does not contain any null elements.)  <p>Like the ‘#toArray()’ method, this method acts as bridge between array-based and collection-based APIs.  Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs.  <p>Suppose ‘x’ is a list known to contain only strings. The following code can be used to dump the list into a newly allocated array of ‘String’:  <pre> 'String[] y = x.toArray(new String[0]);'</pre>  Note that ‘toArray(new Object[0])’ is identical in function to ‘toArray()’.</td>
+<td align="left">NullPointerException<br/>ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object[] a, int index): E</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(int index): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>set(int index, E element): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces the element at the specified position in this list with the specified element.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>add(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends the specified element to the end of this list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(int index, E element): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(int index): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices).  Returns the element that was removed from the list.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the first occurrence of the specified element from this list, if it is present.  If this list does not contain the element, it is unchanged.  More formally, removes the element with the lowest index ‘i’ such that <tt>(o&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;get(i)&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))</tt> (if such an element exists).  Returns ‘true’ if this list contained the specified element (or equivalently, if this list changed as a result of the call).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object o, Object[] snapshot, int index): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A version of remove(Object) using the strong hint that given recent snapshot contains o at the given index.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeRange(int fromIndex, int toIndex)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes from this list all of the elements whose index is between ‘fromIndex’, inclusive, and ‘toIndex’, exclusive. Shifts any succeeding elements to the left (reduces their index). This call shortens the list by ‘(toIndex - fromIndex)’ elements. (If ‘toIndex&#x3D;&#x3D;fromIndex’, this operation has no effect.)</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>addIfAbsent(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends the element, if not present.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addIfAbsent(E e, Object[] snapshot): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A version of addIfAbsent using the strong hint that given recent snapshot does not contain e.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsAll(Collection&lt;?&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this list contains all of the elements of the specified collection.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeAll(Collection&lt;?&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes from this list all of its elements that are contained in the specified collection. This is a particularly expensive operation in this class because of the need for an internal temporary array.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>retainAll(Collection&lt;?&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retains only the elements in this list that are contained in the specified collection.  In other words, removes from this list all of its elements that are not contained in the specified collection.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>addAllAbsent(Collection&lt;? extends E&gt; c): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends all of the elements in the specified collection that are not already contained in this list, to the end of this list, in the order that they are returned by the specified collection’s iterator.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the elements from this list. The list will be empty after this call returns.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addAll(Collection&lt;? extends E&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection’s iterator.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>addAll(int index, Collection&lt;? extends E&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts all of the elements in the specified collection into this list, starting at the specified position.  Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices).  The new elements will appear in this list in the order that they are returned by the specified collection’s iterator.</td>
+<td align="left">IndexOutOfBoundsException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(Consumer&lt;? super E&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeIf(Predicate&lt;? super E&gt; filter): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(UnaryOperator&lt;E&gt; operator): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(Comparator&lt;? super E&gt; c): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Saves this list to a stream (that is, serializes it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes this list from a stream (that is, deserializes it).</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this list.  The string representation consists of the string representations of the list’s elements in the order they are returned by its iterator, enclosed in square brackets (‘“[]”‘).  Adjacent elements are separated by the characters ‘“, “‘ (comma and space).  Elements are converted to strings as by ‘String#valueOf(Object)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the specified object with this list for equality. Returns ‘true’ if the specified object is the same object as this object, or if it is also a ‘List’ and the sequence of elements returned by an ‘List#iterator() iterator’ over the specified list is the same as the sequence returned by an iterator over this list.  The two sequences are considered to be the same if they have the same length and corresponding elements at the same position in the sequence are <em>equal</em>. Two elements ‘e1’ and ‘e2’ are considered <em>equal</em> if ‘(e1&#x3D;&#x3D;null ? e2&#x3D;&#x3D;null : e1.equals(e2))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code value for this list.  <p>This implementation uses the definition in ‘List#hashCode’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>iterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this list in proper sequence.  <p>The returned iterator provides a snapshot of the state of the list when the iterator was constructed. No synchronization is needed while traversing the iterator. The iterator does <em>NOT</em> support the ‘remove’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>listIterator(): ListIterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’  <p>The returned iterator provides a snapshot of the state of the list when the iterator was constructed. No synchronization is needed while traversing the iterator. The iterator does <em>NOT</em> support the ‘remove’, ‘set’ or ‘add’ methods.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>listIterator(int index): ListIterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’  <p>The returned iterator provides a snapshot of the state of the list when the iterator was constructed. No synchronization is needed while traversing the iterator. The iterator does <em>NOT</em> support the ‘remove’, ‘set’ or ‘add’ methods.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(): Spliterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ over the elements in this list.  <p>The ‘Spliterator’ reports ‘Spliterator#IMMUTABLE’, ‘Spliterator#ORDERED’, ‘Spliterator#SIZED’, and ‘Spliterator#SUBSIZED’.  <p>The spliterator provides a snapshot of the state of the list when the spliterator was constructed. No synchronization is needed while operating on the spliterator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subList(int fromIndex, int toIndex): List<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a view of the portion of this list between ‘fromIndex’, inclusive, and ‘toIndex’, exclusive. The returned list is backed by this list, so changes in the returned list are reflected in this list.  <p>The semantics of the list returned by this method become undefined if the backing list (i.e., this list) is modified in any way other than via the returned list.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>resetLock(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sublist for CopyOnWriteArrayList. This class extends AbstractList merely for convenience, to avoid having to define addAll, etc. This doesn’t hurt, but is wasteful.  This class does not need or use modCount mechanics in AbstractList, but does need to check for concurrent modification using similar mechanics.  On each operation, the array that we expect the backing list to use is checked and updated.  Since we do this for all of the base operations invoked by those defined in AbstractList, all is well.  While inefficient, this is not worth improving.  The kinds of list operations inherited from AbstractList are already so slow on COW sublists that adding a bit more space&#x2F;time doesn’t seem even noticeable.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="CopyOnWriteArrayList-COWIterator"><a href="#CopyOnWriteArrayList-COWIterator" class="headerlink" title="CopyOnWriteArrayList$COWIterator"></a><a href="./CopyOnWriteArrayList$COWIterator.html">CopyOnWriteArrayList$COWIterator</a></h3><h3 id="CopyOnWriteArrayList-COWSubList"><a href="#CopyOnWriteArrayList-COWSubList" class="headerlink" title="CopyOnWriteArrayList$COWSubList"></a><a href="./CopyOnWriteArrayList$COWSubList.html">CopyOnWriteArrayList$COWSubList</a></h3><h3 id="CopyOnWriteArrayList-COWSubListIterator"><a href="#CopyOnWriteArrayList-COWSubListIterator" class="headerlink" title="CopyOnWriteArrayList$COWSubListIterator"></a><a href="./CopyOnWriteArrayList$COWSubListIterator.html">CopyOnWriteArrayList$COWSubListIterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

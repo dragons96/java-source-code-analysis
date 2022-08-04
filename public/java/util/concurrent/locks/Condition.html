@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/locks/Condition.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.locks.Condition</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>await()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Causes the current thread to wait until it is signalled or ‘Thread#interrupt interrupted’.  <p>The lock associated with this ‘Condition’ is atomically released and the current thread becomes disabled for thread scheduling purposes and lies dormant until <em>one</em> of four things happens: <ul> <li>Some other thread invokes the ‘#signal’ method for this ‘Condition’ and the current thread happens to be chosen as the thread to be awakened; or <li>Some other thread invokes the ‘#signalAll’ method for this ‘Condition’; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread, and interruption of thread suspension is supported; or <li>A &quot;<em>spurious wakeup</em>&quot; occurs. </ul>  <p>In all cases, before this method can return the current thread must re-acquire the lock associated with this condition. When the thread returns it is <em>guaranteed</em> to hold this lock.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting and interruption of thread suspension is supported, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. It is not specified, in the first case, whether or not the test for interruption occurs before the lock is released.  <p><b>Implementation Considerations</b>  <p>The current thread is assumed to hold the lock associated with this ‘Condition’ when this method is called. It is up to the implementation to determine if this is the case and if not, how to respond. Typically, an exception will be thrown (such as ‘IllegalMonitorStateException’) and the implementation must document that fact.  <p>An implementation can favor responding to an interrupt over normal method return in response to a signal. In that case the implementation must ensure that the signal is redirected to another waiting thread, if there is one.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>awaitUninterruptibly()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Causes the current thread to wait until it is signalled.  <p>The lock associated with this condition is atomically released and the current thread becomes disabled for thread scheduling purposes and lies dormant until <em>one</em> of three things happens: <ul> <li>Some other thread invokes the ‘#signal’ method for this ‘Condition’ and the current thread happens to be chosen as the thread to be awakened; or <li>Some other thread invokes the ‘#signalAll’ method for this ‘Condition’; or <li>A &quot;<em>spurious wakeup</em>&quot; occurs. </ul>  <p>In all cases, before this method can return the current thread must re-acquire the lock associated with this condition. When the thread returns it is <em>guaranteed</em> to hold this lock.  <p>If the current thread’s interrupted status is set when it enters this method, or it is ‘Thread#interrupt interrupted’ while waiting, it will continue to wait until signalled. When it finally returns from this method its interrupted status will still be set.  <p><b>Implementation Considerations</b>  <p>The current thread is assumed to hold the lock associated with this ‘Condition’ when this method is called. It is up to the implementation to determine if this is the case and if not, how to respond. Typically, an exception will be thrown (such as ‘IllegalMonitorStateException’) and the implementation must document that fact.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>awaitNanos(long nanosTimeout)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Causes the current thread to wait until it is signalled or interrupted, or the specified waiting time elapses.  <p>The lock associated with this condition is atomically released and the current thread becomes disabled for thread scheduling purposes and lies dormant until <em>one</em> of five things happens: <ul> <li>Some other thread invokes the ‘#signal’ method for this ‘Condition’ and the current thread happens to be chosen as the thread to be awakened; or <li>Some other thread invokes the ‘#signalAll’ method for this ‘Condition’; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread, and interruption of thread suspension is supported; or <li>The specified waiting time elapses; or <li>A &quot;<em>spurious wakeup</em>&quot; occurs. </ul>  <p>In all cases, before this method can return the current thread must re-acquire the lock associated with this condition. When the thread returns it is <em>guaranteed</em> to hold this lock.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting and interruption of thread suspension is supported, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. It is not specified, in the first case, whether or not the test for interruption occurs before the lock is released.  <p>The method returns an estimate of the number of nanoseconds remaining to wait given the supplied ‘nanosTimeout’ value upon return, or a value less than or equal to zero if it timed out. This value can be used to determine whether and how long to re-wait in cases where the wait returns but an awaited condition still does not hold. Typical uses of this method take the following form:  <pre> 'boolean aMethod(long timeout, TimeUnit unit) { long nanos = unit.toNanos(timeout); lock.lock(); try { while (!conditionBeingWaitedFor()) { if (nanos <= 0L) return false; nanos = theCondition.awaitNanos(nanos);'  } finally { lock.unlock(); } }}</pre>  <p>Design note: This method requires a nanosecond argument so as to avoid truncation errors in reporting remaining times. Such precision loss would make it difficult for programmers to ensure that total waiting times are not systematically shorter than specified when re-waits occur.  <p><b>Implementation Considerations</b>  <p>The current thread is assumed to hold the lock associated with this ‘Condition’ when this method is called. It is up to the implementation to determine if this is the case and if not, how to respond. Typically, an exception will be thrown (such as ‘IllegalMonitorStateException’) and the implementation must document that fact.  <p>An implementation can favor responding to an interrupt over normal method return in response to a signal, or over indicating the elapse of the specified waiting time. In either case the implementation must ensure that the signal is redirected to another waiting thread, if there is one.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>await(long time, TimeUnit unit)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Causes the current thread to wait until it is signalled or interrupted, or the specified waiting time elapses. This method is behaviorally equivalent to: <pre> 'awaitNanos(unit.toNanos(time)) > 0'</pre></td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>awaitUntil(Date deadline)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Causes the current thread to wait until it is signalled or interrupted, or the specified deadline elapses.  <p>The lock associated with this condition is atomically released and the current thread becomes disabled for thread scheduling purposes and lies dormant until <em>one</em> of five things happens: <ul> <li>Some other thread invokes the ‘#signal’ method for this ‘Condition’ and the current thread happens to be chosen as the thread to be awakened; or <li>Some other thread invokes the ‘#signalAll’ method for this ‘Condition’; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread, and interruption of thread suspension is supported; or <li>The specified deadline elapses; or <li>A &quot;<em>spurious wakeup</em>&quot; occurs. </ul>  <p>In all cases, before this method can return the current thread must re-acquire the lock associated with this condition. When the thread returns it is <em>guaranteed</em> to hold this lock.   <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting and interruption of thread suspension is supported, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. It is not specified, in the first case, whether or not the test for interruption occurs before the lock is released.   <p>The return value indicates whether the deadline has elapsed, which can be used as follows: <pre> 'boolean aMethod(Date deadline) { boolean stillWaiting = true; lock.lock(); try { while (!conditionBeingWaitedFor()) { if (!stillWaiting) return false; stillWaiting = theCondition.awaitUntil(deadline);'  } finally { lock.unlock(); } }}</pre>  <p><b>Implementation Considerations</b>  <p>The current thread is assumed to hold the lock associated with this ‘Condition’ when this method is called. It is up to the implementation to determine if this is the case and if not, how to respond. Typically, an exception will be thrown (such as ‘IllegalMonitorStateException’) and the implementation must document that fact.  <p>An implementation can favor responding to an interrupt over normal method return in response to a signal, or over indicating the passing of the specified deadline. In either case the implementation must ensure that the signal is redirected to another waiting thread, if there is one.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>signal()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Wakes up one waiting thread.  <p>If any threads are waiting on this condition then one is selected for waking up. That thread must then re-acquire the lock before returning from ‘await’.  <p><b>Implementation Considerations</b>  <p>An implementation may (and typically does) require that the current thread hold the lock associated with this ‘Condition’ when this method is called. Implementations must document this precondition and any actions taken if the lock is not held. Typically, an exception such as ‘IllegalMonitorStateException’ will be thrown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signalAll()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Wakes up all waiting threads.  <p>If any threads are waiting on this condition then they are all woken up. Each thread must re-acquire the lock before it can return from ‘await’.  <p><b>Implementation Considerations</b>  <p>An implementation may (and typically does) require that the current thread hold the lock associated with this ‘Condition’ when this method is called. Implementations must document this precondition and any actions taken if the lock is not held. Typically, an exception such as ‘IllegalMonitorStateException’ will be thrown.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

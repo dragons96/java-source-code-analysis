@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/ScheduledThreadPoolExecutor.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ScheduledThreadPoolExecutor"><a href="#ScheduledThreadPoolExecutor" class="headerlink" title="ScheduledThreadPoolExecutor"></a>ScheduledThreadPoolExecutor</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.ScheduledThreadPoolExecutor</strong></td>
+<td align="center">class</td>
+<td align="center">ThreadPoolExecutor</td>
+<td align="center">ScheduledExecutorService</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>continueExistingPeriodicTasksAfterShutdown: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">False if should cancel&#x2F;suppress periodic tasks on shutdown.</td>
+</tr>
+<tr>
+<td align="center"><strong>executeExistingDelayedTasksAfterShutdown: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">False if should cancel non-periodic tasks on shutdown.</td>
+</tr>
+<tr>
+<td align="center"><strong>removeOnCancel: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">True if ScheduledFutureTask.cancel should remove from queue</td>
+</tr>
+<tr>
+<td align="center"><strong>sequencer: AtomicLong</strong></td>
+<td align="center">new AtomicLong()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sequence number to break scheduling ties, and in turn to guarantee FIFO order among tied entries.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>now(): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns current nanosecond time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>canRunInCurrentRunState(boolean periodic)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if can run a task given current run state and run-after-shutdown parameters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>delayedExecute(RunnableScheduledFuture&lt;?&gt; task): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Main execution method for delayed or periodic tasks.  If pool is shut down, rejects the task. Otherwise adds task to queue and starts a thread, if necessary, to run it.  (We cannot prestart the thread to run the task because the task (probably) shouldn’t be run yet.)  If the pool is shut down while the task is being added, cancel and remove it if required by state and run-after-shutdown parameters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reExecutePeriodic(RunnableScheduledFuture&lt;?&gt; task)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Requeues a periodic task unless current run state precludes it. Same idea as delayedExecute except drops task rather than rejecting.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>onShutdown(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cancels and clears the queue of all tasks that should not be run due to shutdown policy.  Invoked within super.shutdown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decorateTask(Runnable runnable, RunnableScheduledFuture&lt;V&gt; task): RunnableScheduledFuture<V></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Modifies or replaces the task used to execute a runnable. This method can be used to override the concrete class used for managing internal tasks. The default implementation simply returns the given task.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decorateTask(Callable&lt;V&gt; callable, RunnableScheduledFuture&lt;V&gt; task): RunnableScheduledFuture<V></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Modifies or replaces the task used to execute a callable. This method can be used to override the concrete class used for managing internal tasks. The default implementation simply returns the given task.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ScheduledThreadPoolExecutor(int corePoolSize)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new ‘ScheduledThreadPoolExecutor’ with the given core pool size.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ScheduledThreadPoolExecutor(int corePoolSize,ThreadFactory threadFactory)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new ‘ScheduledThreadPoolExecutor’ with the given initial parameters.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ScheduledThreadPoolExecutor(int corePoolSize,RejectedExecutionHandler handler)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new ScheduledThreadPoolExecutor with the given initial parameters.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ScheduledThreadPoolExecutor(int corePoolSize,ThreadFactory threadFactory,RejectedExecutionHandler handler)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new ScheduledThreadPoolExecutor with the given initial parameters.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>triggerTime(long delay, TimeUnit unit): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the trigger time of a delayed action.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>triggerTime(long delay)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the trigger time of a delayed action.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>overflowFree(long delay): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constrains the values of all delays in the queue to be within Long.MAX_VALUE of each other, to avoid overflow in compareTo. This may occur if a task is eligible to be dequeued, but has not yet been, while some other task is added with a delay of Long.MAX_VALUE.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>schedule(Runnable command,long delay,TimeUnit unit): ScheduledFuture&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>schedule(Callable&lt;V&gt; callable,long delay,TimeUnit unit): ScheduledFuture<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>scheduleAtFixedRate(Runnable command,long initialDelay,long period,TimeUnit unit): ScheduledFuture&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>scheduleWithFixedDelay(Runnable command,long initialDelay,long delay,TimeUnit unit): ScheduledFuture&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(Runnable command): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Executes ‘command’ with zero required delay. This has effect equivalent to ‘#schedule(Runnable,long,TimeUnit) schedule(command, 0, anyUnit)’. Note that inspections of the queue and of the list returned by ‘shutdownNow’ will access the zero-delayed ‘ScheduledFuture’, not the ‘command’ itself.  <p>A consequence of the use of ‘ScheduledFuture’ objects is that ‘ThreadPoolExecutor#afterExecute afterExecute’ is always called with a null second ‘Throwable’ argument, even if the ‘command’ terminated abruptly.  Instead, the ‘Throwable’ thrown by such a task can be obtained via ‘Future#get’.</td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(Runnable task): Future&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(Runnable task, T result): Future<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>submit(Callable&lt;T&gt; task): Future<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+</tr>
+<tr>
+<td align="center"><strong>setContinueExistingPeriodicTasksAfterShutdownPolicy(boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the policy on whether to continue executing existing periodic tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’ or after setting the policy to ‘false’ when already shutdown. This value is by default ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContinueExistingPeriodicTasksAfterShutdownPolicy(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the policy on whether to continue executing existing periodic tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’ or after setting the policy to ‘false’ when already shutdown. This value is by default ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setExecuteExistingDelayedTasksAfterShutdownPolicy(boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the policy on whether to execute existing delayed tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’, or after setting the policy to ‘false’ when already shutdown. This value is by default ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getExecuteExistingDelayedTasksAfterShutdownPolicy(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the policy on whether to execute existing delayed tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’, or after setting the policy to ‘false’ when already shutdown. This value is by default ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRemoveOnCancelPolicy(boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the policy on whether cancelled tasks should be immediately removed from the work queue at time of cancellation.  This value is by default ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRemoveOnCancelPolicy(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the policy on whether cancelled tasks should be immediately removed from the work queue at time of cancellation.  This value is by default ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shutdown(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no additional effect if already shut down.  <p>This method does not wait for previously submitted tasks to complete execution.  Use ‘#awaitTermination awaitTermination’ to do that.  <p>If the ‘ExecuteExistingDelayedTasksAfterShutdownPolicy’ has been set ‘false’, existing delayed tasks whose delays have not yet elapsed are cancelled.  And unless the ‘ContinueExistingPeriodicTasksAfterShutdownPolicy’ has been set ‘true’, future executions of existing periodic tasks will be cancelled.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>shutdownNow(): List<Runnable></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns a list of the tasks that were awaiting execution.  <p>This method does not wait for actively executing tasks to terminate.  Use ‘#awaitTermination awaitTermination’ to do that.  <p>There are no guarantees beyond best-effort attempts to stop processing actively executing tasks.  This implementation cancels tasks via ‘Thread#interrupt’, so any task that fails to respond to interrupts may never terminate.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getQueue(): BlockingQueue<Runnable></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the task queue used by this executor.  Each element of this queue is a ‘ScheduledFuture’, including those tasks submitted using ‘execute’ which are for scheduling purposes used as the basis of a zero-delay ‘ScheduledFuture’.  Iteration over this queue is <em>not</em> guaranteed to traverse tasks in the order in which they will execute.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ScheduledThreadPoolExecutor-ScheduledFutureTask"><a href="#ScheduledThreadPoolExecutor-ScheduledFutureTask" class="headerlink" title="ScheduledThreadPoolExecutor$ScheduledFutureTask"></a><a href="./ScheduledThreadPoolExecutor$ScheduledFutureTask.html">ScheduledThreadPoolExecutor$ScheduledFutureTask</a></h3><h3 id="ScheduledThreadPoolExecutor-DelayedWorkQueue"><a href="#ScheduledThreadPoolExecutor-DelayedWorkQueue" class="headerlink" title="ScheduledThreadPoolExecutor$DelayedWorkQueue"></a><a href="./ScheduledThreadPoolExecutor$DelayedWorkQueue.html">ScheduledThreadPoolExecutor$DelayedWorkQueue</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

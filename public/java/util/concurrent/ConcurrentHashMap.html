@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/ConcurrentHashMap.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ConcurrentHashMap-lt-K-V-gt"><a href="#ConcurrentHashMap-lt-K-V-gt" class="headerlink" title="ConcurrentHashMap&lt;K,V&gt;"></a>ConcurrentHashMap&lt;K,V&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.ConcurrentHashMap&lt;K,V&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractMap&lt;K,V&gt;implements</td>
+<td align="center">ConcurrentMap&lt;K,V&gt;,Serializable</td>
+<td align="center">&lt;K&gt;,&lt;V&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">7249069246763182397L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAXIMUM_CAPACITY: int</strong></td>
+<td align="center">1 &lt;&lt; 30</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The largest possible table capacity.  This value must be exactly 1&lt;&lt;30 to stay within Java array allocation and indexing bounds for power of two table sizes, and is further required because the top two bits of 32bit hash fields are used for control purposes.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_CAPACITY: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default initial table capacity.  Must be a power of 2 (i.e., at least 1) and at most MAXIMUM_CAPACITY.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_ARRAY_SIZE: int</strong></td>
+<td align="center">Integer.MAX_VALUE - 8</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The largest possible (non-power of two) array size. Needed by toArray and related methods.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_CONCURRENCY_LEVEL: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default concurrency level for this table. Unused but defined for compatibility with previous versions of this class.</td>
+</tr>
+<tr>
+<td align="center"><strong>LOAD_FACTOR: float</strong></td>
+<td align="center">0.75f</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The load factor for this table. Overrides of this value in constructors affect only the initial table capacity.  The actual floating point value isn’t normally used – it is simpler to use expressions such as {@code n - (n &gt;&gt;&gt; 2)} for the associated resizing threshold.</td>
+</tr>
+<tr>
+<td align="center"><strong>TREEIFY_THRESHOLD: int</strong></td>
+<td align="center">8</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bin count threshold for using a tree rather than list for a bin.  Bins are converted to trees when adding an element to a bin with at least this many nodes. The value must be greater than 2, and should be at least 8 to mesh with assumptions in tree removal about conversion back to plain bins upon shrinkage.</td>
+</tr>
+<tr>
+<td align="center"><strong>UNTREEIFY_THRESHOLD: int</strong></td>
+<td align="center">6</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bin count threshold for untreeifying a (split) bin during a resize operation. Should be less than TREEIFY_THRESHOLD, and at most 6 to mesh with shrinkage detection under removal.</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_TREEIFY_CAPACITY: int</strong></td>
+<td align="center">64</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The smallest table capacity for which bins may be treeified. (Otherwise the table is resized if too many nodes in a bin.) The value should be at least 4 * TREEIFY_THRESHOLD to avoid conflicts between resizing and treeification thresholds.</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_TRANSFER_STRIDE: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Minimum number of rebinnings per transfer step. Ranges are subdivided to allow multiple resizer threads.  This value serves as a lower bound to avoid resizers encountering excessive memory contention.  The value should be at least DEFAULT_CAPACITY.</td>
+</tr>
+<tr>
+<td align="center"><strong>RESIZE_STAMP_BITS: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of bits used for generation stamp in sizeCtl. Must be at least 6 for 32bit arrays.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_RESIZERS: int</strong></td>
+<td align="center">(1 &lt;&lt; (32 - RESIZE_STAMP_BITS)) - 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum number of threads that can help resize. Must fit in 32 - RESIZE_STAMP_BITS bits.</td>
+</tr>
+<tr>
+<td align="center"><strong>RESIZE_STAMP_SHIFT: int</strong></td>
+<td align="center">32 - RESIZE_STAMP_BITS</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit shift for recording size stamp in sizeCtl.</td>
+</tr>
+<tr>
+<td align="center"><strong>MOVED: int</strong></td>
+<td align="center">-1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Encodings for Node hash fields. See above for explanation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TREEBIN: int</strong></td>
+<td align="center">-2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RESERVED: int</strong></td>
+<td align="center">-3</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HASH_BITS: int</strong></td>
+<td align="center">0x7fffffff</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NCPU: int</strong></td>
+<td align="center">Runtime.getRuntime().availableProcessors()</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Number of CPUS, to place bounds on some sizings</td>
+</tr>
+<tr>
+<td align="center"><strong>[]: Node&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The array of bins. Lazily initialized upon first insertion. Size is always a power of two. Accessed directly by iterators.</td>
+</tr>
+<tr>
+<td align="center"><strong>[]: Node&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The next table to use; non-null only while resizing.</td>
+</tr>
+<tr>
+<td align="center"><strong>baseCount: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Base counter value, used mainly when there is no contention, but also as a fallback during table initialization races. Updated via CAS.</td>
+</tr>
+<tr>
+<td align="center"><strong>sizeCtl: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Table initialization and resizing control.  When negative, the table is being initialized or resized: -1 for initialization, else -(1 + the number of active resizing threads).  Otherwise, when table is null, holds the initial table size to use upon creation, or 0 for default. After initialization, holds the next element count value upon which to resize the table.</td>
+</tr>
+<tr>
+<td align="center"><strong>transferIndex: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The next table index (plus one) to split while resizing.</td>
+</tr>
+<tr>
+<td align="center"><strong>cellsBusy: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Spinlock (locked via CAS) used when resizing and&#x2F;or creating CounterCells.</td>
+</tr>
+<tr>
+<td align="center"><strong>counterCells: CounterCell[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Table of counter cells. When non-null, size is a power of 2.</td>
+</tr>
+<tr>
+<td align="center"><strong>keySet: KeySetView&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>values: ValuesView&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet: EntrySetView&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SIZECTL: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Task classes. Coded in a regular but ugly format&#x2F;style to simplify checks that each variant differs in the right way from others. The null screenings exist because compilers cannot tell that we’ve already null-checked task arguments, so we force simplest hoisted bypass to help avoid convoluted traps.</td>
+</tr>
+<tr>
+<td align="center"><strong>TRANSFERINDEX: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BASECOUNT: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CELLSBUSY: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CELLVALUE: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ABASE: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ASHIFT: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>spread(int h): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Spreads (XORs) higher bits of hash to lower and also forces top bit to 0. Because the table uses power-of-two masking, sets of hashes that vary only in bits above the current mask will always collide. (Among known examples are sets of Float keys holding consecutive whole numbers in small tables.)  So we apply a transform that spreads the impact of higher bits downward. There is a tradeoff between speed, utility, and quality of bit-spreading. Because many common sets of hashes are already reasonably distributed (so don’t benefit from spreading), and because we use trees to handle large sets of collisions in bins, we just XOR some shifted bits in the cheapest possible way to reduce systematic lossage, as well as to incorporate impact of the highest bits that would otherwise never be used in index calculations because of table bounds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tableSizeFor(int c): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a power of two table size for the given desired capacity. See Hackers Delight, sec 3.2</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>comparableClassFor(Object x): Class&lt;?&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns x’s Class if it is of the form “class C implements Comparable<C>“, else null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareComparables(Class&lt;?&gt; kc, Object k, Object x): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns k.compareTo(x) if x matches kc (k’s screened comparable class), else 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tabAt(Node&lt;K,V&gt;[] tab, int i): Node&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Volatile access methods are used for table elements as well as elements of in-progress next table while resizing.  All uses of the tab arguments must be null checked by callers.  All callers also paranoically precheck that tab’s length is not zero (or an equivalent check), thus ensuring that any index argument taking the form of a hash value anded with (length - 1) is a valid index.  Note that, to be correct wrt arbitrary concurrency errors by users, these checks must operate on local variables, which accounts for some odd-looking inline assignments below. Note that calls to setTabAt always occur within locked regions, and so in principle require only release ordering, not full volatile semantics, but are currently coded as volatile writes to be conservative.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>casTabAt(Node&lt;K,V&gt;[] tab, int i,Node&lt;K,V&gt; c, Node&lt;K,V&gt; v): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setTabAt(Node&lt;K,V&gt;[] tab, int i, Node&lt;K,V&gt; v): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentHashMap()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new, empty map with the default initial table size (16).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentHashMap(int initialCapacity)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new, empty map with an initial table size accommodating the specified number of elements without the need to dynamically resize.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentHashMap(Map&lt;? extends K, ? extends V&gt; m)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new map with the same mappings as the given map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentHashMap(int initialCapacity, float loadFactor)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new, empty map with an initial table size based on the given number of elements (‘initialCapacity’) and initial table density (‘loadFactor’).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentHashMap(int initialCapacity,float loadFactor, int concurrencyLevel)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new, empty map with an initial table size based on the given number of elements (‘initialCapacity’), table density (‘loadFactor’), and number of concurrently updating threads (‘concurrencyLevel’).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value to which the specified key is mapped, or ‘null’ if this map contains no mapping for the key.  <p>More formally, if this map contains a mapping from a key ‘k’ to a value ‘v’ such that ‘key.equals(k)’, then this method returns ‘v’; otherwise it returns ‘null’.  (There can be at most one such mapping.)</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>containsKey(Object key): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if the specified object is a key in this table.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>containsValue(Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this map maps one or more keys to the specified value. Note: This method may require a full traversal of the map, and is much slower than method ‘containsKey’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maps the specified key to the specified value in this table. Neither the key nor the value can be null.  <p>The value can be retrieved by calling the ‘get’ method with a key that is equal to the original key.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putVal(K key, V value, boolean onlyIfAbsent): V</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implementation for put and putIfAbsent</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putAll(Map&lt;? extends K, ? extends V&gt; m): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies all of the mappings from the specified map to this one. These mappings replace any mappings that this map had for any of the keys currently in the specified map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the key (and its corresponding value) from this map. This method does nothing if the key is not in the map.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>replaceNode(Object key, V value, Object cv): V</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implementation for the four public remove&#x2F;replace methods: Replaces node value with v, conditional upon match of cv if non-null.  If resulting value is null, delete.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the mappings from this map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keySet(): KeySetView&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the keys contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa. The set supports element removal, which removes the corresponding mapping from this map, via the ‘Iterator.remove’, ‘Set.remove’, ‘removeAll’, ‘retainAll’, and ‘clear’ operations.  It does not support the ‘add’ or ‘addAll’ operations.  <p>The view’s iterators and spliterators are <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The view’s ‘spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#DISTINCT’, and ‘Spliterator#NONNULL’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>values(): Collection<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Collection’ view of the values contained in this map. The collection is backed by the map, so changes to the map are reflected in the collection, and vice-versa.  The collection supports element removal, which removes the corresponding mapping from this map, via the ‘Iterator.remove’, ‘Collection.remove’, ‘removeAll’, ‘retainAll’, and ‘clear’ operations.  It does not support the ‘add’ or ‘addAll’ operations.  <p>The view’s iterators and spliterators are <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The view’s ‘spliterator’ reports ‘Spliterator#CONCURRENT’ and ‘Spliterator#NONNULL’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet(): Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the mappings contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  The set supports element removal, which removes the corresponding mapping from the map, via the ‘Iterator.remove’, ‘Set.remove’, ‘removeAll’, ‘retainAll’, and ‘clear’ operations.  <p>The view’s iterators and spliterators are <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The view’s ‘spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#DISTINCT’, and ‘Spliterator#NONNULL’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code value for this ‘Map’, i.e., the sum of, for each key-value pair in the map, ‘key.hashCode() ^ value.hashCode()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this map.  The string representation consists of a list of key-value mappings (in no particular order) enclosed in braces (“‘{‘}”).  Adjacent mappings are separated by the characters ‘“, “‘ (comma and space).  Each key-value mapping is rendered as the key followed by an equals sign (“‘&#x3D;’”) followed by the associated value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the specified object with this map for equality. Returns ‘true’ if the given object is a map with the same mappings as this map.  This operation may return misleading results if either map is concurrently modified during execution of this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Saves the state of the ‘ConcurrentHashMap’ instance to a stream (i.e., serializes it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes the instance from a stream (that is, deserializes it).</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>putIfAbsent(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object key, Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>replace(K key, V oldValue, V newValue): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>replace(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getOrDefault(Object key, V defaultValue): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value to which the specified key is mapped, or the given default value if this map contains no mapping for the key.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(BiConsumer&lt;? super K, ? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the specified key is not already associated with a value, attempts to compute its value using the given mapping function and enters it into this map unless ‘null’.  The entire method invocation is performed atomically, so the function is applied at most once per key.  Some attempted update operations on this map by other threads may be blocked while computation is in progress, so the computation should be short and simple, and must not attempt to update any other mappings of this map.</td>
+<td align="left">NullPointerException<br/>RuntimeException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the value for the specified key is present, attempts to compute a new mapping given the key and its current mapped value.  The entire method invocation is performed atomically. Some attempted update operations on this map by other threads may be blocked while computation is in progress, so the computation should be short and simple, and must not attempt to update any other mappings of this map.</td>
+<td align="left">NullPointerException<br/>RuntimeException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>compute(K key,BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to compute a mapping for the specified key and its current mapped value (or ‘null’ if there is no current mapping). The entire method invocation is performed atomically. Some attempted update operations on this map by other threads may be blocked while computation is in progress, so the computation should be short and simple, and must not attempt to update any other mappings of this Map.</td>
+<td align="left">NullPointerException<br/>RuntimeException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If the specified key is not already associated with a (non-null) value, associates it with the given value. Otherwise, replaces the value with the results of the given remapping function, or removes if ‘null’. The entire method invocation is performed atomically.  Some attempted update operations on this map by other threads may be blocked while computation is in progress, so the computation should be short and simple, and must not attempt to update any other mappings of this Map.</td>
+<td align="left">NullPointerException<br/>RuntimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Legacy method testing if some key maps into the specified value in this table.  This method is identical in functionality to ‘#containsValue(Object)’, and exists solely to ensure full compatibility with class ‘java.util.Hashtable’, which supported this method prior to introduction of the Java Collections framework.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>keys(): Enumeration<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an enumeration of the keys in this table.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>elements(): Enumeration<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an enumeration of the values in this table.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mappingCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of mappings. This method should be used instead of ‘#size’ because a ConcurrentHashMap may contain more mappings than can be represented as an int. The value returned is an estimate; the actual count may differ if there are concurrent insertions or removals.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newKeySet(): KeySetView&lt;K,Boolean&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new ‘Set’ backed by a ConcurrentHashMap from the given type to ‘Boolean.TRUE’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newKeySet(int initialCapacity): KeySetView&lt;K,Boolean&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new ‘Set’ backed by a ConcurrentHashMap from the given type to ‘Boolean.TRUE’.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>keySet(V mappedValue): KeySetView&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the keys in this map, using the given common mapped value for any additions (i.e., ‘Collection#add’ and ‘Collection#addAll(Collection)’). This is of course only appropriate if it is acceptable to use the same value for all additions from this view.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>resizeStamp(int n): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the stamp bits for resizing a table of size n. Must be negative when shifted left by RESIZE_STAMP_SHIFT.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initTable(): Node&lt;K,V&gt;[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes table, using the size recorded in sizeCtl.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addCount(long x, int check): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds to count, and if table is too small and not already resizing, initiates transfer. If already resizing, helps perform transfer if work is available.  Rechecks occupancy after a transfer to see if another resize is already needed because resizings are lagging additions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>helpTransfer(Node&lt;K,V&gt;[] tab, Node&lt;K,V&gt; f): Node&lt;K,V&gt;[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Helps transfer if a resize is in progress.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryPresize(int size): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to presize table to accommodate the given number of elements.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transfer(Node&lt;K,V&gt;[] tab, Node&lt;K,V&gt;[] nextTab): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Moves and&#x2F;or copies the nodes in each bin to new table. See above for explanation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sumCount(): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A padded cell for distributing counts.  Adapted from LongAdder and Striped64.  See their internal docs for explanation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fullAddCount(long x, boolean wasUncontended): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>treeifyBin(Node&lt;K,V&gt;[] tab, int index): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces all linked nodes in bin at given index unless table is too small, in which case resizes instead.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>untreeify(Node&lt;K,V&gt; b): Node&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a list on non-TreeNodes replacing those in given list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>batchFor(long b): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes initial batch value for bulk tasks. The returned value is approximately exp2 of the number of times (minus one) to split task by two before executing leaf action. This value is faster to compute and more convenient to use as a guide to splitting than is the depth, since it is used while dividing by two anyway.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(long parallelismThreshold,BiConsumer&lt;? super K,? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each (key, value).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(long parallelismThreshold,BiFunction&lt;? super K, ? super V, ? extends U&gt; transformer,Consumer&lt;? super U&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each non-null transformation of each (key, value).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>search(long parallelismThreshold,BiFunction&lt;? super K, ? super V, ? extends U&gt; searchFunction): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a non-null result from applying the given search function on each (key, value), or null if none.  Upon success, further element processing is suppressed and the results of any other parallel invocations of the search function are ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduce(long parallelismThreshold,BiFunction&lt;? super K, ? super V, ? extends U&gt; transformer,BiFunction&lt;? super U, ? super U, ? extends U&gt; reducer): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all (key, value) pairs using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceToDouble(long parallelismThreshold,ToDoubleBiFunction&lt;? super K, ? super V&gt; transformer,double basis,DoubleBinaryOperator reducer): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all (key, value) pairs using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceToLong(long parallelismThreshold,ToLongBiFunction&lt;? super K, ? super V&gt; transformer,long basis,LongBinaryOperator reducer): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all (key, value) pairs using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceToInt(long parallelismThreshold,ToIntBiFunction&lt;? super K, ? super V&gt; transformer,int basis,IntBinaryOperator reducer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all (key, value) pairs using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachKey(long parallelismThreshold,Consumer&lt;? super K&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachKey(long parallelismThreshold,Function&lt;? super K, ? extends U&gt; transformer,Consumer&lt;? super U&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each non-null transformation of each key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>searchKeys(long parallelismThreshold,Function&lt;? super K, ? extends U&gt; searchFunction): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a non-null result from applying the given search function on each key, or null if none. Upon success, further element processing is suppressed and the results of any other parallel invocations of the search function are ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceKeys(long parallelismThreshold,BiFunction&lt;? super K, ? super K, ? extends K&gt; reducer): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating all keys using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceKeys(long parallelismThreshold,Function&lt;? super K, ? extends U&gt; transformer,BiFunction&lt;? super U, ? super U, ? extends U&gt; reducer): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all keys using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceKeysToDouble(long parallelismThreshold,ToDoubleFunction&lt;? super K&gt; transformer,double basis,DoubleBinaryOperator reducer): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all keys using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceKeysToLong(long parallelismThreshold,ToLongFunction&lt;? super K&gt; transformer,long basis,LongBinaryOperator reducer): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all keys using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceKeysToInt(long parallelismThreshold,ToIntFunction&lt;? super K&gt; transformer,int basis,IntBinaryOperator reducer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all keys using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachValue(long parallelismThreshold,Consumer&lt;? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachValue(long parallelismThreshold,Function&lt;? super V, ? extends U&gt; transformer,Consumer&lt;? super U&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each non-null transformation of each value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>searchValues(long parallelismThreshold,Function&lt;? super V, ? extends U&gt; searchFunction): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a non-null result from applying the given search function on each value, or null if none.  Upon success, further element processing is suppressed and the results of any other parallel invocations of the search function are ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceValues(long parallelismThreshold,BiFunction&lt;? super V, ? super V, ? extends V&gt; reducer): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating all values using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceValues(long parallelismThreshold,Function&lt;? super V, ? extends U&gt; transformer,BiFunction&lt;? super U, ? super U, ? extends U&gt; reducer): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all values using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceValuesToDouble(long parallelismThreshold,ToDoubleFunction&lt;? super V&gt; transformer,double basis,DoubleBinaryOperator reducer): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all values using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceValuesToLong(long parallelismThreshold,ToLongFunction&lt;? super V&gt; transformer,long basis,LongBinaryOperator reducer): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all values using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceValuesToInt(long parallelismThreshold,ToIntFunction&lt;? super V&gt; transformer,int basis,IntBinaryOperator reducer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all values using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachEntry(long parallelismThreshold,Consumer&lt;? super Map.Entry&lt;K,V&gt;&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each entry.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachEntry(long parallelismThreshold,Function&lt;Map.Entry&lt;K,V&gt;, ? extends U&gt; transformer,Consumer&lt;? super U&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the given action for each non-null transformation of each entry.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>searchEntries(long parallelismThreshold,Function&lt;Map.Entry&lt;K,V&gt;, ? extends U&gt; searchFunction): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a non-null result from applying the given search function on each entry, or null if none.  Upon success, further element processing is suppressed and the results of any other parallel invocations of the search function are ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceEntries(long parallelismThreshold,BiFunction&lt;Map.Entry&lt;K,V&gt;, Map.Entry&lt;K,V&gt;, ? extends Map.Entry&lt;K,V&gt;&gt; reducer): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating all entries using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceEntries(long parallelismThreshold,Function&lt;Map.Entry&lt;K,V&gt;, ? extends U&gt; transformer,BiFunction&lt;? super U, ? super U, ? extends U&gt; reducer): U</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all entries using the given reducer to combine values, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceEntriesToDouble(long parallelismThreshold,ToDoubleFunction&lt;Map.Entry&lt;K,V&gt;&gt; transformer,double basis,DoubleBinaryOperator reducer): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all entries using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceEntriesToLong(long parallelismThreshold,ToLongFunction&lt;Map.Entry&lt;K,V&gt;&gt; transformer,long basis,LongBinaryOperator reducer): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all entries using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reduceEntriesToInt(long parallelismThreshold,ToIntFunction&lt;Map.Entry&lt;K,V&gt;&gt; transformer,int basis,IntBinaryOperator reducer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of accumulating the given transformation of all entries using the given reducer to combine values, and the given basis as an identity value.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ConcurrentHashMap-Node"><a href="#ConcurrentHashMap-Node" class="headerlink" title="ConcurrentHashMap$Node"></a><a href="./ConcurrentHashMap$Node.html">ConcurrentHashMap$Node</a></h3><h3 id="ConcurrentHashMap-Segment"><a href="#ConcurrentHashMap-Segment" class="headerlink" title="ConcurrentHashMap$Segment"></a><a href="./ConcurrentHashMap$Segment.html">ConcurrentHashMap$Segment</a></h3><h3 id="ConcurrentHashMap-ForwardingNode"><a href="#ConcurrentHashMap-ForwardingNode" class="headerlink" title="ConcurrentHashMap$ForwardingNode"></a><a href="./ConcurrentHashMap$ForwardingNode.html">ConcurrentHashMap$ForwardingNode</a></h3><h3 id="ConcurrentHashMap-ReservationNode"><a href="#ConcurrentHashMap-ReservationNode" class="headerlink" title="ConcurrentHashMap$ReservationNode"></a><a href="./ConcurrentHashMap$ReservationNode.html">ConcurrentHashMap$ReservationNode</a></h3><h3 id="ConcurrentHashMap-CounterCell"><a href="#ConcurrentHashMap-CounterCell" class="headerlink" title="ConcurrentHashMap$CounterCell"></a><a href="./ConcurrentHashMap$CounterCell.html">ConcurrentHashMap$CounterCell</a></h3><h3 id="ConcurrentHashMap-TreeNode"><a href="#ConcurrentHashMap-TreeNode" class="headerlink" title="ConcurrentHashMap$TreeNode"></a><a href="./ConcurrentHashMap$TreeNode.html">ConcurrentHashMap$TreeNode</a></h3><h3 id="ConcurrentHashMap-TreeBin"><a href="#ConcurrentHashMap-TreeBin" class="headerlink" title="ConcurrentHashMap$TreeBin"></a><a href="./ConcurrentHashMap$TreeBin.html">ConcurrentHashMap$TreeBin</a></h3><h3 id="ConcurrentHashMap-TableStack"><a href="#ConcurrentHashMap-TableStack" class="headerlink" title="ConcurrentHashMap$TableStack"></a><a href="./ConcurrentHashMap$TableStack.html">ConcurrentHashMap$TableStack</a></h3><h3 id="ConcurrentHashMap-Traverser"><a href="#ConcurrentHashMap-Traverser" class="headerlink" title="ConcurrentHashMap$Traverser"></a><a href="./ConcurrentHashMap$Traverser.html">ConcurrentHashMap$Traverser</a></h3><h3 id="ConcurrentHashMap-BaseIterator"><a href="#ConcurrentHashMap-BaseIterator" class="headerlink" title="ConcurrentHashMap$BaseIterator"></a><a href="./ConcurrentHashMap$BaseIterator.html">ConcurrentHashMap$BaseIterator</a></h3><h3 id="ConcurrentHashMap-KeyIterator"><a href="#ConcurrentHashMap-KeyIterator" class="headerlink" title="ConcurrentHashMap$KeyIterator"></a><a href="./ConcurrentHashMap$KeyIterator.html">ConcurrentHashMap$KeyIterator</a></h3><h3 id="ConcurrentHashMap-ValueIterator"><a href="#ConcurrentHashMap-ValueIterator" class="headerlink" title="ConcurrentHashMap$ValueIterator"></a><a href="./ConcurrentHashMap$ValueIterator.html">ConcurrentHashMap$ValueIterator</a></h3><h3 id="ConcurrentHashMap-EntryIterator"><a href="#ConcurrentHashMap-EntryIterator" class="headerlink" title="ConcurrentHashMap$EntryIterator"></a><a href="./ConcurrentHashMap$EntryIterator.html">ConcurrentHashMap$EntryIterator</a></h3><h3 id="ConcurrentHashMap-MapEntry"><a href="#ConcurrentHashMap-MapEntry" class="headerlink" title="ConcurrentHashMap$MapEntry"></a><a href="./ConcurrentHashMap$MapEntry.html">ConcurrentHashMap$MapEntry</a></h3><h3 id="ConcurrentHashMap-KeySpliterator"><a href="#ConcurrentHashMap-KeySpliterator" class="headerlink" title="ConcurrentHashMap$KeySpliterator"></a><a href="./ConcurrentHashMap$KeySpliterator.html">ConcurrentHashMap$KeySpliterator</a></h3><h3 id="ConcurrentHashMap-ValueSpliterator"><a href="#ConcurrentHashMap-ValueSpliterator" class="headerlink" title="ConcurrentHashMap$ValueSpliterator"></a><a href="./ConcurrentHashMap$ValueSpliterator.html">ConcurrentHashMap$ValueSpliterator</a></h3><h3 id="ConcurrentHashMap-EntrySpliterator"><a href="#ConcurrentHashMap-EntrySpliterator" class="headerlink" title="ConcurrentHashMap$EntrySpliterator"></a><a href="./ConcurrentHashMap$EntrySpliterator.html">ConcurrentHashMap$EntrySpliterator</a></h3><h3 id="ConcurrentHashMap-CollectionView"><a href="#ConcurrentHashMap-CollectionView" class="headerlink" title="ConcurrentHashMap$CollectionView"></a><a href="./ConcurrentHashMap$CollectionView.html">ConcurrentHashMap$CollectionView</a></h3><h3 id="ConcurrentHashMap-KeySetView"><a href="#ConcurrentHashMap-KeySetView" class="headerlink" title="ConcurrentHashMap$KeySetView"></a><a href="./ConcurrentHashMap$KeySetView.html">ConcurrentHashMap$KeySetView</a></h3><h3 id="ConcurrentHashMap-ValuesView"><a href="#ConcurrentHashMap-ValuesView" class="headerlink" title="ConcurrentHashMap$ValuesView"></a><a href="./ConcurrentHashMap$ValuesView.html">ConcurrentHashMap$ValuesView</a></h3><h3 id="ConcurrentHashMap-EntrySetView"><a href="#ConcurrentHashMap-EntrySetView" class="headerlink" title="ConcurrentHashMap$EntrySetView"></a><a href="./ConcurrentHashMap$EntrySetView.html">ConcurrentHashMap$EntrySetView</a></h3><h3 id="ConcurrentHashMap-BulkTask"><a href="#ConcurrentHashMap-BulkTask" class="headerlink" title="ConcurrentHashMap$BulkTask"></a><a href="./ConcurrentHashMap$BulkTask.html">ConcurrentHashMap$BulkTask</a></h3><h3 id="ConcurrentHashMap-ForEachKeyTask"><a href="#ConcurrentHashMap-ForEachKeyTask" class="headerlink" title="ConcurrentHashMap$ForEachKeyTask"></a><a href="./ConcurrentHashMap$ForEachKeyTask.html">ConcurrentHashMap$ForEachKeyTask</a></h3><h3 id="ConcurrentHashMap-ForEachValueTask"><a href="#ConcurrentHashMap-ForEachValueTask" class="headerlink" title="ConcurrentHashMap$ForEachValueTask"></a><a href="./ConcurrentHashMap$ForEachValueTask.html">ConcurrentHashMap$ForEachValueTask</a></h3><h3 id="ConcurrentHashMap-ForEachEntryTask"><a href="#ConcurrentHashMap-ForEachEntryTask" class="headerlink" title="ConcurrentHashMap$ForEachEntryTask"></a><a href="./ConcurrentHashMap$ForEachEntryTask.html">ConcurrentHashMap$ForEachEntryTask</a></h3><h3 id="ConcurrentHashMap-ForEachMappingTask"><a href="#ConcurrentHashMap-ForEachMappingTask" class="headerlink" title="ConcurrentHashMap$ForEachMappingTask"></a><a href="./ConcurrentHashMap$ForEachMappingTask.html">ConcurrentHashMap$ForEachMappingTask</a></h3><h3 id="ConcurrentHashMap-ForEachTransformedKeyTask"><a href="#ConcurrentHashMap-ForEachTransformedKeyTask" class="headerlink" title="ConcurrentHashMap$ForEachTransformedKeyTask"></a><a href="./ConcurrentHashMap$ForEachTransformedKeyTask.html">ConcurrentHashMap$ForEachTransformedKeyTask</a></h3><h3 id="ConcurrentHashMap-ForEachTransformedValueTask"><a href="#ConcurrentHashMap-ForEachTransformedValueTask" class="headerlink" title="ConcurrentHashMap$ForEachTransformedValueTask"></a><a href="./ConcurrentHashMap$ForEachTransformedValueTask.html">ConcurrentHashMap$ForEachTransformedValueTask</a></h3><h3 id="ConcurrentHashMap-ForEachTransformedEntryTask"><a href="#ConcurrentHashMap-ForEachTransformedEntryTask" class="headerlink" title="ConcurrentHashMap$ForEachTransformedEntryTask"></a><a href="./ConcurrentHashMap$ForEachTransformedEntryTask.html">ConcurrentHashMap$ForEachTransformedEntryTask</a></h3><h3 id="ConcurrentHashMap-ForEachTransformedMappingTask"><a href="#ConcurrentHashMap-ForEachTransformedMappingTask" class="headerlink" title="ConcurrentHashMap$ForEachTransformedMappingTask"></a><a href="./ConcurrentHashMap$ForEachTransformedMappingTask.html">ConcurrentHashMap$ForEachTransformedMappingTask</a></h3><h3 id="ConcurrentHashMap-SearchKeysTask"><a href="#ConcurrentHashMap-SearchKeysTask" class="headerlink" title="ConcurrentHashMap$SearchKeysTask"></a><a href="./ConcurrentHashMap$SearchKeysTask.html">ConcurrentHashMap$SearchKeysTask</a></h3><h3 id="ConcurrentHashMap-SearchValuesTask"><a href="#ConcurrentHashMap-SearchValuesTask" class="headerlink" title="ConcurrentHashMap$SearchValuesTask"></a><a href="./ConcurrentHashMap$SearchValuesTask.html">ConcurrentHashMap$SearchValuesTask</a></h3><h3 id="ConcurrentHashMap-SearchEntriesTask"><a href="#ConcurrentHashMap-SearchEntriesTask" class="headerlink" title="ConcurrentHashMap$SearchEntriesTask"></a><a href="./ConcurrentHashMap$SearchEntriesTask.html">ConcurrentHashMap$SearchEntriesTask</a></h3><h3 id="ConcurrentHashMap-SearchMappingsTask"><a href="#ConcurrentHashMap-SearchMappingsTask" class="headerlink" title="ConcurrentHashMap$SearchMappingsTask"></a><a href="./ConcurrentHashMap$SearchMappingsTask.html">ConcurrentHashMap$SearchMappingsTask</a></h3><h3 id="ConcurrentHashMap-ReduceKeysTask"><a href="#ConcurrentHashMap-ReduceKeysTask" class="headerlink" title="ConcurrentHashMap$ReduceKeysTask"></a><a href="./ConcurrentHashMap$ReduceKeysTask.html">ConcurrentHashMap$ReduceKeysTask</a></h3><h3 id="ConcurrentHashMap-ReduceValuesTask"><a href="#ConcurrentHashMap-ReduceValuesTask" class="headerlink" title="ConcurrentHashMap$ReduceValuesTask"></a><a href="./ConcurrentHashMap$ReduceValuesTask.html">ConcurrentHashMap$ReduceValuesTask</a></h3><h3 id="ConcurrentHashMap-ReduceEntriesTask"><a href="#ConcurrentHashMap-ReduceEntriesTask" class="headerlink" title="ConcurrentHashMap$ReduceEntriesTask"></a><a href="./ConcurrentHashMap$ReduceEntriesTask.html">ConcurrentHashMap$ReduceEntriesTask</a></h3><h3 id="ConcurrentHashMap-MapReduceKeysTask"><a href="#ConcurrentHashMap-MapReduceKeysTask" class="headerlink" title="ConcurrentHashMap$MapReduceKeysTask"></a><a href="./ConcurrentHashMap$MapReduceKeysTask.html">ConcurrentHashMap$MapReduceKeysTask</a></h3><h3 id="ConcurrentHashMap-MapReduceValuesTask"><a href="#ConcurrentHashMap-MapReduceValuesTask" class="headerlink" title="ConcurrentHashMap$MapReduceValuesTask"></a><a href="./ConcurrentHashMap$MapReduceValuesTask.html">ConcurrentHashMap$MapReduceValuesTask</a></h3><h3 id="ConcurrentHashMap-MapReduceEntriesTask"><a href="#ConcurrentHashMap-MapReduceEntriesTask" class="headerlink" title="ConcurrentHashMap$MapReduceEntriesTask"></a><a href="./ConcurrentHashMap$MapReduceEntriesTask.html">ConcurrentHashMap$MapReduceEntriesTask</a></h3><h3 id="ConcurrentHashMap-MapReduceMappingsTask"><a href="#ConcurrentHashMap-MapReduceMappingsTask" class="headerlink" title="ConcurrentHashMap$MapReduceMappingsTask"></a><a href="./ConcurrentHashMap$MapReduceMappingsTask.html">ConcurrentHashMap$MapReduceMappingsTask</a></h3><h3 id="ConcurrentHashMap-MapReduceKeysToDoubleTask"><a href="#ConcurrentHashMap-MapReduceKeysToDoubleTask" class="headerlink" title="ConcurrentHashMap$MapReduceKeysToDoubleTask"></a><a href="./ConcurrentHashMap$MapReduceKeysToDoubleTask.html">ConcurrentHashMap$MapReduceKeysToDoubleTask</a></h3><h3 id="ConcurrentHashMap-MapReduceValuesToDoubleTask"><a href="#ConcurrentHashMap-MapReduceValuesToDoubleTask" class="headerlink" title="ConcurrentHashMap$MapReduceValuesToDoubleTask"></a><a href="./ConcurrentHashMap$MapReduceValuesToDoubleTask.html">ConcurrentHashMap$MapReduceValuesToDoubleTask</a></h3><h3 id="ConcurrentHashMap-MapReduceEntriesToDoubleTask"><a href="#ConcurrentHashMap-MapReduceEntriesToDoubleTask" class="headerlink" title="ConcurrentHashMap$MapReduceEntriesToDoubleTask"></a><a href="./ConcurrentHashMap$MapReduceEntriesToDoubleTask.html">ConcurrentHashMap$MapReduceEntriesToDoubleTask</a></h3><h3 id="ConcurrentHashMap-MapReduceMappingsToDoubleTask"><a href="#ConcurrentHashMap-MapReduceMappingsToDoubleTask" class="headerlink" title="ConcurrentHashMap$MapReduceMappingsToDoubleTask"></a><a href="./ConcurrentHashMap$MapReduceMappingsToDoubleTask.html">ConcurrentHashMap$MapReduceMappingsToDoubleTask</a></h3><h3 id="ConcurrentHashMap-MapReduceKeysToLongTask"><a href="#ConcurrentHashMap-MapReduceKeysToLongTask" class="headerlink" title="ConcurrentHashMap$MapReduceKeysToLongTask"></a><a href="./ConcurrentHashMap$MapReduceKeysToLongTask.html">ConcurrentHashMap$MapReduceKeysToLongTask</a></h3><h3 id="ConcurrentHashMap-MapReduceValuesToLongTask"><a href="#ConcurrentHashMap-MapReduceValuesToLongTask" class="headerlink" title="ConcurrentHashMap$MapReduceValuesToLongTask"></a><a href="./ConcurrentHashMap$MapReduceValuesToLongTask.html">ConcurrentHashMap$MapReduceValuesToLongTask</a></h3><h3 id="ConcurrentHashMap-MapReduceEntriesToLongTask"><a href="#ConcurrentHashMap-MapReduceEntriesToLongTask" class="headerlink" title="ConcurrentHashMap$MapReduceEntriesToLongTask"></a><a href="./ConcurrentHashMap$MapReduceEntriesToLongTask.html">ConcurrentHashMap$MapReduceEntriesToLongTask</a></h3><h3 id="ConcurrentHashMap-MapReduceMappingsToLongTask"><a href="#ConcurrentHashMap-MapReduceMappingsToLongTask" class="headerlink" title="ConcurrentHashMap$MapReduceMappingsToLongTask"></a><a href="./ConcurrentHashMap$MapReduceMappingsToLongTask.html">ConcurrentHashMap$MapReduceMappingsToLongTask</a></h3><h3 id="ConcurrentHashMap-MapReduceKeysToIntTask"><a href="#ConcurrentHashMap-MapReduceKeysToIntTask" class="headerlink" title="ConcurrentHashMap$MapReduceKeysToIntTask"></a><a href="./ConcurrentHashMap$MapReduceKeysToIntTask.html">ConcurrentHashMap$MapReduceKeysToIntTask</a></h3><h3 id="ConcurrentHashMap-MapReduceValuesToIntTask"><a href="#ConcurrentHashMap-MapReduceValuesToIntTask" class="headerlink" title="ConcurrentHashMap$MapReduceValuesToIntTask"></a><a href="./ConcurrentHashMap$MapReduceValuesToIntTask.html">ConcurrentHashMap$MapReduceValuesToIntTask</a></h3><h3 id="ConcurrentHashMap-MapReduceEntriesToIntTask"><a href="#ConcurrentHashMap-MapReduceEntriesToIntTask" class="headerlink" title="ConcurrentHashMap$MapReduceEntriesToIntTask"></a><a href="./ConcurrentHashMap$MapReduceEntriesToIntTask.html">ConcurrentHashMap$MapReduceEntriesToIntTask</a></h3><h3 id="ConcurrentHashMap-MapReduceMappingsToIntTask"><a href="#ConcurrentHashMap-MapReduceMappingsToIntTask" class="headerlink" title="ConcurrentHashMap$MapReduceMappingsToIntTask"></a><a href="./ConcurrentHashMap$MapReduceMappingsToIntTask.html">ConcurrentHashMap$MapReduceMappingsToIntTask</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

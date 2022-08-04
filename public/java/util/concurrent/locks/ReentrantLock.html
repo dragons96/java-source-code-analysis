@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/locks/ReentrantLock.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.locks.ReentrantLock</strong></td>
+<td align="center">class</td>
+<td align="center">Lock,java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">7373984872572414699L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sync: Sync</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Synchronizer providing all implementation mechanics</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ReentrantLock()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance of ‘ReentrantLock’. This is equivalent to using ‘ReentrantLock(false)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ReentrantLock(boolean fair)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance of ‘ReentrantLock’ with the given fairness policy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lock(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Acquires the lock.  <p>Acquires the lock if it is not held by another thread and returns immediately, setting the lock hold count to one.  <p>If the current thread already holds the lock then the hold count is incremented by one and the method returns immediately.  <p>If the lock is held by another thread then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired, at which time the lock hold count is set to one.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockInterruptibly(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Acquires the lock unless the current thread is ‘Thread#interrupt interrupted’.  <p>Acquires the lock if it is not held by another thread and returns immediately, setting the lock hold count to one.  <p>If the current thread already holds this lock then the hold count is incremented by one and the method returns immediately.  <p>If the lock is held by another thread then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens:  <ul>  <li>The lock is acquired by the current thread; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread.  </ul>  <p>If the lock is acquired by the current thread then the lock hold count is set to one.  <p>If the current thread:  <ul>  <li>has its interrupted status set on entry to this method; or  <li>is ‘Thread#interrupt interrupted’ while acquiring the lock,  </ul>  then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>In this implementation, as this method is an explicit interruption point, preference is given to responding to the interrupt over normal or reentrant acquisition of the lock.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>tryLock(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Acquires the lock only if it is not held by another thread at the time of invocation.  <p>Acquires the lock if it is not held by another thread and returns immediately with the value ‘true’, setting the lock hold count to one. Even when this lock has been set to use a fair ordering policy, a call to ‘tryLock()’ <em>will</em> immediately acquire the lock if it is available, whether or not other threads are currently waiting for the lock. This &quot;barging&quot; behavior can be useful in certain circumstances, even though it breaks fairness. If you want to honor the fairness setting for this lock, then use ‘#tryLock(long, TimeUnit) tryLock(0, TimeUnit.SECONDS)’ which is almost equivalent (it also detects interruption).  <p>If the current thread already holds this lock then the hold count is incremented by one and the method returns ‘true’.  <p>If the lock is held by another thread then this method will return immediately with the value ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryLock(long timeout, TimeUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Acquires the lock if it is not held by another thread within the given waiting time and the current thread has not been ‘Thread#interrupt interrupted’.  <p>Acquires the lock if it is not held by another thread and returns immediately with the value ‘true’, setting the lock hold count to one. If this lock has been set to use a fair ordering policy then an available lock <em>will not</em> be acquired if any other threads are waiting for the lock. This is in contrast to the ‘#tryLock()’ method. If you want a timed ‘tryLock’ that does permit barging on a fair lock then combine the timed and un-timed forms together:  <pre> 'if (lock.tryLock()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlock(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to release this lock.  <p>If the current thread is the holder of this lock then the hold count is decremented.  If the hold count is now zero then the lock is released.  If the current thread is not the holder of this lock then 'IllegalMonitorStateException' is thrown.</td>
+<td align="left">IllegalMonitorStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>newCondition(): Condition</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a 'Condition' instance for use with this 'Lock' instance.  <p>The returned 'Condition' instance supports the same usages as do the 'Object' monitor methods ('Object#wait() wait', 'Object#notify notify', and 'Object#notifyAll notifyAll') when used with the built-in monitor lock.  <ul>  <li>If this lock is not held when any of the 'Condition' 'Condition#await() waiting' or 'Condition#signal signalling' methods are called, then an 'IllegalMonitorStateException' is thrown.  <li>When the condition 'Condition#await() waiting' methods are called the lock is released and, before they return, the lock is reacquired and the lock hold count restored to what it was when the method was called.  <li>If a thread is 'Thread#interrupt interrupted' while waiting then the wait will terminate, an 'InterruptedException' will be thrown, and the thread's interrupted status will be cleared.  <li> Waiting threads are signalled in FIFO order.  <li>The ordering of lock reacquisition for threads returning from waiting methods is the same as for threads initially acquiring the lock, which is in the default case not specified, but for <em>fair</em> locks favors those threads that have been waiting the longest.  </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHoldCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries the number of holds on this lock by the current thread.  <p>A thread has a hold on a lock for each lock action that is not matched by an unlock action.  <p>The hold count information is typically only used for testing and debugging purposes. For example, if a certain section of code should not be entered with the lock already held then we can assert that fact:  <pre> 'class X { ReentrantLock lock = new ReentrantLock();  public void m() { assert lock.getHoldCount() == 0; lock.lock(); try {' finally { lock.unlock(); } } }}</pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isHeldByCurrentThread(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries if this lock is held by the current thread.  <p>Analogous to the ‘Thread#holdsLock(Object)’ method for built-in monitor locks, this method is typically used for debugging and testing. For example, a method that should only be called while a lock is held can assert that this is the case:  <pre> 'class X { ReentrantLock lock = new ReentrantLock();   public void m() { assert lock.isHeldByCurrentThread();' }}</pre>  <p>It can also be used to ensure that a reentrant lock is used in a non-reentrant manner, for example:  <pre> 'class X { ReentrantLock lock = new ReentrantLock();   public void m() { assert !lock.isHeldByCurrentThread(); lock.lock(); try {' finally { lock.unlock(); } } }}</pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLocked(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries if this lock is held by any thread. This method is designed for use in monitoring of the system state, not for synchronization control.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isFair(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this lock has fairness set true.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOwner(): Thread</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the thread that currently owns this lock, or ‘null’ if not owned. When this method is called by a thread that is not the owner, the return value reflects a best-effort approximation of current lock status. For example, the owner may be momentarily ‘null’ even if there are threads trying to acquire the lock but have not yet done so. This method is designed to facilitate construction of subclasses that provide more extensive lock monitoring facilities.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasQueuedThreads(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries whether any threads are waiting to acquire this lock. Note that because cancellations may occur at any time, a ‘true’ return does not guarantee that any other thread will ever acquire this lock.  This method is designed primarily for use in monitoring of the system state.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasQueuedThread(Thread thread): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries whether the given thread is waiting to acquire this lock. Note that because cancellations may occur at any time, a ‘true’ return does not guarantee that this thread will ever acquire this lock.  This method is designed primarily for use in monitoring of the system state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getQueueLength(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of threads waiting to acquire this lock.  The value is only an estimate because the number of threads may change dynamically while this method traverses internal data structures.  This method is designed for use in monitoring of the system state, not for synchronization control.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getQueuedThreads(): Collection<Thread></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a collection containing threads that may be waiting to acquire this lock.  Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate.  The elements of the returned collection are in no particular order.  This method is designed to facilitate construction of subclasses that provide more extensive monitoring facilities.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasWaiters(Condition condition): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries whether any threads are waiting on the given condition associated with this lock. Note that because timeouts and interrupts may occur at any time, a ‘true’ return does not guarantee that a future ‘signal’ will awaken any threads.  This method is designed primarily for use in monitoring of the system state.</td>
+<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getWaitQueueLength(Condition condition): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of threads waiting on the given condition associated with this lock. Note that because timeouts and interrupts may occur at any time, the estimate serves only as an upper bound on the actual number of waiters. This method is designed for use in monitoring of the system state, not for synchronization control.</td>
+<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getWaitingThreads(Condition condition): Collection<Thread></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a collection containing those threads that may be waiting on the given condition associated with this lock. Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate. The elements of the returned collection are in no particular order.  This method is designed to facilitate construction of subclasses that provide more extensive condition monitoring facilities.</td>
+<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string identifying this lock, as well as its lock state. The state, in brackets, includes either the String ‘“Unlocked”‘ or the String ‘“Locked by”‘ followed by the ‘Thread#getName name’ of the owning thread.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ReentrantLock-Sync"><a href="#ReentrantLock-Sync" class="headerlink" title="ReentrantLock$Sync"></a><a href="./ReentrantLock$Sync.html">ReentrantLock$Sync</a></h3><h3 id="ReentrantLock-NonfairSync"><a href="#ReentrantLock-NonfairSync" class="headerlink" title="ReentrantLock$NonfairSync"></a><a href="./ReentrantLock$NonfairSync.html">ReentrantLock$NonfairSync</a></h3><h3 id="ReentrantLock-FairSync"><a href="#ReentrantLock-FairSync" class="headerlink" title="ReentrantLock$FairSync"></a><a href="./ReentrantLock$FairSync.html">ReentrantLock$FairSync</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

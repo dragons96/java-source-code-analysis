@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/ConcurrentLinkedDeque.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ConcurrentLinkedDeque"><a href="#ConcurrentLinkedDeque" class="headerlink" title="ConcurrentLinkedDeque"></a>ConcurrentLinkedDeque<E></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.ConcurrentLinkedDeque&lt;E&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractCollection&lt;E&gt;implements</td>
+<td align="center">Deque&lt;E&gt;,java.io.Serializable</td>
+<td align="center">&lt;E&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">876323262645176354L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This is an implementation of a concurrent lock-free deque supporting interior removes but not interior insertions, as required to support the entire Deque interface.  We extend the techniques developed for ConcurrentLinkedQueue and LinkedTransferQueue (see the internal docs for those classes). Understanding the ConcurrentLinkedQueue implementation is a prerequisite for understanding the implementation of this class.  The data structure is a symmetrical doubly-linked “GC-robust” linked list of nodes.  We minimize the number of volatile writes using two techniques: advancing multiple hops with a single CAS and mixing volatile and non-volatile writes of the same memory locations.  A node contains the expected E (“item”) and links to predecessor (“prev”) and successor (“next”) nodes:  class Node<E> { volatile Node<E> prev, next; volatile E item; }  A node p is considered “live” if it contains a non-null item (p.item !&#x3D; null).  When an item is CASed to null, the item is atomically logically deleted from the collection.  At any time, there is precisely one “first” node with a null prev reference that terminates any chain of prev references starting at a live node.  Similarly there is precisely one “last” node terminating any chain of next references starting at a live node.  The “first” and “last” nodes may or may not be live. The “first” and “last” nodes are always mutually reachable.  A new element is added atomically by CASing the null prev or next reference in the first or last node to a fresh node containing the element.  The element’s node atomically becomes “live” at that point.  A node is considered “active” if it is a live node, or the first or last node.  Active nodes cannot be unlinked.  A “self-link” is a next or prev reference that is the same node: p.prev &#x3D;&#x3D; p  or  p.next &#x3D;&#x3D; p Self-links are used in the node unlinking process.  Active nodes never have self-links.  A node p is active if and only if:  p.item !&#x3D; null</td>
+</tr>
+<tr>
+<td align="center"><strong>head: Node&lt;E&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A node from which the first node on list (that is, the unique node p with p.prev &#x3D;&#x3D; null &amp;&amp; p.next !&#x3D; p) can be reached in O(1) time. Invariants: - the first node is always O(1) reachable from head via prev links - all live nodes are reachable from the first node via succ() - head !&#x3D; null - (tmp &#x3D; head).next !&#x3D; tmp</td>
+</tr>
+<tr>
+<td align="center"><strong>tail: Node&lt;E&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A node from which the last node on list (that is, the unique node p with p.next &#x3D;&#x3D; null &amp;&amp; p.prev !&#x3D; p) can be reached in O(1) time. Invariants: - the last node is always O(1) reachable from tail via next links - all live nodes are reachable from the last node via pred() - tail !&#x3D; null - tail is never gc-unlinked (but may be unlinked) Non-invariants: - tail.item may or may not be null - tail may not be reachable from the first or last node, or from head</td>
+</tr>
+<tr>
+<td align="center"><strong>PREV_TERMINATOR,: Node&lt;Object&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HOPS: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>headOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tailOffset: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>@SuppressWarnings(“unchecked”)Node&lt;E&gt; prevTerminator()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>@SuppressWarnings(“unchecked”)Node&lt;E&gt; nextTerminator()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>linkFirst(E e): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Links e as first element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>linkLast(E e): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Links e as last element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlink(Node&lt;E&gt; x)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlinks non-null node x.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlinkFirst(Node&lt;E&gt; first, Node&lt;E&gt; next): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlinks non-null first node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unlinkLast(Node&lt;E&gt; last, Node&lt;E&gt; prev): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlinks non-null last node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateHead(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Guarantees that any node which was unlinked before a call to this method will be unreachable from head after it returns. Does not guarantee to eliminate slack, only that head will point to a node that was active while this method was running.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateTail(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Guarantees that any node which was unlinked before a call to this method will be unreachable from tail after it returns. Does not guarantee to eliminate slack, only that tail will point to a node that was active while this method was running.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skipDeletedPredecessors(Node&lt;E&gt; x): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skipDeletedSuccessors(Node&lt;E&gt; x): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>succ(Node&lt;E&gt; p): Node<E></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the successor of p, or the first node if p.next has been linked to self, which will only be true if traversing with a stale pointer that is now off the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pred(Node&lt;E&gt; p): Node<E></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the predecessor of p, or the last node if p.prev has been linked to self, which will only be true if traversing with a stale pointer that is now off the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>first()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the first node, the unique node p for which: p.prev &#x3D;&#x3D; null &amp;&amp; p.next !&#x3D; p The returned node may or may not be logically deleted. Guarantees that head is set to the returned node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>last()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the last node, the unique node p for which: p.next &#x3D;&#x3D; null &amp;&amp; p.prev !&#x3D; p The returned node may or may not be logically deleted. Guarantees that tail is set to the returned node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkNotNull(Object v): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws NullPointerException if argument is null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>screenNullResult(E v): E</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns element unless it is null, in which case throws NoSuchElementException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArrayList(): ArrayList<E></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an array list and fills it with elements of this list. Used by toArray.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentLinkedDeque()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty deque.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ConcurrentLinkedDeque(Collection&lt;? extends E&gt; c)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a deque initially containing the elements of the given collection, added in traversal order of the collection’s iterator.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>initHeadTail(Node&lt;E&gt; h, Node&lt;E&gt; t): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes head and tail, ensuring invariants hold.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addFirst(E e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the front of this deque. As the deque is unbounded, this method will never throw ‘IllegalStateException’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>addLast(E e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the end of this deque. As the deque is unbounded, this method will never throw ‘IllegalStateException’.  <p>This method is equivalent to ‘#add’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>offerFirst(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the front of this deque. As the deque is unbounded, this method will never return ‘false’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>offerLast(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the end of this deque. As the deque is unbounded, this method will never return ‘false’.  <p>This method is equivalent to ‘#add’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>peekFirst(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peekLast(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFirst(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLast(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>pollFirst(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pollLast(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeFirst(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeLast(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>offer(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this deque. As the deque is unbounded, this method will never return ‘false’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>add(E e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inserts the specified element at the tail of this deque. As the deque is unbounded, this method will never throw ‘IllegalStateException’ or return ‘false’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeFirstOccurrence(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the first element ‘e’ such that ‘o.equals(e)’, if such an element exists in this deque. If the deque does not contain the element, it is unchanged.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeLastOccurrence(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the last element ‘e’ such that ‘o.equals(e)’, if such an element exists in this deque. If the deque does not contain the element, it is unchanged.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this deque contains at least one element ‘e’ such that ‘o.equals(e)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this collection contains no elements.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of elements in this deque.  If this deque contains more than ‘Integer.MAX_VALUE’ elements, it returns ‘Integer.MAX_VALUE’.  <p>Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation. Because of the asynchronous nature of these deques, determining the current number of elements requires traversing them all to count them. Additionally, it is possible for the size to change during execution of this method, in which case the returned result will be inaccurate. Thus, this method is typically not very useful in concurrent applications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the first element ‘e’ such that ‘o.equals(e)’, if such an element exists in this deque. If the deque does not contain the element, it is unchanged.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>addAll(Collection&lt;? extends E&gt; c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends all of the elements in the specified collection to the end of this deque, in the order that they are returned by the specified collection’s iterator.  Attempts to ‘addAll’ of a deque to itself result in ‘IllegalArgumentException’.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the elements from this deque.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this deque, in proper sequence (from first to last element).  <p>The returned array will be “safe” in that no references to it are maintained by this deque.  (In other words, this method must allocate a new array).  The caller is thus free to modify the returned array.  <p>This method acts as bridge between array-based and collection-based APIs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(T[] a): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing all of the elements in this deque, in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.  If the deque fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this deque.  <p>If this deque fits in the specified array with room to spare (i.e., the array has more elements than this deque), the element in the array immediately following the end of the deque is set to ‘null’.  <p>Like the ‘#toArray()’ method, this method acts as bridge between array-based and collection-based APIs.  Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs.  <p>Suppose ‘x’ is a deque known to contain only strings. The following code can be used to dump the deque into a newly allocated array of ‘String’:  <pre> 'String[] y = x.toArray(new String[0]);'</pre>  Note that ‘toArray(new Object[0])’ is identical in function to ‘toArray()’.</td>
+<td align="left">NullPointerException<br/>ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>iterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this deque in proper sequence. The elements will be returned in order from first (head) to last (tail).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingIterator(): Iterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator over the elements in this deque in reverse sequential order.  The elements will be returned in order from last (tail) to first (head).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(): Spliterator<E></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ over the elements in this deque.  <p>The returned spliterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The ‘Spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#ORDERED’, and ‘Spliterator#NONNULL’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Saves this deque to a stream (that is, serializes it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes this deque from a stream (that is, deserializes it).</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>casHead(Node&lt;E&gt; cmp, Node&lt;E&gt; val): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>casTail(Node&lt;E&gt; cmp, Node&lt;E&gt; val): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ConcurrentLinkedDeque-Node"><a href="#ConcurrentLinkedDeque-Node" class="headerlink" title="ConcurrentLinkedDeque$Node"></a><a href="./ConcurrentLinkedDeque$Node.html">ConcurrentLinkedDeque$Node</a></h3><h3 id="ConcurrentLinkedDeque-AbstractItr"><a href="#ConcurrentLinkedDeque-AbstractItr" class="headerlink" title="ConcurrentLinkedDeque$AbstractItr"></a><a href="./ConcurrentLinkedDeque$AbstractItr.html">ConcurrentLinkedDeque$AbstractItr</a></h3><h3 id="ConcurrentLinkedDeque-Itr"><a href="#ConcurrentLinkedDeque-Itr" class="headerlink" title="ConcurrentLinkedDeque$Itr"></a><a href="./ConcurrentLinkedDeque$Itr.html">ConcurrentLinkedDeque$Itr</a></h3><h3 id="ConcurrentLinkedDeque-DescendingItr"><a href="#ConcurrentLinkedDeque-DescendingItr" class="headerlink" title="ConcurrentLinkedDeque$DescendingItr"></a><a href="./ConcurrentLinkedDeque$DescendingItr.html">ConcurrentLinkedDeque$DescendingItr</a></h3><h3 id="ConcurrentLinkedDeque-CLDSpliterator"><a href="#ConcurrentLinkedDeque-CLDSpliterator" class="headerlink" title="ConcurrentLinkedDeque$CLDSpliterator"></a><a href="./ConcurrentLinkedDeque$CLDSpliterator.html">ConcurrentLinkedDeque$CLDSpliterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

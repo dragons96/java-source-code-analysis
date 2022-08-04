@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/CompletableFuture.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="CompletableFuture"><a href="#CompletableFuture" class="headerlink" title="CompletableFuture"></a>CompletableFuture<T></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.CompletableFuture&lt;T&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">Future&lt;T&gt;,CompletionStage&lt;T&gt;</td>
+<td align="center">&lt;T&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>result: Object</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overview:  A CompletableFuture may have dependent completion actions, collected in a linked stack. It atomically completes by CASing a result field, and then pops off and runs those actions. This applies across normal vs exceptional outcomes, sync vs async actions, binary triggers, and various forms of completions.  Non-nullness of field result (set via CAS) indicates done.  An AltResult is used to box null as a result, as well as to hold exceptions.  Using a single field makes completion simple to detect and trigger.  Encoding and decoding is straightforward but adds to the sprawl of trapping and associating exceptions with targets.  Minor simplifications rely on (static) NIL (to box null results) being the only AltResult with a null exception field, so we don’t usually need explicit comparisons. Even though some of the generics casts are unchecked (see SuppressWarnings annotations), they are placed to be appropriate even if checked.  Dependent actions are represented by Completion objects linked as Treiber stacks headed by field “stack”. There are Completion classes for each kind of action, grouped into single-input (UniCompletion), two-input (BiCompletion), projected (BiCompletions using either (not both) of two inputs), shared (CoCompletion, used by the second of two sources), zero-input source actions, and Signallers that unblock waiters. Class Completion extends ForkJoinTask to enable async execution (adding no space overhead because we exploit its “tag” methods to maintain claims). It is also declared as Runnable to allow usage with arbitrary executors.  Support for each kind of CompletionStage relies on a separate class, along with two CompletableFuture methods:  A Completion class with name X corresponding to function, prefaced with “Uni”, “Bi”, or “Or”. Each class contains fields for source(s), actions, and dependent. They are boringly similar, differing from others only with respect to underlying functional forms. We do this so that users don’t encounter layers of adaptors in common usages. We also include “Relay” classes&#x2F;methods that don’t correspond to user methods; they copy results from one stage to another.  Boolean CompletableFuture method x(…) (for example uniApply) takes all of the arguments needed to check that an action is triggerable, and then either runs the action or arranges its async execution by executing its Completion argument, if present. The method returns true if known to be complete.  Completion method tryFire(int mode) invokes the associated x method with its held arguments, and on success cleans up. The mode argument allows tryFire to be called twice (SYNC, then ASYNC); the first to screen and trap exceptions while arranging to execute, and the second when called from a task. (A few classes are not used async so take slightly different forms.)  The claim() callback suppresses function invocation if already claimed by another thread.  CompletableFuture method xStage(…) is called from a public stage method of CompletableFuture x. It screens user arguments and invokes and&#x2F;or creates the stage object.  If not async and x is already complete, the action is run immediately.  Otherwise a Completion c is created, pushed to x’s stack (unless done), and started or triggered via c.tryFire.  This also covers races possible if x completes while pushing.  Classes with two inputs (for example BiApply) deal with races across both while pushing actions.  The second completion is a CoCompletion pointing to the first, shared so that at most one performs the action.  The multiple-arity methods allOf and anyOf do this pairwise to form trees of completions.  Note that the generic type parameters of methods vary according to whether “this” is a source, dependent, or completion.  Method postComplete is called upon completion unless the target is guaranteed not to be observable (i.e., not yet returned or linked). Multiple threads can call postComplete, which atomically pops each dependent action, and tries to trigger it via method tryFire, in NESTED mode.  Triggering can propagate recursively, so NESTED mode returns its completed dependent (if one exists) for further processing by its caller (see method postFire).  Blocking methods get() and join() rely on Signaller Completions that wake up waiting threads.  The mechanics are similar to Treiber stack wait-nodes used in FutureTask, Phaser, and SynchronousQueue. See their internal documentation for algorithmic details.  Without precautions, CompletableFutures would be prone to garbage accumulation as chains of Completions build up, each pointing back to its sources. So we null out fields as soon as possible (see especially method Completion.detach). The screening checks needed anyway harmlessly ignore null arguments that may have been obtained during races with threads nulling out fields.  We also try to unlink fired Completions from stacks that might never be popped (see method postFire). Completion fields need not be declared as final or volatile because they are only visible to other threads upon safe publication.</td>
+</tr>
+<tr>
+<td align="center"><strong>stack: Completion</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NIL: AltResult</strong></td>
+<td align="center">new AltResult(null)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The encoding of the null value.</td>
+</tr>
+<tr>
+<td align="center"><strong>useCommonPool: boolean</strong></td>
+<td align="center">(ForkJoinPool.getCommonPoolParallelism() &gt; 1)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A marker interface identifying asynchronous tasks produced by {@code async} methods. This may be useful for monitoring, debugging, and tracking asynchronous activities.  @since 1.8</td>
+</tr>
+<tr>
+<td align="center"><strong>SYNC: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ASYNC: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NESTED: int</strong></td>
+<td align="center">-1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RESULT: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>STACK: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NEXT: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>internalComplete(Object r): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>casStack(Completion cmp, Completion val): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryPushStack(Completion c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if successfully pushed c onto stack.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pushStack(Completion c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unconditionally pushes c onto stack, retrying if necessary.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completeNull(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Completes with the null value, unless already completed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encodeValue(T t): Object</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the encoding of the given non-exceptional value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completeValue(T t): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Completes with a non-exceptional result, unless already completed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encodeThrowable(Throwable x): AltResult</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the encoding of the given (non-null) exception as a wrapped CompletionException unless it is one already.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completeThrowable(Throwable x): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Completes with an exceptional result, unless already completed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encodeThrowable(Throwable x, Object r): Object</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the encoding of the given (non-null) exception as a wrapped CompletionException unless it is one already.  May return the given Object r (which must have been the result of a source future) if it is equivalent, i.e. if this is a simple relay of an existing CompletionException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completeThrowable(Throwable x, Object r): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Completes with the given (non-null) exceptional result as a wrapped CompletionException unless it is one already, unless already completed.  May complete with the given Object r (which must have been the result of a source future) if it is equivalent, i.e. if this is a simple propagation of an existing CompletionException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encodeOutcome(T t, Throwable x)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the encoding of the given arguments: if the exception is non-null, encodes as AltResult.  Otherwise uses the given value, boxed as NIL if null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encodeRelay(Object r): Object</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the encoding of a copied outcome; if exceptional, rewraps as a CompletionException, else returns argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completeRelay(Object r): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Completes with r or a copy of r, unless already completed. If exceptional, r is first coerced to a CompletionException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reportGet(Object r): T</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reports result using Future.get conventions.</td>
+<td align="left">ExecutionException<br/>InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>reportJoin(Object r): T</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Decodes outcome to return result or throw unchecked exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadPerTaskExecutor(): new</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Default executor – ForkJoinPool.commonPool() unless it cannot support parallelism.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>screenExecutor(Executor e): Executor</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Null-checks user executor argument, and translates uses of commonPool to asyncPool in case parallelism disabled.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lazySetNext(Completion c, Completion next): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">————- Base Completion classes and operations ————–</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postComplete(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pops and tries to trigger all reachable dependents.  Call only when known to be done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cleanStack(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Traverses stack and unlinks dead Completions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>push(UniCompletion&lt;?,?&gt; c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pushes the given completion (if it exists) unless done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postFire(CompletableFuture&lt;?&gt; a, int mode): CompletableFuture<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Post-processing by dependent after successful UniCompletion tryFire.  Tries to clean stack of source a, and then either runs postComplete or returns this to caller, depending on mode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniApply(CompletableFuture&lt;S&gt; a,Function&lt;? super S,? extends T&gt; f,UniApply&lt;S,T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniApplyStage(Executor e, Function&lt;? super T,? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniAccept(CompletableFuture&lt;S&gt; a,Consumer&lt;? super S&gt; f, UniAccept&lt;S&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniAcceptStage(Executor e,Consumer&lt;? super T&gt; f): CompletableFuture<Void></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniRun(CompletableFuture&lt;?&gt; a, Runnable f, UniRun&lt;?&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniRunStage(Executor e, Runnable f): CompletableFuture<Void></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniWhenComplete(CompletableFuture&lt;T&gt; a,BiConsumer&lt;? super T,? super Throwable&gt; f,UniWhenComplete&lt;T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniWhenCompleteStage(Executor e, BiConsumer&lt;? super T, ? super Throwable&gt; f): CompletableFuture<T></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniHandle(CompletableFuture&lt;S&gt; a,BiFunction&lt;? super S, Throwable, ? extends T&gt; f,UniHandle&lt;S,T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniHandleStage(Executor e, BiFunction&lt;? super T, Throwable, ? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniExceptionally(CompletableFuture&lt;T&gt; a,Function&lt;? super Throwable, ? extends T&gt; f,UniExceptionally&lt;T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniExceptionallyStage(Function&lt;Throwable, ? extends T&gt; f): CompletableFuture<T></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniRelay(CompletableFuture&lt;T&gt; a): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniCompose(CompletableFuture&lt;S&gt; a,Function&lt;? super S, ? extends CompletionStage&lt;T&gt;&gt; f,UniCompose&lt;S,T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uniComposeStage(Executor e, Function&lt;? super T, ? extends CompletionStage&lt;V&gt;&gt; f): CompletableFuture<V></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bipush(CompletableFuture&lt;?&gt; b, BiCompletion&lt;?,?,?&gt; c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pushes completion to this and b unless both done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postFire(CompletableFuture&lt;?&gt; a,CompletableFuture&lt;?&gt; b, int mode): CompletableFuture<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Post-processing after successful BiCompletion tryFire.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>biApply(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,BiFunction&lt;? super R,? super S,? extends T&gt; f,BiApply&lt;R,S,T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>biApplyStage(Executor e, CompletionStage&lt;U&gt; o,BiFunction&lt;? super T,? super U,? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>biAccept(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,BiConsumer&lt;? super R,? super S&gt; f,BiAccept&lt;R,S&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>biAcceptStage(Executor e, CompletionStage&lt;U&gt; o,BiConsumer&lt;? super T,? super U&gt; f): CompletableFuture<Void></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>biRun(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b,Runnable f, BiRun&lt;?,?&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>biRunStage(Executor e, CompletionStage&lt;?&gt; o,Runnable f): CompletableFuture<Void></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>@SuppressWarnings(“serial”)boolean biRelay(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>andTree(CompletableFuture&lt;?&gt;[] cfs,int lo, int hi): CompletableFuture<Void></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recursively constructs a tree of completions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orpush(CompletableFuture&lt;?&gt; b, BiCompletion&lt;?,?,?&gt; c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pushes completion to this and b unless either done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orApply(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,Function&lt;? super R, ? extends T&gt; f,OrApply&lt;R,S,T&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orApplyStage(Executor e, CompletionStage&lt;U&gt; o,Function&lt;? super T, ? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orAccept(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,Consumer&lt;? super R&gt; f,OrAccept&lt;R,S&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orAcceptStage(Executor e, CompletionStage&lt;U&gt; o, Consumer&lt;? super T&gt; f): CompletableFuture<Void></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orRun(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b,Runnable f, OrRun&lt;?,?&gt; c): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orRunStage(Executor e, CompletionStage&lt;?&gt; o,Runnable f): CompletableFuture<Void></strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orRelay(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>orTree(CompletableFuture&lt;?&gt;[] cfs,int lo, int hi): CompletableFuture<Object></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recursively constructs a tree of completions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asyncSupplyStage(Executor e,Supplier&lt;U&gt; f): CompletableFuture<U></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">————- Zero-input Async forms ————–</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asyncRunStage(Executor e, Runnable f): CompletableFuture<Void></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>waitingGet(boolean interruptible): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns raw result after waiting, or null if interruptible and interrupted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>timedGet(long nanos): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns raw result after waiting, or null if interrupted, or throws TimeoutException on timeout.</td>
+<td align="left">TimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>CompletableFuture()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new incomplete CompletableFuture.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CompletableFuture(Object r)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new complete CompletableFuture with given encoded result.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>supplyAsync(Supplier&lt;U&gt; supplier): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is asynchronously completed by a task running in the ‘ForkJoinPool#commonPool()’ with the value obtained by calling the given Supplier.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>supplyAsync(Supplier&lt;U&gt; supplier,Executor executor): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is asynchronously completed by a task running in the given executor with the value obtained by calling the given Supplier.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAsync(Runnable runnable): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is asynchronously completed by a task running in the ‘ForkJoinPool#commonPool()’ after it runs the given action.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAsync(Runnable runnable,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is asynchronously completed by a task running in the given executor after it runs the given action.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completedFuture(U value): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is already completed with the given value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDone(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if completed in any fashion: normally, exceptionally, or via cancellation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Waits if necessary for this future to complete, and then returns its result.</td>
+<td align="left">ExecutionException<br/>CancellationException<br/>InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(long timeout, TimeUnit unit): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Waits if necessary for at most the given time for this future to complete, and then returns its result, if available.</td>
+<td align="left">ExecutionException<br/>TimeoutException<br/>CancellationException<br/>InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>join(): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result value when complete, or throws an (unchecked) exception if completed exceptionally. To better conform with the use of common functional forms, if a computation involved in the completion of this CompletableFuture threw an exception, this method throws an (unchecked) ‘CompletionException’ with the underlying exception as its cause.</td>
+<td align="left">CancellationException<br/>CompletionException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNow(T valueIfAbsent): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result value (or throws any encountered exception) if completed, else returns the given valueIfAbsent.</td>
+<td align="left">CancellationException<br/>CompletionException</td>
+</tr>
+<tr>
+<td align="center"><strong>complete(T value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If not already completed, sets the value returned by ‘#get()’ and related methods to the given value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>completeExceptionally(Throwable ex): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If not already completed, causes invocations of ‘#get()’ and related methods to throw the given exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenApply(Function&lt;? super T,? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenApplyAsync(Function&lt;? super T,? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenApplyAsync(Function&lt;? super T,? extends U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenAccept(Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenAcceptAsync(Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenAcceptAsync(Consumer&lt;? super T&gt; action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenRun(Runnable action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenRunAsync(Runnable action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenRunAsync(Runnable action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenCombine(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? super T,? super U,? extends V&gt; fn): CompletableFuture<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenCombineAsync(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? super T,? super U,? extends V&gt; fn): CompletableFuture<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenCombineAsync(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? super T,? super U,? extends V&gt; fn, Executor executor): CompletableFuture<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenAcceptBoth(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? super T, ? super U&gt; action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenAcceptBothAsync(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? super T, ? super U&gt; action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenAcceptBothAsync(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? super T, ? super U&gt; action, Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAfterBoth(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAfterBothAsync(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAfterBothAsync(CompletionStage&lt;?&gt; other,Runnable action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyToEither(CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyToEitherAsync(CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyToEitherAsync(CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn,Executor executor): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>acceptEither(CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>acceptEitherAsync(CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>acceptEitherAsync(CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAfterEither(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAfterEitherAsync(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runAfterEitherAsync(CompletionStage&lt;?&gt; other,Runnable action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenCompose(Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenComposeAsync(Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenComposeAsync(Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn,Executor executor): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>whenComplete(BiConsumer&lt;? super T, ? super Throwable&gt; action): CompletableFuture<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>whenCompleteAsync(BiConsumer&lt;? super T, ? super Throwable&gt; action): CompletableFuture<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>whenCompleteAsync(BiConsumer&lt;? super T, ? super Throwable&gt; action, Executor executor): CompletableFuture<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>handle(BiFunction&lt;? super T, Throwable, ? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>handleAsync(BiFunction&lt;? super T, Throwable, ? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>handleAsync(BiFunction&lt;? super T, Throwable, ? extends U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toCompletableFuture(): CompletableFuture<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this CompletableFuture.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>exceptionally(Function&lt;Throwable, ? extends T&gt; fn): CompletableFuture<T></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is completed when this CompletableFuture completes, with the result of the given function of the exception triggering this CompletableFuture’s completion when it completes exceptionally; otherwise, if this CompletableFuture completes normally, then the returned CompletableFuture also completes normally with the same value. Note: More flexible versions of this functionality are available using methods ‘whenComplete’ and ‘handle’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>allOf(CompletableFuture&lt;?&gt;… cfs): CompletableFuture<Void></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is completed when all of the given CompletableFutures complete.  If any of the given CompletableFutures complete exceptionally, then the returned CompletableFuture also does so, with a CompletionException holding this exception as its cause.  Otherwise, the results, if any, of the given CompletableFutures are not reflected in the returned CompletableFuture, but may be obtained by inspecting them individually. If no CompletableFutures are provided, returns a CompletableFuture completed with the value ‘null’.  <p>Among the applications of this method is to await completion of a set of independent CompletableFutures before continuing a program, as in: ‘CompletableFuture.allOf(c1, c2, c3).join();’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>anyOf(CompletableFuture&lt;?&gt;… cfs): CompletableFuture<Object></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new CompletableFuture that is completed when any of the given CompletableFutures complete, with the same result. Otherwise, if it completed exceptionally, the returned CompletableFuture also does so, with a CompletionException holding this exception as its cause.  If no CompletableFutures are provided, returns an incomplete CompletableFuture.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>cancel(boolean mayInterruptIfRunning): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If not already completed, completes this CompletableFuture with a ‘CancellationException’. Dependent CompletableFutures that have not already completed will also complete exceptionally, with a ‘CompletionException’ caused by this ‘CancellationException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isCancelled(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this CompletableFuture was cancelled before it completed normally.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isCompletedExceptionally(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this CompletableFuture completed exceptionally, in any way. Possible causes include cancellation, explicit invocation of ‘completeExceptionally’, and abrupt termination of a CompletionStage action.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>obtrudeValue(T value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Forcibly sets or resets the value subsequently returned by method ‘#get()’ and related methods, whether or not already completed. This method is designed for use only in error recovery actions, and even in such situations may result in ongoing dependent completions using established versus overwritten outcomes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>obtrudeException(Throwable ex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Forcibly causes subsequent invocations of method ‘#get()’ and related methods to throw the given exception, whether or not already completed. This method is designed for use only in error recovery actions, and even in such situations may result in ongoing dependent completions using established versus overwritten outcomes.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNumberOfDependents(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the estimated number of CompletableFutures whose completions are awaiting completion of this CompletableFuture. This method is designed for use in monitoring system state, not for synchronization control.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string identifying this CompletableFuture, as well as its completion state.  The state, in brackets, contains the String ‘“Completed Normally”‘ or the String ‘“Completed Exceptionally”‘, or the String ‘“Not completed”‘ followed by the number of CompletableFutures dependent upon its completion, if any.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="CompletableFuture-AltResult"><a href="#CompletableFuture-AltResult" class="headerlink" title="CompletableFuture$AltResult"></a><a href="./CompletableFuture$AltResult.html">CompletableFuture$AltResult</a></h3><h3 id="CompletableFuture-AsynchronousCompletionTask"><a href="#CompletableFuture-AsynchronousCompletionTask" class="headerlink" title="CompletableFuture$AsynchronousCompletionTask"></a><a href="./CompletableFuture$AsynchronousCompletionTask.html">CompletableFuture$AsynchronousCompletionTask</a></h3><h3 id="CompletableFuture-ThreadPerTaskExecutor"><a href="#CompletableFuture-ThreadPerTaskExecutor" class="headerlink" title="CompletableFuture$ThreadPerTaskExecutor"></a><a href="./CompletableFuture$ThreadPerTaskExecutor.html">CompletableFuture$ThreadPerTaskExecutor</a></h3><h3 id="CompletableFuture-Completion"><a href="#CompletableFuture-Completion" class="headerlink" title="CompletableFuture$Completion"></a><a href="./CompletableFuture$Completion.html">CompletableFuture$Completion</a></h3><h3 id="CompletableFuture-UniCompletion"><a href="#CompletableFuture-UniCompletion" class="headerlink" title="CompletableFuture$UniCompletion"></a><a href="./CompletableFuture$UniCompletion.html">CompletableFuture$UniCompletion</a></h3><h3 id="CompletableFuture-UniApply"><a href="#CompletableFuture-UniApply" class="headerlink" title="CompletableFuture$UniApply"></a><a href="./CompletableFuture$UniApply.html">CompletableFuture$UniApply</a></h3><h3 id="CompletableFuture-UniAccept"><a href="#CompletableFuture-UniAccept" class="headerlink" title="CompletableFuture$UniAccept"></a><a href="./CompletableFuture$UniAccept.html">CompletableFuture$UniAccept</a></h3><h3 id="CompletableFuture-UniRun"><a href="#CompletableFuture-UniRun" class="headerlink" title="CompletableFuture$UniRun"></a><a href="./CompletableFuture$UniRun.html">CompletableFuture$UniRun</a></h3><h3 id="CompletableFuture-UniWhenComplete"><a href="#CompletableFuture-UniWhenComplete" class="headerlink" title="CompletableFuture$UniWhenComplete"></a><a href="./CompletableFuture$UniWhenComplete.html">CompletableFuture$UniWhenComplete</a></h3><h3 id="CompletableFuture-UniHandle"><a href="#CompletableFuture-UniHandle" class="headerlink" title="CompletableFuture$UniHandle"></a><a href="./CompletableFuture$UniHandle.html">CompletableFuture$UniHandle</a></h3><h3 id="CompletableFuture-UniExceptionally"><a href="#CompletableFuture-UniExceptionally" class="headerlink" title="CompletableFuture$UniExceptionally"></a><a href="./CompletableFuture$UniExceptionally.html">CompletableFuture$UniExceptionally</a></h3><h3 id="CompletableFuture-UniRelay"><a href="#CompletableFuture-UniRelay" class="headerlink" title="CompletableFuture$UniRelay"></a><a href="./CompletableFuture$UniRelay.html">CompletableFuture$UniRelay</a></h3><h3 id="CompletableFuture-UniCompose"><a href="#CompletableFuture-UniCompose" class="headerlink" title="CompletableFuture$UniCompose"></a><a href="./CompletableFuture$UniCompose.html">CompletableFuture$UniCompose</a></h3><h3 id="CompletableFuture-BiCompletion"><a href="#CompletableFuture-BiCompletion" class="headerlink" title="CompletableFuture$BiCompletion"></a><a href="./CompletableFuture$BiCompletion.html">CompletableFuture$BiCompletion</a></h3><h3 id="CompletableFuture-CoCompletion"><a href="#CompletableFuture-CoCompletion" class="headerlink" title="CompletableFuture$CoCompletion"></a><a href="./CompletableFuture$CoCompletion.html">CompletableFuture$CoCompletion</a></h3><h3 id="CompletableFuture-BiApply"><a href="#CompletableFuture-BiApply" class="headerlink" title="CompletableFuture$BiApply"></a><a href="./CompletableFuture$BiApply.html">CompletableFuture$BiApply</a></h3><h3 id="CompletableFuture-BiAccept"><a href="#CompletableFuture-BiAccept" class="headerlink" title="CompletableFuture$BiAccept"></a><a href="./CompletableFuture$BiAccept.html">CompletableFuture$BiAccept</a></h3><h3 id="CompletableFuture-BiRun"><a href="#CompletableFuture-BiRun" class="headerlink" title="CompletableFuture$BiRun"></a><a href="./CompletableFuture$BiRun.html">CompletableFuture$BiRun</a></h3><h3 id="CompletableFuture-BiRelay"><a href="#CompletableFuture-BiRelay" class="headerlink" title="CompletableFuture$BiRelay"></a><a href="./CompletableFuture$BiRelay.html">CompletableFuture$BiRelay</a></h3><h3 id="CompletableFuture-OrApply"><a href="#CompletableFuture-OrApply" class="headerlink" title="CompletableFuture$OrApply"></a><a href="./CompletableFuture$OrApply.html">CompletableFuture$OrApply</a></h3><h3 id="CompletableFuture-OrAccept"><a href="#CompletableFuture-OrAccept" class="headerlink" title="CompletableFuture$OrAccept"></a><a href="./CompletableFuture$OrAccept.html">CompletableFuture$OrAccept</a></h3><h3 id="CompletableFuture-OrRun"><a href="#CompletableFuture-OrRun" class="headerlink" title="CompletableFuture$OrRun"></a><a href="./CompletableFuture$OrRun.html">CompletableFuture$OrRun</a></h3><h3 id="CompletableFuture-OrRelay"><a href="#CompletableFuture-OrRelay" class="headerlink" title="CompletableFuture$OrRelay"></a><a href="./CompletableFuture$OrRelay.html">CompletableFuture$OrRelay</a></h3><h3 id="CompletableFuture-AsyncSupply"><a href="#CompletableFuture-AsyncSupply" class="headerlink" title="CompletableFuture$AsyncSupply"></a><a href="./CompletableFuture$AsyncSupply.html">CompletableFuture$AsyncSupply</a></h3><h3 id="CompletableFuture-AsyncRun"><a href="#CompletableFuture-AsyncRun" class="headerlink" title="CompletableFuture$AsyncRun"></a><a href="./CompletableFuture$AsyncRun.html">CompletableFuture$AsyncRun</a></h3><h3 id="CompletableFuture-Signaller"><a href="#CompletableFuture-Signaller" class="headerlink" title="CompletableFuture$Signaller"></a><a href="./CompletableFuture$Signaller.html">CompletableFuture$Signaller</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

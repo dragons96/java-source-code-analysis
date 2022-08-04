@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/concurrent/locks/Lock.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"},"main":[{"text":"java","type":"label","children":[{"text":"util","type":"label","children":[{"text":"concurrent","type":"label","children":[{"text":"AbstractExecutorService","type":"link","path":"AbstractExecutorService.html"}]}]}]}]}},"config":{"timezone":"Asia/Shanghai","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.concurrent.locks.Lock</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>lock()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Acquires the lock.  <p>If the lock is not available then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired.  <p><b>Implementation Considerations</b>  <p>A ‘Lock’ implementation may be able to detect erroneous use of the lock, such as an invocation that would cause deadlock, and may throw an (unchecked) exception in such circumstances.  The circumstances and the exception type must be documented by that ‘Lock’ implementation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockInterruptibly()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Acquires the lock unless the current thread is ‘Thread#interrupt interrupted’.  <p>Acquires the lock if it is available and returns immediately.  <p>If the lock is not available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens:  <ul> <li>The lock is acquired by the current thread; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread, and interruption of lock acquisition is supported. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while acquiring the lock, and interruption of lock acquisition is supported, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p><b>Implementation Considerations</b>  <p>The ability to interrupt a lock acquisition in some implementations may not be possible, and if possible may be an expensive operation.  The programmer should be aware that this may be the case. An implementation should document when this is the case.  <p>An implementation can favor responding to an interrupt over normal method return.  <p>A ‘Lock’ implementation may be able to detect erroneous use of the lock, such as an invocation that would cause deadlock, and may throw an (unchecked) exception in such circumstances.  The circumstances and the exception type must be documented by that ‘Lock’ implementation.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>tryLock()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Acquires the lock only if it is free at the time of invocation.  <p>Acquires the lock if it is available and returns immediately with the value ‘true’. If the lock is not available then this method will return immediately with the value ‘false’.  <p>A typical usage idiom for this method would be: <pre> 'Lock lock = ...; if (lock.tryLock()) { try {' finally { lock.unlock(); } } else {  }}</pre>  This usage ensures that the lock is unlocked if it was acquired, and doesn’t try to unlock if the lock was not acquired.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tryLock(long time, TimeUnit unit)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Acquires the lock if it is free within the given waiting time and the current thread has not been ‘Thread#interrupt interrupted’.  <p>If the lock is available this method returns immediately with the value ‘true’. If the lock is not available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens: <ul> <li>The lock is acquired by the current thread; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread, and interruption of lock acquisition is supported; or <li>The specified waiting time elapses </ul>  <p>If the lock is acquired then the value ‘true’ is returned.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while acquiring the lock, and interruption of lock acquisition is supported, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the specified waiting time elapses then the value ‘false’ is returned. If the time is less than or equal to zero, the method will not wait at all.  <p><b>Implementation Considerations</b>  <p>The ability to interrupt a lock acquisition in some implementations may not be possible, and if possible may be an expensive operation. The programmer should be aware that this may be the case. An implementation should document when this is the case.  <p>An implementation can favor responding to an interrupt over normal method return, or reporting a timeout.  <p>A ‘Lock’ implementation may be able to detect erroneous use of the lock, such as an invocation that would cause deadlock, and may throw an (unchecked) exception in such circumstances. The circumstances and the exception type must be documented by that ‘Lock’ implementation.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>unlock()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Releases the lock.  <p><b>Implementation Considerations</b>  <p>A ‘Lock’ implementation will usually impose restrictions on which thread can release a lock (typically only the holder of the lock can release it) and may throw an (unchecked) exception if the restriction is violated. Any restrictions and the exception type must be documented by that ‘Lock’ implementation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newCondition()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a new ‘Condition’ instance that is bound to this ‘Lock’ instance.  <p>Before waiting on the condition the lock must be held by the current thread. A call to ‘Condition#await()’ will atomically release the lock before waiting and re-acquire the lock before the wait returns.  <p><b>Implementation Considerations</b>  <p>The exact operation of the ‘Condition’ instance depends on the ‘Lock’ implementation and must be documented by that implementation.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>
