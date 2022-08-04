@@ -67,8 +67,8 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">**”: String PREFS_DTD &#x3D;”&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;” +”&lt;!– DTD for preferences –&gt;”               +”&lt;!ELEMENT preferences (root) &gt;”             +”&lt;!ATTLIST preferences”                      +” EXTERNAL_XML_VERSION CDATA &quot;0.0&quot;  &gt;”     +”&lt;!ELEMENT root (map, node*) &gt;”              +”&lt;!ATTLIST root”                             +”          type (system</td>
-<td align="center">user) #REQUIRED &gt;”   +”&lt;!ELEMENT node (map, node*) &gt;”              +”&lt;!ATTLIST node”                             +”          name CDATA #REQUIRED &gt;”           +”&lt;!ELEMENT map (entry*) &gt;”                   +”&lt;!ATTLIST map”                              +”  MAP_XML_VERSION CDATA &quot;0.0&quot;  &gt;”         +”&lt;!ELEMENT entry EMPTY &gt;”                    +”&lt;!ATTLIST entry”                            +”          key CDATA #REQUIRED”              +”          value CDATA #REQUIRED &gt;**</td>
+<td align="center">**: String PREFS_DTD &#x3D;”&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;” +”&lt;!– DTD for preferences –&gt;”               +”&lt;!ELEMENT preferences (root) &gt;”             +”&lt;!ATTLIST preferences”                      +” EXTERNAL_XML_VERSION CDATA &quot;0.0&quot;  &gt;”     +”&lt;!ELEMENT root (map, node*) &gt;”              +”&lt;!ATTLIST root”                             +”          type (system</td>
+<td align="center">user) #REQUIRED &gt;”   +”&lt;!ELEMENT node (map, node*) &gt;”              +”&lt;!ATTLIST node”                             +”          name CDATA #REQUIRED &gt;”           +”&lt;!ELEMENT map (entry*) &gt;”                   +”&lt;!ATTLIST map”                              +”  MAP_XML_VERSION CDATA &quot;0.0&quot;  &gt;”         +”&lt;!ELEMENT entry EMPTY &gt;”                    +”&lt;!ATTLIST entry”                            +”          key CDATA #REQUIRED”              +”          value CDATA #REQUIRED &gt;”**</td>
 <td align="center">&quot;UTF-8&quot;?&gt;” +”<!-- DTD for preferences -->“               +”<!ELEMENT preferences (root) >“             +”<!ATTLIST preferences"                      +" EXTERNAL_XML_VERSION CDATA \"0.0\"  >“     +”<!ELEMENT root (map, node*) >“              +”&lt;!ATTLIST root”                             +”          type (system</td>
 <td align="center">user) #REQUIRED &gt;”   +”<!ELEMENT node (map, node*) >“              +”<!ATTLIST node"                             +"          name CDATA #REQUIRED >“           +”<!ELEMENT map (entry*) >“                   +”<!ATTLIST map"                              +"  MAP_XML_VERSION CDATA \"0.0\"  >“         +”<!ELEMENT entry EMPTY >“                    +”<!ATTLIST entry"                            +"          key CDATA #REQUIRED"              +"          value CDATA #REQUIRED >“</td>
 <td align="center">private</td>
@@ -125,7 +125,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Export the specified preferences node and, if subTree is true, all subnodes, to the specified output stream.  Preferences are exported as an XML document conforming to the definition in the Preferences spec.</td>
-<td align="left">IOException<br/>BackingStoreException<br/>IllegalStateException</td>
+<td align="left">IllegalStateException<br/>BackingStoreException<br/>IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>createPrefsDoc( String qname ): Document</strong></td>

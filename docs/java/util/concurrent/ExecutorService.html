@@ -175,7 +175,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Executes the given tasks, returning a list of Futures holding their status and results when all complete. ‘Future#isDone’ is ‘true’ for each element of the returned list. Note that a <em>completed</em> task could have terminated either normally or by throwing an exception. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">InterruptedException<br/>NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">NullPointerException<br/>RejectedExecutionException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,long timeout, TimeUnit unit): List&lt;Future<T>&gt;</strong></td>
@@ -187,7 +187,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Executes the given tasks, returning a list of Futures holding their status and results when all complete or the timeout expires, whichever happens first. ‘Future#isDone’ is ‘true’ for each element of the returned list. Upon return, tasks that have not completed are cancelled. Note that a <em>completed</em> task could have terminated either normally or by throwing an exception. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">InterruptedException<br/>NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">NullPointerException<br/>RejectedExecutionException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks): T</strong></td>
@@ -199,7 +199,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Executes the given tasks, returning the result of one that has completed successfully (i.e., without throwing an exception), if any do. Upon normal or exceptional return, tasks that have not completed are cancelled. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">IllegalArgumentException<br/>RejectedExecutionException<br/>InterruptedException<br/>NullPointerException<br/>ExecutionException</td>
+<td align="left">ExecutionException<br/>IllegalArgumentException<br/>NullPointerException<br/>InterruptedException<br/>RejectedExecutionException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,long timeout, TimeUnit unit): T</strong></td>
@@ -211,7 +211,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Executes the given tasks, returning the result of one that has completed successfully (i.e., without throwing an exception), if any do before the given timeout elapses. Upon normal or exceptional return, tasks that have not completed are cancelled. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">TimeoutException<br/>RejectedExecutionException<br/>InterruptedException<br/>NullPointerException<br/>ExecutionException</td>
+<td align="left">ExecutionException<br/>NullPointerException<br/>TimeoutException<br/>InterruptedException<br/>RejectedExecutionException</td>
 </tr>
 </tbody></table>
 

@@ -182,7 +182,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Main barrier code, covering the various policies.</td>
-<td align="left">InterruptedException<br/>TimeoutException<br/>BrokenBarrierException</td>
+<td align="left">BrokenBarrierException<br/>TimeoutException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>CyclicBarrier(int parties, Runnable barrierAction)</strong></td>
@@ -230,7 +230,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Waits until all ‘#getParties parties’ have invoked ‘await’ on this barrier.  <p>If the current thread is not the last to arrive then it is disabled for thread scheduling purposes and lies dormant until one of the following things happens: <ul> <li>The last thread arrives; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>Some other thread ‘Thread#interrupt interrupts’ one of the other waiting threads; or <li>Some other thread times out while waiting for barrier; or <li>Some other thread invokes ‘#reset’ on this barrier. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the barrier is ‘#reset’ while any thread is waiting, or if the barrier ‘#isBroken is broken’ when ‘await’ is invoked, or while any thread is waiting, then ‘BrokenBarrierException’ is thrown.  <p>If any thread is ‘Thread#interrupt interrupted’ while waiting, then all other waiting threads will throw ‘BrokenBarrierException’ and the barrier is placed in the broken state.  <p>If the current thread is the last thread to arrive, and a non-null barrier action was supplied in the constructor, then the current thread runs the action before allowing the other threads to continue. If an exception occurs during the barrier action then that exception will be propagated in the current thread and the barrier is placed in the broken state.</td>
-<td align="left">InterruptedException<br/>BrokenBarrierException</td>
+<td align="left">BrokenBarrierException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>await(long timeout, TimeUnit unit): int</strong></td>
@@ -242,7 +242,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Waits until all ‘#getParties parties’ have invoked ‘await’ on this barrier, or the specified waiting time elapses.  <p>If the current thread is not the last to arrive then it is disabled for thread scheduling purposes and lies dormant until one of the following things happens: <ul> <li>The last thread arrives; or <li>The specified timeout elapses; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>Some other thread ‘Thread#interrupt interrupts’ one of the other waiting threads; or <li>Some other thread times out while waiting for barrier; or <li>Some other thread invokes ‘#reset’ on this barrier. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the specified waiting time elapses then ‘TimeoutException’ is thrown. If the time is less than or equal to zero, the method will not wait at all.  <p>If the barrier is ‘#reset’ while any thread is waiting, or if the barrier ‘#isBroken is broken’ when ‘await’ is invoked, or while any thread is waiting, then ‘BrokenBarrierException’ is thrown.  <p>If any thread is ‘Thread#interrupt interrupted’ while waiting, then all other waiting threads will throw ‘BrokenBarrierException’ and the barrier is placed in the broken state.  <p>If the current thread is the last thread to arrive, and a non-null barrier action was supplied in the constructor, then the current thread runs the action before allowing the other threads to continue. If an exception occurs during the barrier action then that exception will be propagated in the current thread and the barrier is placed in the broken state.</td>
-<td align="left">InterruptedException<br/>TimeoutException<br/>BrokenBarrierException</td>
+<td align="left">BrokenBarrierException<br/>TimeoutException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>isBroken(): boolean</strong></td>

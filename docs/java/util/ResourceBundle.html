@@ -78,7 +78,7 @@
 <td align="left">initial size of the bundle cache</td>
 </tr>
 <tr>
-<td align="center"><strong>(): ReferenceQueue&lt;Object&gt; referenceQueue &#x3D; new ReferenceQueue&lt;&gt;</strong></td>
+<td align="center"><strong>: ReferenceQueue&lt;Object&gt; referenceQueue &#x3D; new ReferenceQueue&lt;&gt;()</strong></td>
 <td align="center">new ReferenceQueue&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -658,7 +658,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Instantiates a resource bundle for the given bundle name of the given format and locale, using the given class loader if necessary. This method returns <code>null</code> if there is no resource bundle available for the given parameters. If a resource bundle can’t be instantiated due to an unexpected error, the error must be reported by throwing an <code>Error</code> or <code>Exception</code> rather than simply returning <code>null</code>.  <p>If the <code>reload</code> flag is <code>true</code>, it indicates that this method is being called because the previously loaded resource bundle has expired.  <p>The default implementation instantiates a <code>ResourceBundle</code> as follows.  <ul>  <li>The bundle name is obtained by calling ‘#toBundleName(String, Locale) toBundleName(baseName, locale)’.</li>  <li>If <code>format</code> is <code>"java.class"</code>, the ‘Class’ specified by the bundle name is loaded by calling ‘ClassLoader#loadClass(String)’. Then, a <code>ResourceBundle</code> is instantiated by calling ‘Class#newInstance()’.  Note that the <code>reload</code> flag is ignored for loading class-based resource bundles in this default implementation.</li>  <li>If <code>format</code> is <code>"java.properties"</code>, ‘#toResourceName(String, String) toResourceName(bundlename, “properties”)’ is called to get the resource name. If <code>reload</code> is <code>true</code>, ‘ClassLoader#getResource(String) load.getResource’ is called to get a ‘URL’ for creating a ‘URLConnection’. This <code>URLConnection</code> is used to ‘URLConnection#setUseCaches(boolean) disable the caches’ of the underlying resource loading layers, and to ‘URLConnection#getInputStream() get an <code>InputStream</code>‘. Otherwise, ‘ClassLoader#getResourceAsStream(String) loader.getResourceAsStream’ is called to get an ‘InputStream’. Then, a ‘PropertyResourceBundle’ is constructed with the <code>InputStream</code>.</li>  <li>If <code>format</code> is neither <code>"java.class"</code> nor <code>"java.properties"</code>, an <code>IllegalArgumentException</code> is thrown.</li>  </ul></td>
-<td align="left">IOException<br/>IllegalAccessException<br/>InstantiationException</td>
+<td align="left">InstantiationException<br/>IOException<br/>IllegalAccessException</td>
 </tr>
 <tr>
 <td align="center"><strong>getTimeToLive(String baseName, Locale locale): long</strong></td>

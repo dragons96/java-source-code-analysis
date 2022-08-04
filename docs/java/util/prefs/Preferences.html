@@ -243,7 +243,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates the specified value with the specified key in this preference node.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(String key, String def): String</strong></td>
@@ -291,7 +291,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates a string representing the specified int value with the specified key in this preference node.  The associated string is the one that would be returned if the int value were passed to ‘Integer#toString(int)’.  This method is intended for use in conjunction with ‘#getInt’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getInt(String key, int def): int</strong></td>
@@ -315,7 +315,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates a string representing the specified long value with the specified key in this preference node.  The associated string is the one that would be returned if the long value were passed to ‘Long#toString(long)’.  This method is intended for use in conjunction with ‘#getLong’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getLong(String key, long def): long</strong></td>
@@ -339,7 +339,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates a string representing the specified boolean value with the specified key in this preference node.  The associated string is <tt>“true”</tt> if the value is true, and <tt>“false”</tt> if it is false.  This method is intended for use in conjunction with ‘#getBoolean’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getBoolean(String key, boolean def): boolean</strong></td>
@@ -363,7 +363,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates a string representing the specified float value with the specified key in this preference node.  The associated string is the one that would be returned if the float value were passed to ‘Float#toString(float)’.  This method is intended for use in conjunction with ‘#getFloat’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getFloat(String key, float def): float</strong></td>
@@ -387,7 +387,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates a string representing the specified double value with the specified key in this preference node.  The associated string is the one that would be returned if the double value were passed to ‘Double#toString(double)’.  This method is intended for use in conjunction with ‘#getDouble’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getDouble(String key, double def): double</strong></td>
@@ -411,7 +411,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Associates a string representing the specified byte array with the specified key in this preference node.  The associated string is the <i>Base64</i> encoding of the byte array, as defined in &lt;a href&#x3D;http: with one minor change: the string will consist solely of characters from the <i>Base64 Alphabet</i>; it will not contain any newline characters.  Note that the maximum length of the byte array is limited to three quarters of <tt>MAX_VALUE_LENGTH</tt> so that the length of the Base64 encoded String does not exceed <tt>MAX_VALUE_LENGTH</tt>. This method is intended for use in conjunction with ‘#getByteArray’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getByteArray(String key, byte[] def): byte[]</strong></td>
@@ -483,7 +483,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Returns true if the named preference node exists in the same tree as this node.  Relative path names (which do not begin with the slash character <tt>(‘&#x2F;‘)</tt>) are interpreted relative to this preference node.  <p>If this node (or an ancestor) has already been removed with the ‘#removeNode()’ method, it <i>is</i> legal to invoke this method, but only with the path name <tt>“”</tt>; the invocation will return <tt>false</tt>.  Thus, the idiom <tt>p.nodeExists(“”)</tt> may be used to test whether <tt>p</tt> has been removed.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException<br/>BackingStoreException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>BackingStoreException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>removeNode(): void</strong></td>
@@ -495,7 +495,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Removes this preference node and all of its descendants, invalidating any preferences contained in the removed nodes.  Once a node has been removed, attempting any method other than ‘#name()’, ‘#absolutePath()’, ‘#isUserNode()’, ‘#flush()’ or ‘#node(String) nodeExists(“”)’ on the corresponding <tt>Preferences</tt> instance will fail with an <tt>IllegalStateException</tt>.  (The methods defined on ‘Object’ can still be invoked on a node after it has been removed; they will not throw <tt>IllegalStateException</tt>.)  <p>The removal is not guaranteed to be persistent until the <tt>flush</tt> method is called on this node (or an ancestor).  <p>If this implementation supports <i>stored defaults</i>, removing a node exposes any stored defaults at or below this node.  Thus, a subsequent call to <tt>nodeExists</tt> on this node’s path name may return <tt>true</tt>, and a subsequent call to <tt>node</tt> on this path name may return a (different) <tt>Preferences</tt> instance representing a non-empty collection of preferences and&#x2F;or children.</td>
-<td align="left">IllegalStateException<br/>UnsupportedOperationException<br/>BackingStoreException</td>
+<td align="left">IllegalStateException<br/>BackingStoreException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>name(): String</strong></td>
@@ -627,7 +627,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Emits on the specified output stream an XML document representing all of the preferences contained in this node (but not its descendants). This XML document is, in effect, an offline backup of the node.  <p>The XML document will have the following DOCTYPE declaration: <pre>'<!DOCTYPE preferences SYSTEM "http:'</pre> The UTF-8 character encoding will be used.  <p>This method is an exception to the general rule that the results of concurrently executing multiple methods in this class yields results equivalent to some serial execution.  If the preferences at this node are modified concurrently with an invocation of this method, the exported preferences comprise a "fuzzy snapshot" of the preferences contained in the node; some of the concurrent modifications may be reflected in the exported data while others may not.</td>
-<td align="left">IOException<br/>BackingStoreException<br/>IllegalStateException</td>
+<td align="left">IllegalStateException<br/>BackingStoreException<br/>IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>exportSubtree(OutputStream os): void</strong></td>
@@ -639,7 +639,7 @@
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="left">Emits an XML document representing all of the preferences contained in this node and all of its descendants.  This XML document is, in effect, an offline backup of the subtree rooted at the node.  <p>The XML document will have the following DOCTYPE declaration: <pre>'<!DOCTYPE preferences SYSTEM "http:'</pre> The UTF-8 character encoding will be used.  <p>This method is an exception to the general rule that the results of concurrently executing multiple methods in this class yields results equivalent to some serial execution.  If the preferences or nodes in the subtree rooted at this node are modified concurrently with an invocation of this method, the exported preferences comprise a "fuzzy snapshot" of the subtree; some of the concurrent modifications may be reflected in the exported data while others may not.</td>
-<td align="left">IOException<br/>BackingStoreException<br/>IllegalStateException</td>
+<td align="left">IllegalStateException<br/>BackingStoreException<br/>IOException</td>
 </tr>
 </tbody></table>
 

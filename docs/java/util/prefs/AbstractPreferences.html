@@ -124,7 +124,7 @@
 <td align="left">This field should be <tt>true</tt> if this node did not exist in the backing store prior to the creation of this object.  The field is initialized to false, but may be set to true by a subclass constructor (and should not be modified thereafter).  This field indicates whether a node change event should be fired when creation is complete.</td>
 </tr>
 <tr>
-<td align="center"><strong>(): Map&lt;String, AbstractPreferences&gt; kidCache &#x3D; new HashMap&lt;&gt;</strong></td>
+<td align="center"><strong>: Map&lt;String, AbstractPreferences&gt; kidCache &#x3D; new HashMap&lt;&gt;()</strong></td>
 <td align="center">new HashMap&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -190,7 +190,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>(): List&lt;EventObject&gt; eventQueue &#x3D; new LinkedList&lt;&gt;</strong></td>
+<td align="center"><strong>: List&lt;EventObject&gt; eventQueue &#x3D; new LinkedList&lt;&gt;()</strong></td>
 <td align="center">new LinkedList&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -249,7 +249,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>put</tt> method as per the specification in ‘Preferences#put(String,String)’.  <p>This implementation checks that the key and value are legal, obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#putSpi(String,String)’, and if there are any preference change listeners, enqueues a notification event for processing by the event dispatch thread.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(String key, String def): String</strong></td>
@@ -297,7 +297,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putInt</tt> method as per the specification in ‘Preferences#putInt(String,int)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Integer#toString(int)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getInt(String key, int def): int</strong></td>
@@ -321,7 +321,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putLong</tt> method as per the specification in ‘Preferences#putLong(String,long)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Long#toString(long)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getLong(String key, long def): long</strong></td>
@@ -345,7 +345,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putBoolean</tt> method as per the specification in ‘Preferences#putBoolean(String,boolean)’.  <p>This implementation translates <tt>value</tt> to a string with ‘String#valueOf(boolean)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getBoolean(String key, boolean def): boolean</strong></td>
@@ -369,7 +369,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putFloat</tt> method as per the specification in ‘Preferences#putFloat(String,float)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Float#toString(float)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getFloat(String key, float def): float</strong></td>
@@ -393,7 +393,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putDouble</tt> method as per the specification in ‘Preferences#putDouble(String,double)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Double#toString(double)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getDouble(String key, double def): double</strong></td>
@@ -417,7 +417,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putByteArray</tt> method as per the specification in ‘Preferences#putByteArray(String,byte[])’.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getByteArray(String key, byte[] def): byte[]</strong></td>
@@ -513,7 +513,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>removeNode()</tt> method as per the specification in ‘Preferences#removeNode()’.  <p>This implementation checks to see that this node is the root; if so, it throws an appropriate exception.  Then, it locks this node’s parent, and calls a recursive helper method that traverses the subtree rooted at this node.  The recursive method locks the node on which it was called, checks that it has not already been removed, and then ensures that all of its children are cached: The ‘#childrenNamesSpi()’ method is invoked and each returned child name is checked for containment in the child-cache.  If a child is not already cached, the ‘#childSpi(String)’ method is invoked to create a <tt>Preferences</tt> instance for it, and this instance is put into the child-cache.  Then the helper method calls itself recursively on each node contained in its child-cache.  Next, it invokes ‘#removeNodeSpi()’, marks itself as removed, and removes itself from its parent’s child-cache.  Finally, if there are any node change listeners, it enqueues a notification event for processing by the event dispatch thread.  <p>Note that the helper method is always invoked with all ancestors up to the “closest non-removed ancestor” locked.</td>
-<td align="left">IllegalStateException<br/>UnsupportedOperationException<br/>BackingStoreException</td>
+<td align="left">IllegalStateException<br/>BackingStoreException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>removeNode2(): void</strong></td>

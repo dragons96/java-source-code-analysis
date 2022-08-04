@@ -179,7 +179,7 @@
 <td align="left">Lock held on access to workers set and related bookkeeping. While we could use a concurrent set of some sort, it turns out to be generally preferable to use a lock. Among the reasons is that this serializes interruptIdleWorkers, which avoids unnecessary interrupt storms, especially during shutdown. Otherwise exiting threads would concurrently interrupt those that have not yet interrupted. It also simplifies some of the associated statistics bookkeeping of largestPoolSize etc. We also hold mainLock on shutdown and shutdownNow, for the sake of ensuring workers set is stable while separately checking permission to interrupt and actually interrupting.</td>
 </tr>
 <tr>
-<td align="center"><strong>(): HashSet&lt;Worker&gt; workers &#x3D; new HashSet&lt;Worker&gt;</strong></td>
+<td align="center"><strong>: HashSet&lt;Worker&gt; workers &#x3D; new HashSet&lt;Worker&gt;()</strong></td>
 <td align="center">new HashSet<Worker>()</td>
 <td align="center">private</td>
 <td align="center">否</td>
