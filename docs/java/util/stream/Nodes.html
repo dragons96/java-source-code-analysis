@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/stream/Nodes.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Nodes"><a href="#Nodes" class="headerlink" title="Nodes"></a>Nodes</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.stream.Nodes</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MAX_ARRAY_SIZE: long</strong></td>
+<td align="center">Integer.MAX_VALUE - 8</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum size of an array that can be allocated.</td>
+</tr>
+<tr>
+<td align="center"><strong>BAD_SIZE: String</strong></td>
+<td align="center">“Stream size exceeds max array size”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_INT_NODE: Node.OfInt</strong></td>
+<td align="center">new EmptyNode.OfInt()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_LONG_NODE: Node.OfLong</strong></td>
+<td align="center">new EmptyNode.OfLong()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_DOUBLE_NODE: Node.OfDouble</strong></td>
+<td align="center">new EmptyNode.OfDouble()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_INT_ARRAY: int[]</strong></td>
+<td align="center">new int[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Variable-sized builder class for reference nodes</td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_LONG_ARRAY: long[]</strong></td>
+<td align="center">new long[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_DOUBLE_ARRAY: double[]</strong></td>
+<td align="center">new double[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Nodes()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>emptyNode(StreamShape shape): Node<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces an empty node whose count is zero, has no children and no content.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>conc(StreamShape shape, Node&lt;T&gt; left, Node&lt;T&gt; right): Node<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a concatenated ‘Node’ that has two or more children. <p>The count of the concatenated node is equal to the sum of the count of each child. Traversal of the concatenated node traverses the content of each child in encounter order of the list of children. Splitting a spliterator obtained from the concatenated node preserves the encounter order of the list of children.  <p>The result may be a concatenated node, the input sole node if the size of the list is 1, or an empty node.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>node(T[] array): Node<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node’ describing an array.  <p>The node will hold a reference to the array and will not make a copy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>node(Collection&lt;T&gt; c): Node<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node’ describing a ‘Collection’. <p> The node will hold a reference to the collection and will not make a copy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>builder(long exactSizeIfKnown, IntFunction&lt;T[]&gt; generator): Node.Builder<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.Builder’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>builder(): Node.Builder<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a variable size</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>node(int[] array): Node.OfInt</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.OfInt’ describing an int[] array.  <p>The node will hold a reference to the array and will not make a copy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intBuilder(long exactSizeIfKnown): Node.Builder.OfInt</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.Builder.OfInt’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intBuilder(): Node.Builder.OfInt</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a variable size</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>node(final long[] array): Node.OfLong</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.OfLong’ describing a long[] array. <p> The node will hold a reference to the array and will not make a copy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longBuilder(long exactSizeIfKnown): Node.Builder.OfLong</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.Builder.OfLong’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longBuilder(): Node.Builder.OfLong</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a variable size</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>node(final double[] array): Node.OfDouble</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.OfDouble’ describing a double[] array.  <p>The node will hold a reference to the array and will not make a copy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doubleBuilder(long exactSizeIfKnown): Node.Builder.OfDouble</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a ‘Node.Builder.OfDouble’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doubleBuilder(): Node.Builder.OfDouble</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces a variable size</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>collect(PipelineHelper&lt;P_OUT&gt; helper,Spliterator&lt;P_IN&gt; spliterator,boolean flattenTree,IntFunction&lt;P_OUT[]&gt; generator): Node<P_OUT></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Collect, in parallel, elements output from a pipeline and describe those elements with a ‘Node’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>collectInt(PipelineHelper&lt;Integer&gt; helper,Spliterator&lt;P_IN&gt; spliterator,boolean flattenTree): Node.OfInt</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Collect, in parallel, elements output from an int-valued pipeline and describe those elements with a ‘Node.OfInt’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>collectLong(PipelineHelper&lt;Long&gt; helper,Spliterator&lt;P_IN&gt; spliterator,boolean flattenTree): Node.OfLong</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Collect, in parallel, elements output from a long-valued pipeline and describe those elements with a ‘Node.OfLong’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>collectDouble(PipelineHelper&lt;Double&gt; helper,Spliterator&lt;P_IN&gt; spliterator,boolean flattenTree): Node.OfDouble</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Collect, in parallel, elements output from n double-valued pipeline and describe those elements with a ‘Node.OfDouble’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flatten(Node&lt;T&gt; node, IntFunction&lt;T[]&gt; generator): Node<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flatten, in parallel, a ‘Node’.  A flattened node is one that has no children.  If the node is already flat, it is simply returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flattenInt(Node.OfInt node): Node.OfInt</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flatten, in parallel, a ‘Node.OfInt’.  A flattened node is one that has no children.  If the node is already flat, it is simply returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flattenLong(Node.OfLong node): Node.OfLong</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flatten, in parallel, a ‘Node.OfLong’.  A flattened node is one that has no children.  If the node is already flat, it is simply returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flattenDouble(Node.OfDouble node): Node.OfDouble</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flatten, in parallel, a ‘Node.OfDouble’.  A flattened node is one that has no children.  If the node is already flat, it is simply returned.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Nodes-EmptyNode"><a href="#Nodes-EmptyNode" class="headerlink" title="Nodes$EmptyNode"></a><a href="./Nodes$EmptyNode.html">Nodes$EmptyNode</a></h3><h3 id="Nodes-ArrayNode"><a href="#Nodes-ArrayNode" class="headerlink" title="Nodes$ArrayNode"></a><a href="./Nodes$ArrayNode.html">Nodes$ArrayNode</a></h3><h3 id="Nodes-CollectionNode"><a href="#Nodes-CollectionNode" class="headerlink" title="Nodes$CollectionNode"></a><a href="./Nodes$CollectionNode.html">Nodes$CollectionNode</a></h3><h3 id="Nodes-AbstractConcNode"><a href="#Nodes-AbstractConcNode" class="headerlink" title="Nodes$AbstractConcNode"></a><a href="./Nodes$AbstractConcNode.html">Nodes$AbstractConcNode</a></h3><h3 id="Nodes-ConcNode"><a href="#Nodes-ConcNode" class="headerlink" title="Nodes$ConcNode"></a><a href="./Nodes$ConcNode.html">Nodes$ConcNode</a></h3><h3 id="Nodes-InternalNodeSpliterator"><a href="#Nodes-InternalNodeSpliterator" class="headerlink" title="Nodes$InternalNodeSpliterator"></a><a href="./Nodes$InternalNodeSpliterator.html">Nodes$InternalNodeSpliterator</a></h3><h3 id="Nodes-FixedNodeBuilder"><a href="#Nodes-FixedNodeBuilder" class="headerlink" title="Nodes$FixedNodeBuilder"></a><a href="./Nodes$FixedNodeBuilder.html">Nodes$FixedNodeBuilder</a></h3><h3 id="Nodes-SpinedNodeBuilder"><a href="#Nodes-SpinedNodeBuilder" class="headerlink" title="Nodes$SpinedNodeBuilder"></a><a href="./Nodes$SpinedNodeBuilder.html">Nodes$SpinedNodeBuilder</a></h3><h3 id="Nodes-IntArrayNode"><a href="#Nodes-IntArrayNode" class="headerlink" title="Nodes$IntArrayNode"></a><a href="./Nodes$IntArrayNode.html">Nodes$IntArrayNode</a></h3><h3 id="Nodes-LongArrayNode"><a href="#Nodes-LongArrayNode" class="headerlink" title="Nodes$LongArrayNode"></a><a href="./Nodes$LongArrayNode.html">Nodes$LongArrayNode</a></h3><h3 id="Nodes-DoubleArrayNode"><a href="#Nodes-DoubleArrayNode" class="headerlink" title="Nodes$DoubleArrayNode"></a><a href="./Nodes$DoubleArrayNode.html">Nodes$DoubleArrayNode</a></h3><h3 id="Nodes-IntFixedNodeBuilder"><a href="#Nodes-IntFixedNodeBuilder" class="headerlink" title="Nodes$IntFixedNodeBuilder"></a><a href="./Nodes$IntFixedNodeBuilder.html">Nodes$IntFixedNodeBuilder</a></h3><h3 id="Nodes-LongFixedNodeBuilder"><a href="#Nodes-LongFixedNodeBuilder" class="headerlink" title="Nodes$LongFixedNodeBuilder"></a><a href="./Nodes$LongFixedNodeBuilder.html">Nodes$LongFixedNodeBuilder</a></h3><h3 id="Nodes-DoubleFixedNodeBuilder"><a href="#Nodes-DoubleFixedNodeBuilder" class="headerlink" title="Nodes$DoubleFixedNodeBuilder"></a><a href="./Nodes$DoubleFixedNodeBuilder.html">Nodes$DoubleFixedNodeBuilder</a></h3><h3 id="Nodes-IntSpinedNodeBuilder"><a href="#Nodes-IntSpinedNodeBuilder" class="headerlink" title="Nodes$IntSpinedNodeBuilder"></a><a href="./Nodes$IntSpinedNodeBuilder.html">Nodes$IntSpinedNodeBuilder</a></h3><h3 id="Nodes-LongSpinedNodeBuilder"><a href="#Nodes-LongSpinedNodeBuilder" class="headerlink" title="Nodes$LongSpinedNodeBuilder"></a><a href="./Nodes$LongSpinedNodeBuilder.html">Nodes$LongSpinedNodeBuilder</a></h3><h3 id="Nodes-DoubleSpinedNodeBuilder"><a href="#Nodes-DoubleSpinedNodeBuilder" class="headerlink" title="Nodes$DoubleSpinedNodeBuilder"></a><a href="./Nodes$DoubleSpinedNodeBuilder.html">Nodes$DoubleSpinedNodeBuilder</a></h3><h3 id="Nodes-SizedCollectorTask"><a href="#Nodes-SizedCollectorTask" class="headerlink" title="Nodes$SizedCollectorTask"></a><a href="./Nodes$SizedCollectorTask.html">Nodes$SizedCollectorTask</a></h3><h3 id="Nodes-ToArrayTask"><a href="#Nodes-ToArrayTask" class="headerlink" title="Nodes$ToArrayTask"></a><a href="./Nodes$ToArrayTask.html">Nodes$ToArrayTask</a></h3><h3 id="Nodes-CollectorTask"><a href="#Nodes-CollectorTask" class="headerlink" title="Nodes$CollectorTask"></a><a href="./Nodes$CollectorTask.html">Nodes$CollectorTask</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

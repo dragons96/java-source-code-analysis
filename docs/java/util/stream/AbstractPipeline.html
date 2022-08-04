@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/stream/AbstractPipeline.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AbstractPipeline-lt-E-IN-E-OUT-S-extends-BaseStream-lt-E-OUT-S-gt-gt"><a href="#AbstractPipeline-lt-E-IN-E-OUT-S-extends-BaseStream-lt-E-OUT-S-gt-gt" class="headerlink" title="AbstractPipeline&lt;E_IN, E_OUT, S extends BaseStream&lt;E_OUT, S&gt;&gt;"></a>AbstractPipeline&lt;E_IN, E_OUT, S extends BaseStream&lt;E_OUT, S&gt;&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.stream.AbstractPipeline&lt;E_IN, E_OUT, S extends BaseStream&lt;E_OUT, S&gt;&gt;</strong></td>
+<td align="center">abstract class</td>
+<td align="center">PipelineHelper&lt;E_OUT&gt;</td>
+<td align="center">BaseStream&lt;E_OUT,S&gt;</td>
+<td align="center">&lt;E_IN&gt;,&lt;E_OUT&gt;,&lt;S extends BaseStream&lt;E_OUT&gt;,&lt;S&gt;</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MSG_STREAM_LINKED: String</strong></td>
+<td align="center">“stream has already been operated upon or closed”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MSG_CONSUMED: String</strong></td>
+<td align="center">“source already consumed or closed”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sourceOrOpFlags: int</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The operation flags for the intermediate operation represented by this pipeline object.</td>
+</tr>
+<tr>
+<td align="center"><strong>depth: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of intermediate operations between this pipeline object and the stream source if sequential, or the previous stateful if parallel. Valid at the point of pipeline preparation for evaluation.</td>
+</tr>
+<tr>
+<td align="center"><strong>combinedFlags: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The combined source and operation flags for the source and all operations up to and including the operation represented by this pipeline object. Valid at the point of pipeline preparation for evaluation.</td>
+</tr>
+<tr>
+<td align="center"><strong>sourceSpliterator: Spliterator&lt;?&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The source spliterator. Only valid for the head pipeline. Before the pipeline is consumed if non-null then {@code sourceSupplier} must be null. After the pipeline is consumed if non-null then is set to null.</td>
+</tr>
+<tr>
+<td align="center"><strong>sourceSupplier: Supplier&lt;? extends Spliterator&lt;?&gt;&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The source supplier. Only valid for the head pipeline. Before the pipeline is consumed if non-null then {@code sourceSpliterator} must be null. After the pipeline is consumed if non-null then is set to null.</td>
+</tr>
+<tr>
+<td align="center"><strong>linkedOrConsumed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">True if this pipeline has been linked or consumed</td>
+</tr>
+<tr>
+<td align="center"><strong>sourceAnyStateful: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">True if there are any stateful ops in the pipeline; only valid for the source stage.</td>
+</tr>
+<tr>
+<td align="center"><strong>sourceCloseAction: Runnable</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallel: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">True if pipeline is parallel, otherwise the pipeline is sequential; only valid for the source stage.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>AbstractPipeline(Supplier&lt;? extends Spliterator&lt;?&gt;&gt; source,int sourceFlags, boolean parallel)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor for the head of a stream pipeline.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AbstractPipeline(Spliterator&lt;?&gt; source,int sourceFlags, boolean parallel)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor for the head of a stream pipeline.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AbstractPipeline(AbstractPipeline&lt;?, E_IN, ?&gt; previousStage, int opFlags)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor for appending an intermediate operation stage onto an existing pipeline.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>evaluate(TerminalOp&lt;E_OUT, R&gt; terminalOp): R</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Evaluate the pipeline with a terminal operation to produce a result.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>evaluateToArrayNode(IntFunction&lt;E_OUT[]&gt; generator): Node<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Collect the elements output from the pipeline stage.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sourceStageSpliterator(): Spliterator<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the source stage spliterator if this pipeline stage is the source stage.  The pipeline is consumed after this method is called and returns successfully.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>sequential(): S</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallel(): S</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>onClose(Runnable closeHandler): S</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(): Spliterator<E_OUT></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isParallel(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getStreamFlags(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the composition of stream flags of the stream source and all intermediate operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sourceSpliterator(int terminalFlags): Spliterator&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the source spliterator for this pipeline stage.  For a sequential or stateless parallel pipeline, this is the source spliterator.  For a stateful parallel pipeline, this is a spliterator describing the results of all computations up to and including the most recent stateful operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSourceShape(): StreamShape</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>exactOutputSizeIfKnown(Spliterator&lt;P_IN&gt; spliterator): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>wrapAndCopyInto(S sink, Spliterator&lt;P_IN&gt; spliterator): S</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyInto(Sink&lt;P_IN&gt; wrappedSink, Spliterator&lt;P_IN&gt; spliterator): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyIntoWithCancel(Sink&lt;P_IN&gt; wrappedSink, Spliterator&lt;P_IN&gt; spliterator): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getStreamAndOpFlags(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isOrdered(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>wrapSink(Sink&lt;E_OUT&gt; sink): Sink<P_IN></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>wrapSpliterator(Spliterator&lt;P_IN&gt; sourceSpliterator): Spliterator<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>evaluate(Spliterator&lt;P_IN&gt; spliterator,boolean flatten,IntFunction&lt;E_OUT[]&gt; generator): Node<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOutputShape(): StreamShape</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Get the output shape of the pipeline.  If the pipeline is the head, then it’s output shape corresponds to the shape of the source. Otherwise, it’s output shape corresponds to the output shape of the associated operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>evaluateToNode(PipelineHelper&lt;E_OUT&gt; helper,Spliterator&lt;P_IN&gt; spliterator,boolean flattenTree,IntFunction&lt;E_OUT[]&gt; generator): Node<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Collect elements output from a pipeline into a Node that holds elements of this shape.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>wrap(PipelineHelper&lt;E_OUT&gt; ph,Supplier&lt;Spliterator&lt;P_IN&gt;&gt; supplier,boolean isParallel): Spliterator<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Create a spliterator that wraps a source spliterator, compatible with this stream shape, and operations associated with a ‘PipelineHelper’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lazySpliterator(Supplier&lt;? extends Spliterator&lt;E_OUT&gt;&gt; supplier): Spliterator<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Create a lazy spliterator that wraps and obtains the supplied the spliterator when a method is invoked on the lazy spliterator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEachWithCancel(Spliterator&lt;E_OUT&gt; spliterator, Sink&lt;E_OUT&gt; sink): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Traverse the elements of a spliterator compatible with this stream shape, pushing those elements into a sink.   If the sink requests cancellation, no further elements will be pulled or pushed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeNodeBuilder(long exactSizeIfKnown,IntFunction&lt;E_OUT[]&gt; generator): Node.Builder<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Make a node builder compatible with this stream shape.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>opIsStateful(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns whether this operation is stateful or not.  If it is stateful, then the method ‘#opEvaluateParallel(PipelineHelper, java.util.Spliterator, java.util.function.IntFunction)’ must be overridden.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>opWrapSink(int flags, Sink&lt;E_OUT&gt; sink): Sink<E_IN></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Accepts a ‘Sink’ which will receive the results of this operation, and return a ‘Sink’ which accepts elements of the input type of this operation and which performs the operation, passing the results to the provided ‘Sink’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>opEvaluateParallel(PipelineHelper&lt;E_OUT&gt; helper,Spliterator&lt;P_IN&gt; spliterator,IntFunction&lt;E_OUT[]&gt; generator): Node<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs a parallel evaluation of the operation using the specified ‘PipelineHelper’ which describes the upstream intermediate operations.  Only called on stateful operations.  If ‘#opIsStateful()’ returns true then implementations must override the default implementation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>opEvaluateParallelLazy(PipelineHelper&lt;E_OUT&gt; helper,Spliterator&lt;P_IN&gt; spliterator): Spliterator<E_OUT></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ describing a parallel evaluation of the operation, using the specified ‘PipelineHelper’ which describes the upstream intermediate operations.  Only called on stateful operations. It is not necessary (though acceptable) to do a full computation of the result here; it is preferable, if possible, to describe the result via a lazily evaluated spliterator.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

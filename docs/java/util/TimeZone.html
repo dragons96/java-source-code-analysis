@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/TimeZone.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="TimeZone"><a href="#TimeZone" class="headerlink" title="TimeZone"></a>TimeZone</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.TimeZone</strong></td>
+<td align="center">class</td>
+<td align="center">Serializable,Cloneable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SHORT: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A style specifier for <code>getDisplayName()</code> indicating a short name, such as “PST.” @see #LONG @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>LONG: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A style specifier for <code>getDisplayName()</code> indicating a long name, such as “Pacific Standard Time.” @see #SHORT @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>ONE_MINUTE: int</strong></td>
+<td align="center">60*1000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ONE_HOUR: int</strong></td>
+<td align="center">60*ONE_MINUTE</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ONE_DAY: int</strong></td>
+<td align="center">24*ONE_HOUR</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">3581463369166924961L</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NO_TIMEZONE: TimeZone</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The null constant as a TimeZone.</td>
+</tr>
+<tr>
+<td align="center"><strong>: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string identifier of this <code>TimeZone</code>.  This is a programmatic identifier used internally to look up <code>TimeZone</code> objects from the system table and also to map them to their localized display names.  <code>ID</code> values are unique in the system table but may not be for dynamically created zones. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultTimeZone: TimeZone</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: String</strong></td>
+<td align="center">“GMT”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mainAppContextDefault: TimeZone</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>TimeZone()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sole constructor.  (For invocation by subclass constructors, typically implicit.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(int era, int year, int month, int day,int dayOfWeek, int milliseconds): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the time zone offset, for current date, modified in case of daylight savings. This is the offset to add to UTC to get local time. <p> This method returns a historically correct offset if an underlying <code>TimeZone</code> implementation subclass supports historical Daylight Saving Time schedule and GMT offset changes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(long date): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the offset of this time zone from UTC at the specified date. If Daylight Saving Time is in effect at the specified date, the offset value is adjusted with the amount of daylight saving. <p> This method returns a historically correct offset value if an underlying TimeZone implementation subclass supports historical Daylight Saving Time schedule and GMT offset changes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffsets(long date, int[] offsets)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the raw GMT offset and the amount of daylight saving of this time zone at the given time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRawOffset(int offsetMillis): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the base time zone offset to GMT. This is the offset to add to UTC to get local time. <p> If an underlying <code>TimeZone</code> implementation subclass supports historical GMT offset changes, the specified GMT offset is set as the latest GMT offset and the difference from the known latest GMT offset value is used to adjust all historical GMT offset values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRawOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the amount of time in milliseconds to add to UTC to get standard time in this time zone. Because this value is not affected by daylight saving time, it is called <I>raw offset</I>. <p> If an underlying <code>TimeZone</code> implementation subclass supports historical GMT offset changes, the method returns the raw offset value of the current date. In Honolulu, for example, its raw offset changed from GMT-10:30 to GMT-10:00 in 1947, and this method always returns -36000000 milliseconds (i.e., -10 hours).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getID(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the ID of this time zone.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setID(String ID): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the time zone ID. This does not change any other data in the time zone object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a long standard time name of this ‘TimeZone’ suitable for presentation to the user in the default locale.  <p>This method is equivalent to: <blockquote><pre> getDisplayName(false, '#LONG', Locale.getDefault('Locale.Category#DISPLAY')) </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayName(Locale locale): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a long standard time name of this ‘TimeZone’ suitable for presentation to the user in the specified ‘locale’.  <p>This method is equivalent to: <blockquote><pre> getDisplayName(false, '#LONG', locale) </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayName(boolean daylight, int style): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a name in the specified ‘style’ of this ‘TimeZone’ suitable for presentation to the user in the default locale. If the specified ‘daylight’ is ‘true’, a Daylight Saving Time name is returned (even if this ‘TimeZone’ doesn’t observe Daylight Saving Time). Otherwise, a Standard Time name is returned.  <p>This method is equivalent to: <blockquote><pre> getDisplayName(daylight, style, Locale.getDefault('Locale.Category#DISPLAY')) </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayName(boolean daylight, int style, Locale locale): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a name in the specified ‘style’ of this ‘TimeZone’ suitable for presentation to the user in the specified ‘locale’. If the specified ‘daylight’ is ‘true’, a Daylight Saving Time name is returned (even if this ‘TimeZone’ doesn’t observe Daylight Saving Time). Otherwise, a Standard Time name is returned.  <p>When looking up a time zone name, the ‘ResourceBundle.Control#getCandidateLocales(String,Locale) default <code>Locale</code> search path of <code>ResourceBundle</code>‘ derived from the specified ‘locale’ is used. (No ‘ResourceBundle.Control#getFallbackLocale(String,Locale) fallback <code>Locale</code>‘ search is performed.) If a time zone name in any ‘Locale’ of the search path, including ‘Locale#ROOT’, is found, the name is returned. Otherwise, a string in the <a href="#NormalizedCustomID">normalized custom ID format</a> is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayNames(String id, Locale locale): String[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDSTSavings(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the amount of time to be added to local standard time to get local wall clock time.  <p>The default implementation returns 3600000 milliseconds (i.e., one hour) if a call to ‘#useDaylightTime()’ returns ‘true’. Otherwise, 0 (zero) is returned.  <p>If an underlying ‘TimeZone’ implementation subclass supports historical and future Daylight Saving Time schedule changes, this method returns the amount of saving time of the last known Daylight Saving Time rule that can be a future prediction.  <p>If the amount of saving time at any given time stamp is required, construct a ‘Calendar’ with this ‘TimeZone’ and the time stamp, and call ‘Calendar#get(int) Calendar.get’’(‘’Calendar#DST_OFFSET’’)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useDaylightTime(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Queries if this ‘TimeZone’ uses Daylight Saving Time.  <p>If an underlying ‘TimeZone’ implementation subclass supports historical and future Daylight Saving Time schedule changes, this method refers to the last known Daylight Saving Time rule that can be a future prediction and may not be the same as the current rule. Consider calling ‘#observesDaylightTime()’ if the current rule should also be taken into account.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>observesDaylightTime(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this ‘TimeZone’ is currently in Daylight Saving Time, or if a transition from Standard Time to Daylight Saving Time occurs at any future time.  <p>The default implementation returns ‘true’ if ‘useDaylightTime()’ or ‘inDaylightTime(new Date())’ returns ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inDaylightTime(Date date): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Queries if the given ‘date’ is in Daylight Saving Time in this time zone.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeZone(String ID): TimeZone</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the <code>TimeZone</code> for the given ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeZone(ZoneId zoneId): TimeZone</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the ‘TimeZone’ for the given ‘zoneId’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>toZoneId(): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘TimeZone’ object to a ‘ZoneId’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeZone(String ID, boolean fallback): TimeZone</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAvailableIDs(int rawOffset): String[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the available IDs according to the given time zone offset in milliseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAvailableIDs(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all the available IDs supported.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemTimeZoneID(String javaHome): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the platform defined TimeZone ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemGMTOffsetID(): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the custom time zone ID based on the GMT offset of the platform. (e.g., “GMT+08:00”)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefault(): TimeZone</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the default ‘TimeZone’ of the Java virtual machine. If the cached default ‘TimeZone’ is available, its clone is returned. Otherwise, the method takes the following steps to determine the default time zone.  <ul> <li>Use the ‘user.timezone’ property value as the default time zone ID if it’s available.</li> <li>Detect the platform time zone ID. The source of the platform time zone and ID mapping may vary with implementation.</li> <li>Use ‘GMT’ as the last resort if the given or detected time zone ID is unknown.</li> </ul>  <p>The default ‘TimeZone’ created from the ID is cached, and its clone is returned. The ‘user.timezone’ property value is set to the ID upon return.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultRef(): TimeZone</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the reference to the default TimeZone object. This method doesn’t create a clone.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultZone(): TimeZone</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDefault(TimeZone zone): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the ‘TimeZone’ that is returned by the ‘getDefault’ method. ‘zone’ is cached. If ‘zone’ is null, the cached default ‘TimeZone’ is cleared. This method doesn’t change the value of the ‘user.timezone’ property.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasSameRules(TimeZone other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if this zone has the same rule and offset as another zone. That is, if this zone differs only in ID, if at all.  Returns false if the other zone is null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a copy of this <code>TimeZone</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseCustomTimeZone(String id): TimeZone</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses a custom time zone identifier and returns a corresponding zone. This method doesn’t support the RFC 822 time zone format. (e.g., +hhmm)</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

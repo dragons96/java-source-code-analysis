@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/IdentityHashMap.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="IdentityHashMap-lt-K-V-gt"><a href="#IdentityHashMap-lt-K-V-gt" class="headerlink" title="IdentityHashMap&lt;K,V&gt;"></a>IdentityHashMap&lt;K,V&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.IdentityHashMap&lt;K,V&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractMap&lt;K,V&gt;implements</td>
+<td align="center">Map&lt;K,V&gt;,java.io.Serializable,Cloneable</td>
+<td align="center">&lt;K&gt;,&lt;V&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DEFAULT_CAPACITY: int</strong></td>
+<td align="center">32</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The initial capacity used by the no-args constructor. MUST be a power of two.  The value 32 corresponds to the (specified) expected maximum size of 21, given a load factor of 2&#x2F;3.</td>
+</tr>
+<tr>
+<td align="center"><strong>MINIMUM_CAPACITY: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum capacity, used if a lower value is implicitly specified by either of the constructors with arguments.  The value 4 corresponds to an expected maximum size of 2, given a load factor of 2&#x2F;3. MUST be a power of two.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAXIMUM_CAPACITY: int</strong></td>
+<td align="center">1 &lt;&lt; 29</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum capacity, used if a higher value is implicitly specified by either of the constructors with arguments. MUST be a power of two &lt;&#x3D; 1&lt;&lt;29.  In fact, the map can hold no more than MAXIMUM_CAPACITY-1 items because it has to have at least one slot with the key &#x3D;&#x3D; null in order to avoid infinite loops in get(), put(), remove()</td>
+</tr>
+<tr>
+<td align="center"><strong>table: Object[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The table, resized as necessary. Length MUST always be a power of two.</td>
+</tr>
+<tr>
+<td align="center"><strong>size: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of key-value mappings contained in this identity hash map.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>modCount: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of modifications, to support fast-fail iterators</td>
+</tr>
+<tr>
+<td align="center"><strong>NULL_KEY: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Value representing null keys inside tables.</td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet: Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This field is initialized to contain an instance of the entry set view the first time this view is requested.  The view is stateless, so there’s no reason to create more than one.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">8188218128353913216L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>maskNull(Object key): Object</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Use NULL_KEY for key if it is null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unmaskNull(Object key): Object</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns internal representation of null key back to caller as null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>IdentityHashMap()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new, empty identity hash map with a default expected maximum size (21).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>IdentityHashMap(int expectedMaxSize)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new, empty map with the specified expected maximum size. Putting more than the expected number of key-value mappings into the map may cause the internal data structure to grow, which may be somewhat time-consuming.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>capacity(int expectedMaxSize): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the appropriate capacity for the given expected maximum size. Returns the smallest power of two between MINIMUM_CAPACITY and MAXIMUM_CAPACITY, inclusive, that is greater than (3 expectedMaxSize)&#x2F;2, if such a number exists.  Otherwise returns MAXIMUM_CAPACITY.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>init(int initCapacity): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes object to be an empty map with the specified initial capacity, which is assumed to be a power of two between MINIMUM_CAPACITY and MAXIMUM_CAPACITY inclusive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>IdentityHashMap(Map&lt;? extends K, ? extends V&gt; m)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new identity hash map containing the keys-value mappings in the specified map.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of key-value mappings in this identity hash map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if this identity hash map contains no key-value mappings.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hash(Object x, int length): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns index for Object x.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextKeyIndex(int i, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Circularly traverses table of size len.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value to which the specified key is mapped, or ‘null’ if this map contains no mapping for the key.  <p>More formally, if this map contains a mapping from a key ‘k’ to a value ‘v’ such that ‘(key &#x3D;&#x3D; k)’, then this method returns ‘v’; otherwise it returns ‘null’.  (There can be at most one such mapping.)  <p>A return value of ‘null’ does not <i>necessarily</i> indicate that the map contains no mapping for the key; it’s also possible that the map explicitly maps the key to ‘null’. The ‘#containsKey containsKey’ operation may be used to distinguish these two cases.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsKey(Object key): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether the specified object reference is a key in this identity hash map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsValue(Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether the specified object reference is a value in this identity hash map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsMapping(Object key, Object value): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if the specified key-value mapping is in the map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>put(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Associates the specified value with the specified key in this identity hash map.  If the map previously contained a mapping for the key, the old value is replaced.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resize(int newCapacity): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resizes the table if necessary to hold given capacity.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putAll(Map&lt;? extends K, ? extends V&gt; m): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies all of the mappings from the specified map to this map. These mappings will replace any mappings that this map had for any of the keys currently in the specified map.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the mapping for this key from this map if present.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeMapping(Object key, Object value): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified key-value mapping from the map if it is present.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>closeDeletion(int d): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rehash all possibly-colliding entries following a deletion. This preserves the linear-probe collision properties required by get, put, etc.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the mappings from this map. The map will be empty after this call returns.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the specified object with this map for equality.  Returns <tt>true</tt> if the given object is also a map and the two maps represent identical object-reference mappings.  More formally, this map is equal to another map <tt>m</tt> if and only if <tt>this.entrySet().equals(m.entrySet())</tt>.  <p><b>Owing to the reference-equality-based semantics of this map it is possible that the symmetry and transitivity requirements of the <tt>Object.equals</tt> contract may be violated if this map is compared to a normal map.  However, the <tt>Object.equals</tt> contract is guaranteed to hold among <tt>IdentityHashMap</tt> instances.</b></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code value for this map.  The hash code of a map is defined to be the sum of the hash codes of each entry in the map’s <tt>entrySet()</tt> view.  This ensures that <tt>m1.equals(m2)</tt> implies that <tt>m1.hashCode()&#x3D;&#x3D;m2.hashCode()</tt> for any two <tt>IdentityHashMap</tt> instances <tt>m1</tt> and <tt>m2</tt>, as required by the general contract of ‘Object#hashCode’.  <p><b>Owing to the reference-equality-based semantics of the <tt>Map.Entry</tt> instances in the set returned by this map’s <tt>entrySet</tt> method, it is possible that the contractual requirement of <tt>Object.hashCode</tt> mentioned in the previous paragraph will be violated if one of the two objects being compared is an <tt>IdentityHashMap</tt> instance and the other is a normal map.</b></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shallow copy of this identity hash map: the keys and values themselves are not cloned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keySet(): Set<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an identity-based set view of the keys contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress, the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt> methods.  It does not support the <tt>add</tt> or <tt>addAll</tt> methods.  <p><b>While the object returned by this method implements the <tt>Set</tt> interface, it does <i>not</i> obey <tt>Set’s</tt> general contract.  Like its backing map, the set returned by this method defines element equality as reference-equality rather than object-equality.  This affects the behavior of its <tt>contains</tt>, <tt>remove</tt>, <tt>containsAll</tt>, <tt>equals</tt>, and <tt>hashCode</tt> methods.</b>  <p><b>The <tt>equals</tt> method of the returned set returns <tt>true</tt> only if the specified object is a set containing exactly the same object references as the returned set.  The symmetry and transitivity requirements of the <tt>Object.equals</tt> contract may be violated if the set returned by this method is compared to a normal set.  However, the <tt>Object.equals</tt> contract is guaranteed to hold among sets returned by this method.</b>  <p>The <tt>hashCode</tt> method of the returned set returns the sum of the <i>identity hashcodes</i> of the elements in the set, rather than the sum of their hashcodes.  This is mandated by the change in the semantics of the <tt>equals</tt> method, in order to enforce the general contract of the <tt>Object.hashCode</tt> method among sets returned by this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>values(): Collection<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Collection’ view of the values contained in this map. The collection is backed by the map, so changes to the map are reflected in the collection, and vice-versa.  If the map is modified while an iteration over the collection is in progress, the results of the iteration are undefined.  The collection supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Collection.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> methods.  It does not support the <tt>add</tt> or <tt>addAll</tt> methods.  <p><b>While the object returned by this method implements the <tt>Collection</tt> interface, it does <i>not</i> obey <tt>Collection’s</tt> general contract.  Like its backing map, the collection returned by this method defines element equality as reference-equality rather than object-equality.  This affects the behavior of its <tt>contains</tt>, <tt>remove</tt> and <tt>containsAll</tt> methods.</b></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet(): Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the mappings contained in this map. Each element in the returned set is a reference-equality-based <tt>Map.Entry</tt>.  The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress, the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> methods.  It does not support the <tt>add</tt> or <tt>addAll</tt> methods.  <p>Like the backing map, the <tt>Map.Entry</tt> objects in the set returned by this method define key and value equality as reference-equality rather than object-equality.  This affects the behavior of the <tt>equals</tt> and <tt>hashCode</tt> methods of these <tt>Map.Entry</tt> objects.  A reference-equality based <tt>Map.Entry e</tt> is equal to an object <tt>o</tt> if and only if <tt>o</tt> is a <tt>Map.Entry</tt> and <tt>e.getKey()&#x3D;&#x3D;o.getKey() &amp;&amp; e.getValue()&#x3D;&#x3D;o.getValue()</tt>.  To accommodate these equals semantics, the <tt>hashCode</tt> method returns <tt>System.identityHashCode(e.getKey()) ^ System.identityHashCode(e.getValue())</tt>.  <p><b>Owing to the reference-equality-based semantics of the <tt>Map.Entry</tt> instances in the set returned by this method, it is possible that the symmetry and transitivity requirements of the ‘Object#equals(Object)’ contract may be violated if any of the entries in the set is compared to a normal map entry, or if the set returned by this method is compared to a set of normal map entries (such as would be returned by a call to this method on a normal map).  However, the <tt>Object.equals</tt> contract is guaranteed to hold among identity-based map entries, and among sets of such entries. </b></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Saves the state of the <tt>IdentityHashMap</tt> instance to a stream (i.e., serializes it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes the <tt>IdentityHashMap</tt> instance from a stream (i.e., deserializes it).</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(BiConsumer&lt;? super K, ? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The put method for readObject.  It does not resize the table, update modCount, etc.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="IdentityHashMap-IdentityHashMapIterator"><a href="#IdentityHashMap-IdentityHashMapIterator" class="headerlink" title="IdentityHashMap$IdentityHashMapIterator"></a><a href="./IdentityHashMap$IdentityHashMapIterator.html">IdentityHashMap$IdentityHashMapIterator</a></h3><h3 id="IdentityHashMap-KeyIterator"><a href="#IdentityHashMap-KeyIterator" class="headerlink" title="IdentityHashMap$KeyIterator"></a><a href="./IdentityHashMap$KeyIterator.html">IdentityHashMap$KeyIterator</a></h3><h3 id="IdentityHashMap-ValueIterator"><a href="#IdentityHashMap-ValueIterator" class="headerlink" title="IdentityHashMap$ValueIterator"></a><a href="./IdentityHashMap$ValueIterator.html">IdentityHashMap$ValueIterator</a></h3><h3 id="IdentityHashMap-EntryIterator"><a href="#IdentityHashMap-EntryIterator" class="headerlink" title="IdentityHashMap$EntryIterator"></a><a href="./IdentityHashMap$EntryIterator.html">IdentityHashMap$EntryIterator</a></h3><h3 id="IdentityHashMap-KeySet"><a href="#IdentityHashMap-KeySet" class="headerlink" title="IdentityHashMap$KeySet"></a><a href="./IdentityHashMap$KeySet.html">IdentityHashMap$KeySet</a></h3><h3 id="IdentityHashMap-Values"><a href="#IdentityHashMap-Values" class="headerlink" title="IdentityHashMap$Values"></a><a href="./IdentityHashMap$Values.html">IdentityHashMap$Values</a></h3><h3 id="IdentityHashMap-EntrySet"><a href="#IdentityHashMap-EntrySet" class="headerlink" title="IdentityHashMap$EntrySet"></a><a href="./IdentityHashMap$EntrySet.html">IdentityHashMap$EntrySet</a></h3><h3 id="IdentityHashMap-IdentityHashMapSpliterator"><a href="#IdentityHashMap-IdentityHashMapSpliterator" class="headerlink" title="IdentityHashMap$IdentityHashMapSpliterator"></a><a href="./IdentityHashMap$IdentityHashMapSpliterator.html">IdentityHashMap$IdentityHashMapSpliterator</a></h3><h3 id="IdentityHashMap-KeySpliterator"><a href="#IdentityHashMap-KeySpliterator" class="headerlink" title="IdentityHashMap$KeySpliterator"></a><a href="./IdentityHashMap$KeySpliterator.html">IdentityHashMap$KeySpliterator</a></h3><h3 id="IdentityHashMap-ValueSpliterator"><a href="#IdentityHashMap-ValueSpliterator" class="headerlink" title="IdentityHashMap$ValueSpliterator"></a><a href="./IdentityHashMap$ValueSpliterator.html">IdentityHashMap$ValueSpliterator</a></h3><h3 id="IdentityHashMap-EntrySpliterator"><a href="#IdentityHashMap-EntrySpliterator" class="headerlink" title="IdentityHashMap$EntrySpliterator"></a><a href="./IdentityHashMap$EntrySpliterator.html">IdentityHashMap$EntrySpliterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

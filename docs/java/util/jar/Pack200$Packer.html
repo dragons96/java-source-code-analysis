@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/jar/Pack200$Packer.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Pack200-Packer"><a href="#Pack200-Packer" class="headerlink" title="Pack200$Packer"></a>Pack200$Packer</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.jar.Pack200$Packer</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SEGMENT_LIMIT: String</strong></td>
+<td align="center">“pack.segment.limit”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This property is a numeral giving the estimated target size N (in bytes) of each archive segment. If a single input file requires more than N bytes, it will be given its own archive segment. <p> As a special case, a value of -1 will produce a single large segment with all input files, while a value of 0 will produce one segment for each class. Larger archive segments result in less fragmentation and better compression, but processing them requires more memory. <p> The size of each segment is estimated by counting the size of each input file to be transmitted in the segment, along with the size of its name and other transmitted properties. <p> The default is -1, which means the packer will always create a single segment output file. In cases where extremely large output files are generated, users are strongly encouraged to use segmenting or break up the input file into smaller JARs. <p> A 10Mb JAR packed without this limit will typically pack about 10% smaller, but the packer may require a larger Java heap (about ten times the segment limit).</td>
+</tr>
+<tr>
+<td align="center"><strong>KEEP_FILE_ORDER: String</strong></td>
+<td align="center">“pack.keep.file.order”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If this property is set to {@link #TRUE}, the packer will transmit all elements in their original order within the source archive. <p> If it is set to {@link #FALSE}, the packer may reorder elements, and also remove JAR directory entries, which carry no useful information for Java applications. (Typically this enables better compression.) <p> The default is {@link #TRUE}, which preserves the input information, but may cause the transmitted archive to be larger than necessary.</td>
+</tr>
+<tr>
+<td align="center"><strong>EFFORT: String</strong></td>
+<td align="center">“pack.effort”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If this property is set to a single decimal digit, the packer will use the indicated amount of effort in compressing the archive. Level 1 may produce somewhat larger size and faster compression speed, while level 9 will take much longer but may produce better compression. <p> The special value 0 instructs the packer to copy through the original JAR file directly, with no compression.  The JSR 200 standard requires any unpacker to understand this special case as a pass-through of the entire archive. <p> The default is 5, investing a modest amount of time to produce reasonable compression.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFLATE_HINT: String</strong></td>
+<td align="center">“pack.deflate.hint”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If this property is set to {@link #TRUE} or {@link #FALSE}, the packer will set the deflation hint accordingly in the output archive, and will not transmit the individual deflation hints of archive elements. <p> If this property is set to the special string {@link #KEEP}, the packer will attempt to determine an independent deflation hint for each available element of the input archive, and transmit this hint separately. <p> The default is {@link #KEEP}, which preserves the input information, but may cause the transmitted archive to be larger than necessary. <p> It is up to the unpacker implementation to take action upon the hint to suitably compress the elements of the resulting unpacked jar. <p> The deflation hint of a ZIP or JAR element indicates whether the element was deflated or stored directly.</td>
+</tr>
+<tr>
+<td align="center"><strong>MODIFICATION_TIME: String</strong></td>
+<td align="center">“pack.modification.time”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If this property is set to the special string {@link #LATEST}, the packer will attempt to determine the latest modification time, among all the available entries in the original archive or the latest modification time of all the available entries in each segment. This single value will be transmitted as part of the segment and applied to all the entries in each segment, {@link #SEGMENT_LIMIT}. <p> This can marginally decrease the transmitted size of the archive, at the expense of setting all installed files to a single date. <p> If this property is set to the special string {@link #KEEP}, the packer transmits a separate modification time for each input element. <p> The default is {@link #KEEP}, which preserves the input information, but may cause the transmitted archive to be larger than necessary. <p> It is up to the unpacker implementation to take action to suitably set the modification time of each element of its output file. @see #SEGMENT_LIMIT</td>
+</tr>
+<tr>
+<td align="center"><strong>PASS_FILE_PFX: String</strong></td>
+<td align="center">“pack.pass.file.”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates that a file should be passed through bytewise, with no compression.  Multiple files may be specified by specifying additional properties with distinct strings appended, to make a family of properties with the common prefix. <p> There is no pathname transformation, except that the system file separator is replaced by the JAR file separator ‘&#x2F;‘. <p> The resulting file names must match exactly as strings with their occurrences in the JAR file. <p> If a property value is a directory name, all files under that directory will be passed also. <p> Examples: <pre>{@code Map p = packer.properties(); p.put(PASS_FILE_PFX+0, "mutants/Rogue.class"); p.put(PASS_FILE_PFX+1, "mutants/Wolverine.class"); p.put(PASS_FILE_PFX+2, "mutants/Storm.class"); # Pass all files in an entire directory hierarchy: p.put(PASS_FILE_PFX+3, "police/"); }</pre></td>
+</tr>
+<tr>
+<td align="center"><strong>UNKNOWN_ATTRIBUTE: String</strong></td>
+<td align="center">“pack.unknown.attribute”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates the action to take when a class-file containing an unknown attribute is encountered.  Possible values are the strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS}. <p> The string {@link #ERROR} means that the pack operation as a whole will fail, with an exception of type <code>IOException</code>. The string {@link #STRIP} means that the attribute will be dropped. The string {@link #PASS} means that the whole class-file will be passed through (as if it were a resource file) without compression, with  a suitable warning. This is the default value for this property. <p> Examples: <pre>{@code Map p = pack200.getProperties(); p.put(UNKNOWN_ATTRIBUTE, ERROR); p.put(UNKNOWN_ATTRIBUTE, STRIP); p.put(UNKNOWN_ATTRIBUTE, PASS); }</pre></td>
+</tr>
+<tr>
+<td align="center"><strong>CLASS_ATTRIBUTE_PFX: String</strong></td>
+<td align="center">“pack.class.attribute.”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">When concatenated with a class attribute name, indicates the format of that attribute, using the layout language specified in the JSR 200 specification. <p> For example, the effect of this option is built in: <code>pack.class.attribute.SourceFile=RUH</code>. <p> The special strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS} are also allowed, with the same meaning as {@link #UNKNOWN_ATTRIBUTE}. This provides a way for users to request that specific attributes be refused, stripped, or passed bitwise (with no class compression). <p> Code like this might be used to support attributes for JCOV: <pre><code> Map p = packer.properties(); p.put(CODE_ATTRIBUTE_PFX+"CoverageTable",       "NH[PHHII]"); p.put(CODE_ATTRIBUTE_PFX+"CharacterRangeTable", "NH[PHPOHIIH]"); p.put(CLASS_ATTRIBUTE_PFX+"SourceID",           "RUH"); p.put(CLASS_ATTRIBUTE_PFX+"CompilationID",      "RUH"); </code></pre> <p> Code like this might be used to strip debugging attributes: <pre><code> Map p = packer.properties(); p.put(CODE_ATTRIBUTE_PFX+"LineNumberTable",    STRIP); p.put(CODE_ATTRIBUTE_PFX+"LocalVariableTable", STRIP); p.put(CLASS_ATTRIBUTE_PFX+"SourceFile",        STRIP); </code></pre></td>
+</tr>
+<tr>
+<td align="center"><strong>FIELD_ATTRIBUTE_PFX: String</strong></td>
+<td align="center">“pack.field.attribute.”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">When concatenated with a field attribute name, indicates the format of that attribute. For example, the effect of this option is built in: <code>pack.field.attribute.Deprecated=</code>. The special strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS} are also allowed. @see #CLASS_ATTRIBUTE_PFX</td>
+</tr>
+<tr>
+<td align="center"><strong>METHOD_ATTRIBUTE_PFX: String</strong></td>
+<td align="center">“pack.method.attribute.”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">When concatenated with a method attribute name, indicates the format of that attribute. For example, the effect of this option is built in: <code>pack.method.attribute.Exceptions=NH[RCH]</code>. The special strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS} are also allowed. @see #CLASS_ATTRIBUTE_PFX</td>
+</tr>
+<tr>
+<td align="center"><strong>CODE_ATTRIBUTE_PFX: String</strong></td>
+<td align="center">“pack.code.attribute.”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">When concatenated with a code attribute name, indicates the format of that attribute. For example, the effect of this option is built in: <code>pack.code.attribute.LocalVariableTable=NH[PHOHRUHRSHH]</code>. The special strings {@link #ERROR}, {@link #STRIP}, and {@link #PASS} are also allowed. @see #CLASS_ATTRIBUTE_PFX</td>
+</tr>
+<tr>
+<td align="center"><strong>PROGRESS: String</strong></td>
+<td align="center">“pack.progress”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The unpacker’s progress as a percentage, as periodically updated by the unpacker. Values of 0 - 100 are normal, and -1 indicates a stall. Progress can be monitored by polling the value of this property. <p> At a minimum, the unpacker must set progress to 0 at the beginning of a packing operation, and to 100 at the end.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEEP: String</strong></td>
+<td align="center">“keep”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “keep”, a possible value for certain properties. @see #DEFLATE_HINT @see #MODIFICATION_TIME</td>
+</tr>
+<tr>
+<td align="center"><strong>PASS: String</strong></td>
+<td align="center">“pass”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “pass”, a possible value for certain properties. @see #UNKNOWN_ATTRIBUTE @see #CLASS_ATTRIBUTE_PFX @see #FIELD_ATTRIBUTE_PFX @see #METHOD_ATTRIBUTE_PFX @see #CODE_ATTRIBUTE_PFX</td>
+</tr>
+<tr>
+<td align="center"><strong>STRIP: String</strong></td>
+<td align="center">“strip”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “strip”, a possible value for certain properties. @see #UNKNOWN_ATTRIBUTE @see #CLASS_ATTRIBUTE_PFX @see #FIELD_ATTRIBUTE_PFX @see #METHOD_ATTRIBUTE_PFX @see #CODE_ATTRIBUTE_PFX</td>
+</tr>
+<tr>
+<td align="center"><strong>ERROR: String</strong></td>
+<td align="center">“error”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “error”, a possible value for certain properties. @see #UNKNOWN_ATTRIBUTE @see #CLASS_ATTRIBUTE_PFX @see #FIELD_ATTRIBUTE_PFX @see #METHOD_ATTRIBUTE_PFX @see #CODE_ATTRIBUTE_PFX</td>
+</tr>
+<tr>
+<td align="center"><strong>TRUE: String</strong></td>
+<td align="center">“true”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “true”, a possible value for certain properties. @see #KEEP_FILE_ORDER @see #DEFLATE_HINT</td>
+</tr>
+<tr>
+<td align="center"><strong>FALSE: String</strong></td>
+<td align="center">“false”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “false”, a possible value for certain properties. @see #KEEP_FILE_ORDER @see #DEFLATE_HINT</td>
+</tr>
+<tr>
+<td align="center"><strong>LATEST: String</strong></td>
+<td align="center">“latest”</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The string “latest”, a possible value for certain properties. @see #MODIFICATION_TIME</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>properties()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Get the set of this engine’s properties. This set is a “live view”, so that changing its contents immediately affects the Packer engine, and changes from the engine (such as progress indications) are immediately visible in the map.  <p>The property map may contain pre-defined implementation specific and default properties.  Users are encouraged to read the information and fully understand the implications, before modifying pre-existing properties. <p> Implementation specific properties are prefixed with a package name associated with the implementor, beginning with <tt>com.</tt> or a similar prefix. All property names beginning with <tt>pack.</tt> and <tt>unpack.</tt> are reserved for use by this API. <p> Unknown properties may be ignored or rejected with an unspecified error, and invalid entries may cause an unspecified error to be thrown.  <p> The returned map implements all optional ‘SortedMap’ operations</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pack(JarFile in, OutputStream out)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Takes a JarFile and converts it into a Pack200 archive. <p> Closes its input but not its output.  (Pack200 archives are appendable.)</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>pack(JarInputStream in, OutputStream out)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Takes a JarInputStream and converts it into a Pack200 archive. <p> Closes its input but not its output.  (Pack200 archives are appendable.) <p> The modification time and deflation hint attributes are not available, for the JAR manifest file and its containing directory.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyChangeListener(PropertyChangeListener listener): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers a listener for PropertyChange events on the properties map. This is typically used by applications to update a progress bar.  <p> The default implementation of this method does nothing and has no side-effects.</p>  <p><b>WARNING:</b> This method is omitted from the interface declaration in all subset Profiles of Java SE that do not include the ‘java.beans’ package. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removePropertyChangeListener(PropertyChangeListener listener): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Remove a listener for PropertyChange events, added by the ‘#addPropertyChangeListener’.  <p> The default implementation of this method does nothing and has no side-effects.</p>  <p><b>WARNING:</b> This method is omitted from the interface declaration in all subset Profiles of Java SE that do not include the ‘java.beans’ package. </p></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="外部类"><a href="#外部类" class="headerlink" title="外部类"></a>外部类</h4><h3 id="Pack200"><a href="#Pack200" class="headerlink" title="Pack200"></a><a href="./Pack200.html">Pack200</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

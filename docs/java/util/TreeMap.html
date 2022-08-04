@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/TreeMap.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="TreeMap-lt-K-V-gt"><a href="#TreeMap-lt-K-V-gt" class="headerlink" title="TreeMap&lt;K,V&gt;"></a>TreeMap&lt;K,V&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.TreeMap&lt;K,V&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractMap&lt;K,V&gt;implements</td>
+<td align="center">NavigableMap&lt;K,V&gt;,Cloneable,java.io.Serializable</td>
+<td align="center">&lt;K&gt;,&lt;V&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>comparator: Comparator&lt;? super K&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The comparator used to maintain order in this tree map, or null if it uses the natural ordering of its keys.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>root: Entry&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>size: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of entries in the tree</td>
+</tr>
+<tr>
+<td align="center"><strong>modCount: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of structural modifications to the tree.</td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet: EntrySet</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Fields initialized to contain an instance of the entry set view the first time this view is requested.  Views are stateless, so there’s no reason to create more than one.</td>
+</tr>
+<tr>
+<td align="center"><strong>navigableKeySet: KeySet&lt;K&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingMap: NavigableMap&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>UNBOUNDED: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Dummy value serving as unmatchable fence key for unbounded SubMapIterators</td>
+</tr>
+<tr>
+<td align="center"><strong>RED: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This class exists solely for the sake of serialization compatibility with previous releases of TreeMap that did not support NavigableMap.  It translates an old-version SubMap into a new-version AscendingSubMap. This class is never otherwise used.  @serial include</td>
+</tr>
+<tr>
+<td align="center"><strong>BLACK: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">919286545866124006L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>TreeMap()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new, empty tree map, using the natural ordering of its keys.  All keys inserted into the map must implement the ‘Comparable’ interface.  Furthermore, all such keys must be <em>mutually comparable</em>: ‘k1.compareTo(k2)’ must not throw a ‘ClassCastException’ for any keys ‘k1’ and ‘k2’ in the map.  If the user attempts to put a key into the map that violates this constraint (for example, the user attempts to put a string key into a map whose keys are integers), the ‘put(Object key, Object value)’ call will throw a ‘ClassCastException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TreeMap(Comparator&lt;? super K&gt; comparator)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new, empty tree map, ordered according to the given comparator.  All keys inserted into the map must be <em>mutually comparable</em> by the given comparator: ‘comparator.compare(k1, k2)’ must not throw a ‘ClassCastException’ for any keys ‘k1’ and ‘k2’ in the map.  If the user attempts to put a key into the map that violates this constraint, the ‘put(Object key, Object value)’ call will throw a ‘ClassCastException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TreeMap(Map&lt;? extends K, ? extends V&gt; m)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new tree map containing the same mappings as the given map, ordered according to the <em>natural ordering</em> of its keys. All keys inserted into the new map must implement the ‘Comparable’ interface.  Furthermore, all such keys must be <em>mutually comparable</em>: ‘k1.compareTo(k2)’ must not throw a ‘ClassCastException’ for any keys ‘k1’ and ‘k2’ in the map.  This method runs in n*log(n) time.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>TreeMap(SortedMap&lt;K, ? extends V&gt; m)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new tree map containing the same mappings and using the same ordering as the specified sorted map.  This method runs in linear time.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of key-value mappings in this map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsKey(Object key): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this map contains a mapping for the specified key.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>containsValue(Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this map maps one or more keys to the specified value.  More formally, returns ‘true’ if and only if this map contains at least one mapping to a value ‘v’ such that ‘(value&#x3D;&#x3D;null ? v&#x3D;&#x3D;null : value.equals(v))’.  This operation will probably require time linear in the map size for most implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value to which the specified key is mapped, or ‘null’ if this map contains no mapping for the key.  <p>More formally, if this map contains a mapping from a key ‘k’ to a value ‘v’ such that ‘key’ compares equal to ‘k’ according to the map’s ordering, then this method returns ‘v’; otherwise it returns ‘null’. (There can be at most one such mapping.)  <p>A return value of ‘null’ does not <em>necessarily</em> indicate that the map contains no mapping for the key; it’s also possible that the map explicitly maps the key to ‘null’. The ‘#containsKey containsKey’ operation may be used to distinguish these two cases.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>comparator(): K&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>firstKey(): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>lastKey(): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>putAll(Map&lt;? extends K, ? extends V&gt; map): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies all of the mappings from the specified map to this map. These mappings replace any mappings that this map had for any of the keys currently in the specified map.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getEntry(Object key): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this map’s entry for the given key, or ‘null’ if the map does not contain an entry for the key.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getEntryUsingComparator(Object key): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Version of getEntry using comparator. Split off from getEntry for performance. (This is not worth doing for most methods, that are less dependent on comparator performance, but is worthwhile here.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCeilingEntry(K key): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the entry corresponding to the specified key; if no such entry exists, returns the entry for the least key greater than the specified key; if no such entry exists (i.e., the greatest key in the Tree is less than the specified key), returns ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFloorEntry(K key): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the entry corresponding to the specified key; if no such entry exists, returns the entry for the greatest key less than the specified key; if no such entry exists, returns ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHigherEntry(K key): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the entry for the least key greater than the specified key; if no such entry exists, returns the entry for the least key greater than the specified key; if no such entry exists returns ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLowerEntry(K key): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the entry for the greatest key less than the specified key; if no such entry exists (i.e., the least key in the Tree is greater than the specified key), returns ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>put(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Associates the specified value with the specified key in this map. If the map previously contained a mapping for the key, the old value is replaced.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the mapping for this key from this TreeMap if present.</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the mappings from this map. The map will be empty after this call returns.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shallow copy of this ‘TreeMap’ instance. (The keys and values themselves are not cloned.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>firstEntry(): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastEntry(): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pollFirstEntry(): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pollLastEntry(): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lowerEntry(K key): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>lowerKey(K key): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>floorEntry(K key): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>floorKey(K key): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>ceilingEntry(K key): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>ceilingKey(K key): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>higherEntry(K key): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>higherKey(K key): K</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>keySet(): Set<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the keys contained in this map.  <p>The set’s iterator returns the keys in ascending order. The set’s spliterator is <em><a href="Spliterator.html#binding">late-binding</a></em>, <em>fail-fast</em>, and additionally reports ‘Spliterator#SORTED’ and ‘Spliterator#ORDERED’ with an encounter order that is ascending key order.  The spliterator’s comparator (see ‘java.util.Spliterator#getComparator()’) is ‘null’ if the tree map’s comparator (see ‘#comparator()’) is ‘null’. Otherwise, the spliterator’s comparator is the same as or imposes the same total ordering as the tree map’s comparator.  <p>The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress (except through the iterator’s own ‘remove’ operation), the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the ‘Iterator.remove’, ‘Set.remove’, ‘removeAll’, ‘retainAll’, and ‘clear’ operations.  It does not support the ‘add’ or ‘addAll’ operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>navigableKeySet(): NavigableSet<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingKeySet(): NavigableSet<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>values(): Collection<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Collection’ view of the values contained in this map.  <p>The collection’s iterator returns the values in ascending order of the corresponding keys. The collection’s spliterator is <em><a href="Spliterator.html#binding">late-binding</a></em>, <em>fail-fast</em>, and additionally reports ‘Spliterator#ORDERED’ with an encounter order that is ascending order of the corresponding keys.  <p>The collection is backed by the map, so changes to the map are reflected in the collection, and vice-versa.  If the map is modified while an iteration over the collection is in progress (except through the iterator’s own ‘remove’ operation), the results of the iteration are undefined.  The collection supports element removal, which removes the corresponding mapping from the map, via the ‘Iterator.remove’, ‘Collection.remove’, ‘removeAll’, ‘retainAll’ and ‘clear’ operations.  It does not support the ‘add’ or ‘addAll’ operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet(): Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the mappings contained in this map.  <p>The set’s iterator returns the entries in ascending key order. The sets’s spliterator is <em><a href="Spliterator.html#binding">late-binding</a></em>, <em>fail-fast</em>, and additionally reports ‘Spliterator#SORTED’ and ‘Spliterator#ORDERED’ with an encounter order that is ascending key order.  <p>The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress (except through the iterator’s own ‘remove’ operation, or through the ‘setValue’ operation on a map entry returned by the iterator) the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the ‘Iterator.remove’, ‘Set.remove’, ‘removeAll’, ‘retainAll’ and ‘clear’ operations.  It does not support the ‘add’ or ‘addAll’ operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingMap(): V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subMap(K fromKey, boolean fromInclusive,K toKey,   boolean toInclusive): NavigableMap&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>headMap(K toKey, boolean inclusive): NavigableMap&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>tailMap(K fromKey, boolean inclusive): NavigableMap&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>subMap(K fromKey, K toKey): SortedMap&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>headMap(K toKey): SortedMap&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>tailMap(K fromKey): SortedMap&lt;K,V&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>replace(K key, V oldValue, V newValue): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replace(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(BiConsumer&lt;? super K, ? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keyIterator()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unlike Values and EntrySet, the KeySet class is static, delegating to a NavigableMap to allow use by SubMaps, which outweighs the ugliness of needing type-tests for the following Iterator methods that are defined appropriately in main versus submap classes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingKeyIterator()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compare(Object k1, Object k2): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares two keys using the correct comparison method for this TreeMap.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valEquals(Object o1, Object o2): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Test two values for equality.  Differs from o1.equals(o2) only in that it copes with ‘null’ o1 properly.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>exportEntry(TreeMap.Entry&lt;K,V&gt; e): Map.Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return SimpleImmutableEntry for entry, or null if null</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keyOrNull(TreeMap.Entry&lt;K,V&gt; e): K</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return key for entry, or null if null</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>key(Entry&lt;K,?&gt; e): K</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the key corresponding to the specified Entry.</td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFirstEntry(): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the first Entry in the TreeMap (according to the TreeMap’s key-sort function).  Returns null if the TreeMap is empty.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLastEntry(): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the last Entry in the TreeMap (according to the TreeMap’s key-sort function).  Returns null if the TreeMap is empty.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>successor(Entry&lt;K,V&gt; t): TreeMap.Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the successor of the specified Entry, or null if no such.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>predecessor(Entry&lt;K,V&gt; t): Entry&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the predecessor of the specified Entry, or null if no such.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>colorOf(Entry&lt;K,V&gt; p): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Balancing operations.  Implementations of rebalancings during insertion and deletion are slightly different than the CLR version.  Rather than using dummy nilnodes, we use a set of accessors that deal properly with null.  They are used to avoid messiness surrounding nullness checks in the main algorithms.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parentOf(Entry&lt;K,V&gt; p): Entry&lt;K,V&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setColor(Entry&lt;K,V&gt; p, boolean c): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>leftOf(Entry&lt;K,V&gt; p): Entry&lt;K,V&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rightOf(Entry&lt;K,V&gt; p): Entry&lt;K,V&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotateLeft(Entry&lt;K,V&gt; p): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">From CLR</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotateRight(Entry&lt;K,V&gt; p): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">From CLR</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fixAfterInsertion(Entry&lt;K,V&gt; x): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">From CLR</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deleteEntry(Entry&lt;K,V&gt; p): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Delete node p, and then rebalance the tree.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fixAfterDeletion(Entry&lt;K,V&gt; x): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">From CLR</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Save the state of the ‘TreeMap’ instance to a stream (i.e., serialize it).</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(final java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitute the ‘TreeMap’ instance from a stream (i.e., deserialize it).</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>readTreeSet(int size, java.io.ObjectInputStream s, V defaultVal)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Intended to be called only from TreeSet.readObject</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>addAllForTreeSet(SortedSet&lt;? extends K&gt; set, V defaultVal)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Intended to be called only from TreeSet.addAll</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>buildFromSorted(int size, Iterator&lt;?&gt; it,java.io.ObjectInputStream str,V defaultVal): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Linear time tree building algorithm from sorted data.  Can accept keys and&#x2F;or values from iterator or stream. This leads to too many parameters, but seems better than alternatives.  The four formats that this method accepts are:  1) An iterator of Map.Entries.  (it !&#x3D; null, defaultVal &#x3D;&#x3D; null). 2) An iterator of keys.         (it !&#x3D; null, defaultVal !&#x3D; null). 3) A stream of alternating serialized keys and values. (it &#x3D;&#x3D; null, defaultVal &#x3D;&#x3D; null). 4) A stream of serialized keys. (it &#x3D;&#x3D; null, defaultVal !&#x3D; null).  It is assumed that the comparator of the TreeMap is already set prior to calling this method.</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>buildFromSorted(int level, int lo, int hi,int redLevel,Iterator&lt;?&gt; it,java.io.ObjectInputStream str,V defaultVal): Entry&lt;K,V&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recursive “helper method” that does the real work of the previous method.  Identically named parameters have identical definitions.  Additional parameters are documented below. It is assumed that the comparator and size fields of the TreeMap are already set prior to calling this method.  (It ignores both fields.)</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>computeRedLevel(int sz): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find the level down to which to assign all nodes BLACK.  This is the last <code>full&#39; level of the complete binary tree produced by buildTree. The remaining nodes are colored RED. (This makes a </code>nice’ set of color assignments wrt future insertions.) This level number is computed by finding the number of splits needed to reach the zeroeth node.  (The answer is ~lg(N), but in any case must be computed by same quick O(lg(N)) loop.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keySpliteratorFor(NavigableMap&lt;K,?&gt; m): Spliterator<K></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Currently, we support Spliterator-based versions only for the full map, in either plain of descending form, otherwise relying on defaults because size estimation for submaps would dominate costs. The type tests needed to check these for key views are not very nice but avoid disrupting existing class structures. Callers must use plain default spliterators if this returns null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keySpliterator(): Spliterator<K></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendingKeySpliterator(): Spliterator<K></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="TreeMap-Values"><a href="#TreeMap-Values" class="headerlink" title="TreeMap$Values"></a><a href="./TreeMap$Values.html">TreeMap$Values</a></h3><h3 id="TreeMap-EntrySet"><a href="#TreeMap-EntrySet" class="headerlink" title="TreeMap$EntrySet"></a><a href="./TreeMap$EntrySet.html">TreeMap$EntrySet</a></h3><h3 id="TreeMap-KeySet"><a href="#TreeMap-KeySet" class="headerlink" title="TreeMap$KeySet"></a><a href="./TreeMap$KeySet.html">TreeMap$KeySet</a></h3><h3 id="TreeMap-PrivateEntryIterator"><a href="#TreeMap-PrivateEntryIterator" class="headerlink" title="TreeMap$PrivateEntryIterator"></a><a href="./TreeMap$PrivateEntryIterator.html">TreeMap$PrivateEntryIterator</a></h3><h3 id="TreeMap-EntryIterator"><a href="#TreeMap-EntryIterator" class="headerlink" title="TreeMap$EntryIterator"></a><a href="./TreeMap$EntryIterator.html">TreeMap$EntryIterator</a></h3><h3 id="TreeMap-ValueIterator"><a href="#TreeMap-ValueIterator" class="headerlink" title="TreeMap$ValueIterator"></a><a href="./TreeMap$ValueIterator.html">TreeMap$ValueIterator</a></h3><h3 id="TreeMap-KeyIterator"><a href="#TreeMap-KeyIterator" class="headerlink" title="TreeMap$KeyIterator"></a><a href="./TreeMap$KeyIterator.html">TreeMap$KeyIterator</a></h3><h3 id="TreeMap-DescendingKeyIterator"><a href="#TreeMap-DescendingKeyIterator" class="headerlink" title="TreeMap$DescendingKeyIterator"></a><a href="./TreeMap$DescendingKeyIterator.html">TreeMap$DescendingKeyIterator</a></h3><h3 id="TreeMap-NavigableSubMap"><a href="#TreeMap-NavigableSubMap" class="headerlink" title="TreeMap$NavigableSubMap"></a><a href="./TreeMap$NavigableSubMap.html">TreeMap$NavigableSubMap</a></h3><h3 id="TreeMap-AscendingSubMap"><a href="#TreeMap-AscendingSubMap" class="headerlink" title="TreeMap$AscendingSubMap"></a><a href="./TreeMap$AscendingSubMap.html">TreeMap$AscendingSubMap</a></h3><h3 id="TreeMap-DescendingSubMap"><a href="#TreeMap-DescendingSubMap" class="headerlink" title="TreeMap$DescendingSubMap"></a><a href="./TreeMap$DescendingSubMap.html">TreeMap$DescendingSubMap</a></h3><h3 id="TreeMap-SubMap"><a href="#TreeMap-SubMap" class="headerlink" title="TreeMap$SubMap"></a><a href="./TreeMap$SubMap.html">TreeMap$SubMap</a></h3><h3 id="TreeMap-Entry"><a href="#TreeMap-Entry" class="headerlink" title="TreeMap$Entry"></a><a href="./TreeMap$Entry.html">TreeMap$Entry</a></h3><h3 id="TreeMap-TreeMapSpliterator"><a href="#TreeMap-TreeMapSpliterator" class="headerlink" title="TreeMap$TreeMapSpliterator"></a><a href="./TreeMap$TreeMapSpliterator.html">TreeMap$TreeMapSpliterator</a></h3><h3 id="TreeMap-KeySpliterator"><a href="#TreeMap-KeySpliterator" class="headerlink" title="TreeMap$KeySpliterator"></a><a href="./TreeMap$KeySpliterator.html">TreeMap$KeySpliterator</a></h3><h3 id="TreeMap-DescendingKeySpliterator"><a href="#TreeMap-DescendingKeySpliterator" class="headerlink" title="TreeMap$DescendingKeySpliterator"></a><a href="./TreeMap$DescendingKeySpliterator.html">TreeMap$DescendingKeySpliterator</a></h3><h3 id="TreeMap-ValueSpliterator"><a href="#TreeMap-ValueSpliterator" class="headerlink" title="TreeMap$ValueSpliterator"></a><a href="./TreeMap$ValueSpliterator.html">TreeMap$ValueSpliterator</a></h3><h3 id="TreeMap-EntrySpliterator"><a href="#TreeMap-EntrySpliterator" class="headerlink" title="TreeMap$EntrySpliterator"></a><a href="./TreeMap$EntrySpliterator.html">TreeMap$EntrySpliterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/prefs/WindowsPreferences.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="WindowsPreferences"><a href="#WindowsPreferences" class="headerlink" title="WindowsPreferences"></a>WindowsPreferences</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.prefs.WindowsPreferences</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractPreferences</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>logger: PlatformLogger</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Logger for error messages</td>
+</tr>
+<tr>
+<td align="center"><strong>WINDOWS_ROOT_PATH: byte[]</strong></td>
+<td align="center">stringToByteArray(“Software\JavaSoft\Prefs”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Windows registry path to <tt>Preferences</tt>‘s root nodes.</td>
+</tr>
+<tr>
+<td align="center"><strong>HKEY_CURRENT_USER: int</strong></td>
+<td align="center">0x80000001</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Windows handles to <tt>HKEY_CURRENT_USER</tt> and <tt>HKEY_LOCAL_MACHINE</tt> hives.</td>
+</tr>
+<tr>
+<td align="center"><strong>HKEY_LOCAL_MACHINE: int</strong></td>
+<td align="center">0x80000002</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>USER_ROOT_NATIVE_HANDLE: int</strong></td>
+<td align="center">HKEY_CURRENT_USER</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Mount point for <tt>Preferences</tt>‘  user root.</td>
+</tr>
+<tr>
+<td align="center"><strong>SYSTEM_ROOT_NATIVE_HANDLE: int</strong></td>
+<td align="center">HKEY_LOCAL_MACHINE</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Mount point for <tt>Preferences</tt>‘  system root.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_WINDOWS_PATH_LENGTH: int</strong></td>
+<td align="center">256</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum byte-encoded path length for Windows native functions, ending <tt>null</tt> character not included.</td>
+</tr>
+<tr>
+<td align="center"><strong>userRoot: Preferences</strong></td>
+<td align="center">new WindowsPreferences(USER_ROOT_NATIVE_HANDLE, WINDOWS_ROOT_PATH)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">User root node.</td>
+</tr>
+<tr>
+<td align="center"><strong>systemRoot: Preferences</strong></td>
+<td align="center">new WindowsPreferences(SYSTEM_ROOT_NATIVE_HANDLE, WINDOWS_ROOT_PATH)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">System root node.</td>
+</tr>
+<tr>
+<td align="center"><strong>ERROR_SUCCESS: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Windows error codes.</td>
+</tr>
+<tr>
+<td align="center"><strong>ERROR_FILE_NOT_FOUND: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ERROR_ACCESS_DENIED: int</strong></td>
+<td align="center">5</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NATIVE_HANDLE: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constants used to interpret returns of native functions</td>
+</tr>
+<tr>
+<td align="center"><strong>ERROR_CODE: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SUBKEYS_NUMBER: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VALUES_NUMBER: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_KEY_LENGTH: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_VALUE_NAME_LENGTH: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DISPOSITION: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>REG_CREATED_NEW_KEY: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>REG_OPENED_EXISTING_KEY: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NULL_NATIVE_HANDLE: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DELETE: int</strong></td>
+<td align="center">0x10000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Windows security masks</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_QUERY_VALUE: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_SET_VALUE: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_CREATE_SUB_KEY: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_ENUMERATE_SUB_KEYS: int</strong></td>
+<td align="center">8</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_READ: int</strong></td>
+<td align="center">0x20019</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_WRITE: int</strong></td>
+<td align="center">0x20006</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_ALL_ACCESS: int</strong></td>
+<td align="center">0xf003f</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>INIT_SLEEP_TIME: int</strong></td>
+<td align="center">50</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initial time between registry access attempts, in ms. The time is doubled after each failing attempt (except the first).</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_ATTEMPTS: int</strong></td>
+<td align="center">5</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum number of registry access attempts.</td>
+</tr>
+<tr>
+<td align="center"><strong>isBackingStoreAvailable: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">BackingStore availability flag.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>WindowsRegOpenKey(int hKey, byte[] subKey,int securityMask): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegOpenKey()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegOpenKey1(int hKey, byte[] subKey,int securityMask): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegOpenKey() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegCloseKey(int hKey): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegCloseKey()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegCreateKeyEx(int hKey, byte[] subKey): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegCreateKeyEx()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegCreateKeyEx1(int hKey, byte[] subKey): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegCreateKeyEx() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegDeleteKey(int hKey, byte[] subKey): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegDeleteKey()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegFlushKey(int hKey): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegFlushKey()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegFlushKey1(int hKey): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegFlushKey() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegQueryValueEx(int hKey,byte[] valueName): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegQueryValueEx()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegSetValueEx(int hKey, byte[] valueName,byte[] value): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegSetValueEx()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegSetValueEx1(int hKey, byte[] valueName,byte[] value): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegSetValueEx() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegDeleteValue(int hKey, byte[] valueName): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegDeleteValue()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegQueryInfoKey(int hKey): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegQueryInfoKey()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegQueryInfoKey1(int hKey): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegQueryInfoKey() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegEnumKeyEx(int hKey, int subKeyIndex,int maxKeyLength): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegEnumKeyEx()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegEnumKeyEx1(int hKey, int subKeyIndex,int maxKeyLength): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegEnumKeyEx() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegEnumValue(int hKey, int valueIndex,int maxValueNameLength): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java wrapper for Windows registry API RegEnumValue()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsRegEnumValue1(int hKey, int valueIndex,int maxValueNameLength): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retries RegEnumValueEx() MAX_ATTEMPTS times before giving up.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsPreferences(WindowsPreferences parent, String name)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <tt>WindowsPreferences</tt> node, creating underlying Windows registry node and all its Windows parents, if they are not yet created. Logs a warning message, if Windows Registry is unavailable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WindowsPreferences(int rootNativeHandle, byte[] rootDirectory)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a root node creating the underlying Windows registry node and all of its parents, if they have not yet been created. Logs a warning message, if Windows Registry is unavailable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>windowsAbsolutePath(): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns Windows absolute path of the current node as a byte array. Java “&#x2F;“ separator is transformed into Windows “&quot;.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>openKey(int securityMask): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Opens current node’s underlying Windows registry key using a given security mask.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>openKey(int mask1, int mask2): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Opens current node’s underlying Windows registry key using a given security mask.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>openKey(byte[] windowsAbsolutePath, int mask1, int mask2): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Opens Windows registry key at a given absolute path using a given security mask.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>openKey(int nativeHandle, byte[] windowsRelativePath,int mask1, int mask2): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Opens Windows registry key at a given relative path with respect to a given Windows registry key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>closeKey(int nativeHandle): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closes Windows registry key. Logs a warning if Windows registry is unavailable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putSpi(String javaName, String value): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>putSpi()</tt> method. Puts name-value pair into the underlying Windows registry node. Logs a warning, if Windows registry is unavailable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSpi(String javaName): String</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>getSpi()</tt> method. Gets a string value from the underlying Windows registry node. Logs a warning, if Windows registry is unavailable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeSpi(String key): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>removeSpi()</tt> method. Deletes a string name-value pair from the underlying Windows registry node, if this value still exists. Logs a warning, if Windows registry is unavailable or key has already been deleted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keysSpi(): String[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>keysSpi()</tt> method. Gets value names from the underlying Windows registry node. Throws a BackingStoreException and logs a warning, if Windows registry is unavailable.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>childrenNamesSpi(): String[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>childrenNamesSpi()</tt> method. Calls Windows registry to retrive children of this node. Throws a BackingStoreException and logs a warning message, if Windows registry is not available.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>flush(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>Preferences</tt> <tt>flush()</tt> method. Flushes Windows registry changes to disk. Throws a BackingStoreException and logs a warning message if Windows registry is not available.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>sync(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>Preferences</tt> <tt>sync()</tt> method. Flushes Windows registry changes to disk. Equivalent to flush().</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>childSpi(String name): AbstractPreferences</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>childSpi()</tt> method. Constructs a child node with a given name and creates its underlying Windows registry node, if it does not exist. Logs a warning message, if Windows Registry is unavailable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNodeSpi(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements <tt>AbstractPreferences</tt> <tt>removeNodeSpi()</tt> method. Deletes underlying Windows registry node. Throws a BackingStoreException and logs a warning, if Windows registry is not available.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>toJavaName(byte[] windowsNameArray): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts value’s or node’s name from its byte array representation to java string. Two encodings, simple and altBase64 are used. See ‘#toWindowsName(String) toWindowsName()’ for a detailed description of encoding conventions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toJavaAlt64Name(String windowsName): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts value’s or node’s name from its Windows representation to java string, using altBase64 encoding. See ‘#toWindowsName(String) toWindowsName()’ for a detailed description of encoding conventions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toWindowsName(String javaName): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts value’s or node’s name to its Windows representation as a byte-encoded string. Two encodings, simple and altBase64 are used. <p> <i>Simple</i> encoding is used, if java string does not contain any characters less, than 0x0020, or greater, than 0x007f. Simple encoding adds “&#x2F;“ character to capital letters, i.e. “A” is encoded as “&#x2F;A”. Character ‘&#39; is encoded as ‘ ‘&#x2F;‘ is encoded as ‘&#39;. The constructed string is converted to byte array by truncating the highest byte and adding the terminating <tt>null</tt> character. <p> <i>altBase64</i>  encoding is used, if java string does contain at least one character less, than 0x0020, or greater, than 0x007f. This encoding is marked by setting first two bytes of the Windows string to ‘&#x2F;!’. The java name is then encoded using byteArrayToAltBase64() method from Base64 class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toWindowsAlt64Name(String javaName): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts value’s or node’s name to its Windows representation as a byte-encoded string, using altBase64 encoding. See ‘#toWindowsName(String) toWindowsName()’ for a detailed description of encoding conventions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toJavaValueString(byte[] windowsNameArray): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts value string from its Windows representation to java string.  See ‘#toWindowsValueString(String) toWindowsValueString()’ for the description of the encoding algorithm.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toWindowsValueString(String javaName): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts value string to it Windows representation. as a byte-encoded string. Encoding algorithm adds “&#x2F;“ character to capital letters, i.e. “A” is encoded as “&#x2F;A”. Character ‘&#39; is encoded as ‘ ‘&#x2F;‘ is encoded as  ‘&#39;. Then encoding scheme similar to jdk’s native2ascii converter is used to convert java string to a byte array of ASCII characters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rootNativeHandle(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns native handle for the top Windows node for this node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stringToByteArray(String str): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this java string as a null-terminated byte array</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>byteArrayToString(byte[] array): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts a null-terminated byte array to java string</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flushSpi(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Empty, never used implementation  of AbstractPreferences.flushSpi().</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>syncSpi(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Empty, never used implementation  of AbstractPreferences.flushSpi().</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>logger(): PlatformLogger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

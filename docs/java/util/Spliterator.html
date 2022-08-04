@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/Spliterator.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Spliterator"><a href="#Spliterator" class="headerlink" title="Spliterator"></a>Spliterator<T></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.Spliterator&lt;T&gt;</strong></td>
+<td align="center">interface</td>
+<td align="center">&lt;T&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ORDERED: int</strong></td>
+<td align="center">0x00000010</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that an encounter order is defined for elements. If so, this Spliterator guarantees that method {@link #trySplit} splits a strict prefix of elements, that method {@link #tryAdvance} steps by one element in prefix order, and that {@link #forEachRemaining} performs actions in encounter order.  <p>A {@link Collection} has an encounter order if the corresponding {@link Collection#iterator} documents an order. If so, the encounter order is the same as the documented order. Otherwise, a collection does not have an encounter order.  @apiNote Encounter order is guaranteed to be ascending index order for any {@link List}. But no order is guaranteed for hash-based collections such as {@link HashSet}. Clients of a Spliterator that reports {@code ORDERED} are expected to preserve ordering constraints in non-commutative parallel computations.</td>
+</tr>
+<tr>
+<td align="center"><strong>DISTINCT: int</strong></td>
+<td align="center">0x00000001</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that, for each pair of encountered elements {@code x, y}, {@code !x.equals(y)}. This applies for example, to a Spliterator based on a {@link Set}.</td>
+</tr>
+<tr>
+<td align="center"><strong>SORTED: int</strong></td>
+<td align="center">0x00000004</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that encounter order follows a defined sort order. If so, method {@link #getComparator()} returns the associated Comparator, or {@code null} if all elements are {@link Comparable} and are sorted by their natural ordering.  <p>A Spliterator that reports {@code SORTED} must also report {@code ORDERED}.  @apiNote The spliterators for {@code Collection} classes in the JDK that implement {@link NavigableSet} or {@link SortedSet} report {@code SORTED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>SIZED: int</strong></td>
+<td align="center">0x00000040</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that the value returned from {@code estimateSize()} prior to traversal or splitting represents a finite size that, in the absence of structural source modification, represents an exact count of the number of elements that would be encountered by a complete traversal.  @apiNote Most Spliterators for Collections, that cover all elements of a {@code Collection} report this characteristic. Sub-spliterators, such as those for {@link HashSet}, that cover a sub-set of elements and approximate their reported size do not.</td>
+</tr>
+<tr>
+<td align="center"><strong>NONNULL: int</strong></td>
+<td align="center">0x00000100</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that the source guarantees that encountered elements will not be {@code null}. (This applies, for example, to most concurrent collections, queues, and maps.)</td>
+</tr>
+<tr>
+<td align="center"><strong>IMMUTABLE: int</strong></td>
+<td align="center">0x00000400</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that the element source cannot be structurally modified; that is, elements cannot be added, replaced, or removed, so such changes cannot occur during traversal. A Spliterator that does not report {@code IMMUTABLE} or {@code CONCURRENT} is expected to have a documented policy (for example throwing {@link ConcurrentModificationException}) concerning structural interference detected during traversal.</td>
+</tr>
+<tr>
+<td align="center"><strong>CONCURRENT: int</strong></td>
+<td align="center">0x00001000</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that the element source may be safely concurrently modified (allowing additions, replacements, and&#x2F;or removals) by multiple threads without external synchronization. If so, the Spliterator is expected to have a documented policy concerning the impact of modifications during traversal.  <p>A top-level Spliterator should not report both {@code CONCURRENT} and {@code SIZED}, since the finite size, if known, may change if the source is concurrently modified during traversal. Such a Spliterator is inconsistent and no guarantees can be made about any computation using that Spliterator. Sub-spliterators may report {@code SIZED} if the sub-split size is known and additions or removals to the source are not reflected when traversing.  @apiNote Most concurrent collections maintain a consistency policy guaranteeing accuracy with respect to elements present at the point of Spliterator construction, but possibly not reflecting subsequent additions or removals.</td>
+</tr>
+<tr>
+<td align="center"><strong>SUBSIZED: int</strong></td>
+<td align="center">0x00004000</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Characteristic value signifying that all Spliterators resulting from {@code trySplit()} will be both {@link #SIZED} and {@link #SUBSIZED}. (This means that all child Spliterators, whether direct or indirect, will be {@code SIZED}.)  <p>A Spliterator that does not report {@code SIZED} as required by {@code SUBSIZED} is inconsistent and no guarantees can be made about any computation using that Spliterator.  @apiNote Some spliterators, such as the top-level spliterator for an approximately balanced binary tree, will report {@code SIZED} but not {@code SUBSIZED}, since it is common to know the size of the entire tree but not the exact sizes of subtrees.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>tryAdvance(Consumer&lt;? super T&gt; action)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">If a remaining element exists, performs the given action on it, returning ‘true’; else returns ‘false’.  If this Spliterator is ‘#ORDERED’ the action is performed on the next element in encounter order.  Exceptions thrown by the action are relayed to the caller.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>forEachRemaining(Consumer&lt;? super T&gt; action): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Performs the given action for each remaining element, sequentially in the current thread, until all elements have been processed or the action throws an exception.  If this Spliterator is ‘#ORDERED’, actions are performed in encounter order.  Exceptions thrown by the action are relayed to the caller.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>trySplit()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">If this spliterator can be partitioned, returns a Spliterator covering elements, that will, upon return from this method, not be covered by this Spliterator.  <p>If this Spliterator is ‘#ORDERED’, the returned Spliterator must cover a strict prefix of the elements.  <p>Unless this Spliterator covers an infinite number of elements, repeated calls to ‘trySplit()’ must eventually return ‘null’. Upon non-null return: <ul> <li>the value reported for ‘estimateSize()’ before splitting, must, after splitting, be greater than or equal to ‘estimateSize()’ for this and the returned Spliterator; and</li> <li>if this Spliterator is ‘SUBSIZED’, then ‘estimateSize()’ for this spliterator before splitting must be equal to the sum of ‘estimateSize()’ for this and the returned Spliterator after splitting.</li> </ul>  <p>This method may return ‘null’ for any reason, including emptiness, inability to split after traversal has commenced, data structure constraints, and efficiency considerations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>estimateSize()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an estimate of the number of elements that would be encountered by a ‘#forEachRemaining’ traversal, or returns ‘Long#MAX_VALUE’ if infinite, unknown, or too expensive to compute.  <p>If this Spliterator is ‘#SIZED’ and has not yet been partially traversed or split, or this Spliterator is ‘#SUBSIZED’ and has not yet been partially traversed, this estimate must be an accurate count of elements that would be encountered by a complete traversal. Otherwise, this estimate may be arbitrarily inaccurate, but must decrease as specified across invocations of ‘#trySplit’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getExactSizeIfKnown(): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Convenience method that returns ‘#estimateSize()’ if this Spliterator is ‘#SIZED’, else ‘-1’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>characteristics()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a set of characteristics of this Spliterator and its elements. The result is represented as ORed values from ‘#ORDERED’, ‘#DISTINCT’, ‘#SORTED’, ‘#SIZED’, ‘#NONNULL’, ‘#IMMUTABLE’, ‘#CONCURRENT’, ‘#SUBSIZED’.  Repeated calls to ‘characteristics()’ on a given spliterator, prior to or in-between calls to ‘trySplit’, should always return the same result.  <p>If a Spliterator reports an inconsistent set of characteristics (either those returned from a single invocation or across multiple invocations), no guarantees can be made about any computation using this Spliterator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasCharacteristics(int characteristics): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns ‘true’ if this Spliterator’s ‘#characteristics’ contain all of the given characteristics.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComparator(): T&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">If this Spliterator’s source is ‘#SORTED’ by a ‘Comparator’, returns that ‘Comparator’. If the source is ‘SORTED’ in ‘Comparable natural order’, returns ‘null’.  Otherwise, if the source is not ‘SORTED’, throws ‘IllegalStateException’.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Spliterator-OfPrimitive"><a href="#Spliterator-OfPrimitive" class="headerlink" title="Spliterator$OfPrimitive"></a><a href="./Spliterator$OfPrimitive.html">Spliterator$OfPrimitive</a></h3><h3 id="Spliterator-OfInt"><a href="#Spliterator-OfInt" class="headerlink" title="Spliterator$OfInt"></a><a href="./Spliterator$OfInt.html">Spliterator$OfInt</a></h3><h3 id="Spliterator-OfLong"><a href="#Spliterator-OfLong" class="headerlink" title="Spliterator$OfLong"></a><a href="./Spliterator$OfLong.html">Spliterator$OfLong</a></h3><h3 id="Spliterator-OfDouble"><a href="#Spliterator-OfDouble" class="headerlink" title="Spliterator$OfDouble"></a><a href="./Spliterator$OfDouble.html">Spliterator$OfDouble</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

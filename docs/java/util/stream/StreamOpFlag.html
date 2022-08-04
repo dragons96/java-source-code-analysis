@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/stream/StreamOpFlag.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="StreamOpFlag"><a href="#StreamOpFlag" class="headerlink" title="StreamOpFlag"></a>StreamOpFlag</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.stream.StreamOpFlag</strong></td>
+<td align="center">enum</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">枚举实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DISTINCT(0</strong></td>
+<td align="left">Characteristic value signifying that, for each pair of encountered elements in a stream {@code x, y}, {@code !x.equals(y)}. <p> A stream may have this value or an intermediate operation can preserve, clear or inject this value.</td>
+</tr>
+<tr>
+<td align="center"><strong>set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP))</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SORTED(1</strong></td>
+<td align="left">Characteristic value signifying that encounter order follows a natural sort order of comparable elements. <p> A stream can have this value or an intermediate operation can preserve, clear or inject this value. <p> Note: The {@link java.util.Spliterator#SORTED} characteristic can define a sort order with an associated non-null comparator.  Augmenting flag state with addition properties such that those properties can be passed to operations requires some disruptive changes for a singular use-case. Furthermore, comparing comparators for equality beyond that of identity is likely to be unreliable.  Therefore the {@code SORTED} characteristic for a defined non-natural sort order is not mapped internally to the {@code SORTED} flag.</td>
+</tr>
+<tr>
+<td align="center"><strong>set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP))</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ORDERED(2</strong></td>
+<td align="left">Characteristic value signifying that an encounter order is defined for stream elements. <p> A stream can have this value, an intermediate operation can preserve, clear or inject this value, or a terminal operation can preserve or clear this value.</td>
+</tr>
+<tr>
+<td align="center"><strong>set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP).clear(Type.TERMINAL_OP)</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SIZED(3</strong></td>
+<td align="left">Characteristic value signifying that size of the stream is of a known finite size that is equal to the known finite size of the source spliterator input to the first stream in the pipeline. <p> A stream can have this value or an intermediate operation can preserve or clear this value.</td>
+</tr>
+<tr>
+<td align="center"><strong>set(Type.SPLITERATOR).set(Type.STREAM).clear(Type.OP))</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SHORT_CIRCUIT(12</strong></td>
+<td align="left">Characteristic value signifying that an operation may short-circuit the stream. <p> An intermediate operation can preserve or inject this value, or a terminal operation can preserve or inject this value.</td>
+</tr>
+<tr>
+<td align="center"><strong>set(Type.OP).set(Type.TERMINAL_OP))</strong></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SET_BITS: int</strong></td>
+<td align="center">0b01</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit pattern for setting&#x2F;injecting a flag.</td>
+</tr>
+<tr>
+<td align="center"><strong>CLEAR_BITS: int</strong></td>
+<td align="center">0b10</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit pattern for clearing a flag.</td>
+</tr>
+<tr>
+<td align="center"><strong>PRESERVE_BITS: int</strong></td>
+<td align="center">0b11</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit pattern for preserving a flag.</td>
+</tr>
+<tr>
+<td align="center"><strong>maskTable: Map&lt;Type, Integer&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The mask table for a flag, this is used to determine if a flag corresponds to a certain flag type and for creating mask constants.</td>
+</tr>
+<tr>
+<td align="center"><strong>bitPosition: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit position in the bit mask.</td>
+</tr>
+<tr>
+<td align="center"><strong>set: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The set 2 bit set offset at the bit position.</td>
+</tr>
+<tr>
+<td align="center"><strong>clear: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The clear 2 bit set offset at the bit position.</td>
+</tr>
+<tr>
+<td align="center"><strong>preserve: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The preserve 2 bit set offset at the bit position.</td>
+</tr>
+<tr>
+<td align="center"><strong>SPLITERATOR_CHARACTERISTICS_MASK: int</strong></td>
+<td align="center">createMask(Type.SPLITERATOR)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit mask for spliterator characteristics</td>
+</tr>
+<tr>
+<td align="center"><strong>STREAM_MASK: int</strong></td>
+<td align="center">createMask(Type.STREAM)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit mask for source stream flags.</td>
+</tr>
+<tr>
+<td align="center"><strong>OP_MASK: int</strong></td>
+<td align="center">createMask(Type.OP)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit mask for intermediate operation flags.</td>
+</tr>
+<tr>
+<td align="center"><strong>TERMINAL_OP_MASK: int</strong></td>
+<td align="center">createMask(Type.TERMINAL_OP)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit mask for terminal operation flags.</td>
+</tr>
+<tr>
+<td align="center"><strong>UPSTREAM_TERMINAL_OP_MASK: int</strong></td>
+<td align="center">createMask(Type.UPSTREAM_TERMINAL_OP)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit mask for upstream terminal operation flags.</td>
+</tr>
+<tr>
+<td align="center"><strong>FLAG_MASK: int</strong></td>
+<td align="center">createFlagMask()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Complete flag mask.</td>
+</tr>
+<tr>
+<td align="center"><strong>FLAG_MASK_IS: int</strong></td>
+<td align="center">STREAM_MASK</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag mask for stream flags that are set.</td>
+</tr>
+<tr>
+<td align="center"><strong>FLAG_MASK_NOT: int</strong></td>
+<td align="center">STREAM_MASK &lt;&lt; 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag mask for stream flags that are cleared.</td>
+</tr>
+<tr>
+<td align="center"><strong>INITIAL_OPS_VALUE: int</strong></td>
+<td align="center">FLAG_MASK_IS</td>
+<td align="center">FLAG_MASK_NOT</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>IS_DISTINCT: int</strong></td>
+<td align="center">DISTINCT.set</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to set or inject {@link #DISTINCT}.</td>
+</tr>
+<tr>
+<td align="center"><strong>NOT_DISTINCT: int</strong></td>
+<td align="center">DISTINCT.clear</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to clear {@link #DISTINCT}.</td>
+</tr>
+<tr>
+<td align="center"><strong>IS_SORTED: int</strong></td>
+<td align="center">SORTED.set</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to set or inject {@link #SORTED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>NOT_SORTED: int</strong></td>
+<td align="center">SORTED.clear</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to clear {@link #SORTED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>IS_ORDERED: int</strong></td>
+<td align="center">ORDERED.set</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to set or inject {@link #ORDERED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>NOT_ORDERED: int</strong></td>
+<td align="center">ORDERED.clear</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to clear {@link #ORDERED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>IS_SIZED: int</strong></td>
+<td align="center">SIZED.set</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to set {@link #SIZED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>NOT_SIZED: int</strong></td>
+<td align="center">SIZED.clear</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to clear {@link #SIZED}.</td>
+</tr>
+<tr>
+<td align="center"><strong>IS_SHORT_CIRCUIT: int</strong></td>
+<td align="center">SHORT_CIRCUIT.set</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bit value to inject {@link #SHORT_CIRCUIT}.</td>
+</tr>
+</tbody></table>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>set(Type t): MaskBuilder</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>StreamOpFlag(int position, MaskBuilder maskBuilder)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>set()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the bitmap associated with setting this characteristic.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the bitmap associated with clearing this characteristic.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isStreamFlag()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if this flag is a stream-based flag.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isKnown(int flags)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this flag is set on stream flags, injected on operation flags, and injected on combined stream and operation flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isCleared(int flags)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this flag is cleared on operation flags or combined stream and operation flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isPreserved(int flags)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this flag is preserved on combined stream and operation flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>canSet(Type t)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if this flag can be set for a flag type.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createMask(Type t): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createFlagMask(): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMask(int flags): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>combineOpFlags(int newStreamOrOpFlags, int prevCombOpFlags): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Combines stream or operation flags with previously combined stream and operation flags to produce updated combined stream and operation flags. <p> A flag set on stream flags or injected on operation flags, and injected combined stream and operation flags, will be injected on the updated combined stream and operation flags.  <p> A flag set on stream flags or injected on operation flags, and cleared on the combined stream and operation flags, will be cleared on the updated combined stream and operation flags.  <p> A flag set on the stream flags or injected on operation flags, and preserved on the combined stream and operation flags, will be injected on the updated combined stream and operation flags.  <p> A flag not set on the stream flags or cleared&#x2F;preserved on operation flags, and injected on the combined stream and operation flags, will be injected on the updated combined stream and operation flags.  <p> A flag not set on the stream flags or cleared&#x2F;preserved on operation flags, and cleared on the combined stream and operation flags, will be cleared on the updated combined stream and operation flags.  <p> A flag not set on the stream flags, and preserved on the combined stream and operation flags will be preserved on the updated combined stream and operation flags.  <p> A flag cleared on operation flags, and preserved on the combined stream and operation flags will be cleared on the updated combined stream and operation flags.  <p> A flag preserved on operation flags, and preserved on the combined stream and operation flags will be preserved on the updated combined stream and operation flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toStreamFlags(int combOpFlags): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts combined stream and operation flags to stream flags.  <p>Each flag injected on the combined stream and operation flags will be set on the stream flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toCharacteristics(int streamFlags): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts stream flags to a spliterator characteristic bit set.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fromCharacteristics(Spliterator&lt;?&gt; spliterator): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts a spliterator characteristic bit set to stream flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fromCharacteristics(int characteristics): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts a spliterator characteristic bit set to stream flags.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="StreamOpFlag-Type"><a href="#StreamOpFlag-Type" class="headerlink" title="StreamOpFlag$Type"></a><a href="./StreamOpFlag$Type.html">StreamOpFlag$Type</a></h3><h3 id="StreamOpFlag-MaskBuilder"><a href="#StreamOpFlag-MaskBuilder" class="headerlink" title="StreamOpFlag$MaskBuilder"></a><a href="./StreamOpFlag$MaskBuilder.html">StreamOpFlag$MaskBuilder</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

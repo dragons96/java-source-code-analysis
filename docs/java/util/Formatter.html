@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/Formatter.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Formatter"><a href="#Formatter" class="headerlink" title="Formatter"></a>Formatter</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.Formatter</strong></td>
+<td align="center">class</td>
+<td align="center">Closeable,Flushable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>a: Appendable</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>l: Locale</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastException: IOException</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zero: char</strong></td>
+<td align="center"></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scaleUp: double</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_FD_CHARS: int</strong></td>
+<td align="center">30</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fsPattern: Pattern</strong></td>
+<td align="center">Pattern.compile(formatSpecifier)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>nonNullAppendable(Appendable a): Appendable</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a charset object for the given charset name.</td>
+<td align="left">NullPointerException<br/>UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(Locale l, Appendable a)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Private constructors</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter.  <p> The destination of the formatted output is a ‘StringBuilder’ which may be retrieved by invoking ‘#out out()’ and whose current content may be converted into a string by invoking ‘#toString toString()’.  The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(Appendable a)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified destination.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(Locale l)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified locale.  <p> The destination of the formatted output is a ‘StringBuilder’ which may be retrieved by invoking ‘#out out()’ and whose current content may be converted into a string by invoking ‘#toString toString()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(Appendable a, Locale l)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified destination and locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(String fileName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified file name.  <p> The charset used is the ‘java.nio.charset.Charset#defaultCharset() default charset’ for this instance of the Java virtual machine.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left">FileNotFoundException<br/>SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(File file)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified file.  <p> The charset used is the ‘java.nio.charset.Charset#defaultCharset() default charset’ for this instance of the Java virtual machine.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left">FileNotFoundException<br/>SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(PrintStream ps)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified print stream.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.  <p> Characters are written to the given ‘java.io.PrintStream PrintStream’ object and are therefore encoded using that object’s charset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(OutputStream os)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified output stream.  <p> The charset used is the ‘java.nio.charset.Charset#defaultCharset() default charset’ for this instance of the Java virtual machine.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getZero(Locale l): char</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified output stream, charset, and locale.</td>
+<td align="left">UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>locale(): Locale</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the locale set by the construction of this formatter.  <p> The ‘#format(java.util.Locale,String,Object…) format’ method for this object which has a locale argument does not change this value.</td>
+<td align="left">FormatterClosedException</td>
+</tr>
+<tr>
+<td align="center"><strong>out(): Appendable</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the destination for the output.</td>
+<td align="left">FormatterClosedException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of invoking ‘toString()’ on the destination for the output.  For example, the following code formats text into a ‘StringBuilder’ then retrieves the resultant string:  <blockquote><pre> Formatter f = new Formatter(); f.format("Last reboot at %tc", lastRebootDate); String s = f.toString();  </pre></blockquote>  <p> An invocation of this method behaves in exactly the same way as the invocation  <pre> out().toString() </pre>  <p> Depending on the specification of ‘toString’ for the ‘Appendable’, the returned string may or may not contain the characters written to the destination.  For instance, buffers typically return their contents in ‘toString()’, but streams cannot since the data is discarded.</td>
+<td align="left">FormatterClosedException</td>
+</tr>
+<tr>
+<td align="center"><strong>flush(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flushes this formatter.  If the destination implements the ‘java.io.Flushable’ interface, its ‘flush’ method will be invoked.  <p> Flushing a formatter writes any buffered output in the destination to the underlying stream.</td>
+<td align="left">FormatterClosedException</td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closes this formatter.  If the destination implements the ‘java.io.Closeable’ interface, its ‘close’ method will be invoked.  <p> Closing a formatter allows it to release resources it may be holding (such as open files).  If the formatter is already closed, then invoking this method has no effect.  <p> Attempting to invoke any methods except ‘#ioException()’ in this formatter after it has been closed will result in a ‘FormatterClosedException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ensureOpen(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ioException(): IOException</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘IOException’ last thrown by this formatter’s ‘Appendable’.  <p> If the destination’s ‘append()’ method never throws ‘IOException’, then this method will always return ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(String format, Object … args): Formatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a formatted string to this object’s destination using the specified format string and arguments.  The locale used is the one defined during the construction of this formatter.</td>
+<td align="left">FormatterClosedException<br/>IllegalFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>format(Locale l, String format, Object … args): Formatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a formatted string to this object’s destination using the specified locale, format string, and arguments.</td>
+<td align="left">FormatterClosedException<br/>IllegalFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(String s): FormatString[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds format specifiers in the format string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkText(String s, int start, int end): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Formatter-FormatString"><a href="#Formatter-FormatString" class="headerlink" title="Formatter$FormatString"></a><a href="./Formatter$FormatString.html">Formatter$FormatString</a></h3><h3 id="Formatter-FixedString"><a href="#Formatter-FixedString" class="headerlink" title="Formatter$FixedString"></a><a href="./Formatter$FixedString.html">Formatter$FixedString</a></h3><h3 id="Formatter-BigDecimalLayoutForm"><a href="#Formatter-BigDecimalLayoutForm" class="headerlink" title="Formatter$BigDecimalLayoutForm"></a><a href="./Formatter$BigDecimalLayoutForm.html">Formatter$BigDecimalLayoutForm</a></h3><h3 id="Formatter-FormatSpecifier"><a href="#Formatter-FormatSpecifier" class="headerlink" title="Formatter$FormatSpecifier"></a><a href="./Formatter$FormatSpecifier.html">Formatter$FormatSpecifier</a></h3><h3 id="Formatter-Flags"><a href="#Formatter-Flags" class="headerlink" title="Formatter$Flags"></a><a href="./Formatter$Flags.html">Formatter$Flags</a></h3><h3 id="Formatter-Conversion"><a href="#Formatter-Conversion" class="headerlink" title="Formatter$Conversion"></a><a href="./Formatter$Conversion.html">Formatter$Conversion</a></h3><h3 id="Formatter-DateTime"><a href="#Formatter-DateTime" class="headerlink" title="Formatter$DateTime"></a><a href="./Formatter$DateTime.html">Formatter$DateTime</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/Scanner.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.Scanner</strong></td>
+<td align="center">class</td>
+<td align="center">Iterator&lt;String&gt;,Closeable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>buf: CharBuffer</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BUFFER_SIZE: int</strong></td>
+<td align="center">1024</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>position: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matcher: Matcher</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>delimPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextPosition: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextResult: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>source: Readable</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sourceClosed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>needInput: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skipped: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>savedScannerPosition: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>typeCache: Object</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchValid: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>closed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>radix: int</strong></td>
+<td align="center">10</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultRadix: int</strong></td>
+<td align="center">10</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>locale: Locale</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastException: IOException</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WHITESPACE_PATTERN: Pattern</strong></td>
+<td align="center">Pattern.compile(“\p{javaWhitespace}+”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>FIND_ANY_PATTERN: Pattern</strong></td>
+<td align="center">Pattern.compile(“(?s).*”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NON_ASCII_DIGIT: Pattern</strong></td>
+<td align="center">Pattern.compile(“[\p{javaDigit}&amp;&amp;[^0-9]]”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>groupSeparator: String</strong></td>
+<td align="center">“\,”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Locale dependent values used to scan numbers</td>
+</tr>
+<tr>
+<td align="center"><strong>decimalSeparator: String</strong></td>
+<td align="center">“\.”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nanString: String</strong></td>
+<td align="center">“NaN”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>infinityString: String</strong></td>
+<td align="center">“Infinity”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>positivePrefix: String</strong></td>
+<td align="center">“”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>negativePrefix: String</strong></td>
+<td align="center">“\-“</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>positiveSuffix: String</strong></td>
+<td align="center">“”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>negativeSuffix: String</strong></td>
+<td align="center">“”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>boolPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fields and an accessor method to match booleans</td>
+</tr>
+<tr>
+<td align="center"><strong>BOOLEAN_PATTERN: String</strong></td>
+<td align="center">“true</td>
+<td align="center">false”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>integerPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fields and methods to match bytes, shorts, ints, and longs</td>
+</tr>
+<tr>
+<td align="center"><strong>digits: String</strong></td>
+<td align="center">“0123456789abcdefghijklmnopqrstuvwxyz”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>non0Digit: String</strong></td>
+<td align="center">“[\p{javaDigit}&amp;&amp;[^0]]”</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SIMPLE_GROUP_INDEX: int</strong></td>
+<td align="center">5</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>separatorPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fields and an accessor method to match line separators</td>
+</tr>
+<tr>
+<td align="center"><strong>linePattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LINE_SEPARATOR_PATTERN: String</strong></td>
+<td align="center">“\r\n</td>
+<td align="center">[\n\r\u2028\u2029\u0085]”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>LINE_PATTERN: String</strong></td>
+<td align="center">“.*(“+LINE_SEPARATOR_PATTERN+”)</td>
+<td align="center">.+$”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>floatPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fields and methods to match floats and doubles</td>
+</tr>
+<tr>
+<td align="center"><strong>decimalPattern: Pattern</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>boolPattern(): Pattern</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>buildIntegerPatternString(): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>integerPattern(): Pattern</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>separatorPattern(): Pattern</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>linePattern(): Pattern</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>buildFloatAndDecimalPattern(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>floatPattern(): Pattern</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decimalPattern(): Pattern</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(Readable source, Pattern pattern)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>Scanner</code> that returns values scanned from the specified source delimited by the specified pattern.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(Readable source)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified source.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(InputStream source)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified input stream. Bytes from the stream are converted into characters using the underlying platform’s ‘java.nio.charset.Charset#defaultCharset() default charset’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(InputStream source, String charsetName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified input stream. Bytes from the stream are converted into characters using the specified charset.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>toCharset(String csn): Charset</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a charset object for the given charset name.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>makeReadable(InputStream source, Charset charset): Readable</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(File source)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the underlying platform’s ‘java.nio.charset.Charset#defaultCharset() default charset’.</td>
+<td align="left">FileNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>toDecoder(String charsetName): CharsetDecoder</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the specified charset.</td>
+<td align="left">FileNotFoundException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>makeReadable(ReadableByteChannel source,CharsetDecoder dec): Readable</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(Path source, String charsetName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the specified charset.</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(Path source, Charset charset)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(String source)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(ReadableByteChannel source)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified channel. Bytes from the source are converted into characters using the underlying platform’s ‘java.nio.charset.Charset#defaultCharset() default charset’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeReadable(ReadableByteChannel source): Readable</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(ReadableByteChannel source, String charsetName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified channel. Bytes from the source are converted into characters using the specified charset.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>saveState(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>revertState(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>revertState(boolean b): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheResult(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheResult(String result): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearCaches(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCachedResult(): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useTypeCache(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readInput(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeSpace(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>translateSavedIndexes(int offset): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>throwFor(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasTokenInBuffer(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCompleteTokenInBuffer(Pattern pattern): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a “complete token” that matches the specified pattern  A token is complete if surrounded by delims; a partial token is prefixed by delims but not postfixed by them  The position is advanced to the end of that complete token  Pattern &#x3D;&#x3D; null means accept any token at all  Triple return: 1. valid string means it was found 2. null with needInput&#x3D;false means we won’t ever find it 3. null with needInput&#x3D;true means try again after readInput</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findPatternInBuffer(Pattern pattern, int horizon): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchPatternInBuffer(Pattern pattern): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ensureOpen(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closes this scanner.  <p> If this scanner has not yet been closed then if its underlying ‘java.lang.Readable readable’ also implements the ‘java.io.Closeable’ interface then the readable’s <tt>close</tt> method will be invoked.  If this scanner is already closed then invoking this method will have no effect.  <p>Attempting to perform search operations after a scanner has been closed will result in an ‘IllegalStateException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ioException(): IOException</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <code>IOException</code> last thrown by this <code>Scanner</code>‘s underlying <code>Readable</code>. This method returns <code>null</code> if no such exception exists.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>delimiter(): Pattern</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <code>Pattern</code> this <code>Scanner</code> is currently using to match delimiters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useDelimiter(Pattern pattern): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this scanner’s delimiting pattern to the specified pattern.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useDelimiter(String pattern): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this scanner’s delimiting pattern to a pattern constructed from the specified <code>String</code>.  <p> An invocation of this method of the form <tt>useDelimiter(pattern)</tt> behaves in exactly the same way as the invocation <tt>useDelimiter(Pattern.compile(pattern))</tt>.  <p> Invoking the ‘#reset’ method will set the scanner’s delimiter to the <a href= "#default-delimiter">default</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>locale(): Locale</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this scanner’s locale.  <p>A scanner’s locale affects many elements of its default primitive matching regular expressions; see <a href= "#localized-numbers">localized numbers</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useLocale(Locale locale): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this scanner’s locale to the specified locale.  <p>A scanner’s locale affects many elements of its default primitive matching regular expressions; see <a href= "#localized-numbers">localized numbers</a> above.  <p>Invoking the ‘#reset’ method will set the scanner’s locale to the <a href= "#initial-locale">initial locale</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>radix(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this scanner’s default radix.  <p>A scanner’s radix affects elements of its default number matching regular expressions; see <a href= "#localized-numbers">localized numbers</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useRadix(int radix): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this scanner’s default radix to the specified radix.  <p>A scanner’s radix affects elements of its default number matching regular expressions; see <a href= "#localized-numbers">localized numbers</a> above.  <p>If the radix is less than <code>Character.MIN_RADIX</code> or greater than <code>Character.MAX_RADIX</code>, then an <code>IllegalArgumentException</code> is thrown.  <p>Invoking the ‘#reset’ method will set the scanner’s radix to <code>10</code>.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setRadix(int radix): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>match(): MatchResult</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the match result of the last scanning operation performed by this scanner. This method throws <code>IllegalStateException</code> if no match has been performed, or if the last match was not successful.  <p>The various <code>next</code>methods of <code>Scanner</code> make a match result available if they complete without throwing an exception. For instance, after an invocation of the ‘#nextInt’ method that returned an int, this method returns a <code>MatchResult</code> for the search of the <a href="#Integer-regex"><i>Integer</i></a> regular expression defined above. Similarly the ‘#findInLine’, ‘#findWithinHorizon’, and ‘#skip’ methods will make a match available if they succeed.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p>Returns the string representation of this <code>Scanner</code>. The string representation of a <code>Scanner</code> contains information that may be useful for debugging. The exact format is unspecified.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasNext(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if this scanner has another token in its input. This method may block while waiting for input to scan. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>next(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds and returns the next complete token from this scanner. A complete token is preceded and followed by input that matches the delimiter pattern. This method may block while waiting for input to scan, even if a previous invocation of ‘#hasNext’ returned <code>true</code>.</td>
+<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The remove operation is not supported by this implementation of <code>Iterator</code>.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNext(String pattern): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token matches the pattern constructed from the specified string. The scanner does not advance past any input.  <p> An invocation of this method of the form <tt>hasNext(pattern)</tt> behaves in exactly the same way as the invocation <tt>hasNext(Pattern.compile(pattern))</tt>.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>next(String pattern): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the next token if it matches the pattern constructed from the specified string.  If the match is successful, the scanner advances past the input that matched the pattern.  <p> An invocation of this method of the form <tt>next(pattern)</tt> behaves in exactly the same way as the invocation <tt>next(Pattern.compile(pattern))</tt>.</td>
+<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNext(Pattern pattern): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next complete token matches the specified pattern. A complete token is prefixed and postfixed by input that matches the delimiter pattern. This method may block while waiting for input. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>next(Pattern pattern): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the next token if it matches the specified pattern. This method may block while waiting for input to scan, even if a previous invocation of ‘#hasNext(Pattern)’ returned <code>true</code>. If the match is successful, the scanner advances past the input that matched the pattern.</td>
+<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextLine(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if there is another line in the input of this scanner. This method may block while waiting for input. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextLine(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Advances this scanner past the current line and returns the input that was skipped.  This method returns the rest of the current line, excluding any line separator at the end. The position is set to the beginning of the next line.  <p>Since this method continues to search through the input looking for a line separator, it may buffer all of the input searching for the line to skip if no line separators are present.</td>
+<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>findInLine(String pattern): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to find the next occurrence of a pattern constructed from the specified string, ignoring delimiters.  <p>An invocation of this method of the form <tt>findInLine(pattern)</tt> behaves in exactly the same way as the invocation <tt>findInLine(Pattern.compile(pattern))</tt>.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>findInLine(Pattern pattern): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to find the next occurrence of the specified pattern ignoring delimiters. If the pattern is found before the next line separator, the scanner advances past the input that matched and returns the string that matched the pattern. If no such pattern is detected in the input up to the next line separator, then <code>null</code> is returned and the scanner’s position is unchanged. This method may block waiting for input that matches the pattern.  <p>Since this method continues to search through the input looking for the specified pattern, it may buffer all of the input searching for the desired token if no line separators are present.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>findWithinHorizon(String pattern, int horizon): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to find the next occurrence of a pattern constructed from the specified string, ignoring delimiters.  <p>An invocation of this method of the form <tt>findWithinHorizon(pattern)</tt> behaves in exactly the same way as the invocation <tt>findWithinHorizon(Pattern.compile(pattern, horizon))</tt>.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>findWithinHorizon(Pattern pattern, int horizon): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to find the next occurrence of the specified pattern.  <p>This method searches through the input up to the specified search horizon, ignoring delimiters. If the pattern is found the scanner advances past the input that matched and returns the string that matched the pattern. If no such pattern is detected then the null is returned and the scanner’s position remains unchanged. This method may block waiting for input that matches the pattern.  <p>A scanner will never search more than <code>horizon</code> code points beyond its current position. Note that a match may be clipped by the horizon; that is, an arbitrary match result may have been different if the horizon had been larger. The scanner treats the horizon as a transparent, non-anchoring bound (see ‘Matcher#useTransparentBounds’ and ‘Matcher#useAnchoringBounds’).  <p>If horizon is <code>0</code>, then the horizon is ignored and this method continues to search through the input looking for the specified pattern without bound. In this case it may buffer all of the input searching for the pattern.  <p>If horizon is negative, then an IllegalArgumentException is thrown.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>skip(Pattern pattern): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Skips input that matches the specified pattern, ignoring delimiters. This method will skip input if an anchored match of the specified pattern succeeds.  <p>If a match to the specified pattern is not found at the current position, then no input is skipped and a <tt>NoSuchElementException</tt> is thrown.  <p>Since this method seeks to match the specified pattern starting at the scanner’s current position, patterns that can match a lot of input (“.<em>“, for example) may cause the scanner to buffer a large amount of input.  <p>Note that it is possible to skip something without risking a <code>NoSuchElementException</code> by using a pattern that can match nothing, e.g., <code>sc.skip("[ \t]</em>")</code>.</td>
+<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>skip(String pattern): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Skips input that matches a pattern constructed from the specified string.  <p> An invocation of this method of the form <tt>skip(pattern)</tt> behaves in exactly the same way as the invocation <tt>skip(Pattern.compile(pattern))</tt>.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextBoolean(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a boolean value using a case insensitive pattern created from the string “true</td>
+<td align="left">false”.  The scanner does not advance past the input that matched.</td>
+</tr>
+<tr>
+<td align="center"><strong>nextBoolean(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input into a boolean value and returns that value. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid boolean value. If the match is successful, the scanner advances past the input that matched.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextByte(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a byte value in the default radix using the ‘#nextByte’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextByte(int radix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a byte value in the specified radix using the ‘#nextByte’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextByte(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>byte</tt>.  <p> An invocation of this method of the form <tt>nextByte()</tt> behaves in exactly the same way as the invocation <tt>nextByte(radix)</tt>, where <code>radix</code> is the default radix of this scanner.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextByte(int radix): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>byte</tt>. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid byte value as described below. If the translation is successful, the scanner advances past the input that matched.  <p> If the next token matches the <a href="#Integer-regex"><i>Integer</i></a> regular expression defined above then the token is converted into a <tt>byte</tt> value as if by removing all locale specific prefixes, group separators, and locale specific suffixes, then mapping non-ASCII digits into ASCII digits via ‘Character#digit Character.digit’, prepending a negative sign (-) if the locale specific negative prefixes and suffixes were present, and passing the resulting string to ‘Byte#parseByte(String, int) Byte.parseByte’ with the specified radix.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextShort(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a short value in the default radix using the ‘#nextShort’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextShort(int radix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a short value in the specified radix using the ‘#nextShort’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextShort(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>short</tt>.  <p> An invocation of this method of the form <tt>nextShort()</tt> behaves in exactly the same way as the invocation <tt>nextShort(radix)</tt>, where <code>radix</code> is the default radix of this scanner.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextShort(int radix): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>short</tt>. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid short value as described below. If the translation is successful, the scanner advances past the input that matched.  <p> If the next token matches the <a href="#Integer-regex"><i>Integer</i></a> regular expression defined above then the token is converted into a <tt>short</tt> value as if by removing all locale specific prefixes, group separators, and locale specific suffixes, then mapping non-ASCII digits into ASCII digits via ‘Character#digit Character.digit’, prepending a negative sign (-) if the locale specific negative prefixes and suffixes were present, and passing the resulting string to ‘Short#parseShort(String, int) Short.parseShort’ with the specified radix.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextInt(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as an int value in the default radix using the ‘#nextInt’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextInt(int radix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as an int value in the specified radix using the ‘#nextInt’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>processIntegerToken(String token): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The integer token must be stripped of prefixes, group separators, and suffixes, non ascii digits must be converted into ascii digits before parse will accept it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextInt(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as an <tt>int</tt>.  <p> An invocation of this method of the form <tt>nextInt()</tt> behaves in exactly the same way as the invocation <tt>nextInt(radix)</tt>, where <code>radix</code> is the default radix of this scanner.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextInt(int radix): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as an <tt>int</tt>. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid int value as described below. If the translation is successful, the scanner advances past the input that matched.  <p> If the next token matches the <a href="#Integer-regex"><i>Integer</i></a> regular expression defined above then the token is converted into an <tt>int</tt> value as if by removing all locale specific prefixes, group separators, and locale specific suffixes, then mapping non-ASCII digits into ASCII digits via ‘Character#digit Character.digit’, prepending a negative sign (-) if the locale specific negative prefixes and suffixes were present, and passing the resulting string to ‘Integer#parseInt(String, int) Integer.parseInt’ with the specified radix.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextLong(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a long value in the default radix using the ‘#nextLong’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextLong(int radix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a long value in the specified radix using the ‘#nextLong’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>long</tt>.  <p> An invocation of this method of the form <tt>nextLong()</tt> behaves in exactly the same way as the invocation <tt>nextLong(radix)</tt>, where <code>radix</code> is the default radix of this scanner.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextLong(int radix): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>long</tt>. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid long value as described below. If the translation is successful, the scanner advances past the input that matched.  <p> If the next token matches the <a href="#Integer-regex"><i>Integer</i></a> regular expression defined above then the token is converted into a <tt>long</tt> value as if by removing all locale specific prefixes, group separators, and locale specific suffixes, then mapping non-ASCII digits into ASCII digits via ‘Character#digit Character.digit’, prepending a negative sign (-) if the locale specific negative prefixes and suffixes were present, and passing the resulting string to ‘Long#parseLong(String, int) Long.parseLong’ with the specified radix.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>processFloatToken(String token): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The float token must be stripped of prefixes, group separators, and suffixes, non ascii digits must be converted into ascii digits before parseFloat will accept it.  If there are non-ascii digits in the token these digits must be processed before the token is passed to parseFloat.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextFloat(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a float value using the ‘#nextFloat’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextFloat(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>float</tt>. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid float value as described below. If the translation is successful, the scanner advances past the input that matched.  <p> If the next token matches the <a href="#Float-regex"><i>Float</i></a> regular expression defined above then the token is converted into a <tt>float</tt> value as if by removing all locale specific prefixes, group separators, and locale specific suffixes, then mapping non-ASCII digits into ASCII digits via ‘Character#digit Character.digit’, prepending a negative sign (-) if the locale specific negative prefixes and suffixes were present, and passing the resulting string to ‘Float#parseFloat Float.parseFloat’. If the token matches the localized NaN or infinity strings, then either “Nan” or “Infinity” is passed to ‘Float#parseFloat(String) Float.parseFloat’ as appropriate.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextDouble(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a double value using the ‘#nextDouble’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextDouble(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a <tt>double</tt>. This method will throw <code>InputMismatchException</code> if the next token cannot be translated into a valid double value. If the translation is successful, the scanner advances past the input that matched.  <p> If the next token matches the <a href="#Float-regex"><i>Float</i></a> regular expression defined above then the token is converted into a <tt>double</tt> value as if by removing all locale specific prefixes, group separators, and locale specific suffixes, then mapping non-ASCII digits into ASCII digits via ‘Character#digit Character.digit’, prepending a negative sign (-) if the locale specific negative prefixes and suffixes were present, and passing the resulting string to ‘Double#parseDouble Double.parseDouble’. If the token matches the localized NaN or infinity strings, then either “Nan” or “Infinity” is passed to ‘Double#parseDouble(String) Double.parseDouble’ as appropriate.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextBigInteger(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a <code>BigInteger</code> in the default radix using the ‘#nextBigInteger’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextBigInteger(int radix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a <code>BigInteger</code> in the specified radix using the ‘#nextBigInteger’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextBigInteger(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a ‘java.math.BigInteger BigInteger’.  <p> An invocation of this method of the form <tt>nextBigInteger()</tt> behaves in exactly the same way as the invocation <tt>nextBigInteger(radix)</tt>, where <code>radix</code> is the default radix of this scanner.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextBigInteger(int radix): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a ‘java.math.BigInteger BigInteger’.  <p> If the next token matches the <a href="#Integer-regex"><i>Integer</i></a> regular expression defined above then the token is converted into a <tt>BigInteger</tt> value as if by removing all group separators, mapping non-ASCII digits into ASCII digits via the ‘Character#digit Character.digit’, and passing the resulting string to the ‘java.math.BigInteger#BigInteger(java.lang.String) BigInteger(String, int)’ constructor with the specified radix.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasNextBigDecimal(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the next token in this scanner’s input can be interpreted as a <code>BigDecimal</code> using the ‘#nextBigDecimal’ method. The scanner does not advance past any input.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextBigDecimal(): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Scans the next token of the input as a ‘java.math.BigDecimal BigDecimal’.  <p> If the next token matches the <a href="#Decimal-regex"><i>Decimal</i></a> regular expression defined above then the token is converted into a <tt>BigDecimal</tt> value as if by removing all group separators, mapping non-ASCII digits into ASCII digits via the ‘Character#digit Character.digit’, and passing the resulting string to the ‘java.math.BigDecimal#BigDecimal(java.lang.String) BigDecimal(String)’ constructor.</td>
+<td align="left">IllegalStateException<br/>InputMismatchException<br/>NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>reset(): Scanner</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resets this scanner.  <p> Resetting a scanner discards all of its explicit state information which may have been changed by invocations of ‘#useDelimiter’, ‘#useLocale’, or ‘#useRadix’.  <p> An invocation of this method of the form <tt>scanner.reset()</tt> behaves in exactly the same way as the invocation  <blockquote><pre>'scanner.useDelimiter("\p{javaWhitespace'+") .useLocale(Locale.getDefault(Locale.Category.FORMAT)) .useRadix(10); }</pre></blockquote></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

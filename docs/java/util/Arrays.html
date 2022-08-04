@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/Arrays.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.Arrays</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MIN_ARRAY_SORT_GRAN: int</strong></td>
+<td align="center">1 &lt;&lt; 13</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum array length below which a parallel sorting algorithm will not further partition the sorting task. Using smaller sizes typically results in memory contention across tasks that makes parallel speedups unlikely.</td>
+</tr>
+<tr>
+<td align="center"><strong>INSERTIONSORT_THRESHOLD: int</strong></td>
+<td align="center">7</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tuning parameter: list size at or below which insertion sort will be used in preference to mergesort. To be removed in a future release.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>rangeCheck(int arrayLength, int fromIndex, int toIndex): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that ‘fromIndex’ and ‘toIndex’ are in the range and throws an exception if they aren’t.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(int[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(int[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(long[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(long[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(short[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(short[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(char[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(char[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(byte[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(byte[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(float[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>The ‘&lt;’ relation does not provide a total order on all float values: ‘-0.0f &#x3D;&#x3D; 0.0f’ is ‘true’ and a ‘Float.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Float#compareTo’: ‘-0.0f’ is treated as less than value ‘0.0f’ and ‘Float.NaN’ is considered greater than any other value and all ‘Float.NaN’ values are considered equal.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(float[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>The ‘&lt;’ relation does not provide a total order on all float values: ‘-0.0f &#x3D;&#x3D; 0.0f’ is ‘true’ and a ‘Float.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Float#compareTo’: ‘-0.0f’ is treated as less than value ‘0.0f’ and ‘Float.NaN’ is considered greater than any other value and all ‘Float.NaN’ values are considered equal.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(double[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>The ‘&lt;’ relation does not provide a total order on all double values: ‘-0.0d &#x3D;&#x3D; 0.0d’ is ‘true’ and a ‘Double.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Double#compareTo’: ‘-0.0d’ is treated as less than value ‘0.0d’ and ‘Double.NaN’ is considered greater than any other value and all ‘Double.NaN’ values are considered equal.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(double[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>The ‘&lt;’ relation does not provide a total order on all double values: ‘-0.0d &#x3D;&#x3D; 0.0d’ is ‘true’ and a ‘Double.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Double#compareTo’: ‘-0.0d’ is treated as less than value ‘0.0d’ and ‘Double.NaN’ is considered greater than any other value and all ‘Double.NaN’ values are considered equal.  <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(byte[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(byte[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(char[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(char[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  array into sub-arrays that are themselves sorted and then merged. When the sub-array length reaches a minimum granularity, the sub-array is sorted using the appropriate ‘Arrays#sort(char[]) Arrays.sort’ method. If the length of the specified array is less than the minimum granularity, then it is sorted using the appropriate ‘Arrays#sort(char[]) Arrays.sort’ method. The algorithm requires a working space no greater than the size of the specified range of the original array. The ‘ForkJoinPool#commonPool() ForkJoin common pool’ is used to execute any parallel tasks.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(short[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(short[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(int[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(int[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(long[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(long[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(float[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>The ‘&lt;’ relation does not provide a total order on all float values: ‘-0.0f &#x3D;&#x3D; 0.0f’ is ‘true’ and a ‘Float.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Float#compareTo’: ‘-0.0f’ is treated as less than value ‘0.0f’ and ‘Float.NaN’ is considered greater than any other value and all ‘Float.NaN’ values are considered equal.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(float[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>The ‘&lt;’ relation does not provide a total order on all float values: ‘-0.0f &#x3D;&#x3D; 0.0f’ is ‘true’ and a ‘Float.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Float#compareTo’: ‘-0.0f’ is treated as less than value ‘0.0f’ and ‘Float.NaN’ is considered greater than any other value and all ‘Float.NaN’ values are considered equal.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(double[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array into ascending numerical order.  <p>The ‘&lt;’ relation does not provide a total order on all double values: ‘-0.0d &#x3D;&#x3D; 0.0d’ is ‘true’ and a ‘Double.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Double#compareTo’: ‘-0.0d’ is treated as less than value ‘0.0d’ and ‘Double.NaN’ is considered greater than any other value and all ‘Double.NaN’ values are considered equal.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(double[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index ‘fromIndex’, inclusive, to the index ‘toIndex’, exclusive. If ‘fromIndex &#x3D;&#x3D; toIndex’, the range to be sorted is empty.  <p>The ‘&lt;’ relation does not provide a total order on all double values: ‘-0.0d &#x3D;&#x3D; 0.0d’ is ‘true’ and a ‘Double.NaN’ value compares neither less than, greater than, nor equal to any value, even itself. This method uses the total order imposed by the method ‘Double#compareTo’: ‘-0.0d’ is treated as less than value ‘0.0d’ and ‘Double.NaN’ is considered greater than any other value and all ‘Double.NaN’ values are considered equal.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(T[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array of objects into ascending order, according to the ‘Comparable natural ordering’ of its elements. All elements in the array must implement the ‘Comparable’ interface.  Furthermore, all elements in the array must be <i>mutually comparable</i> (that is, ‘e1.compareTo(e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the array).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.</td>
+<td align="left">ClassCastException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(T[] a, int fromIndex, int toIndex)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the specified array of objects into ascending order, according to the ‘Comparable natural ordering’ of its elements.  The range to be sorted extends from index ‘fromIndex’, inclusive, to index ‘toIndex’, exclusive. (If ‘fromIndex&#x3D;&#x3D;toIndex’, the range to be sorted is empty.)  All elements in this range must implement the ‘Comparable’ interface.  Furthermore, all elements in this range must be <i>mutually comparable</i> (that is, ‘e1.compareTo(e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the array).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.</td>
+<td align="left">ClassCastException<br/>ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(T[] a, Comparator&lt;? super T&gt; cmp): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array of objects according to the order induced by the specified comparator.  All elements in the array must be <i>mutually comparable</i> by the specified comparator (that is, ‘c.compare(e1, e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the array).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.</td>
+<td align="left">ClassCastException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSort(T[] a, int fromIndex, int toIndex,Comparator&lt;? super T&gt; cmp): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the specified array of objects according to the order induced by the specified comparator.  The range to be sorted extends from index ‘fromIndex’, inclusive, to index ‘toIndex’, exclusive.  (If ‘fromIndex&#x3D;&#x3D;toIndex’, the range to be sorted is empty.)  All elements in the range must be <i>mutually comparable</i> by the specified comparator (that is, ‘c.compare(e1, e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the range).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.</td>
+<td align="left">ClassCastException<br/>ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sort(Object[] a): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array of objects into ascending order, according to the ‘Comparable natural ordering’ of its elements. All elements in the array must implement the ‘Comparable’ interface.  Furthermore, all elements in the array must be <i>mutually comparable</i> (that is, ‘e1.compareTo(e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the array).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.  <p>Implementation note: This implementation is a stable, adaptive, iterative mergesort that requires far fewer than n lg(n) comparisons when the input array is partially sorted, while offering the performance of a traditional mergesort when the input array is randomly ordered.  If the input array is nearly sorted, the implementation requires approximately n comparisons.  Temporary storage requirements vary from a small constant for nearly sorted input arrays to n&#x2F;2 object references for randomly ordered input arrays.  <p>The implementation takes equal advantage of ascending and descending order in its input array, and can take advantage of ascending and descending order in different parts of the the same input array.  It is well-suited to merging two or more sorted arrays: simply concatenate the arrays and sort the resulting array.  <p>The implementation was adapted from Tim Peters’s list sort for Python (&lt;a href&#x3D;”http: TimSort</a>).  It uses techniques from Peter McIlroy’s “Optimistic Sorting and Information Theoretic Complexity”, in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.</td>
+<td align="left">ClassCastException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>legacyMergeSort(Object[] a): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">To be removed in a future release.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(Object[] a, int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the specified array of objects into ascending order, according to the ‘Comparable natural ordering’ of its elements.  The range to be sorted extends from index ‘fromIndex’, inclusive, to index ‘toIndex’, exclusive. (If ‘fromIndex&#x3D;&#x3D;toIndex’, the range to be sorted is empty.)  All elements in this range must implement the ‘Comparable’ interface.  Furthermore, all elements in this range must be <i>mutually comparable</i> (that is, ‘e1.compareTo(e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the array).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.  <p>Implementation note: This implementation is a stable, adaptive, iterative mergesort that requires far fewer than n lg(n) comparisons when the input array is partially sorted, while offering the performance of a traditional mergesort when the input array is randomly ordered.  If the input array is nearly sorted, the implementation requires approximately n comparisons.  Temporary storage requirements vary from a small constant for nearly sorted input arrays to n&#x2F;2 object references for randomly ordered input arrays.  <p>The implementation takes equal advantage of ascending and descending order in its input array, and can take advantage of ascending and descending order in different parts of the the same input array.  It is well-suited to merging two or more sorted arrays: simply concatenate the arrays and sort the resulting array.  <p>The implementation was adapted from Tim Peters’s list sort for Python (&lt;a href&#x3D;”http: TimSort</a>).  It uses techniques from Peter McIlroy’s “Optimistic Sorting and Information Theoretic Complexity”, in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.</td>
+<td align="left">ClassCastException<br/>ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>legacyMergeSort(Object[] a,int fromIndex, int toIndex): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">To be removed in a future release.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeSort(Object[] src,Object[] dest,int low,int high,int off): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Src is the source array that starts at index 0 Dest is the (possibly larger) array destination with a possible offset low is the index in dest to start sorting high is the end index in dest to end sorting off is the offset to generate corresponding low, high in src To be removed in a future release.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>swap(Object[] x, int a, int b): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Swaps x[a] with x[b].</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(T[] a, Comparator&lt;? super T&gt; c): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified array of objects according to the order induced by the specified comparator.  All elements in the array must be <i>mutually comparable</i> by the specified comparator (that is, ‘c.compare(e1, e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the array).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.  <p>Implementation note: This implementation is a stable, adaptive, iterative mergesort that requires far fewer than n lg(n) comparisons when the input array is partially sorted, while offering the performance of a traditional mergesort when the input array is randomly ordered.  If the input array is nearly sorted, the implementation requires approximately n comparisons.  Temporary storage requirements vary from a small constant for nearly sorted input arrays to n&#x2F;2 object references for randomly ordered input arrays.  <p>The implementation takes equal advantage of ascending and descending order in its input array, and can take advantage of ascending and descending order in different parts of the the same input array.  It is well-suited to merging two or more sorted arrays: simply concatenate the arrays and sort the resulting array.  <p>The implementation was adapted from Tim Peters’s list sort for Python (&lt;a href&#x3D;”http: TimSort</a>).  It uses techniques from Peter McIlroy’s “Optimistic Sorting and Information Theoretic Complexity”, in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.</td>
+<td align="left">ClassCastException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>legacyMergeSort(T[] a, Comparator&lt;? super T&gt; c): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">To be removed in a future release.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(T[] a, int fromIndex, int toIndex,Comparator&lt;? super T&gt; c): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified range of the specified array of objects according to the order induced by the specified comparator.  The range to be sorted extends from index ‘fromIndex’, inclusive, to index ‘toIndex’, exclusive.  (If ‘fromIndex&#x3D;&#x3D;toIndex’, the range to be sorted is empty.)  All elements in the range must be <i>mutually comparable</i> by the specified comparator (that is, ‘c.compare(e1, e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the range).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.  <p>Implementation note: This implementation is a stable, adaptive, iterative mergesort that requires far fewer than n lg(n) comparisons when the input array is partially sorted, while offering the performance of a traditional mergesort when the input array is randomly ordered.  If the input array is nearly sorted, the implementation requires approximately n comparisons.  Temporary storage requirements vary from a small constant for nearly sorted input arrays to n&#x2F;2 object references for randomly ordered input arrays.  <p>The implementation takes equal advantage of ascending and descending order in its input array, and can take advantage of ascending and descending order in different parts of the the same input array.  It is well-suited to merging two or more sorted arrays: simply concatenate the arrays and sort the resulting array.  <p>The implementation was adapted from Tim Peters’s list sort for Python (&lt;a href&#x3D;”http: TimSort</a>).  It uses techniques from Peter McIlroy’s “Optimistic Sorting and Information Theoretic Complexity”, in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.</td>
+<td align="left">ClassCastException<br/>ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>legacyMergeSort(T[] a, int fromIndex, int toIndex,Comparator&lt;? super T&gt; c): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">To be removed in a future release.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeSort(Object[] src,Object[] dest,int low, int high, int off,Comparator c): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Src is the source array that starts at index 0 Dest is the (possibly larger) array destination with a possible offset low is the index in dest to start sorting high is the end index in dest to end sorting off is the offset into src corresponding to low in dest To be removed in a future release.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(T[] array, BinaryOperator&lt;T&gt; op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cumulates, in parallel, each element of the given array in place, using the supplied function. For example if the array initially holds ‘[2, 1, 0, 3]’ and the operation performs addition, then upon return the array holds ‘[2, 3, 3, 6]’. Parallel prefix computation is usually more efficient than sequential loops for large arrays.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(T[] array, int fromIndex,int toIndex, BinaryOperator&lt;T&gt; op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs ‘#parallelPrefix(Object[], BinaryOperator)’ for the given subrange of the array.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(long[] array, LongBinaryOperator op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cumulates, in parallel, each element of the given array in place, using the supplied function. For example if the array initially holds ‘[2, 1, 0, 3]’ and the operation performs addition, then upon return the array holds ‘[2, 3, 3, 6]’. Parallel prefix computation is usually more efficient than sequential loops for large arrays.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(long[] array, int fromIndex,int toIndex, LongBinaryOperator op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs ‘#parallelPrefix(long[], LongBinaryOperator)’ for the given subrange of the array.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(double[] array, DoubleBinaryOperator op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cumulates, in parallel, each element of the given array in place, using the supplied function. For example if the array initially holds ‘[2.0, 1.0, 0.0, 3.0]’ and the operation performs addition, then upon return the array holds ‘[2.0, 3.0, 3.0, 6.0]’. Parallel prefix computation is usually more efficient than sequential loops for large arrays.  <p> Because floating-point operations may not be strictly associative, the returned result may not be identical to the value that would be obtained if the operation was performed sequentially.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(double[] array, int fromIndex,int toIndex, DoubleBinaryOperator op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs ‘#parallelPrefix(double[], DoubleBinaryOperator)’ for the given subrange of the array.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(int[] array, IntBinaryOperator op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cumulates, in parallel, each element of the given array in place, using the supplied function. For example if the array initially holds ‘[2, 1, 0, 3]’ and the operation performs addition, then upon return the array holds ‘[2, 3, 3, 6]’. Parallel prefix computation is usually more efficient than sequential loops for large arrays.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelPrefix(int[] array, int fromIndex,int toIndex, IntBinaryOperator op): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs ‘#parallelPrefix(int[], IntBinaryOperator)’ for the given subrange of the array.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(long[] a, long key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of longs for the specified value using the binary search algorithm.  The array must be sorted (as by the ‘#sort(long[])’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the array contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(long[] a, int fromIndex, int toIndex,long key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of longs for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(long[], int, int)’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the range contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(long[] a, int fromIndex, int toIndex,long key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(int[] a, int key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of ints for the specified value using the binary search algorithm.  The array must be sorted (as by the ‘#sort(int[])’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the array contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(int[] a, int fromIndex, int toIndex,int key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of ints for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(int[], int, int)’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the range contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(int[] a, int fromIndex, int toIndex,int key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(short[] a, short key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of shorts for the specified value using the binary search algorithm.  The array must be sorted (as by the ‘#sort(short[])’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the array contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(short[] a, int fromIndex, int toIndex,short key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of shorts for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(short[], int, int)’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the range contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(short[] a, int fromIndex, int toIndex,short key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(char[] a, char key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of chars for the specified value using the binary search algorithm.  The array must be sorted (as by the ‘#sort(char[])’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the array contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(char[] a, int fromIndex, int toIndex,char key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of chars for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(char[], int, int)’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the range contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(char[] a, int fromIndex, int toIndex,char key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(byte[] a, byte key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of bytes for the specified value using the binary search algorithm.  The array must be sorted (as by the ‘#sort(byte[])’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the array contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(byte[] a, int fromIndex, int toIndex,byte key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of bytes for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(byte[], int, int)’ method) prior to making this call.  If it is not sorted, the results are undefined.  If the range contains multiple elements with the specified value, there is no guarantee which one will be found.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(byte[] a, int fromIndex, int toIndex,byte key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(double[] a, double key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of doubles for the specified value using the binary search algorithm.  The array must be sorted (as by the ‘#sort(double[])’ method) prior to making this call. If it is not sorted, the results are undefined.  If the array contains multiple elements with the specified value, there is no guarantee which one will be found.  This method considers all NaN values to be equivalent and equal.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(double[] a, int fromIndex, int toIndex,double key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of doubles for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(double[], int, int)’ method) prior to making this call. If it is not sorted, the results are undefined.  If the range contains multiple elements with the specified value, there is no guarantee which one will be found.  This method considers all NaN values to be equivalent and equal.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(double[] a, int fromIndex, int toIndex,double key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(float[] a, float key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array of floats for the specified value using the binary search algorithm. The array must be sorted (as by the ‘#sort(float[])’ method) prior to making this call. If it is not sorted, the results are undefined. If the array contains multiple elements with the specified value, there is no guarantee which one will be found. This method considers all NaN values to be equivalent and equal.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(float[] a, int fromIndex, int toIndex,float key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array of floats for the specified value using the binary search algorithm. The range must be sorted (as by the ‘#sort(float[], int, int)’ method) prior to making this call. If it is not sorted, the results are undefined. If the range contains multiple elements with the specified value, there is no guarantee which one will be found. This method considers all NaN values to be equivalent and equal.</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(float[] a, int fromIndex, int toIndex,float key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(Object[] a, Object key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array for the specified object using the binary search algorithm. The array must be sorted into ascending order according to the ‘Comparable natural ordering’ of its elements (as by the ‘#sort(Object[])’ method) prior to making this call. If it is not sorted, the results are undefined. (If the array contains elements that are not mutually comparable (for example, strings and integers), it <i>cannot</i> be sorted according to the natural ordering of its elements, hence results are undefined.) If the array contains multiple elements equal to the specified object, there is no guarantee which one will be found.</td>
+<td align="left">ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(Object[] a, int fromIndex, int toIndex,Object key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array for the specified object using the binary search algorithm. The range must be sorted into ascending order according to the ‘Comparable natural ordering’ of its elements (as by the ‘#sort(Object[], int, int)’ method) prior to making this call.  If it is not sorted, the results are undefined. (If the range contains elements that are not mutually comparable (for example, strings and integers), it <i>cannot</i> be sorted according to the natural ordering of its elements, hence results are undefined.) If the range contains multiple elements equal to the specified object, there is no guarantee which one will be found.</td>
+<td align="left">ClassCastException<br/>ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(Object[] a, int fromIndex, int toIndex,Object key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(T[] a, T key, Comparator&lt;? super T&gt; c): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches the specified array for the specified object using the binary search algorithm.  The array must be sorted into ascending order according to the specified comparator (as by the ‘#sort(Object[], Comparator) sort(T[], Comparator)’ method) prior to making this call.  If it is not sorted, the results are undefined. If the array contains multiple elements equal to the specified object, there is no guarantee which one will be found.</td>
+<td align="left">ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch(T[] a, int fromIndex, int toIndex,T key, Comparator&lt;? super T&gt; c): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Searches a range of the specified array for the specified object using the binary search algorithm. The range must be sorted into ascending order according to the specified comparator (as by the ‘#sort(Object[], int, int, Comparator) sort(T[], int, int, Comparator)’ method) prior to making this call. If it is not sorted, the results are undefined. If the range contains multiple elements equal to the specified object, there is no guarantee which one will be found.</td>
+<td align="left">ClassCastException<br/>ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>binarySearch0(T[] a, int fromIndex, int toIndex,T key, Comparator&lt;? super T&gt; c): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(long[] a, long[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of longs are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(int[] a, int[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of ints are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(short[] a, short a2[]): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of shorts are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(char[] a, char[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of chars are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(byte[] a, byte[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of bytes are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(boolean[] a, boolean[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of booleans are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(double[] a, double[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of doubles are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p>  Two doubles <tt>d1</tt> and <tt>d2</tt> are considered equal if: <pre>    <tt>new Double(d1).equals(new Double(d2))</tt></pre> (Unlike the <tt>&#x3D;&#x3D;</tt> operator, this method considers <tt>NaN</tt> equals to itself, and 0.0d unequal to -0.0d.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(float[] a, float[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of floats are <i>equal</i> to one another.  Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  In other words, two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p>  Two floats <tt>f1</tt> and <tt>f2</tt> are considered equal if: <pre>    <tt>new Float(f1).equals(new Float(f2))</tt></pre> (Unlike the <tt>&#x3D;&#x3D;</tt> operator, this method considers <tt>NaN</tt> equals to itself, and 0.0f unequal to -0.0f.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object[] a, Object[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays of Objects are <i>equal</i> to one another.  The two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal.  Two objects <tt>e1</tt> and <tt>e2</tt> are considered <i>equal</i> if <tt>(e1&#x3D;&#x3D;null ? e2&#x3D;&#x3D;null : e1.equals(e2))</tt>.  In other words, the two arrays are equal if they contain the same elements in the same order.  Also, two array references are considered equal if both are <tt>null</tt>.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(long[] a, long val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified long value to each element of the specified array of longs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(long[] a, int fromIndex, int toIndex, long val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified long value to each element of the specified range of the specified array of longs.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(int[] a, int val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified int value to each element of the specified array of ints.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(int[] a, int fromIndex, int toIndex, int val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified int value to each element of the specified range of the specified array of ints.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(short[] a, short val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified short value to each element of the specified array of shorts.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(short[] a, int fromIndex, int toIndex, short val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified short value to each element of the specified range of the specified array of shorts.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(char[] a, char val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified char value to each element of the specified array of chars.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(char[] a, int fromIndex, int toIndex, char val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified char value to each element of the specified range of the specified array of chars.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(byte[] a, byte val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified byte value to each element of the specified array of bytes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(byte[] a, int fromIndex, int toIndex, byte val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified byte value to each element of the specified range of the specified array of bytes.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(boolean[] a, boolean val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified boolean value to each element of the specified array of booleans.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(boolean[] a, int fromIndex, int toIndex,boolean val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified boolean value to each element of the specified range of the specified array of booleans.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(double[] a, double val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified double value to each element of the specified array of doubles.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(double[] a, int fromIndex, int toIndex,double val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified double value to each element of the specified range of the specified array of doubles.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(float[] a, float val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified float value to each element of the specified array of floats.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fill(float[] a, int fromIndex, int toIndex, float val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified float value to each element of the specified range of the specified array of floats.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(Object[] a, Object val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified Object reference to each element of the specified array of Objects.</td>
+<td align="left">ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>fill(Object[] a, int fromIndex, int toIndex, Object val): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Assigns the specified Object reference to each element of the specified range of the specified array of Objects.  The range to be filled extends from index <tt>fromIndex</tt>, inclusive, to index <tt>toIndex</tt>, exclusive.  (If <tt>fromIndex&#x3D;&#x3D;toIndex</tt>, the range to be filled is empty.)</td>
+<td align="left">ArrayIndexOutOfBoundsException<br/>ArrayStoreException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(T[] original, int newLength): T[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with nulls (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>null</tt>. Such indices will exist if and only if the specified length is greater than that of the original array. The resulting array is of exactly the same class as the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(U[] original, int newLength, Class&lt;? extends T[]&gt; newType): T[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with nulls (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>null</tt>. Such indices will exist if and only if the specified length is greater than that of the original array. The resulting array is of the class <tt>newType</tt>.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException<br/>ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(byte[] original, int newLength): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>(byte)0</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(short[] original, int newLength): short[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>(short)0</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(int[] original, int newLength): int[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>0</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(long[] original, int newLength): long[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>0L</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(char[] original, int newLength): char[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with null characters (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>‘\u000’</tt>.  Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(float[] original, int newLength): float[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>0f</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(double[] original, int newLength): double[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>0d</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOf(boolean[] original, int newLength): boolean[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified array, truncating or padding with <tt>false</tt> (if necessary) so the copy has the specified length.  For all indices that are valid in both the original array and the copy, the two arrays will contain identical values.  For any indices that are valid in the copy but not the original, the copy will contain <tt>false</tt>. Such indices will exist if and only if the specified length is greater than that of the original array.</td>
+<td align="left">NullPointerException<br/>NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(T[] original, int from, int to): T[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>null</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>. <p> The resulting array is of exactly the same class as the original array.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(U[] original, int from, int to, Class&lt;? extends T[]&gt; newType): T[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>null</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>. The resulting array is of the class <tt>newType</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException<br/>ArrayStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(byte[] original, int from, int to): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>(byte)0</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(short[] original, int from, int to): short[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>(short)0</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(int[] original, int from, int to): int[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>0</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(long[] original, int from, int to): long[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>0L</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(char[] original, int from, int to): char[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>‘\u000’</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(float[] original, int from, int to): float[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>0f</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(double[] original, int from, int to): double[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>0d</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>copyOfRange(boolean[] original, int from, int to): boolean[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies the specified range of the specified array into a new array. The initial index of the range (<tt>from</tt>) must lie between zero and <tt>original.length</tt>, inclusive.  The value at <tt>original[from]</tt> is placed into the initial element of the copy (unless <tt>from &#x3D;&#x3D; original.length</tt> or <tt>from &#x3D;&#x3D; to</tt>). Values from subsequent elements in the original array are placed into subsequent elements in the copy.  The final index of the range (<tt>to</tt>), which must be greater than or equal to <tt>from</tt>, may be greater than <tt>original.length</tt>, in which case <tt>false</tt> is placed in all elements of the copy whose index is greater than or equal to <tt>original.length - from</tt>.  The length of the returned array will be <tt>to - from</tt>.</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asList(T… a): List<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a fixed-size list backed by the specified array.  (Changes to the returned list “write through” to the array.)  This method acts as bridge between array-based and collection-based APIs, in combination with ‘Collection#toArray’.  The returned list is serializable and implements ‘RandomAccess’.  <p>This method also provides a convenient way to create a fixed-size list initialized to contain several elements: <pre> List&lt;String&gt; stooges = Arrays.asList("Larry", "Moe", "Curly"); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(long a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>long</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Long’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(int a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two non-null <tt>int</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Integer’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(short a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>short</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Short’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(char a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>char</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Character’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(byte a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>byte</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Byte’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(boolean a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>boolean</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Boolean’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(float a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>float</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Float’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(double a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array. For any two <tt>double</tt> arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is the same value that would be obtained by invoking the ‘List#hashCode() <tt>hashCode</tt>‘ method on a ‘List’ containing a sequence of ‘Double’ instances representing the elements of <tt>a</tt> in the same order. If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(Object a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the contents of the specified array.  If the array contains other arrays as elements, the hash code is based on their identities rather than their contents.  It is therefore acceptable to invoke this method on an array that contains itself as an element,  either directly or indirectly through one or more levels of arrays.  <p>For any two arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.equals(a, b)</tt>, it is also the case that <tt>Arrays.hashCode(a) &#x3D;&#x3D; Arrays.hashCode(b)</tt>.  <p>The value returned by this method is equal to the value that would be returned by <tt>Arrays.asList(a).hashCode()</tt>, unless <tt>a</tt> is <tt>null</tt>, in which case <tt>0</tt> is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deepHashCode(Object a[]): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code based on the “deep contents” of the specified array.  If the array contains other arrays as elements, the hash code is based on their contents and so on, ad infinitum. It is therefore unacceptable to invoke this method on an array that contains itself as an element, either directly or indirectly through one or more levels of arrays.  The behavior of such an invocation is undefined.  <p>For any two arrays <tt>a</tt> and <tt>b</tt> such that <tt>Arrays.deepEquals(a, b)</tt>, it is also the case that <tt>Arrays.deepHashCode(a) &#x3D;&#x3D; Arrays.deepHashCode(b)</tt>.  <p>The computation of the value returned by this method is similar to that of the value returned by ‘List#hashCode()’ on a list containing the same elements as <tt>a</tt> in the same order, with one difference: If an element <tt>e</tt> of <tt>a</tt> is itself an array, its hash code is computed not by calling <tt>e.hashCode()</tt>, but as by calling the appropriate overloading of <tt>Arrays.hashCode(e)</tt> if <tt>e</tt> is an array of a primitive type, or as by calling <tt>Arrays.deepHashCode(e)</tt> recursively if <tt>e</tt> is an array of a reference type.  If <tt>a</tt> is <tt>null</tt>, this method returns 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deepEquals(Object[] a1, Object[] a2): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if the two specified arrays are <i>deeply equal</i> to one another.  Unlike the ‘#equals(Object[],Object[])’ method, this method is appropriate for use with nested arrays of arbitrary depth.  <p>Two array references are considered deeply equal if both are <tt>null</tt>, or if they refer to arrays that contain the same number of elements and all corresponding pairs of elements in the two arrays are deeply equal.  <p>Two possibly <tt>null</tt> elements <tt>e1</tt> and <tt>e2</tt> are deeply equal if any of the following conditions hold: <ul> <li> <tt>e1</tt> and <tt>e2</tt> are both arrays of object reference types, and <tt>Arrays.deepEquals(e1, e2) would return true</tt> <li> <tt>e1</tt> and <tt>e2</tt> are arrays of the same primitive type, and the appropriate overloading of <tt>Arrays.equals(e1, e2)</tt> would return true. <li> <tt>e1 &#x3D;&#x3D; e2</tt> <li> <tt>e1.equals(e2)</tt> would return true. </ul> Note that this definition permits <tt>null</tt> elements at any depth.  <p>If either of the specified arrays contain themselves as elements either directly or indirectly through one or more levels of arrays, the behavior of this method is undefined.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deepEquals0(Object e1, Object e2): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(long[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(long)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(int[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(int)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(short[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(short)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(char[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(char)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(byte[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(byte)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(boolean[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(boolean)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(float[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(float)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(double[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(double)</tt>.  Returns <tt>“null”</tt> if <tt>a</tt> is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(Object[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the contents of the specified array. If the array contains other arrays as elements, they are converted to strings by the ‘Object#toString’ method inherited from <tt>Object</tt>, which describes their <i>identities</i> rather than their contents.  <p>The value returned by this method is equal to the value that would be returned by <tt>Arrays.asList(a).toString()</tt>, unless <tt>a</tt> is <tt>null</tt>, in which case <tt>“null”</tt> is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deepToString(Object[] a): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of the “deep contents” of the specified array.  If the array contains other arrays as elements, the string representation contains their contents and so on.  This method is designed for converting multidimensional arrays to strings.  <p>The string representation consists of a list of the array’s elements, enclosed in square brackets (<tt>“[]”</tt>).  Adjacent elements are separated by the characters <tt>“, “</tt> (a comma followed by a space).  Elements are converted to strings as by <tt>String.valueOf(Object)</tt>, unless they are themselves arrays.  <p>If an element <tt>e</tt> is an array of a primitive type, it is converted to a string as by invoking the appropriate overloading of <tt>Arrays.toString(e)</tt>.  If an element <tt>e</tt> is an array of a reference type, it is converted to a string as by invoking this method recursively.  <p>To avoid infinite recursion, if the specified array contains itself as an element, or contains an indirect reference to itself through one or more levels of arrays, the self-reference is converted to the string <tt>“[…]”</tt>.  For example, an array containing only a reference to itself would be rendered as <tt>“[[…]]”</tt>.  <p>This method returns <tt>“null”</tt> if the specified array is <tt>null</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deepToString(Object[] a, StringBuilder buf,Set&lt;Object[]&gt; dejaVu): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setAll(T[] array, IntFunction&lt;? extends T&gt; generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, using the provided generator function to compute each element.  <p>If the generator function throws an exception, it is relayed to the caller and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSetAll(T[] array, IntFunction&lt;? extends T&gt; generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, in parallel, using the provided generator function to compute each element.  <p>If the generator function throws an exception, an unchecked exception is thrown from ‘parallelSetAll’ and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>setAll(int[] array, IntUnaryOperator generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, using the provided generator function to compute each element.  <p>If the generator function throws an exception, it is relayed to the caller and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSetAll(int[] array, IntUnaryOperator generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, in parallel, using the provided generator function to compute each element.  <p>If the generator function throws an exception, an unchecked exception is thrown from ‘parallelSetAll’ and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>setAll(long[] array, IntToLongFunction generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, using the provided generator function to compute each element.  <p>If the generator function throws an exception, it is relayed to the caller and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSetAll(long[] array, IntToLongFunction generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, in parallel, using the provided generator function to compute each element.  <p>If the generator function throws an exception, an unchecked exception is thrown from ‘parallelSetAll’ and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>setAll(double[] array, IntToDoubleFunction generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, using the provided generator function to compute each element.  <p>If the generator function throws an exception, it is relayed to the caller and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>parallelSetAll(double[] array, IntToDoubleFunction generator): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set all elements of the specified array, in parallel, using the provided generator function to compute each element.  <p>If the generator function throws an exception, an unchecked exception is thrown from ‘parallelSetAll’ and the array is left in an indeterminate state.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(T[] array): Spliterator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ covering all of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(T[] array, int startInclusive, int endExclusive): Spliterator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator’ covering the specified range of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(int[] array): Spliterator.OfInt</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator.OfInt’ covering all of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(int[] array, int startInclusive, int endExclusive): Spliterator.OfInt</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator.OfInt’ covering the specified range of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(long[] array): Spliterator.OfLong</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator.OfLong’ covering all of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(long[] array, int startInclusive, int endExclusive): Spliterator.OfLong</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator.OfLong’ covering the specified range of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(double[] array): Spliterator.OfDouble</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator.OfDouble’ covering all of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator(double[] array, int startInclusive, int endExclusive): Spliterator.OfDouble</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Spliterator.OfDouble’ covering the specified range of the specified array.  <p>The spliterator reports ‘Spliterator#SIZED’, ‘Spliterator#SUBSIZED’, ‘Spliterator#ORDERED’, and ‘Spliterator#IMMUTABLE’.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>stream(T[] array): Stream<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘Stream’ with the specified array as its source.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stream(T[] array, int startInclusive, int endExclusive): Stream<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘Stream’ with the specified range of the specified array as its source.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>stream(int[] array): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘IntStream’ with the specified array as its source.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stream(int[] array, int startInclusive, int endExclusive): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘IntStream’ with the specified range of the specified array as its source.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>stream(long[] array): LongStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘LongStream’ with the specified array as its source.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stream(long[] array, int startInclusive, int endExclusive): LongStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘LongStream’ with the specified range of the specified array as its source.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>stream(double[] array): DoubleStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘DoubleStream’ with the specified array as its source.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stream(double[] array, int startInclusive, int endExclusive): DoubleStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a sequential ‘DoubleStream’ with the specified range of the specified array as its source.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Arrays-NaturalOrder"><a href="#Arrays-NaturalOrder" class="headerlink" title="Arrays$NaturalOrder"></a><a href="./Arrays$NaturalOrder.html">Arrays$NaturalOrder</a></h3><h3 id="Arrays-LegacyMergeSort"><a href="#Arrays-LegacyMergeSort" class="headerlink" title="Arrays$LegacyMergeSort"></a><a href="./Arrays$LegacyMergeSort.html">Arrays$LegacyMergeSort</a></h3><h3 id="Arrays-ArrayList"><a href="#Arrays-ArrayList" class="headerlink" title="Arrays$ArrayList"></a><a href="./Arrays$ArrayList.html">Arrays$ArrayList</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

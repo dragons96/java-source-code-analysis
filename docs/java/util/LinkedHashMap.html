@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/LinkedHashMap.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="LinkedHashMap-lt-K-V-gt"><a href="#LinkedHashMap-lt-K-V-gt" class="headerlink" title="LinkedHashMap&lt;K,V&gt;"></a>LinkedHashMap&lt;K,V&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.LinkedHashMap&lt;K,V&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">HashMap&lt;K,V&gt;implements</td>
+<td align="center">Map&lt;K,V&gt;</td>
+<td align="center">&lt;K&gt;,&lt;V&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">3801124242820219131L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HashMap.Node subclass for normal LinkedHashMap entries.</td>
+</tr>
+<tr>
+<td align="center"><strong>head: LinkedHashMap.Entry&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The head (eldest) of the doubly linked list.</td>
+</tr>
+<tr>
+<td align="center"><strong>tail: LinkedHashMap.Entry&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The tail (youngest) of the doubly linked list.</td>
+</tr>
+<tr>
+<td align="center"><strong>accessOrder: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The iteration ordering method for this linked hash map: <tt>true</tt> for access-order, <tt>false</tt> for insertion-order.  @serial</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>linkNodeLast(LinkedHashMap.Entry&lt;K,V&gt; p): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transferLinks(LinkedHashMap.Entry&lt;K,V&gt; src,LinkedHashMap.Entry&lt;K,V&gt; dst): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reinitialize()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newNode(int hash, K key, V value, Node&lt;K,V&gt; e)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replacementNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newTreeNode(int hash, K key, V value, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replacementTreeNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>afterNodeRemoval(Node&lt;K,V&gt; e)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>afterNodeInsertion(boolean evict)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>afterNodeAccess(Node&lt;K,V&gt; e)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalWriteEntries(java.io.ObjectOutputStream s)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedHashMap(int initialCapacity, float loadFactor)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance with the specified initial capacity and load factor.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedHashMap(int initialCapacity)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance with the specified initial capacity and a default load factor (0.75).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedHashMap()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance with the default initial capacity (16) and load factor (0.75).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedHashMap(Map&lt;? extends K, ? extends V&gt; m)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an insertion-ordered <tt>LinkedHashMap</tt> instance with the same mappings as the specified map.  The <tt>LinkedHashMap</tt> instance is created with a default load factor (0.75) and an initial capacity sufficient to hold the mappings in the specified map.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>LinkedHashMap(int initialCapacity,float loadFactor,boolean accessOrder)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty <tt>LinkedHashMap</tt> instance with the specified initial capacity, load factor and ordering mode.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>containsValue(Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if this map maps one or more keys to the specified value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value to which the specified key is mapped, or ‘null’ if this map contains no mapping for the key.  <p>More formally, if this map contains a mapping from a key ‘k’ to a value ‘v’ such that ‘(key&#x3D;&#x3D;null ? k&#x3D;&#x3D;null : key.equals(k))’, then this method returns ‘v’; otherwise it returns ‘null’.  (There can be at most one such mapping.)  <p>A return value of ‘null’ does not <i>necessarily</i> indicate that the map contains no mapping for the key; it’s also possible that the map explicitly maps the key to ‘null’. The ‘#containsKey containsKey’ operation may be used to distinguish these two cases.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOrDefault(Object key, V defaultValue): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeEldestEntry(Map.Entry&lt;K,V&gt; eldest): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if this map should remove its eldest entry. This method is invoked by <tt>put</tt> and <tt>putAll</tt> after inserting a new entry into the map.  It provides the implementor with the opportunity to remove the eldest entry each time a new one is added.  This is useful if the map represents a cache: it allows the map to reduce memory consumption by deleting stale entries.  <p>Sample use: this override will allow the map to grow up to 100 entries and then delete the eldest entry each time a new entry is added, maintaining a steady state of 100 entries. <pre> private static final int MAX_ENTRIES = 100;  protected boolean removeEldestEntry(Map.Entry eldest) { return size() &gt; MAX_ENTRIES; } </pre>  <p>This method typically does not modify the map in any way, instead allowing the map to modify itself as directed by its return value.  It <i>is</i> permitted for this method to modify the map directly, but if it does so, it <i>must</i> return <tt>false</tt> (indicating that the map should not attempt any further modification).  The effects of returning <tt>true</tt> after modifying the map from within this method are unspecified.  <p>This implementation merely returns <tt>false</tt> (so that this map acts like a normal map - the eldest element is never removed).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keySet(): Set<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the keys contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress (except through the iterator’s own <tt>remove</tt> operation), the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt> operations.  It does not support the <tt>add</tt> or <tt>addAll</tt> operations. Its ‘Spliterator’ typically provides faster sequential performance but much poorer parallel performance than that of ‘HashMap’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>values(): Collection<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Collection’ view of the values contained in this map. The collection is backed by the map, so changes to the map are reflected in the collection, and vice-versa.  If the map is modified while an iteration over the collection is in progress (except through the iterator’s own <tt>remove</tt> operation), the results of the iteration are undefined.  The collection supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Collection.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not support the <tt>add</tt> or <tt>addAll</tt> operations. Its ‘Spliterator’ typically provides faster sequential performance but much poorer parallel performance than that of ‘HashMap’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet(): Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the mappings contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress (except through the iterator’s own <tt>remove</tt> operation, or through the <tt>setValue</tt> operation on a map entry returned by the iterator) the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not support the <tt>add</tt> or <tt>addAll</tt> operations. Its ‘Spliterator’ typically provides faster sequential performance but much poorer parallel performance than that of ‘HashMap’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(BiConsumer&lt;? super K, ? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="LinkedHashMap-Entry"><a href="#LinkedHashMap-Entry" class="headerlink" title="LinkedHashMap$Entry"></a><a href="./LinkedHashMap$Entry.html">LinkedHashMap$Entry</a></h3><h3 id="LinkedHashMap-LinkedKeySet"><a href="#LinkedHashMap-LinkedKeySet" class="headerlink" title="LinkedHashMap$LinkedKeySet"></a><a href="./LinkedHashMap$LinkedKeySet.html">LinkedHashMap$LinkedKeySet</a></h3><h3 id="LinkedHashMap-LinkedValues"><a href="#LinkedHashMap-LinkedValues" class="headerlink" title="LinkedHashMap$LinkedValues"></a><a href="./LinkedHashMap$LinkedValues.html">LinkedHashMap$LinkedValues</a></h3><h3 id="LinkedHashMap-LinkedEntrySet"><a href="#LinkedHashMap-LinkedEntrySet" class="headerlink" title="LinkedHashMap$LinkedEntrySet"></a><a href="./LinkedHashMap$LinkedEntrySet.html">LinkedHashMap$LinkedEntrySet</a></h3><h3 id="LinkedHashMap-LinkedHashIterator"><a href="#LinkedHashMap-LinkedHashIterator" class="headerlink" title="LinkedHashMap$LinkedHashIterator"></a><a href="./LinkedHashMap$LinkedHashIterator.html">LinkedHashMap$LinkedHashIterator</a></h3><h3 id="LinkedHashMap-LinkedKeyIterator"><a href="#LinkedHashMap-LinkedKeyIterator" class="headerlink" title="LinkedHashMap$LinkedKeyIterator"></a><a href="./LinkedHashMap$LinkedKeyIterator.html">LinkedHashMap$LinkedKeyIterator</a></h3><h3 id="LinkedHashMap-LinkedValueIterator"><a href="#LinkedHashMap-LinkedValueIterator" class="headerlink" title="LinkedHashMap$LinkedValueIterator"></a><a href="./LinkedHashMap$LinkedValueIterator.html">LinkedHashMap$LinkedValueIterator</a></h3><h3 id="LinkedHashMap-LinkedEntryIterator"><a href="#LinkedHashMap-LinkedEntryIterator" class="headerlink" title="LinkedHashMap$LinkedEntryIterator"></a><a href="./LinkedHashMap$LinkedEntryIterator.html">LinkedHashMap$LinkedEntryIterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/Timer.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Timer"><a href="#Timer" class="headerlink" title="Timer"></a>Timer</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.Timer</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>queue: TaskQueue</strong></td>
+<td align="center">new TaskQueue()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The timer task queue.  This data structure is shared with the timer thread.  The timer produces tasks, via its various schedule calls, and the timer thread consumes, executing timer tasks as appropriate, and removing them from the queue when they’re obsolete.</td>
+</tr>
+<tr>
+<td align="center"><strong>thread: TimerThread</strong></td>
+<td align="center">new TimerThread(queue)</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The timer thread.</td>
+</tr>
+<tr>
+<td align="center"><strong>nextSerialNumber: AtomicInteger</strong></td>
+<td align="center">new AtomicInteger(0)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This ID is used to generate thread names.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Object(): new</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This object causes the timer’s task execution thread to exit gracefully when there are no live references to the Timer object and no tasks in the timer queue.  It is used in preference to a finalizer on Timer as such a finalizer would be susceptible to a subclass’s finalizer forgetting to call it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialNumber(): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Timer()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new timer.  The associated thread does <i>not</i> ‘Thread#setDaemon run as a daemon’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Timer(boolean isDaemon)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new timer whose associated thread may be specified to ‘Thread#setDaemon run as a daemon’. A daemon thread is called for if the timer will be used to schedule repeating “maintenance activities”, which must be performed as long as the application is running, but should not prolong the lifetime of the application.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Timer(String name)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new timer whose associated thread has the specified name. The associated thread does <i>not</i> ‘Thread#setDaemon run as a daemon’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>Timer(String name, boolean isDaemon)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new timer whose associated thread has the specified name, and may be specified to ‘Thread#setDaemon run as a daemon’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>schedule(TimerTask task, long delay): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedules the specified task for execution after the specified delay.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>schedule(TimerTask task, Date time): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedules the specified task for execution at the specified time.  If the time is in the past, the task is scheduled for immediate execution.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>schedule(TimerTask task, long delay, long period): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedules the specified task for repeated <i>fixed-delay execution</i>, beginning after the specified delay.  Subsequent executions take place at approximately regular intervals separated by the specified period.  <p>In fixed-delay execution, each execution is scheduled relative to the actual execution time of the previous execution.  If an execution is delayed for any reason (such as garbage collection or other background activity), subsequent executions will be delayed as well. In the long run, the frequency of execution will generally be slightly lower than the reciprocal of the specified period (assuming the system clock underlying <tt>Object.wait(long)</tt> is accurate).  <p>Fixed-delay execution is appropriate for recurring activities that require “smoothness.”  In other words, it is appropriate for activities where it is more important to keep the frequency accurate in the short run than in the long run.  This includes most animation tasks, such as blinking a cursor at regular intervals.  It also includes tasks wherein regular activity is performed in response to human input, such as automatically repeating a character as long as a key is held down.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>schedule(TimerTask task, Date firstTime, long period): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedules the specified task for repeated <i>fixed-delay execution</i>, beginning at the specified time. Subsequent executions take place at approximately regular intervals, separated by the specified period.  <p>In fixed-delay execution, each execution is scheduled relative to the actual execution time of the previous execution.  If an execution is delayed for any reason (such as garbage collection or other background activity), subsequent executions will be delayed as well. In the long run, the frequency of execution will generally be slightly lower than the reciprocal of the specified period (assuming the system clock underlying <tt>Object.wait(long)</tt> is accurate).  As a consequence of the above, if the scheduled first time is in the past, it is scheduled for immediate execution.  <p>Fixed-delay execution is appropriate for recurring activities that require “smoothness.”  In other words, it is appropriate for activities where it is more important to keep the frequency accurate in the short run than in the long run.  This includes most animation tasks, such as blinking a cursor at regular intervals.  It also includes tasks wherein regular activity is performed in response to human input, such as automatically repeating a character as long as a key is held down.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>scheduleAtFixedRate(TimerTask task, long delay, long period): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedules the specified task for repeated <i>fixed-rate execution</i>, beginning after the specified delay.  Subsequent executions take place at approximately regular intervals, separated by the specified period.  <p>In fixed-rate execution, each execution is scheduled relative to the scheduled execution time of the initial execution.  If an execution is delayed for any reason (such as garbage collection or other background activity), two or more executions will occur in rapid succession to “catch up.”  In the long run, the frequency of execution will be exactly the reciprocal of the specified period (assuming the system clock underlying <tt>Object.wait(long)</tt> is accurate).  <p>Fixed-rate execution is appropriate for recurring activities that are sensitive to <i>absolute</i> time, such as ringing a chime every hour on the hour, or running scheduled maintenance every day at a particular time.  It is also appropriate for recurring activities where the total time to perform a fixed number of executions is important, such as a countdown timer that ticks once every second for ten seconds.  Finally, fixed-rate execution is appropriate for scheduling multiple repeating timer tasks that must remain synchronized with respect to one another.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>scheduleAtFixedRate(TimerTask task, Date firstTime,long period): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedules the specified task for repeated <i>fixed-rate execution</i>, beginning at the specified time. Subsequent executions take place at approximately regular intervals, separated by the specified period.  <p>In fixed-rate execution, each execution is scheduled relative to the scheduled execution time of the initial execution.  If an execution is delayed for any reason (such as garbage collection or other background activity), two or more executions will occur in rapid succession to “catch up.”  In the long run, the frequency of execution will be exactly the reciprocal of the specified period (assuming the system clock underlying <tt>Object.wait(long)</tt> is accurate).  As a consequence of the above, if the scheduled first time is in the past, then any “missed” executions will be scheduled for immediate “catch up” execution.  <p>Fixed-rate execution is appropriate for recurring activities that are sensitive to <i>absolute</i> time, such as ringing a chime every hour on the hour, or running scheduled maintenance every day at a particular time.  It is also appropriate for recurring activities where the total time to perform a fixed number of executions is important, such as a countdown timer that ticks once every second for ten seconds.  Finally, fixed-rate execution is appropriate for scheduling multiple repeating timer tasks that must remain synchronized with respect to one another.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>sched(TimerTask task, long time, long period): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Schedule the specified timer task for execution at the specified time with the specified period, in milliseconds.  If period is positive, the task is scheduled for repeated execution; if period is zero, the task is scheduled for one-time execution. Time is specified in Date.getTime() format.  This method checks timer state, task state, and initial execution time, but not period.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>cancel(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Terminates this timer, discarding any currently scheduled tasks. Does not interfere with a currently executing task (if it exists). Once a timer has been terminated, its execution thread terminates gracefully, and no more tasks may be scheduled on it.  <p>Note that calling this method from within the run method of a timer task that was invoked by this timer absolutely guarantees that the ongoing task execution is the last task execution that will ever be performed by this timer.  <p>This method may be called repeatedly; the second and subsequent calls have no effect.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>purge(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all cancelled tasks from this timer’s task queue.  <i>Calling this method has no effect on the behavior of the timer</i>, but eliminates the references to the cancelled tasks from the queue. If there are no external references to these tasks, they become eligible for garbage collection.  <p>Most programs will have no need to call this method. It is designed for use by the rare application that cancels a large number of tasks.  Calling this method trades time for space: the runtime of the method may be proportional to n + c log n, where n is the number of tasks in the queue and c is the number of cancelled tasks.  <p>Note that it is permissible to call this method from within a a task scheduled on this timer.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Timer-TimerThread"><a href="#Timer-TimerThread" class="headerlink" title="Timer$TimerThread"></a><a href="./Timer$TimerThread.html">Timer$TimerThread</a></h3><h3 id="Timer-TaskQueue"><a href="#Timer-TaskQueue" class="headerlink" title="Timer$TaskQueue"></a><a href="./Timer$TaskQueue.html">Timer$TaskQueue</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

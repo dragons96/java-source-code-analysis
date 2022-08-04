@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/prefs/AbstractPreferences.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AbstractPreferences"><a href="#AbstractPreferences" class="headerlink" title="AbstractPreferences"></a>AbstractPreferences</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.prefs.AbstractPreferences</strong></td>
+<td align="center">abstract class</td>
+<td align="center">Preferences</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>name: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Our name relative to parent.</td>
+</tr>
+<tr>
+<td align="center"><strong>absolutePath: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Our absolute path name.</td>
+</tr>
+<tr>
+<td align="center"><strong>parent: AbstractPreferences</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Our parent node.</td>
+</tr>
+<tr>
+<td align="center"><strong>root: AbstractPreferences</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Our root node.</td>
+</tr>
+<tr>
+<td align="center"><strong>newNode: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field should be <tt>true</tt> if this node did not exist in the backing store prior to the creation of this object.  The field is initialized to false, but may be set to true by a subclass constructor (and should not be modified thereafter).  This field indicates whether a node change event should be fired when creation is complete.</td>
+</tr>
+<tr>
+<td align="center"><strong>(): Map&lt;String, AbstractPreferences&gt; kidCache &#x3D; new HashMap&lt;&gt;</strong></td>
+<td align="center">new HashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">All known unremoved children of this node.  (This “cache” is consulted prior to calling childSpi() or getChild().</td>
+</tr>
+<tr>
+<td align="center"><strong>removed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field is used to keep track of whether or not this node has been removed.  Once it’s set to true, it will never be reset to false.</td>
+</tr>
+<tr>
+<td align="center"><strong>prefListeners: PreferenceChangeListener[]</strong></td>
+<td align="center">new PreferenceChangeListener[0]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registered preference change listeners.</td>
+</tr>
+<tr>
+<td align="center"><strong>nodeListeners: NodeChangeListener[]</strong></td>
+<td align="center">new NodeChangeListener[0]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registered node change listeners.</td>
+</tr>
+<tr>
+<td align="center"><strong>lock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">An object whose monitor is used to lock this node.  This object is used in preference to the node itself to reduce the likelihood of intentional or unintentional denial of service due to a locked node. To avoid deadlock, a node is <i>never</i> locked by a thread that holds a lock on a descendant of that node.</td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_STRING_ARRAY: String[]</strong></td>
+<td align="center">new String[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>(): List&lt;EventObject&gt; eventQueue &#x3D; new LinkedList&lt;&gt;</strong></td>
+<td align="center">new LinkedList&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queue of pending notification events.  When a preference or node change event for which there are one or more listeners occurs, it is placed on this queue and the queue is notified.  A background thread waits on this queue and delivers the events.  This decouples event delivery from preference activity, greatly simplifying locking and reducing opportunity for deadlock.</td>
+</tr>
+<tr>
+<td align="center"><strong>eventDispatchThread: Thread</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A single background thread (“the event notification thread”) monitors the event queue and delivers events that are placed on the queue.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>AbstractPreferences(AbstractPreferences parent, String name)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a preference node with the specified parent and the specified name relative to its parent.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(String key, String value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>put</tt> method as per the specification in ‘Preferences#put(String,String)’.  <p>This implementation checks that the key and value are legal, obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#putSpi(String,String)’, and if there are any preference change listeners, enqueues a notification event for processing by the event dispatch thread.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(String key, String def): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>get</tt> method as per the specification in ‘Preferences#get(String,String)’.  <p>This implementation first checks to see if <tt>key</tt> is <tt>null</tt> throwing a <tt>NullPointerException</tt> if this is the case.  Then it obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#getSpi(String)’, and returns the result, unless the <tt>getSpi</tt> invocation returns <tt>null</tt> or throws an exception, in which case this invocation returns <tt>def</tt>.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(String key): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>remove(String)</tt> method as per the specification in ‘Preferences#remove(String)’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#removeSpi(String)’ and if there are any preference change listeners, enqueues a notification event for processing by the event dispatch thread.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>clear</tt> method as per the specification in ‘Preferences#clear()’.  <p>This implementation obtains this preference node’s lock, invokes ‘#keys()’ to obtain an array of keys, and iterates over the array invoking ‘#remove(String)’ on each key.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>putInt(String key, int value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>putInt</tt> method as per the specification in ‘Preferences#putInt(String,int)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Integer#toString(int)’ and invokes ‘#put(String,String)’ on the result.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(String key, int def): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>getInt</tt> method as per the specification in ‘Preferences#getInt(String,int)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to an <tt>int</tt> with ‘Integer#parseInt(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putLong(String key, long value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>putLong</tt> method as per the specification in ‘Preferences#putLong(String,long)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Long#toString(long)’ and invokes ‘#put(String,String)’ on the result.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(String key, long def): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>getLong</tt> method as per the specification in ‘Preferences#getLong(String,long)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to a <tt>long</tt> with ‘Long#parseLong(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putBoolean(String key, boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>putBoolean</tt> method as per the specification in ‘Preferences#putBoolean(String,boolean)’.  <p>This implementation translates <tt>value</tt> to a string with ‘String#valueOf(boolean)’ and invokes ‘#put(String,String)’ on the result.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBoolean(String key, boolean def): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>getBoolean</tt> method as per the specification in ‘Preferences#getBoolean(String,boolean)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, it is compared with <tt>“true”</tt> using ‘String#equalsIgnoreCase(String)’.  If the comparison returns <tt>true</tt>, this invocation returns <tt>true</tt>.  Otherwise, the original return value is compared with <tt>“false”</tt>, again using ‘String#equalsIgnoreCase(String)’. If the comparison returns <tt>true</tt>, this invocation returns <tt>false</tt>.  Otherwise, this invocation returns <tt>def</tt>.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putFloat(String key, float value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>putFloat</tt> method as per the specification in ‘Preferences#putFloat(String,float)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Float#toString(float)’ and invokes ‘#put(String,String)’ on the result.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(String key, float def): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>getFloat</tt> method as per the specification in ‘Preferences#getFloat(String,float)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to an <tt>float</tt> with ‘Float#parseFloat(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putDouble(String key, double value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>putDouble</tt> method as per the specification in ‘Preferences#putDouble(String,double)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Double#toString(double)’ and invokes ‘#put(String,String)’ on the result.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(String key, double def): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>getDouble</tt> method as per the specification in ‘Preferences#getDouble(String,double)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to an <tt>double</tt> with ‘Double#parseDouble(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putByteArray(String key, byte[] value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>putByteArray</tt> method as per the specification in ‘Preferences#putByteArray(String,byte[])’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByteArray(String key, byte[] def): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>getByteArray</tt> method as per the specification in ‘Preferences#getByteArray(String,byte[])’.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>keys(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>keys</tt> method as per the specification in ‘Preferences#keys()’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed and invokes ‘#keysSpi()’.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>childrenNames(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>children</tt> method as per the specification in ‘Preferences#childrenNames()’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed, constructs a <tt>TreeSet</tt> initialized to the names of children already cached (the children in this node’s “child-cache”), invokes ‘#childrenNamesSpi()’, and adds all of the returned child-names into the set.  The elements of the tree set are dumped into a <tt>String</tt> array using the <tt>toArray</tt> method, and this array is returned.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>cachedChildren(): AbstractPreferences[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns all known unremoved children of this node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parent(): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>parent</tt> method as per the specification in ‘Preferences#parent()’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed and returns the parent value that was passed to this node’s constructor.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>node(String path): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>node</tt> method as per the specification in ‘Preferences#node(String)’.  <p>This implementation obtains this preference node’s lock and checks that the node has not been removed.  If <tt>path</tt> is <tt>“”</tt>, this node is returned; if <tt>path</tt> is <tt>“&#x2F;“</tt>, this node’s root is returned.  If the first character in <tt>path</tt> is not <tt>‘&#x2F;‘</tt>, the implementation breaks <tt>path</tt> into tokens and recursively traverses the path from this node to the named node, “consuming” a name and a slash from <tt>path</tt> at each step of the traversal.  At each step, the current node is locked and the node’s child-cache is checked for the named node.  If it is not found, the name is checked to make sure its length does not exceed <tt>MAX_NAME_LENGTH</tt>.  Then the ‘#childSpi(String)’ method is invoked, and the result stored in this node’s child-cache. If the newly created <tt>Preferences</tt> object’s ‘#newNode’ field is <tt>true</tt> and there are any node change listeners, a notification event is enqueued for processing by the event dispatch thread.  <p>When there are no more tokens, the last value found in the child-cache or returned by <tt>childSpi</tt> is returned by this method.  If during the traversal, two <tt>“&#x2F;“</tt> tokens occur consecutively, or the final token is <tt>“&#x2F;“</tt> (rather than a name), an appropriate <tt>IllegalArgumentException</tt> is thrown.  <p> If the first character of <tt>path</tt> is <tt>‘&#x2F;‘</tt> (indicating an absolute path name) this preference node’s lock is dropped prior to breaking <tt>path</tt> into tokens, and this method recursively traverses the path starting from the root (rather than starting from this node).  The traversal is otherwise identical to the one described for relative path names.  Dropping the lock on this node prior to commencing the traversal at the root node is essential to avoid the possibility of deadlock, as per the ‘#lock locking invariant’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>node(StringTokenizer path): Preferences</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">tokenizer contains <name> {‘&#x2F;‘ <name>}</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNode(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>removeNode()</tt> method as per the specification in ‘Preferences#removeNode()’.  <p>This implementation checks to see that this node is the root; if so, it throws an appropriate exception.  Then, it locks this node’s parent, and calls a recursive helper method that traverses the subtree rooted at this node.  The recursive method locks the node on which it was called, checks that it has not already been removed, and then ensures that all of its children are cached: The ‘#childrenNamesSpi()’ method is invoked and each returned child name is checked for containment in the child-cache.  If a child is not already cached, the ‘#childSpi(String)’ method is invoked to create a <tt>Preferences</tt> instance for it, and this instance is put into the child-cache.  Then the helper method calls itself recursively on each node contained in its child-cache.  Next, it invokes ‘#removeNodeSpi()’, marks itself as removed, and removes itself from its parent’s child-cache.  Finally, if there are any node change listeners, it enqueues a notification event for processing by the event dispatch thread.  <p>Note that the helper method is always invoked with all ancestors up to the “closest non-removed ancestor” locked.</td>
+<td align="left">IllegalStateException<br/>UnsupportedOperationException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeNode2(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Called with locks on all nodes on path from parent of “removal root” to this (including the former but excluding the latter).</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>name(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>name</tt> method as per the specification in ‘Preferences#name()’.  <p>This implementation merely returns the name that was passed to this node’s constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>absolutePath(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>absolutePath</tt> method as per the specification in ‘Preferences#absolutePath()’.  <p>This implementation merely returns the absolute path name that was computed at the time that this node was constructed (based on the name that was passed to this node’s constructor, and the names that were passed to this node’s ancestors’ constructors).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUserNode(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>isUserNode</tt> method as per the specification in ‘Preferences#isUserNode()’.  <p>This implementation compares this node’s root node (which is stored in a private field) with the value returned by ‘Preferences#userRoot()’.  If the two object references are identical, this method returns true.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPreferenceChangeListener(PreferenceChangeListener pcl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removePreferenceChangeListener(PreferenceChangeListener pcl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addNodeChangeListener(NodeChangeListener ncl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNodeChangeListener(NodeChangeListener ncl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putSpi(String key, String value): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Put the given key-value association into this preference node.  It is guaranteed that <tt>key</tt> and <tt>value</tt> are non-null and of legal length.  Also, it is guaranteed that this node has not been removed.  (The implementor needn’t check for any of these things.)  <p>This method is invoked with the lock on this node held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSpi(String key): String</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Return the value associated with the specified key at this preference node, or <tt>null</tt> if there is no association for this key, or the association cannot be determined at this time.  It is guaranteed that <tt>key</tt> is non-null.  Also, it is guaranteed that this node has not been removed.  (The implementor needn’t check for either of these things.)  <p> Generally speaking, this method should not throw an exception under any circumstances.  If, however, if it does throw an exception, the exception will be intercepted and treated as a <tt>null</tt> return value.  <p>This method is invoked with the lock on this node held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeSpi(String key): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Remove the association (if any) for the specified key at this preference node.  It is guaranteed that <tt>key</tt> is non-null. Also, it is guaranteed that this node has not been removed. (The implementor needn’t check for either of these things.)  <p>This method is invoked with the lock on this node held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNodeSpi(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Removes this preference node, invalidating it and any preferences that it contains.  The named child will have no descendants at the time this invocation is made (i.e., the ‘Preferences#removeNode()’ method invokes this method repeatedly in a bottom-up fashion, removing each of a node’s descendants before removing the node itself).  <p>This method is invoked with the lock held on this node and its parent (and all ancestors that are being removed as a result of a single invocation to ‘Preferences#removeNode()’).  <p>The removal of a node needn’t become persistent until the <tt>flush</tt> method is invoked on this node (or an ancestor).  <p>If this node throws a <tt>BackingStoreException</tt>, the exception will propagate out beyond the enclosing ‘#removeNode()’ invocation.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>keysSpi(): String[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns all of the keys that have an associated value in this preference node.  (The returned array will be of size zero if this node has no preferences.)  It is guaranteed that this node has not been removed.  <p>This method is invoked with the lock on this node held.  <p>If this node throws a <tt>BackingStoreException</tt>, the exception will propagate out beyond the enclosing ‘#keys()’ invocation.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>childrenNamesSpi(): String[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the names of the children of this preference node.  (The returned array will be of size zero if this node has no children.) This method need not return the names of any nodes already cached, but may do so without harm.  <p>This method is invoked with the lock on this node held.  <p>If this node throws a <tt>BackingStoreException</tt>, the exception will propagate out beyond the enclosing ‘#childrenNames()’ invocation.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>getChild(String nodeName): AbstractPreferences</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the named child if it exists, or <tt>null</tt> if it does not. It is guaranteed that <tt>nodeName</tt> is non-null, non-empty, does not contain the slash character (‘&#x2F;‘), and is no longer than ‘#MAX_NAME_LENGTH’ characters.  Also, it is guaranteed that this node has not been removed.  (The implementor needn’t check for any of these things if he chooses to override this method.)  <p>Finally, it is guaranteed that the named node has not been returned by a previous invocation of this method or ‘#childSpi’ after the last time that it was removed.  In other words, a cached value will always be used in preference to invoking this method.  (The implementor needn’t maintain his own cache of previously returned children if he chooses to override this method.)  <p>This implementation obtains this preference node’s lock, invokes ‘#childrenNames()’ to get an array of the names of this node’s children, and iterates over the array comparing the name of each child with the specified node name.  If a child node has the correct name, the ‘#childSpi(String)’ method is invoked and the resulting node is returned.  If the iteration completes without finding the specified name, <tt>null</tt> is returned.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>childSpi(String name): AbstractPreferences</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the named child of this preference node, creating it if it does not already exist.  It is guaranteed that <tt>name</tt> is non-null, non-empty, does not contain the slash character (‘&#x2F;‘), and is no longer than ‘#MAX_NAME_LENGTH’ characters.  Also, it is guaranteed that this node has not been removed.  (The implementor needn’t check for any of these things.)  <p>Finally, it is guaranteed that the named node has not been returned by a previous invocation of this method or ‘#getChild(String)’ after the last time that it was removed.  In other words, a cached value will always be used in preference to invoking this method. Subclasses need not maintain their own cache of previously returned children.  <p>The implementer must ensure that the returned node has not been removed.  If a like-named child of this node was previously removed, the implementer must return a newly constructed <tt>AbstractPreferences</tt> node; once removed, an <tt>AbstractPreferences</tt> node cannot be “resuscitated.”  <p>If this method causes a node to be created, this node is not guaranteed to be persistent until the <tt>flush</tt> method is invoked on this node or one of its ancestors (or descendants).  <p>This method is invoked with the lock on this node held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the absolute path name of this preferences node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sync(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>sync</tt> method as per the specification in ‘Preferences#sync()’.  <p>This implementation calls a recursive helper method that locks this node, invokes syncSpi() on it, unlocks this node, and recursively invokes this method on each “cached child.”  A cached child is a child of this node that has been created in this VM and not subsequently removed.  In effect, this method does a depth first traversal of the “cached subtree” rooted at this node, calling syncSpi() on each node in the subTree while only that node is locked. Note that syncSpi() is invoked top-down.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>sync2(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>syncSpi(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This method is invoked with this node locked.  The contract of this method is to synchronize any cached preferences stored at this node with any stored in the backing store.  (It is perfectly possible that this node does not exist on the backing store, either because it has been deleted by another VM, or because it has not yet been created.) Note that this method should <i>not</i> synchronize the preferences in any subnodes of this node.  If the backing store naturally syncs an entire subtree at once, the implementer is encouraged to override sync(), rather than merely overriding this method.  <p>If this node throws a <tt>BackingStoreException</tt>, the exception will propagate out beyond the enclosing ‘#sync()’ invocation.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>flush(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>flush</tt> method as per the specification in ‘Preferences#flush()’.  <p>This implementation calls a recursive helper method that locks this node, invokes flushSpi() on it, unlocks this node, and recursively invokes this method on each “cached child.”  A cached child is a child of this node that has been created in this VM and not subsequently removed.  In effect, this method does a depth first traversal of the “cached subtree” rooted at this node, calling flushSpi() on each node in the subTree while only that node is locked. Note that flushSpi() is invoked top-down.  <p> If this method is invoked on a node that has been removed with the ‘#removeNode()’ method, flushSpi() is invoked on this node, but not on others.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>flush2(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>flushSpi(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This method is invoked with this node locked.  The contract of this method is to force any cached changes in the contents of this preference node to the backing store, guaranteeing their persistence. (It is perfectly possible that this node does not exist on the backing store, either because it has been deleted by another VM, or because it has not yet been created.)  Note that this method should <i>not</i> flush the preferences in any subnodes of this node.  If the backing store naturally flushes an entire subtree at once, the implementer is encouraged to override flush(), rather than merely overriding this method.  <p>If this node throws a <tt>BackingStoreException</tt>, the exception will propagate out beyond the enclosing ‘#flush()’ invocation.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>isRemoved(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> iff this node (or an ancestor) has been removed with the ‘#removeNode()’ method.  This method locks this node prior to returning the contents of the private field used to track this state.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>startEventDispatchThreadIfNecessary(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method starts the event dispatch thread the first time it is called.  The event dispatch thread will be started only if someone registers a listener.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>prefListeners()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return this node’s preference&#x2F;node change listeners.  Even though we’re using a copy-on-write lists, we use synchronized accessors to ensure information transmission from the writing thread to the reading thread.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nodeListeners()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enqueuePreferenceChangeEvent(String key, String newValue): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enqueue a preference change event for delivery to registered preference change listeners unless there are no registered listeners.  Invoked with this.lock held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enqueueNodeAddedEvent(Preferences child): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enqueue a “node added” event for delivery to registered node change listeners unless there are no registered listeners.  Invoked with this.lock held.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enqueueNodeRemovedEvent(Preferences child): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enqueue a “node removed” event for delivery to registered node change listeners unless there are no registered listeners.  Invoked with this.lock held.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="AbstractPreferences-NodeAddedEvent"><a href="#AbstractPreferences-NodeAddedEvent" class="headerlink" title="AbstractPreferences$NodeAddedEvent"></a><a href="./AbstractPreferences$NodeAddedEvent.html">AbstractPreferences$NodeAddedEvent</a></h3><h3 id="AbstractPreferences-NodeRemovedEvent"><a href="#AbstractPreferences-NodeRemovedEvent" class="headerlink" title="AbstractPreferences$NodeRemovedEvent"></a><a href="./AbstractPreferences$NodeRemovedEvent.html">AbstractPreferences$NodeRemovedEvent</a></h3><h3 id="AbstractPreferences-EventDispatchThread"><a href="#AbstractPreferences-EventDispatchThread" class="headerlink" title="AbstractPreferences$EventDispatchThread"></a><a href="./AbstractPreferences$EventDispatchThread.html">AbstractPreferences$EventDispatchThread</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/SplittableRandom.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="SplittableRandom"><a href="#SplittableRandom" class="headerlink" title="SplittableRandom"></a>SplittableRandom</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.SplittableRandom</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>GOLDEN_GAMMA: long</strong></td>
+<td align="center">0x9e3779b97f4a7c15L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The golden ratio scaled to 64bits, used as the initial gamma value for (unsplit) SplittableRandoms.</td>
+</tr>
+<tr>
+<td align="center"><strong>DOUBLE_UNIT: double</strong></td>
+<td align="center">0x1.0p-53</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The least non-zero value returned by nextDouble(). This value is scaled by a random value of 53 bits to produce a result.</td>
+</tr>
+<tr>
+<td align="center"><strong>seed: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The seed. Updated only via method nextSeed.</td>
+</tr>
+<tr>
+<td align="center"><strong>gamma: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The step value.</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultGen: AtomicLong</strong></td>
+<td align="center">new AtomicLong(initialSeed())</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The seed generator for default constructors.</td>
+</tr>
+<tr>
+<td align="center"><strong>BadBound: String</strong></td>
+<td align="center">“bound must be positive”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BadRange: String</strong></td>
+<td align="center">“bound must be greater than origin”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BadSize: String</strong></td>
+<td align="center">“size must be non-negative”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SplittableRandom(long seed, long gamma)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal constructor used by all others except default constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mix64(long z): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes Stafford variant 13 of 64bit mix function.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mix32(long z): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the 32 high bits of Stafford variant 4 mix64 function as int.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixGamma(long z): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the gamma value to use for a new split instance.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextSeed(): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds gamma to seed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initialSeed(): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalNextLong(long origin, long bound): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The form of nextLong used by LongStream Spliterators.  If origin is greater than bound, acts as unbounded form of nextLong, else as bounded form.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalNextInt(int origin, int bound): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The form of nextInt used by IntStream Spliterators. Exactly the same as long version, except for types.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalNextDouble(double origin, double bound): double</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The form of nextDouble used by DoubleStream Spliterators.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SplittableRandom(long seed)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new SplittableRandom instance using the specified initial seed. SplittableRandom instances created with the same seed in the same program generate identical sequences of values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SplittableRandom()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new SplittableRandom instance that is likely to generate sequences of values that are statistically independent of those of any other instances in the current program; and may, and typically does, vary across program invocations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>split(): SplittableRandom</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs and returns a new SplittableRandom instance that shares no mutable state with this instance. However, with very high probability, the set of values collectively generated by the two objects has the same statistical properties as if the same quantity of values were generated by a single thread using a single SplittableRandom object.  Either or both of the two objects may be further split using the ‘split()’ method, and the same expected statistical properties apply to the entire set of generators constructed by such recursive splitting.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextInt(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘int’ value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextInt(int bound): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘int’ value between zero (inclusive) and the specified bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextInt(int origin, int bound): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘int’ value between the specified origin (inclusive) and the specified bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘long’ value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextLong(long bound): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘long’ value between zero (inclusive) and the specified bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextLong(long origin, long bound): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘long’ value between the specified origin (inclusive) and the specified bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextDouble(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘double’ value between zero (inclusive) and one (exclusive).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextDouble(double bound): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘double’ value between 0.0 (inclusive) and the specified bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextDouble(double origin, double bound): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘double’ value between the specified origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextBoolean(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pseudorandom ‘boolean’ value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ints(long streamSize): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream producing the given ‘streamSize’ number of pseudorandom ‘int’ values from this generator and&#x2F;or one split from it.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ints(): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an effectively unlimited stream of pseudorandom ‘int’ values from this generator and&#x2F;or one split from it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ints(long streamSize, int randomNumberOrigin,int randomNumberBound): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream producing the given ‘streamSize’ number of pseudorandom ‘int’ values from this generator and&#x2F;or one split from it; each value conforms to the given origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ints(int randomNumberOrigin, int randomNumberBound): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an effectively unlimited stream of pseudorandom ‘int’ values from this generator and&#x2F;or one split from it; each value conforms to the given origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>longs(long streamSize): LongStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream producing the given ‘streamSize’ number of pseudorandom ‘long’ values from this generator and&#x2F;or one split from it.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>longs(): LongStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an effectively unlimited stream of pseudorandom ‘long’ values from this generator and&#x2F;or one split from it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longs(long streamSize, long randomNumberOrigin,long randomNumberBound): LongStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream producing the given ‘streamSize’ number of pseudorandom ‘long’ values from this generator and&#x2F;or one split from it; each value conforms to the given origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>longs(long randomNumberOrigin, long randomNumberBound): LongStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an effectively unlimited stream of pseudorandom ‘long’ values from this generator and&#x2F;or one split from it; each value conforms to the given origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>doubles(long streamSize): DoubleStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream producing the given ‘streamSize’ number of pseudorandom ‘double’ values from this generator and&#x2F;or one split from it; each value is between zero (inclusive) and one (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>doubles(): DoubleStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an effectively unlimited stream of pseudorandom ‘double’ values from this generator and&#x2F;or one split from it; each value is between zero (inclusive) and one (exclusive).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doubles(long streamSize, double randomNumberOrigin,double randomNumberBound): DoubleStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream producing the given ‘streamSize’ number of pseudorandom ‘double’ values from this generator and&#x2F;or one split from it; each value conforms to the given origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>doubles(double randomNumberOrigin, double randomNumberBound): DoubleStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an effectively unlimited stream of pseudorandom ‘double’ values from this generator and&#x2F;or one split from it; each value conforms to the given origin (inclusive) and bound (exclusive).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="SplittableRandom-RandomIntsSpliterator"><a href="#SplittableRandom-RandomIntsSpliterator" class="headerlink" title="SplittableRandom$RandomIntsSpliterator"></a><a href="./SplittableRandom$RandomIntsSpliterator.html">SplittableRandom$RandomIntsSpliterator</a></h3><h3 id="SplittableRandom-RandomLongsSpliterator"><a href="#SplittableRandom-RandomLongsSpliterator" class="headerlink" title="SplittableRandom$RandomLongsSpliterator"></a><a href="./SplittableRandom$RandomLongsSpliterator.html">SplittableRandom$RandomLongsSpliterator</a></h3><h3 id="SplittableRandom-RandomDoublesSpliterator"><a href="#SplittableRandom-RandomDoublesSpliterator" class="headerlink" title="SplittableRandom$RandomDoublesSpliterator"></a><a href="./SplittableRandom$RandomDoublesSpliterator.html">SplittableRandom$RandomDoublesSpliterator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

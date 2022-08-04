@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/prefs/Preferences.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Preferences"><a href="#Preferences" class="headerlink" title="Preferences"></a>Preferences</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.prefs.Preferences</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>factory: PreferencesFactory</strong></td>
+<td align="center">factory()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_KEY_LENGTH: int</strong></td>
+<td align="center">80</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum length of string allowed as a key (80 characters).</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_VALUE_LENGTH: int</strong></td>
+<td align="center">8*1024</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum length of string allowed as a value (8192 characters).</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_NAME_LENGTH: int</strong></td>
+<td align="center">80</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum length of a node name (80 characters).</td>
+</tr>
+<tr>
+<td align="center"><strong>prefsPerm: Permission</strong></td>
+<td align="center">new RuntimePermission(“preferences”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This permission object represents the permission required to get access to the user or system root (which in turn allows for all other operations).</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>factory(): PreferencesFactory</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>factory1(): PreferencesFactory</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>userNodeForPackage(Class&lt;?&gt; c): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the preference node from the calling user’s preference tree that is associated (by convention) with the specified class’s package. The convention is as follows: the absolute path name of the node is the fully qualified package name, preceded by a slash (<tt>‘&#x2F;‘</tt>), and with each period (<tt>‘.’</tt>) replaced by a slash.  For example the absolute path name of the node associated with the class <tt>com.acme.widget.Foo</tt> is <tt>&#x2F;com&#x2F;acme&#x2F;widget</tt>.  <p>This convention does not apply to the unnamed package, whose associated preference node is <tt>&lt;unnamed&gt;</tt>.  This node is not intended for long term use, but for convenience in the early development of programs that do not yet belong to a package, and for “throwaway” programs.  <i>Valuable data should not be stored at this node as it is shared by all programs that use it.</i>  <p>A class <tt>Foo</tt> wishing to access preferences pertaining to its package can obtain a preference node as follows: <pre> static Preferences prefs = Preferences.userNodeForPackage(Foo.class); </pre> This idiom obviates the need for using a string to describe the preferences node and decreases the likelihood of a run-time failure. (If the class name is misspelled, it will typically result in a compile-time error.)  <p>Invoking this method will result in the creation of the returned node and its ancestors if they do not already exist.  If the returned node did not exist prior to this call, this node and any ancestors that were created by this call are not guaranteed to become permanent until the <tt>flush</tt> method is called on the returned node (or one of its ancestors or descendants).</td>
+<td align="left">NullPointerException<br/>SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>systemNodeForPackage(Class&lt;?&gt; c): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the preference node from the system preference tree that is associated (by convention) with the specified class’s package.  The convention is as follows: the absolute path name of the node is the fully qualified package name, preceded by a slash (<tt>‘&#x2F;‘</tt>), and with each period (<tt>‘.’</tt>) replaced by a slash.  For example the absolute path name of the node associated with the class <tt>com.acme.widget.Foo</tt> is <tt>&#x2F;com&#x2F;acme&#x2F;widget</tt>.  <p>This convention does not apply to the unnamed package, whose associated preference node is <tt>&lt;unnamed&gt;</tt>.  This node is not intended for long term use, but for convenience in the early development of programs that do not yet belong to a package, and for “throwaway” programs.  <i>Valuable data should not be stored at this node as it is shared by all programs that use it.</i>  <p>A class <tt>Foo</tt> wishing to access preferences pertaining to its package can obtain a preference node as follows: <pre> static Preferences prefs = Preferences.systemNodeForPackage(Foo.class); </pre> This idiom obviates the need for using a string to describe the preferences node and decreases the likelihood of a run-time failure. (If the class name is misspelled, it will typically result in a compile-time error.)  <p>Invoking this method will result in the creation of the returned node and its ancestors if they do not already exist.  If the returned node did not exist prior to this call, this node and any ancestors that were created by this call are not guaranteed to become permanent until the <tt>flush</tt> method is called on the returned node (or one of its ancestors or descendants).</td>
+<td align="left">NullPointerException<br/>SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>nodeName(Class&lt;?&gt; c): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the absolute path name of the node corresponding to the package of the specified object.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>userRoot(): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the root preference node for the calling user.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>systemRoot(): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the root preference node for the system.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>Preferences()</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sole constructor. (For invocation by subclass constructors, typically implicit.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>put(String key, String value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates the specified value with the specified key in this preference node.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(String key, String def): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the value associated with the specified key in this preference node.  Returns the specified default if there is no value associated with the key, or the backing store is inaccessible.  <p>Some implementations may store default values in their backing stores.  If there is no value associated with the specified key but there is such a <i>stored default</i>, it is returned in preference to the specified default.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(String key): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Removes the value associated with the specified key in this preference node, if any.  <p>If this implementation supports <i>stored defaults</i>, and there is such a default for the specified preference, the stored default will be “exposed” by this call, in the sense that it will be returned by a succeeding call to <tt>get</tt>.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Removes all of the preferences (key-value associations) in this preference node.  This call has no effect on any descendants of this node.  <p>If this implementation supports <i>stored defaults</i>, and this node in the preferences hierarchy contains any such defaults, the stored defaults will be “exposed” by this call, in the sense that they will be returned by succeeding calls to <tt>get</tt>.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>putInt(String key, int value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates a string representing the specified int value with the specified key in this preference node.  The associated string is the one that would be returned if the int value were passed to ‘Integer#toString(int)’.  This method is intended for use in conjunction with ‘#getInt’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(String key, int def): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the int value represented by the string associated with the specified key in this preference node.  The string is converted to an integer as by ‘Integer#parseInt(String)’.  Returns the specified default if there is no value associated with the key, the backing store is inaccessible, or if <tt>Integer.parseInt(String)</tt> would throw a ‘NumberFormatException’ if the associated value were passed.  This method is intended for use in conjunction with ‘#putInt’.  <p>If the implementation supports <i>stored defaults</i> and such a default exists, is accessible, and could be converted to an int with <tt>Integer.parseInt</tt>, this int is returned in preference to the specified default.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putLong(String key, long value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates a string representing the specified long value with the specified key in this preference node.  The associated string is the one that would be returned if the long value were passed to ‘Long#toString(long)’.  This method is intended for use in conjunction with ‘#getLong’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(String key, long def): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the long value represented by the string associated with the specified key in this preference node.  The string is converted to a long as by ‘Long#parseLong(String)’.  Returns the specified default if there is no value associated with the key, the backing store is inaccessible, or if <tt>Long.parseLong(String)</tt> would throw a ‘NumberFormatException’ if the associated value were passed.  This method is intended for use in conjunction with ‘#putLong’.  <p>If the implementation supports <i>stored defaults</i> and such a default exists, is accessible, and could be converted to a long with <tt>Long.parseLong</tt>, this long is returned in preference to the specified default.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putBoolean(String key, boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates a string representing the specified boolean value with the specified key in this preference node.  The associated string is <tt>“true”</tt> if the value is true, and <tt>“false”</tt> if it is false.  This method is intended for use in conjunction with ‘#getBoolean’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBoolean(String key, boolean def): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the boolean value represented by the string associated with the specified key in this preference node.  Valid strings are <tt>“true”</tt>, which represents true, and <tt>“false”</tt>, which represents false.  Case is ignored, so, for example, <tt>“TRUE”</tt> and <tt>“False”</tt> are also valid.  This method is intended for use in conjunction with ‘#putBoolean’.  <p>Returns the specified default if there is no value associated with the key, the backing store is inaccessible, or if the associated value is something other than <tt>“true”</tt> or <tt>“false”</tt>, ignoring case.  <p>If the implementation supports <i>stored defaults</i> and such a default exists and is accessible, it is used in preference to the specified default, unless the stored default is something other than <tt>“true”</tt> or <tt>“false”</tt>, ignoring case, in which case the specified default is used.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putFloat(String key, float value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates a string representing the specified float value with the specified key in this preference node.  The associated string is the one that would be returned if the float value were passed to ‘Float#toString(float)’.  This method is intended for use in conjunction with ‘#getFloat’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(String key, float def): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the float value represented by the string associated with the specified key in this preference node.  The string is converted to an integer as by ‘Float#parseFloat(String)’.  Returns the specified default if there is no value associated with the key, the backing store is inaccessible, or if <tt>Float.parseFloat(String)</tt> would throw a ‘NumberFormatException’ if the associated value were passed. This method is intended for use in conjunction with ‘#putFloat’.  <p>If the implementation supports <i>stored defaults</i> and such a default exists, is accessible, and could be converted to a float with <tt>Float.parseFloat</tt>, this float is returned in preference to the specified default.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putDouble(String key, double value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates a string representing the specified double value with the specified key in this preference node.  The associated string is the one that would be returned if the double value were passed to ‘Double#toString(double)’.  This method is intended for use in conjunction with ‘#getDouble’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(String key, double def): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the double value represented by the string associated with the specified key in this preference node.  The string is converted to an integer as by ‘Double#parseDouble(String)’.  Returns the specified default if there is no value associated with the key, the backing store is inaccessible, or if <tt>Double.parseDouble(String)</tt> would throw a ‘NumberFormatException’ if the associated value were passed. This method is intended for use in conjunction with ‘#putDouble’.  <p>If the implementation supports <i>stored defaults</i> and such a default exists, is accessible, and could be converted to a double with <tt>Double.parseDouble</tt>, this double is returned in preference to the specified default.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putByteArray(String key, byte[] value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Associates a string representing the specified byte array with the specified key in this preference node.  The associated string is the <i>Base64</i> encoding of the byte array, as defined in &lt;a href&#x3D;http: with one minor change: the string will consist solely of characters from the <i>Base64 Alphabet</i>; it will not contain any newline characters.  Note that the maximum length of the byte array is limited to three quarters of <tt>MAX_VALUE_LENGTH</tt> so that the length of the Base64 encoded String does not exceed <tt>MAX_VALUE_LENGTH</tt>. This method is intended for use in conjunction with ‘#getByteArray’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByteArray(String key, byte[] def): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the byte array value represented by the string associated with the specified key in this preference node.  Valid strings are <i>Base64</i> encoded binary data, as defined in &lt;a href&#x3D;http: with one minor change: the string must consist solely of characters from the <i>Base64 Alphabet</i>; no newline characters or extraneous characters are permitted.  This method is intended for use in conjunction with ‘#putByteArray’.  <p>Returns the specified default if there is no value associated with the key, the backing store is inaccessible, or if the associated value is not a valid Base64 encoded byte array (as defined above).  <p>If the implementation supports <i>stored defaults</i> and such a default exists and is accessible, it is used in preference to the specified default, unless the stored default is not a valid Base64 encoded byte array (as defined above), in which case the specified default is used.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>keys(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns all of the keys that have an associated value in this preference node.  (The returned array will be of size zero if this node has no preferences.)  <p>If the implementation supports <i>stored defaults</i> and there are any such defaults at this node that have not been overridden, by explicit preferences, the defaults are returned in the array in addition to any explicit preferences.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>childrenNames(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the names of the children of this preference node, relative to this node.  (The returned array will be of size zero if this node has no children.)</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>parent(): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the parent of this preference node, or <tt>null</tt> if this is the root.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>node(String pathName): Preferences</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the named preference node in the same tree as this node, creating it and any of its ancestors if they do not already exist. Accepts a relative or absolute path name.  Relative path names (which do not begin with the slash character <tt>(‘&#x2F;‘)</tt>) are interpreted relative to this preference node.  <p>If the returned node did not exist prior to this call, this node and any ancestors that were created by this call are not guaranteed to become permanent until the <tt>flush</tt> method is called on the returned node (or one of its ancestors or descendants).</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nodeExists(String pathName): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns true if the named preference node exists in the same tree as this node.  Relative path names (which do not begin with the slash character <tt>(‘&#x2F;‘)</tt>) are interpreted relative to this preference node.  <p>If this node (or an ancestor) has already been removed with the ‘#removeNode()’ method, it <i>is</i> legal to invoke this method, but only with the path name <tt>“”</tt>; the invocation will return <tt>false</tt>.  Thus, the idiom <tt>p.nodeExists(“”)</tt> may be used to test whether <tt>p</tt> has been removed.</td>
+<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeNode(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Removes this preference node and all of its descendants, invalidating any preferences contained in the removed nodes.  Once a node has been removed, attempting any method other than ‘#name()’, ‘#absolutePath()’, ‘#isUserNode()’, ‘#flush()’ or ‘#node(String) nodeExists(“”)’ on the corresponding <tt>Preferences</tt> instance will fail with an <tt>IllegalStateException</tt>.  (The methods defined on ‘Object’ can still be invoked on a node after it has been removed; they will not throw <tt>IllegalStateException</tt>.)  <p>The removal is not guaranteed to be persistent until the <tt>flush</tt> method is called on this node (or an ancestor).  <p>If this implementation supports <i>stored defaults</i>, removing a node exposes any stored defaults at or below this node.  Thus, a subsequent call to <tt>nodeExists</tt> on this node’s path name may return <tt>true</tt>, and a subsequent call to <tt>node</tt> on this path name may return a (different) <tt>Preferences</tt> instance representing a non-empty collection of preferences and&#x2F;or children.</td>
+<td align="left">IllegalStateException<br/>UnsupportedOperationException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>name(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns this preference node’s name, relative to its parent.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>absolutePath(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns this preference node’s absolute path name.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUserNode(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns <tt>true</tt> if this preference node is in the user preference tree, <tt>false</tt> if it’s in the system preference tree.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a string representation of this preferences node, as if computed by the expression:<tt>(this.isUserNode() ? “User” : “System”) + “ Preference Node: “ + this.absolutePath()</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flush(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Forces any changes in the contents of this preference node and its descendants to the persistent store.  Once this method returns successfully, it is safe to assume that all changes made in the subtree rooted at this node prior to the method invocation have become permanent.  <p>Implementations are free to flush changes into the persistent store at any time.  They do not need to wait for this method to be called.  <p>When a flush occurs on a newly created node, it is made persistent, as are any ancestors (and descendants) that have yet to be made persistent.  Note however that any preference value changes in ancestors are <i>not</i> guaranteed to be made persistent.  <p> If this method is invoked on a node that has been removed with the ‘#removeNode()’ method, flushSpi() is invoked on this node, but not on others.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>sync(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Ensures that future reads from this preference node and its descendants reflect any changes that were committed to the persistent store (from any VM) prior to the <tt>sync</tt> invocation.  As a side-effect, forces any changes in the contents of this preference node and its descendants to the persistent store, as if the <tt>flush</tt> method had been invoked on this node.</td>
+<td align="left">IllegalStateException<br/>BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>addPreferenceChangeListener(PreferenceChangeListener pcl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the specified listener to receive <i>preference change events</i> for this preference node.  A preference change event is generated when a preference is added to this node, removed from this node, or when the value associated with a preference is changed. (Preference change events are <i>not</i> generated by the ‘#removeNode()’ method, which generates a <i>node change event</i>. Preference change events <i>are</i> generated by the <tt>clear</tt> method.)  <p>Events are only guaranteed for changes made within the same JVM as the registered listener, though some implementations may generate events for changes made outside this JVM.  Events may be generated before the changes have been made persistent.  Events are not generated when preferences are modified in descendants of this node; a caller desiring such events must register with each descendant.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removePreferenceChangeListener(PreferenceChangeListener pcl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Removes the specified preference change listener, so it no longer receives preference change events.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>addNodeChangeListener(NodeChangeListener ncl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the specified listener to receive <i>node change events</i> for this node.  A node change event is generated when a child node is added to or removed from this node.  (A single ‘#removeNode()’ invocation results in multiple <i>node change events</i>, one for every node in the subtree rooted at the removed node.)  <p>Events are only guaranteed for changes made within the same JVM as the registered listener, though some implementations may generate events for changes made outside this JVM.  Events may be generated before the changes have become permanent.  Events are not generated when indirect descendants of this node are added or removed; a caller desiring such events must register with each descendant.  <p>Few guarantees can be made regarding node creation.  Because nodes are created implicitly upon access, it may not be feasible for an implementation to determine whether a child node existed in the backing store prior to access (for example, because the backing store is unreachable or cached information is out of date).  Under these circumstances, implementations are neither required to generate node change events nor prohibited from doing so.</td>
+<td align="left">IllegalStateException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeNodeChangeListener(NodeChangeListener ncl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Removes the specified <tt>NodeChangeListener</tt>, so it no longer receives change events.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportNode(OutputStream os): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Emits on the specified output stream an XML document representing all of the preferences contained in this node (but not its descendants). This XML document is, in effect, an offline backup of the node.  <p>The XML document will have the following DOCTYPE declaration: <pre>'<!DOCTYPE preferences SYSTEM "http:'</pre> The UTF-8 character encoding will be used.  <p>This method is an exception to the general rule that the results of concurrently executing multiple methods in this class yields results equivalent to some serial execution.  If the preferences at this node are modified concurrently with an invocation of this method, the exported preferences comprise a "fuzzy snapshot" of the preferences contained in the node; some of the concurrent modifications may be reflected in the exported data while others may not.</td>
+<td align="left">IOException<br/>BackingStoreException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportSubtree(OutputStream os): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Emits an XML document representing all of the preferences contained in this node and all of its descendants.  This XML document is, in effect, an offline backup of the subtree rooted at the node.  <p>The XML document will have the following DOCTYPE declaration: <pre>'<!DOCTYPE preferences SYSTEM "http:'</pre> The UTF-8 character encoding will be used.  <p>This method is an exception to the general rule that the results of concurrently executing multiple methods in this class yields results equivalent to some serial execution.  If the preferences or nodes in the subtree rooted at this node are modified concurrently with an invocation of this method, the exported preferences comprise a "fuzzy snapshot" of the subtree; some of the concurrent modifications may be reflected in the exported data while others may not.</td>
+<td align="left">IOException<br/>BackingStoreException<br/>IllegalStateException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

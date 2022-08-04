@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/ComparableTimSort.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ComparableTimSort"><a href="#ComparableTimSort" class="headerlink" title="ComparableTimSort"></a>ComparableTimSort</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.ComparableTimSort</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MIN_MERGE: int</strong></td>
+<td align="center">32</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This is the minimum sized sequence that will be merged.  Shorter sequences will be lengthened by calling binarySort.  If the entire array is less than this length, no merges will be performed.  This constant should be a power of two.  It was 64 in Tim Peter’s C implementation, but 32 was empirically determined to work better in this implementation.  In the unlikely event that you set this constant to be a number that’s not a power of two, you’ll need to change the {@link #minRunLength} computation.  If you decrease this constant, you must change the stackLen computation in the TimSort constructor, or you risk an ArrayOutOfBounds exception.  See listsort.txt for a discussion of the minimum stack length required as a function of the length of the array being sorted and the minimum merge sequence length.</td>
+</tr>
+<tr>
+<td align="center"><strong>a: Object[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The array being sorted.</td>
+</tr>
+<tr>
+<td align="center"><strong>: int</strong></td>
+<td align="center">7</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">When we get into galloping mode, we stay there until both runs win less often than MIN_GALLOP consecutive times.</td>
+</tr>
+<tr>
+<td align="center"><strong>minGallop: int</strong></td>
+<td align="center">MIN_GALLOP</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This controls when we get <em>into</em> galloping mode.  It is initialized to MIN_GALLOP.  The mergeLo and mergeHi methods nudge it higher for random data, and lower for highly structured data.</td>
+</tr>
+<tr>
+<td align="center"><strong>INITIAL_TMP_STORAGE_LENGTH: int</strong></td>
+<td align="center">256</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maximum initial size of tmp array, which is used for merging.  The array can grow to accommodate demand.  Unlike Tim’s original C version, we do not allocate this much storage when sorting smaller arrays.  This change was required for performance.</td>
+</tr>
+<tr>
+<td align="center"><strong>tmp: Object[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Temp storage for merges. A workspace array may optionally be provided in constructor, and if so will be used as long as it is big enough.</td>
+</tr>
+<tr>
+<td align="center"><strong>tmpBase: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tmpLen: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stackSize: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A stack of pending runs yet to be merged.  Run i starts at address base[i] and extends for len[i] elements.  It’s always true (so long as the indices are in bounds) that:  runBase[i] + runLen[i] &#x3D;&#x3D; runBase[i + 1]  so we could cut the storage for this, but it’s a minor amount, and keeping all the info explicit simplifies the code.</td>
+</tr>
+<tr>
+<td align="center"><strong>runBase: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>runLen: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ComparableTimSort(Object[] a, Object[] work, int workBase, int workLen)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a TimSort instance to maintain the state of an ongoing sort.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sort(Object[] a, int lo, int hi, Object[] work, int workBase, int workLen): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the given range, using the given workspace array slice for temp storage when possible. This method is designed to be invoked from public methods (in class Arrays) after performing any necessary array bounds checks and expanding parameters into the required forms.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binarySort(Object[] a, int lo, int hi, int start): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sorts the specified portion of the specified array using a binary insertion sort.  This is the best method for sorting small numbers of elements.  It requires O(n log n) compares, but O(n^2) data movement (worst case).  If the initial part of the specified range is already sorted, this method can take advantage of it: the method assumes that the elements from index ‘lo’, inclusive, to ‘start’, exclusive are already sorted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countRunAndMakeAscending(Object[] a, int lo, int hi): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the run beginning at the specified position in the specified array and reverses the run if it is descending (ensuring that the run will always be ascending when the method returns).  A run is the longest ascending sequence with:  a[lo] &lt;&#x3D; a[lo + 1] &lt;&#x3D; a[lo + 2] &lt;&#x3D; …  or the longest descending sequence with:  a[lo] &gt;  a[lo + 1] &gt;  a[lo + 2] &gt;  …  For its intended use in a stable mergesort, the strictness of the definition of “descending” is needed so that the call can safely reverse a descending sequence without violating stability.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reverseRange(Object[] a, int lo, int hi): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reverse the specified range of the specified array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minRunLength(int n): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum acceptable run length for an array of the specified length. Natural runs shorter than this will be extended with ‘#binarySort’.  Roughly speaking, the computation is:  If n &lt; MIN_MERGE, return n (it’s too small to bother with fancy stuff). Else if n is an exact power of 2, return MIN_MERGE&#x2F;2. Else return an int k, MIN_MERGE&#x2F;2 &lt;&#x3D; k &lt;&#x3D; MIN_MERGE, such that n&#x2F;k is close to, but strictly less than, an exact power of 2.  For the rationale, see listsort.txt.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pushRun(int runBase, int runLen): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pushes the specified run onto the pending-run stack.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeCollapse(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Examines the stack of runs waiting to be merged and merges adjacent runs until the stack invariants are reestablished:  1. runLen[i - 3] &gt; runLen[i - 2] + runLen[i - 1] 2. runLen[i - 2] &gt; runLen[i - 1]  This method is called each time a new run is pushed onto the stack, so the invariants are guaranteed to hold for i &lt; stackSize upon entry to the method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeForceCollapse(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Merges all runs on the stack until only one remains.  This method is called once, to complete the sort.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeAt(int i): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Merges the two runs at stack indices i and i+1.  Run i must be the penultimate or antepenultimate run on the stack.  In other words, i must be equal to stackSize-2 or stackSize-3.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>gallopLeft(Comparable&lt;Object&gt; key, Object[] a,int base, int len, int hint): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Locates the position at which to insert the specified key into the specified sorted range; if the range contains an element equal to key, returns the index of the leftmost equal element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>gallopRight(Comparable&lt;Object&gt; key, Object[] a,int base, int len, int hint): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Like gallopLeft, except that if the range contains an element equal to key, gallopRight returns the index after the rightmost equal element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeLo(int base1, int len1, int base2, int len2): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Merges two adjacent runs in place, in a stable fashion.  The first element of the first run must be greater than the first element of the second run (a[base1] &gt; a[base2]), and the last element of the first run (a[base1 + len1-1]) must be greater than all elements of the second run.  For performance, this method should be called only when len1 &lt;&#x3D; len2; its twin, mergeHi should be called if len1 &gt;&#x3D; len2.  (Either method may be called if len1 &#x3D;&#x3D; len2.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergeHi(int base1, int len1, int base2, int len2): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Like mergeLo, except that this method should be called only if len1 &gt;&#x3D; len2; mergeLo should be called if len1 &lt;&#x3D; len2.  (Either method may be called if len1 &#x3D;&#x3D; len2.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ensureCapacity(int minCapacity)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Ensures that the external array tmp has at least the specified number of elements, increasing its size if necessary.  The size increases exponentially to ensure amortized linear time complexity.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/regex/Pattern.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.regex.Pattern</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>UNIX_LINES: int</strong></td>
+<td align="center">0x01</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables Unix lines mode.  <p> In this mode, only the <tt>‘\n’</tt> line terminator is recognized in the behavior of <tt>.</tt>, <tt>^</tt>, and <tt>$</tt>.  <p> Unix lines mode can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?d)</tt>.</td>
+</tr>
+<tr>
+<td align="center"><strong>CASE_INSENSITIVE: int</strong></td>
+<td align="center">0x02</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables case-insensitive matching.  <p> By default, case-insensitive matching assumes that only characters in the US-ASCII charset are being matched.  Unicode-aware case-insensitive matching can be enabled by specifying the {@link #UNICODE_CASE} flag in conjunction with this flag.  <p> Case-insensitive matching can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?i)</tt>.  <p> Specifying this flag may impose a slight performance penalty.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>COMMENTS: int</strong></td>
+<td align="center">0x04</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Permits whitespace and comments in pattern.  <p> In this mode, whitespace is ignored, and embedded comments starting with <tt>#</tt> are ignored until the end of a line.  <p> Comments mode can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?x)</tt>.</td>
+</tr>
+<tr>
+<td align="center"><strong>MULTILINE: int</strong></td>
+<td align="center">0x08</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables multiline mode.  <p> In multiline mode the expressions <tt>^</tt> and <tt>$</tt> match just after or just before, respectively, a line terminator or the end of the input sequence.  By default these expressions only match at the beginning and the end of the entire input sequence.  <p> Multiline mode can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?m)</tt>.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>LITERAL: int</strong></td>
+<td align="center">0x10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables literal parsing of the pattern.  <p> When this flag is specified then the input string that specifies the pattern is treated as a sequence of literal characters. Metacharacters or escape sequences in the input sequence will be given no special meaning.  <p>The flags CASE_INSENSITIVE and UNICODE_CASE retain their impact on matching when used in conjunction with this flag. The other flags become superfluous.  <p> There is no embedded flag character for enabling literal parsing. @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>DOTALL: int</strong></td>
+<td align="center">0x20</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables dotall mode.  <p> In dotall mode, the expression <tt>.</tt> matches any character, including a line terminator.  By default this expression does not match line terminators.  <p> Dotall mode can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?s)</tt>.  (The <tt>s</tt> is a mnemonic for “single-line” mode, which is what this is called in Perl.)  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>UNICODE_CASE: int</strong></td>
+<td align="center">0x40</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables Unicode-aware case folding.  <p> When this flag is specified then case-insensitive matching, when enabled by the {@link #CASE_INSENSITIVE} flag, is done in a manner consistent with the Unicode Standard.  By default, case-insensitive matching assumes that only characters in the US-ASCII charset are being matched.  <p> Unicode-aware case folding can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?u)</tt>.  <p> Specifying this flag may impose a performance penalty.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>CANON_EQ: int</strong></td>
+<td align="center">0x80</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables canonical equivalence.  <p> When this flag is specified then two characters will be considered to match if, and only if, their full canonical decompositions match. The expression <tt>“a&amp;#92;u030A”</tt>, for example, will match the string <tt>“&amp;#92;u00E5”</tt> when this flag is specified.  By default, matching does not take canonical equivalence into account.  <p> There is no embedded flag character for enabling canonical equivalence.  <p> Specifying this flag may impose a performance penalty.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>UNICODE_CHARACTER_CLASS: int</strong></td>
+<td align="center">0x100</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enables the Unicode version of <i>Predefined character classes</i> and <i>POSIX character classes</i>.  <p> When this flag is specified then the (US-ASCII only) <i>Predefined character classes</i> and <i>POSIX character classes</i> are in conformance with &lt;a href&#x3D;”http: Standard #18: Unicode Regular Expression</i></a> <i>Annex C: Compatibility Properties</i>. <p> The UNICODE_CHARACTER_CLASS mode can also be enabled via the embedded flag expression&amp;nbsp;<tt>(?U)</tt>. <p> The flag implies UNICODE_CASE, that is, it enables Unicode-aware case folding. <p> Specifying this flag may impose a performance penalty.  </p> @since 1.7</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">5073258162644648461L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">use serialVersionUID from Merlin b59 for interoperability</td>
+</tr>
+<tr>
+<td align="center"><strong>pattern: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The original regular-expression pattern string.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>flags: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The original pattern flags.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>compiled: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Boolean indicating this Pattern is compiled; this is necessary in order to lazily compile deserialized Patterns.</td>
+</tr>
+<tr>
+<td align="center"><strong>normalizedPattern: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The normalized pattern string.</td>
+</tr>
+<tr>
+<td align="center"><strong>root: Node</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The starting point of state machine for the find operation.  This allows a match to start anywhere in the input.</td>
+</tr>
+<tr>
+<td align="center"><strong>matchRoot: Node</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The root of object tree for a match operation.  The pattern is matched at the beginning.  This may include a find that uses BnM or a First node.</td>
+</tr>
+<tr>
+<td align="center"><strong>buffer: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Temporary storage used by parsing pattern slice.</td>
+</tr>
+<tr>
+<td align="center"><strong>namedGroups: Map&lt;String, Integer&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Map the “name” of the “named capturing group” to its group id node.</td>
+</tr>
+<tr>
+<td align="center"><strong>groupNodes: GroupHead[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Temporary storage used while parsing group references.</td>
+</tr>
+<tr>
+<td align="center"><strong>temp: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Temporary null terminated code point array used by pattern compiling.</td>
+</tr>
+<tr>
+<td align="center"><strong>capturingGroupCount: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of capturing groups in this Pattern. Used by matchers to allocate storage needed to perform a match.</td>
+</tr>
+<tr>
+<td align="center"><strong>localCount: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The local variable count used by parsing tree. Used by matchers to allocate storage needed to perform a match.</td>
+</tr>
+<tr>
+<td align="center"><strong>cursor: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Index into the pattern string that keeps track of how much has been parsed.</td>
+</tr>
+<tr>
+<td align="center"><strong>patternLength: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Holds the length of the pattern string.</td>
+</tr>
+<tr>
+<td align="center"><strong>hasSupplementary: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">If the Start node might possibly match supplementary characters. It is set to true during compiling if (1) There is supplementary char in pattern, or (2) There is complement node of Category or Block</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>compile(String regex): Pattern</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compiles the given regular expression into a pattern.</td>
+<td align="left">PatternSyntaxException</td>
+</tr>
+<tr>
+<td align="center"><strong>compile(String regex, int flags): Pattern</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compiles the given regular expression into a pattern with the given flags.</td>
+<td align="left">IllegalArgumentException<br/>PatternSyntaxException</td>
+</tr>
+<tr>
+<td align="center"><strong>pattern(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the regular expression from which this pattern was compiled.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p>Returns the string representation of this pattern. This is the regular expression from which this pattern was compiled.</p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matcher(CharSequence input): Matcher</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a matcher that will match the given input against this pattern.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flags(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this pattern’s match flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matches(String regex, CharSequence input): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compiles the given regular expression and attempts to match the given input against it.  <p> An invocation of this convenience method of the form  <blockquote><pre> Pattern.matches(regex, input);</pre></blockquote>  behaves in exactly the same way as the expression  <blockquote><pre> Pattern.compile(regex).matcher(input).matches()</pre></blockquote>  <p> If a pattern is to be used multiple times, compiling it once and reusing it will be more efficient than invoking this method each time.  </p></td>
+<td align="left">PatternSyntaxException</td>
+</tr>
+<tr>
+<td align="center"><strong>split(CharSequence input, int limit): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Splits the given input sequence around matches of this pattern.  <p> The array returned by this method contains each substring of the input sequence that is terminated by another subsequence that matches this pattern or is terminated by the end of the input sequence.  The substrings in the array are in the order in which they occur in the input. If this pattern does not match any subsequence of the input then the resulting array has just one element, namely the input sequence in string form.  <p> When there is a positive-width match at the beginning of the input sequence then an empty leading substring is included at the beginning of the resulting array. A zero-width match at the beginning however never produces such empty leading substring.  <p> The <tt>limit</tt> parameter controls the number of times the pattern is applied and therefore affects the length of the resulting array.  If the limit <i>n</i> is greater than zero then the pattern will be applied at most <i>n</i>&amp;nbsp;-&amp;nbsp;1 times, the array’s length will be no greater than <i>n</i>, and the array’s last entry will contain all input beyond the last matched delimiter.  If <i>n</i> is non-positive then the pattern will be applied as many times as possible and the array can have any length.  If <i>n</i> is zero then the pattern will be applied as many times as possible, the array can have any length, and trailing empty strings will be discarded.  <p> The input <tt>“boo:and:foo”</tt>, for example, yields the following results with these parameters:  <blockquote><table cellpadding=1 cellspacing=0 summary="Split examples showing regex, limit, and result"> <tr><th align="left"><i>Regex&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</i></th> <th align="left"><i>Limit&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</i></th> <th align="left"><i>Result&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</i></th></tr> <tr><td align=center>:</td> <td align=center>2</td> <td><tt>{ “boo”, “and:foo” }</tt></td></tr> <tr><td align=center>:</td> <td align=center>5</td> <td><tt>{ “boo”, “and”, “foo” }</tt></td></tr> <tr><td align=center>:</td> <td align=center>-2</td> <td><tt>{ “boo”, “and”, “foo” }</tt></td></tr> <tr><td align=center>o</td> <td align=center>5</td> <td><tt>{ “b”, “”, “:and:f”, “”, “” }</tt></td></tr> <tr><td align=center>o</td> <td align=center>-2</td> <td><tt>{ “b”, “”, “:and:f”, “”, “” }</tt></td></tr> <tr><td align=center>o</td> <td align=center>0</td> <td><tt>{ “b”, “”, “:and:f” }</tt></td></tr> </table></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>split(CharSequence input): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Splits the given input sequence around matches of this pattern.  <p> This method works as if by invoking the two-argument ‘#split(java.lang.CharSequence, int) split’ method with the given input sequence and a limit argument of zero.  Trailing empty strings are therefore not included in the resulting array. </p>  <p> The input <tt>“boo:and:foo”</tt>, for example, yields the following results with these expressions:  <blockquote><table cellpadding=1 cellspacing=0 summary="Split examples showing regex and result"> <tr><th align="left"><i>Regex&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</i></th> <th align="left"><i>Result</i></th></tr> <tr><td align=center>:</td> <td><tt>{ “boo”, “and”, “foo” }</tt></td></tr> <tr><td align=center>o</td> <td><tt>{ “b”, “”, “:and:f” }</tt></td></tr> </table></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>quote(String s): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a literal pattern <code>String</code> for the specified <code>String</code>.  <p>This method produces a <code>String</code> that can be used to create a <code>Pattern</code> that would match the string <code>s</code> as if it were a literal pattern.</p> Metacharacters or escape sequences in the input sequence will be given no special meaning.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recompile the Pattern instance from a stream.  The original pattern string is read in and the object tree is recompiled from it.</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>Pattern(String p, int f)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This private constructor is used to create all Patterns. The pattern string and match flags are all that is needed to completely describe a Pattern. An empty pattern string results in an object tree with only a Start node and a LastNode node.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>normalize(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The pattern is converted to normalizedD form and then a pure group is constructed to match canonical equivalences of the characters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>normalizeCharClass(StringBuilder newPattern, int i): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Complete the character class being parsed and add a set of alternations to it that will match the canonical equivalences of the characters within the class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>produceEquivalentAlternation(String source): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Given a specific sequence composed of a regular character and combining marks that follow it, produce the alternation that will match all canonical equivalences of that sequence.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>producePermutations(String input): String[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of strings that have all the possible permutations of the characters in the input string. This is used to get a list of all possible orderings of a set of combining marks. Note that some of the permutations are invalid because of combining class collisions, and these possibilities must be removed because they are not canonically equivalent.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getClass(int c): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>composeOneStep(String input): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to compose input by combining the first character with the first combining mark following it. Returns a String that is the composition of the leading character with its first combining mark followed by the remaining combining marks. Returns null if the first two characters cannot be further composed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RemoveQEQuoting(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Preprocess any \Q…\E sequences in <code>temp&#39;, meta-quoting them. See the description of </code>quotemeta’ in perlfunc(1).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compile(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies regular expression to an int array and invokes the parsing of the expression which will create the object tree.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>namedGroups(): Integer&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>printObjectTree(Node node): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to print out a subtree of the Pattern to help with debugging.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>has(int f): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates whether a particular flag is set or not.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>accept(int ch, String s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Match next character, signal error if failed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mark(int c): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Mark the end of pattern with a specific character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peek(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Peek the next character, and do not advance the cursor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>read(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Read the next character, and advance the cursor by one.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readEscaped(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Read the next character, and advance the cursor by one, ignoring the COMMENTS setting</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>next(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Advance the cursor by one, and peek the next character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextEscaped(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Advance the cursor by one, and peek the next character, ignoring the COMMENTS setting</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peekPastWhitespace(int ch): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If in xmode peek past whitespace and comments.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parsePastWhitespace(int ch): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If in xmode parse past whitespace and comments.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parsePastLine(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">xmode parse past comment to end of line.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peekPastLine(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">xmode peek past comment to end of line.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLineSeparator(int ch): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if character is a line separator in the current mode</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skip(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Read the character after the next one, and advance the cursor by two.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unread(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unread one next character, and retreat cursor by one.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>error(String s): PatternSyntaxException</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal method used for handling all syntax errors. The pattern is displayed with a pointer to aid in locating the syntax error.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findSupplementary(int start, int end): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if there is any supplementary character or unpaired surrogate in the specified range.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupplementary(int ch): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified code point is a supplementary character or unpaired surrogate.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>expr(Node end): Node</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The expression is parsed with branch nodes added for alternations. This may be called recursively to parse sub expressions that may contain alternations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sequence(Node end): Node</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parsing of sequences between alternations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>atom(): Node</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parse and add a new Single or Slice.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>c(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility method for parsing control escape sequences.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>o(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility method for parsing octal escape sequences.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>x(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility method for parsing hexadecimal escape sequences.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cursor(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility method for parsing unicode escape sequences.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setcursor(int pos): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uxxxx(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>u(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countChars(CharSequence seq, int index,int lengthInCodePoints): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countCodePoints(CharSequence seq): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newSingle(final int ch): CharProperty</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a suitably optimized, single character matcher.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newSlice(int[] buf, int count, boolean hasSupplementary): Node</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility method for creating a string slice matcher.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Pattern-TreeInfo"><a href="#Pattern-TreeInfo" class="headerlink" title="Pattern$TreeInfo"></a><a href="./Pattern$TreeInfo.html">Pattern$TreeInfo</a></h3><h3 id="Pattern-BitClass"><a href="#Pattern-BitClass" class="headerlink" title="Pattern$BitClass"></a><a href="./Pattern$BitClass.html">Pattern$BitClass</a></h3><h3 id="Pattern-Node"><a href="#Pattern-Node" class="headerlink" title="Pattern$Node"></a><a href="./Pattern$Node.html">Pattern$Node</a></h3><h3 id="Pattern-LastNode"><a href="#Pattern-LastNode" class="headerlink" title="Pattern$LastNode"></a><a href="./Pattern$LastNode.html">Pattern$LastNode</a></h3><h3 id="Pattern-Start"><a href="#Pattern-Start" class="headerlink" title="Pattern$Start"></a><a href="./Pattern$Start.html">Pattern$Start</a></h3><h3 id="Pattern-StartS"><a href="#Pattern-StartS" class="headerlink" title="Pattern$StartS"></a><a href="./Pattern$StartS.html">Pattern$StartS</a></h3><h3 id="Pattern-Begin"><a href="#Pattern-Begin" class="headerlink" title="Pattern$Begin"></a><a href="./Pattern$Begin.html">Pattern$Begin</a></h3><h3 id="Pattern-End"><a href="#Pattern-End" class="headerlink" title="Pattern$End"></a><a href="./Pattern$End.html">Pattern$End</a></h3><h3 id="Pattern-Caret"><a href="#Pattern-Caret" class="headerlink" title="Pattern$Caret"></a><a href="./Pattern$Caret.html">Pattern$Caret</a></h3><h3 id="Pattern-UnixCaret"><a href="#Pattern-UnixCaret" class="headerlink" title="Pattern$UnixCaret"></a><a href="./Pattern$UnixCaret.html">Pattern$UnixCaret</a></h3><h3 id="Pattern-LastMatch"><a href="#Pattern-LastMatch" class="headerlink" title="Pattern$LastMatch"></a><a href="./Pattern$LastMatch.html">Pattern$LastMatch</a></h3><h3 id="Pattern-Dollar"><a href="#Pattern-Dollar" class="headerlink" title="Pattern$Dollar"></a><a href="./Pattern$Dollar.html">Pattern$Dollar</a></h3><h3 id="Pattern-UnixDollar"><a href="#Pattern-UnixDollar" class="headerlink" title="Pattern$UnixDollar"></a><a href="./Pattern$UnixDollar.html">Pattern$UnixDollar</a></h3><h3 id="Pattern-LineEnding"><a href="#Pattern-LineEnding" class="headerlink" title="Pattern$LineEnding"></a><a href="./Pattern$LineEnding.html">Pattern$LineEnding</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

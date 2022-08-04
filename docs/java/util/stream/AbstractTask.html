@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/stream/AbstractTask.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AbstractTask-lt-P-IN-P-OUT-R-K-extends-AbstractTask-lt-P-IN-P-OUT-R-K-gt-gt"><a href="#AbstractTask-lt-P-IN-P-OUT-R-K-extends-AbstractTask-lt-P-IN-P-OUT-R-K-gt-gt" class="headerlink" title="AbstractTask&lt;P_IN, P_OUT, R,K extends AbstractTask&lt;P_IN, P_OUT, R, K&gt;&gt;"></a>AbstractTask&lt;P_IN, P_OUT, R,K extends AbstractTask&lt;P_IN, P_OUT, R, K&gt;&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.stream.AbstractTask&lt;P_IN, P_OUT, R,K extends AbstractTask&lt;P_IN, P_OUT, R, K&gt;&gt;</strong></td>
+<td align="center">abstract class</td>
+<td align="center">CountedCompleter&lt;R&gt;</td>
+<td align="center">&lt;P_IN&gt;,&lt;P_OUT&gt;,&lt;R&gt;,&lt;K extends AbstractTask&lt;P_IN&gt;,&lt;P_OUT&gt;,&lt;R&gt;,&lt;K&gt;</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>LEAF_TARGET: int</strong></td>
+<td align="center">ForkJoinPool.getCommonPoolParallelism() &lt;&lt; 2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Default target factor of leaf tasks for parallel decomposition. To allow load balancing, we over-partition, currently to approximately four tasks per processor, which enables others to help out if leaf tasks are uneven or some processors are otherwise busy.</td>
+</tr>
+<tr>
+<td align="center"><strong>helper: PipelineHelper&lt;P_OUT&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The pipeline helper, common to all tasks in a computation</td>
+</tr>
+<tr>
+<td align="center"><strong>spliterator: Spliterator&lt;P_IN&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The spliterator for the portion of the input associated with the subtree rooted at this task</td>
+</tr>
+<tr>
+<td align="center"><strong>targetSize: long</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Target leaf size, common to all tasks in a computation</td>
+</tr>
+<tr>
+<td align="center"><strong>leftChild: K</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The left child. null if no children if non-null rightChild is non-null</td>
+</tr>
+<tr>
+<td align="center"><strong>rightChild: K</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The right child. null if no children if non-null leftChild is non-null</td>
+</tr>
+<tr>
+<td align="center"><strong>localResult: R</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The result of this node, if completed</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>AbstractTask(PipelineHelper&lt;P_OUT&gt; helper,Spliterator&lt;P_IN&gt; spliterator)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor for root nodes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AbstractTask(K parent,Spliterator&lt;P_IN&gt; spliterator)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor for non-root nodes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeChild(Spliterator&lt;P_IN&gt; spliterator): K</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Constructs a new node of type T whose parent is the receiver; must call the AbstractTask(T, Spliterator) constructor with the receiver and the provided Spliterator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doLeaf(): R</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Computes the result associated with a leaf node.  Will be called by ‘compute()’ and the result passed to</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>suggestTargetSize(long sizeEstimate): long</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a suggested target leaf size based on the initial size estimate.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetSize(long sizeEstimate): long</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the targetSize, initializing it via the supplied size estimate if not already initialized.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRawResult(): R</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the local result, if any. Subclasses should use ‘#setLocalResult(Object)’ and ‘#getLocalResult()’ to manage results.  This returns the local result so that calls from within the fork-join framework will return the correct result.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRawResult(R result): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Does nothing; instead, subclasses should use ‘#setLocalResult(Object)’} to manage results.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocalResult(): R</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves a result previously stored with ‘#setLocalResult’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLocalResult(R localResult): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Associates the result with the task, can be retrieved with ‘#getLocalResult’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLeaf(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates whether this task is a leaf node.  (Only valid after ‘#compute’ has been called on this node).  If the node is not a leaf node, then children will be non-null and numChildren will be positive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isRoot(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates whether this task is the root node</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getParent(): K</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the parent of this task, or null if this task is the root</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compute(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Decides whether or not to split a task further or compute it directly. If computing directly, calls ‘doLeaf’ and pass the result to ‘setRawResult’. Otherwise splits off subtasks, forking one and continuing as the other.  <p> The method is structured to conserve resources across a range of uses.  The loop continues with one of the child tasks when split, to avoid deep recursion. To cope with spliterators that may be systematically biased toward left-heavy or right-heavy splits, we alternate which child is forked versus continued in the loop.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>onCompletion(CountedCompleter&lt;?&gt; caller): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLeftmostNode(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether this node is a “leftmost” node – whether the path from the root to this node involves only traversing leftmost child links.  For a leaf node, this means it is the first leaf node in the encounter order.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

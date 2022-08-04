@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/HashMap.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="HashMap-lt-K-V-gt"><a href="#HashMap-lt-K-V-gt" class="headerlink" title="HashMap&lt;K,V&gt;"></a>HashMap&lt;K,V&gt;</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.HashMap&lt;K,V&gt;</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractMap&lt;K,V&gt;implements</td>
+<td align="center">Map&lt;K,V&gt;,Cloneable,Serializable</td>
+<td align="center">&lt;K&gt;,&lt;V&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">362498820763181265L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_INITIAL_CAPACITY: int</strong></td>
+<td align="center">1 &lt;&lt; 4</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default initial capacity - MUST be a power of two.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAXIMUM_CAPACITY: int</strong></td>
+<td align="center">1 &lt;&lt; 30</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum capacity, used if a higher value is implicitly specified by either of the constructors with arguments. MUST be a power of two &lt;&#x3D; 1&lt;&lt;30.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_LOAD_FACTOR: float</strong></td>
+<td align="center">0.75f</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The load factor used when none specified in constructor.</td>
+</tr>
+<tr>
+<td align="center"><strong>TREEIFY_THRESHOLD: int</strong></td>
+<td align="center">8</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bin count threshold for using a tree rather than list for a bin.  Bins are converted to trees when adding an element to a bin with at least this many nodes. The value must be greater than 2 and should be at least 8 to mesh with assumptions in tree removal about conversion back to plain bins upon shrinkage.</td>
+</tr>
+<tr>
+<td align="center"><strong>UNTREEIFY_THRESHOLD: int</strong></td>
+<td align="center">6</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The bin count threshold for untreeifying a (split) bin during a resize operation. Should be less than TREEIFY_THRESHOLD, and at most 6 to mesh with shrinkage detection under removal.</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_TREEIFY_CAPACITY: int</strong></td>
+<td align="center">64</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The smallest table capacity for which bins may be treeified. (Otherwise the table is resized if too many nodes in a bin.) Should be at least 4 * TREEIFY_THRESHOLD to avoid conflicts between resizing and treeification thresholds.</td>
+</tr>
+<tr>
+<td align="center"><strong>[]: Node&lt;K,V&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The table, initialized on first use, and resized as necessary. When allocated, length is always a power of two. (We also tolerate length zero in some operations to allow bootstrapping mechanics that are currently not needed.)</td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet: Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Holds cached entrySet(). Note that AbstractMap fields are used for keySet() and values().</td>
+</tr>
+<tr>
+<td align="center"><strong>size: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of key-value mappings contained in this map.</td>
+</tr>
+<tr>
+<td align="center"><strong>modCount: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of times this HashMap has been structurally modified Structural modifications are those that change the number of mappings in the HashMap or otherwise modify its internal structure (e.g., rehash).  This field is used to make iterators on Collection-views of the HashMap fail-fast.  (See ConcurrentModificationException).</td>
+</tr>
+<tr>
+<td align="center"><strong>threshold: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The next size value at which to resize (capacity * load factor).  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>loadFactor: float</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The load factor for the hash table.  @serial</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>hash(Object key): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes key.hashCode() and spreads (XORs) higher bits of hash to lower.  Because the table uses power-of-two masking, sets of hashes that vary only in bits above the current mask will always collide. (Among known examples are sets of Float keys holding consecutive whole numbers in small tables.)  So we apply a transform that spreads the impact of higher bits downward. There is a tradeoff between speed, utility, and quality of bit-spreading. Because many common sets of hashes are already reasonably distributed (so don’t benefit from spreading), and because we use trees to handle large sets of collisions in bins, we just XOR some shifted bits in the cheapest possible way to reduce systematic lossage, as well as to incorporate impact of the highest bits that would otherwise never be used in index calculations because of table bounds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>comparableClassFor(Object x): Class&lt;?&gt;</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns x’s Class if it is of the form “class C implements Comparable<C>“, else null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareComparables(Class&lt;?&gt; kc, Object k, Object x): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns k.compareTo(x) if x matches kc (k’s screened comparable class), else 0.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tableSizeFor(int cap): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a power of two size for the given target capacity.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HashMap(int initialCapacity, float loadFactor)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty <tt>HashMap</tt> with the specified initial capacity and load factor.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>HashMap(int initialCapacity)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty <tt>HashMap</tt> with the specified initial capacity and the default load factor (0.75).</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>HashMap()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an empty <tt>HashMap</tt> with the default initial capacity (16) and the default load factor (0.75).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HashMap(Map&lt;? extends K, ? extends V&gt; m)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <tt>HashMap</tt> with the same mappings as the specified <tt>Map</tt>.  The <tt>HashMap</tt> is created with default load factor (0.75) and an initial capacity sufficient to hold the mappings in the specified <tt>Map</tt>.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>putMapEntries(Map&lt;? extends K, ? extends V&gt; m, boolean evict): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements Map.putAll and Map constructor</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of key-value mappings in this map.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if this map contains no key-value mappings.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value to which the specified key is mapped, or ‘null’ if this map contains no mapping for the key.  <p>More formally, if this map contains a mapping from a key ‘k’ to a value ‘v’ such that ‘(key&#x3D;&#x3D;null ? k&#x3D;&#x3D;null : key.equals(k))’, then this method returns ‘v’; otherwise it returns ‘null’.  (There can be at most one such mapping.)  <p>A return value of ‘null’ does not <i>necessarily</i> indicate that the map contains no mapping for the key; it’s also possible that the map explicitly maps the key to ‘null’. The ‘#containsKey containsKey’ operation may be used to distinguish these two cases.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNode(int hash, Object key): Node&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements Map.get and related methods</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsKey(Object key): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if this map contains a mapping for the specified key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>put(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Associates the specified value with the specified key in this map. If the map previously contained a mapping for the key, the old value is replaced.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putVal(int hash, K key, V value, boolean onlyIfAbsent,boolean evict): V</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements Map.put and related methods</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resize(): Node&lt;K,V&gt;[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes or doubles table size.  If null, allocates in accord with initial capacity target held in field threshold. Otherwise, because we are using power-of-two expansion, the elements from each bin must either stay at same index, or move with a power of two offset in the new table.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>treeifyBin(Node&lt;K,V&gt;[] tab, int hash): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces all linked nodes in bin at index for given hash unless table is too small, in which case resizes instead.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putAll(Map&lt;? extends K, ? extends V&gt; m): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies all of the mappings from the specified map to this map. These mappings will replace any mappings that this map had for any of the keys currently in the specified map.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object key): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the mapping for the specified key from this map if present.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNode(int hash, Object key, Object value,boolean matchValue, boolean movable): Node&lt;K,V&gt;</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements Map.remove and related methods</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all of the mappings from this map. The map will be empty after this call returns.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsValue(Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <tt>true</tt> if this map maps one or more keys to the specified value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keySet(): Set<K></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the keys contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress (except through the iterator’s own <tt>remove</tt> operation), the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt>, and <tt>clear</tt> operations.  It does not support the <tt>add</tt> or <tt>addAll</tt> operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>values(): Collection<V></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Collection’ view of the values contained in this map. The collection is backed by the map, so changes to the map are reflected in the collection, and vice-versa.  If the map is modified while an iteration over the collection is in progress (except through the iterator’s own <tt>remove</tt> operation), the results of the iteration are undefined.  The collection supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Collection.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not support the <tt>add</tt> or <tt>addAll</tt> operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>entrySet(): Set&lt;Map.Entry&lt;K,V&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ view of the mappings contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.  If the map is modified while an iteration over the set is in progress (except through the iterator’s own <tt>remove</tt> operation, or through the <tt>setValue</tt> operation on a map entry returned by the iterator) the results of the iteration are undefined.  The set supports element removal, which removes the corresponding mapping from the map, via the <tt>Iterator.remove</tt>, <tt>Set.remove</tt>, <tt>removeAll</tt>, <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not support the <tt>add</tt> or <tt>addAll</tt> operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOrDefault(Object key, V defaultValue): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>putIfAbsent(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object key, Object value): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replace(K key, V oldValue, V newValue): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replace(K key, V value): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>computeIfAbsent(K key,Function&lt;? super K, ? extends V&gt; mappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>computeIfPresent(K key,BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compute(K key,BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>merge(K key, V value,BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forEach(BiConsumer&lt;? super K, ? super V&gt; action): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shallow copy of this <tt>HashMap</tt> instance: the keys and values themselves are not cloned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>capacity(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Save the state of the <tt>HashMap</tt> instance to a stream (i.e., serialize it).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitute the ‘HashMap’ instance from a stream (i.e., deserialize it).</td>
+<td align="left">IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>newNode(int hash, K key, V value, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The following package-protected methods are designed to be overridden by LinkedHashMap, but not by any other subclass. Nearly all other internal methods are also package-protected but are declared final, so can be used by LinkedHashMap, view classes, and HashSet.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replacementNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newTreeNode(int hash, K key, V value, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replacementTreeNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reinitialize()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reset to initial default state.  Called by clone and readObject.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalWriteEntries(java.io.ObjectOutputStream s)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="HashMap-Node"><a href="#HashMap-Node" class="headerlink" title="HashMap$Node"></a><a href="./HashMap$Node.html">HashMap$Node</a></h3><h3 id="HashMap-KeySet"><a href="#HashMap-KeySet" class="headerlink" title="HashMap$KeySet"></a><a href="./HashMap$KeySet.html">HashMap$KeySet</a></h3><h3 id="HashMap-Values"><a href="#HashMap-Values" class="headerlink" title="HashMap$Values"></a><a href="./HashMap$Values.html">HashMap$Values</a></h3><h3 id="HashMap-EntrySet"><a href="#HashMap-EntrySet" class="headerlink" title="HashMap$EntrySet"></a><a href="./HashMap$EntrySet.html">HashMap$EntrySet</a></h3><h3 id="HashMap-HashIterator"><a href="#HashMap-HashIterator" class="headerlink" title="HashMap$HashIterator"></a><a href="./HashMap$HashIterator.html">HashMap$HashIterator</a></h3><h3 id="HashMap-KeyIterator"><a href="#HashMap-KeyIterator" class="headerlink" title="HashMap$KeyIterator"></a><a href="./HashMap$KeyIterator.html">HashMap$KeyIterator</a></h3><h3 id="HashMap-ValueIterator"><a href="#HashMap-ValueIterator" class="headerlink" title="HashMap$ValueIterator"></a><a href="./HashMap$ValueIterator.html">HashMap$ValueIterator</a></h3><h3 id="HashMap-EntryIterator"><a href="#HashMap-EntryIterator" class="headerlink" title="HashMap$EntryIterator"></a><a href="./HashMap$EntryIterator.html">HashMap$EntryIterator</a></h3><h3 id="HashMap-HashMapSpliterator"><a href="#HashMap-HashMapSpliterator" class="headerlink" title="HashMap$HashMapSpliterator"></a><a href="./HashMap$HashMapSpliterator.html">HashMap$HashMapSpliterator</a></h3><h3 id="HashMap-KeySpliterator"><a href="#HashMap-KeySpliterator" class="headerlink" title="HashMap$KeySpliterator"></a><a href="./HashMap$KeySpliterator.html">HashMap$KeySpliterator</a></h3><h3 id="HashMap-ValueSpliterator"><a href="#HashMap-ValueSpliterator" class="headerlink" title="HashMap$ValueSpliterator"></a><a href="./HashMap$ValueSpliterator.html">HashMap$ValueSpliterator</a></h3><h3 id="HashMap-EntrySpliterator"><a href="#HashMap-EntrySpliterator" class="headerlink" title="HashMap$EntrySpliterator"></a><a href="./HashMap$EntrySpliterator.html">HashMap$EntrySpliterator</a></h3><h3 id="HashMap-TreeNode"><a href="#HashMap-TreeNode" class="headerlink" title="HashMap$TreeNode"></a><a href="./HashMap$TreeNode.html">HashMap$TreeNode</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

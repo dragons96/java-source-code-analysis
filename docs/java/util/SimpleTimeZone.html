@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/SimpleTimeZone.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="SimpleTimeZone"><a href="#SimpleTimeZone" class="headerlink" title="SimpleTimeZone"></a>SimpleTimeZone</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.SimpleTimeZone</strong></td>
+<td align="center">class</td>
+<td align="center">TimeZone</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>startMonth: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The month in which daylight saving time starts.  This value must be between <code>Calendar.JANUARY</code> and <code>Calendar.DECEMBER</code> inclusive.  This value must not equal <code>endMonth</code>. <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>startDay: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field has two possible interpretations: <dl> <dt><code>startMode == DOW_IN_MONTH</code></dt> <dd> <code>startDay</code> indicates the day of the month of <code>startMonth</code> on which daylight saving time starts, from 1 to 28, 30, or 31, depending on the <code>startMonth</code>. </dd> <dt><code>startMode != DOW_IN_MONTH</code></dt> <dd> <code>startDay</code> indicates which <code>startDayOfWeek</code> in the month <code>startMonth</code> daylight saving time starts on.  For example, a value of +1 and a <code>startDayOfWeek</code> of <code>Calendar.SUNDAY</code> indicates the first Sunday of <code>startMonth</code>.  Likewise, +2 would indicate the second Sunday, and -1 the last Sunday.  A value of 0 is illegal. </dd> </dl> <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>startDayOfWeek: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The day of the week on which daylight saving time starts.  This value must be between <code>Calendar.SUNDAY</code> and <code>Calendar.SATURDAY</code> inclusive. <p>If <code>useDaylight</code> is false or <code>startMode == DAY_OF_MONTH</code>, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>startTime: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The time in milliseconds after midnight at which daylight saving time starts.  This value is expressed as wall time, standard time, or UTC time, depending on the setting of <code>startTimeMode</code>. <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>startTimeMode: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The format of startTime, either WALL_TIME, STANDARD_TIME, or UTC_TIME. @serial @since 1.3</td>
+</tr>
+<tr>
+<td align="center"><strong>endMonth: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The month in which daylight saving time ends.  This value must be between <code>Calendar.JANUARY</code> and <code>Calendar.UNDECIMBER</code>.  This value must not equal <code>startMonth</code>. <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>endDay: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field has two possible interpretations: <dl> <dt><code>endMode == DOW_IN_MONTH</code></dt> <dd> <code>endDay</code> indicates the day of the month of <code>endMonth</code> on which daylight saving time ends, from 1 to 28, 30, or 31, depending on the <code>endMonth</code>. </dd> <dt><code>endMode != DOW_IN_MONTH</code></dt> <dd> <code>endDay</code> indicates which <code>endDayOfWeek</code> in th month <code>endMonth</code> daylight saving time ends on.  For example, a value of +1 and a <code>endDayOfWeek</code> of <code>Calendar.SUNDAY</code> indicates the first Sunday of <code>endMonth</code>.  Likewise, +2 would indicate the second Sunday, and -1 the last Sunday.  A value of 0 is illegal. </dd> </dl> <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>endDayOfWeek: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The day of the week on which daylight saving time ends.  This value must be between <code>Calendar.SUNDAY</code> and <code>Calendar.SATURDAY</code> inclusive. <p>If <code>useDaylight</code> is false or <code>endMode == DAY_OF_MONTH</code>, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>endTime: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The time in milliseconds after midnight at which daylight saving time ends.  This value is expressed as wall time, standard time, or UTC time, depending on the setting of <code>endTimeMode</code>. <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>endTimeMode: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The format of endTime, either <code>WALL_TIME</code>, <code>STANDARD_TIME</code>, or <code>UTC_TIME</code>. @serial @since 1.3</td>
+</tr>
+<tr>
+<td align="center"><strong>startYear: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The year in which daylight saving time is first observed.  This is an {@link GregorianCalendar#AD AD} value.  If this value is less than 1 then daylight saving time is observed for all <code>AD</code> years. <p>If <code>useDaylight</code> is false, this value is ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>rawOffset: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The offset in milliseconds between this zone and GMT.  Negative offsets are to the west of Greenwich.  To obtain local <em>standard</em> time, add the offset to GMT time.  To obtain local wall time it may also be necessary to add <code>dstSavings</code>. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>useDaylight&#x3D;false: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A boolean value which is true if and only if this zone uses daylight saving time.  If this value is false, several other fields are ignored. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>millisPerHour: int</strong></td>
+<td align="center">60<em>60</em>1000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>millisPerDay: int</strong></td>
+<td align="center">24*millisPerHour</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>&#x3D;: monthLength[]</strong></td>
+<td align="center">staticMonthLength</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field was serialized in JDK 1.1, so we have to keep it that way to maintain serialization compatibility. However, there’s no need to recreate the array each time we create a new time zone. @serial An array of bytes containing the values {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}.  This is ignored as of the Java 2 platform v1.2, however, it must be streamed out for compatibility with JDK 1.1.</td>
+</tr>
+<tr>
+<td align="center"><strong>staticMonthLength[]: byte</strong></td>
+<td align="center">{31,28,31,30,31,30,31,31,30,31,30,31}</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>staticLeapMonthLength[]: byte</strong></td>
+<td align="center">{31,29,31,30,31,30,31,31,30,31,30,31}</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>startMode: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Variables specifying the mode of the start rule.  Takes the following values: <dl> <dt><code>DOM_MODE</code></dt> <dd> Exact day of week; e.g., March 1. </dd> <dt><code>DOW_IN_MONTH_MODE</code></dt> <dd> Day of week in month; e.g., last Sunday in March. </dd> <dt><code>DOW_GE_DOM_MODE</code></dt> <dd> Day of week after day of month; e.g., Sunday on or after March 15. </dd> <dt><code>DOW_LE_DOM_MODE</code></dt> <dd> Day of week before day of month; e.g., Sunday on or before March 15. </dd> </dl> The setting of this field affects the interpretation of the <code>startDay</code> field. <p>If <code>useDaylight</code> is false, this value is ignored. @serial @since 1.1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>endMode: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Variables specifying the mode of the end rule.  Takes the following values: <dl> <dt><code>DOM_MODE</code></dt> <dd> Exact day of week; e.g., March 1. </dd> <dt><code>DOW_IN_MONTH_MODE</code></dt> <dd> Day of week in month; e.g., last Sunday in March. </dd> <dt><code>DOW_GE_DOM_MODE</code></dt> <dd> Day of week after day of month; e.g., Sunday on or after March 15. </dd> <dt><code>DOW_LE_DOM_MODE</code></dt> <dd> Day of week before day of month; e.g., Sunday on or before March 15. </dd> </dl> The setting of this field affects the interpretation of the <code>endDay</code> field. <p>If <code>useDaylight</code> is false, this value is ignored. @serial @since 1.1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>dstSavings: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A positive value indicating the amount of time saved during DST in milliseconds. Typically one hour (3600000); sometimes 30 minutes (1800000). <p>If <code>useDaylight</code> is false, this value is ignored. @serial @since 1.1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>gcal: Gregorian</strong></td>
+<td align="center">CalendarSystem.getGregorianCalendar()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheYear: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Cache values representing a single period of daylight saving time. When the cache values are valid, cacheStart is the start time (inclusive) of daylight saving time and cacheEnd is the end time (exclusive).  cacheYear has a year value if both cacheStart and cacheEnd are in the same year. cacheYear is set to startYear - 1 if cacheStart and cacheEnd are in different years. cacheStart is 0 if the cache values are void. cacheYear is a long to support Integer.MIN_VALUE - 1 (JCK requirement).</td>
+</tr>
+<tr>
+<td align="center"><strong>cacheStart: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheEnd: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DOM_MODE: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constants specifying values of startMode and endMode.</td>
+</tr>
+<tr>
+<td align="center"><strong>DOW_IN_MONTH_MODE: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DOW_GE_DOM_MODE: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DOW_LE_DOM_MODE: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WALL_TIME: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for a mode of start or end time specified as wall clock time.  Wall clock time is standard time for the onset rule, and daylight time for the end rule. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>STANDARD_TIME: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for a mode of start or end time specified as standard time. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>UTC_TIME: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for a mode of start or end time specified as UTC. European Union rules are specified as UTC time, for example. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-403250971215465050L</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentSerialVersion: int</strong></td>
+<td align="center">2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionOnStream: int</strong></td>
+<td align="center">currentSerialVersion</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The version of the serialized data on the stream.  Possible values: <dl> <dt><b>0</b> or not present on stream</dt> <dd> JDK 1.1.3 or earlier. </dd> <dt><b>1</b></dt> <dd> JDK 1.1.4 or later.  Includes three new fields: <code>startMode</code>, <code>endMode</code>, and <code>dstSavings</code>. </dd> <dt><b>2</b></dt> <dd> JDK 1.3 or later.  Includes two new fields: <code>startTimeMode</code> and <code>endTimeMode</code>. </dd> </dl> When streaming out this class, the most recent format and the highest allowable <code>serialVersionOnStream</code> is written. @serial @since 1.1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_RULE_NUM: int</strong></td>
+<td align="center">6</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a SimpleTimeZone with the given base time zone offset from GMT and time zone ID with no daylight saving time schedule.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID,int startMonth, int startDay, int startDayOfWeek, int startTime,int endMonth, int endDay, int endDayOfWeek, int endTime)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a SimpleTimeZone with the given base time zone offset from GMT, time zone ID, and rules for starting and ending the daylight time. Both <code>startTime</code> and <code>endTime</code> are specified to be represented in the wall clock time. The amount of daylight saving is assumed to be 3600000 milliseconds (i.e., one hour). This constructor is equivalent to: <pre><code> SimpleTimeZone(rawOffset, ID, startMonth, startDay, startDayOfWeek, startTime, SimpleTimeZone.'#WALL_TIME', endMonth, endDay, endDayOfWeek, endTime, SimpleTimeZone.'#WALL_TIME', 3600000) </code></pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID,int startMonth, int startDay, int startDayOfWeek, int startTime,int endMonth, int endDay, int endDayOfWeek, int endTime,int dstSavings)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a SimpleTimeZone with the given base time zone offset from GMT, time zone ID, and rules for starting and ending the daylight time. Both <code>startTime</code> and <code>endTime</code> are assumed to be represented in the wall clock time. This constructor is equivalent to: <pre><code> SimpleTimeZone(rawOffset, ID, startMonth, startDay, startDayOfWeek, startTime, SimpleTimeZone.'#WALL_TIME', endMonth, endDay, endDayOfWeek, endTime, SimpleTimeZone.'#WALL_TIME', dstSavings) </code></pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID,int startMonth, int startDay, int startDayOfWeek,int startTime, int startTimeMode,int endMonth, int endDay, int endDayOfWeek,int endTime, int endTimeMode,int dstSavings)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a SimpleTimeZone with the given base time zone offset from GMT, time zone ID, and rules for starting and ending the daylight time. This constructor takes the full set of the start and end rules parameters, including modes of <code>startTime</code> and <code>endTime</code>. The mode specifies either ‘#WALL_TIME wall time’ or ‘#STANDARD_TIME standard time’ or ‘#UTC_TIME UTC time’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setStartYear(int year): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time starting year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setStartRule(int startMonth, int startDay, int startDayOfWeek, int startTime): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time start rule. For example, if daylight saving time starts on the first Sunday in April at 2 am in local wall clock time, you can set the start rule by calling: <pre><code>setStartRule(Calendar.APRIL, 1, Calendar.SUNDAY, 2<em>60</em>60*1000);</code></pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setStartRule(int startMonth, int startDay, int startTime): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time start rule to a fixed date within a month. This method is equivalent to: <pre><code>setStartRule(startMonth, startDay, 0, startTime)</code></pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setStartRule(int startMonth, int startDay, int startDayOfWeek,int startTime, boolean after): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time start rule to a weekday before or after the given date within a month, e.g., the first Monday on or after the 8th.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setEndRule(int endMonth, int endDay, int endDayOfWeek,int endTime): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time end rule. For example, if daylight saving time ends on the last Sunday in October at 2 am in wall clock time, you can set the end rule by calling: <code>setEndRule(Calendar.OCTOBER, -1, Calendar.SUNDAY, 2<em>60</em>60*1000);</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setEndRule(int endMonth, int endDay, int endTime): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time end rule to a fixed date within a month. This method is equivalent to: <pre><code>setEndRule(endMonth, endDay, 0, endTime)</code></pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setEndRule(int endMonth, int endDay, int endDayOfWeek, int endTime, boolean after): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the daylight saving time end rule to a weekday before or after the given date within a month, e.g., the first Monday on or after the 8th.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(long date): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the offset of this time zone from UTC at the given time. If daylight saving time is in effect at the given time, the offset value is adjusted with the amount of daylight saving.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffsets(long date, int[] offsets)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(int era, int year, int month, int day, int dayOfWeek,int millis): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the difference in milliseconds between local time and UTC, taking into account both the raw offset and the effect of daylight saving, for the specified date and time.  This method assumes that the start and end month are distinct.  It also uses a default ‘GregorianCalendar’ object as its underlying calendar, such as for determining leap years.  Do not use the result of this method with a calendar other than a default <code>GregorianCalendar</code>.  <p><em>Note:  In general, clients should use <code>Calendar.get(ZONE_OFFSET) + Calendar.get(DST_OFFSET)</code> instead of calling this method.</em></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(BaseCalendar cal, BaseCalendar.Date cdate, int year, long time): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getStart(BaseCalendar cal, BaseCalendar.Date cdate, int year): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEnd(BaseCalendar cal, BaseCalendar.Date cdate, int year): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTransition(BaseCalendar cal, BaseCalendar.Date cdate,int mode, int year, int month, int dayOfMonth,int dayOfWeek, int timeOfDay): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRawOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the GMT offset for this time zone.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRawOffset(int offsetMillis): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the base time zone offset to GMT. This is the offset to add to UTC to get local time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDSTSavings(int millisSavedDuringDST): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the amount of time in milliseconds that the clock is advanced during daylight saving time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDSTSavings(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the amount of time in milliseconds that the clock is advanced during daylight saving time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useDaylightTime(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries if this time zone uses daylight saving time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>observesDaylightTime(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this ‘SimpleTimeZone’ observes Daylight Saving Time. This method is equivalent to ‘#useDaylightTime()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inDaylightTime(Date date): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries if the given date is in daylight saving time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a clone of this <code>SimpleTimeZone</code> instance.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Generates the hash code for the SimpleDateFormat object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the equality of two <code>SimpleTimeZone</code> objects.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasSameRules(TimeZone other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <code>true</code> if this zone has the same rules and offset as another zone.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this time zone.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>invalidateCache(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decodeRules(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Given a set of encoded rules in startDay and startDayOfMonth, decode them and set the startMode appropriately.  Do the same for endDay and endDayOfMonth.  Upon entry, the day of week variables may be zero or negative, in order to indicate special modes.  The day of month variables may also be negative.  Upon exit, the mode variables will be set, and the day of week and day of month variables will be positive. This method also recognizes a startDay or endDay of zero as indicating no DST.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decodeStartRule(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Decode the start rule and validate the parameters.  The parameters are expected to be in encoded form, which represents the various rule modes by negating or zeroing certain values.  Representation formats are: <p> <pre> DOW_IN_MONTH  DOM    DOW>=DOM  DOW<=DOM  no DST ------------  -----  --------  --------  ---------- month       0..11        same    same      same     don't care day        -5..5         1..31   1..31    -1..-31   0 dayOfWeek   1..7         0      -1..-7    -1..-7    don't care time        0..ONEDAY    same    same      same     don't care </pre> The range for month does not include UNDECIMBER since this class is really specific to GregorianCalendar, which does not use that month. The range for time includes ONEDAY (vs. ending at ONEDAY-1) because the end rule is an exclusive limit point.  That is, the range of times that are in DST include those &gt;&#x3D; the start and &lt; the end.  For this reason, it should be possible to specify an end of ONEDAY in order to include the entire day.  Although this is equivalent to time 0 of the following day, it’s not always possible to specify that, for example, on December 31. While arguably the start range should still be 0..ONEDAY-1, we keep the start and end ranges the same for consistency.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decodeEndRule(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Decode the end rule and validate the parameters.  This method is exactly analogous to decodeStartRule().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeRulesCompatible(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Make rules compatible to 1.1 FCS code.  Since 1.1 FCS code only understands day-of-week-in-month rules, we must modify other modes of rules to their approximate equivalent in 1.1 FCS terms.  This method is used when streaming out objects of this class.  After it is called, the rules will be modified, with a possible loss of information.  startMode and endMode will NOT be altered, even though semantically they should be set to DOW_IN_MONTH_MODE, since the rule modification is only intended to be temporary.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packRules(): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pack the start and end rules into an array of bytes.  Only pack data which is not preserved by makeRulesCompatible.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unpackRules(byte[] rules): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Given an array of bytes produced by packRules, interpret them as the start and end rules.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packTimes(): int[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Pack the start and end times into an array of bytes.  This is required as of serial version 2.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unpackTimes(int[] times): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unpack the start and end times from an array of bytes.  This is required as of serial version 2.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

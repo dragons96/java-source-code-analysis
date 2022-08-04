@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/BitSet.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="BitSet"><a href="#BitSet" class="headerlink" title="BitSet"></a>BitSet</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.BitSet</strong></td>
+<td align="center">class</td>
+<td align="center">Cloneable,java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ADDRESS_BITS_PER_WORD: int</strong></td>
+<td align="center">6</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">BitSets are packed into arrays of “words.”  Currently a word is a long, which consists of 64 bits, requiring 6 address bits. The choice of word size is determined purely by performance concerns.</td>
+</tr>
+<tr>
+<td align="center"><strong>BITS_PER_WORD: int</strong></td>
+<td align="center">1 &lt;&lt; ADDRESS_BITS_PER_WORD</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BIT_INDEX_MASK: int</strong></td>
+<td align="center">BITS_PER_WORD - 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WORD_MASK: long</strong></td>
+<td align="center">0xffffffffffffffffL</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to shift left or right for a partial word mask</td>
+</tr>
+<tr>
+<td align="center"><strong>words: long[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The internal field corresponding to the serialField “bits”.</td>
+</tr>
+<tr>
+<td align="center"><strong>wordsInUse: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of words in the logical size of this BitSet.</td>
+</tr>
+<tr>
+<td align="center"><strong>sizeIsSticky: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Whether the size of “words” is user-specified.  If so, we assume the user knows what he’s doing and try harder to preserve it.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">7997698588986878753L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">use serialVersionUID from JDK 1.0.2 for interoperability</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>wordIndex(int bitIndex): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Given a bit index, return word index containing it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkInvariants(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Every public method must preserve these invariants.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recalculateWordsInUse(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the field wordsInUse to the logical size in words of the bit set. WARNING:This method assumes that the number of words actually in use is less than or equal to the current value of wordsInUse!</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BitSet()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new bit set. All bits are initially ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BitSet(int nbits)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a bit set whose initial size is large enough to explicitly represent bits with indices in the range ‘0’ through ‘nbits-1’. All bits are initially ‘false’.</td>
+<td align="left">NegativeArraySizeException</td>
+</tr>
+<tr>
+<td align="center"><strong>initWords(int nbits): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BitSet(long[] words)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a bit set using words as the internal representation. The last word (if there is one) must be non-zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(long[] longs): BitSet</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new bit set containing all the bits in the given long array.  <p>More precisely, <br>‘BitSet.valueOf(longs).get(n) &#x3D;&#x3D; ((longs[n&#x2F;64] &amp; (1L&lt;&lt;(n%64))) !&#x3D; 0)’ <br>for all ‘n &lt; 64 * longs.length’.  <p>This method is equivalent to ‘BitSet.valueOf(LongBuffer.wrap(longs))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(LongBuffer lb): BitSet</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new bit set containing all the bits in the given long buffer between its position and limit.  <p>More precisely, <br>‘BitSet.valueOf(lb).get(n) &#x3D;&#x3D; ((lb.get(lb.position()+n&#x2F;64) &amp; (1L&lt;&lt;(n%64))) !&#x3D; 0)’ <br>for all ‘n &lt; 64 * lb.remaining()’.  <p>The long buffer is not modified by this method, and no reference to the buffer is retained by the bit set.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(byte[] bytes): BitSet</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new bit set containing all the bits in the given byte array.  <p>More precisely, <br>‘BitSet.valueOf(bytes).get(n) &#x3D;&#x3D; ((bytes[n&#x2F;8] &amp; (1&lt;&lt;(n%8))) !&#x3D; 0)’ <br>for all ‘n &lt;  8 * bytes.length’.  <p>This method is equivalent to ‘BitSet.valueOf(ByteBuffer.wrap(bytes))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(ByteBuffer bb): BitSet</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new bit set containing all the bits in the given byte buffer between its position and limit.  <p>More precisely, <br>‘BitSet.valueOf(bb).get(n) &#x3D;&#x3D; ((bb.get(bb.position()+n&#x2F;8) &amp; (1&lt;&lt;(n%8))) !&#x3D; 0)’ <br>for all ‘n &lt; 8 * bb.remaining()’.  <p>The byte buffer is not modified by this method, and no reference to the buffer is retained by the bit set.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toByteArray(): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new byte array containing all the bits in this bit set.  <p>More precisely, if <br>‘byte[] bytes &#x3D; s.toByteArray();’ <br>then ‘bytes.length &#x3D;&#x3D; (s.length()+7)&#x2F;8’ and <br>‘s.get(n) &#x3D;&#x3D; ((bytes[n&#x2F;8] &amp; (1&lt;&lt;(n%8))) !&#x3D; 0)’ <br>for all ‘n &lt; 8 * bytes.length’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLongArray(): long[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new long array containing all the bits in this bit set.  <p>More precisely, if <br>‘long[] longs &#x3D; s.toLongArray();’ <br>then ‘longs.length &#x3D;&#x3D; (s.length()+63)&#x2F;64’ and <br>‘s.get(n) &#x3D;&#x3D; ((longs[n&#x2F;64] &amp; (1L&lt;&lt;(n%64))) !&#x3D; 0)’ <br>for all ‘n &lt; 64 * longs.length’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ensureCapacity(int wordsRequired): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Ensures that the BitSet can hold enough words.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>expandTo(int wordIndex): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Ensures that the BitSet can accommodate a given wordIndex, temporarily violating the invariants.  The caller must restore the invariants before returning to the user, possibly using recalculateWordsInUse().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkRange(int fromIndex, int toIndex): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that fromIndex … toIndex is a valid range of bit indices.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flip(int bitIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bit at the specified index to the complement of its current value.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>flip(int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets each bit from the specified ‘fromIndex’ (inclusive) to the specified ‘toIndex’ (exclusive) to the complement of its current value.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>set(int bitIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bit at the specified index to ‘true’.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>set(int bitIndex, boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bit at the specified index to the specified value.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>set(int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bits from the specified ‘fromIndex’ (inclusive) to the specified ‘toIndex’ (exclusive) to ‘true’.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>set(int fromIndex, int toIndex, boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bits from the specified ‘fromIndex’ (inclusive) to the specified ‘toIndex’ (exclusive) to the specified value.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(int bitIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bit specified by the index to ‘false’.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(int fromIndex, int toIndex): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the bits from the specified ‘fromIndex’ (inclusive) to the specified ‘toIndex’ (exclusive) to ‘false’.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets all of the bits in this BitSet to ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(int bitIndex): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the bit with the specified index. The value is ‘true’ if the bit with the index ‘bitIndex’ is currently set in this ‘BitSet’; otherwise, the result is ‘false’.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(int fromIndex, int toIndex): BitSet</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new ‘BitSet’ composed of bits from this ‘BitSet’ from ‘fromIndex’ (inclusive) to ‘toIndex’ (exclusive).</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextSetBit(int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the first bit that is set to ‘true’ that occurs on or after the specified starting index. If no such bit exists then ‘-1’ is returned.  <p>To iterate over the ‘true’ bits in a ‘BitSet’, use the following loop:  <pre> 'for (int i = bs.nextSetBit(0); i >= 0; i = bs.nextSetBit(i+1)) {  if (i == Integer.MAX_VALUE) { break;' }}</pre></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>nextClearBit(int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the first bit that is set to ‘false’ that occurs on or after the specified starting index.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>previousSetBit(int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the nearest bit that is set to ‘true’ that occurs on or before the specified starting index. If no such bit exists, or if ‘-1’ is given as the starting index, then ‘-1’ is returned.  <p>To iterate over the ‘true’ bits in a ‘BitSet’, use the following loop:  <pre> 'for (int i = bs.length(); (i = bs.previousSetBit(i-1)) >= 0; ) {'}</pre></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>previousClearBit(int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the nearest bit that is set to ‘false’ that occurs on or before the specified starting index. If no such bit exists, or if ‘-1’ is given as the starting index, then ‘-1’ is returned.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>length(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the “logical size” of this ‘BitSet’: the index of the highest set bit in the ‘BitSet’ plus one. Returns zero if the ‘BitSet’ contains no set bits.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if this ‘BitSet’ contains no bits that are set to ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intersects(BitSet set): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the specified ‘BitSet’ has any bits set to ‘true’ that are also set to ‘true’ in this ‘BitSet’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cardinality(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of bits set to ‘true’ in this ‘BitSet’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>and(BitSet set): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs a logical <b>AND</b> of this target bit set with the argument bit set. This bit set is modified so that each bit in it has the value ‘true’ if and only if it both initially had the value ‘true’ and the corresponding bit in the bit set argument also had the value ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>or(BitSet set): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs a logical <b>OR</b> of this bit set with the bit set argument. This bit set is modified so that a bit in it has the value ‘true’ if and only if it either already had the value ‘true’ or the corresponding bit in the bit set argument has the value ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>xor(BitSet set): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs a logical <b>XOR</b> of this bit set with the bit set argument. This bit set is modified so that a bit in it has the value ‘true’ if and only if one of the following statements holds: <ul> <li>The bit initially has the value ‘true’, and the corresponding bit in the argument has the value ‘false’. <li>The bit initially has the value ‘false’, and the corresponding bit in the argument has the value ‘true’. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>andNot(BitSet set): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clears all of the bits in this ‘BitSet’ whose corresponding bit is set in the specified ‘BitSet’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code value for this bit set. The hash code depends only on which bits are set within this ‘BitSet’.  <p>The hash code is defined to be the result of the following calculation: <pre> 'public int hashCode() { long h = 1234; long[] words = toLongArray(); for (int i = words.length; --i >= 0; ) h ^= words[i] * (i + 1); return (int)((h >> 32) ^ h);'}</pre> Note that the hash code changes if the set of bits is altered.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of bits of space actually in use by this ‘BitSet’ to represent bit values. The maximum element in the set is the size - 1st element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this object against the specified object. The result is ‘true’ if and only if the argument is not ‘null’ and is a ‘Bitset’ object that has exactly the same set of bits set to ‘true’ as this bit set. That is, for every nonnegative ‘int’ index ‘k’, <pre>((BitSet)obj).get(k) == this.get(k)</pre> must be true. The current sizes of the two bit sets are not compared.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cloning this ‘BitSet’ produces a new ‘BitSet’ that is equal to it. The clone of the bit set is another bit set that has exactly the same bits set to ‘true’ as this bit set.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>trimToSize(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to reduce internal storage used for the bits in this bit set. Calling this method may, but is not required to, affect the value returned by a subsequent call to the ‘#size()’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Save the state of the ‘BitSet’ instance to a stream (i.e., serialize it).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitute the ‘BitSet’ instance from a stream (i.e., deserialize it).</td>
+<td align="left">IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this bit set. For every index for which this ‘BitSet’ contains a bit in the set state, the decimal representation of that index is included in the result. Such indices are listed in order from lowest to highest, separated by “,&amp;nbsp;” (a comma and a space) and surrounded by braces, resulting in the usual mathematical notation for a set of integers.  <p>Example: <pre> BitSet drPepper = new BitSet();</pre> Now ‘drPepper.toString()’ returns “‘{‘}”. <pre> drPepper.set(2);</pre> Now ‘drPepper.toString()’ returns “‘{2’}”. <pre> drPepper.set(4); drPepper.set(10);</pre> Now ‘drPepper.toString()’ returns “‘{2, 4, 10’}”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stream(): IntStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a stream of indices for which this ‘BitSet’ contains a bit in the set state. The indices are returned in order, from lowest to highest. The size of the stream is the number of bits in the set state, equal to the value returned by the ‘#cardinality()’ method.  <p>The bit set must remain constant during the execution of the terminal stream operation.  Otherwise, the result of the terminal stream operation is undefined.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

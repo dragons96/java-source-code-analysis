@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/util/Comparator.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Comparator"><a href="#Comparator" class="headerlink" title="Comparator"></a>Comparator<T></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.util.Comparator&lt;T&gt;</strong></td>
+<td align="center">interface</td>
+<td align="center">&lt;T&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>compare(T o1, T o2)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Compares its two arguments for order.  Returns a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.<p>  In the foregoing description, the notation <tt>sgn(</tt><i>expression</i><tt>)</tt> designates the mathematical <i>signum</i> function, which is defined to return one of <tt>-1</tt>, <tt>0</tt>, or <tt>1</tt> according to whether the value of <i>expression</i> is negative, zero or positive.<p>  The implementor must ensure that <tt>sgn(compare(x, y)) &#x3D;&#x3D; -sgn(compare(y, x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This implies that <tt>compare(x, y)</tt> must throw an exception if and only if <tt>compare(y, x)</tt> throws an exception.)<p>  The implementor must also ensure that the relation is transitive: <tt>((compare(x, y)&gt;0) &amp;&amp; (compare(y, z)&gt;0))</tt> implies <tt>compare(x, z)&gt;0</tt>.<p>  Finally, the implementor must ensure that <tt>compare(x, y)&#x3D;&#x3D;0</tt> implies that <tt>sgn(compare(x, z))&#x3D;&#x3D;sgn(compare(y, z))</tt> for all <tt>z</tt>.<p>  It is generally the case, but <i>not</i> strictly required that <tt>(compare(x, y)&#x3D;&#x3D;0) &#x3D;&#x3D; (x.equals(y))</tt>.  Generally speaking, any comparator that violates this condition should clearly indicate this fact.  The recommended language is “Note: this comparator imposes orderings that are inconsistent with equals.”</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Indicates whether some other object is &quot;equal to&quot; this comparator.  This method must obey the general contract of ‘Object#equals(Object)’.  Additionally, this method can return <tt>true</tt> <i>only</i> if the specified object is also a comparator and it imposes the same ordering as this comparator.  Thus, <code>comp1.equals(comp2)</code> implies that <tt>sgn(comp1.compare(o1, o2))&#x3D;&#x3D;sgn(comp2.compare(o1, o2))</tt> for every object reference <tt>o1</tt> and <tt>o2</tt>.<p>  Note that it is <i>always</i> safe <i>not</i> to override <tt>Object.equals(Object)</tt>.  However, overriding this method may, in some cases, improve performance by allowing programs to determine that two distinct comparators impose the same order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reversed(): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a comparator that imposes the reverse ordering of this comparator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>thenComparing(Comparator&lt;? super T&gt; other): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a lexicographic-order comparator with another comparator. If this ‘Comparator’ considers two elements equal, i.e. ‘compare(a, b) &#x3D;&#x3D; 0’, ‘other’ is used to determine the order.  <p>The returned comparator is serializable if the specified comparator is also serializable.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>thenComparing(Function&lt;? super T, ? extends U&gt; keyExtractor,Comparator&lt;? super U&gt; keyComparator): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a lexicographic-order comparator with a function that extracts a key to be compared with the given ‘Comparator’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>thenComparing(Function&lt;? super T, ? extends U&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a lexicographic-order comparator with a function that extracts a ‘Comparable’ sort key.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>thenComparingInt(ToIntFunction&lt;? super T&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a lexicographic-order comparator with a function that extracts a ‘int’ sort key.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>thenComparingLong(ToLongFunction&lt;? super T&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a lexicographic-order comparator with a function that extracts a ‘long’ sort key.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>thenComparingDouble(ToDoubleFunction&lt;? super T&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a lexicographic-order comparator with a function that extracts a ‘double’ sort key.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>reverseOrder(): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a comparator that imposes the reverse of the <em>natural ordering</em>.  <p>The returned comparator is serializable and throws ‘NullPointerException’ when comparing ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>naturalOrder(): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a comparator that compares ‘Comparable’ objects in natural order.  <p>The returned comparator is serializable and throws ‘NullPointerException’ when comparing ‘null’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nullsFirst(Comparator&lt;? super T&gt; comparator): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a null-friendly comparator that considers ‘null’ to be less than non-null. When both are ‘null’, they are considered equal. If both are non-null, the specified ‘Comparator’ is used to determine the order. If the specified comparator is ‘null’, then the returned comparator considers all non-null values to be equal.  <p>The returned comparator is serializable if the specified comparator is serializable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nullsLast(Comparator&lt;? super T&gt; comparator): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a null-friendly comparator that considers ‘null’ to be greater than non-null. When both are ‘null’, they are considered equal. If both are non-null, the specified ‘Comparator’ is used to determine the order. If the specified comparator is ‘null’, then the returned comparator considers all non-null values to be equal.  <p>The returned comparator is serializable if the specified comparator is serializable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>comparing(Function&lt;? super T, ? extends U&gt; keyExtractor,Comparator&lt;? super U&gt; keyComparator): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Accepts a function that extracts a sort key from a type ‘T’, and returns a ‘Comparator<T>‘ that compares by that sort key using the specified ‘Comparator’.  <p>The returned comparator is serializable if the specified function and comparator are both serializable.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>comparing(Function&lt;? super T, ? extends U&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Accepts a function that extracts a ‘java.lang.Comparable Comparable’ sort key from a type ‘T’, and returns a ‘Comparator<T>‘ that compares by that sort key.  <p>The returned comparator is serializable if the specified function is also serializable.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>comparingInt(ToIntFunction&lt;? super T&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Accepts a function that extracts an ‘int’ sort key from a type ‘T’, and returns a ‘Comparator<T>‘ that compares by that sort key.  <p>The returned comparator is serializable if the specified function is also serializable.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>comparingLong(ToLongFunction&lt;? super T&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Accepts a function that extracts a ‘long’ sort key from a type ‘T’, and returns a ‘Comparator<T>‘ that compares by that sort key.  <p>The returned comparator is serializable if the specified function is also serializable.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>comparingDouble(ToDoubleFunction&lt;? super T&gt; keyExtractor): Comparator<T></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Accepts a function that extracts a ‘double’ sort key from a type ‘T’, and returns a ‘Comparator<T>‘ that compares by that sort key.  <p>The returned comparator is serializable if the specified function is also serializable.</td>
+<td align="left">NullPointerException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>
