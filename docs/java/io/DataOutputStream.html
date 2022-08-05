@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/DataOutputStream.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DataOutputStream"><a href="#DataOutputStream" class="headerlink" title="DataOutputStream"></a>DataOutputStream</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.DataOutputStream</strong></td>
+<td align="center">class</td>
+<td align="center">FilterOutputStream</td>
+<td align="center">DataOutput</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>written: int</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of bytes written to the data output stream so far. If this counter overflows, it will be wrapped to Integer.MAX_VALUE.</td>
+</tr>
+<tr>
+<td align="center"><strong>bytearr: byte[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">bytearr is initialized on demand by writeUTF</td>
+</tr>
+<tr>
+<td align="center"><strong>writeBuffer: byte[]</strong></td>
+<td align="center">new byte[8]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DataOutputStream(OutputStream out)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new data output stream to write data to the specified underlying output stream. The counter <code>written</code> is set to zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>incCount(int value): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Increases the written counter by the specified value until it reaches Integer.MAX_VALUE.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>write(int b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the specified byte (the low eight bits of the argument <code>b</code>) to the underlying output stream. If no exception is thrown, the counter <code>written</code> is incremented by <code>1</code>. <p> Implements the <code>write</code> method of <code>OutputStream</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>write(byte b[], int off, int len): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes <code>len</code> bytes from the specified byte array starting at offset <code>off</code> to the underlying output stream. If no exception is thrown, the counter <code>written</code> is incremented by <code>len</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>flush(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flushes this data output stream. This forces any buffered output bytes to be written out to the stream. <p> The <code>flush</code> method of <code>DataOutputStream</code> calls the <code>flush</code> method of its underlying output stream.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeBoolean(boolean v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a <code>boolean</code> to the underlying output stream as a 1-byte value. The value <code>true</code> is written out as the value <code>(byte)1</code>; the value <code>false</code> is written out as the value <code>(byte)0</code>. If no exception is thrown, the counter <code>written</code> is incremented by <code>1</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeByte(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes out a <code>byte</code> to the underlying output stream as a 1-byte value. If no exception is thrown, the counter <code>written</code> is incremented by <code>1</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeShort(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a <code>short</code> to the underlying output stream as two bytes, high byte first. If no exception is thrown, the counter <code>written</code> is incremented by <code>2</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeChar(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a <code>char</code> to the underlying output stream as a 2-byte value, high byte first. If no exception is thrown, the counter <code>written</code> is incremented by <code>2</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeInt(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes an <code>int</code> to the underlying output stream as four bytes, high byte first. If no exception is thrown, the counter <code>written</code> is incremented by <code>4</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeLong(long v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a <code>long</code> to the underlying output stream as eight bytes, high byte first. In no exception is thrown, the counter <code>written</code> is incremented by <code>8</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeFloat(float v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the float argument to an <code>int</code> using the <code>floatToIntBits</code> method in class <code>Float</code>, and then writes that <code>int</code> value to the underlying output stream as a 4-byte quantity, high byte first. If no exception is thrown, the counter <code>written</code> is incremented by <code>4</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeDouble(double v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the double argument to a <code>long</code> using the <code>doubleToLongBits</code> method in class <code>Double</code>, and then writes that <code>long</code> value to the underlying output stream as an 8-byte quantity, high byte first. If no exception is thrown, the counter <code>written</code> is incremented by <code>8</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeBytes(String s): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes out the string to the underlying output stream as a sequence of bytes. Each character in the string is written out, in sequence, by discarding its high eight bits. If no exception is thrown, the counter <code>written</code> is incremented by the length of <code>s</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeChars(String s): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a string to the underlying output stream as a sequence of characters. Each character is written to the data output stream as if by the <code>writeChar</code> method. If no exception is thrown, the counter <code>written</code> is incremented by twice the length of <code>s</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeUTF(String str): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a string to the underlying output stream using <a href="DataInput.html#modified-utf-8">modified UTF-8</a> encoding in a machine-independent manner. <p> First, two bytes are written to the output stream as if by the <code>writeShort</code> method giving the number of bytes to follow. This value is the number of bytes actually written out, not the length of the string. Following the length, each character of the string is output, in sequence, using the modified UTF-8 encoding for the character. If no exception is thrown, the counter <code>written</code> is incremented by the total number of bytes written to the output stream. This will be at least two plus the length of <code>str</code>, and at most two plus thrice the length of <code>str</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeUTF(String str, DataOutput out): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a string to the specified DataOutput using <a href="DataInput.html#modified-utf-8">modified UTF-8</a> encoding in a machine-independent manner. <p> First, two bytes are written to out as if by the <code>writeShort</code> method giving the number of bytes to follow. This value is the number of bytes actually written out, not the length of the string. Following the length, each character of the string is output, in sequence, using the modified UTF-8 encoding for the character. If no exception is thrown, the counter <code>written</code> is incremented by the total number of bytes written to the output stream. This will be at least two plus the length of <code>str</code>, and at most two plus thrice the length of <code>str</code>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current value of the counter <code>written</code>, the number of bytes written to this data output stream so far. If the counter overflows, it will be wrapped to Integer.MAX_VALUE.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

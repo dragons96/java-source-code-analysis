@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/Shape.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Shape"><a href="#Shape" class="headerlink" title="Shape"></a>Shape</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.Shape</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getBounds(): Rectangle</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an integer ‘Rectangle’ that completely encloses the <code>Shape</code>.  Note that there is no guarantee that the returned <code>Rectangle</code> is the smallest bounding box that encloses the <code>Shape</code>, only that the <code>Shape</code> lies entirely within the indicated  <code>Rectangle</code>.  The returned <code>Rectangle</code> might also fail to completely enclose the <code>Shape</code> if the <code>Shape</code> overflows the limited range of the integer data type.  The <code>getBounds2D</code> method generally returns a tighter bounding box due to its greater flexibility in representation.  <p> Note that the <a href="'docRoot'/java/awt/Shape.html#def_insideness"> definition of insideness</a> can lead to situations where points on the defining outline of the ‘shape’ may not be considered contained in the returned ‘bounds’ object, but only in cases where those points are also not considered contained in the original ‘shape’. </p> <p> If a ‘point’ is inside the ‘shape’ according to the ‘#contains(double x, double y) contains(point)’ method, then it must be inside the returned ‘Rectangle’ bounds object according to the ‘#contains(double x, double y) contains(point)’ method of the ‘bounds’. Specifically: </p> <p> ‘shape.contains(x,y)’ requires ‘bounds.contains(x,y)’ </p> <p> If a ‘point’ is not inside the ‘shape’, then it might still be contained in the ‘bounds’ object: </p> <p> ‘bounds.contains(x,y)’ does not imply ‘shape.contains(x,y)’ </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBounds2D(): Rectangle2D</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a high precision and more accurate bounding box of the <code>Shape</code> than the <code>getBounds</code> method. Note that there is no guarantee that the returned ‘Rectangle2D’ is the smallest bounding box that encloses the <code>Shape</code>, only that the <code>Shape</code> lies entirely within the indicated <code>Rectangle2D</code>.  The bounding box returned by this method is usually tighter than that returned by the <code>getBounds</code> method and never fails due to overflow problems since the return value can be an instance of the <code>Rectangle2D</code> that uses double precision values to store the dimensions.  <p> Note that the <a href="'docRoot'/java/awt/Shape.html#def_insideness"> definition of insideness</a> can lead to situations where points on the defining outline of the ‘shape’ may not be considered contained in the returned ‘bounds’ object, but only in cases where those points are also not considered contained in the original ‘shape’. </p> <p> If a ‘point’ is inside the ‘shape’ according to the ‘#contains(Point2D p) contains(point)’ method, then it must be inside the returned ‘Rectangle2D’ bounds object according to the ‘#contains(Point2D p) contains(point)’ method of the ‘bounds’. Specifically: </p> <p> ‘shape.contains(p)’ requires ‘bounds.contains(p)’ </p> <p> If a ‘point’ is not inside the ‘shape’, then it might still be contained in the ‘bounds’ object: </p> <p> ‘bounds.contains(p)’ does not imply ‘shape.contains(p)’ </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(double x, double y): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the specified coordinates are inside the boundary of the <code>Shape</code>, as described by the <a href="'docRoot'/java/awt/Shape.html#def_insideness"> definition of insideness</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Point2D p): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if a specified ‘Point2D’ is inside the boundary of the <code>Shape</code>, as described by the <a href="'docRoot'/java/awt/Shape.html#def_insideness"> definition of insideness</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intersects(double x, double y, double w, double h): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the interior of the <code>Shape</code> intersects the interior of a specified rectangular area. The rectangular area is considered to intersect the <code>Shape</code> if any point is contained in both the interior of the <code>Shape</code> and the specified rectangular area. <p> The ‘Shape.intersects()’ method allows a ‘Shape’ implementation to conservatively return ‘true’ when: <ul> <li> there is a high probability that the rectangular area and the <code>Shape</code> intersect, but <li> the calculations to accurately determine this intersection are prohibitively expensive. </ul> This means that for some ‘Shapes’ this method might return ‘true’ even though the rectangular area does not intersect the ‘Shape’. The ‘java.awt.geom.Area Area’ class performs more accurate computations of geometric intersection than most ‘Shape’ objects and therefore can be used if a more precise answer is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intersects(Rectangle2D r): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the interior of the <code>Shape</code> intersects the interior of a specified <code>Rectangle2D</code>. The ‘Shape.intersects()’ method allows a ‘Shape’ implementation to conservatively return ‘true’ when: <ul> <li> there is a high probability that the <code>Rectangle2D</code> and the <code>Shape</code> intersect, but <li> the calculations to accurately determine this intersection are prohibitively expensive. </ul> This means that for some ‘Shapes’ this method might return ‘true’ even though the ‘Rectangle2D’ does not intersect the ‘Shape’. The ‘java.awt.geom.Area Area’ class performs more accurate computations of geometric intersection than most ‘Shape’ objects and therefore can be used if a more precise answer is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(double x, double y, double w, double h): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the interior of the <code>Shape</code> entirely contains the specified rectangular area.  All coordinates that lie inside the rectangular area must lie within the <code>Shape</code> for the entire rectangular area to be considered contained within the <code>Shape</code>. <p> The ‘Shape.contains()’ method allows a ‘Shape’ implementation to conservatively return ‘false’ when: <ul> <li> the <code>intersect</code> method returns <code>true</code> and <li> the calculations to determine whether or not the <code>Shape</code> entirely contains the rectangular area are prohibitively expensive. </ul> This means that for some ‘Shapes’ this method might return ‘false’ even though the ‘Shape’ contains the rectangular area. The ‘java.awt.geom.Area Area’ class performs more accurate geometric computations than most ‘Shape’ objects and therefore can be used if a more precise answer is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Rectangle2D r): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the interior of the <code>Shape</code> entirely contains the specified <code>Rectangle2D</code>. The ‘Shape.contains()’ method allows a ‘Shape’ implementation to conservatively return ‘false’ when: <ul> <li> the <code>intersect</code> method returns <code>true</code> and <li> the calculations to determine whether or not the <code>Shape</code> entirely contains the <code>Rectangle2D</code> are prohibitively expensive. </ul> This means that for some ‘Shapes’ this method might return ‘false’ even though the ‘Shape’ contains the ‘Rectangle2D’. The ‘java.awt.geom.Area Area’ class performs more accurate geometric computations than most ‘Shape’ objects and therefore can be used if a more precise answer is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPathIterator(AffineTransform at): PathIterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an iterator object that iterates along the <code>Shape</code> boundary and provides access to the geometry of the <code>Shape</code> outline.  If an optional ‘AffineTransform’ is specified, the coordinates returned in the iteration are transformed accordingly. <p> Each call to this method returns a fresh <code>PathIterator</code> object that traverses the geometry of the <code>Shape</code> object independently from any other <code>PathIterator</code> objects in use at the same time. <p> It is recommended, but not guaranteed, that objects implementing the <code>Shape</code> interface isolate iterations that are in process from any changes that might occur to the original object’s geometry during such iterations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPathIterator(AffineTransform at, double flatness): PathIterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an iterator object that iterates along the <code>Shape</code> boundary and provides access to a flattened view of the <code>Shape</code> outline geometry. <p> Only SEG_MOVETO, SEG_LINETO, and SEG_CLOSE point types are returned by the iterator. <p> If an optional <code>AffineTransform</code> is specified, the coordinates returned in the iteration are transformed accordingly. <p> The amount of subdivision of the curved segments is controlled by the <code>flatness</code> parameter, which specifies the maximum distance that any point on the unflattened transformed curve can deviate from the returned flattened path segments. Note that a limit on the accuracy of the flattened path might be silently imposed, causing very small flattening parameters to be treated as larger values.  This limit, if there is one, is defined by the particular implementation that is used. <p> Each call to this method returns a fresh <code>PathIterator</code> object that traverses the <code>Shape</code> object geometry independently from any other <code>PathIterator</code> objects in use at the same time. <p> It is recommended, but not guaranteed, that objects implementing the <code>Shape</code> interface isolate iterations that are in process from any changes that might occur to the original object’s geometry during such iterations.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

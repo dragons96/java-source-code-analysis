@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/nio/charset/Charset.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Charset"><a href="#Charset" class="headerlink" title="Charset"></a>Charset</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.nio.charset.Charset</strong></td>
+<td align="center">abstract class</td>
+<td align="center">Comparable&lt;Charset&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>bugLevel: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">– Static methods –</td>
+</tr>
+<tr>
+<td align="center"><strong>standardProvider: CharsetProvider</strong></td>
+<td align="center">new StandardCharsets()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The standard set of charsets</td>
+</tr>
+<tr>
+<td align="center"><strong>cache1: Object[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cache2: Object[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>gate: ThreadLocal&lt;ThreadLocal&lt;?&gt;&gt;</strong></td>
+<td align="center">new ThreadLocal&lt;ThreadLocal&lt;?&gt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultCharset: Charset</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>name: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">– Instance fields and methods –</td>
+</tr>
+<tr>
+<td align="center"><strong>aliases: String[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>aliasSet: Set&lt;String&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>atBugLevel(String bl): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkName(String s): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that the given string is a legal charset name. </p></td>
+<td align="left">IllegalCharsetNameException</td>
+</tr>
+<tr>
+<td align="center"><strong>cache(String charsetName, Charset cs): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>providers(): Iterator<CharsetProvider></strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupViaProviders(final String charsetName): Charset</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupExtendedCharset(String charsetName): Charset</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The extended set of charsets</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookup(String charsetName): Charset</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookup2(String charsetName): Charset</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupported(String charsetName): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether the named charset is supported.</td>
+<td align="left">IllegalArgumentException<br/>IllegalCharsetNameException</td>
+</tr>
+<tr>
+<td align="center"><strong>forName(String charsetName): Charset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a charset object for the named charset.</td>
+<td align="left">IllegalArgumentException<br/>UnsupportedCharsetException<br/>IllegalCharsetNameException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(Iterator&lt;Charset&gt; i, Map&lt;String,Charset&gt; m): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>availableCharsets(): SortedMap&lt;String,Charset&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a sorted map from canonical charset names to charset objects.  <p> The map returned by this method will have one entry for each charset for which support is available in the current Java virtual machine.  If two or more supported charsets have the same canonical name then the resulting map will contain just one of them; which one it will contain is not specified. </p>  <p> The invocation of this method, and the subsequent use of the resulting map, may cause time-consuming disk or network I&#x2F;O operations to occur.  This method is provided for applications that need to enumerate all of the available charsets, for example to allow user charset selection.  This method is not used by the ‘#forName forName’ method, which instead employs an efficient incremental lookup algorithm.  <p> This method may return different results at different times if new charset providers are dynamically made available to the current Java virtual machine.  In the absence of such changes, the charsets returned by this method are exactly those that can be retrieved via the ‘#forName forName’ method.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultCharset(): Charset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the default charset of this Java virtual machine.  <p> The default charset is determined during virtual-machine startup and typically depends upon the locale and charset of the underlying operating system.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Charset(String canonicalName, String[] aliases)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes a new charset with the given canonical name and alias set.</td>
+<td align="left">IllegalCharsetNameException</td>
+</tr>
+<tr>
+<td align="center"><strong>name(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this charset’s canonical name.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>aliases(): Set<String></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a set containing this charset’s aliases.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>displayName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this charset’s human-readable name for the default locale.  <p> The default implementation of this method simply returns this charset’s canonical name.  Concrete subclasses of this class may override this method in order to provide a localized display name. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isRegistered(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether or not this charset is registered in the &lt;a href&#x3D;”http: Registry</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>displayName(Locale locale): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this charset’s human-readable name for the given locale.  <p> The default implementation of this method simply returns this charset’s canonical name.  Concrete subclasses of this class may override this method in order to provide a localized display name. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Charset cs): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tells whether or not this charset contains the given charset.  <p> A charset <i>C</i> is said to <i>contain</i> a charset <i>D</i> if, and only if, every character representable in <i>D</i> is also representable in <i>C</i>.  If this relationship holds then it is guaranteed that every string that can be encoded in <i>D</i> can also be encoded in <i>C</i> without performing any replacements.  <p> That <i>C</i> contains <i>D</i> does not imply that each character representable in <i>C</i> by a particular byte sequence is represented in <i>D</i> by the same byte sequence, although sometimes this is the case.  <p> Every charset contains itself.  <p> This method computes an approximation of the containment relation: If it returns <tt>true</tt> then the given charset is known to be contained by this charset; if it returns <tt>false</tt>, however, then it is not necessarily the case that the given charset is not contained in this charset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newDecoder(): CharsetDecoder</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Constructs a new decoder for this charset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newEncoder(): CharsetEncoder</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Constructs a new encoder for this charset.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>canEncode(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether or not this charset supports encoding.  <p> Nearly all charsets support encoding.  The primary exceptions are special-purpose <i>auto-detect</i> charsets whose decoders can determine which of several possible encoding schemes is in use by examining the input byte sequence.  Such charsets do not support encoding because there is no way to determine which encoding should be used on output. Implementations of such charsets should override this method to return <tt>false</tt>. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decode(ByteBuffer bb): CharBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convenience method that decodes bytes in this charset into Unicode characters.  <p> An invocation of this method upon a charset <tt>cs</tt> returns the same result as the expression  <pre> cs.newDecoder() .onMalformedInput(CodingErrorAction.REPLACE) .onUnmappableCharacter(CodingErrorAction.REPLACE) .decode(bb); </pre>  except that it is potentially more efficient because it can cache decoders between successive invocations.  <p> This method always replaces malformed-input and unmappable-character sequences with this charset’s default replacement byte array.  In order to detect such sequences, use the ‘CharsetDecoder#decode(java.nio.ByteBuffer)’ method directly.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encode(CharBuffer cb): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convenience method that encodes Unicode characters into bytes in this charset.  <p> An invocation of this method upon a charset <tt>cs</tt> returns the same result as the expression  <pre> cs.newEncoder() .onMalformedInput(CodingErrorAction.REPLACE) .onUnmappableCharacter(CodingErrorAction.REPLACE) .encode(bb); </pre>  except that it is potentially more efficient because it can cache encoders between successive invocations.  <p> This method always replaces malformed-input and unmappable-character sequences with this charset’s default replacement string.  In order to detect such sequences, use the ‘CharsetEncoder#encode(java.nio.CharBuffer)’ method directly.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>encode(String str): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convenience method that encodes a string into bytes in this charset.  <p> An invocation of this method upon a charset <tt>cs</tt> returns the same result as the expression  <pre> cs.encode(CharBuffer.wrap(s)); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(Charset that): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this charset to another.  <p> Charsets are ordered by their canonical names, without regard to case. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes a hashcode for this charset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object ob): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether or not this object is equal to another.  <p> Two charsets are equal if, and only if, they have the same canonical names.  A charset is never equal to any other type of object.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string describing this charset.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Charset-ExtendedProviderHolder"><a href="#Charset-ExtendedProviderHolder" class="headerlink" title="Charset$ExtendedProviderHolder"></a><a href="./Charset$ExtendedProviderHolder.html">Charset$ExtendedProviderHolder</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/security/cert/X509Extension.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="X509Extension"><a href="#X509Extension" class="headerlink" title="X509Extension"></a>X509Extension</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.security.cert.X509Extension</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>hasUnsupportedCriticalExtension(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Check if there is a critical extension that is not supported.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCriticalExtensionOIDs(): Set<String></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets a Set of the OID strings for the extension(s) marked CRITICAL in the certificate&#x2F;CRL managed by the object implementing this interface.  Here is sample code to get a Set of critical extensions from an X509Certificate and print the OIDs: <pre>'X509Certificate cert = null; try (InputStream inStrm = new FileInputStream("DER-encoded-Cert")) { CertificateFactory cf = CertificateFactory.getInstance("X.509"); cert = (X509Certificate)cf.generateCertificate(inStrm);'  Set<String> critSet = cert.getCriticalExtensionOIDs(); if (critSet != null && !critSet.isEmpty()) { System.out.println("Set of critical extensions:"); for (String oid : critSet) { System.out.println(oid); } } }</pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNonCriticalExtensionOIDs(): Set<String></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets a Set of the OID strings for the extension(s) marked NON-CRITICAL in the certificate&#x2F;CRL managed by the object implementing this interface.  Here is sample code to get a Set of non-critical extensions from an X509CRL revoked certificate entry and print the OIDs: <pre>'CertificateFactory cf = null; X509CRL crl = null; try (InputStream inStrm = new FileInputStream("DER-encoded-CRL")) { cf = CertificateFactory.getInstance("X.509"); crl = (X509CRL)cf.generateCRL(inStrm);'  byte[] certData = <DER-encoded certificate data> ByteArrayInputStream bais = new ByteArrayInputStream(certData); X509Certificate cert = (X509Certificate)cf.generateCertificate(bais); X509CRLEntry badCert = crl.getRevokedCertificate(cert.getSerialNumber());  if (badCert != null) { Set<String> nonCritSet = badCert.getNonCriticalExtensionOIDs(); if (nonCritSet != null) for (String oid : nonCritSet) { System.out.println(oid); } } }</pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getExtensionValue(String oid): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the DER-encoded OCTET string for the extension value (<em>extnValue</em>) identified by the passed-in ‘oid’ String. The ‘oid’ string is represented by a set of nonnegative whole numbers separated by periods.  <p>For example:<br> <table border=groove summary="Examples of OIDs and extension names"> <tr> <th>OID <em>(Object Identifier)</em></th> <th>Extension Name</th></tr> <tr><td>2.5.29.14</td> <td>SubjectKeyIdentifier</td></tr> <tr><td>2.5.29.15</td> <td>KeyUsage</td></tr> <tr><td>2.5.29.16</td> <td>PrivateKeyUsage</td></tr> <tr><td>2.5.29.17</td> <td>SubjectAlternativeName</td></tr> <tr><td>2.5.29.18</td> <td>IssuerAlternativeName</td></tr> <tr><td>2.5.29.19</td> <td>BasicConstraints</td></tr> <tr><td>2.5.29.30</td> <td>NameConstraints</td></tr> <tr><td>2.5.29.33</td> <td>PolicyMappings</td></tr> <tr><td>2.5.29.35</td> <td>AuthorityKeyIdentifier</td></tr> <tr><td>2.5.29.36</td> <td>PolicyConstraints</td></tr> </table></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

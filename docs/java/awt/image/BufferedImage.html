@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/image/BufferedImage.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="BufferedImage"><a href="#BufferedImage" class="headerlink" title="BufferedImage"></a>BufferedImage</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.image.BufferedImage</strong></td>
+<td align="center">class</td>
+<td align="center">java.awt.Image</td>
+<td align="center">WritableRenderedImage,Transparency</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>imageType: int</strong></td>
+<td align="center">TYPE_CUSTOM</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>colorModel: ColorModel</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>raster: WritableRaster</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>osis: OffScreenImageSource</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>properties: Hashtable&lt;String, Object&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_CUSTOM: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Image type is not recognized so it must be a customized image.  This type is only used as a return value for the getType() method.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_INT_RGB: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGB color components packed into integer pixels.  The image has a {@link DirectColorModel} without alpha. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_INT_ARGB: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGBA color components packed into integer pixels.  The image has a <code>DirectColorModel</code> with alpha. The color data in this image is considered not to be premultiplied with alpha.  When this type is used as the <code>imageType</code> argument to a <code>BufferedImage</code> constructor, the created image is consistent with images created in the JDK1.1 and earlier releases.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_INT_ARGB_PRE: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGBA color components packed into integer pixels.  The image has a <code>DirectColorModel</code> with alpha.  The color data in this image is considered to be premultiplied with alpha.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_INT_BGR: int</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGB color components, corresponding to a Windows- or Solaris- style BGR color model, with the colors Blue, Green, and Red packed into integer pixels.  There is no alpha. The image has a {@link DirectColorModel}. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_3BYTE_BGR: int</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGB color components, corresponding to a Windows-style BGR color model) with the colors Blue, Green, and Red stored in 3 bytes.  There is no alpha.  The image has a <code>ComponentColorModel</code>. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_4BYTE_ABGR: int</strong></td>
+<td align="center">6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGBA color components with the colors Blue, Green, and Red stored in 3 bytes and 1 byte of alpha.  The image has a <code>ComponentColorModel</code> with alpha.  The color data in this image is considered not to be premultiplied with alpha.  The byte data is interleaved in a single byte array in the order A, B, G, R from lower to higher byte addresses within each pixel.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_4BYTE_ABGR_PRE: int</strong></td>
+<td align="center">7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 8-bit RGBA color components with the colors Blue, Green, and Red stored in 3 bytes and 1 byte of alpha.  The image has a <code>ComponentColorModel</code> with alpha. The color data in this image is considered to be premultiplied with alpha. The byte data is interleaved in a single byte array in the order A, B, G, R from lower to higher byte addresses within each pixel.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_USHORT_565_RGB: int</strong></td>
+<td align="center">8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 5-6-5 RGB color components (5-bits red, 6-bits green, 5-bits blue) with no alpha.  This image has a <code>DirectColorModel</code>. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_USHORT_555_RGB: int</strong></td>
+<td align="center">9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an image with 5-5-5 RGB color components (5-bits red, 5-bits green, 5-bits blue) with no alpha.  This image has a <code>DirectColorModel</code>. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_BYTE_GRAY: int</strong></td>
+<td align="center">10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents a unsigned byte grayscale image, non-indexed.  This image has a <code>ComponentColorModel</code> with a CS_GRAY {@link ColorSpace}. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_USHORT_GRAY: int</strong></td>
+<td align="center">11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an unsigned short grayscale image, non-indexed).  This image has a <code>ComponentColorModel</code> with a CS_GRAY <code>ColorSpace</code>. When data with non-opaque alpha is stored in an image of this type, the color data must be adjusted to a non-premultiplied form and the alpha discarded, as described in the {@link java.awt.AlphaComposite} documentation.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_BYTE_BINARY: int</strong></td>
+<td align="center">12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an opaque byte-packed 1, 2, or 4 bit image.  The image has an {@link IndexColorModel} without alpha.  When this type is used as the <code>imageType</code> argument to the <code>BufferedImage</code> constructor that takes an <code>imageType</code> argument but no <code>ColorModel</code> argument, a 1-bit image is created with an <code>IndexColorModel</code> with two colors in the default sRGB <code>ColorSpace</code>: {0,&amp;nbsp;0,&amp;nbsp;0} and {255,&amp;nbsp;255,&amp;nbsp;255}.  <p> Images with 2 or 4 bits per pixel may be constructed via the <code>BufferedImage</code> constructor that takes a <code>ColorModel</code> argument by supplying a <code>ColorModel</code> with an appropriate map size.  <p> Images with 8 bits per pixel should use the image types <code>TYPE_BYTE_INDEXED</code> or <code>TYPE_BYTE_GRAY</code> depending on their <code>ColorModel</code>. <p> When color data is stored in an image of this type, the closest color in the colormap is determined by the <code>IndexColorModel</code> and the resulting index is stored. Approximation and loss of alpha or color components can result, depending on the colors in the <code>IndexColorModel</code> colormap.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_BYTE_INDEXED: int</strong></td>
+<td align="center">13</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Represents an indexed byte image.  When this type is used as the <code>imageType</code> argument to the <code>BufferedImage</code> constructor that takes an <code>imageType</code> argument but no <code>ColorModel</code> argument, an <code>IndexColorModel</code> is created with a 256-color 6&#x2F;6&#x2F;6 color cube palette with the rest of the colors from 216-255 populated by grayscale values in the default sRGB ColorSpace.  <p> When color data is stored in an image of this type, the closest color in the colormap is determined by the <code>IndexColorModel</code> and the resulting index is stored. Approximation and loss of alpha or color components can result, depending on the colors in the <code>IndexColorModel</code> colormap.</td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_RED_MASK: int</strong></td>
+<td align="center">0x00ff0000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_GREEN_MASK: int</strong></td>
+<td align="center">0x0000ff00</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_BLUE_MASK: int</strong></td>
+<td align="center">0x000000ff</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_ALPHA_MASK: int</strong></td>
+<td align="center">0xff000000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_565_RED_MASK: int</strong></td>
+<td align="center">0xf800</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_565_GRN_MASK: int</strong></td>
+<td align="center">0x07E0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_565_BLU_MASK: int</strong></td>
+<td align="center">0x001F</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_555_RED_MASK: int</strong></td>
+<td align="center">0x7C00</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_555_GRN_MASK: int</strong></td>
+<td align="center">0x03E0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_555_BLU_MASK: int</strong></td>
+<td align="center">0x001F</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_BGR_RED_MASK: int</strong></td>
+<td align="center">0x0000ff</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_BGR_GRN_MASK: int</strong></td>
+<td align="center">0x00ff00</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DCM_BGR_BLU_MASK: int</strong></td>
+<td align="center">0xff0000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BufferedImage(int width, int height, int imageType)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>BufferedImage</code> of one of the predefined image types.  The <code>ColorSpace</code> for the image is the default sRGB space.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isStandard(ColorModel cm, WritableRaster wr): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">FOR NOW THE CODE WHICH DEFINES THE RASTER TYPE IS DUPLICATED BY DVF SEE THE METHOD DEFINERASTERTYPE</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getType(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the image type.  If it is not one of the known types, TYPE_CUSTOM is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getColorModel(): ColorModel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <code>ColorModel</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRaster(): WritableRaster</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘WritableRaster’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAlphaRaster(): WritableRaster</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <code>WritableRaster</code> representing the alpha channel for <code>BufferedImage</code> objects with <code>ColorModel</code> objects that support a separate spatial alpha channel, such as <code>ComponentColorModel</code> and <code>DirectColorModel</code>.  Returns <code>null</code> if there is no alpha channel associated with the <code>ColorModel</code> in this image.  This method assumes that for all <code>ColorModel</code> objects other than <code>IndexColorModel</code>, if the <code>ColorModel</code> supports alpha, there is a separate alpha channel which is stored as the last band of image data. If the image uses an <code>IndexColorModel</code> that has alpha in the lookup table, this method returns <code>null</code> since there is no spatially discrete alpha channel.  This method creates a new <code>WritableRaster</code>, but shares the data array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRGB(int x, int y): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an integer pixel in the default RGB color model (TYPE_INT_ARGB) and default sRGB colorspace.  Color conversion takes place if this default model does not match the image <code>ColorModel</code>.  There are only 8-bits of precision for each color component in the returned data when using this method.  <p>  An <code>ArrayOutOfBoundsException</code> may be thrown if the coordinates are not in bounds. However, explicit bounds checking is not guaranteed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRGB(int startX, int startY, int w, int h, int[] rgbArray, int offset, int scansize): int[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of integer pixels in the default RGB color model (TYPE_INT_ARGB) and default sRGB color space, from a portion of the image data.  Color conversion takes place if the default model does not match the image <code>ColorModel</code>.  There are only 8-bits of precision for each color component in the returned data when using this method.  With a specified coordinate (x,&amp;nbsp;y) in the image, the ARGB pixel can be accessed in this way:  <pre> pixel   = rgbArray[offset + (y-startY)*scansize + (x-startX)]; </pre>  <p>  An <code>ArrayOutOfBoundsException</code> may be thrown if the region is not in bounds. However, explicit bounds checking is not guaranteed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRGB(int x, int y, int rgb): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets a pixel in this <code>BufferedImage</code> to the specified RGB value. The pixel is assumed to be in the default RGB color model, TYPE_INT_ARGB, and default sRGB color space.  For images with an <code>IndexColorModel</code>, the index with the nearest color is chosen.  <p>  An <code>ArrayOutOfBoundsException</code> may be thrown if the coordinates are not in bounds. However, explicit bounds checking is not guaranteed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRGB(int startX, int startY, int w, int h, int[] rgbArray, int offset, int scansize): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets an array of integer pixels in the default RGB color model (TYPE_INT_ARGB) and default sRGB color space, into a portion of the image data.  Color conversion takes place if the default model does not match the image <code>ColorModel</code>.  There are only 8-bits of precision for each color component in the returned data when using this method.  With a specified coordinate (x,&amp;nbsp;y) in the this image, the ARGB pixel can be accessed in this way: <pre> pixel   = rgbArray[offset + (y-startY)*scansize + (x-startX)]; </pre> WARNING: No dithering takes place.  <p>  An <code>ArrayOutOfBoundsException</code> may be thrown if the region is not in bounds. However, explicit bounds checking is not guaranteed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getWidth(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the width of the <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeight(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the height of the <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getWidth(ImageObserver observer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the width of the <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeight(ImageObserver observer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the height of the <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSource(): ImageProducer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the object that produces the pixels for the image.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getProperty(String name, ImageObserver observer): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a property of the image by name.  Individual property names are defined by the various image formats.  If a property is not defined for a particular image, this method returns the <code>UndefinedProperty</code> field.  If the properties for this image are not yet known, then this method returns <code>null</code> and the <code>ImageObserver</code> object is notified later.  The property name “comment” should be used to store an optional comment that can be presented to the user as a description of the image, its source, or its author.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getProperty(String name): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a property of the image by name.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getGraphics(): java.awt.Graphics</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method returns a ‘Graphics2D’, but is here for backwards compatibility.  ‘#createGraphics() createGraphics’ is more convenient, since it is declared to return a <code>Graphics2D</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createGraphics(): Graphics2D</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a <code>Graphics2D</code>, which can be used to draw into this <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAlphaPremultiplied(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether or not the alpha has been premultiplied.  It returns <code>false</code> if there is no alpha.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <code>String</code> representation of this <code>BufferedImage</code> object and its values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSources(): Vector<RenderedImage></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Vector’ of ‘RenderedImage’ objects that are the immediate sources, not the sources of these immediate sources, of image data for this <code>BufferedImage</code>.  This method returns <code>null</code> if the <code>BufferedImage</code> has no information about its immediate sources.  It returns an empty <code>Vector</code> if the <code>BufferedImage</code> has no immediate sources.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPropertyNames(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of names recognized by ‘#getProperty(String) getProperty(String)’ or <code>null</code>, if no property names are recognized.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinX(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum x coordinate of this <code>BufferedImage</code>.  This is always zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinY(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum y coordinate of this <code>BufferedImage</code>.  This is always zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSampleModel(): SampleModel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <code>SampleModel</code> associated with this <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumXTiles(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of tiles in the x direction. This is always one.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumYTiles(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of tiles in the y direction. This is always one.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinTileX(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum tile index in the x direction. This is always zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinTileY(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum tile index in the y direction. This is always zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTileWidth(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the tile width in pixels.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTileHeight(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the tile height in pixels.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTileGridXOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the x offset of the tile grid relative to the origin, For example, the x coordinate of the location of tile (0,&amp;nbsp;0).  This is always zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTileGridYOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the y offset of the tile grid relative to the origin, For example, the y coordinate of the location of tile (0,&amp;nbsp;0).  This is always zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTile(int tileX, int tileY): Raster</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns tile (<code>tileX</code>,&amp;nbsp;<code>tileY</code>).  Note that <code>tileX</code> and <code>tileY</code> are indices into the tile array, not pixel locations.  The <code>Raster</code> that is returned is live, which means that it is updated if the image is changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getData(): Raster</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the image as one large tile.  The <code>Raster</code> returned is a copy of the image data is not updated if the image is changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getData(Rectangle rect): Raster</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes and returns an arbitrary region of the <code>BufferedImage</code>.  The <code>Raster</code> returned is a copy of the image data and is not updated if the image is changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyData(WritableRaster outRaster): WritableRaster</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes an arbitrary rectangular region of the <code>BufferedImage</code> and copies it into a specified <code>WritableRaster</code>.  The region to be computed is determined from the bounds of the specified <code>WritableRaster</code>.  The specified <code>WritableRaster</code> must have a <code>SampleModel</code> that is compatible with this image.  If <code>outRaster</code> is <code>null</code>, an appropriate <code>WritableRaster</code> is created.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setData(Raster r): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets a rectangular region of the image to the contents of the specified <code>Raster</code> <code>r</code>, which is assumed to be in the same coordinate space as the <code>BufferedImage</code>. The operation is clipped to the bounds of the <code>BufferedImage</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getWritableTileIndices(): Point[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of ‘Point’ objects indicating which tiles are checked out for writing.  Returns <code>null</code> if none are checked out.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTransparency(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the transparency.  Returns either OPAQUE, BITMASK, or TRANSLUCENT.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

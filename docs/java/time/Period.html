@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/Period.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Period"><a href="#Period" class="headerlink" title="Period"></a>Period</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.Period</strong></td>
+<td align="center">class</td>
+<td align="center">ChronoPeriod,Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ZERO: Period</strong></td>
+<td align="center">new Period(0, 0, 0)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant for a period of zero.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-3587258372562876L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+<tr>
+<td align="center"><strong>PATTERN: Pattern</strong></td>
+<td align="center">Pattern.compile(“([-+]?)P(?:([-+]?[0-9]+)Y)?(?:([-+]?[0-9]+)M)?(?:([-+]?[0-9]+)W)?(?:([-+]?[0-9]+)D)?”, Pattern.CASE_INSENSITIVE)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The pattern for parsing.</td>
+</tr>
+<tr>
+<td align="center"><strong>SUPPORTED_UNITS: List&lt;TemporalUnit&gt;</strong></td>
+<td align="center">Collections.unmodifiableList(Arrays.<TemporalUnit>asList(YEARS, MONTHS, DAYS))</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The set of supported units.</td>
+</tr>
+<tr>
+<td align="center"><strong>years: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of years.</td>
+</tr>
+<tr>
+<td align="center"><strong>months: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of months.</td>
+</tr>
+<tr>
+<td align="center"><strong>days: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of days.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ofYears(int years): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ representing a number of years. <p> The resulting period will have the specified years. The months and days units will be zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofMonths(int months): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ representing a number of months. <p> The resulting period will have the specified months. The years and days units will be zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofWeeks(int weeks): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ representing a number of weeks. <p> The resulting period will be day-based, with the amount of days equal to the number of weeks multiplied by 7. The years and months units will be zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofDays(int days): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ representing a number of days. <p> The resulting period will have the specified days. The years and months units will be zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>of(int years, int months, int days): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ representing a number of years, months and days. <p> This creates an instance based on years, months and days.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAmount amount): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘Period’ from a temporal amount. <p> This obtains a period based on the specified amount. A ‘TemporalAmount’ represents an  amount of time, which may be date-based or time-based, which this factory extracts to a ‘Period’. <p> The conversion loops around the set of units from the amount and uses the ‘ChronoUnit#YEARS YEARS’, ‘ChronoUnit#MONTHS MONTHS’ and ‘ChronoUnit#DAYS DAYS’ units to create a period. If any other units are found then an exception is thrown. <p> If the amount is a ‘ChronoPeriod’ then it must use the ISO chronology.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ from a text string such as ‘PnYnMnD’. <p> This will parse the string produced by ‘toString()’ which is based on the ISO-8601 period formats ‘PnYnMnD’ and ‘PnW’. <p> The string starts with an optional sign, denoted by the ASCII negative or positive symbol. If negative, the whole period is negated. The ASCII letter “P” is next in upper or lower case. There are then four sections, each consisting of a number and a suffix. At least one of the four sections must be present. The sections have suffixes in ASCII of “Y”, “M”, “W” and “D” for years, months, weeks and days, accepted in upper or lower case. The suffixes must occur in order. The number part of each section must consist of ASCII digits. The number may be prefixed by the ASCII negative or positive symbol. The number must parse to an ‘int’. <p> The leading plus&#x2F;minus sign, and negative values for other units are not part of the ISO-8601 standard. In addition, ISO-8601 does not permit mixing between the ‘PnYnMnD’ and ‘PnW’ formats. Any week-based input is multiplied by 7 and treated as a number of days. <p> For example, the following are valid inputs: <pre> "P2Y"             -- Period.ofYears(2) "P3M"             -- Period.ofMonths(3) "P4W"             -- Period.ofWeeks(4) "P5D"             -- Period.ofDays(5) "P1Y2M3D"         -- Period.of(1, 2, 3) "P1Y2M3W4D"       -- Period.of(1, 2, 25) "P-1Y2M"          -- Period.of(-1, 2, 0) "-P1Y2M"          -- Period.of(-1, -2, 0) </pre></td>
+<td align="left">DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseNumber(CharSequence text, String str, int negate): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>between(LocalDate startDateInclusive, LocalDate endDateExclusive): Period</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Period’ consisting of the number of years, months, and days between two dates. <p> The start date is included, but the end date is not. The period is calculated by removing complete months, then calculating the remaining number of days, adjusting to ensure that both have the same sign. The number of months is then split into years and months based on a 12 month year. A month is considered if the end day-of-month is greater than or equal to the start day-of-month. For example, from ‘2010-01-15’ to ‘2011-03-18’ is one year, two months and three days. <p> The result of this method can be a negative period if the end is before the start. The negative sign will be the same in each of year, month and day.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>create(int years, int months, int days): Period</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Period(int years, int months, int days)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(TemporalUnit unit): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the requested unit. <p> This returns a value for each of the three supported units, ‘ChronoUnit#YEARS YEARS’, ‘ChronoUnit#MONTHS MONTHS’ and ‘ChronoUnit#DAYS DAYS’. All other units throw an exception.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>getUnits(): List<TemporalUnit></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the set of units supported by this period. <p> The supported units are ‘ChronoUnit#YEARS YEARS’, ‘ChronoUnit#MONTHS MONTHS’ and ‘ChronoUnit#DAYS DAYS’. They are returned in the order years, months, days. <p> This set can be used in conjunction with ‘#get(TemporalUnit)’ to access the entire state of the period.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChronology(): IsoChronology</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the chronology of this period, which is the ISO calendar system. <p> The ‘Chronology’ represents the calendar system in use. The ISO-8601 calendar system is the modern civil calendar system used today in most of the world. It is equivalent to the proleptic Gregorian calendar system, in which today’s rules for leap years are applied for all time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isZero(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if all three units of this period are zero. <p> A zero period has the value zero for the years, months and days units.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isNegative(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if any of the three units of this period are negative. <p> This checks whether the years, months or days units are less than zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getYears(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the amount of years of this period. <p> This returns the years unit. <p> The months unit is not automatically normalized with the years unit. This means that a period of “15 months” is different to a period of “1 year and 3 months”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMonths(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the amount of months of this period. <p> This returns the months unit. <p> The months unit is not automatically normalized with the years unit. This means that a period of “15 months” is different to a period of “1 year and 3 months”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDays(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the amount of days of this period. <p> This returns the days unit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withYears(int years): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified amount of years. <p> This sets the amount of the years unit in a copy of this period. The months and days units are unaffected. <p> The months unit is not automatically normalized with the years unit. This means that a period of “15 months” is different to a period of “1 year and 3 months”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withMonths(int months): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified amount of months. <p> This sets the amount of the months unit in a copy of this period. The years and days units are unaffected. <p> The months unit is not automatically normalized with the years unit. This means that a period of “15 months” is different to a period of “1 year and 3 months”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withDays(int days): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified amount of days. <p> This sets the amount of the days unit in a copy of this period. The years and months units are unaffected. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plus(TemporalAmount amountToAdd): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified period added. <p> This operates separately on the years, months and days. No normalization is performed. <p> For example, “1 year, 6 months and 3 days” plus “2 years, 2 months and 2 days” returns “3 years, 8 months and 5 days”. <p> The specified amount is typically an instance of ‘Period’. Other types are interpreted using ‘Period#from(TemporalAmount)’. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusYears(long yearsToAdd): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified years added. <p> This adds the amount to the years unit in a copy of this period. The months and days units are unaffected. For example, “1 year, 6 months and 3 days” plus 2 years returns “3 years, 6 months and 3 days”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusMonths(long monthsToAdd): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified months added. <p> This adds the amount to the months unit in a copy of this period. The years and days units are unaffected. For example, “1 year, 6 months and 3 days” plus 2 months returns “1 year, 8 months and 3 days”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusDays(long daysToAdd): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified days added. <p> This adds the amount to the days unit in a copy of this period. The years and months units are unaffected. For example, “1 year, 6 months and 3 days” plus 2 days returns “1 year, 6 months and 5 days”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(TemporalAmount amountToSubtract): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified period subtracted. <p> This operates separately on the years, months and days. No normalization is performed. <p> For example, “1 year, 6 months and 3 days” minus “2 years, 2 months and 2 days” returns “-1 years, 4 months and 1 day”. <p> The specified amount is typically an instance of ‘Period’. Other types are interpreted using ‘Period#from(TemporalAmount)’. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusYears(long yearsToSubtract): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified years subtracted. <p> This subtracts the amount from the years unit in a copy of this period. The months and days units are unaffected. For example, “1 year, 6 months and 3 days” minus 2 years returns “-1 years, 6 months and 3 days”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusMonths(long monthsToSubtract): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified months subtracted. <p> This subtracts the amount from the months unit in a copy of this period. The years and days units are unaffected. For example, “1 year, 6 months and 3 days” minus 2 months returns “1 year, 4 months and 3 days”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusDays(long daysToSubtract): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the specified days subtracted. <p> This subtracts the amount from the days unit in a copy of this period. The years and months units are unaffected. For example, “1 year, 6 months and 3 days” minus 2 days returns “1 year, 6 months and 1 day”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>multipliedBy(int scalar): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new instance with each element in this period multiplied by the specified scalar. <p> This returns a period with each of the years, months and days units individually multiplied. For example, a period of “2 years, -3 months and 4 days” multiplied by 3 will return “6 years, -9 months and 12 days”. No normalization is performed.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>negated(): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new instance with each amount in this period negated. <p> This returns a period with each of the years, months and days units individually negated. For example, a period of “2 years, -3 months and 4 days” will be negated to “-2 years, 3 months and -4 days”. No normalization is performed.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>normalized(): Period</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this period with the years and months normalized. <p> This normalizes the years and months units, leaving the days unit unchanged. The months unit is adjusted to have an absolute value less than 11, with the years unit being adjusted to compensate. For example, a period of “1 Year and 15 months” will be normalized to “2 years and 3 months”. <p> The sign of the years and months units will be the same after normalization. For example, a period of “1 year and -25 months” will be normalized to “-1 year and -1 month”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>toTotalMonths(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the total number of months in this period. <p> This returns the total number of months in the period by multiplying the number of years by 12 and adding the number of months. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addTo(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds this period to the specified temporal object. <p> This returns a temporal object of the same observable type as the input with this period added. If the temporal has a chronology, it must be the ISO chronology. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#plus(TemporalAmount)’. <pre>  dateTime = thisPeriod.addTo(dateTime); dateTime = dateTime.plus(thisPeriod); </pre> <p> The calculation operates as follows. First, the chronology of the temporal is checked to ensure it is ISO chronology or null. Second, if the months are zero, the years are added if non-zero, otherwise the combination of years and months is added if non-zero. Finally, any days are added. <p> This approach ensures that a partial period can be added to a partial date. For example, a period of years and&#x2F;or months can be added to a ‘YearMonth’, but a period including days cannot. The approach also adds years and months together when necessary, which ensures correct behaviour at the end of the month. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>subtractFrom(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts this period from the specified temporal object. <p> This returns a temporal object of the same observable type as the input with this period subtracted. If the temporal has a chronology, it must be the ISO chronology. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#minus(TemporalAmount)’. <pre>  dateTime = thisPeriod.subtractFrom(dateTime); dateTime = dateTime.minus(thisPeriod); </pre> <p> The calculation operates as follows. First, the chronology of the temporal is checked to ensure it is ISO chronology or null. Second, if the months are zero, the years are subtracted if non-zero, otherwise the combination of years and months is subtracted if non-zero. Finally, any days are subtracted. <p> This approach ensures that a partial period can be subtracted from a partial date. For example, a period of years and&#x2F;or months can be subtracted from a ‘YearMonth’, but a period including days cannot. The approach also subtracts years and months together when necessary, which ensures correct behaviour at the end of the month. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>validateChrono(TemporalAccessor temporal): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Validates that the temporal has the correct chronology.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this period is equal to another period. <p> The comparison is based on the type ‘Period’ and each of the three amounts. To be equal, the years, months and days units must be individually equal. Note that this means that a period of “15 Months” is not equal to a period of “1 Year and 3 Months”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A hash code for this period.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Outputs this period as a ‘String’, such as ‘P6Y3M1D’. <p> The output will be in the ISO-8601 period format. A zero period will be represented as zero days, ‘P0D’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the object using a <a href="../../serialized-form.html#java.time.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException<br/>java.io.InvalidObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeExternal(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readExternal(DataInput in): Period</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

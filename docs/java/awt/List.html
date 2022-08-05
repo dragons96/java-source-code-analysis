@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/List.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.List</strong></td>
+<td align="center">class</td>
+<td align="center">Component</td>
+<td align="center">ItemSelectable,Accessible</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>items: Vector&lt;String&gt;</strong></td>
+<td align="center">new Vector&lt;&gt;()</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A vector created to contain items which will become part of the List Component.  @serial @see #addItem(String) @see #getItem(int)</td>
+</tr>
+<tr>
+<td align="center"><strong>rows: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field will represent the number of visible rows in the <code>List</code> Component.  It is specified only once, and that is when the list component is actually created.  It will never change.  @serial @see #getRows()</td>
+</tr>
+<tr>
+<td align="center"><strong>multipleMode: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>multipleMode</code> is a variable that will be set to <code>true</code> if a list component is to be set to multiple selection mode, that is where the user can select more than one item in a list at one time. <code>multipleMode</code> will be set to false if the list component is set to single selection, that is where the user can only select one item on the list at any one time.  @serial @see #isMultipleMode() @see #setMultipleMode(boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>selected: int[]</strong></td>
+<td align="center">new int[0]</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>selected</code> is an array that will contain the indices of items that have been selected.  @serial @see #getSelectedIndexes() @see #getSelectedIndex()</td>
+</tr>
+<tr>
+<td align="center"><strong>visibleIndex: int</strong></td>
+<td align="center">-1</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This variable contains the value that will be used when trying to make a particular list item visible.  @serial @see #makeVisible(int)</td>
+</tr>
+<tr>
+<td align="center"><strong>actionListener: ActionListener</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>itemListener: ItemListener</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>base: String</strong></td>
+<td align="center">“list”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nameCounter: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-3304312411574666869L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">JDK 1.1 serialVersionUID</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_VISIBLE_ROWS: int</strong></td>
+<td align="center">4</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default number of visible rows is 4.  A list with zero rows is unusable and unsightly.</td>
+</tr>
+<tr>
+<td align="center"><strong>listSerializedDataVersion: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The <code>List</code> component’s Serialized Data Version.  @serial</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>List()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new scrolling list. By default, there are four visible lines and multiple selections are not allowed.  Note that this is a convenience method for <code>List(0, false)</code>.  Also note that the number of visible lines in the list cannot be changed after it has been created.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>List(int rows)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new scrolling list initialized with the specified number of visible lines. By default, multiple selections are not allowed.  Note that this is a convenience method for <code>List(rows, false)</code>.  Also note that the number of visible rows in the list cannot be changed after it has been created.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>List(int rows, boolean multipleMode)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new scrolling list initialized to display the specified number of rows. Note that if zero rows are specified, then the list will be created with a default of four rows. Also note that the number of visible rows in the list cannot be changed after it has been created. If the value of <code>multipleMode</code> is <code>true</code>, then the user can select multiple items from the list. If it is <code>false</code>, only one item at a time can be selected.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>constructComponentName(): String</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a name for this component.  Called by <code>getName</code> when the name is <code>null</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addNotify(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates the peer for the list.  The peer allows us to modify the list’s appearance without changing its functionality.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNotify(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the peer for this list.  The peer allows us to modify the list’s appearance without changing its functionality.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getItemCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of items in the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countItems(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getItem(int index): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the item associated with the specified index.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getItemImpl(int index): String</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getItems(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the items in the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(String item): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified item to the end of scrolling list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addItem(String item): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(String item, int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified item to the the scrolling list at the position indicated by the index.  The index is zero-based.  If the value of the index is less than zero, or if the value of the index is greater than or equal to the number of items in the list, then the item is added to the end of the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addItem(String item, int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceItem(String newValue, int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces the item at the specified index in the scrolling list with the new string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeAll(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all items from this list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(String item): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the first occurrence of an item from the list. If the specified item is selected, and is the only selected item in the list, the list is set to have no selection.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(int position): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the item at the specified position from this scrolling list. If the item with the specified position is selected, and is the only selected item in the list, the list is set to have no selection.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>delItem(int position): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSelectedIndex(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the index of the selected item on the list,</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSelectedIndexes(): int[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the selected indexes on the list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSelectedItem(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the selected item on this scrolling list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSelectedItems(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the selected items on this scrolling list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSelectedObjects(): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the selected items on this scrolling list in an array of Objects.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>select(int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Selects the item at the specified index in the scrolling list. <p> Note that passing out of range parameters is invalid, and will result in unspecified behavior.  <p>Note that this method should be primarily used to initially select an item in this component. Programmatically calling this method will <i>not</i> trigger an <code>ItemEvent</code>.  The only way to trigger an <code>ItemEvent</code> is by user interaction.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deselect(int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Deselects the item at the specified index. <p> Note that passing out of range parameters is invalid, and will result in unspecified behavior. <p> If the item at the specified index is not selected, then the operation is ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isIndexSelected(int index): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified item in this scrolling list is selected.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSelected(int index): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRows(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of visible lines in this list.  Note that once the <code>List</code> has been created, this number will never change.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMultipleMode(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether this list allows multiple selections.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>allowsMultipleSelections(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMultipleMode(boolean b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the flag that determines whether this list allows multiple selections. When the selection mode is changed from multiple-selection to single-selection, the selected items change as follows: If a selected item has the location cursor, only that item will remain selected.  If no selected item has the location cursor, all items will be deselected.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMultipleSelections(boolean b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getVisibleIndex(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the index of the item that was last made visible by the method <code>makeVisible</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeVisible(int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Makes the item at the specified index visible.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPreferredSize(int rows): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the preferred dimensions for a list with the specified number of rows.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preferredSize(int rows): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPreferredSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the preferred size of this scrolling list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preferredSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumSize(int rows): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the minimum dimensions for a list with the specified number of rows.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minimumSize(int rows): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the minimum size of this scrolling list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minimumSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addItemListener(ItemListener l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified item listener to receive item events from this list.  Item events are sent in response to user input, but not in response to calls to <code>select</code> or <code>deselect</code>. If listener <code>l</code> is <code>null</code>, no exception is thrown and no action is performed. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeItemListener(ItemListener l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified item listener so that it no longer receives item events from this list. If listener <code>l</code> is <code>null</code>, no exception is thrown and no action is performed. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getItemListeners(): ItemListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the item listeners registered on this list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addActionListener(ActionListener l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified action listener to receive action events from this list. Action events occur when a user double-clicks on a list item or types Enter when the list has the keyboard focus. <p> If listener <code>l</code> is <code>null</code>, no exception is thrown and no action is performed. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeActionListener(ActionListener l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified action listener so that it no longer receives action events from this list. Action events occur when a user double-clicks on a list item. If listener <code>l</code> is <code>null</code>, no exception is thrown and no action is performed. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getActionListeners(): ActionListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the action listeners registered on this list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getListeners(Class&lt;T&gt; listenerType): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the objects currently registered as <code><em>Foo</em>Listener</code>s upon this <code>List</code>. <code><em>Foo</em>Listener</code>s are registered using the <code>add<em>Foo</em>Listener</code> method.  <p> You can specify the <code>listenerType</code> argument with a class literal, such as <code><em>Foo</em>Listener.class</code>. For example, you can query a <code>List</code> <code>l</code> for its item listeners with the following code:  <pre>ItemListener[] ils = (ItemListener[])(l.getListeners(ItemListener.class));</pre>  If no such listeners exist, this method returns an empty array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eventEnabled(AWTEvent e): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processEvent(AWTEvent e): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Processes events on this scrolling list. If an event is an instance of <code>ItemEvent</code>, it invokes the <code>processItemEvent</code> method. Else, if the event is an instance of <code>ActionEvent</code>, it invokes <code>processActionEvent</code>. If the event is not an item event or an action event, it invokes <code>processEvent</code> on the superclass. <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processItemEvent(ItemEvent e): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Processes item events occurring on this list by dispatching them to any registered <code>ItemListener</code> objects. <p> This method is not called unless item events are enabled for this component. Item events are enabled when one of the following occurs: <ul> <li>An <code>ItemListener</code> object is registered via <code>addItemListener</code>. <li>Item events are enabled via <code>enableEvents</code>. </ul> <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processActionEvent(ActionEvent e): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Processes action events occurring on this component by dispatching them to any registered <code>ActionListener</code> objects. <p> This method is not called unless action events are enabled for this component. Action events are enabled when one of the following occurs: <ul> <li>An <code>ActionListener</code> object is registered via <code>addActionListener</code>. <li>Action events are enabled via <code>enableEvents</code>. </ul> <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paramString(): String</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the parameter string representing the state of this scrolling list. This string is useful for debugging.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>delItems(int start, int end): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes default serializable fields to stream.  Writes a list of serializable <code>ItemListeners</code> and <code>ActionListeners</code> as optional data. The non-serializable listeners are detected and no attempt is made to serialize them.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads the <code>ObjectInputStream</code> and if it isn’t <code>null</code> adds a listener to receive both item events and action events (as specified by the key stored in the stream) fired by the <code>List</code>. Unrecognized keys or values will be ignored.</td>
+<td align="left">IOException<br/>ClassNotFoundException<br/>HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAccessibleContext(): AccessibleContext</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the <code>AccessibleContext</code> associated with this <code>List</code>. For lists, the <code>AccessibleContext</code> takes the form of an <code>AccessibleAWTList</code>. A new <code>AccessibleAWTList</code> instance is created, if necessary.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="List-AccessibleAWTList"><a href="#List-AccessibleAWTList" class="headerlink" title="List$AccessibleAWTList"></a><a href="./List$AccessibleAWTList.html">List$AccessibleAWTList</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

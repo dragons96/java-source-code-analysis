@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/sql/Statement.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.sql.Statement</strong></td>
+<td align="center">interface</td>
+<td align="center">Wrapper,</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>CLOSE_CURRENT_RESULT: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that the current <code>ResultSet</code> object should be closed when calling <code>getMoreResults</code>.  @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>KEEP_CURRENT_RESULT: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that the current <code>ResultSet</code> object should not be closed when calling <code>getMoreResults</code>.  @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>CLOSE_ALL_RESULTS: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that all <code>ResultSet</code> objects that have previously been kept open should be closed when calling <code>getMoreResults</code>.  @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>SUCCESS_NO_INFO: int</strong></td>
+<td align="center">-2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that a batch statement executed successfully but that no count of the number of rows it affected is available.  @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>EXECUTE_FAILED: int</strong></td>
+<td align="center">-3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that an error occurred while executing a batch statement.  @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>RETURN_GENERATED_KEYS: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that generated keys should be made available for retrieval.  @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>NO_GENERATED_KEYS: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant indicating that generated keys should not be made available for retrieval.  @since 1.4</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>executeQuery(String sql): ResultSet</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which returns a single <code>ResultSet</code> object. <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeUpdate(String sql): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement or an SQL statement that returns nothing, such as an SQL DDL statement. <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Releases this <code>Statement</code> object’s database and JDBC resources immediately instead of waiting for this to happen when it is automatically closed. It is generally good practice to release resources as soon as you are finished with them to avoid tying up database resources. <P> Calling the method <code>close</code> on a <code>Statement</code> object that is already closed has no effect. <P> <B>Note:</B>When a <code>Statement</code> object is closed, its current <code>ResultSet</code> object, if one exists, is also closed.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMaxFieldSize(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the maximum number of bytes that can be returned for character and binary column values in a <code>ResultSet</code> object produced by this <code>Statement</code> object. This limit applies only to  <code>BINARY</code>, <code>VARBINARY</code>, <code>LONGVARBINARY</code>, <code>CHAR</code>, <code>VARCHAR</code>, <code>NCHAR</code>, <code>NVARCHAR</code>, <code>LONGNVARCHAR</code> and <code>LONGVARCHAR</code> columns.  If the limit is exceeded, the excess data is silently discarded.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setMaxFieldSize(int max): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the limit for the maximum number of bytes that can be returned for character and binary column values in a <code>ResultSet</code> object produced by this <code>Statement</code> object.  This limit applies only to <code>BINARY</code>, <code>VARBINARY</code>, <code>LONGVARBINARY</code>, <code>CHAR</code>, <code>VARCHAR</code>, <code>NCHAR</code>, <code>NVARCHAR</code>, <code>LONGNVARCHAR</code> and <code>LONGVARCHAR</code> fields.  If the limit is exceeded, the excess data is silently discarded. For maximum portability, use values greater than 256.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMaxRows(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the maximum number of rows that a <code>ResultSet</code> object produced by this <code>Statement</code> object can contain.  If this limit is exceeded, the excess rows are silently dropped.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setMaxRows(int max): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the limit for the maximum number of rows that any <code>ResultSet</code> object  generated by this <code>Statement</code> object can contain to the given number. If the limit is exceeded, the excess rows are silently dropped.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setEscapeProcessing(boolean enable): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets escape processing on or off. If escape scanning is on (the default), the driver will do escape substitution before sending the SQL statement to the database. <p> The ‘Connection’ and ‘DataSource’ property ‘escapeProcessing’ may be used to change the default escape processing behavior.  A value of true (the default) enables escape Processing for all ‘Statement’ objects. A value of false disables escape processing for all ‘Statement’ objects.  The ‘setEscapeProcessing’ method may be used to specify the escape processing behavior for an individual ‘Statement’ object. <p> Note: Since prepared statements have usually been parsed prior to making this call, disabling escape processing for <code>PreparedStatements</code> objects will have no effect.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getQueryTimeout(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the number of seconds the driver will wait for a <code>Statement</code> object to execute. If the limit is exceeded, a <code>SQLException</code> is thrown.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setQueryTimeout(int seconds): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the number of seconds the driver will wait for a <code>Statement</code> object to execute to the given number of seconds. By default there is no limit on the amount of time allowed for a running statement to complete. If the limit is exceeded, an <code>SQLTimeoutException</code> is thrown. A JDBC driver must apply this limit to the <code>execute</code>, <code>executeQuery</code> and <code>executeUpdate</code> methods. <p> <strong>Note:</strong> JDBC driver implementations may also apply this limit to ‘ResultSet’ methods (consult your driver vendor documentation for details). <p> <strong>Note:</strong> In the case of ‘Statement’ batching, it is implementation defined as to whether the time-out is applied to individual SQL commands added via the ‘addBatch’ method or to the entire batch of SQL commands invoked by the ‘executeBatch’ method (consult your driver vendor documentation for details).</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>cancel(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Cancels this <code>Statement</code> object if both the DBMS and driver support aborting an SQL statement. This method can be used by one thread to cancel a statement that is being executed by another thread.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getWarnings(): SQLWarning</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the first warning reported by calls on this <code>Statement</code> object. Subsequent <code>Statement</code> object warnings will be chained to this <code>SQLWarning</code> object.  <p>The warning chain is automatically cleared each time a statement is (re)executed. This method may not be called on a closed <code>Statement</code> object; doing so will cause an <code>SQLException</code> to be thrown.  <P><B>Note:</B> If you are processing a <code>ResultSet</code> object, any warnings associated with reads on that <code>ResultSet</code> object will be chained on it rather than on the <code>Statement</code> object that produced it.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>clearWarnings(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Clears all the warnings reported on this <code>Statement</code> object. After a call to this method, the method <code>getWarnings</code> will return <code>null</code> until a new warning is reported for this <code>Statement</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCursorName(String name): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the SQL cursor name to the given <code>String</code>, which will be used by subsequent <code>Statement</code> object <code>execute</code> methods. This name can then be used in SQL positioned update or delete statements to identify the current row in the <code>ResultSet</code> object generated by this statement.  If the database does not support positioned update&#x2F;delete, this method is a noop.  To insure that a cursor has the proper isolation level to support updates, the cursor’s <code>SELECT</code> statement should have the form <code>SELECT FOR UPDATE</code>.  If <code>FOR UPDATE</code> is not present, positioned updates may fail.  <P><B>Note:</B> By definition, the execution of positioned updates and deletes must be done by a different <code>Statement</code> object than the one that generated the <code>ResultSet</code> object being used for positioning. Also, cursor names must be unique within a connection.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(String sql): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which may return multiple results. In some (uncommon) situations, a single SQL statement may return multiple result sets and&#x2F;or update counts.  Normally you can ignore this unless you are (1) executing a stored procedure that you know may return multiple results or (2) you are dynamically executing an unknown SQL string. <P> The <code>execute</code> method executes an SQL statement and indicates the form of the first result.  You must then use the methods <code>getResultSet</code> or <code>getUpdateCount</code> to retrieve the result, and <code>getMoreResults</code> to move to any subsequent result(s). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResultSet(): ResultSet</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the current result as a <code>ResultSet</code> object. This method should be called only once per result.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getUpdateCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the current result as an update count; if the result is a <code>ResultSet</code> object or there are no more results, -1 is returned. This method should be called only once per result.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMoreResults(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Moves to this <code>Statement</code> object’s next result, returns <code>true</code> if it is a <code>ResultSet</code> object, and implicitly closes any current <code>ResultSet</code> object(s) obtained with the method <code>getResultSet</code>.  <P>There are no more results when the following is true: <PRE>'((stmt.getMoreResults() == false) && (stmt.getUpdateCount() == -1))'</PRE></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setFetchDirection(int direction): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gives the driver a hint as to the direction in which rows will be processed in <code>ResultSet</code> objects created using this <code>Statement</code> object.  The default value is <code>ResultSet.FETCH_FORWARD</code>. <P> Note that this method sets the default fetch direction for result sets generated by this <code>Statement</code> object. Each result set has its own methods for getting and setting its own fetch direction.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFetchDirection(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the direction for fetching rows from database tables that is the default for result sets generated from this <code>Statement</code> object. If this <code>Statement</code> object has not set a fetch direction by calling the method <code>setFetchDirection</code>, the return value is implementation-specific.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setFetchSize(int rows): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gives the JDBC driver a hint as to the number of rows that should be fetched from the database when more rows are needed for <code>ResultSet</code> objects generated by this <code>Statement</code>. If the value specified is zero, then the hint is ignored. The default value is zero.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFetchSize(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the number of result set rows that is the default fetch size for <code>ResultSet</code> objects generated from this <code>Statement</code> object. If this <code>Statement</code> object has not set a fetch size by calling the method <code>setFetchSize</code>, the return value is implementation-specific.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResultSetConcurrency(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the result set concurrency for <code>ResultSet</code> objects generated by this <code>Statement</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResultSetType(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the result set type for <code>ResultSet</code> objects generated by this <code>Statement</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>addBatch( String sql ): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Adds the given SQL command to the current list of commands for this <code>Statement</code> object. The commands in this list can be executed as a batch by calling the method <code>executeBatch</code>. <P> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>clearBatch(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Empties this <code>Statement</code> object’s current list of SQL commands. <P></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeBatch(): int[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts. The <code>int</code> elements of the array that is returned are ordered to correspond to the commands in the batch, which are ordered according to the order in which they were added to the batch. The elements in the array returned by the method <code>executeBatch</code> may be one of the following: <OL> <LI>A number greater than or equal to zero – indicates that the command was processed successfully and is an update count giving the number of rows in the database that were affected by the command’s execution <LI>A value of <code>SUCCESS_NO_INFO</code> – indicates that the command was processed successfully but that the number of rows affected is unknown <P> If one of the commands in a batch update fails to execute properly, this method throws a <code>BatchUpdateException</code>, and a JDBC driver may or may not continue to process the remaining commands in the batch.  However, the driver’s behavior must be consistent with a particular DBMS, either always continuing to process commands or never continuing to process commands.  If the driver continues processing after a failure, the array returned by the method <code>BatchUpdateException.getUpdateCounts</code> will contain as many elements as there are commands in the batch, and at least one of the elements will be the following:  <LI>A value of <code>EXECUTE_FAILED</code> – indicates that the command failed to execute successfully and occurs only if a driver continues to process commands after a command fails </OL> <P> The possible implementations and return values have been modified in the Java 2 SDK, Standard Edition, version 1.3 to accommodate the option of continuing to process commands in a batch update after a <code>BatchUpdateException</code> object has been thrown.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>getConnection(): Connection</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the <code>Connection</code> object that produced this <code>Statement</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMoreResults(int current): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Moves to this <code>Statement</code> object’s next result, deals with any current <code>ResultSet</code> object(s) according  to the instructions specified by the given flag, and returns <code>true</code> if the next result is a <code>ResultSet</code> object.  <P>There are no more results when the following is true: <PRE>'((stmt.getMoreResults(current) == false) && (stmt.getUpdateCount() == -1))'</PRE></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getGeneratedKeys(): ResultSet</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves any auto-generated keys created as a result of executing this <code>Statement</code> object. If this <code>Statement</code> object did not generate any keys, an empty <code>ResultSet</code> object is returned.  <p><B>Note:</B>If the columns which represent the auto-generated keys were not specified, the JDBC driver implementation will determine the columns which best represent the auto-generated keys.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeUpdate(String sql, int autoGeneratedKeys): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement and signals the driver with the given flag about whether the auto-generated keys produced by this <code>Statement</code> object should be made available for retrieval.  The driver will ignore the flag if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeUpdate(String sql, int columnIndexes[]): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement and signals the driver that the auto-generated keys indicated in the given array should be made available for retrieval.   This array contains the indexes of the columns in the target table that contain the auto-generated keys that should be made available. The driver will ignore the array if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeUpdate(String sql, String columnNames[]): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement and signals the driver that the auto-generated keys indicated in the given array should be made available for retrieval.   This array contains the names of the columns in the target table that contain the auto-generated keys that should be made available. The driver will ignore the array if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(String sql, int autoGeneratedKeys): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which may return multiple results, and signals the driver that any auto-generated keys should be made available for retrieval.  The driver will ignore this signal if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <P> In some (uncommon) situations, a single SQL statement may return multiple result sets and&#x2F;or update counts.  Normally you can ignore this unless you are (1) executing a stored procedure that you know may return multiple results or (2) you are dynamically executing an unknown SQL string. <P> The <code>execute</code> method executes an SQL statement and indicates the form of the first result.  You must then use the methods <code>getResultSet</code> or <code>getUpdateCount</code> to retrieve the result, and <code>getMoreResults</code> to move to any subsequent result(s). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(String sql, int columnIndexes[]): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which may return multiple results, and signals the driver that the auto-generated keys indicated in the given array should be made available for retrieval.  This array contains the indexes of the columns in the target table that contain the auto-generated keys that should be made available.  The driver will ignore the array if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <P> Under some (uncommon) situations, a single SQL statement may return multiple result sets and&#x2F;or update counts.  Normally you can ignore this unless you are (1) executing a stored procedure that you know may return multiple results or (2) you are dynamically executing an unknown SQL string. <P> The <code>execute</code> method executes an SQL statement and indicates the form of the first result.  You must then use the methods <code>getResultSet</code> or <code>getUpdateCount</code> to retrieve the result, and <code>getMoreResults</code> to move to any subsequent result(s). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>execute(String sql, String columnNames[]): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which may return multiple results, and signals the driver that the auto-generated keys indicated in the given array should be made available for retrieval. This array contains the names of the columns in the target table that contain the auto-generated keys that should be made available.  The driver will ignore the array if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <P> In some (uncommon) situations, a single SQL statement may return multiple result sets and&#x2F;or update counts.  Normally you can ignore this unless you are (1) executing a stored procedure that you know may return multiple results or (2) you are dynamically executing an unknown SQL string. <P> The <code>execute</code> method executes an SQL statement and indicates the form of the first result.  You must then use the methods <code>getResultSet</code> or <code>getUpdateCount</code> to retrieve the result, and <code>getMoreResults</code> to move to any subsequent result(s). <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>.</td>
+<td align="left">SQLException<br/>SQLTimeoutException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResultSetHoldability(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the result set holdability for <code>ResultSet</code> objects generated by this <code>Statement</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>isClosed(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves whether this <code>Statement</code> object has been closed. A <code>Statement</code> is closed if the method close has been called on it, or if it is automatically closed.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setPoolable(boolean poolable): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Requests that a <code>Statement</code> be pooled or not pooled.  The value specified is a hint to the statement pool implementation indicating whether the application wants the statement to be pooled.  It is up to the statement pool manager as to whether the hint is used. <p> The poolable value of a statement is applicable to both internal statement caches implemented by the driver and external statement caches implemented by application servers and other applications. <p> By default, a <code>Statement</code> is not poolable when created, and a <code>PreparedStatement</code> and <code>CallableStatement</code> are poolable when created. <p></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>isPoolable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a  value indicating whether the <code>Statement</code> is poolable or not. <p></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>closeOnCompletion(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Specifies that this ‘Statement’ will be closed when all its dependent result sets are closed. If execution of the ‘Statement’ does not produce any result sets, this method has no effect. <p> <strong>Note:</strong> Multiple calls to ‘closeOnCompletion’ do not toggle the effect on this ‘Statement’. However, a call to ‘closeOnCompletion’ does effect both the subsequent execution of statements, and statements that currently have open, dependent, result sets.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>isCloseOnCompletion(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a value indicating whether this ‘Statement’ will be closed when all its dependent result sets are closed.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLargeUpdateCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the current result as an update count; if the result is a <code>ResultSet</code> object or there are no more results, -1 is returned. This method should be called only once per result. <p> This method should be used when the returned row count may exceed ‘Integer#MAX_VALUE’. <p> The default implementation will throw ‘UnsupportedOperationException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setLargeMaxRows(long max): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the limit for the maximum number of rows that any <code>ResultSet</code> object  generated by this <code>Statement</code> object can contain to the given number. If the limit is exceeded, the excess rows are silently dropped. <p> This method should be used when the row limit may exceed ‘Integer#MAX_VALUE’. <p> The default implementation will throw ‘UnsupportedOperationException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLargeMaxRows(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the maximum number of rows that a <code>ResultSet</code> object produced by this <code>Statement</code> object can contain.  If this limit is exceeded, the excess rows are silently dropped. <p> This method should be used when the returned row limit may exceed ‘Integer#MAX_VALUE’. <p> The default implementation will return ‘0’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeLargeBatch(): long[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts. The <code>long</code> elements of the array that is returned are ordered to correspond to the commands in the batch, which are ordered according to the order in which they were added to the batch. The elements in the array returned by the method ‘executeLargeBatch’ may be one of the following: <OL> <LI>A number greater than or equal to zero – indicates that the command was processed successfully and is an update count giving the number of rows in the database that were affected by the command’s execution <LI>A value of <code>SUCCESS_NO_INFO</code> – indicates that the command was processed successfully but that the number of rows affected is unknown <P> If one of the commands in a batch update fails to execute properly, this method throws a <code>BatchUpdateException</code>, and a JDBC driver may or may not continue to process the remaining commands in the batch.  However, the driver’s behavior must be consistent with a particular DBMS, either always continuing to process commands or never continuing to process commands.  If the driver continues processing after a failure, the array returned by the method <code>BatchUpdateException.getLargeUpdateCounts</code> will contain as many elements as there are commands in the batch, and at least one of the elements will be the following:  <LI>A value of <code>EXECUTE_FAILED</code> – indicates that the command failed to execute successfully and occurs only if a driver continues to process commands after a command fails </OL> <p> This method should be used when the returned row count may exceed ‘Integer#MAX_VALUE’. <p> The default implementation will throw ‘UnsupportedOperationException’</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeLargeUpdate(String sql): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement, which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement or an SQL statement that returns nothing, such as an SQL DDL statement. <p> This method should be used when the returned row count may exceed ‘Integer#MAX_VALUE’. <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>. <p> The default implementation will throw ‘UnsupportedOperationException’</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeLargeUpdate(String sql, int autoGeneratedKeys): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement and signals the driver with the given flag about whether the auto-generated keys produced by this <code>Statement</code> object should be made available for retrieval.  The driver will ignore the flag if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <p> This method should be used when the returned row count may exceed ‘Integer#MAX_VALUE’. <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>. <p> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeLargeUpdate(String sql, int columnIndexes[]): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement and signals the driver that the auto-generated keys indicated in the given array should be made available for retrieval.   This array contains the indexes of the columns in the target table that contain the auto-generated keys that should be made available. The driver will ignore the array if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <p> This method should be used when the returned row count may exceed ‘Integer#MAX_VALUE’. <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>. <p> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException<br/>SQLTimeoutException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>executeLargeUpdate(String sql, String columnNames[]): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Executes the given SQL statement and signals the driver that the auto-generated keys indicated in the given array should be made available for retrieval.   This array contains the names of the columns in the target table that contain the auto-generated keys that should be made available. The driver will ignore the array if the SQL statement is not an <code>INSERT</code> statement, or an SQL statement able to return auto-generated keys (the list of such statements is vendor-specific). <p> This method should be used when the returned row count may exceed ‘Integer#MAX_VALUE’. <p> <strong>Note:</strong>This method cannot be called on a <code>PreparedStatement</code> or <code>CallableStatement</code>. <p> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException<br/>SQLTimeoutException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

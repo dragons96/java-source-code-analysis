@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/net/HttpURLConnection.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="HttpURLConnection"><a href="#HttpURLConnection" class="headerlink" title="HttpURLConnection"></a>HttpURLConnection</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.net.HttpURLConnection</strong></td>
+<td align="center">class</td>
+<td align="center">URLConnection</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>method: String</strong></td>
+<td align="center">“GET”</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The HTTP method (GET,POST,PUT,etc.).</td>
+</tr>
+<tr>
+<td align="center"><strong>chunkLength: int</strong></td>
+<td align="center">-1</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The chunk-length when using chunked encoding streaming mode for output. A value of {@code -1} means chunked encoding is disabled for output. @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>fixedContentLength: int</strong></td>
+<td align="center">-1</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The fixed content-length when using fixed-length streaming mode. A value of {@code -1} means fixed-length streaming mode is disabled for output.  <P> <B>NOTE:</B> {@link #fixedContentLengthLong} is recommended instead of this field, as it allows larger content lengths to be set.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>fixedContentLengthLong: long</strong></td>
+<td align="center">-1</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The fixed content-length when using fixed-length streaming mode. A value of {@code -1} means fixed-length streaming mode is disabled for output.  @since 1.7</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_CHUNK_SIZE: int</strong></td>
+<td align="center">4096</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Default chunk size (including chunk header) if not specified; we want to keep this in sync with the one defined in sun.net.<a target="_blank" rel="noopener" href="http://www.http.chunkedoutputstream/">www.http.ChunkedOutputStream</a></td>
+</tr>
+<tr>
+<td align="center"><strong>responseCode: int</strong></td>
+<td align="center">-1</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">An {@code int} representing the three digit HTTP Status-Code. <ul> <li> 1xx: Informational <li> 2xx: Success <li> 3xx: Redirection <li> 4xx: Client Error <li> 5xx: Server Error </ul></td>
+</tr>
+<tr>
+<td align="center"><strong>responseMessage: String</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The HTTP response message.</td>
+</tr>
+<tr>
+<td align="center"><strong>followRedirects: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">do we automatically follow redirects? The default is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>instanceFollowRedirects: boolean</strong></td>
+<td align="center">followRedirects</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If {@code true}, the protocol will automatically follow redirects. If {@code false}, the protocol will not automatically follow redirects. <p> This field is set by the {@code setInstanceFollowRedirects} method. Its value is returned by the {@code getInstanceFollowRedirects} method. <p> Its default value is based on the value of the static followRedirects at HttpURLConnection construction time.  @see     java.net.HttpURLConnection#setInstanceFollowRedirects(boolean) @see     java.net.HttpURLConnection#getInstanceFollowRedirects() @see     java.net.HttpURLConnection#setFollowRedirects(boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_OK: int</strong></td>
+<td align="center">200</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 200: OK.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_CREATED: int</strong></td>
+<td align="center">201</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 201: Created.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_ACCEPTED: int</strong></td>
+<td align="center">202</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 202: Accepted.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_NOT_AUTHORITATIVE: int</strong></td>
+<td align="center">203</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 203: Non-Authoritative Information.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_NO_CONTENT: int</strong></td>
+<td align="center">204</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 204: No Content.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_RESET: int</strong></td>
+<td align="center">205</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 205: Reset Content.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_PARTIAL: int</strong></td>
+<td align="center">206</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 206: Partial Content.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_MULT_CHOICE: int</strong></td>
+<td align="center">300</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 300: Multiple Choices.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_MOVED_PERM: int</strong></td>
+<td align="center">301</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 301: Moved Permanently.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_MOVED_TEMP: int</strong></td>
+<td align="center">302</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 302: Temporary Redirect.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_SEE_OTHER: int</strong></td>
+<td align="center">303</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 303: See Other.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_NOT_MODIFIED: int</strong></td>
+<td align="center">304</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 304: Not Modified.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_USE_PROXY: int</strong></td>
+<td align="center">305</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 305: Use Proxy.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_BAD_REQUEST: int</strong></td>
+<td align="center">400</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 400: Bad Request.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_UNAUTHORIZED: int</strong></td>
+<td align="center">401</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 401: Unauthorized.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_PAYMENT_REQUIRED: int</strong></td>
+<td align="center">402</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 402: Payment Required.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_FORBIDDEN: int</strong></td>
+<td align="center">403</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 403: Forbidden.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_NOT_FOUND: int</strong></td>
+<td align="center">404</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 404: Not Found.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_BAD_METHOD: int</strong></td>
+<td align="center">405</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 405: Method Not Allowed.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_NOT_ACCEPTABLE: int</strong></td>
+<td align="center">406</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 406: Not Acceptable.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_PROXY_AUTH: int</strong></td>
+<td align="center">407</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 407: Proxy Authentication Required.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_CLIENT_TIMEOUT: int</strong></td>
+<td align="center">408</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 408: Request Time-Out.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_CONFLICT: int</strong></td>
+<td align="center">409</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 409: Conflict.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_GONE: int</strong></td>
+<td align="center">410</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 410: Gone.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_LENGTH_REQUIRED: int</strong></td>
+<td align="center">411</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 411: Length Required.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_PRECON_FAILED: int</strong></td>
+<td align="center">412</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 412: Precondition Failed.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_ENTITY_TOO_LARGE: int</strong></td>
+<td align="center">413</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 413: Request Entity Too Large.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_REQ_TOO_LONG: int</strong></td>
+<td align="center">414</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 414: Request-URI Too Large.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_UNSUPPORTED_TYPE: int</strong></td>
+<td align="center">415</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 415: Unsupported Media Type.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_SERVER_ERROR: final</strong></td>
+<td align="center">500</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 500: Internal Server Error. @deprecated   it is misplaced and shouldn’t have existed.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_INTERNAL_ERROR: int</strong></td>
+<td align="center">500</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 500: Internal Server Error.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_NOT_IMPLEMENTED: int</strong></td>
+<td align="center">501</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 501: Not Implemented.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_BAD_GATEWAY: int</strong></td>
+<td align="center">502</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 502: Bad Gateway.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_UNAVAILABLE: int</strong></td>
+<td align="center">503</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 503: Service Unavailable.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_GATEWAY_TIMEOUT: int</strong></td>
+<td align="center">504</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 504: Gateway Timeout.</td>
+</tr>
+<tr>
+<td align="center"><strong>HTTP_VERSION: int</strong></td>
+<td align="center">505</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">HTTP Status-Code 505: HTTP Version Not Supported.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>setFixedLengthStreamingMode(long contentLength): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is used to enable streaming of a HTTP request body without internal buffering, when the content length is known in advance.  <P> An exception will be thrown if the application attempts to write more data than the indicated content-length, or if the application closes the OutputStream before writing the indicated amount.  <P> When output streaming is enabled, authentication and redirection cannot be handled automatically. A ‘HttpRetryException’ will be thrown when reading the response if authentication or redirection are required. This exception can be queried for the details of the error.  <P> This method must be called before the URLConnection is connected.  <P> The content length set by invoking this method takes precedence over any value set by ‘#setFixedLengthStreamingMode(int)’.</td>
+<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderField(int n): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value for the ‘n’<sup>th</sup> header field. Some implementations may treat the ‘0’<sup>th</sup> header field as special, i.e. as the status line returned by the HTTP server. <p> This method can be used in conjunction with the ‘#getHeaderFieldKey getHeaderFieldKey’ method to iterate through all the headers in the message.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFollowRedirects(boolean set): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether HTTP redirects  (requests with response code 3xx) should be automatically followed by this class.  True by default.  Applets cannot change this variable. <p> If there is a security manager, this method first calls the security manager’s ‘checkSetFactory’ method to ensure the operation is allowed. This could result in a SecurityException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFollowRedirects(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘boolean’ indicating whether or not HTTP redirects (3xx) should be automatically followed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setInstanceFollowRedirects(boolean followRedirects): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether HTTP redirects (requests with response code 3xx) should be automatically followed by this ‘HttpURLConnection’ instance. <p> The default value comes from followRedirects, which defaults to true.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstanceFollowRedirects(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘HttpURLConnection’’s ‘instanceFollowRedirects’ field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRequestMethod(String method): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the method for the URL request, one of: <UL> <LI>GET <LI>POST <LI>HEAD <LI>OPTIONS <LI>PUT <LI>DELETE <LI>TRACE </UL> are legal, subject to protocol restrictions.  The default method is GET.</td>
+<td align="left">ProtocolException</td>
+</tr>
+<tr>
+<td align="center"><strong>getRequestMethod(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the request method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResponseCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the status code from an HTTP response message. For example, in the case of the following status lines: <PRE> HTTP/1.0 200 OK HTTP/1.0 401 Unauthorized </PRE> It will return 200 and 401 respectively. Returns -1 if no code can be discerned from the response (i.e., the response is not valid HTTP).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResponseMessage(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the HTTP response message, if any, returned along with the response code from a server.  From responses like: <PRE> HTTP/1.0 200 OK HTTP/1.0 404 Not Found </PRE> Extracts the Strings “OK” and “Not Found” respectively. Returns null if none could be discerned from the responses (the result was not valid HTTP).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderFieldDate(String name, long Default): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>disconnect(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Indicates that other requests to the server are unlikely in the near future. Calling disconnect() should not imply that this HttpURLConnection instance can be reused for other requests.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>usingProxy(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Indicates if the connection is going through a proxy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPermission(): Permission</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘SocketPermission’ object representing the permission necessary to connect to the destination host and port.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getErrorStream(): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the error stream if the connection failed but the server sent useful data nonetheless. The typical example is when an HTTP server responds with a 404, which will cause a FileNotFoundException to be thrown in connect, but the server sent an HTML help page with suggestions as to what to do.  <p>This method will not cause a connection to be initiated.  If the connection was not connected, or if the server did not have an error while connecting or if the server had an error but no error data was sent, this method will return null. This is the default.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

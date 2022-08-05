@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/temporal/TemporalUnit.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="TemporalUnit"><a href="#TemporalUnit" class="headerlink" title="TemporalUnit"></a>TemporalUnit</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.temporal.TemporalUnit</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getDuration(): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the duration of this unit, which may be an estimate. <p> All units return a duration measured in standard nanoseconds from this method. The duration will be positive and non-zero. For example, an hour has a duration of ‘60 * 60 * 1,000,000,000ns’. <p> Some units may return an accurate duration while others return an estimate. For example, days have an estimated duration due to the possibility of daylight saving time changes. To determine if the duration is an estimate, use ‘#isDurationEstimated()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDurationEstimated(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the duration of the unit is an estimate. <p> All units have a duration, however the duration is not always accurate. For example, days have an estimated duration due to the possibility of daylight saving time changes. This method returns true if the duration is an estimate and false if it is accurate. Note that accurate&#x2F;estimated ignores leap seconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDateBased(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if this unit represents a component of a date. <p> A date is time-based if it can be used to imply meaning from a date. It must have a ‘#getDuration() duration’ that is an integral multiple of the length of a standard day. Note that it is valid for both ‘isDateBased()’ and ‘isTimeBased()’ to return false, such as when representing a unit like 36 hours.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isTimeBased(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if this unit represents a component of a time. <p> A unit is time-based if it can be used to imply meaning from a time. It must have a ‘#getDuration() duration’ that divides into the length of a standard day without remainder. Note that it is valid for both ‘isDateBased()’ and ‘isTimeBased()’ to return false, such as when representing a unit like 36 hours.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupportedBy(Temporal temporal): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if this unit is supported by the specified temporal object. <p> This checks that the implementing date-time can add&#x2F;subtract this unit. This can be used to avoid throwing an exception. <p> This default implementation derives the value using ‘Temporal#plus(long, TemporalUnit)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addTo(R temporal, long amount): R</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of the specified temporal object with the specified period added. <p> The period added is a multiple of this unit. For example, this method could be used to add “3 days” to a date by calling this method on the instance representing “days”, passing the date and the period “3”. The period to be added may be negative, which is equivalent to subtraction. <p> There are two equivalent ways of using this method. The first is to invoke this method directly. The second is to use ‘Temporal#plus(long, TemporalUnit)’: <pre>  temporal = thisUnit.addTo(temporal); temporal = temporal.plus(thisUnit); </pre> It is recommended to use the second approach, ‘plus(TemporalUnit)’, as it is a lot clearer to read in code. <p> Implementations should perform any queries or calculations using the units available in ‘ChronoUnit’ or the fields available in ‘ChronoField’. If the unit is not supported an ‘UnsupportedTemporalTypeException’ must be thrown. <p> Implementations must not alter the specified temporal object. Instead, an adjusted copy of the original must be returned. This provides equivalent, safe behavior for immutable and mutable implementations.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>between(Temporal temporal1Inclusive, Temporal temporal2Exclusive): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Calculates the amount of time between two temporal objects. <p> This calculates the amount in terms of this unit. The start and end points are supplied as temporal objects and must be of compatible types. The implementation will convert the second type to be an instance of the first type before the calculating the amount. The result will be negative if the end is before the start. For example, the amount in hours between two temporal objects can be calculated using ‘HOURS.between(startTime, endTime)’. <p> The calculation returns a whole number, representing the number of complete units between the two temporals. For example, the amount in hours between the times 11:30 and 13:29 will only be one hour as it is one minute short of two hours. <p> There are two equivalent ways of using this method. The first is to invoke this method directly. The second is to use ‘Temporal#until(Temporal, TemporalUnit)’: <pre>  between = thisUnit.between(start, end); between = start.until(end, thisUnit); </pre> The choice should be made based on which makes the code more readable. <p> For example, this method allows the number of days between two dates to be calculated: <pre> long daysBetween = DAYS.between(start, end);  long daysBetween = start.until(end, DAYS); </pre> <p> Implementations should perform any queries or calculations using the units available in ‘ChronoUnit’ or the fields available in ‘ChronoField’. If the unit is not supported an ‘UnsupportedTemporalTypeException’ must be thrown. Implementations must not alter the specified temporal objects.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets a descriptive name for the unit. <p> This should be in the plural and upper-first camel case, such as ‘Days’ or ‘Minutes’.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

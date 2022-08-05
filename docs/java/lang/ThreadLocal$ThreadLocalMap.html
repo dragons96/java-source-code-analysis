@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/ThreadLocal$ThreadLocalMap.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ThreadLocal-ThreadLocalMap"><a href="#ThreadLocal-ThreadLocalMap" class="headerlink" title="ThreadLocal$ThreadLocalMap"></a>ThreadLocal<T>$ThreadLocalMap</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.ThreadLocal&lt;T&gt;$ThreadLocalMap</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>INITIAL_CAPACITY: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The initial capacity – MUST be a power of two.</td>
+</tr>
+<tr>
+<td align="center"><strong>table: Entry[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The table, resized as necessary. table.length MUST always be a power of two.</td>
+</tr>
+<tr>
+<td align="center"><strong>size: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of entries in the table.</td>
+</tr>
+<tr>
+<td align="center"><strong>threshold: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The next size value at which to resize.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>setThreshold(int len): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the resize threshold to maintain at worst a 2&#x2F;3 load factor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextIndex(int i, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Increment i modulo len.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>prevIndex(int i, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Decrement i modulo len.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadLocalMap(ThreadLocal&lt;?&gt; firstKey, Object firstValue)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a new map initially containing (firstKey, firstValue). ThreadLocalMaps are constructed lazily, so we only create one when we have at least one entry to put in it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadLocalMap(ThreadLocalMap parentMap)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a new map including all Inheritable ThreadLocals from given parent map. Called only by createInheritedMap.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEntry(ThreadLocal&lt;?&gt; key): Entry</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the entry associated with key.  This method itself handles only the fast path: a direct hit of existing key. It otherwise relays to getEntryAfterMiss.  This is designed to maximize performance for direct hits, in part by making this method readily inlinable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEntryAfterMiss(ThreadLocal&lt;?&gt; key, int i, Entry e): Entry</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Version of getEntry method for use when key is not found in its direct hash slot.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>set(ThreadLocal&lt;?&gt; key, Object value): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the value associated with key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(ThreadLocal&lt;?&gt; key): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Remove the entry for key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceStaleEntry(ThreadLocal&lt;?&gt; key, Object value, int staleSlot): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replace a stale entry encountered during a set operation with an entry for the specified key.  The value passed in the value parameter is stored in the entry, whether or not an entry already exists for the specified key.  As a side effect, this method expunges all stale entries in the “run” containing the stale entry.  (A run is a sequence of entries between two null slots.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>expungeStaleEntry(int staleSlot): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Expunge a stale entry by rehashing any possibly colliding entries lying between staleSlot and the next null slot.  This also expunges any other stale entries encountered before the trailing null.  See Knuth, Section 6.4</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cleanSomeSlots(int i, int n): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Heuristically scan some cells looking for stale entries. This is invoked when either a new element is added, or another stale one has been expunged. It performs a logarithmic number of scans, as a balance between no scanning (fast but retains garbage) and a number of scans proportional to number of elements, that would find all garbage but would cause some insertions to take O(n) time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rehash(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Re-pack and&#x2F;or re-size the table. First scan the entire table removing stale entries. If this doesn’t sufficiently shrink the size of the table, double the table size.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resize(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Double the capacity of the table.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>expungeStaleEntries(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Expunge all stale entries in the table.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ThreadLocal-ThreadLocalMap-Entry"><a href="#ThreadLocal-ThreadLocalMap-Entry" class="headerlink" title="ThreadLocal$ThreadLocalMap$Entry"></a><a href="./ThreadLocal$ThreadLocalMap$Entry.html">ThreadLocal$ThreadLocalMap$Entry</a></h3><h4 id="外部类"><a href="#外部类" class="headerlink" title="外部类"></a>外部类</h4><h3 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a><a href="./ThreadLocal.html">ThreadLocal</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -115,6 +115,17 @@
 <td align="left">A marker interface identifying asynchronous tasks produced by {@code async} methods. This may be useful for monitoring, debugging, and tracking asynchronous activities.  @since 1.8</td>
 </tr>
 <tr>
+<td align="center"><strong>asyncPool: Executor</strong></td>
+<td align="center">useCommonPool ? ForkJoinPool.commonPool() : new ThreadPerTaskExecutor()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Default executor – ForkJoinPool.commonPool() unless it cannot support parallelism.</td>
+</tr>
+<tr>
 <td align="center"><strong>SYNC: int</strong></td>
 <td align="center">0</td>
 <td align="center">default</td>
@@ -340,7 +351,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>encodeOutcome(T t, Throwable x)</strong></td>
+<td align="center"><strong>encodeOutcome(T t, Throwable x): Object</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -385,7 +396,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Reports result using Future.get conventions.</td>
-<td align="left">ExecutionException<br/>InterruptedException</td>
+<td align="left">InterruptedException<br/>ExecutionException</td>
 </tr>
 <tr>
 <td align="center"><strong>reportJoin(Object r): T</strong></td>
@@ -397,18 +408,6 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Decodes outcome to return result or throw unchecked exception.</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong>ThreadPerTaskExecutor(): new</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
-<td align="center">否</td>
-<td align="center">否</td>
-<td align="center">否</td>
-<td align="center">否</td>
-<td align="center">否</td>
-<td align="left">Default executor – ForkJoinPool.commonPool() unless it cannot support parallelism.</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -484,7 +483,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniApply(CompletableFuture&lt;S&gt; a,Function&lt;? super S,? extends T&gt; f,UniApply&lt;S,T&gt; c): boolean</strong></td>
+<td align="center"><strong>uniApply(CompletableFuture&lt;S&gt; a, Function&lt;? super S,? extends T&gt; f, UniApply&lt;S,T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -496,7 +495,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniApplyStage(Executor e, Function&lt;? super T,? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center"><strong>uniApplyStage( Executor e, Function&lt;? super T,? extends V&gt; f): CompletableFuture<V></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -508,7 +507,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniAccept(CompletableFuture&lt;S&gt; a,Consumer&lt;? super S&gt; f, UniAccept&lt;S&gt; c): boolean</strong></td>
+<td align="center"><strong>uniAccept(CompletableFuture&lt;S&gt; a, Consumer&lt;? super S&gt; f, UniAccept&lt;S&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -520,7 +519,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniAcceptStage(Executor e,Consumer&lt;? super T&gt; f): CompletableFuture<Void></strong></td>
+<td align="center"><strong>uniAcceptStage(Executor e, Consumer&lt;? super T&gt; f): CompletableFuture<Void></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -556,7 +555,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniWhenComplete(CompletableFuture&lt;T&gt; a,BiConsumer&lt;? super T,? super Throwable&gt; f,UniWhenComplete&lt;T&gt; c): boolean</strong></td>
+<td align="center"><strong>uniWhenComplete(CompletableFuture&lt;T&gt; a, BiConsumer&lt;? super T,? super Throwable&gt; f, UniWhenComplete&lt;T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -568,7 +567,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniWhenCompleteStage(Executor e, BiConsumer&lt;? super T, ? super Throwable&gt; f): CompletableFuture<T></strong></td>
+<td align="center"><strong>uniWhenCompleteStage( Executor e, BiConsumer&lt;? super T, ? super Throwable&gt; f): CompletableFuture<T></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -580,7 +579,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniHandle(CompletableFuture&lt;S&gt; a,BiFunction&lt;? super S, Throwable, ? extends T&gt; f,UniHandle&lt;S,T&gt; c): boolean</strong></td>
+<td align="center"><strong>uniHandle(CompletableFuture&lt;S&gt; a, BiFunction&lt;? super S, Throwable, ? extends T&gt; f, UniHandle&lt;S,T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -592,7 +591,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniHandleStage(Executor e, BiFunction&lt;? super T, Throwable, ? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center"><strong>uniHandleStage( Executor e, BiFunction&lt;? super T, Throwable, ? extends V&gt; f): CompletableFuture<V></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -604,7 +603,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniExceptionally(CompletableFuture&lt;T&gt; a,Function&lt;? super Throwable, ? extends T&gt; f,UniExceptionally&lt;T&gt; c): boolean</strong></td>
+<td align="center"><strong>uniExceptionally(CompletableFuture&lt;T&gt; a, Function&lt;? super Throwable, ? extends T&gt; f, UniExceptionally&lt;T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -616,7 +615,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniExceptionallyStage(Function&lt;Throwable, ? extends T&gt; f): CompletableFuture<T></strong></td>
+<td align="center"><strong>uniExceptionallyStage( Function&lt;Throwable, ? extends T&gt; f): CompletableFuture<T></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -640,7 +639,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniCompose(CompletableFuture&lt;S&gt; a,Function&lt;? super S, ? extends CompletionStage&lt;T&gt;&gt; f,UniCompose&lt;S,T&gt; c): boolean</strong></td>
+<td align="center"><strong>uniCompose( CompletableFuture&lt;S&gt; a, Function&lt;? super S, ? extends CompletionStage&lt;T&gt;&gt; f, UniCompose&lt;S,T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -652,7 +651,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>uniComposeStage(Executor e, Function&lt;? super T, ? extends CompletionStage&lt;V&gt;&gt; f): CompletableFuture<V></strong></td>
+<td align="center"><strong>uniComposeStage( Executor e, Function&lt;? super T, ? extends CompletionStage&lt;V&gt;&gt; f): CompletableFuture<V></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -676,7 +675,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>postFire(CompletableFuture&lt;?&gt; a,CompletableFuture&lt;?&gt; b, int mode): CompletableFuture<T></strong></td>
+<td align="center"><strong>postFire(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b, int mode): CompletableFuture<T></strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -688,7 +687,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>biApply(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,BiFunction&lt;? super R,? super S,? extends T&gt; f,BiApply&lt;R,S,T&gt; c): boolean</strong></td>
+<td align="center"><strong>biApply(CompletableFuture&lt;R&gt; a, CompletableFuture&lt;S&gt; b, BiFunction&lt;? super R,? super S,? extends T&gt; f, BiApply&lt;R,S,T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -700,7 +699,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>biApplyStage(Executor e, CompletionStage&lt;U&gt; o,BiFunction&lt;? super T,? super U,? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center"><strong>biApplyStage( Executor e, CompletionStage&lt;U&gt; o, BiFunction&lt;? super T,? super U,? extends V&gt; f): CompletableFuture<V></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -712,7 +711,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>biAccept(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,BiConsumer&lt;? super R,? super S&gt; f,BiAccept&lt;R,S&gt; c): boolean</strong></td>
+<td align="center"><strong>biAccept(CompletableFuture&lt;R&gt; a, CompletableFuture&lt;S&gt; b, BiConsumer&lt;? super R,? super S&gt; f, BiAccept&lt;R,S&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -724,7 +723,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>biAcceptStage(Executor e, CompletionStage&lt;U&gt; o,BiConsumer&lt;? super T,? super U&gt; f): CompletableFuture<Void></strong></td>
+<td align="center"><strong>biAcceptStage( Executor e, CompletionStage&lt;U&gt; o, BiConsumer&lt;? super T,? super U&gt; f): CompletableFuture<Void></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -736,7 +735,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>biRun(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b,Runnable f, BiRun&lt;?,?&gt; c): boolean</strong></td>
+<td align="center"><strong>biRun(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b, Runnable f, BiRun&lt;?,?&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -748,7 +747,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>biRunStage(Executor e, CompletionStage&lt;?&gt; o,Runnable f): CompletableFuture<Void></strong></td>
+<td align="center"><strong>biRunStage(Executor e, CompletionStage&lt;?&gt; o, Runnable f): CompletableFuture<Void></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -760,7 +759,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>@SuppressWarnings(“serial”)boolean biRelay(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b)</strong></td>
+<td align="center"><strong>biRelay(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -772,7 +771,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>andTree(CompletableFuture&lt;?&gt;[] cfs,int lo, int hi): CompletableFuture<Void></strong></td>
+<td align="center"><strong>andTree(CompletableFuture&lt;?&gt;[] cfs, int lo, int hi): CompletableFuture<Void></strong></td>
 <td align="center">default</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -796,7 +795,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orApply(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,Function&lt;? super R, ? extends T&gt; f,OrApply&lt;R,S,T&gt; c): boolean</strong></td>
+<td align="center"><strong>orApply(CompletableFuture&lt;R&gt; a, CompletableFuture&lt;S&gt; b, Function&lt;? super R, ? extends T&gt; f, OrApply&lt;R,S,T&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -808,7 +807,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orApplyStage(Executor e, CompletionStage&lt;U&gt; o,Function&lt;? super T, ? extends V&gt; f): CompletableFuture<V></strong></td>
+<td align="center"><strong>orApplyStage( Executor e, CompletionStage&lt;U&gt; o, Function&lt;? super T, ? extends V&gt; f): CompletableFuture<V></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -820,7 +819,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orAccept(CompletableFuture&lt;R&gt; a,CompletableFuture&lt;S&gt; b,Consumer&lt;? super R&gt; f,OrAccept&lt;R,S&gt; c): boolean</strong></td>
+<td align="center"><strong>orAccept(CompletableFuture&lt;R&gt; a, CompletableFuture&lt;S&gt; b, Consumer&lt;? super R&gt; f, OrAccept&lt;R,S&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -832,7 +831,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orAcceptStage(Executor e, CompletionStage&lt;U&gt; o, Consumer&lt;? super T&gt; f): CompletableFuture<Void></strong></td>
+<td align="center"><strong>orAcceptStage( Executor e, CompletionStage&lt;U&gt; o, Consumer&lt;? super T&gt; f): CompletableFuture<Void></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -844,7 +843,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orRun(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b,Runnable f, OrRun&lt;?,?&gt; c): boolean</strong></td>
+<td align="center"><strong>orRun(CompletableFuture&lt;?&gt; a, CompletableFuture&lt;?&gt; b, Runnable f, OrRun&lt;?,?&gt; c): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -856,7 +855,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orRunStage(Executor e, CompletionStage&lt;?&gt; o,Runnable f): CompletableFuture<Void></strong></td>
+<td align="center"><strong>orRunStage(Executor e, CompletionStage&lt;?&gt; o, Runnable f): CompletableFuture<Void></strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -880,7 +879,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>orTree(CompletableFuture&lt;?&gt;[] cfs,int lo, int hi): CompletableFuture<Object></strong></td>
+<td align="center"><strong>orTree(CompletableFuture&lt;?&gt;[] cfs, int lo, int hi): CompletableFuture<Object></strong></td>
 <td align="center">default</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -892,7 +891,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>asyncSupplyStage(Executor e,Supplier&lt;U&gt; f): CompletableFuture<U></strong></td>
+<td align="center"><strong>asyncSupplyStage(Executor e, Supplier&lt;U&gt; f): CompletableFuture<U></strong></td>
 <td align="center">default</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -976,7 +975,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>supplyAsync(Supplier&lt;U&gt; supplier,Executor executor): CompletableFuture<U></strong></td>
+<td align="center"><strong>supplyAsync(Supplier&lt;U&gt; supplier, Executor executor): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1000,7 +999,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAsync(Runnable runnable,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAsync(Runnable runnable, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1045,7 +1044,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Waits if necessary for this future to complete, and then returns its result.</td>
-<td align="left">ExecutionException<br/>CancellationException<br/>InterruptedException</td>
+<td align="left">CancellationException<br/>InterruptedException<br/>ExecutionException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(long timeout, TimeUnit unit): T</strong></td>
@@ -1057,7 +1056,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Waits if necessary for at most the given time for this future to complete, and then returns its result, if available.</td>
-<td align="left">ExecutionException<br/>CancellationException<br/>TimeoutException<br/>InterruptedException</td>
+<td align="left">CancellationException<br/>InterruptedException<br/>TimeoutException<br/>ExecutionException</td>
 </tr>
 <tr>
 <td align="center"><strong>join(): T</strong></td>
@@ -1108,7 +1107,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenApply(Function&lt;? super T,? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>thenApply( Function&lt;? super T,? extends U&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1120,7 +1119,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenApplyAsync(Function&lt;? super T,? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>thenApplyAsync( Function&lt;? super T,? extends U&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1132,7 +1131,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenApplyAsync(Function&lt;? super T,? extends U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
+<td align="center"><strong>thenApplyAsync( Function&lt;? super T,? extends U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1168,7 +1167,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenAcceptAsync(Consumer&lt;? super T&gt; action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>thenAcceptAsync(Consumer&lt;? super T&gt; action, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1204,7 +1203,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenRunAsync(Runnable action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>thenRunAsync(Runnable action, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1216,7 +1215,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenCombine(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? super T,? super U,? extends V&gt; fn): CompletableFuture<V></strong></td>
+<td align="center"><strong>thenCombine( CompletionStage&lt;? extends U&gt; other, BiFunction&lt;? super T,? super U,? extends V&gt; fn): CompletableFuture<V></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1228,7 +1227,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenCombineAsync(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? super T,? super U,? extends V&gt; fn): CompletableFuture<V></strong></td>
+<td align="center"><strong>thenCombineAsync( CompletionStage&lt;? extends U&gt; other, BiFunction&lt;? super T,? super U,? extends V&gt; fn): CompletableFuture<V></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1240,7 +1239,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenCombineAsync(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? super T,? super U,? extends V&gt; fn, Executor executor): CompletableFuture<V></strong></td>
+<td align="center"><strong>thenCombineAsync( CompletionStage&lt;? extends U&gt; other, BiFunction&lt;? super T,? super U,? extends V&gt; fn, Executor executor): CompletableFuture<V></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1252,7 +1251,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenAcceptBoth(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? super T, ? super U&gt; action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>thenAcceptBoth( CompletionStage&lt;? extends U&gt; other, BiConsumer&lt;? super T, ? super U&gt; action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1264,7 +1263,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenAcceptBothAsync(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? super T, ? super U&gt; action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>thenAcceptBothAsync( CompletionStage&lt;? extends U&gt; other, BiConsumer&lt;? super T, ? super U&gt; action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1276,7 +1275,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenAcceptBothAsync(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? super T, ? super U&gt; action, Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>thenAcceptBothAsync( CompletionStage&lt;? extends U&gt; other, BiConsumer&lt;? super T, ? super U&gt; action, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1288,7 +1287,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAfterBoth(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAfterBoth(CompletionStage&lt;?&gt; other, Runnable action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1300,7 +1299,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAfterBothAsync(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAfterBothAsync(CompletionStage&lt;?&gt; other, Runnable action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1312,7 +1311,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAfterBothAsync(CompletionStage&lt;?&gt; other,Runnable action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAfterBothAsync(CompletionStage&lt;?&gt; other, Runnable action, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1324,7 +1323,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>applyToEither(CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>applyToEither( CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1336,7 +1335,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>applyToEitherAsync(CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>applyToEitherAsync( CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1348,7 +1347,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>applyToEitherAsync(CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn,Executor executor): CompletableFuture<U></strong></td>
+<td align="center"><strong>applyToEitherAsync( CompletionStage&lt;? extends T&gt; other, Function&lt;? super T, U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1360,7 +1359,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>acceptEither(CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>acceptEither( CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1372,7 +1371,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>acceptEitherAsync(CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>acceptEitherAsync( CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1384,7 +1383,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>acceptEitherAsync(CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>acceptEitherAsync( CompletionStage&lt;? extends T&gt; other, Consumer&lt;? super T&gt; action, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1396,7 +1395,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAfterEither(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAfterEither(CompletionStage&lt;?&gt; other, Runnable action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1408,7 +1407,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAfterEitherAsync(CompletionStage&lt;?&gt; other,Runnable action): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAfterEitherAsync(CompletionStage&lt;?&gt; other, Runnable action): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1420,7 +1419,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>runAfterEitherAsync(CompletionStage&lt;?&gt; other,Runnable action,Executor executor): CompletableFuture<Void></strong></td>
+<td align="center"><strong>runAfterEitherAsync(CompletionStage&lt;?&gt; other, Runnable action, Executor executor): CompletableFuture<Void></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1432,7 +1431,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenCompose(Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>thenCompose( Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1444,7 +1443,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenComposeAsync(Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>thenComposeAsync( Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1456,7 +1455,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>thenComposeAsync(Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn,Executor executor): CompletableFuture<U></strong></td>
+<td align="center"><strong>thenComposeAsync( Function&lt;? super T, ? extends CompletionStage&lt;U&gt;&gt; fn, Executor executor): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1468,7 +1467,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>whenComplete(BiConsumer&lt;? super T, ? super Throwable&gt; action): CompletableFuture<T></strong></td>
+<td align="center"><strong>whenComplete( BiConsumer&lt;? super T, ? super Throwable&gt; action): CompletableFuture<T></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1480,7 +1479,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>whenCompleteAsync(BiConsumer&lt;? super T, ? super Throwable&gt; action): CompletableFuture<T></strong></td>
+<td align="center"><strong>whenCompleteAsync( BiConsumer&lt;? super T, ? super Throwable&gt; action): CompletableFuture<T></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1492,7 +1491,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>whenCompleteAsync(BiConsumer&lt;? super T, ? super Throwable&gt; action, Executor executor): CompletableFuture<T></strong></td>
+<td align="center"><strong>whenCompleteAsync( BiConsumer&lt;? super T, ? super Throwable&gt; action, Executor executor): CompletableFuture<T></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1504,7 +1503,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>handle(BiFunction&lt;? super T, Throwable, ? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>handle( BiFunction&lt;? super T, Throwable, ? extends U&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1516,7 +1515,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>handleAsync(BiFunction&lt;? super T, Throwable, ? extends U&gt; fn): CompletableFuture<U></strong></td>
+<td align="center"><strong>handleAsync( BiFunction&lt;? super T, Throwable, ? extends U&gt; fn): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1528,7 +1527,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>handleAsync(BiFunction&lt;? super T, Throwable, ? extends U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
+<td align="center"><strong>handleAsync( BiFunction&lt;? super T, Throwable, ? extends U&gt; fn, Executor executor): CompletableFuture<U></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1552,7 +1551,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>exceptionally(Function&lt;Throwable, ? extends T&gt; fn): CompletableFuture<T></strong></td>
+<td align="center"><strong>exceptionally( Function&lt;Throwable, ? extends T&gt; fn): CompletableFuture<T></strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>

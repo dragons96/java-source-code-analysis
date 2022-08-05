@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/SecurityManager.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="SecurityManager"><a href="#SecurityManager" class="headerlink" title="SecurityManager"></a>SecurityManager</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.SecurityManager</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>inCheck: protected</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field is <code>true</code> if there is a security check in progress; <code>false</code> otherwise.  @deprecated This type of security checking is not recommended. It is recommended that the <code>checkPermission</code> call be used instead.</td>
+</tr>
+<tr>
+<td align="center"><strong>initialized: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Have we been initialized. Effective against finalizer attacks.</td>
+</tr>
+<tr>
+<td align="center"><strong>rootGroup: ThreadGroup</strong></td>
+<td align="center">getRootGroup()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">reference to the root thread group, used for the checkAccess methods.</td>
+</tr>
+<tr>
+<td align="center"><strong>packageAccessValid: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">We have an initial invalid bit (initially false) for the class variables which tell if the cache is valid.  If the underlying java.security.Security property changes via setProperty(), the Security class uses reflection to change the variable and thus invalidate the cache.  Locking is handled by synchronization to the packageAccessLock&#x2F;packageDefinitionLock objects.  They are only used in this class.  Note that cache invalidation as a result of the property change happens without using these locks, so there may be a delay between when a thread updates the property and when other threads updates the cache.</td>
+</tr>
+<tr>
+<td align="center"><strong>packageAccess: String[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packageAccessLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packageDefinitionValid: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packageDefinition: String[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packageDefinitionLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>hasAllPermission(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">returns true if the current context has been granted AllPermission</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInCheck(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if there is a security check in progress.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SecurityManager()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>SecurityManager</code>.  <p> If there is a security manager already installed, this method first calls the security manager’s <code>checkPermission</code> method with the <code>RuntimePermission("createSecurityManager")</code> permission to ensure the calling thread has permission to create a new security manager. This may result in throwing a <code>SecurityException</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getClassContext(): Class[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current execution stack as an array of classes. <p> The length of the array is the number of methods on the execution stack. The element at index <code>0</code> is the class of the currently executing method, the element at index <code>1</code> is the class of that method’s caller, and so on.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentClassLoader(): ClassLoader</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the class loader of the most recently executing method from a class defined using a non-system class loader. A non-system class loader is defined as being a class loader that is not equal to the system class loader (as returned by ‘ClassLoader#getSystemClassLoader’) or one of its ancestors. <p> This method will return <code>null</code> in the following three cases: <ol> <li>All methods on the execution stack are from classes defined using the system class loader or one of its ancestors.  <li>All methods on the execution stack up to the first “privileged” caller (see ‘java.security.AccessController#doPrivileged’) are from classes defined using the system class loader or one of its ancestors.  <li> A call to <code>checkPermission</code> with <code>java.security.AllPermission</code> does not result in a SecurityException.  </ol></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentClassLoader0(): ClassLoader</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentLoadedClass(): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the class of the most recently executing method from a class defined using a non-system class loader. A non-system class loader is defined as being a class loader that is not equal to the system class loader (as returned by ‘ClassLoader#getSystemClassLoader’) or one of its ancestors. <p> This method will return <code>null</code> in the following three cases: <ol> <li>All methods on the execution stack are from classes defined using the system class loader or one of its ancestors.  <li>All methods on the execution stack up to the first “privileged” caller (see ‘java.security.AccessController#doPrivileged’) are from classes defined using the system class loader or one of its ancestors.  <li> A call to <code>checkPermission</code> with <code>java.security.AllPermission</code> does not result in a SecurityException.  </ol></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classDepth(String name): int</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the stack depth of the specified class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classLoaderDepth(): int</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the stack depth of the most recently executing method from a class defined using a non-system class loader.  A non-system class loader is defined as being a class loader that is not equal to the system class loader (as returned by ‘ClassLoader#getSystemClassLoader’) or one of its ancestors. <p> This method will return -1 in the following three cases: <ol> <li>All methods on the execution stack are from classes defined using the system class loader or one of its ancestors.  <li>All methods on the execution stack up to the first “privileged” caller (see ‘java.security.AccessController#doPrivileged’) are from classes defined using the system class loader or one of its ancestors.  <li> A call to <code>checkPermission</code> with <code>java.security.AllPermission</code> does not result in a SecurityException.  </ol></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classLoaderDepth0(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inClass(String name): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if a method from a class with the specified name is on the execution stack.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inClassLoader(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Basically, tests if a method from a class defined using a class loader is on the execution stack.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSecurityContext(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an object that encapsulates the current execution environment. The result of this method is used, for example, by the three-argument <code>checkConnect</code> method and by the two-argument <code>checkRead</code> method. These methods are needed because a trusted method may be called on to read a file or open a socket on behalf of another method. The trusted method needs to determine if the other (possibly untrusted) method would be allowed to perform the operation on its own. <p> The default implementation of this method is to return an <code>AccessControlContext</code> object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPermission(Permission perm): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the requested access, specified by the given permission, is not permitted based on the security policy currently in effect. <p> This method calls <code>AccessController.checkPermission</code> with the given permission.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPermission(Permission perm, Object context): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the specified security context is denied access to the resource specified by the given permission. The context must be a security context returned by a previous call to <code>getSecurityContext</code> and the access control decision is based upon the configured security policy for that security context. <p> If <code>context</code> is an instance of <code>AccessControlContext</code> then the <code>AccessControlContext.checkPermission</code> method is invoked with the specified permission. <p> If <code>context</code> is not an instance of <code>AccessControlContext</code> then a <code>SecurityException</code> is thrown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkCreateClassLoader(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to create a new class loader. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("createClassLoader")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkCreateClassLoader</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRootGroup(): ThreadGroup</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAccess(Thread t): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to modify the thread argument. <p> This method is invoked for the current security manager by the <code>stop</code>, <code>suspend</code>, <code>resume</code>, <code>setPriority</code>, <code>setName</code>, and <code>setDaemon</code> methods of class <code>Thread</code>. <p> If the thread argument is a system thread (belongs to the thread group with a <code>null</code> parent) then this method calls <code>checkPermission</code> with the <code>RuntimePermission("modifyThread")</code> permission. If the thread argument is <i>not</i> a system thread, this method just returns silently. <p> Applications that want a stricter policy should override this method. If this method is overridden, the method that overrides it should additionally check to see if the calling thread has the <code>RuntimePermission("modifyThread")</code> permission, and if so, return silently. This is to ensure that code granted that permission (such as the JDK itself) is allowed to manipulate any thread. <p> If this method is overridden, then <code>super.checkAccess</code> should be called by the first statement in the overridden method, or the equivalent security check should be placed in the overridden method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAccess(ThreadGroup g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to modify the thread group argument. <p> This method is invoked for the current security manager when a new child thread or child thread group is created, and by the <code>setDaemon</code>, <code>setMaxPriority</code>, <code>stop</code>, <code>suspend</code>, <code>resume</code>, and <code>destroy</code> methods of class <code>ThreadGroup</code>. <p> If the thread group argument is the system thread group ( has a <code>null</code> parent) then this method calls <code>checkPermission</code> with the <code>RuntimePermission("modifyThreadGroup")</code> permission. If the thread group argument is <i>not</i> the system thread group, this method just returns silently. <p> Applications that want a stricter policy should override this method. If this method is overridden, the method that overrides it should additionally check to see if the calling thread has the <code>RuntimePermission("modifyThreadGroup")</code> permission, and if so, return silently. This is to ensure that code granted that permission (such as the JDK itself) is allowed to manipulate any thread. <p> If this method is overridden, then <code>super.checkAccess</code> should be called by the first statement in the overridden method, or the equivalent security check should be placed in the overridden method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkExit(int status): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to cause the Java Virtual Machine to halt with the specified status code. <p> This method is invoked for the current security manager by the <code>exit</code> method of class <code>Runtime</code>. A status of <code>0</code> indicates success; other values indicate various errors. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("exitVM."+status)</code> permission. <p> If you override this method, then you should make a call to <code>super.checkExit</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkExec(String cmd): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to create a subprocess. <p> This method is invoked for the current security manager by the <code>exec</code> methods of class <code>Runtime</code>. <p> This method calls <code>checkPermission</code> with the <code>FilePermission(cmd,"execute")</code> permission if cmd is an absolute path, otherwise it calls <code>checkPermission</code> with <code>FilePermission("&lt;&lt;ALL FILES&gt;&gt;","execute")</code>. <p> If you override this method, then you should make a call to <code>super.checkExec</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkLink(String lib): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to dynamic link the library code specified by the string argument file. The argument is either a simple library name or a complete filename. <p> This method is invoked for the current security manager by methods <code>load</code> and <code>loadLibrary</code> of class <code>Runtime</code>. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("loadLibrary."+lib)</code> permission. <p> If you override this method, then you should make a call to <code>super.checkLink</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkRead(FileDescriptor fd): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to read from the specified file descriptor. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("readFileDescriptor")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkRead</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkRead(String file): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to read the file specified by the string argument. <p> This method calls <code>checkPermission</code> with the <code>FilePermission(file,"read")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkRead</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkRead(String file, Object context): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the specified security context is not allowed to read the file specified by the string argument. The context must be a security context returned by a previous call to <code>getSecurityContext</code>. <p> If <code>context</code> is an instance of <code>AccessControlContext</code> then the <code>AccessControlContext.checkPermission</code> method will be invoked with the <code>FilePermission(file,"read")</code> permission. <p> If <code>context</code> is not an instance of <code>AccessControlContext</code> then a <code>SecurityException</code> is thrown. <p> If you override this method, then you should make a call to <code>super.checkRead</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkWrite(FileDescriptor fd): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to write to the specified file descriptor. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("writeFileDescriptor")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkWrite</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkWrite(String file): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to write to the file specified by the string argument. <p> This method calls <code>checkPermission</code> with the <code>FilePermission(file,"write")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkWrite</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkDelete(String file): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to delete the specified file. <p> This method is invoked for the current security manager by the <code>delete</code> method of class <code>File</code>. <p> This method calls <code>checkPermission</code> with the <code>FilePermission(file,"delete")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkDelete</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkConnect(String host, int port): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to open a socket connection to the specified host and port number. <p> A port number of <code>-1</code> indicates that the calling method is attempting to determine the IP address of the specified host name. <p> This method calls <code>checkPermission</code> with the <code>SocketPermission(host+":"+port,"connect")</code> permission if the port is not equal to -1. If the port is equal to -1, then it calls <code>checkPermission</code> with the <code>SocketPermission(host,"resolve")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkConnect</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkConnect(String host, int port, Object context): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the specified security context is not allowed to open a socket connection to the specified host and port number. <p> A port number of <code>-1</code> indicates that the calling method is attempting to determine the IP address of the specified host name. <p> If <code>context</code> is not an instance of <code>AccessControlContext</code> then a <code>SecurityException</code> is thrown. <p> Otherwise, the port number is checked. If it is not equal to -1, the <code>context</code>‘s <code>checkPermission</code> method is called with a <code>SocketPermission(host+":"+port,"connect")</code> permission. If the port is equal to -1, then the <code>context</code>‘s <code>checkPermission</code> method is called with a <code>SocketPermission(host,"resolve")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkConnect</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkListen(int port): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to wait for a connection request on the specified local port number. <p> This method calls <code>checkPermission</code> with the <code>SocketPermission("localhost:"+port,"listen")</code>. <p> If you override this method, then you should make a call to <code>super.checkListen</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAccept(String host, int port): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not permitted to accept a socket connection from the specified host and port number. <p> This method is invoked for the current security manager by the <code>accept</code> method of class <code>ServerSocket</code>. <p> This method calls <code>checkPermission</code> with the <code>SocketPermission(host+":"+port,"accept")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkAccept</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkMulticast(InetAddress maddr): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to use (join&#x2F;leave&#x2F;send&#x2F;receive) IP multicast. <p> This method calls <code>checkPermission</code> with the <code>java.net.SocketPermission(maddr.getHostAddress(), "accept,connect")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkMulticast</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkMulticast(InetAddress maddr, byte ttl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to use (join&#x2F;leave&#x2F;send&#x2F;receive) IP multicast. <p> This method calls <code>checkPermission</code> with the <code>java.net.SocketPermission(maddr.getHostAddress(), "accept,connect")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkMulticast</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPropertiesAccess(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to access or modify the system properties. <p> This method is used by the <code>getProperties</code> and <code>setProperties</code> methods of class <code>System</code>. <p> This method calls <code>checkPermission</code> with the <code>PropertyPermission("*", "read,write")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkPropertiesAccess</code> at the point the overridden method would normally throw an exception. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPropertyAccess(String key): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to access the system property with the specified <code>key</code> name. <p> This method is used by the <code>getProperty</code> method of class <code>System</code>. <p> This method calls <code>checkPermission</code> with the <code>PropertyPermission(key, "read")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkPropertyAccess</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkTopLevelWindow(Object window): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <code>false</code> if the calling thread is not trusted to bring up the top-level window indicated by the <code>window</code> argument. In this case, the caller can still decide to show the window, but the window should include some sort of visual warning. If the method returns <code>true</code>, then the window can be shown without any special restrictions. <p> See class <code>Window</code> for more information on trusted and untrusted windows. <p> This method calls <code>checkPermission</code> with the <code>AWTPermission("showWindowWithoutWarningBanner")</code> permission, and returns <code>true</code> if a SecurityException is not thrown, otherwise it returns <code>false</code>. In the case of subset Profiles of Java SE that do not include the ‘java.awt’ package, ‘checkPermission’ is instead called to check the permission ‘java.security.AllPermission’. <p> If you override this method, then you should make a call to <code>super.checkTopLevelWindow</code> at the point the overridden method would normally return <code>false</code>, and the value of <code>super.checkTopLevelWindow</code> should be returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPrintJobAccess(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to initiate a print job request. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("queuePrintJob")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkPrintJobAccess</code> at the point the overridden method would normally throw an exception. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkSystemClipboardAccess(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to access the system clipboard. <p> This method calls <code>checkPermission</code> with the <code>AWTPermission("accessClipboard")</code> permission. In the case of subset Profiles of Java SE that do not include the ‘java.awt’ package, ‘checkPermission’ is instead called to check the permission ‘java.security.AllPermission’. <p> If you override this method, then you should make a call to <code>super.checkSystemClipboardAccess</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAwtEventQueueAccess(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to access the AWT event queue. <p> This method calls <code>checkPermission</code> with the <code>AWTPermission("accessEventQueue")</code> permission. In the case of subset Profiles of Java SE that do not include the ‘java.awt’ package, ‘checkPermission’ is instead called to check the permission ‘java.security.AllPermission’.  <p> If you override this method, then you should make a call to <code>super.checkAwtEventQueueAccess</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPackages(String p): String[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPackageAccess(String pkg): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to access the package specified by the argument. <p> This method is used by the <code>loadClass</code> method of class loaders. <p> This method first gets a list of restricted packages by obtaining a comma-separated list from a call to <code>java.security.Security.getProperty("package.access")</code>, and checks to see if <code>pkg</code> starts with or equals any of the restricted packages. If it does, then <code>checkPermission</code> gets called with the <code>RuntimePermission("accessClassInPackage."+pkg)</code> permission. <p> If this method is overridden, then <code>super.checkPackageAccess</code> should be called as the first line in the overridden method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkPackageDefinition(String pkg): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to define classes in the package specified by the argument. <p> This method is used by the <code>loadClass</code> method of some class loaders. <p> This method first gets a list of restricted packages by obtaining a comma-separated list from a call to <code>java.security.Security.getProperty("package.definition")</code>, and checks to see if <code>pkg</code> starts with or equals any of the restricted packages. If it does, then <code>checkPermission</code> gets called with the <code>RuntimePermission("defineClassInPackage."+pkg)</code> permission. <p> If this method is overridden, then <code>super.checkPackageDefinition</code> should be called as the first line in the overridden method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkSetFactory(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to set the socket factory used by <code>ServerSocket</code> or <code>Socket</code>, or the stream handler factory used by <code>URL</code>. <p> This method calls <code>checkPermission</code> with the <code>RuntimePermission("setFactory")</code> permission. <p> If you override this method, then you should make a call to <code>super.checkSetFactory</code> at the point the overridden method would normally throw an exception. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkMemberAccess(Class&lt;?&gt; clazz, int which): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws a <code>SecurityException</code> if the calling thread is not allowed to access members. <p> The default policy is to allow access to PUBLIC members, as well as access to classes that have the same class loader as the caller. In all other cases, this method calls <code>checkPermission</code> with the <code>RuntimePermission("accessDeclaredMembers") </code> permission. <p> If this method is overridden, then a call to <code>super.checkMemberAccess</code> cannot be made, as the default implementation of <code>checkMemberAccess</code> relies on the code being checked being at a stack depth of 4.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkSecurityAccess(String target): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the permission with the specified permission target name should be granted or denied.  <p> If the requested permission is allowed, this method returns quietly. If denied, a SecurityException is raised.  <p> This method creates a <code>SecurityPermission</code> object for the given permission target name and calls <code>checkPermission</code> with it.  <p> See the documentation for <code>'java.security.SecurityPermission'</code> for a list of possible permission target names.  <p> If you override this method, then you should make a call to <code>super.checkSecurityAccess</code> at the point the overridden method would normally throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentLoadedClass0(): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getThreadGroup(): ThreadGroup</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the thread group into which to instantiate any new thread being created at the time this is being called. By default, it returns the thread group of the current thread. This should be overridden by a specific security manager to return the appropriate thread group.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

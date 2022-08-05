@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/beans/Introspector.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Introspector"><a href="#Introspector" class="headerlink" title="Introspector"></a>Introspector</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.beans.Introspector</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>USE_ALL_BEANINFO: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag to indicate to use of all beaninfo.</td>
+</tr>
+<tr>
+<td align="center"><strong>IGNORE_IMMEDIATE_BEANINFO: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag to indicate to ignore immediate beaninfo.</td>
+</tr>
+<tr>
+<td align="center"><strong>IGNORE_ALL_BEANINFO: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag to indicate to ignore all beaninfo.</td>
+</tr>
+<tr>
+<td align="center"><strong>declaredMethodCache: WeakCache&lt;Class&lt;?&gt;, Method[]&gt;</strong></td>
+<td align="center">new WeakCache&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>beanClass: Class&lt;?&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>explicitBeanInfo: BeanInfo</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>superBeanInfo: BeanInfo</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>additionalBeanInfo: BeanInfo[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>propertyChangeSource: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eventListenerType: Class&lt;EventListener&gt;</strong></td>
+<td align="center">EventListener.class</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultEventName: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultPropertyName: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultEventIndex: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultPropertyIndex: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>methods: Map&lt;String, MethodDescriptor&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>properties: Map&lt;String, PropertyDescriptor&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>events: Map&lt;String, EventSetDescriptor&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_EVENTSETDESCRIPTORS: EventSetDescriptor[]</strong></td>
+<td align="center">new EventSetDescriptor[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ADD_PREFIX: String</strong></td>
+<td align="center">“add”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>REMOVE_PREFIX: String</strong></td>
+<td align="center">“remove”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>GET_PREFIX: String</strong></td>
+<td align="center">“get”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SET_PREFIX: String</strong></td>
+<td align="center">“set”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>IS_PREFIX: String</strong></td>
+<td align="center">“is”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pdStore: HashMap&lt;String, List&lt;PropertyDescriptor&gt;&gt;</strong></td>
+<td align="center">new HashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getBeanInfo(Class&lt;?&gt; beanClass): BeanInfo</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Introspect on a Java Bean and learn about all its properties, exposed methods, and events. <p> If the BeanInfo class for a Java Bean has been previously Introspected then the BeanInfo class is retrieved from the BeanInfo cache.</td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBeanInfo(Class&lt;?&gt; beanClass, int flags): BeanInfo</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Introspect on a Java bean and learn about all its properties, exposed methods, and events, subject to some control flags. <p> If the BeanInfo class for a Java Bean has been previously Introspected based on the same arguments then the BeanInfo class is retrieved from the BeanInfo cache.</td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBeanInfo(Class&lt;?&gt; beanClass, Class&lt;?&gt; stopClass): BeanInfo</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Introspect on a Java bean and learn all about its properties, exposed methods, below a given “stop” point. <p> If the BeanInfo class for a Java Bean has been previously Introspected based on the same arguments, then the BeanInfo class is retrieved from the BeanInfo cache.</td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBeanInfo(Class&lt;?&gt; beanClass, Class&lt;?&gt; stopClass, int flags): BeanInfo</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Introspect on a Java Bean and learn about all its properties, exposed methods and events, below a given ‘stopClass’ point subject to some control ‘flags’. <dl> <dt>USE_ALL_BEANINFO</dt> <dd>Any BeanInfo that can be discovered will be used.</dd> <dt>IGNORE_IMMEDIATE_BEANINFO</dt> <dd>Any BeanInfo associated with the specified ‘beanClass’ will be ignored.</dd> <dt>IGNORE_ALL_BEANINFO</dt> <dd>Any BeanInfo associated with the specified ‘beanClass’ or any of its parent classes will be ignored.</dd> </dl> Any methods&#x2F;properties&#x2F;events in the ‘stopClass’ or in its parent classes will be ignored in the analysis. <p> If the BeanInfo class for a Java Bean has been previously introspected based on the same arguments then the BeanInfo class is retrieved from the BeanInfo cache.</td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>decapitalize(String name): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility method to take a string and convert it to normal Java variable name capitalization.  This normally means converting the first character from upper case to lower case, but in the (unusual) special case when there is more than one character and both the first and second characters are upper case, we leave it alone. <p> Thus “FooBah” becomes “fooBah” and “X” becomes “x”, but “URL” stays as “URL”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBeanInfoSearchPath(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the list of package names that will be used for finding BeanInfo classes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setBeanInfoSearchPath(String[] path): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Change the list of package names that will be used for finding BeanInfo classes.  The behaviour of this method is undefined if parameter path is null.  <p>First, if there is a security manager, its <code>checkPropertiesAccess</code> method is called. This could result in a SecurityException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flushCaches(): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flush all of the Introspector’s internal caches.  This method is not normally required.  It is normally only needed by advanced tools that update existing “Class” objects in-place and need to make the Introspector re-analyze existing Class objects.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flushFromCaches(Class&lt;?&gt; clz): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flush the Introspector’s internal cached information for a given class. This method is not normally required.  It is normally only needed by advanced tools that update existing “Class” objects in-place and need to make the Introspector re-analyze an existing Class object.  Note that only the direct state associated with the target Class object is flushed.  We do not flush state for other Class objects with the same name, nor do we flush state for any related Class objects (such as subclasses), even though their state may include information indirectly obtained from the target Class object.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>Introspector(Class&lt;?&gt; beanClass, Class&lt;?&gt; stopClass, int flags)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBeanInfo(): BeanInfo</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a GenericBeanInfo class from the state of the Introspector</td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>findExplicitBeanInfo(Class&lt;?&gt; beanClass): BeanInfo</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Looks for an explicit BeanInfo class that corresponds to the Class. First it looks in the existing package that the Class is defined in, then it checks to see if the class is its own BeanInfo. Finally, the BeanInfo search path is prepended to the class and searched.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetPropertyInfo(): PropertyDescriptor[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyDescriptor(PropertyDescriptor pd): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the property descriptor to the list store.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyDescriptors(PropertyDescriptor[] descriptors): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPropertyDescriptors(BeanInfo info): PropertyDescriptor[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processPropertyDescriptors(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Populates the property descriptor table by merging the lists of Property descriptors.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAssignable(Class&lt;?&gt; current, Class&lt;?&gt; candidate): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergePropertyWithIndexedProperty(PropertyDescriptor pd, IndexedPropertyDescriptor ipd): PropertyDescriptor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergePropertyDescriptor(IndexedPropertyDescriptor ipd, PropertyDescriptor pd): PropertyDescriptor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the property descriptor to the indexedproperty descriptor only if the types are the same.  The most specific property descriptor will take precedence.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergePropertyDescriptor(PropertyDescriptor pd1, PropertyDescriptor pd2): PropertyDescriptor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mergePropertyDescriptor(IndexedPropertyDescriptor ipd1, IndexedPropertyDescriptor ipd2): IndexedPropertyDescriptor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetEventInfo(): EventSetDescriptor[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IntrospectionException</td>
+</tr>
+<tr>
+<td align="center"><strong>addEvent(EventSetDescriptor esd): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetMethodInfo(): MethodDescriptor[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addMethod(MethodDescriptor md): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeQualifiedMethodName(String name, String[] params): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a key for a method in a method cache.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetDefaultEventIndex(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetDefaultPropertyIndex(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetBeanDescriptor(): BeanDescriptor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findCustomizerClass(Class&lt;?&gt; type): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEventHandler(Method m): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPublicDeclaredMethods(Class&lt;?&gt; clz): Method[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal method to return <em>public</em> methods within a class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalFindMethod(Class&lt;?&gt; start, String methodName, int argCount, Class args[]): Method</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal support for finding a target methodName with a given parameter list on a given class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findMethod(Class&lt;?&gt; cls, String methodName, int argCount): Method</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find a target methodName on a given class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findMethod(Class&lt;?&gt; cls, String methodName, int argCount, Class args[]): Method</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find a target methodName with specific parameter list on a given class. <p> Used in the contructors of the EventSetDescriptor, PropertyDescriptor and the IndexedPropertyDescriptor. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSubclass(Class&lt;?&gt; a, Class&lt;?&gt; b): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return true if class a is either equivalent to class b, or if class a is a subclass of class b, i.e. if a either “extends” or “implements” b. Note tht either or both “Class” objects may represent interfaces.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>: boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return true iff the given method throws the given exception.</td>
+<td align="left">Class&lt;?&gt; exception)<br/>Exception(Method method</td>
+</tr>
+<tr>
+<td align="center"><strong>instantiate(Class&lt;?&gt; sibling, String className): Object</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Try to create an instance of a named class. First try the classloader of “sibling”, then try the system classloader then the class loader of the current Thread.</td>
+<td align="left">InstantiationException<br/>ClassNotFoundException<br/>IllegalAccessException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Introspector-GenericBeanInfo"><a href="#Introspector-GenericBeanInfo" class="headerlink" title="Introspector$GenericBeanInfo"></a><a href="./Introspector$GenericBeanInfo.html">Introspector$GenericBeanInfo</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

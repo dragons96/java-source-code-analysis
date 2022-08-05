@@ -78,7 +78,18 @@
 <td align="left">initial size of the bundle cache</td>
 </tr>
 <tr>
-<td align="center"><strong>: ReferenceQueue&lt;Object&gt; referenceQueue &#x3D; new ReferenceQueue&lt;&gt;()</strong></td>
+<td align="center"><strong>cacheList: ConcurrentMap&lt;CacheKey, BundleReference&gt;</strong></td>
+<td align="center">new ConcurrentHashMap&lt;&gt;(INITIAL_CACHE_SIZE)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The cache is a map from cache keys (with bundle base name, locale, and class loader) to either a resource bundle or NONEXISTENT_BUNDLE wrapped by a BundleReference.  The cache is a ConcurrentMap, allowing the cache to be searched concurrently by multiple threads.  This will also allow the cache keys to be reclaimed along with the ClassLoaders they reference.  This variable would be better named “cache”, but we keep the old name for compatibility with some workarounds for bug 4212439.</td>
+</tr>
+<tr>
+<td align="center"><strong>referenceQueue: ReferenceQueue&lt;Object&gt;</strong></td>
 <td align="center">new ReferenceQueue&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -313,7 +324,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBundle(String baseName,Control control): ResourceBundle</strong></td>
+<td align="center"><strong>getBundle(String baseName, Control control): ResourceBundle</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -325,7 +336,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBundle(String baseName,Locale locale): ResourceBundle</strong></td>
+<td align="center"><strong>getBundle(String baseName, Locale locale): ResourceBundle</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -337,7 +348,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBundle(String baseName, Locale targetLocale,Control control): ResourceBundle</strong></td>
+<td align="center"><strong>getBundle(String baseName, Locale targetLocale, Control control): ResourceBundle</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -349,7 +360,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBundle(String baseName, Locale locale,ClassLoader loader): ResourceBundle</strong></td>
+<td align="center"><strong>getBundle(String baseName, Locale locale, ClassLoader loader): ResourceBundle</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -361,7 +372,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBundle(String baseName, Locale targetLocale,ClassLoader loader, Control control): ResourceBundle</strong></td>
+<td align="center"><strong>getBundle(String baseName, Locale targetLocale, ClassLoader loader, Control control): ResourceBundle</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -385,7 +396,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBundleImpl(String baseName, Locale locale,ClassLoader loader, Control control): ResourceBundle</strong></td>
+<td align="center"><strong>getBundleImpl(String baseName, Locale locale, ClassLoader loader, Control control): ResourceBundle</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -409,7 +420,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>findBundle(CacheKey cacheKey,List&lt;Locale&gt; candidateLocales,List&lt;String&gt; formats,int index,Control control,ResourceBundle baseBundle): ResourceBundle</strong></td>
+<td align="center"><strong>findBundle(CacheKey cacheKey, List&lt;Locale&gt; candidateLocales, List&lt;String&gt; formats, int index, Control control, ResourceBundle baseBundle): ResourceBundle</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -421,7 +432,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>loadBundle(CacheKey cacheKey,List&lt;String&gt; formats,Control control,boolean reload): ResourceBundle</strong></td>
+<td align="center"><strong>loadBundle(CacheKey cacheKey, List&lt;String&gt; formats, Control control, boolean reload): ResourceBundle</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -457,7 +468,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>throwMissingResourceException(String baseName,Locale locale,Throwable cause): void</strong></td>
+<td align="center"><strong>throwMissingResourceException(String baseName, Locale locale, Throwable cause): void</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -469,7 +480,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>findBundleInCache(CacheKey cacheKey,Control control): ResourceBundle</strong></td>
+<td align="center"><strong>findBundleInCache(CacheKey cacheKey, Control control): ResourceBundle</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -481,7 +492,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>putBundleInCache(CacheKey cacheKey,ResourceBundle bundle,Control control): ResourceBundle</strong></td>
+<td align="center"><strong>putBundleInCache(CacheKey cacheKey, ResourceBundle bundle, Control control): ResourceBundle</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -649,7 +660,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>newBundle(String baseName, Locale locale, String format,ClassLoader loader, boolean reload): ResourceBundle</strong></td>
+<td align="center"><strong>newBundle(String baseName, Locale locale, String format, ClassLoader loader, boolean reload): ResourceBundle</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -673,7 +684,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>needsReload(String baseName, Locale locale,String format, ClassLoader loader,ResourceBundle bundle, long loadTime): boolean</strong></td>
+<td align="center"><strong>needsReload(String baseName, Locale locale, String format, ClassLoader loader, ResourceBundle bundle, long loadTime): boolean</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>

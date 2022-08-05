@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/ByteArrayInputStream.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ByteArrayInputStream"><a href="#ByteArrayInputStream" class="headerlink" title="ByteArrayInputStream"></a>ByteArrayInputStream</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.ByteArrayInputStream</strong></td>
+<td align="center">class</td>
+<td align="center">InputStream</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>buf: byte[]</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">An array of bytes that was provided by the creator of the stream. Elements <code>buf[0]</code> through <code>buf[count-1]</code> are the only bytes that can ever be read from the stream;  element <code>buf[pos]</code> is the next byte to be read.</td>
+</tr>
+<tr>
+<td align="center"><strong>pos: int</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The index of the next character to read from the input stream buffer. This value should always be nonnegative and not larger than the value of <code>count</code>. The next byte to be read from the input stream buffer will be <code>buf[pos]</code>.</td>
+</tr>
+<tr>
+<td align="center"><strong>mark: int</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The currently marked position in the stream. ByteArrayInputStream objects are marked at position zero by default when constructed.  They may be marked at another position within the buffer by the <code>mark()</code> method. The current buffer position is set to this point by the <code>reset()</code> method. <p> If no mark has been set, then the value of mark is the offset passed to the constructor (or 0 if the offset was not supplied).  @since   JDK1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>count: int</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The index one greater than the last valid character in the input stream buffer. This value should always be nonnegative and not larger than the length of <code>buf</code>. It  is one greater than the position of the last byte within <code>buf</code> that can ever be read  from the input stream buffer.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ByteArrayInputStream(byte buf[])</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a <code>ByteArrayInputStream</code> so that it  uses <code>buf</code> as its buffer array. The buffer array is not copied. The initial value of <code>pos</code> is <code>0</code> and the initial value of  <code>count</code> is the length of <code>buf</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ByteArrayInputStream(byte buf[], int offset, int length)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates <code>ByteArrayInputStream</code> that uses <code>buf</code> as its buffer array. The initial value of <code>pos</code> is <code>offset</code> and the initial value of <code>count</code> is the minimum of <code>offset+length</code> and <code>buf.length</code>. The buffer array is not copied. The buffer’s mark is set to the specified offset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>read(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads the next byte of data from this input stream. The value byte is returned as an <code>int</code> in the range <code>0</code> to <code>255</code>. If no byte is available because the end of the stream has been reached, the value <code>-1</code> is returned. <p> This <code>read</code> method cannot block.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>read(byte b[], int off, int len): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads up to <code>len</code> bytes of data into an array of bytes from this input stream. If <code>pos</code> equals <code>count</code>, then <code>-1</code> is returned to indicate end of file. Otherwise, the  number <code>k</code> of bytes read is equal to the smaller of <code>len</code> and <code>count-pos</code>. If <code>k</code> is positive, then bytes <code>buf[pos]</code> through <code>buf[pos+k-1]</code> are copied into <code>b[off]</code>  through <code>b[off+k-1]</code> in the manner performed by <code>System.arraycopy</code>. The value <code>k</code> is added into <code>pos</code> and <code>k</code> is returned. <p> This <code>read</code> method cannot block.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skip(long n): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Skips <code>n</code> bytes of input from this input stream. Fewer bytes might be skipped if the end of the input stream is reached. The actual number <code>k</code> of bytes to be skipped is equal to the smaller of <code>n</code> and  <code>count-pos</code>. The value <code>k</code> is added into <code>pos</code> and <code>k</code> is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>available(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of remaining bytes that can be read (or skipped over) from this input stream. <p> The value returned is <code>count&nbsp;- pos</code>, which is the number of bytes remaining to be read from the input buffer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>markSupported(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if this <code>InputStream</code> supports mark&#x2F;reset. The <code>markSupported</code> method of <code>ByteArrayInputStream</code> always returns <code>true</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mark(int readAheadLimit): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the current marked position in the stream. ByteArrayInputStream objects are marked at position zero by default when constructed.  They may be marked at another position within the buffer by this method. <p> If no mark has been set, then the value of the mark is the offset passed to the constructor (or 0 if the offset was not supplied).  <p> Note: The <code>readAheadLimit</code> for this class has no meaning.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reset(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resets the buffer to the marked position.  The marked position is 0 unless another position was marked or an offset was specified in the constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closing a <tt>ByteArrayInputStream</tt> has no effect. The methods in this class can be called after the stream has been closed without generating an <tt>IOException</tt>.</td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/net/InetAddress.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="InetAddress"><a href="#InetAddress" class="headerlink" title="InetAddress"></a>InetAddress</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.net.InetAddress</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>IPv4: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Specify the address family: Internet Protocol, Version 4 @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>IPv6: int</strong></td>
+<td align="center">2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Specify the address family: Internet Protocol, Version 6 @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>preferIPv6Address: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Specify address family preference</td>
+</tr>
+<tr>
+<td align="center"><strong>holder: InetAddressHolder</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Used to store the serializable fields of InetAddress</td>
+</tr>
+<tr>
+<td align="center"><strong>nameServices: List&lt;NameService&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to store the name service provider</td>
+</tr>
+<tr>
+<td align="center"><strong>canonicalHostName: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Used to store the best available hostname</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">3286316764910316507L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">use serialVersionUID from JDK 1.0.2 for interoperability</td>
+</tr>
+<tr>
+<td align="center"><strong>addressCache: Cache</strong></td>
+<td align="center">new Cache(Cache.Type.Positive)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cached addresses - our own litle nis, not!</td>
+</tr>
+<tr>
+<td align="center"><strong>negativeCache: Cache</strong></td>
+<td align="center">new Cache(Cache.Type.Negative)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addressCacheInit: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unknown_array: InetAddress[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>impl: InetAddressImpl</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupTable: HashMap&lt;String, Void&gt;</strong></td>
+<td align="center">new HashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cachedLocalHost: InetAddress</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheTime: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>maxCacheTime: long</strong></td>
+<td align="center">5000L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>FIELDS_OFFSET: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>holder(): InetAddressHolder</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>InetAddress()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor for the Socket.accept() method. This creates an empty InetAddress, which is filled in by the accept() method.  This InetAddress, however, is not put in the address cache, since it is not created by name.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readResolve(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces the de-serialized object with an Inet4Address object.</td>
+<td align="left">ObjectStreamException</td>
+</tr>
+<tr>
+<td align="center"><strong>isMulticastAddress(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the InetAddress is an IP multicast address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAnyLocalAddress(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the InetAddress in a wildcard address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLoopbackAddress(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the InetAddress is a loopback address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLinkLocalAddress(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the InetAddress is an link local address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSiteLocalAddress(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the InetAddress is a site local address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMCGlobal(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the multicast address has global scope.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMCNodeLocal(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the multicast address has node scope.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMCLinkLocal(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the multicast address has link scope.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMCSiteLocal(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the multicast address has site scope.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMCOrgLocal(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility routine to check if the multicast address has organization scope.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isReachable(int timeout): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Test whether that address is reachable. Best effort is made by the implementation to try to reach the host, but firewalls and server configuration may block requests resulting in a unreachable status while some specific ports may be accessible. A typical implementation will use ICMP ECHO REQUESTs if the privilege can be obtained, otherwise it will try to establish a TCP connection on port 7 (Echo) of the destination host. <p> The timeout value, in milliseconds, indicates the maximum amount of time the try should take. If the operation times out before getting an answer, the host is deemed unreachable. A negative value will result in an IllegalArgumentException being thrown.</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>isReachable(NetworkInterface netif, int ttl, int timeout): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Test whether that address is reachable. Best effort is made by the implementation to try to reach the host, but firewalls and server configuration may block requests resulting in a unreachable status while some specific ports may be accessible. A typical implementation will use ICMP ECHO REQUESTs if the privilege can be obtained, otherwise it will try to establish a TCP connection on port 7 (Echo) of the destination host. <p> The ‘network interface’ and ‘ttl’ parameters let the caller specify which network interface the test will go through and the maximum number of hops the packets should go through. A negative value for the ‘ttl’ will result in an IllegalArgumentException being thrown. <p> The timeout value, in milliseconds, indicates the maximum amount of time the try should take. If the operation times out before getting an answer, the host is deemed unreachable. A negative value will result in an IllegalArgumentException being thrown.</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getHostName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the host name for this IP address.  <p>If this InetAddress was created with a host name, this host name will be remembered and returned; otherwise, a reverse name lookup will be performed and the result will be returned based on the system configured name lookup service. If a lookup of the name service is required, call ‘#getCanonicalHostName() getCanonicalHostName’.  <p>If there is a security manager, its ‘checkConnect’ method is first called with the hostname and ‘-1’ as its arguments to see if the operation is allowed. If the operation is not allowed, it will return the textual representation of the IP address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHostName(boolean check): String</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hostname for this address. If the host is equal to null, then this address refers to any of the local machine’s available network addresses. this is package private so SocketPermission can make calls into here without a security check.  <p>If there is a security manager, this method first calls its ‘checkConnect’ method with the hostname and ‘-1’ as its arguments to see if the calling code is allowed to know the hostname for this IP address, i.e., to connect to the host. If the operation is not allowed, it will return the textual representation of the IP address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCanonicalHostName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the fully qualified domain name for this IP address. Best effort method, meaning we may not be able to return the FQDN depending on the underlying system configuration.  <p>If there is a security manager, this method first calls its ‘checkConnect’ method with the hostname and ‘-1’ as its arguments to see if the calling code is allowed to know the hostname for this IP address, i.e., to connect to the host. If the operation is not allowed, it will return the textual representation of the IP address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHostFromNameService(InetAddress addr, boolean check): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hostname for this address.  <p>If there is a security manager, this method first calls its ‘checkConnect’ method with the hostname and ‘-1’ as its arguments to see if the calling code is allowed to know the hostname for this IP address, i.e., to connect to the host. If the operation is not allowed, it will return the textual representation of the IP address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAddress(): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the raw IP address of this ‘InetAddress’ object. The result is in network byte order: the highest order byte of the address is in ‘getAddress()[0]’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHostAddress(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the IP address string in textual presentation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hashcode for this IP address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this object against the specified object. The result is ‘true’ if and only if the argument is not ‘null’ and it represents the same IP address as this object. <p> Two instances of ‘InetAddress’ represent the same IP address if the length of the byte arrays returned by ‘getAddress’ is the same for both, and each of the array components is the same for the byte arrays.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this IP address to a ‘String’. The string returned is of the form: hostname &#x2F; literal IP address.  If the host name is unresolved, no reverse name service lookup is performed. The hostname part will be represented by an empty string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheInitIfNeeded(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize cache and insert anyLocalAddress into the unknown array with no expiry.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cacheAddresses(String hostname, InetAddress[] addresses, boolean success): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cache the given hostname and addresses.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCachedAddresses(String hostname): InetAddress[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Lookup hostname in cache (positive &amp; negative cache). If found return addresses, null if not found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createNSProvider(String provider): NameService</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getByAddress(String host, byte[] addr): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an InetAddress based on the provided host name and IP address. No name service is checked for the validity of the address.  <p> The host name can either be a machine name, such as “‘java.sun.com’”, or a textual representation of its IP address. <p> No validity checking is done on the host name either.  <p> If addr specifies an IPv4 address an instance of Inet4Address will be returned; otherwise, an instance of Inet6Address will be returned.  <p> IPv4 address byte array must be 4 bytes long and IPv6 byte array must be 16 bytes long</td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByName(String host): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the IP address of a host, given the host’s name.  <p> The host name can either be a machine name, such as “‘java.sun.com’”, or a textual representation of its IP address. If a literal IP address is supplied, only the validity of the address format is checked.  <p> For ‘host’ specified in literal IPv6 address, either the form defined in RFC 2732 or the literal IPv6 address format defined in RFC 2373 is accepted. IPv6 scoped addresses are also supported. See <a href="Inet6Address.html#scoped">here</a> for a description of IPv6 scoped addresses.  <p> If the host is ‘null’ then an ‘InetAddress’ representing an address of the loopback interface is returned. See &lt;a href&#x3D;”http: section&amp;nbsp;2 and &lt;a href&#x3D;”http: section&amp;nbsp;2.5.3. </p></td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByName(String host, InetAddress reqAddr): InetAddress</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAllByName(String host): InetAddress[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Given the name of a host, returns an array of its IP addresses, based on the configured name service on the system.  <p> The host name can either be a machine name, such as “‘java.sun.com’”, or a textual representation of its IP address. If a literal IP address is supplied, only the validity of the address format is checked.  <p> For ‘host’ specified in <i>literal IPv6 address</i>, either the form defined in RFC 2732 or the literal IPv6 address format defined in RFC 2373 is accepted. A literal IPv6 address may also be qualified by appending a scoped zone identifier or scope_id. The syntax and usage of scope_ids is described <a href="Inet6Address.html#scoped">here</a>. <p> If the host is ‘null’ then an ‘InetAddress’ representing an address of the loopback interface is returned. See &lt;a href&#x3D;”http: section&amp;nbsp;2 and &lt;a href&#x3D;”http: section&amp;nbsp;2.5.3. </p>  <p> If there is a security manager and ‘host’ is not null and ‘host.length()’ is not equal to zero, the security manager’s ‘checkConnect’ method is called with the hostname and ‘-1’ as its arguments to see if the operation is allowed.</td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAllByName(String host, InetAddress reqAddr): InetAddress[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLoopbackAddress(): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the loopback address. <p> The InetAddress returned will represent the IPv4 loopback address, 127.0.0.1, or the IPv6 loopback address, ::1. The IPv4 loopback address returned is only one of many in the form 127.<em>.</em>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAddressesFromNameService(String host, InetAddress reqAddr): InetAddress[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">package private so SocketPermission can call it</td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkLookupTable(String host): InetAddress[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateLookupTable(String host): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getByAddress(byte[] addr): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an ‘InetAddress’ object given the raw IP address . The argument is in network byte order: the highest order byte of the address is in ‘getAddress()[0]’.  <p> This method doesn’t block, i.e. no reverse name service lookup is performed.  <p> IPv4 address byte array must be 4 bytes long and IPv6 byte array must be 16 bytes long</td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLocalHost(): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the address of the local host. This is achieved by retrieving the name of the host from the system, then resolving that name into an ‘InetAddress’.  <P>Note: The resolved address may be cached for a short period of time. </P>  <p>If there is a security manager, its ‘checkConnect’ method is called with the local host name and ‘-1’ as its arguments to see if the operation is allowed. If the operation is not allowed, an InetAddress representing the loopback address is returned.</td>
+<td align="left">UnknownHostException</td>
+</tr>
+<tr>
+<td align="center"><strong>init(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Perform class load-time initializations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>anyLocalAddress(): InetAddress</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the InetAddress representing anyLocalAddress (typically 0.0.0.0 or ::0)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadImpl(String implName): InetAddressImpl</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Load and instantiate an underlying impl class</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="InetAddress-InetAddressHolder"><a href="#InetAddress-InetAddressHolder" class="headerlink" title="InetAddress$InetAddressHolder"></a><a href="./InetAddress$InetAddressHolder.html">InetAddress$InetAddressHolder</a></h3><h3 id="InetAddress-CacheEntry"><a href="#InetAddress-CacheEntry" class="headerlink" title="InetAddress$CacheEntry"></a><a href="./InetAddress$CacheEntry.html">InetAddress$CacheEntry</a></h3><h3 id="InetAddress-Cache"><a href="#InetAddress-Cache" class="headerlink" title="InetAddress$Cache"></a><a href="./InetAddress$Cache.html">InetAddress$Cache</a></h3><h3 id="InetAddress-InetAddressImplFactory"><a href="#InetAddress-InetAddressImplFactory" class="headerlink" title="InetAddress$InetAddressImplFactory"></a><a href="./InetAddress$InetAddressImplFactory.html">InetAddress$InetAddressImplFactory</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

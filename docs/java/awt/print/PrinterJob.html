@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/print/PrinterJob.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="PrinterJob"><a href="#PrinterJob" class="headerlink" title="PrinterJob"></a>PrinterJob</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.print.PrinterJob</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getPrinterJob(): PrinterJob</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates and returns a <code>PrinterJob</code> which is initially associated with the default printer. If no printers are available on the system, a PrinterJob will still be returned from this method, but <code>getPrintService()</code> will return <code>null</code>, and calling ‘#print() print’ with this <code>PrinterJob</code> might generate an exception.  Applications that need to determine if there are suitable printers before creating a <code>PrinterJob</code> should ensure that the array returned from ‘#lookupPrintServices() lookupPrintServices’ is not empty.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>lookupPrintServices(): PrintService[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A convenience method which looks up 2D print services. Services returned from this method may be installed on <code>PrinterJob</code>s which support print services. Calling this method is equivalent to calling ‘javax.print.PrintServiceLookup#lookupPrintServices( DocFlavor, AttributeSet) PrintServiceLookup.lookupPrintServices()’ and specifying a Pageable DocFlavor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupStreamPrintServices(String mimeType): StreamPrintServiceFactory[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A convenience method which locates factories for stream print services which can image 2D graphics. Sample usage : <pre>'FileOutputStream outstream; StreamPrintService psPrinter; String psMimeType = "application/postscript"; PrinterJob pj = PrinterJob.getPrinterJob();  StreamPrintServiceFactory[] factories = PrinterJob.lookupStreamPrintServices(psMimeType); if (factories.length > 0) { try { outstream = new File("out.ps"); psPrinter =  factories[0].getPrintService(outstream);  pj.setPrintService(psPrinter)' catch (Exception e) { e.printStackTrace(); } } }</pre> Services returned from this method may be installed on <code>PrinterJob</code> instances which support print services. Calling this method is equivalent to calling ‘javax.print.StreamPrintServiceFactory#lookupStreamPrintServiceFactories(DocFlavor, String) StreamPrintServiceFactory.lookupStreamPrintServiceFactories()’ and specifying a Pageable DocFlavor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>PrinterJob()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A <code>PrinterJob</code> object should be created using the static ‘#getPrinterJob() getPrinterJob’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPrintService(): PrintService</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the service (printer) for this printer job. Implementations of this class which do not support print services may return null.  null will also be returned if no printers are available.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPrintService(PrintService service): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Associate this PrinterJob with a new PrintService. This method is overridden by subclasses which support specifying a Print Service.  Throws <code>PrinterException</code> if the specified service cannot support the <code>Pageable</code> and <code>Printable</code> interfaces necessary to support 2D printing.</td>
+<td align="left">PrinterException</td>
+</tr>
+<tr>
+<td align="center"><strong>setPrintable(Printable painter): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Calls <code>painter</code> to render the pages.  The pages in the document to be printed by this <code>PrinterJob</code> are rendered by the ‘Printable’ object, <code>painter</code>.  The ‘PageFormat’ for each page is the default page format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPrintable(Printable painter, PageFormat format): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Calls <code>painter</code> to render the pages in the specified <code>format</code>.  The pages in the document to be printed by this <code>PrinterJob</code> are rendered by the <code>Printable</code> object, <code>painter</code>. The <code>PageFormat</code> of each page is <code>format</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPageable(Pageable document): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Queries <code>document</code> for the number of pages and the <code>PageFormat</code> and <code>Printable</code> for each page held in the <code>Pageable</code> instance, <code>document</code>.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>printDialog(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Presents a dialog to the user for changing the properties of the print job. This method will display a native dialog if a native print service is selected, and user choice of printers will be restricted to these native print services. To present the cross platform print dialog for all services, including native ones instead use <code>printDialog(PrintRequestAttributeSet)</code>. <p> PrinterJob implementations which can use PrintService’s will update the PrintService for this PrinterJob to reflect the new service selected by the user.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>printDialog(PrintRequestAttributeSet attributes): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A convenience method which displays a cross-platform print dialog for all services which are capable of printing 2D graphics using the <code>Pageable</code> interface. The selected printer when the dialog is initially displayed will reflect the print service currently attached to this print job. If the user changes the print service, the PrinterJob will be updated to reflect this, unless the user cancels the dialog. As well as allowing the user to select the destination printer, the user can also select values of various print request attributes. <p> The attributes parameter on input will reflect the applications required initial selections in the user dialog. Attributes not specified display using the default for the service. On return it will reflect the user’s choices. Selections may be updated by the implementation to be consistent with the supported values for the currently selected print service. <p> As the user scrolls to a new print service selection, the values copied are based on the settings for the previous service, together with any user changes. The values are not based on the original settings supplied by the client. <p> With the exception of selected printer, the PrinterJob state is not updated to reflect the user’s changes. For the selections to affect a printer job, the attributes must be specified in the call to the <code>print(PrintRequestAttributeSet)</code> method. If using the Pageable interface, clients which intend to use media selected by the user must create a PageFormat derived from the user’s selections. If the user cancels the dialog, the attributes will not reflect any changes made by the user.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>pageDialog(PageFormat page): PageFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Displays a dialog that allows modification of a <code>PageFormat</code> instance. The <code>page</code> argument is used to initialize controls in the page setup dialog. If the user cancels the dialog then this method returns the original <code>page</code> object unmodified. If the user okays the dialog then this method returns a new <code>PageFormat</code> object with the indicated changes. In either case, the original <code>page</code> object is not modified.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>pageDialog(PrintRequestAttributeSet attributes): PageFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A convenience method which displays a cross-platform page setup dialog. The choices available will reflect the print service currently set on this PrinterJob. <p> The attributes parameter on input will reflect the client’s required initial selections in the user dialog. Attributes which are not specified display using the default for the service. On return it will reflect the user’s choices. Selections may be updated by the implementation to be consistent with the supported values for the currently selected print service. <p> The return value will be a PageFormat equivalent to the selections in the PrintRequestAttributeSet. If the user cancels the dialog, the attributes will not reflect any changes made by the user, and the return value will be null.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultPage(PageFormat page): PageFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Clones the <code>PageFormat</code> argument and alters the clone to describe a default page size and orientation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultPage(): PageFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new <code>PageFormat</code> instance and sets it to a default size and orientation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPageFormat(PrintRequestAttributeSet attributes): PageFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates a <code>PageFormat</code> with values consistent with those supported by the current <code>PrintService</code> for this job (ie the value returned by <code>getPrintService()</code>) and media, printable area and orientation contained in <code>attributes</code>. <p> Calling this method does not update the job. It is useful for clients that have a set of attributes obtained from <code>printDialog(PrintRequestAttributeSet attributes)</code> and need a PageFormat to print a Pageable object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validatePage(PageFormat page): PageFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the clone of <code>page</code> with its settings adjusted to be compatible with the current printer of this <code>PrinterJob</code>.  For example, the returned <code>PageFormat</code> could have its imageable area adjusted to fit within the physical area of the paper that is used by the current printer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>print(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Prints a set of pages.</td>
+<td align="left">PrinterException</td>
+</tr>
+<tr>
+<td align="center"><strong>print(PrintRequestAttributeSet attributes): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints a set of pages using the settings in the attribute set. The default implementation ignores the attribute set. <p> Note that some attributes may be set directly on the PrinterJob by equivalent method calls, (for example), copies: <code>setcopies(int)</code>, job name: <code>setJobName(String)</code> and specifying media size and orientation though the <code>PageFormat</code> object. <p> If a supported attribute-value is specified in this attribute set, it will take precedence over the API settings for this print() operation only. The following behaviour is specified for PageFormat: If a client uses the Printable interface, then the <code>attributes</code> parameter to this method is examined for attributes which specify media (by size), orientation, and imageable area, and those are used to construct a new PageFormat which is passed to the Printable object’s print() method. See ‘Printable’ for an explanation of the required behaviour of a Printable to ensure optimal printing via PrinterJob. For clients of the Pageable interface, the PageFormat will always be as supplied by that interface, on a per page basis. <p> These behaviours allow an application to directly pass the user settings returned from <code>printDialog(PrintRequestAttributeSet attributes</code> to this print() method. <p></td>
+<td align="left">PrinterException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCopies(int copies): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the number of copies to be printed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCopies(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the number of copies to be printed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getUserName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the name of the printing user.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setJobName(String jobName): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the name of the document to be printed. The document name can not be <code>null</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getJobName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the name of the document to be printed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cancel(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Cancels a print job that is in progress.  If ‘#print() print’ has been called but has not returned then this method signals that the job should be cancelled at the next chance. If there is no print job in progress then this call does nothing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isCancelled(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns <code>true</code> if a print job is in progress, but is going to be cancelled at the next opportunity; otherwise returns <code>false</code>.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

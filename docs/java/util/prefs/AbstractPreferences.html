@@ -124,7 +124,7 @@
 <td align="left">This field should be <tt>true</tt> if this node did not exist in the backing store prior to the creation of this object.  The field is initialized to false, but may be set to true by a subclass constructor (and should not be modified thereafter).  This field indicates whether a node change event should be fired when creation is complete.</td>
 </tr>
 <tr>
-<td align="center"><strong>: Map&lt;String, AbstractPreferences&gt; kidCache &#x3D; new HashMap&lt;&gt;()</strong></td>
+<td align="center"><strong>kidCache: Map&lt;String, AbstractPreferences&gt;</strong></td>
 <td align="center">new HashMap&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -190,7 +190,18 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: List&lt;EventObject&gt; eventQueue &#x3D; new LinkedList&lt;&gt;()</strong></td>
+<td align="center"><strong>EMPTY_ABSTRACT_PREFS_ARRAY: AbstractPreferences[]</strong></td>
+<td align="center">new AbstractPreferences[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eventQueue: List&lt;EventObject&gt;</strong></td>
 <td align="center">new LinkedList&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -249,7 +260,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>put</tt> method as per the specification in ‘Preferences#put(String,String)’.  <p>This implementation checks that the key and value are legal, obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#putSpi(String,String)’, and if there are any preference change listeners, enqueues a notification event for processing by the event dispatch thread.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(String key, String def): String</strong></td>
@@ -261,7 +272,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>get</tt> method as per the specification in ‘Preferences#get(String,String)’.  <p>This implementation first checks to see if <tt>key</tt> is <tt>null</tt> throwing a <tt>NullPointerException</tt> if this is the case.  Then it obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#getSpi(String)’, and returns the result, unless the <tt>getSpi</tt> invocation returns <tt>null</tt> or throws an exception, in which case this invocation returns <tt>def</tt>.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>remove(String key): void</strong></td>
@@ -273,7 +284,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>remove(String)</tt> method as per the specification in ‘Preferences#remove(String)’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed, invokes ‘#removeSpi(String)’ and if there are any preference change listeners, enqueues a notification event for processing by the event dispatch thread.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>clear(): void</strong></td>
@@ -285,7 +296,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>clear</tt> method as per the specification in ‘Preferences#clear()’.  <p>This implementation obtains this preference node’s lock, invokes ‘#keys()’ to obtain an array of keys, and iterates over the array invoking ‘#remove(String)’ on each key.</td>
-<td align="left">IllegalStateException<br/>BackingStoreException</td>
+<td align="left">BackingStoreException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>putInt(String key, int value): void</strong></td>
@@ -297,7 +308,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putInt</tt> method as per the specification in ‘Preferences#putInt(String,int)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Integer#toString(int)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getInt(String key, int def): int</strong></td>
@@ -309,7 +320,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>getInt</tt> method as per the specification in ‘Preferences#getInt(String,int)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to an <tt>int</tt> with ‘Integer#parseInt(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>putLong(String key, long value): void</strong></td>
@@ -321,7 +332,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putLong</tt> method as per the specification in ‘Preferences#putLong(String,long)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Long#toString(long)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getLong(String key, long def): long</strong></td>
@@ -333,7 +344,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>getLong</tt> method as per the specification in ‘Preferences#getLong(String,long)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to a <tt>long</tt> with ‘Long#parseLong(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>putBoolean(String key, boolean value): void</strong></td>
@@ -345,7 +356,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putBoolean</tt> method as per the specification in ‘Preferences#putBoolean(String,boolean)’.  <p>This implementation translates <tt>value</tt> to a string with ‘String#valueOf(boolean)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getBoolean(String key, boolean def): boolean</strong></td>
@@ -357,7 +368,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>getBoolean</tt> method as per the specification in ‘Preferences#getBoolean(String,boolean)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, it is compared with <tt>“true”</tt> using ‘String#equalsIgnoreCase(String)’.  If the comparison returns <tt>true</tt>, this invocation returns <tt>true</tt>.  Otherwise, the original return value is compared with <tt>“false”</tt>, again using ‘String#equalsIgnoreCase(String)’. If the comparison returns <tt>true</tt>, this invocation returns <tt>false</tt>.  Otherwise, this invocation returns <tt>def</tt>.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>putFloat(String key, float value): void</strong></td>
@@ -369,7 +380,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putFloat</tt> method as per the specification in ‘Preferences#putFloat(String,float)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Float#toString(float)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getFloat(String key, float def): float</strong></td>
@@ -381,7 +392,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>getFloat</tt> method as per the specification in ‘Preferences#getFloat(String,float)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to an <tt>float</tt> with ‘Float#parseFloat(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>putDouble(String key, double value): void</strong></td>
@@ -393,7 +404,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putDouble</tt> method as per the specification in ‘Preferences#putDouble(String,double)’.  <p>This implementation translates <tt>value</tt> to a string with ‘Double#toString(double)’ and invokes ‘#put(String,String)’ on the result.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getDouble(String key, double def): double</strong></td>
@@ -405,7 +416,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>getDouble</tt> method as per the specification in ‘Preferences#getDouble(String,double)’.  <p>This implementation invokes ‘#get(String,String) <tt>get(key, null)</tt>‘.  If the return value is non-null, the implementation attempts to translate it to an <tt>double</tt> with ‘Double#parseDouble(String)’.  If the attempt succeeds, the return value is returned by this method.  Otherwise, <tt>def</tt> is returned.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>putByteArray(String key, byte[] value): void</strong></td>
@@ -417,7 +428,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>putByteArray</tt> method as per the specification in ‘Preferences#putByteArray(String,byte[])’.</td>
-<td align="left">IllegalStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">NullPointerException<br/>IllegalStateException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getByteArray(String key, byte[] def): byte[]</strong></td>
@@ -429,7 +440,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>getByteArray</tt> method as per the specification in ‘Preferences#getByteArray(String,byte[])’.</td>
-<td align="left">IllegalStateException<br/>NullPointerException</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>keys(): String[]</strong></td>
@@ -441,7 +452,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>keys</tt> method as per the specification in ‘Preferences#keys()’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed and invokes ‘#keysSpi()’.</td>
-<td align="left">IllegalStateException<br/>BackingStoreException</td>
+<td align="left">BackingStoreException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>childrenNames(): String[]</strong></td>
@@ -453,7 +464,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>children</tt> method as per the specification in ‘Preferences#childrenNames()’.  <p>This implementation obtains this preference node’s lock, checks that the node has not been removed, constructs a <tt>TreeSet</tt> initialized to the names of children already cached (the children in this node’s “child-cache”), invokes ‘#childrenNamesSpi()’, and adds all of the returned child-names into the set.  The elements of the tree set are dumped into a <tt>String</tt> array using the <tt>toArray</tt> method, and this array is returned.</td>
-<td align="left">IllegalStateException<br/>BackingStoreException</td>
+<td align="left">BackingStoreException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>cachedChildren(): AbstractPreferences[]</strong></td>
@@ -504,6 +515,30 @@
 <td align="left"></td>
 </tr>
 <tr>
+<td align="center"><strong>nodeExists(String path): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>nodeExists</tt> method as per the specification in ‘Preferences#nodeExists(String)’.  <p>This implementation is very similar to ‘#node(String)’, except that ‘#getChild(String)’ is used instead of ‘#childSpi(String)’.</td>
+<td align="left">BackingStoreException<br/>IllegalStateException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>nodeExists(StringTokenizer path): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">tokenizer contains <name> {‘&#x2F;‘ <name>}</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
 <td align="center"><strong>removeNode(): void</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
@@ -513,7 +548,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>removeNode()</tt> method as per the specification in ‘Preferences#removeNode()’.  <p>This implementation checks to see that this node is the root; if so, it throws an appropriate exception.  Then, it locks this node’s parent, and calls a recursive helper method that traverses the subtree rooted at this node.  The recursive method locks the node on which it was called, checks that it has not already been removed, and then ensures that all of its children are cached: The ‘#childrenNamesSpi()’ method is invoked and each returned child name is checked for containment in the child-cache.  If a child is not already cached, the ‘#childSpi(String)’ method is invoked to create a <tt>Preferences</tt> instance for it, and this instance is put into the child-cache.  Then the helper method calls itself recursively on each node contained in its child-cache.  Next, it invokes ‘#removeNodeSpi()’, marks itself as removed, and removes itself from its parent’s child-cache.  Finally, if there are any node change listeners, it enqueues a notification event for processing by the event dispatch thread.  <p>Note that the helper method is always invoked with all ancestors up to the “closest non-removed ancestor” locked.</td>
-<td align="left">IllegalStateException<br/>BackingStoreException<br/>UnsupportedOperationException</td>
+<td align="left">BackingStoreException<br/>IllegalStateException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>removeNode2(): void</strong></td>
@@ -729,7 +764,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements the <tt>sync</tt> method as per the specification in ‘Preferences#sync()’.  <p>This implementation calls a recursive helper method that locks this node, invokes syncSpi() on it, unlocks this node, and recursively invokes this method on each “cached child.”  A cached child is a child of this node that has been created in this VM and not subsequently removed.  In effect, this method does a depth first traversal of the “cached subtree” rooted at this node, calling syncSpi() on each node in the subTree while only that node is locked. Note that syncSpi() is invoked top-down.</td>
-<td align="left">IllegalStateException<br/>BackingStoreException</td>
+<td align="left">BackingStoreException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>sync2(): void</strong></td>
@@ -816,7 +851,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>prefListeners()</strong></td>
+<td align="center"><strong>prefListeners(): PreferenceChangeListener[]</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -828,7 +863,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>nodeListeners()</strong></td>
+<td align="center"><strong>nodeListeners(): NodeChangeListener[]</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -874,6 +909,30 @@
 <td align="center">否</td>
 <td align="left">Enqueue a “node removed” event for delivery to registered node change listeners unless there are no registered listeners.  Invoked with this.lock held.</td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>exportNode(OutputStream os): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>exportNode</tt> method as per the specification in ‘Preferences#exportNode(OutputStream)’.</td>
+<td align="left">BackingStoreException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportSubtree(OutputStream os): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the <tt>exportSubtree</tt> method as per the specification in ‘Preferences#exportSubtree(OutputStream)’.</td>
+<td align="left">BackingStoreException<br/>IOException</td>
 </tr>
 </tbody></table>
 <h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="AbstractPreferences-NodeAddedEvent"><a href="#AbstractPreferences-NodeAddedEvent" class="headerlink" title="AbstractPreferences$NodeAddedEvent"></a><a href="./AbstractPreferences$NodeAddedEvent.html">AbstractPreferences$NodeAddedEvent</a></h3><h3 id="AbstractPreferences-NodeRemovedEvent"><a href="#AbstractPreferences-NodeRemovedEvent" class="headerlink" title="AbstractPreferences$NodeRemovedEvent"></a><a href="./AbstractPreferences$NodeRemovedEvent.html">AbstractPreferences$NodeRemovedEvent</a></h3><h3 id="AbstractPreferences-EventDispatchThread"><a href="#AbstractPreferences-EventDispatchThread" class="headerlink" title="AbstractPreferences$EventDispatchThread"></a><a href="./AbstractPreferences$EventDispatchThread.html">AbstractPreferences$EventDispatchThread</a></h3>

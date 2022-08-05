@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/chrono/HijrahChronology.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="HijrahChronology"><a href="#HijrahChronology" class="headerlink" title="HijrahChronology"></a>HijrahChronology</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.chrono.HijrahChronology</strong></td>
+<td align="center">class</td>
+<td align="center">AbstractChronology</td>
+<td align="center">Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>typeId: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The Hijrah Calendar id.</td>
+</tr>
+<tr>
+<td align="center"><strong>calendarType: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The Hijrah calendarType.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">3127340209035924785L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+<tr>
+<td align="center"><strong>INSTANCE: HijrahChronology</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Singleton instance of the Islamic Umm Al-Qura calendar of Saudi Arabia. Other Hijrah chronology variants may be available from {@link Chronology#getAvailableChronologies}.</td>
+</tr>
+<tr>
+<td align="center"><strong>initComplete: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Flag to indicate the initialization of configuration data is complete. @see #checkCalendarInit()</td>
+</tr>
+<tr>
+<td align="center"><strong>hijrahEpochMonthStartDays: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Array of epoch days indexed by Hijrah Epoch month. Computed by {@link #loadCalendarData}.</td>
+</tr>
+<tr>
+<td align="center"><strong>minEpochDay: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The minimum epoch day of this Hijrah calendar. Computed by {@link #loadCalendarData}.</td>
+</tr>
+<tr>
+<td align="center"><strong>maxEpochDay: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The maximum epoch day for which calendar data is available. Computed by {@link #loadCalendarData}.</td>
+</tr>
+<tr>
+<td align="center"><strong>hijrahStartEpochMonth: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The minimum epoch month. Computed by {@link #loadCalendarData}.</td>
+</tr>
+<tr>
+<td align="center"><strong>minMonthLength: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The minimum length of a month. Computed by {@link #createEpochMonths}.</td>
+</tr>
+<tr>
+<td align="center"><strong>maxMonthLength: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The maximum length of a month. Computed by {@link #createEpochMonths}.</td>
+</tr>
+<tr>
+<td align="center"><strong>minYearLength: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The minimum length of a year in days. Computed by {@link #createEpochMonths}.</td>
+</tr>
+<tr>
+<td align="center"><strong>maxYearLength: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The maximum length of a year in days. Computed by {@link #createEpochMonths}.</td>
+</tr>
+<tr>
+<td align="center"><strong>calendarProperties: Properties</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A reference to the properties stored in ${java.home}&#x2F;lib&#x2F;calendars.properties</td>
+</tr>
+<tr>
+<td align="center"><strong>PROP_PREFIX: String</strong></td>
+<td align="center">“calendar.hijrah.”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prefix of property names for Hijrah calendar variants.</td>
+</tr>
+<tr>
+<td align="center"><strong>PROP_TYPE_SUFFIX: String</strong></td>
+<td align="center">“.type”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Suffix of property names containing the calendar type of a variant.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_ID: String</strong></td>
+<td align="center">“id”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_TYPE: String</strong></td>
+<td align="center">“type”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_VERSION: String</strong></td>
+<td align="center">“version”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_ISO_START: String</strong></td>
+<td align="center">“iso-start”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>registerVariants(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">For each Hijrah variant listed, create the HijrahChronology and register it. Exceptions during initialization are logged but otherwise ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HijrahChronology(String id)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create a HijrahChronology for the named variant. The resource and calendar type are retrieved from properties in the ‘calendars.properties’. The property names are ‘“calendar.hijrah.” + id’ and  ‘“calendar.hijrah.” + id + “.type”‘</td>
+<td align="left">DateTimeException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkCalendarInit(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check and ensure that the calendar data has been initialized. The initialization check is performed at the boundary between public and package methods.  If a public calls another public method a check is not necessary in the caller. The constructors of HijrahDate call ‘#getEpochDay’ or ‘#getHijrahDateInfo’ so every call from HijrahDate to a HijrahChronology via package private methods has been checked.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>getId(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the ID of the chronology. <p> The ID uniquely identifies the ‘Chronology’. It can be used to lookup the ‘Chronology’ using ‘Chronology#of(String)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCalendarType(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the calendar type of the Islamic calendar. <p> The calendar type is an identifier defined by the <em>Unicode Locale Data Markup Language (LDML)</em> specification. It can be used to lookup the ‘Chronology’ using ‘Chronology#of(String)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>date(Era era, int yearOfEra, int month, int dayOfMonth): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a local date in Hijrah calendar system from the era, year-of-era, month-of-year and day-of-month fields.</td>
+<td align="left">ClassCastException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>date(int prolepticYear, int month, int dayOfMonth): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a local date in Hijrah calendar system from the proleptic-year, month-of-year and day-of-month fields.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateYearDay(Era era, int yearOfEra, int dayOfYear): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a local date in Hijrah calendar system from the era, year-of-era and day-of-year fields.</td>
+<td align="left">ClassCastException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateYearDay(int prolepticYear, int dayOfYear): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a local date in Hijrah calendar system from the proleptic-year and day-of-year fields.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateEpochDay(long epochDay): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a local date in the Hijrah calendar system from the epoch-day.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateNow(): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dateNow(ZoneId zone): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dateNow(Clock clock): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>date(TemporalAccessor temporal): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>localDateTime(TemporalAccessor temporal): ChronoLocalDateTime<HijrahDate></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zonedDateTime(TemporalAccessor temporal): ChronoZonedDateTime<HijrahDate></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zonedDateTime(Instant instant, ZoneId zone): ChronoZonedDateTime<HijrahDate></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLeapYear(long prolepticYear): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>prolepticYear(Era era, int yearOfEra): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eraOf(int eraValue): HijrahEra</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eras(): List<Era></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>range(ChronoField field): ValueRange</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resolveDate(Map&lt;TemporalField, Long&gt; fieldValues, ResolverStyle resolverStyle): HijrahDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkValidYear(long prolepticYear): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check the validity of a year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkValidDayOfYear(int dayOfYear): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkValidMonth(int month): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHijrahDateInfo(int epochDay): int[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array containing the Hijrah year, month and day computed from the epoch day.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEpochDay(int prolepticYear, int monthOfYear, int dayOfMonth): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the epoch day computed from Hijrah year, month, and day.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDayOfYear(int prolepticYear, int month): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns day of year for the year and month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMonthLength(int prolepticYear, int monthOfYear): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns month length for the year and month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getYearLength(int prolepticYear): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns year length. Note: The 12th month must exist in the data.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumYear(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the minimum supported Hijrah year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumYear(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the maximum supported Hijrah ear.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumMonthLength(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns maximum day-of-month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumMonthLength(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns smallest maximum day-of-month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumDayOfYear(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns maximum day-of-year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSmallestMaximumDayOfYear(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns smallest maximum day-of-year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>epochDayToEpochMonth(int epochDay): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the epochMonth found by locating the epochDay in the table. The epochMonth is the index in the table</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>epochMonthToYear(int epochMonth): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the year computed from the epochMonth</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>yearToEpochMonth(int year): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the epochMonth for the Hijrah Year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>epochMonthToMonth(int epochMonth): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Hijrah month from the epochMonth.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>epochMonthToEpochDay(int epochMonth): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the epochDay for the start of the epochMonth.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>yearMonthToDayOfYear(int prolepticYear, int month): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the day of year for the requested HijrahYear and month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>epochMonthLength(int epochMonth): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the epochMonth. It is computed from the start of the following month minus the start of the requested month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readConfigProperties(final String resource): Properties</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the configuration properties from the resource. <p> The default location of the variant configuration resource is: <pre> "$java.home/lib/" + resource-name </pre></td>
+<td align="left">Exception</td>
+</tr>
+<tr>
+<td align="center"><strong>loadCalendarData(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Loads and processes the Hijrah calendar properties file for this calendarType. The starting Hijrah date and the corresponding ISO date are extracted and used to calculate the epochDate offset. The version number is identified and ignored. Everything else is the data for a year with containing the length of each of 12 months.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>createEpochMonths(int epochDay, int minYear, int maxYear, Map&lt;Integer, int[]&gt; years): int[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the map of year to month lengths ranging from minYear to maxYear into a linear contiguous array of epochDays. The index is the hijrahMonth computed from year and month and offset by minYear. The value of each entry is the epochDay corresponding to the first day of the month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseMonths(String line): int[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses the 12 months lengths from a property value for a specific year.</td>
+<td align="left">NumberFormatException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseYMD(String string): int[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parse yyyy-MM-dd into a 3 element array [yyyy, mm, dd].</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the Chronology using a <a href="../../../serialized-form.html#java.time.chrono.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

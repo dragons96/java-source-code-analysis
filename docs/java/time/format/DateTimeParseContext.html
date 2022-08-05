@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/format/DateTimeParseContext.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DateTimeParseContext"><a href="#DateTimeParseContext" class="headerlink" title="DateTimeParseContext"></a>DateTimeParseContext</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.format.DateTimeParseContext</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>formatter: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The formatter, not null.</td>
+</tr>
+<tr>
+<td align="center"><strong>caseSensitive: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Whether to parse using case sensitively.</td>
+</tr>
+<tr>
+<td align="center"><strong>strict: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Whether to parse using strict rules.</td>
+</tr>
+<tr>
+<td align="center"><strong>parsed: ArrayList&lt;Parsed&gt;</strong></td>
+<td align="center">new ArrayList&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The list of parsed data.</td>
+</tr>
+<tr>
+<td align="center"><strong>chronoListeners: ArrayList&lt;Consumer&lt;Chronology&gt;&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">List of Consumers<Chronology> to be notified if the Chronology changes.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DateTimeParseContext(DateTimeFormatter formatter)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new instance of the context.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copy(): DateTimeParseContext</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a copy of this context. This retains the case sensitive and strict flags.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocale(): Locale</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the locale. <p> This locale is used to control localization in the parse except where localization is controlled by the DecimalStyle.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDecimalStyle(): DecimalStyle</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the DecimalStyle. <p> The DecimalStyle controls the numeric parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEffectiveChronology(): Chronology</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the effective chronology during parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isCaseSensitive(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if parsing is case sensitive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCaseSensitive(boolean caseSensitive): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether the parsing is case sensitive or not.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subSequenceEquals(CharSequence cs1, int offset1, CharSequence cs2, int offset2, int length): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Helper to compare two ‘CharSequence’ instances. This uses ‘#isCaseSensitive()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>charEquals(char ch1, char ch2): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Helper to compare two ‘char’. This uses ‘#isCaseSensitive()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>charEqualsIgnoreCase(char c1, char c2): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares two characters ignoring case.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isStrict(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if parsing is strict. <p> Strict parsing requires exact matching of the text and sign styles.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setStrict(boolean strict): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether parsing is strict or lenient.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>startOptional(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Starts the parsing of an optional segment of the input.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>endOptional(boolean successful): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Ends the parsing of an optional segment of the input.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentParsed(): Parsed</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the currently active temporal objects.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toUnresolved(): Parsed</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the unresolved result of the parse.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toResolved(ResolverStyle resolverStyle, Set&lt;TemporalField&gt; resolverFields): TemporalAccessor</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the resolved result of the parse.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getParsed(TemporalField field): Long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the first value that was parsed for the specified field. <p> This searches the results of the parse, returning the first value found for the specified field. No attempt is made to derive a value. The field may have an out of range value. For example, the day-of-month might be set to 50, or the hour to 1000.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setParsedField(TemporalField field, long value, int errorPos, int successPos): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stores the parsed field. <p> This stores a field-value pair that has been parsed. The value stored may be out of range for the field - no checks are performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setParsed(Chronology chrono): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stores the parsed chronology. <p> This stores the chronology that has been parsed. No validation is performed other than ensuring it is not null. <p> The list of listeners is copied and cleared so that each listener is called only once.  A listener can add itself again if it needs to be notified of future changes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addChronoChangedListener(Consumer&lt;Chronology&gt; listener): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a Consumer<Chronology> to the list of listeners to be notified if the Chronology changes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setParsed(ZoneId zone): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stores the parsed zone. <p> This stores the zone that has been parsed. No validation is performed other than ensuring it is not null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setParsedLeapSecond(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stores the parsed leap second.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string version of the context for debugging.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

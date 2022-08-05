@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/nio/file/StandardOpenOption.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="StandardOpenOption"><a href="#StandardOpenOption" class="headerlink" title="StandardOpenOption"></a>StandardOpenOption</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.nio.file.StandardOpenOption</strong></td>
+<td align="center">enum</td>
+<td align="center">OpenOption</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">枚举实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>READ</strong></td>
+<td align="left">Open for read access.</td>
+</tr>
+<tr>
+<td align="center"><strong>WRITE</strong></td>
+<td align="left">Open for write access.</td>
+</tr>
+<tr>
+<td align="center"><strong>APPEND</strong></td>
+<td align="left">If the file is opened for {@link #WRITE} access then bytes will be written to the end of the file rather than the beginning.  <p> If the file is opened for write access by other programs, then it is file system specific if writing to the end of the file is atomic.</td>
+</tr>
+<tr>
+<td align="center"><strong>TRUNCATE_EXISTING</strong></td>
+<td align="left">If the file already exists and it is opened for {@link #WRITE} access, then its length is truncated to 0. This option is ignored if the file is opened only for {@link #READ} access.</td>
+</tr>
+<tr>
+<td align="center"><strong>CREATE</strong></td>
+<td align="left">Create a new file if it does not exist. This option is ignored if the {@link #CREATE_NEW} option is also set. The check for the existence of the file and the creation of the file if it does not exist is atomic with respect to other file system operations.</td>
+</tr>
+<tr>
+<td align="center"><strong>CREATE_NEW</strong></td>
+<td align="left">Create a new file, failing if the file already exists. The check for the existence of the file and the creation of the file if it does not exist is atomic with respect to other file system operations.</td>
+</tr>
+<tr>
+<td align="center"><strong>DELETE_ON_CLOSE</strong></td>
+<td align="left">Delete on close. When this option is present then the implementation makes a <em>best effort</em> attempt to delete the file when closed by the appropriate {@code close} method. If the {@code close} method is not invoked then a <em>best effort</em> attempt is made to delete the file when the Java virtual machine terminates (either normally, as defined by the Java Language Specification, or where possible, abnormally). This option is primarily intended for use with <em>work files</em> that are used solely by a single instance of the Java virtual machine. This option is not recommended for use when opening files that are open concurrently by other entities. Many of the details as to when and how the file is deleted are implementation specific and therefore not specified. In particular, an implementation may be unable to guarantee that it deletes the expected file when replaced by an attacker while the file is open. Consequently, security sensitive applications should take care when using this option.  <p> For security reasons, this option may imply the {@link LinkOption#NOFOLLOW_LINKS} option. In other words, if the option is present when opening an existing file that is a symbolic link then it may fail (by throwing {@link java.io.IOException}).</td>
+</tr>
+<tr>
+<td align="center"><strong>SPARSE</strong></td>
+<td align="left">Sparse file. When used with the {@link #CREATE_NEW} option then this option provides a <em>hint</em> that the new file will be sparse. The option is ignored when the file system does not support the creation of sparse files.</td>
+</tr>
+<tr>
+<td align="center"><strong>SYNC</strong></td>
+<td align="left">Requires that every update to the file’s content or metadata be written synchronously to the underlying storage device.  @see <a href="package-summary.html#integrity">Synchronized I&#x2F;O file integrity</a></td>
+</tr>
+<tr>
+<td align="center"><strong>DSYNC</strong></td>
+<td align="left">Requires that every update to the file’s content be written synchronously to the underlying storage device.  @see <a href="package-summary.html#integrity">Synchronized I&#x2F;O file integrity</a></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

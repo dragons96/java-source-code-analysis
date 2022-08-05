@@ -69,7 +69,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">**Cache: **</td>
+<td align="center">**LOCALECACHE: **</td>
 <td align="center">new Cache()</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -586,7 +586,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getInstance(String language, String script, String country,String variant, LocaleExtensions extensions): Locale</strong></td>
+<td align="center"><strong>getInstance(String language, String script, String country, String variant, LocaleExtensions extensions): Locale</strong></td>
 <td align="center">default</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -667,10 +667,10 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Sets the default locale for this instance of the Java Virtual Machine. This does not affect the host locale. <p> If there is a security manager, its <code>checkPermission</code> method is called with a <code>PropertyPermission("user.language", "write")</code> permission before the default locale is changed. <p> The Java Virtual Machine sets the default locale during startup based on the host environment. It is used by many locale-sensitive methods if no locale is explicitly specified. <p> Since changing the default locale may affect many different areas of functionality, this method should only be used if the caller is prepared to reinitialize locale-sensitive code running within the same Java Virtual Machine. <p> By setting the default locale with this method, all of the default locales for each Category are also set to the specified default locale.</td>
-<td align="left">NullPointerException<br/>SecurityException</td>
+<td align="left">SecurityException<br/>NullPointerException</td>
 </tr>
 <tr>
-<td align="center"><strong>setDefault(Locale.Category category,Locale newLocale): void</strong></td>
+<td align="center"><strong>setDefault(Locale.Category category, Locale newLocale): void</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -679,7 +679,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Sets the default locale for the specified Category for this instance of the Java Virtual Machine. This does not affect the host locale. <p> If there is a security manager, its checkPermission method is called with a PropertyPermission(“user.language”, “write”) permission before the default locale is changed. <p> The Java Virtual Machine sets the default locale during startup based on the host environment. It is used by many locale-sensitive methods if no locale is explicitly specified. <p> Since changing the default locale may affect many different areas of functionality, this method should only be used if the caller is prepared to reinitialize locale-sensitive code running within the same Java Virtual Machine. <p></td>
-<td align="left">NullPointerException<br/>SecurityException</td>
+<td align="left">SecurityException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>getAvailableLocales(): Locale[]</strong></td>
@@ -862,7 +862,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getBaseLocale()</strong></td>
+<td align="center"><strong>getBaseLocale(): BaseLocale</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -874,7 +874,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getLocaleExtensions()</strong></td>
+<td align="center"><strong>getLocaleExtensions(): LocaleExtensions</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1195,7 +1195,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Deserializes this <code>Locale</code>.</td>
-<td align="left">ClassNotFoundException<br/>IllformedLocaleException<br/>IOException</td>
+<td align="left">ClassNotFoundException<br/>IOException<br/>IllformedLocaleException</td>
 </tr>
 <tr>
 <td align="center"><strong>readResolve(): Object</strong></td>
@@ -1222,7 +1222,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getCompatibilityExtensions(String language,String script,String country,String variant): LocaleExtensions</strong></td>
+<td align="center"><strong>getCompatibilityExtensions(String language, String script, String country, String variant): LocaleExtensions</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1234,7 +1234,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>filter(List&lt;LanguageRange&gt; priorityList,Collection&lt;Locale&gt; locales,FilteringMode mode): List<Locale></strong></td>
+<td align="center"><strong>filter(List&lt;LanguageRange&gt; priorityList, Collection&lt;Locale&gt; locales, FilteringMode mode): List<Locale></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1246,7 +1246,7 @@
 <td align="left">NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
-<td align="center"><strong>filter(List&lt;LanguageRange&gt; priorityList,Collection&lt;Locale&gt; locales): List<Locale></strong></td>
+<td align="center"><strong>filter(List&lt;LanguageRange&gt; priorityList, Collection&lt;Locale&gt; locales): List<Locale></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1258,7 +1258,7 @@
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
-<td align="center"><strong>filterTags(List&lt;LanguageRange&gt; priorityList,Collection&lt;String&gt; tags,FilteringMode mode): List<String></strong></td>
+<td align="center"><strong>filterTags(List&lt;LanguageRange&gt; priorityList, Collection&lt;String&gt; tags, FilteringMode mode): List<String></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1270,7 +1270,7 @@
 <td align="left">NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
-<td align="center"><strong>filterTags(List&lt;LanguageRange&gt; priorityList,Collection&lt;String&gt; tags): List<String></strong></td>
+<td align="center"><strong>filterTags(List&lt;LanguageRange&gt; priorityList, Collection&lt;String&gt; tags): List<String></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1282,7 +1282,7 @@
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
-<td align="center"><strong>lookup(List&lt;LanguageRange&gt; priorityList,Collection&lt;Locale&gt; locales): Locale</strong></td>
+<td align="center"><strong>lookup(List&lt;LanguageRange&gt; priorityList, Collection&lt;Locale&gt; locales): Locale</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1294,7 +1294,7 @@
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
-<td align="center"><strong>lookupTag(List&lt;LanguageRange&gt; priorityList,Collection&lt;String&gt; tags): String</strong></td>
+<td align="center"><strong>lookupTag(List&lt;LanguageRange&gt; priorityList, Collection&lt;String&gt; tags): String</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>

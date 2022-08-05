@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/math/MutableBigInteger.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="MutableBigInteger"><a href="#MutableBigInteger" class="headerlink" title="MutableBigInteger"></a>MutableBigInteger</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.math.MutableBigInteger</strong></td>
+<td align="center">class</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>value: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Holds the magnitude of this MutableBigInteger in big endian order. The magnitude may start at an offset into the value array, and it may end before the length of the value array.</td>
+</tr>
+<tr>
+<td align="center"><strong>intLen: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of ints of the value array that are currently used to hold the magnitude of this MutableBigInteger. The magnitude starts at an offset and offset + intLen may be less than value.length.</td>
+</tr>
+<tr>
+<td align="center"><strong>offset: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The offset into the value array where the magnitude of this MutableBigInteger begins.</td>
+</tr>
+<tr>
+<td align="center"><strong>ONE: MutableBigInteger</strong></td>
+<td align="center">new MutableBigInteger(1)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">MutableBigInteger with one element value array with the value 1. Used by BigDecimal divideAndRound to increment the quotient. Use this constant only when the method is not going to modify this object.</td>
+</tr>
+<tr>
+<td align="center"><strong>KNUTH_POW2_THRESH_LEN: int</strong></td>
+<td align="center">6</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum {@code intLen} for cancelling powers of two before dividing. If the number of ints is less than this threshold, {@code divideKnuth} does not eliminate common powers of two from the dividend and divisor.</td>
+</tr>
+<tr>
+<td align="center"><strong>KNUTH_POW2_THRESH_ZEROS: int</strong></td>
+<td align="center">3</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum number of trailing zero ints for cancelling powers of two before dividing. If the dividend and divisor don’t share at least this many zero ints at the end, {@code divideKnuth} does not eliminate common powers of two from the dividend and divisor.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MutableBigInteger()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default constructor. An empty MutableBigInteger is created with a one word capacity.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MutableBigInteger(int val)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a new MutableBigInteger with a magnitude specified by the int val.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MutableBigInteger(int[] val)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a new MutableBigInteger with the specified value array up to the length of the array supplied.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MutableBigInteger(BigInteger b)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a new MutableBigInteger with a magnitude equal to the specified BigInteger.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MutableBigInteger(MutableBigInteger val)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a new MutableBigInteger with a magnitude equal to the specified MutableBigInteger.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ones(int n): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Makes this number an ‘n’-int number all of whose bits are ones. Used by Burnikel-Ziegler division.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMagnitudeArray(): int[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal helper method to return the magnitude array. The caller is not supposed to modify the returned array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLong(): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convert this MutableBigInteger to a long value. The caller has to make sure this MutableBigInteger can be fit into long.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toBigInteger(int sign): BigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convert this MutableBigInteger to a BigInteger object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toBigInteger(): BigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this number to a nonnegative ‘BigInteger’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toBigDecimal(int sign, int scale): BigDecimal</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convert this MutableBigInteger to BigDecimal object with the specified sign and scale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toCompactValue(int sign): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This is for internal use in converting from a MutableBigInteger object into a long value given a specified sign. returns INFLATED if value is not fit into long</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clear out a MutableBigInteger for reuse.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reset(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set a MutableBigInteger to zero, removing its offset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compare(MutableBigInteger b): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compare the magnitude of two MutableBigIntegers. Returns -1, 0 or 1 as this MutableBigInteger is numerically less than, equal to, or greater than <tt>b</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareShifted(MutableBigInteger b, int ints): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a value equal to what ‘b.leftShift(32*ints); return compare(b);’ would return, but doesn’t change the value of ‘b’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareHalf(MutableBigInteger b): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compare this against half of a MutableBigInteger object (Needed for remainder tests). Assumes no leading unnecessary zeros, which holds for results from divide().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLowestSetBit(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the index of the lowest set bit in this MutableBigInteger. If the magnitude of this MutableBigInteger is zero, -1 is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(int index): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the int in use in this MutableBigInteger at the specified index. This method is not used because it is not inlined on all platforms.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(int index): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return a long which is equal to the unsigned value of the int in use in this MutableBigInteger at the specified index. This method is not used because it is not inlined on all platforms.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>normalize(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Ensure that the MutableBigInteger is in normal form, specifically making sure that there are no leading zeros, and that if the magnitude is zero, then intLen is zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ensureCapacity(int len): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If this MutableBigInteger cannot hold len words, increase the size of the value array to len words.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toIntArray(): int[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convert this MutableBigInteger into an int array with no leading zeros, of a length that is equal to this MutableBigInteger’s intLen.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setInt(int index, int val): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the int at index+offset in this MutableBigInteger to val. This does not get inlined on all platforms so it is not used as often as originally intended.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setValue(int[] val, int length): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this MutableBigInteger’s value array to the specified array. The intLen is set to the specified length.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyValue(MutableBigInteger src): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this MutableBigInteger’s value array to a copy of the specified array. The intLen is set to the length of the new array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyValue(int[] val): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this MutableBigInteger’s value array to a copy of the specified array. The intLen is set to the length of the specified array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isOne(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this MutableBigInteger has a value of one.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isZero(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this MutableBigInteger has a value of zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEven(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this MutableBigInteger is even.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isOdd(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this MutableBigInteger is odd.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isNormal(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this MutableBigInteger is in normal form. A MutableBigInteger is in normal form if it has no leading zeros after the offset, and intLen + offset &lt;&#x3D; value.length.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a String representation of this MutableBigInteger in radix 10.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>safeRightShift(int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Like ‘#rightShift(int)’ but ‘n’ can be greater than the length of the number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rightShift(int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Right shift this MutableBigInteger n bits. The MutableBigInteger is left in normal form.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>safeLeftShift(int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Like ‘#leftShift(int)’ but ‘n’ can be zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>leftShift(int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Left shift this MutableBigInteger n bits.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divadd(int[] a, int[] result, int offset): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A primitive used for division. This method adds in one multiple of the divisor a back to the dividend result at a specified offset. It is used when qhat was estimated too large, and must be adjusted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mulsub(int[] q, int[] a, int x, int len, int offset): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is used for division. It multiplies an n word input a by one word input x, and subtracts the n word product from q. This is needed when subtracting qhat*divisor from dividend.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mulsubBorrow(int[] q, int[] a, int x, int len, int offset): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The method is the same as mulsun, except the fact that q array is not updated, the only result of the method is borrow flag.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primitiveRightShift(int n): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Right shift this MutableBigInteger n bits, where n is less than 32. Assumes that intLen &gt; 0, n &gt; 0 for speed</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primitiveLeftShift(int n): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Left shift this MutableBigInteger n bits, where n is less than 32. Assumes that intLen &gt; 0, n &gt; 0 for speed</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLower(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigInteger’ equal to the ‘n’ low ints of this number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>keepLower(int n): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Discards all ints whose index is greater than ‘n’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(MutableBigInteger addend): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the contents of two MutableBigInteger objects.The result is placed within this MutableBigInteger. The contents of the addend are not changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addShifted(MutableBigInteger addend, int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the value of ‘addend’ shifted ‘n’ ints to the left. Has the same effect as ‘addend.leftShift(32*ints); add(addend);’ but doesn’t change the value of ‘addend’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addDisjoint(MutableBigInteger addend, int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Like ‘#addShifted(MutableBigInteger, int)’ but ‘this.intLen’ must not be greater than ‘n’. In other words, concatenates ‘this’ and ‘addend’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addLower(MutableBigInteger addend, int n): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the low ‘n’ ints of ‘addend’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(MutableBigInteger b): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts the smaller of this and b from the larger and places the result into this MutableBigInteger.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>difference(MutableBigInteger b): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts the smaller of a and b from the larger and places the result into the larger. Returns 1 if the answer is in a, -1 if in b, 0 if no operation was performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(MutableBigInteger y, MutableBigInteger z): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiply the contents of two MutableBigInteger objects. The result is placed into MutableBigInteger z. The contents of y are not changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mul(int y, MutableBigInteger z): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiply the contents of this MutableBigInteger by the word y. The result is placed into z.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideOneWord(int divisor, MutableBigInteger quotient): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is used for division of an n word dividend by a one word divisor. The quotient is placed into quotient. The one word divisor is specified by divisor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(MutableBigInteger b, MutableBigInteger quotient): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates the quotient of this div b and places the quotient in the provided MutableBigInteger objects and the remainder object is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(MutableBigInteger b, MutableBigInteger quotient, boolean needRemainder): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideKnuth(MutableBigInteger b, MutableBigInteger quotient): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideKnuth(MutableBigInteger b, MutableBigInteger quotient, boolean needRemainder): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates the quotient of this div b and places the quotient in the provided MutableBigInteger objects and the remainder object is returned.  Uses Algorithm D in Knuth section 4.3.1. Many optimizations to that algorithm have been adapted from the Colin Plumb C library. It special cases one word divisors for speed. The content of b is not changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRemainderBurnikelZiegler(MutableBigInteger b, MutableBigInteger quotient): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes ‘this&#x2F;b’ and ‘this%b’ using the &lt;a href&#x3D;”http: This method implements algorithm 3 from pg. 9 of the Burnikel-Ziegler paper. The parameter beta was chosen to b 2<sup>32</sup> so almost all shifts are multiples of 32 bits.<br/> ‘this’ and ‘b’ must be nonnegative.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide2n1n(MutableBigInteger b, MutableBigInteger quotient): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method implements algorithm 1 from pg. 4 of the Burnikel-Ziegler paper. It divides a 2n-digit number by a n-digit number.<br/> The parameter beta is 2<sup>32</sup> so all shifts are multiples of 32 bits. <br/> ‘this’ must be a nonnegative number such that ‘this.bitLength() &lt;&#x3D; 2*b.bitLength()’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide3n2n(MutableBigInteger b, MutableBigInteger quotient): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method implements algorithm 2 from pg. 5 of the Burnikel-Ziegler paper. It divides a 3n-digit number by a 2n-digit number.<br/> The parameter beta is 2<sup>32</sup> so all shifts are multiples of 32 bits.<br/> <br/> ‘this’ must be a nonnegative number such that ‘2<em>this.bitLength() &lt;&#x3D; 3</em>b.bitLength()’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBlock(int index, int numBlocks, int blockLength): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘MutableBigInteger’ containing ‘blockLength’ ints from ‘this’ number, starting at ‘index*blockLength’.<br/> Used by Burnikel-Ziegler division.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bitLength(): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(long v, MutableBigInteger quotient): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internally used  to calculate the quotient of this div v and places the quotient in the provided MutableBigInteger object and the remainder is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyAndShift(int[] src, int srcFrom, int srcLen, int[] dst, int dstFrom, int shift): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideMagnitude(MutableBigInteger div, MutableBigInteger quotient, boolean needRemainder ): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Divide this MutableBigInteger by the divisor. The quotient will be placed into the provided quotient object &amp; the remainder object is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideLongMagnitude(long ldivisor, MutableBigInteger quotient): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Divide this MutableBigInteger by the divisor represented by positive long value. The quotient will be placed into the provided quotient object &amp; the remainder object is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divaddLong(int dh, int dl, int[] result, int offset): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A primitive used for division by long. Specialized version of the method divadd. dh is a high part of the divisor, dl is a low part</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mulsubLong(int[] q, int dh, int dl, int x, int offset): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is used for division by long. Specialized version of the method sulsub. dh is a high part of the divisor, dl is a low part</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unsignedLongCompare(long one, long two): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compare two longs as if they were unsigned. Returns true iff one is bigger than two.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divWord(long n, int d): long</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method divides a long quantity by an int to estimate qhat for two multi precision numbers. It is used when the signed value of n is less than zero. Returns long value where high 32 bits contain remainder value and low 32 bits contain quotient value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hybridGCD(MutableBigInteger b): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate GCD of this and b. This and b are changed by the computation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binaryGCD(MutableBigInteger v): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate GCD of this and v. Assumes that this and v are not zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>binaryGcd(int a, int b): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate GCD of a and b interpreted as unsigned integers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mutableModInverse(MutableBigInteger p): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the modInverse of this mod p. This and p are not affected by the operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modInverseMP2(int k): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate the multiplicative inverse of this mod 2^k.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inverseMod32(int val): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the multiplicative inverse of val mod 2^32.  Assumes val is odd.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inverseMod64(long val): long</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the multiplicative inverse of val mod 2^64.  Assumes val is odd.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modInverseBP2(MutableBigInteger mod, int k): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate the multiplicative inverse of 2^k mod mod, where mod is odd.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modInverse(MutableBigInteger mod): MutableBigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate the multiplicative inverse of this mod mod, where mod is odd. This and mod are not changed by the calculation.  This method implements an algorithm due to Richard Schroeppel, that uses the same intermediate representation as Montgomery Reduction (“Montgomery Form”).  The algorithm is described in an unpublished manuscript entitled “Fast Modular Reciprocals.”</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fixup(MutableBigInteger c, MutableBigInteger p, int k): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Fixup Algorithm Calculates X such that X &#x3D; C * 2^(-k) (mod P) Assumes C&lt;P and P is odd.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>euclidModInverse(int k): MutableBigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Uses the extended Euclidean algorithm to compute the modInverse of base mod a modulus that is a power of 2. The modulus is 2^k.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

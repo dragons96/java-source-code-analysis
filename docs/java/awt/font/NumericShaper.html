@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/font/NumericShaper.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="NumericShaper"><a href="#NumericShaper" class="headerlink" title="NumericShaper"></a>NumericShaper</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.font.NumericShaper</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>key: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">index of context for contextual shaping - values range from 0 to 18</td>
+</tr>
+<tr>
+<td align="center"><strong>mask: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">flag indicating whether to shape contextually (high bit) and which digit ranges to shape (bits 0-18)</td>
+</tr>
+<tr>
+<td align="center"><strong>shapingRange: Range</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The context {@code Range} for contextual shaping or the {@code Range} for non-contextual shaping. {@code null} for the bit mask-based API.  @since 1.7</td>
+</tr>
+<tr>
+<td align="center"><strong>rangeSet: Set&lt;Range&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">{@code Set<Range>} indicating which Unicode ranges to shape. {@code null} for the bit mask-based API.</td>
+</tr>
+<tr>
+<td align="center"><strong>rangeArray: Range[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">rangeSet.toArray() value. Sorted by Range.base when the number of elements is greater then BSEARCH_THRESHOLD.</td>
+</tr>
+<tr>
+<td align="center"><strong>BSEARCH_THRESHOLD: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If more than BSEARCH_THRESHOLD ranges are specified, binary search is used.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-8022764705923730308L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EUROPEAN: int</strong></td>
+<td align="center">1&lt;&lt;0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the Latin-1 (European) and extended range, and Latin-1 (European) decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>ARABIC: int</strong></td>
+<td align="center">1&lt;&lt;1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the ARABIC range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>EASTERN_ARABIC: int</strong></td>
+<td align="center">1&lt;&lt;2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the ARABIC range and ARABIC_EXTENDED decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEVANAGARI: int</strong></td>
+<td align="center">1&lt;&lt;3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the DEVANAGARI range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>BENGALI: int</strong></td>
+<td align="center">1&lt;&lt;4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the BENGALI range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>GURMUKHI: int</strong></td>
+<td align="center">1&lt;&lt;5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the GURMUKHI range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>GUJARATI: int</strong></td>
+<td align="center">1&lt;&lt;6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the GUJARATI range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>ORIYA: int</strong></td>
+<td align="center">1&lt;&lt;7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the ORIYA range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>TAMIL: int</strong></td>
+<td align="center">1&lt;&lt;8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the TAMIL range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>TELUGU: int</strong></td>
+<td align="center">1&lt;&lt;9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the TELUGU range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>KANNADA: int</strong></td>
+<td align="center">1&lt;&lt;10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the KANNADA range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>MALAYALAM: int</strong></td>
+<td align="center">1&lt;&lt;11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the MALAYALAM range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>THAI: int</strong></td>
+<td align="center">1&lt;&lt;12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the THAI range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>LAO: int</strong></td>
+<td align="center">1&lt;&lt;13</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the LAO range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>TIBETAN: int</strong></td>
+<td align="center">1&lt;&lt;14</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the TIBETAN range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>MYANMAR: int</strong></td>
+<td align="center">1&lt;&lt;15</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the MYANMAR range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>ETHIOPIC: int</strong></td>
+<td align="center">1&lt;&lt;16</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the ETHIOPIC range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>KHMER: int</strong></td>
+<td align="center">1&lt;&lt;17</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the KHMER range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>MONGOLIAN: int</strong></td>
+<td align="center">1&lt;&lt;18</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies the MONGOLIAN range and decimal base.</td>
+</tr>
+<tr>
+<td align="center"><strong>ALL_RANGES: int</strong></td>
+<td align="center">0x0007ffff</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Identifies all ranges, for full contextual shaping.  <p>This constant specifies all of the bit mask-based ranges. Use {@code EmunSet.allOf(NumericShaper.Range.class)} to specify all of the enum-based ranges.</td>
+</tr>
+<tr>
+<td align="center"><strong>EUROPEAN_KEY: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ARABIC_KEY: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EASTERN_ARABIC_KEY: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DEVANAGARI_KEY: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BENGALI_KEY: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>GURMUKHI_KEY: int</strong></td>
+<td align="center">5</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>GUJARATI_KEY: int</strong></td>
+<td align="center">6</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ORIYA_KEY: int</strong></td>
+<td align="center">7</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TAMIL_KEY: int</strong></td>
+<td align="center">8</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TELUGU_KEY: int</strong></td>
+<td align="center">9</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KANNADA_KEY: int</strong></td>
+<td align="center">10</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MALAYALAM_KEY: int</strong></td>
+<td align="center">11</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>THAI_KEY: int</strong></td>
+<td align="center">12</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LAO_KEY: int</strong></td>
+<td align="center">13</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TIBETAN_KEY: int</strong></td>
+<td align="center">14</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MYANMAR_KEY: int</strong></td>
+<td align="center">15</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ETHIOPIC_KEY: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KHMER_KEY: int</strong></td>
+<td align="center">17</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MONGOLIAN_KEY: int</strong></td>
+<td align="center">18</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NUM_KEYS: int</strong></td>
+<td align="center">MONGOLIAN_KEY + 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CONTEXTUAL_MASK: int</strong></td>
+<td align="center">1&lt;&lt;31</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ctCache: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ctCacheLimit: int</strong></td>
+<td align="center">contexts.length - 2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentRange: Range</strong></td>
+<td align="center">Range.EUROPEAN</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stCache: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A range table of strong directional characters (types L, R, AL). Even (left) indexes are starts of ranges of non-strong-directional (or undefined) characters, odd (right) indexes are starts of ranges of strong directional characters.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getContextKey(char c): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rangeForCodePoint(final int codepoint): Range</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isStrongDirectional(char c): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyFromMask(int mask): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getShaper(int singleRange): NumericShaper</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shaper for the provided unicode range.  All Latin-1 (EUROPEAN) digits are converted to the corresponding decimal unicode digits.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getShaper(Range singleRange): NumericShaper</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a shaper for the provided Unicode range. All Latin-1 (EUROPEAN) digits are converted to the corresponding decimal digits of the specified Unicode range.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getContextualShaper(int ranges): NumericShaper</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a contextual shaper for the provided unicode range(s). Latin-1 (EUROPEAN) digits are converted to the decimal digits corresponding to the range of the preceding text, if the range is one of the provided ranges.  Multiple ranges are represented by or-ing the values together, such as, <code>NumericShaper.ARABIC</td>
+<td align="left">NumericShaper.THAI</code>.  The shaper assumes EUROPEAN as the starting context, that is, if EUROPEAN digits are encountered before any strong directional text in the string, the context is presumed to be EUROPEAN, and so the digits will not shape.</td>
+</tr>
+<tr>
+<td align="center"><strong>getContextualShaper(Set&lt;Range&gt; ranges): NumericShaper</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a contextual shaper for the provided Unicode range(s). The Latin-1 (EUROPEAN) digits are converted to the decimal digits corresponding to the range of the preceding text, if the range is one of the provided ranges.  <p>The shaper assumes EUROPEAN as the starting context, that is, if EUROPEAN digits are encountered before any strong directional text in the string, the context is presumed to be EUROPEAN, and so the digits will not shape.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getContextualShaper(int ranges, int defaultContext): NumericShaper</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a contextual shaper for the provided unicode range(s). Latin-1 (EUROPEAN) digits will be converted to the decimal digits corresponding to the range of the preceding text, if the range is one of the provided ranges.  Multiple ranges are represented by or-ing the values together, for example, <code>NumericShaper.ARABIC</td>
+<td align="left">NumericShaper.THAI</code>.  The shaper uses defaultContext as the starting context.</td>
+</tr>
+<tr>
+<td align="center"><strong>getContextualShaper(Set&lt;Range&gt; ranges, Range defaultContext): NumericShaper</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a contextual shaper for the provided Unicode range(s). The Latin-1 (EUROPEAN) digits will be converted to the decimal digits corresponding to the range of the preceding text, if the range is one of the provided ranges. The shaper uses ‘defaultContext’ as the starting context.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>NumericShaper(int key, int mask)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Private constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NumericShaper(Range defaultContext, Set&lt;Range&gt; ranges)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shape(char[] text, int start, int count): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the digits in the text that occur between start and start + count.</td>
+<td align="left">NullPointerException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>shape(char[] text, int start, int count, int context): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the digits in the text that occur between start and start + count, using the provided context. Context is ignored if the shaper is not a contextual shaper.</td>
+<td align="left">NullPointerException<br/>IndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>shape(char[] text, int start, int count, Range context): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the digits in the text that occur between ‘start’ and ‘start + count’, using the provided ‘context’. ‘Context’ is ignored if the shaper is not a contextual shaper.</td>
+<td align="left">NullPointerException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkParams(char[] text, int start, int count): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isContextual(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <code>boolean</code> indicating whether or not this shaper shapes contextually.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRanges(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an <code>int</code> that ORs together the values for all the ranges that will be shaped. <p> For example, to check if a shaper shapes to Arabic, you would use the following: <blockquote> ‘if ((shaper.getRanges() &amp; shaper.ARABIC) !&#x3D; 0) &amp;#123; …’ </blockquote>  <p>Note that this method supports only the bit mask-based ranges. Call ‘#getRangeSet()’ for the enum-based ranges.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRangeSet(): Set<Range></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Set’ representing all the Unicode ranges in this ‘NumericShaper’ that will be shaped.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shapeNonContextually(char[] text, int start, int count): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Perform non-contextual shaping.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shapeContextually(char[] text, int start, int count, int ctxKey): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Perform contextual shaping. Synchronized to protect caches used in getContextKey.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shapeContextually(char[] text, int start, int count, Range ctxKey): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code for this shaper.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if the specified object is an instance of <code>NumericShaper</code> and shapes identically to this one, regardless of the range representations, the bit mask or the enum. For example, the following code produces ‘“true”‘. <blockquote><pre> NumericShaper ns1 = NumericShaper.getShaper(NumericShaper.ARABIC); NumericShaper ns2 = NumericShaper.getShaper(NumericShaper.Range.ARABIC); System.out.println(ns1.equals(ns2)); </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <code>String</code> that describes this shaper. This method is used for debugging purposes only.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHighBit(int value): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the high bit in value (assuming le, actually power of 2 &gt;&#x3D; value). value must be positive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>search(int value, int[] array, int start, int length): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">fast binary search over subrange of array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the ‘NumericShaper.Range’ enum-based parameters, if any, to the bit mask-based counterparts and writes this object to the ‘stream’. Any enum constants that have no bit mask-based counterparts are ignored in the conversion.</td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="NumericShaper-Range"><a href="#NumericShaper-Range" class="headerlink" title="NumericShaper$Range"></a><a href="./NumericShaper$Range.html">NumericShaper$Range</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

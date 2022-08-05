@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/chrono/ChronoPeriod.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ChronoPeriod"><a href="#ChronoPeriod" class="headerlink" title="ChronoPeriod"></a>ChronoPeriod</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.chrono.ChronoPeriod</strong></td>
+<td align="center">interface</td>
+<td align="center">TemporalAmount</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>between(ChronoLocalDate startDateInclusive, ChronoLocalDate endDateExclusive): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a ‘ChronoPeriod’ consisting of amount of time between two dates. <p> The start date is included, but the end date is not. The period is calculated using ‘ChronoLocalDate#until(ChronoLocalDate)’. As such, the calculation is chronology specific. <p> The chronology of the first date is used. The chronology of the second date is ignored, with the date being converted to the target chronology system before the calculation starts. <p> The result of this method can be a negative period if the end is before the start. In most cases, the positive&#x2F;negative sign will be the same in each of the supported fields.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(TemporalUnit unit): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the value of the requested unit. <p> The supported units are chronology specific. They will typically be ‘ChronoUnit#YEARS YEARS’, ‘ChronoUnit#MONTHS MONTHS’ and ‘ChronoUnit#DAYS DAYS’. Requesting an unsupported unit will throw an exception.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>getUnits(): List<TemporalUnit></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the set of units supported by this period. <p> The supported units are chronology specific. They will typically be ‘ChronoUnit#YEARS YEARS’, ‘ChronoUnit#MONTHS MONTHS’ and ‘ChronoUnit#DAYS DAYS’. They are returned in order from largest to smallest. <p> This set can be used in conjunction with ‘#get(TemporalUnit)’ to access the entire state of the period.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChronology(): Chronology</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the chronology that defines the meaning of the supported units. <p> The period is defined by the chronology. It controls the supported units and restricts addition&#x2F;subtraction to ‘ChronoLocalDate’ instances of the same chronology.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isZero(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if all the supported units of this period are zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isNegative(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if any of the supported units of this period are negative.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plus(TemporalAmount amountToAdd): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this period with the specified period added. <p> If the specified amount is a ‘ChronoPeriod’ then it must have the same chronology as this period. Implementations may choose to accept or reject other ‘TemporalAmount’ implementations. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(TemporalAmount amountToSubtract): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this period with the specified period subtracted. <p> If the specified amount is a ‘ChronoPeriod’ then it must have the same chronology as this period. Implementations may choose to accept or reject other ‘TemporalAmount’ implementations. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>multipliedBy(int scalar): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a new instance with each amount in this period in this period multiplied by the specified scalar. <p> This returns a period with each supported unit individually multiplied. For example, a period of “2 years, -3 months and 4 days” multiplied by 3 will return “6 years, -9 months and 12 days”. No normalization is performed.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>negated(): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a new instance with each amount in this period negated. <p> This returns a period with each supported unit individually negated. For example, a period of “2 years, -3 months and 4 days” will be negated to “-2 years, 3 months and -4 days”. No normalization is performed.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>normalized(): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this period with the amounts of each unit normalized. <p> The process of normalization is specific to each calendar system. For example, in the ISO calendar system, the years and months are normalized but the days are not, such that “15 months” would be normalized to “1 year and 3 months”. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>addTo(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Adds this period to the specified temporal object. <p> This returns a temporal object of the same observable type as the input with this period added. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#plus(TemporalAmount)’. <pre>  dateTime = thisPeriod.addTo(dateTime); dateTime = dateTime.plus(thisPeriod); </pre> <p> The specified temporal must have the same chronology as this period. This returns a temporal with the non-zero supported units added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>subtractFrom(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Subtracts this period from the specified temporal object. <p> This returns a temporal object of the same observable type as the input with this period subtracted. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#minus(TemporalAmount)’. <pre>  dateTime = thisPeriod.subtractFrom(dateTime); dateTime = dateTime.minus(thisPeriod); </pre> <p> The specified temporal must have the same chronology as this period. This returns a temporal with the non-zero supported units subtracted. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if this period is equal to another period, including the chronology. <p> Compares this period with another ensuring that the type, each amount and the chronology are the same. Note that this means that a period of “15 Months” is not equal to a period of “1 Year and 3 Months”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A hash code for this period.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Outputs this period as a ‘String’. <p> The output will include the period amounts and chronology.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -112,7 +112,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">A method that result-bearing CountedCompleters may optionally use to help maintain result data.  By default, does nothing. Overrides are not recommended. However, if this method is overridden to update existing objects or fields, then it must in general be defined to be thread-safe.</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="center"><strong>PENDING: long</strong></td>
@@ -142,7 +142,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><strong>CountedCompleter(CountedCompleter&lt;?&gt; completer,int initialPendingCount)</strong></td>
+<td align="center"><strong>CountedCompleter(CountedCompleter&lt;?&gt; completer, int initialPendingCount)</strong></td>
 <td align="center">protected</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -382,7 +382,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>internalPropagateException(Throwable ex)</strong></td>
+<td align="center"><strong>internalPropagateException(Throwable ex): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -403,6 +403,30 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Implements execution conventions for CountedCompleters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRawResult(): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the result of the computation. By default returns ‘null’, which is appropriate for ‘Void’ actions, but in other cases should be overridden, almost always to return a field or function of a field that holds the result upon completion.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRawResult(T t): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A method that result-bearing CountedCompleters may optionally use to help maintain result data.  By default, does nothing. Overrides are not recommended. However, if this method is overridden to update existing objects or fields, then it must in general be defined to be thread-safe.</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

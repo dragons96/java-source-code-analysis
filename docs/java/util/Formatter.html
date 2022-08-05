@@ -135,6 +135,17 @@
 <td align="left"></td>
 </tr>
 <tr>
+<td align="center"><strong>formatSpecifier: String</strong></td>
+<td align="center">“%(\d+\$)?([-#+ 0,(\&lt;]*)?(\d+)?(\.\d+)?([tT])?([a-zA-Z%])”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="center"><strong>fsPattern: Pattern</strong></td>
 <td align="center">Pattern.compile(formatSpecifier)</td>
 <td align="center">private</td>
@@ -162,6 +173,18 @@
 </tr>
 </thead>
 <tbody><tr>
+<td align="center"><strong>toCharset(String csn): Charset</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a charset object for the given charset name.</td>
+<td align="left">NullPointerException<br/>UnsupportedEncodingException</td>
+</tr>
+<tr>
 <td align="center"><strong>nonNullAppendable(Appendable a): Appendable</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -170,8 +193,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a charset object for the given charset name.</td>
-<td align="left">NullPointerException<br/>UnsupportedEncodingException</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="center"><strong>Formatter(Locale l, Appendable a)</strong></td>
@@ -184,6 +207,18 @@
 <td align="center">否</td>
 <td align="left">Private constructors</td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(Charset charset, Locale l, File file)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">FileNotFoundException</td>
 </tr>
 <tr>
 <td align="center"><strong>Formatter()</strong></td>
@@ -246,6 +281,30 @@
 <td align="left">SecurityException<br/>FileNotFoundException</td>
 </tr>
 <tr>
+<td align="center"><strong>Formatter(String fileName, String csn)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified file name and charset.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left">SecurityException<br/>FileNotFoundException<br/>UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(String fileName, String csn, Locale l)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified file name, charset, and locale.</td>
+<td align="left">SecurityException<br/>FileNotFoundException<br/>UnsupportedEncodingException</td>
+</tr>
+<tr>
 <td align="center"><strong>Formatter(File file)</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
@@ -256,6 +315,30 @@
 <td align="center">否</td>
 <td align="left">Constructs a new formatter with the specified file.  <p> The charset used is the ‘java.nio.charset.Charset#defaultCharset() default charset’ for this instance of the Java virtual machine.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
 <td align="left">SecurityException<br/>FileNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(File file, String csn)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified file and charset.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left">SecurityException<br/>FileNotFoundException<br/>UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(File file, String csn, Locale l)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified file, charset, and locale.</td>
+<td align="left">SecurityException<br/>FileNotFoundException<br/>UnsupportedEncodingException</td>
 </tr>
 <tr>
 <td align="center"><strong>Formatter(PrintStream ps)</strong></td>
@@ -282,6 +365,30 @@
 <td align="left"></td>
 </tr>
 <tr>
+<td align="center"><strong>Formatter(OutputStream os, String csn)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified output stream and charset.  <p> The locale used is the ‘Locale#getDefault(Locale.Category) default locale’ for ‘Locale.Category#FORMAT formatting’ for this instance of the Java virtual machine.</td>
+<td align="left">UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>Formatter(OutputStream os, String csn, Locale l)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new formatter with the specified output stream, charset, and locale.</td>
+<td align="left">UnsupportedEncodingException</td>
+</tr>
+<tr>
 <td align="center"><strong>getZero(Locale l): char</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -290,8 +397,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructs a new formatter with the specified output stream, charset, and locale.</td>
-<td align="left">UnsupportedEncodingException</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="center"><strong>locale(): Locale</strong></td>
@@ -387,7 +494,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Writes a formatted string to this object’s destination using the specified format string and arguments.  The locale used is the one defined during the construction of this formatter.</td>
-<td align="left">FormatterClosedException<br/>IllegalFormatException</td>
+<td align="left">IllegalFormatException<br/>FormatterClosedException</td>
 </tr>
 <tr>
 <td align="center"><strong>format(Locale l, String format, Object … args): Formatter</strong></td>
@@ -399,7 +506,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Writes a formatted string to this object’s destination using the specified locale, format string, and arguments.</td>
-<td align="left">FormatterClosedException<br/>IllegalFormatException</td>
+<td align="left">IllegalFormatException<br/>FormatterClosedException</td>
 </tr>
 <tr>
 <td align="center"><strong>parse(String s): FormatString[]</strong></td>

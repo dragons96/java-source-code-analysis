@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/text/NumberFormat.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="NumberFormat"><a href="#NumberFormat" class="headerlink" title="NumberFormat"></a>NumberFormat</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.text.NumberFormat</strong></td>
+<td align="center">abstract class</td>
+<td align="center">Format</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>INTEGER_FIELD: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Field constant used to construct a FieldPosition object. Signifies that the position of the integer part of a formatted number should be returned. @see java.text.FieldPosition</td>
+</tr>
+<tr>
+<td align="center"><strong>FRACTION_FIELD: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Field constant used to construct a FieldPosition object. Signifies that the position of the fraction part of a formatted number should be returned. @see java.text.FieldPosition</td>
+</tr>
+<tr>
+<td align="center"><strong>NUMBERSTYLE: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CURRENCYSTYLE: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>PERCENTSTYLE: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SCIENTIFICSTYLE: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>INTEGERSTYLE: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>groupingUsed: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">True if the grouping (i.e. thousands) separator is used when formatting and parsing numbers.  @serial @see #isGroupingUsed</td>
+</tr>
+<tr>
+<td align="center"><strong>maxIntegerDigits: byte</strong></td>
+<td align="center">40</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum number of digits allowed in the integer portion of a number.  <code>maxIntegerDigits</code> must be greater than or equal to <code>minIntegerDigits</code>. <p> <strong>Note:</strong> This field exists only for serialization compatibility with JDK 1.1.  In Java platform 2 v1.2 and higher, the new <code>int</code> field <code>maximumIntegerDigits</code> is used instead. When writing to a stream, <code>maxIntegerDigits</code> is set to <code>maximumIntegerDigits</code> or <code>Byte.MAX_VALUE</code>, whichever is smaller.  When reading from a stream, this field is used only if <code>serialVersionOnStream</code> is less than 1.  @serial @see #getMaximumIntegerDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>minIntegerDigits: byte</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum number of digits allowed in the integer portion of a number.  <code>minimumIntegerDigits</code> must be less than or equal to <code>maximumIntegerDigits</code>. <p> <strong>Note:</strong> This field exists only for serialization compatibility with JDK 1.1.  In Java platform 2 v1.2 and higher, the new <code>int</code> field <code>minimumIntegerDigits</code> is used instead. When writing to a stream, <code>minIntegerDigits</code> is set to <code>minimumIntegerDigits</code> or <code>Byte.MAX_VALUE</code>, whichever is smaller.  When reading from a stream, this field is used only if <code>serialVersionOnStream</code> is less than 1.  @serial @see #getMinimumIntegerDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>maxFractionDigits: byte</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum number of digits allowed in the fractional portion of a number.  <code>maximumFractionDigits</code> must be greater than or equal to <code>minimumFractionDigits</code>. <p> <strong>Note:</strong> This field exists only for serialization compatibility with JDK 1.1.  In Java platform 2 v1.2 and higher, the new <code>int</code> field <code>maximumFractionDigits</code> is used instead. When writing to a stream, <code>maxFractionDigits</code> is set to <code>maximumFractionDigits</code> or <code>Byte.MAX_VALUE</code>, whichever is smaller.  When reading from a stream, this field is used only if <code>serialVersionOnStream</code> is less than 1.  @serial @see #getMaximumFractionDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>minFractionDigits: byte</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum number of digits allowed in the fractional portion of a number.  <code>minimumFractionDigits</code> must be less than or equal to <code>maximumFractionDigits</code>. <p> <strong>Note:</strong> This field exists only for serialization compatibility with JDK 1.1.  In Java platform 2 v1.2 and higher, the new <code>int</code> field <code>minimumFractionDigits</code> is used instead. When writing to a stream, <code>minFractionDigits</code> is set to <code>minimumFractionDigits</code> or <code>Byte.MAX_VALUE</code>, whichever is smaller.  When reading from a stream, this field is used only if <code>serialVersionOnStream</code> is less than 1.  @serial @see #getMinimumFractionDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>parseIntegerOnly: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">True if this format will parse numbers as integers only.  @serial @see #isParseIntegerOnly</td>
+</tr>
+<tr>
+<td align="center"><strong>maximumIntegerDigits: int</strong></td>
+<td align="center">40</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum number of digits allowed in the integer portion of a number.  <code>maximumIntegerDigits</code> must be greater than or equal to <code>minimumIntegerDigits</code>.  @serial @since 1.2 @see #getMaximumIntegerDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>minimumIntegerDigits: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum number of digits allowed in the integer portion of a number.  <code>minimumIntegerDigits</code> must be less than or equal to <code>maximumIntegerDigits</code>.  @serial @since 1.2 @see #getMinimumIntegerDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>maximumFractionDigits: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum number of digits allowed in the fractional portion of a number.  <code>maximumFractionDigits</code> must be greater than or equal to <code>minimumFractionDigits</code>.  @serial @since 1.2 @see #getMaximumFractionDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>minimumFractionDigits: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum number of digits allowed in the fractional portion of a number.  <code>minimumFractionDigits</code> must be less than or equal to <code>maximumFractionDigits</code>.  @serial @since 1.2 @see #getMinimumFractionDigits</td>
+</tr>
+<tr>
+<td align="center"><strong>currentSerialVersion: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionOnStream: int</strong></td>
+<td align="center">currentSerialVersion</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Describes the version of <code>NumberFormat</code> present on the stream. Possible values are: <ul> <li><b>0</b> (or uninitialized): the JDK 1.1 version of the stream format. In this version, the <code>int</code> fields such as <code>maximumIntegerDigits</code> were not present, and the <code>byte</code> fields such as <code>maxIntegerDigits</code> are used instead.  <li><b>1</b>: the 1.2 version of the stream format.  The values of the <code>byte</code> fields such as <code>maxIntegerDigits</code> are ignored, and the <code>int</code> fields such as <code>maximumIntegerDigits</code> are used instead. </ul> When streaming out a <code>NumberFormat</code>, the most recent format (corresponding to the highest allowable <code>serialVersionOnStream</code>) is always written.  @serial @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-2308460125733713944L</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>NumberFormat()</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sole constructor.  (For invocation by subclass constructors, typically implicit.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(Object number, StringBuffer toAppendTo, FieldPosition pos): StringBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats a number and appends the resulting text to the given string buffer. The number can be of any subclass of ‘java.lang.Number’. <p> This implementation extracts the number’s value using ‘java.lang.Number#longValue()’ for all integral type values that can be converted to <code>long</code> without loss of information, including <code>BigInteger</code> values with a ‘java.math.BigInteger#bitLength() bit length’ of less than 64, and ‘java.lang.Number#doubleValue()’ for all other types. It then calls ‘#format(long,java.lang.StringBuffer,java.text.FieldPosition)’ or ‘#format(double,java.lang.StringBuffer,java.text.FieldPosition)’. This may result in loss of magnitude information and precision for <code>BigInteger</code> and <code>BigDecimal</code> values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseObject(String source, ParsePosition pos): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses text from a string to produce a <code>Number</code>. <p> The method attempts to parse text starting at the index given by <code>pos</code>. If parsing succeeds, then the index of <code>pos</code> is updated to the index after the last character used (parsing does not necessarily use all characters up to the end of the string), and the parsed number is returned. The updated <code>pos</code> can be used to indicate the starting point for the next call to this method. If an error occurs, then the index of <code>pos</code> is not changed, the error index of <code>pos</code> is set to the index of the character where the error occurred, and null is returned. <p> See the ‘#parse(String, ParsePosition)’ method for more information on number parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(double number): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Specialization of format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fastFormat(double number): String</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">fastFormat() is supposed to be implemented in concrete subclasses only. Default implem always returns null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(long number): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Specialization of format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(double number, StringBuffer toAppendTo, FieldPosition pos): StringBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Specialization of format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(long number, StringBuffer toAppendTo, FieldPosition pos): StringBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Specialization of format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parse(String source, ParsePosition parsePosition): Number</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a Long if possible (e.g., within the range [Long.MIN_VALUE, Long.MAX_VALUE] and with no decimals), otherwise a Double. If IntegerOnly is set, will stop at a decimal point (or equivalent; e.g., for rational numbers “1 2&#x2F;3”, will stop after the 1). Does not throw an exception; if no object can be parsed, index is unchanged!</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parse(String source): Number</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses text from the beginning of the given string to produce a number. The method may not use the entire text of the given string. <p> See the ‘#parse(String, ParsePosition)’ method for more information on number parsing.</td>
+<td align="left">ParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>isParseIntegerOnly(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if this format will parse numbers as integers only. For example in the English locale, with ParseIntegerOnly true, the string “1234.” would be parsed as the integer value 1234 and parsing would stop at the “.” character.  Of course, the exact format accepted by the parse operation is locale dependant and determined by sub-classes of NumberFormat.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setParseIntegerOnly(boolean value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether or not numbers should be parsed as integers only.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a general-purpose number format for the current default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. This is the same as calling ‘#getNumberInstance() getNumberInstance()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(Locale inLocale): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a general-purpose number format for the specified locale. This is the same as calling ‘#getNumberInstance(java.util.Locale) getNumberInstance(inLocale)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumberInstance(): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a general-purpose number format for the current default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getNumberInstance(Locale) getNumberInstance(Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumberInstance(Locale inLocale): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a general-purpose number format for the specified locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getIntegerInstance(): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an integer number format for the current default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. The returned number format is configured to round floating point numbers to the nearest integer using half-even rounding (see ‘java.math.RoundingMode#HALF_EVEN RoundingMode.HALF_EVEN’) for formatting, and to parse only the integer part of an input string (see ‘#isParseIntegerOnly isParseIntegerOnly’). <p>This is equivalent to calling ‘#getIntegerInstance(Locale) getIntegerInstance(Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getIntegerInstance(Locale inLocale): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an integer number format for the specified locale. The returned number format is configured to round floating point numbers to the nearest integer using half-even rounding (see ‘java.math.RoundingMode#HALF_EVEN RoundingMode.HALF_EVEN’) for formatting, and to parse only the integer part of an input string (see ‘#isParseIntegerOnly isParseIntegerOnly’).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrencyInstance(): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a currency format for the current default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getCurrencyInstance(Locale) getCurrencyInstance(Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrencyInstance(Locale inLocale): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a currency format for the specified locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPercentInstance(): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a percentage format for the current default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getPercentInstance(Locale) getPercentInstance(Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPercentInstance(Locale inLocale): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a percentage format for the specified locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getScientificInstance(): NumberFormat</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a scientific format for the current default locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getScientificInstance(Locale inLocale): NumberFormat</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a scientific format for the specified locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAvailableLocales(): Locale[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all locales for which the <code>get*Instance</code> methods of this class can return localized instances. The returned array represents the union of locales supported by the Java runtime and by installed ‘java.text.spi.NumberFormatProvider NumberFormatProvider’ implementations. It must contain at least a <code>Locale</code> instance equal to ‘java.util.Locale#US Locale.US’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides hashCode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides equals.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides Cloneable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isGroupingUsed(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if grouping is used in this format. For example, in the English locale, with grouping on, the number 1234567 might be formatted as “1,234,567”. The grouping separator as well as the size of each group is locale dependant and is determined by sub-classes of NumberFormat.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setGroupingUsed(boolean newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set whether or not grouping will be used in this format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumIntegerDigits(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum number of digits allowed in the integer portion of a number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMaximumIntegerDigits(int newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the maximum number of digits allowed in the integer portion of a number. maximumIntegerDigits must be &amp;ge; minimumIntegerDigits.  If the new value for maximumIntegerDigits is less than the current value of minimumIntegerDigits, then minimumIntegerDigits will also be set to the new value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumIntegerDigits(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum number of digits allowed in the integer portion of a number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMinimumIntegerDigits(int newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the minimum number of digits allowed in the integer portion of a number. minimumIntegerDigits must be &amp;le; maximumIntegerDigits.  If the new value for minimumIntegerDigits exceeds the current value of maximumIntegerDigits, then maximumIntegerDigits will also be set to the new value</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumFractionDigits(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum number of digits allowed in the fraction portion of a number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMaximumFractionDigits(int newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the maximum number of digits allowed in the fraction portion of a number. maximumFractionDigits must be &amp;ge; minimumFractionDigits.  If the new value for maximumFractionDigits is less than the current value of minimumFractionDigits, then minimumFractionDigits will also be set to the new value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumFractionDigits(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum number of digits allowed in the fraction portion of a number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMinimumFractionDigits(int newValue): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the minimum number of digits allowed in the fraction portion of a number. minimumFractionDigits must be &amp;le; maximumFractionDigits.  If the new value for minimumFractionDigits exceeds the current value of maximumFractionDigits, then maximumIntegerDigits will also be set to the new value</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrency(): Currency</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the currency used by this number format when formatting currency values. The initial value is derived in a locale dependent way. The returned value may be null if no valid currency could be determined and no currency has been set using ‘#setCurrency(java.util.Currency) setCurrency’. <p> The default implementation throws <code>UnsupportedOperationException</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCurrency(Currency currency): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the currency used by this number format when formatting currency values. This does not update the minimum or maximum number of fraction digits used by the number format. <p> The default implementation throws <code>UnsupportedOperationException</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRoundingMode(): RoundingMode</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the ‘java.math.RoundingMode’ used in this NumberFormat. The default implementation of this method in NumberFormat always throws ‘java.lang.UnsupportedOperationException’. Subclasses which handle different rounding modes should override this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRoundingMode(RoundingMode roundingMode): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the ‘java.math.RoundingMode’ used in this NumberFormat. The default implementation of this method in NumberFormat always throws ‘java.lang.UnsupportedOperationException’. Subclasses which handle different rounding modes should override this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(Locale desiredLocale, int choice): NumberFormat</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(LocaleProviderAdapter adapter, Locale locale, int choice): NumberFormat</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">First, read in the default serializable data.  Then, if <code>serialVersionOnStream</code> is less than 1, indicating that the stream was written by JDK 1.1, set the <code>int</code> fields such as <code>maximumIntegerDigits</code> to be equal to the <code>byte</code> fields such as <code>maxIntegerDigits</code>, since the <code>int</code> fields were not present in JDK 1.1. Finally, set serialVersionOnStream back to the maximum allowed value so that default serialization will work properly if this object is streamed out again.  <p>If <code>minimumIntegerDigits</code> is greater than <code>maximumIntegerDigits</code> or <code>minimumFractionDigits</code> is greater than <code>maximumFractionDigits</code>, then the stream data is invalid and this method throws an <code>InvalidObjectException</code>. In addition, if any of these values is negative, then this method throws an <code>InvalidObjectException</code>.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Write out the default serializable data, after first setting the <code>byte</code> fields such as <code>maxIntegerDigits</code> to be equal to the <code>int</code> fields such as <code>maximumIntegerDigits</code> (or to <code>Byte.MAX_VALUE</code>, whichever is smaller), for compatibility with the JDK 1.1 version of the stream format.</td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="NumberFormat-Field"><a href="#NumberFormat-Field" class="headerlink" title="NumberFormat$Field"></a><a href="./NumberFormat$Field.html">NumberFormat$Field</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/math/BigDecimal.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="BigDecimal"><a href="#BigDecimal" class="headerlink" title="BigDecimal"></a>BigDecimal</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.math.BigDecimal</strong></td>
+<td align="center">class</td>
+<td align="center">Number</td>
+<td align="center">Comparable&lt;BigDecimal&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>intVal: BigInteger</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The unscaled value of this BigDecimal, as returned by {@link #unscaledValue}.  @serial @see #unscaledValue</td>
+</tr>
+<tr>
+<td align="center"><strong>scale: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The scale of this BigDecimal, as returned by {@link #scale}.  @serial @see #scale</td>
+</tr>
+<tr>
+<td align="center"><strong>precision: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The number of decimal digits in this BigDecimal, or 0 if the number of digits are not known (lookaside information).  If nonzero, the value is guaranteed correct.  Use the precision() method to obtain and set the value if it might be 0.  This field is mutable until set nonzero.  @since  1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>stringCache: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Used to store the canonical string representation, if computed.</td>
+</tr>
+<tr>
+<td align="center"><strong>INFLATED: long</strong></td>
+<td align="center">Long.MIN_VALUE</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sentinel value for {@link #intCompact} indicating the significand information is only available from {@code intVal}.</td>
+</tr>
+<tr>
+<td align="center"><strong>INFLATED_BIGINT: BigInteger</strong></td>
+<td align="center">BigInteger.valueOf(INFLATED)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intCompact: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">If the absolute value of the significand of this BigDecimal is less than or equal to {@code Long.MAX_VALUE}, the value can be compactly stored in this field and used in computations.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_COMPACT_DIGITS: int</strong></td>
+<td align="center">18</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">6108874887143696463L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appease the serialization gods</td>
+</tr>
+<tr>
+<td align="center"><strong>HALF_LONG_MAX_VALUE: long</strong></td>
+<td align="center">Long.MAX_VALUE &#x2F; 2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HALF_LONG_MIN_VALUE: long</strong></td>
+<td align="center">Long.MIN_VALUE &#x2F; 2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ZERO: BigDecimal</strong></td>
+<td align="center">zeroThroughTen[0]</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The value 0, with a scale of 0.  @since  1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>ONE: BigDecimal</strong></td>
+<td align="center">zeroThroughTen[1]</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The value 1, with a scale of 0.  @since  1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>TEN: BigDecimal</strong></td>
+<td align="center">zeroThroughTen[10]</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The value 10, with a scale of 0.  @since  1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_UP: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round away from zero.  Always increments the digit prior to a nonzero discarded fraction.  Note that this rounding mode never decreases the magnitude of the calculated value.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_DOWN: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round towards zero.  Never increments the digit prior to a discarded fraction (i.e., truncates).  Note that this rounding mode never increases the magnitude of the calculated value.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_CEILING: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round towards positive infinity.  If the {@code BigDecimal} is positive, behaves as for {@code ROUND_UP}; if negative, behaves as for {@code ROUND_DOWN}.  Note that this rounding mode never decreases the calculated value.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_FLOOR: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round towards negative infinity.  If the {@code BigDecimal} is positive, behave as for {@code ROUND_DOWN}; if negative, behave as for {@code ROUND_UP}.  Note that this rounding mode never increases the calculated value.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_HALF_UP: int</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round towards {@literal “nearest neighbor”} unless both neighbors are equidistant, in which case round up. Behaves as for {@code ROUND_UP} if the discarded fraction is &amp;ge; 0.5; otherwise, behaves as for {@code ROUND_DOWN}.  Note that this is the rounding mode that most of us were taught in grade school.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_HALF_DOWN: int</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round towards {@literal “nearest neighbor”} unless both neighbors are equidistant, in which case round down.  Behaves as for {@code ROUND_UP} if the discarded fraction is {@literal &gt;} 0.5; otherwise, behaves as for {@code ROUND_DOWN}.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_HALF_EVEN: int</strong></td>
+<td align="center">6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to round towards the {@literal “nearest neighbor”} unless both neighbors are equidistant, in which case, round towards the even neighbor.  Behaves as for {@code ROUND_HALF_UP} if the digit to the left of the discarded fraction is odd; behaves as for {@code ROUND_HALF_DOWN} if it’s even.  Note that this is the rounding mode that minimizes cumulative error when applied repeatedly over a sequence of calculations.</td>
+</tr>
+<tr>
+<td align="center"><strong>ROUND_UNNECESSARY: int</strong></td>
+<td align="center">7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Rounding mode to assert that the requested operation has an exact result, hence no rounding is necessary.  If this rounding mode is specified on an operation that yields an inexact result, an {@code ArithmeticException} is thrown.</td>
+</tr>
+<tr>
+<td align="center"><strong>BIG_TEN_POWERS_TABLE_INITLEN: int</strong></td>
+<td align="center">BIG_TEN_POWERS_TABLE.length</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BIG_TEN_POWERS_TABLE_MAX: int</strong></td>
+<td align="center">16 * BIG_TEN_POWERS_TABLE_INITLEN</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DIV_NUM_BASE: long</strong></td>
+<td align="center">(1L&lt;&lt;32)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>BigDecimal(BigInteger intVal, long val, int scale, int prec)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Trusted package private constructor. Trusted simply means if val is INFLATED, intVal could not be null and if intVal is null, val could not be INFLATED.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(char[] in, int offset, int len)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a character array representation of a ‘BigDecimal’ into a ‘BigDecimal’, accepting the same sequence of characters as the ‘#BigDecimal(String)’ constructor, while allowing a sub-array to be specified.  <p>Note that if the sequence of characters is already available within a character array, using this constructor is faster than converting the ‘char’ array to string and using the ‘BigDecimal(String)’ constructor .</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(char[] in, int offset, int len, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a character array representation of a ‘BigDecimal’ into a ‘BigDecimal’, accepting the same sequence of characters as the ‘#BigDecimal(String)’ constructor, while allowing a sub-array to be specified and with rounding according to the context settings.  <p>Note that if the sequence of characters is already available within a character array, using this constructor is faster than converting the ‘char’ array to string and using the ‘BigDecimal(String)’ constructor .</td>
+<td align="left">NumberFormatException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>adjustScale(int scl, long exp): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseExp(char[] in, int offset, int len): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">parse exponent</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(char[] in)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a character array representation of a ‘BigDecimal’ into a ‘BigDecimal’, accepting the same sequence of characters as the ‘#BigDecimal(String)’ constructor.  <p>Note that if the sequence of characters is already available as a character array, using this constructor is faster than converting the ‘char’ array to string and using the ‘BigDecimal(String)’ constructor .</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(char[] in, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a character array representation of a ‘BigDecimal’ into a ‘BigDecimal’, accepting the same sequence of characters as the ‘#BigDecimal(String)’ constructor and with rounding according to the context settings.  <p>Note that if the sequence of characters is already available as a character array, using this constructor is faster than converting the ‘char’ array to string and using the ‘BigDecimal(String)’ constructor .</td>
+<td align="left">NumberFormatException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(String val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates the string representation of a ‘BigDecimal’ into a ‘BigDecimal’.  The string representation consists of an optional sign, ‘’+’’ (<tt> ‘&amp;#92;u002B’</tt>) or ‘’-‘’ (<tt>‘&amp;#92;u002D’</tt>), followed by a sequence of zero or more decimal digits (“the integer”), optionally followed by a fraction, optionally followed by an exponent.  <p>The fraction consists of a decimal point followed by zero or more decimal digits.  The string must contain at least one digit in either the integer or the fraction.  The number formed by the sign, the integer and the fraction is referred to as the <i>significand</i>.  <p>The exponent consists of the character ‘’e’’ (<tt>‘&amp;#92;u0065’</tt>) or ‘’E’’ (<tt>‘&amp;#92;u0045’</tt>) followed by one or more decimal digits.  The value of the exponent must lie between -‘Integer#MAX_VALUE’ (‘Integer#MIN_VALUE’+1) and ‘Integer#MAX_VALUE’, inclusive.  <p>More formally, the strings this constructor accepts are described by the following grammar: <blockquote> <dl> <dt><i>BigDecimalString:</i> <dd><i>Sign<sub>opt</sub> Significand Exponent<sub>opt</sub></i> <dt><i>Sign:</i> <dd>‘+’ <dd>‘-‘ <dt><i>Significand:</i> <dd><i>IntegerPart</i> ‘.’ <i>FractionPart<sub>opt</sub></i> <dd>‘.’ <i>FractionPart</i> <dd><i>IntegerPart</i> <dt><i>IntegerPart:</i> <dd><i>Digits</i> <dt><i>FractionPart:</i> <dd><i>Digits</i> <dt><i>Exponent:</i> <dd><i>ExponentIndicator SignedInteger</i> <dt><i>ExponentIndicator:</i> <dd>‘e’ <dd>‘E’ <dt><i>SignedInteger:</i> <dd><i>Sign<sub>opt</sub> Digits</i> <dt><i>Digits:</i> <dd><i>Digit</i> <dd><i>Digits Digit</i> <dt><i>Digit:</i> <dd>any character for which ‘Character#isDigit’ returns ‘true’, including 0, 1, 2 … </dl> </blockquote>  <p>The scale of the returned ‘BigDecimal’ will be the number of digits in the fraction, or zero if the string contains no decimal point, subject to adjustment for any exponent; if the string contains an exponent, the exponent is subtracted from the scale.  The value of the resulting scale must lie between ‘Integer.MIN_VALUE’ and ‘Integer.MAX_VALUE’, inclusive.  <p>The character-to-digit mapping is provided by ‘java.lang.Character#digit’ set to convert to radix 10.  The String may not contain any extraneous characters (whitespace, for example).  <p><b>Examples:</b><br> The value of the returned ‘BigDecimal’ is equal to <i>significand</i> &amp;times; 10<sup>&amp;nbsp;<i>exponent</i></sup>. For each string on the left, the resulting representation [‘BigInteger’, ‘scale’] is shown on the right. <pre> "0"            [0,0] "0.00"         [0,2] "123"          [123,0] "-123"         [-123,0] "1.23E3"       [123,-1] "1.23E+3"      [123,-1] "12.3E+7"      [123,-6] "12.0"         [120,1] "12.3"         [123,1] "0.00123"      [123,5] "-1.23E-12"    [-123,14] "1234.5E-4"    [12345,5] "0E+7"         [0,-7] "-0"           [0,0] </pre>  <p>Note: For values other than ‘float’ and ‘double’ NaN and &amp;plusmn;Infinity, this constructor is compatible with the values returned by ‘Float#toString’ and ‘Double#toString’.  This is generally the preferred way to convert a ‘float’ or ‘double’ into a BigDecimal, as it doesn’t suffer from the unpredictability of the ‘#BigDecimal(double)’ constructor.</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(String val, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates the string representation of a ‘BigDecimal’ into a ‘BigDecimal’, accepting the same strings as the ‘#BigDecimal(String)’ constructor, with rounding according to the context settings.</td>
+<td align="left">NumberFormatException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(double val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘double’ into a ‘BigDecimal’ which is the exact decimal representation of the ‘double’’s binary floating-point value.  The scale of the returned ‘BigDecimal’ is the smallest value such that <tt>(10<sup>scale</sup> &amp;times; val)</tt> is an integer. <p> <b>Notes:</b> <ol> <li> The results of this constructor can be somewhat unpredictable. One might assume that writing ‘new BigDecimal(0.1)’ in Java creates a ‘BigDecimal’ which is exactly equal to 0.1 (an unscaled value of 1, with a scale of 1), but it is actually equal to 0.1000000000000000055511151231257827021181583404541015625. This is because 0.1 cannot be represented exactly as a ‘double’ (or, for that matter, as a binary fraction of any finite length).  Thus, the value that is being passed <i>in</i> to the constructor is not exactly equal to 0.1, appearances notwithstanding.  <li> The ‘String’ constructor, on the other hand, is perfectly predictable: writing ‘new BigDecimal(“0.1”)’ creates a ‘BigDecimal’ which is <i>exactly</i> equal to 0.1, as one would expect.  Therefore, it is generally recommended that the ‘#BigDecimal(String) <tt>String</tt> constructor’ be used in preference to this one.  <li> When a ‘double’ must be used as a source for a ‘BigDecimal’, note that this constructor provides an exact conversion; it does not give the same result as converting the ‘double’ to a ‘String’ using the ‘Double#toString(double)’ method and then using the ‘#BigDecimal(String)’ constructor.  To get that result, use the ‘static’ ‘#valueOf(double)’ method. </ol></td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(double val, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘double’ into a ‘BigDecimal’, with rounding according to the context settings.  The scale of the ‘BigDecimal’ is the smallest value such that <tt>(10<sup>scale</sup> &amp;times; val)</tt> is an integer.  <p>The results of this constructor can be somewhat unpredictable and its use is generally not recommended; see the notes under the ‘#BigDecimal(double)’ constructor.</td>
+<td align="left">NumberFormatException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(BigInteger val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘BigInteger’ into a ‘BigDecimal’. The scale of the ‘BigDecimal’ is zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(BigInteger val, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘BigInteger’ into a ‘BigDecimal’ rounding according to the context settings.  The scale of the ‘BigDecimal’ is zero.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(BigInteger unscaledVal, int scale)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘BigInteger’ unscaled value and an ‘int’ scale into a ‘BigDecimal’.  The value of the ‘BigDecimal’ is <tt>(unscaledVal &amp;times; 10<sup>-scale</sup>)</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(BigInteger unscaledVal, int scale, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘BigInteger’ unscaled value and an ‘int’ scale into a ‘BigDecimal’, with rounding according to the context settings.  The value of the ‘BigDecimal’ is <tt>(unscaledVal &amp;times; 10<sup>-scale</sup>)</tt>, rounded according to the ‘precision’ and rounding mode settings.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(int val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates an ‘int’ into a ‘BigDecimal’.  The scale of the ‘BigDecimal’ is zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(int val, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates an ‘int’ into a ‘BigDecimal’, with rounding according to the context settings.  The scale of the ‘BigDecimal’, before any rounding, is zero.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(long val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘long’ into a ‘BigDecimal’.  The scale of the ‘BigDecimal’ is zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigDecimal(long val, MathContext mc)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘long’ into a ‘BigDecimal’, with rounding according to the context settings.  The scale of the ‘BigDecimal’, before any rounding, is zero.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(long unscaledVal, int scale): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘long’ unscaled value and an ‘int’ scale into a ‘BigDecimal’.  This ‘“static factory method”‘ is provided in preference to a (‘long’, ‘int’) constructor because it allows for reuse of frequently used ‘BigDecimal’ values..</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(long val): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘long’ value into a ‘BigDecimal’ with a scale of zero.  This ‘“static factory method”‘ is provided in preference to a (‘long’) constructor because it allows for reuse of frequently used ‘BigDecimal’ values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(long unscaledVal, int scale, int prec): BigDecimal</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(BigInteger intVal, int scale, int prec): BigDecimal</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zeroValueOf(int scale): BigDecimal</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(double val): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a ‘double’ into a ‘BigDecimal’, using the ‘double’’s canonical string representation provided by the ‘Double#toString(double)’ method.  <p><b>Note:</b> This is generally the preferred way to convert a ‘double’ (or ‘float’) into a ‘BigDecimal’, as the value returned is equal to that resulting from constructing a ‘BigDecimal’ from the result of using ‘Double#toString(double)’.</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>add(BigDecimal augend): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this + augend)’, and whose scale is ‘max(this.scale(), augend.scale())’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(BigDecimal augend, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this + augend)’, with rounding according to the context settings.  If either number is zero and the precision setting is nonzero then the other number, rounded if necessary, is used as the result.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>preAlign(BigDecimal lhs, BigDecimal augend, long padding, MathContext mc): BigDecimal[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of length two, the sum of whose entries is equal to the rounded sum of the ‘BigDecimal’ arguments.  <p>If the digit positions of the arguments have a sufficient gap between them, the value smaller in magnitude can be condensed into a ‘“sticky bit”‘ and the end result will round the same way <em>if</em> the precision of the final result does not include the high order digit of the small magnitude operand.  <p>Note that while strictly speaking this is an optimization, it makes a much wider range of additions practical.  <p>This corresponds to a pre-shift operation in a fixed precision floating-point adder; this method is complicated by variable precision of the result as determined by the MathContext.  A more nuanced operation could implement a ‘“right shift”‘ on the smaller magnitude operand so that the number of digits of the smaller operand could be reduced even though the significands partially overlapped.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(BigDecimal subtrahend): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this - subtrahend)’, and whose scale is ‘max(this.scale(), subtrahend.scale())’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(BigDecimal subtrahend, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this - subtrahend)’, with rounding according to the context settings.  If ‘subtrahend’ is zero then this, rounded if necessary, is used as the result.  If this is zero then the result is ‘subtrahend.negate(mc)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(BigDecimal multiplicand): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is <tt>(this &amp;times; multiplicand)</tt>, and whose scale is ‘(this.scale() + multiplicand.scale())’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(BigDecimal multiplicand, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is <tt>(this &amp;times; multiplicand)</tt>, with rounding according to the context settings.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigDecimal divisor, int scale, int roundingMode): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this divisor)’, and whose scale is as specified.  If rounding must be performed to generate a result with the specified scale, the specified rounding mode is applied.  <p>The new ‘#divide(BigDecimal, int, RoundingMode)’ method should be used in preference to this legacy method.</td>
+<td align="left">ArithmeticException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigDecimal divisor, int scale, RoundingMode roundingMode): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this divisor)’, and whose scale is as specified.  If rounding must be performed to generate a result with the specified scale, the specified rounding mode is applied.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigDecimal divisor, int roundingMode): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this divisor)’, and whose scale is ‘this.scale()’.  If rounding must be performed to generate a result with the given scale, the specified rounding mode is applied.  <p>The new ‘#divide(BigDecimal, RoundingMode)’ method should be used in preference to this legacy method.</td>
+<td align="left">ArithmeticException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigDecimal divisor, RoundingMode roundingMode): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this divisor)’, and whose scale is ‘this.scale()’.  If rounding must be performed to generate a result with the given scale, the specified rounding mode is applied.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigDecimal divisor): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this divisor)’, and whose preferred scale is ‘(this.scale() - divisor.scale())’; if the exact quotient cannot be represented (because it has a non-terminating decimal expansion) an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigDecimal divisor, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this divisor)’, with rounding according to the context settings.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideToIntegralValue(BigDecimal divisor): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is the integer part of the quotient ‘(this &#x2F; divisor)’ rounded down.  The preferred scale of the result is ‘(this.scale() - divisor.scale())’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideToIntegralValue(BigDecimal divisor, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is the integer part of ‘(this &#x2F; divisor)’.  Since the integer part of the exact quotient does not depend on the rounding mode, the rounding mode does not affect the values returned by this method.  The preferred scale of the result is ‘(this.scale() - divisor.scale())’.  An ‘ArithmeticException’ is thrown if the integer part of the exact quotient needs more than ‘mc.precision’ digits.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>remainder(BigDecimal divisor): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this % divisor)’.  <p>The remainder is given by ‘this.subtract(this.divideToIntegralValue(divisor).multiply(divisor))’. Note that this is not the modulo operation (the result can be negative).</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>remainder(BigDecimal divisor, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(this % divisor)’, with rounding according to the context settings. The ‘MathContext’ settings affect the implicit divide used to compute the remainder.  The remainder computation itself is by definition exact.  Therefore, the remainder may contain more than ‘mc.getPrecision()’ digits.  <p>The remainder is given by ‘this.subtract(this.divideToIntegralValue(divisor, mc).multiply(divisor))’.  Note that this is not the modulo operation (the result can be negative).</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRemainder(BigDecimal divisor): BigDecimal[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a two-element ‘BigDecimal’ array containing the result of ‘divideToIntegralValue’ followed by the result of ‘remainder’ on the two operands.  <p>Note that if both the integer quotient and remainder are needed, this method is faster than using the ‘divideToIntegralValue’ and ‘remainder’ methods separately because the division need only be carried out once.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRemainder(BigDecimal divisor, MathContext mc): BigDecimal[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a two-element ‘BigDecimal’ array containing the result of ‘divideToIntegralValue’ followed by the result of ‘remainder’ on the two operands calculated with rounding according to the context settings.  <p>Note that if both the integer quotient and remainder are needed, this method is faster than using the ‘divideToIntegralValue’ and ‘remainder’ methods separately because the division need only be carried out once.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>pow(int n): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is <tt>(this<sup>n</sup>)</tt>, The power is computed exactly, to unlimited precision.  <p>The parameter ‘n’ must be in the range 0 through 999999999, inclusive.  ‘ZERO.pow(0)’ returns ‘#ONE’.  Note that future releases may expand the allowable exponent range of this method.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>pow(int n, MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is <tt>(this<sup>n</sup>)</tt>.  The current implementation uses the core algorithm defined in ANSI standard X3.274-1996 with rounding according to the context settings.  In general, the returned numerical value is within two ulps of the exact numerical value for the chosen precision.  Note that future releases may use a different algorithm with a decreased allowable error bound and increased allowable exponent range.  <p>The X3.274-1996 algorithm is:  <ul> <li> An ‘ArithmeticException’ exception is thrown if <ul> <li>‘abs(n) &gt; 999999999’ <li>‘mc.precision &#x3D;&#x3D; 0’ and ‘n &lt; 0’ <li>‘mc.precision &gt; 0’ and ‘n’ has more than ‘mc.precision’ decimal digits </ul>  <li> if ‘n’ is zero, ‘#ONE’ is returned even if ‘this’ is zero, otherwise <ul> <li> if ‘n’ is positive, the result is calculated via the repeated squaring technique into a single accumulator. The individual multiplications with the accumulator use the same math context settings as in ‘mc’ except for a precision increased to ‘mc.precision + elength + 1’ where ‘elength’ is the number of decimal digits in ‘n’.  <li> if ‘n’ is negative, the result is calculated as if ‘n’ were positive; this value is then divided into one using the working precision specified above.  <li> The final value from either the positive or negative case is then rounded to the destination precision. </ul> </ul></td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>abs(): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is the absolute value of this ‘BigDecimal’, and whose scale is ‘this.scale()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>abs(MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is the absolute value of this ‘BigDecimal’, with rounding according to the context settings.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>negate(): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(-this)’, and whose scale is ‘this.scale()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>negate(MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(-this)’, with rounding according to the context settings.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(+this)’, and whose scale is ‘this.scale()’.  <p>This method, which simply returns this ‘BigDecimal’ is included for symmetry with the unary minus method ‘#negate()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plus(MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(+this)’, with rounding according to the context settings.  <p>The effect of this method is identical to that of the ‘#round(MathContext)’ method.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>signum(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the signum function of this ‘BigDecimal’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scale(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <i>scale</i> of this ‘BigDecimal’.  If zero or positive, the scale is the number of digits to the right of the decimal point.  If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale.  For example, a scale of ‘-3’ means the unscaled value is multiplied by 1000.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>precision(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <i>precision</i> of this ‘BigDecimal’.  (The precision is the number of digits in the unscaled value.)  <p>The precision of a zero value is 1.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unscaledValue(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigInteger’ whose value is the <i>unscaled value</i> of this ‘BigDecimal’.  (Computes <tt>(this 10<sup>this.scale()</sup>)</tt>.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>round(MathContext mc): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ rounded according to the ‘MathContext’ settings.  If the precision setting is 0 then no rounding takes place.  <p>The effect of this method is identical to that of the ‘#plus(MathContext)’ method.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>setScale(int newScale, RoundingMode roundingMode): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose scale is the specified value, and whose unscaled value is determined by multiplying or dividing this ‘BigDecimal’’s unscaled value by the appropriate power of ten to maintain its overall value.  If the scale is reduced by the operation, the unscaled value must be divided (rather than multiplied), and the value may be changed; in this case, the specified rounding mode is applied to the division.  <p>Note that since BigDecimal objects are immutable, calls of this method do <i>not</i> result in the original object being modified, contrary to the usual convention of having methods named <tt>set<i>X</i></tt> mutate field <i>‘X’</i>. Instead, ‘setScale’ returns an object with the proper scale; the returned object may or may not be newly allocated.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>setScale(int newScale, int roundingMode): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose scale is the specified value, and whose unscaled value is determined by multiplying or dividing this ‘BigDecimal’’s unscaled value by the appropriate power of ten to maintain its overall value.  If the scale is reduced by the operation, the unscaled value must be divided (rather than multiplied), and the value may be changed; in this case, the specified rounding mode is applied to the division.  <p>Note that since BigDecimal objects are immutable, calls of this method do <i>not</i> result in the original object being modified, contrary to the usual convention of having methods named <tt>set<i>X</i></tt> mutate field <i>‘X’</i>. Instead, ‘setScale’ returns an object with the proper scale; the returned object may or may not be newly allocated.  <p>The new ‘#setScale(int, RoundingMode)’ method should be used in preference to this legacy method.</td>
+<td align="left">ArithmeticException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setScale(int newScale): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose scale is the specified value, and whose value is numerically equal to this ‘BigDecimal’’s.  Throws an ‘ArithmeticException’ if this is not possible.  <p>This call is typically used to increase the scale, in which case it is guaranteed that there exists a ‘BigDecimal’ of the specified scale and the correct value.  The call can also be used to reduce the scale if the caller knows that the ‘BigDecimal’ has sufficiently many zeros at the end of its fractional part (i.e., factors of ten in its integer value) to allow for the rescaling without changing its value.  <p>This method returns the same result as the two-argument versions of ‘setScale’, but saves the caller the trouble of specifying a rounding mode in cases where it is irrelevant.  <p>Note that since ‘BigDecimal’ objects are immutable, calls of this method do <i>not</i> result in the original object being modified, contrary to the usual convention of having methods named <tt>set<i>X</i></tt> mutate field <i>‘X’</i>.  Instead, ‘setScale’ returns an object with the proper scale; the returned object may or may not be newly allocated.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>movePointLeft(int n): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ which is equivalent to this one with the decimal point moved ‘n’ places to the left.  If ‘n’ is non-negative, the call merely adds ‘n’ to the scale.  If ‘n’ is negative, the call is equivalent to ‘movePointRight(-n)’.  The ‘BigDecimal’ returned by this call has value <tt>(this &amp;times; 10<sup>-n</sup>)</tt> and scale ‘max(this.scale()+n, 0)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>movePointRight(int n): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ which is equivalent to this one with the decimal point moved ‘n’ places to the right. If ‘n’ is non-negative, the call merely subtracts ‘n’ from the scale.  If ‘n’ is negative, the call is equivalent to ‘movePointLeft(-n)’.  The ‘BigDecimal’ returned by this call has value <tt>(this &amp;times; 10<sup>n</sup>)</tt> and scale ‘max(this.scale()-n, 0)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>scaleByPowerOfTen(int n): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigDecimal whose numerical value is equal to (‘this’ * 10<sup>n</sup>).  The scale of the result is ‘(this.scale() - n)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>stripTrailingZeros(): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ which is numerically equal to this one but with any trailing zeros removed from the representation.  For example, stripping the trailing zeros from the ‘BigDecimal’ value ‘600.0’, which has [‘BigInteger’, ‘scale’] components equals to [6000, 1], yields ‘6E2’ with [‘BigInteger’, ‘scale’] components equals to [6, -2].  If this BigDecimal is numerically equal to zero, then ‘BigDecimal.ZERO’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(BigDecimal val): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this ‘BigDecimal’ with the specified ‘BigDecimal’.  Two ‘BigDecimal’ objects that are equal in value but have a different scale (like 2.0 and 2.00) are considered equal by this method.  This method is provided in preference to individual methods for each of the six boolean comparison operators (‘&lt;’, &#x3D;&#x3D;, ‘&gt;’, ‘&gt;&#x3D;’, !&#x3D;, ‘&lt;&#x3D;’).  The suggested idiom for performing these comparisons is: ‘(x.compareTo(y)’ &lt;<i>op</i>&gt; ‘0)’, where &lt;<i>op</i>&gt; is one of the six comparison operators.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareMagnitude(BigDecimal val): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Version of compareTo that ignores sign.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object x): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this ‘BigDecimal’ with the specified ‘Object’ for equality.  Unlike ‘#compareTo(BigDecimal) compareTo’, this method considers two ‘BigDecimal’ objects equal only if they are equal in value and scale (thus 2.0 is not equal to 2.00 when compared by this method).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>min(BigDecimal val): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum of this ‘BigDecimal’ and ‘val’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>max(BigDecimal val): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum of this ‘BigDecimal’ and ‘val’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code for this ‘BigDecimal’.  Note that two ‘BigDecimal’ objects that are numerically equal but differ in scale (like 2.0 and 2.00) will generally <i>not</i> have the same hash code.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the string representation of this ‘BigDecimal’, using scientific notation if an exponent is needed.  <p>A standard canonical string form of the ‘BigDecimal’ is created as though by the following steps: first, the absolute value of the unscaled value of the ‘BigDecimal’ is converted to a string in base ten using the characters ‘’0’’ through ‘’9’’ with no leading zeros (except if its value is zero, in which case a single ‘’0’’ character is used).  <p>Next, an <i>adjusted exponent</i> is calculated; this is the negated scale, plus the number of characters in the converted unscaled value, less one.  That is, ‘-scale+(ulength-1)’, where ‘ulength’ is the length of the absolute value of the unscaled value in decimal digits (its <i>precision</i>).  <p>If the scale is greater than or equal to zero and the adjusted exponent is greater than or equal to ‘-6’, the number will be converted to a character form without using exponential notation.  In this case, if the scale is zero then no decimal point is added and if the scale is positive a decimal point will be inserted with the scale specifying the number of characters to the right of the decimal point. ‘’0’’ characters are added to the left of the converted unscaled value as necessary.  If no character precedes the decimal point after this insertion then a conventional ‘’0’’ character is prefixed.  <p>Otherwise (that is, if the scale is negative, or the adjusted exponent is less than ‘-6’), the number will be converted to a character form using exponential notation.  In this case, if the converted ‘BigInteger’ has more than one digit a decimal point is inserted after the first digit. An exponent in character form is then suffixed to the converted unscaled value (perhaps with inserted decimal point); this comprises the letter ‘’E’’ followed immediately by the adjusted exponent converted to a character form.  The latter is in base ten, using the characters ‘’0’’ through ‘’9’’ with no leading zeros, and is always prefixed by a sign character ‘’-‘’ (<tt>‘&amp;#92;u002D’</tt>) if the adjusted exponent is negative, ‘’+’’ (<tt>‘&amp;#92;u002B’</tt>) otherwise).  <p>Finally, the entire string is prefixed by a minus sign character ‘’-‘’ (<tt>‘&amp;#92;u002D’</tt>) if the unscaled value is less than zero.  No sign character is prefixed if the unscaled value is zero or positive.  <p><b>Examples:</b> <p>For each representation [<i>unscaled value</i>, <i>scale</i>] on the left, the resulting string is shown on the right. <pre> [123,0]      "123" [-123,0]     "-123" [123,-1]     "1.23E+3" [123,-3]     "1.23E+5" [123,1]      "12.3" [123,5]      "0.00123" [123,10]     "1.23E-8" [-123,12]    "-1.23E-10" </pre>  <b>Notes:</b> <ol>  <li>There is a one-to-one mapping between the distinguishable ‘BigDecimal’ values and the result of this conversion. That is, every distinguishable ‘BigDecimal’ value (unscaled value and scale) has a unique string representation as a result of using ‘toString’.  If that string representation is converted back to a ‘BigDecimal’ using the ‘#BigDecimal(String)’ constructor, then the original value will be recovered.  <li>The string produced for a given number is always the same; it is not affected by locale.  This means that it can be used as a canonical string representation for exchanging decimal data, or as a key for a Hashtable, etc.  Locale-sensitive number formatting and parsing is handled by the ‘java.text.NumberFormat’ class and its subclasses.  <li>The ‘#toEngineeringString’ method may be used for presenting numbers with exponents in engineering notation, and the ‘#setScale(int,RoundingMode) setScale’ method may be used for rounding a ‘BigDecimal’ so it has a known number of digits after the decimal point.  <li>The digit-to-character mapping provided by ‘Character.forDigit’ is used.  </ol></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toEngineeringString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this ‘BigDecimal’, using engineering notation if an exponent is needed.  <p>Returns a string that represents the ‘BigDecimal’ as described in the ‘#toString()’ method, except that if exponential notation is used, the power of ten is adjusted to be a multiple of three (engineering notation) such that the integer part of nonzero values will be in the range 1 through 999.  If exponential notation is used for zero values, a decimal point and one or two fractional zero digits are used so that the scale of the zero value is preserved.  Note that unlike the output of ‘#toString()’, the output of this method is <em>not</em> guaranteed to recover the same [integer, scale] pair of this ‘BigDecimal’ if the output string is converting back to a ‘BigDecimal’ using the ‘#BigDecimal(String) string constructor’.  The result of this method meets the weaker constraint of always producing a numerically equal result from applying the string constructor to the method’s output.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toPlainString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this ‘BigDecimal’ without an exponent field.  For values with a positive scale, the number of digits to the right of the decimal point is used to indicate scale.  For values with a zero or negative scale, the resulting string is generated as if the value were converted to a numerically equal value with zero scale and as if all the trailing zeros of the zero scale value were present in the result.  The entire string is prefixed by a minus sign character ‘-‘ (<tt>‘&amp;#92;u002D’</tt>) if the unscaled value is less than zero. No sign character is prefixed if the unscaled value is zero or positive.  Note that if the result of this method is passed to the ‘#BigDecimal(String) string constructor’, only the numerical value of this ‘BigDecimal’ will necessarily be recovered; the representation of the new ‘BigDecimal’ may have a different scale.  In particular, if this ‘BigDecimal’ has a negative scale, the string resulting from this method will have a scale of zero when processed by the string constructor.  (This method behaves analogously to the ‘toString’ method in 1.4 and earlier releases.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getValueString(int signum, String intString, int scale): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a digit.digit string</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toBigInteger(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘BigInteger’. This conversion is analogous to the <i>narrowing primitive conversion</i> from ‘double’ to ‘long’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: any fractional part of this ‘BigDecimal’ will be discarded.  Note that this conversion can lose information about the precision of the ‘BigDecimal’ value. <p> To have an exception thrown if the conversion is inexact (in other words if a nonzero fractional part is discarded), use the ‘#toBigIntegerExact()’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toBigIntegerExact(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘BigInteger’, checking for lost information.  An exception is thrown if this ‘BigDecimal’ has a nonzero fractional part.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>longValue(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘long’. This conversion is analogous to the <i>narrowing primitive conversion</i> from ‘double’ to ‘short’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: any fractional part of this ‘BigDecimal’ will be discarded, and if the resulting “‘BigInteger’” is too big to fit in a ‘long’, only the low-order 64 bits are returned. Note that this conversion can lose information about the overall magnitude and precision of this ‘BigDecimal’ value as well as return a result with the opposite sign.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longValueExact(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘long’, checking for lost information.  If this ‘BigDecimal’ has a nonzero fractional part or is out of the possible range for a ‘long’ result then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>intValue(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to an ‘int’. This conversion is analogous to the <i>narrowing primitive conversion</i> from ‘double’ to ‘short’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: any fractional part of this ‘BigDecimal’ will be discarded, and if the resulting “‘BigInteger’” is too big to fit in an ‘int’, only the low-order 32 bits are returned. Note that this conversion can lose information about the overall magnitude and precision of this ‘BigDecimal’ value as well as return a result with the opposite sign.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intValueExact(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to an ‘int’, checking for lost information.  If this ‘BigDecimal’ has a nonzero fractional part or is out of the possible range for an ‘int’ result then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>shortValueExact(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘short’, checking for lost information.  If this ‘BigDecimal’ has a nonzero fractional part or is out of the possible range for a ‘short’ result then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>byteValueExact(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘byte’, checking for lost information.  If this ‘BigDecimal’ has a nonzero fractional part or is out of the possible range for a ‘byte’ result then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>floatValue(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘float’. This conversion is similar to the <i>narrowing primitive conversion</i> from ‘double’ to ‘float’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: if this ‘BigDecimal’ has too great a magnitude to represent as a ‘float’, it will be converted to ‘Float#NEGATIVE_INFINITY’ or ‘Float#POSITIVE_INFINITY’ as appropriate.  Note that even when the return value is finite, this conversion can lose information about the precision of the ‘BigDecimal’ value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doubleValue(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigDecimal’ to a ‘double’. This conversion is similar to the <i>narrowing primitive conversion</i> from ‘double’ to ‘float’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: if this ‘BigDecimal’ has too great a magnitude represent as a ‘double’, it will be converted to ‘Double#NEGATIVE_INFINITY’ or ‘Double#POSITIVE_INFINITY’ as appropriate.  Note that even when the return value is finite, this conversion can lose information about the precision of the ‘BigDecimal’ value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ulp(): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the size of an ulp, a unit in the last place, of this ‘BigDecimal’.  An ulp of a nonzero ‘BigDecimal’ value is the positive distance between this value and the ‘BigDecimal’ value next larger in magnitude with the same number of digits.  An ulp of a zero value is numerically equal to 1 with the scale of ‘this’.  The result is stored with the same scale as ‘this’ so the result for zero and nonzero values is equal to ‘[1, this.scale()]’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>layoutChars(boolean sci): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Lay out this ‘BigDecimal’ into a ‘char[]’ array. The Java 1.2 equivalent to this was called ‘getValueString’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bigTenToThe(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return 10 to the power n, as a ‘BigInteger’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>expandBigIntegerTenPowers(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Expand the BIG_TEN_POWERS_TABLE array to contain at least 10**n.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longMultiplyPowerTen(long val, int n): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compute val * 10 ^ n; return this product if it is representable as a long, INFLATED otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bigMultiplyPowerTen(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compute this * 10 ^ n. Needed mainly to allow special casing to trap zero value</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inflated(): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns appropriate BigInteger from intVal field if intVal is null, i.e. the compact representation is in use.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchScale(BigDecimal[] val): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Match the scales of two ‘BigDecimal’s to align their least significant digits.  <p>If the scales of val[0] and val[1] differ, rescale (non-destructively) the lower-scaled ‘BigDecimal’ so they match.  That is, the lower-scaled reference will be replaced by a reference to a new object with the same scale as the other ‘BigDecimal’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitute the ‘BigDecimal’ instance from a stream (that is, deserialize it).</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialize this ‘BigDecimal’ to the stream in question</td>
+<td align="left">java.io.IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>longDigitLength(long x): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the absolute value of a ‘long’, in decimal digits.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bigDigitLength(BigInteger b): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the absolute value of a BigInteger, in decimal digits.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkScale(long val): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check a scale for Underflow or Overflow.  If this BigDecimal is nonzero, throw an exception if the scale is outof range. If this is zero, saturate the scale to the extreme value of the right sign if the scale is out of range.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>compactValFor(BigInteger b): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the compact value for given ‘BigInteger’, or INFLATED if too big. Relies on internal representation of ‘BigInteger’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longCompareMagnitude(long x, long y): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>saturateLong(long s): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>print(String name, BigDecimal bd): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal printing routine</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>audit(): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check internal invariants of this BigDecimal.  These invariants include:  <ul>  <li>The object must be initialized; either intCompact must not be INFLATED or intVal is non-null.  Both of these conditions may be true.  <li>If both intCompact and intVal and set, their values must be consistent.  <li>If precision is nonzero, it must have the right value. </ul>  Note: Since this is an audit method, we are not supposed to change the state of this BigDecimal object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkScaleNonZero(long val): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">the same as checkScale where value!&#x3D;0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkScale(long intCompact, long val): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkScale(BigInteger intVal, long val): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doRound(BigDecimal val, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ rounded according to the MathContext settings; If rounding is needed a new ‘BigDecimal’ is created and returned.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>doRound(long compactVal, int scale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ created from ‘long’ value with given scale rounded according to the MathContext settings</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doRound(BigInteger intVal, int scale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ created from ‘BigInteger’ value with given scale rounded according to the MathContext settings</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRoundByTenPow(BigInteger intVal, int tenPow, int roundingMode): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Divides ‘BigInteger’ value by ten power.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound(long ldividend, long ldivisor, int scale, int roundingMode, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internally used for division operation for division ‘long’ by ‘long’. The returned ‘BigDecimal’ object is the quotient whose scale is set to the passed in scale. If the remainder is not zero, it will be rounded based on the passed in roundingMode. Also, if the remainder is zero and the last parameter, i.e. preferredScale is NOT equal to scale, the trailing zeros of the result is stripped to match the preferredScale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound(long ldividend, long ldivisor, int roundingMode): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Divides ‘long’ by ‘long’ and do rounding based on the passed in roundingMode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>commonNeedIncrement(int roundingMode, int qsign, int cmpFracHalf, boolean oddQuot): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Shared logic of need increment computation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>needIncrement(long ldivisor, int roundingMode, int qsign, long q, long r): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if quotient has to be incremented according the roundingMode</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound(BigInteger bdividend, long ldivisor, int roundingMode): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Divides ‘BigInteger’ value by ‘long’ value and do rounding based on the passed in roundingMode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound(BigInteger bdividend, long ldivisor, int scale, int roundingMode, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internally used for division operation for division ‘BigInteger’ by ‘long’. The returned ‘BigDecimal’ object is the quotient whose scale is set to the passed in scale. If the remainder is not zero, it will be rounded based on the passed in roundingMode. Also, if the remainder is zero and the last parameter, i.e. preferredScale is NOT equal to scale, the trailing zeros of the result is stripped to match the preferredScale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>needIncrement(long ldivisor, int roundingMode, int qsign, MutableBigInteger mq, long r): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if quotient has to be incremented according the roundingMode</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound(BigInteger bdividend, BigInteger bdivisor, int roundingMode): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Divides ‘BigInteger’ value by ‘BigInteger’ value and do rounding based on the passed in roundingMode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound(BigInteger bdividend, BigInteger bdivisor, int scale, int roundingMode, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internally used for division operation for division ‘BigInteger’ by ‘BigInteger’. The returned ‘BigDecimal’ object is the quotient whose scale is set to the passed in scale. If the remainder is not zero, it will be rounded based on the passed in roundingMode. Also, if the remainder is zero and the last parameter, i.e. preferredScale is NOT equal to scale, the trailing zeros of the result is stripped to match the preferredScale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>needIncrement(MutableBigInteger mdivisor, int roundingMode, int qsign, MutableBigInteger mq, MutableBigInteger mr): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if quotient has to be incremented according the roundingMode</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createAndStripZerosToMatchScale(BigInteger intVal, int scale, long preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Remove insignificant trailing zeros from this ‘BigInteger’ value until the preferred scale is reached or no more zeros can be removed.  If the preferred scale is less than Integer.MIN_VALUE, all the trailing zeros will be removed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createAndStripZerosToMatchScale(long compactVal, int scale, long preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Remove insignificant trailing zeros from this ‘long’ value until the preferred scale is reached or no more zeros can be removed.  If the preferred scale is less than Integer.MIN_VALUE, all the trailing zeros will be removed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stripZerosToMatchScale(BigInteger intVal, long intCompact, int scale, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(long xs, long ys): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">returns INFLATED if oveflow</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(long xs, long ys, int scale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(final long xs, int scale1, final long ys, int scale2): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(final long xs, int scale1, BigInteger snd, int scale2): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(BigInteger fst, int scale1, BigInteger snd, int scale2): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bigMultiplyPowerTen(long value, int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bigMultiplyPowerTen(BigInteger value, int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideSmallFastPath(final long xs, int xscale, final long ys, int yscale, long preferredScale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(xs ys)’, with rounding according to the context settings.  Fast path - used only when (xscale &lt;&#x3D; yscale &amp;&amp; yscale &lt; 18 &amp;&amp; mc.presision&lt;18) {</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(final long xs, int xscale, final long ys, int yscale, long preferredScale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(xs ys)’, with rounding according to the context settings.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigInteger xs, int xscale, long ys, int yscale, long preferredScale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(xs ys)’, with rounding according to the context settings.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(long xs, int xscale, BigInteger ys, int yscale, long preferredScale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(xs ys)’, with rounding according to the context settings.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigInteger xs, int xscale, BigInteger ys, int yscale, long preferredScale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘BigDecimal’ whose value is ‘(xs ys)’, with rounding according to the context settings.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyDivideAndRound(long dividend0, long dividend1, long divisor, int scale, int roundingMode, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">performs divideAndRound for (dividend0*dividend1, divisor) returns null if quotient can’t fit into long value;</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRound128(final long dividendHi, final long dividendLo, long divisor, int sign, int scale, int roundingMode, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">divideAndRound 128-bit value by long divisor. returns null if quotient can’t fit into long value; Specialized version of Knuth’s division</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>roundedTenPower(int qsign, int raise, int scale, int preferredScale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">calculate divideAndRound for ldividend*10^raise &#x2F; divisor when abs(dividend)&#x3D;&#x3D;abs(divisor);</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scaledTenPow(int n, int sign, int scale): BigDecimal</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divRemNegativeLong(long n, long d): long[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate the quotient and remainder of dividing a negative long by another long.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>make64(long hi, long lo): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mulsub(long u1, long u0, final long v1, final long v0, long q0): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unsignedLongCompare(long one, long two): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unsignedLongCompareEq(long one, long two): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareMagnitudeNormalized(long xs, int xscale, long ys, int yscale): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareMagnitudeNormalized(long xs, int xscale, BigInteger ys, int yscale): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareMagnitudeNormalized(BigInteger xs, int xscale, BigInteger ys, int yscale): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(long x, long y): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(long x, long y, int scale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(long x, BigInteger y, int scale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(BigInteger x, BigInteger y, int scale): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyAndRound(long x, long y, int scale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiplies two long values and rounds according ‘MathContext’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyAndRound(long x, BigInteger y, int scale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyAndRound(BigInteger x, BigInteger y, int scale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doRound128(long hi, long lo, int sign, int scale, MathContext mc): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">rounds 128-bit value according ‘MathContext’ returns null if result can’t be repsented as compact BigDecimal.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>precision(long hi, long lo): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">returns precision of 128-bit value</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longLongCompareMagnitude(long hi0, long lo0, long hi1, long lo1): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">returns true if 128 bit number &lt;hi0,lo0&gt; is less then &lt;hi1,lo1&gt; hi0 &amp; hi1 should be non-negative</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(long dividend, int dividendScale, long divisor, int divisorScale, int scale, int roundingMode): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigInteger dividend, int dividendScale, long divisor, int divisorScale, int scale, int roundingMode): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(long dividend, int dividendScale, BigInteger divisor, int divisorScale, int scale, int roundingMode): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigInteger dividend, int dividendScale, BigInteger divisor, int divisorScale, int scale, int roundingMode): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="BigDecimal-LongOverflow"><a href="#BigDecimal-LongOverflow" class="headerlink" title="BigDecimal$LongOverflow"></a><a href="./BigDecimal$LongOverflow.html">BigDecimal$LongOverflow</a></h3><h3 id="BigDecimal-StringBuilderHelper"><a href="#BigDecimal-StringBuilderHelper" class="headerlink" title="BigDecimal$StringBuilderHelper"></a><a href="./BigDecimal$StringBuilderHelper.html">BigDecimal$StringBuilderHelper</a></h3><h3 id="BigDecimal-UnsafeHolder"><a href="#BigDecimal-UnsafeHolder" class="headerlink" title="BigDecimal$UnsafeHolder"></a><a href="./BigDecimal$UnsafeHolder.html">BigDecimal$UnsafeHolder</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -203,7 +203,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Sorts the specified list into ascending order, according to the ‘Comparable natural ordering’ of its elements. All elements in the list must implement the ‘Comparable’ interface.  Furthermore, all elements in the list must be <i>mutually comparable</i> (that is, ‘e1.compareTo(e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the list).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.  <p>The specified list must be modifiable, but need not be resizable.</td>
-<td align="left">IllegalArgumentException<br/>ClassCastException<br/>UnsupportedOperationException</td>
+<td align="left">ClassCastException<br/>IllegalArgumentException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c): void</strong></td>
@@ -215,12 +215,12 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Sorts the specified list according to the order induced by the specified comparator.  All elements in the list must be <i>mutually comparable</i> using the specified comparator (that is, ‘c.compare(e1, e2)’ must not throw a ‘ClassCastException’ for any elements ‘e1’ and ‘e2’ in the list).  <p>This sort is guaranteed to be <i>stable</i>:  equal elements will not be reordered as a result of the sort.  <p>The specified list must be modifiable, but need not be resizable.</td>
-<td align="left">IllegalArgumentException<br/>ClassCastException<br/>UnsupportedOperationException</td>
+<td align="left">ClassCastException<br/>IllegalArgumentException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
-<td align="center"><strong>binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -230,9 +230,9 @@
 <td align="left">ClassCastException</td>
 </tr>
 <tr>
-<td align="center"><strong>indexedBinarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>indexedBinarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -242,9 +242,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>iteratorBinarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>iteratorBinarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -383,7 +383,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Copies all of the elements from one list into another.  After the operation, the index of each copied element in the destination list will be identical to its index in the source list.  The destination list must be at least as long as the source list.  If it is longer, the remaining elements in the destination list are unaffected. <p>  This method runs in linear time.</td>
-<td align="left">UnsupportedOperationException<br/>IndexOutOfBoundsException</td>
+<td align="left">IndexOutOfBoundsException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>min(Collection&lt;? extends T&gt; coll): T</strong></td>
@@ -395,7 +395,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns the minimum element of the given collection, according to the <i>natural ordering</i> of its elements.  All elements in the collection must implement the <tt>Comparable</tt> interface. Furthermore, all elements in the collection must be <i>mutually comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and <tt>e2</tt> in the collection).<p>  This method iterates over the entire collection, hence it requires time proportional to the size of the collection.</td>
-<td align="left">NoSuchElementException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NoSuchElementException</td>
 </tr>
 <tr>
 <td align="center"><strong>min(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp): T</strong></td>
@@ -407,7 +407,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns the minimum element of the given collection, according to the order induced by the specified comparator.  All elements in the collection must be <i>mutually comparable</i> by the specified comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and <tt>e2</tt> in the collection).<p>  This method iterates over the entire collection, hence it requires time proportional to the size of the collection.</td>
-<td align="left">NoSuchElementException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NoSuchElementException</td>
 </tr>
 <tr>
 <td align="center"><strong>max(Collection&lt;? extends T&gt; coll): T</strong></td>
@@ -419,7 +419,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns the maximum element of the given collection, according to the <i>natural ordering</i> of its elements.  All elements in the collection must implement the <tt>Comparable</tt> interface. Furthermore, all elements in the collection must be <i>mutually comparable</i> (that is, <tt>e1.compareTo(e2)</tt> must not throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and <tt>e2</tt> in the collection).<p>  This method iterates over the entire collection, hence it requires time proportional to the size of the collection.</td>
-<td align="left">NoSuchElementException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NoSuchElementException</td>
 </tr>
 <tr>
 <td align="center"><strong>max(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp): T</strong></td>
@@ -431,7 +431,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns the maximum element of the given collection, according to the order induced by the specified comparator.  All elements in the collection must be <i>mutually comparable</i> by the specified comparator (that is, <tt>comp.compare(e1, e2)</tt> must not throw a <tt>ClassCastException</tt> for any elements <tt>e1</tt> and <tt>e2</tt> in the collection).<p>  This method iterates over the entire collection, hence it requires time proportional to the size of the collection.</td>
-<td align="left">NoSuchElementException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NoSuchElementException</td>
 </tr>
 <tr>
 <td align="center"><strong>rotate(List&lt;?&gt; list, int distance): void</strong></td>
@@ -734,7 +734,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>checkedCollection(Collection&lt;E&gt; c,Class&lt;E&gt; type): Collection<E></strong></td>
+<td align="center"><strong>checkedCollection(Collection&lt;E&gt; c, Class&lt;E&gt; type): Collection<E></strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1031,7 +1031,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns ‘true’ if the two specified collections have no elements in common.  <p>Care must be exercised if this method is used on collections that do not comply with the general contract for ‘Collection’. Implementations may elect to iterate over either collection and test for containment in the other collection (or to perform any equivalent computation).  If either collection uses a nonstandard equality test (as does a ‘SortedSet’ whose ordering is not <em>compatible with equals</em>, or the key set of an ‘IdentityHashMap’), both collections must use the same nonstandard equality test, or the result of this method is undefined.  <p>Care must also be exercised when using collections that have restrictions on the elements that they may contain. Collection implementations are allowed to throw exceptions for any operation involving elements they deem ineligible. For absolute safety the specified collections should contain only elements which are eligible elements for both collections.  <p>Note that it is permissible to pass the same collection in both parameters, in which case the method will return ‘true’ if and only if the collection is empty.</td>
-<td align="left">NullPointerException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>addAll(Collection&lt;? super T&gt; c, T… elements): boolean</strong></td>
@@ -1043,7 +1043,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Adds all of the specified elements to the specified collection. Elements to be added may be specified individually or as an array. The behavior of this convenience method is identical to that of <tt>c.addAll(Arrays.asList(elements))</tt>, but this method is likely to run significantly faster under most implementations.  <p>When elements are specified individually, this method provides a convenient way to add a few elements to an existing collection: <pre> Collections.addAll(flavors, "Peaches 'n Plutonium", "Rocky Racoon"); </pre></td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>UnsupportedOperationException</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>newSetFromMap(Map&lt;E, Boolean&gt; map): Set<E></strong></td>

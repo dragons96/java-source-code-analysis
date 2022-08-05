@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/net/ServerSocket.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ServerSocket"><a href="#ServerSocket" class="headerlink" title="ServerSocket"></a>ServerSocket</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.net.ServerSocket</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Closeable</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>created: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Various states of this socket.</td>
+</tr>
+<tr>
+<td align="center"><strong>bound: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>closed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>closeLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>impl: SocketImpl</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The implementation of this Socket.</td>
+</tr>
+<tr>
+<td align="center"><strong>oldImpl: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Are we using an older SocketImpl?</td>
+</tr>
+<tr>
+<td align="center"><strong>factory: SocketImplFactory</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The factory for all server sockets.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ServerSocket(SocketImpl impl)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package-private constructor to create a ServerSocket associated with the given SocketImpl.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ServerSocket()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an unbound server socket.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>ServerSocket(int port)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a server socket, bound to the specified port. A port number of ‘0’ means that the port number is automatically allocated, typically from an ephemeral port range. This port number can then be retrieved by calling ‘#getLocalPort getLocalPort’. <p> The maximum queue length for incoming connection indications (a request to connect) is set to ‘50’. If a connection indication arrives when the queue is full, the connection is refused. <p> If the application has specified a server socket factory, that factory’s ‘createSocketImpl’ method is called to create the actual socket implementation. Otherwise a “plain” socket is created. <p> If there is a security manager, its ‘checkListen’ method is called with the ‘port’ argument as its argument to ensure the operation is allowed. This could result in a SecurityException.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>ServerSocket(int port, int backlog)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a server socket and binds it to the specified local port number, with the specified backlog. A port number of ‘0’ means that the port number is automatically allocated, typically from an ephemeral port range. This port number can then be retrieved by calling ‘#getLocalPort getLocalPort’. <p> The maximum queue length for incoming connection indications (a request to connect) is set to the ‘backlog’ parameter. If a connection indication arrives when the queue is full, the connection is refused. <p> If the application has specified a server socket factory, that factory’s ‘createSocketImpl’ method is called to create the actual socket implementation. Otherwise a “plain” socket is created. <p> If there is a security manager, its ‘checkListen’ method is called with the ‘port’ argument as its argument to ensure the operation is allowed. This could result in a SecurityException.  The ‘backlog’ argument is the requested maximum number of pending connections on the socket. Its exact semantics are implementation specific. In particular, an implementation may impose a maximum length or may choose to ignore the parameter altogther. The value provided should be greater than ‘0’. If it is less than or equal to ‘0’, then an implementation specific default will be used. <P></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>ServerSocket(int port, int backlog, InetAddress bindAddr)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create a server with the specified port, listen backlog, and local IP address to bind to.  The <i>bindAddr</i> argument can be used on a multi-homed host for a ServerSocket that will only accept connect requests to one of its addresses. If <i>bindAddr</i> is null, it will default accepting connections on any&#x2F;all local addresses. The port must be between 0 and 65535, inclusive. A port number of ‘0’ means that the port number is automatically allocated, typically from an ephemeral port range. This port number can then be retrieved by calling ‘#getLocalPort getLocalPort’.  <P>If there is a security manager, this method calls its ‘checkListen’ method with the ‘port’ argument as its argument to ensure the operation is allowed. This could result in a SecurityException.  The ‘backlog’ argument is the requested maximum number of pending connections on the socket. Its exact semantics are implementation specific. In particular, an implementation may impose a maximum length or may choose to ignore the parameter altogther. The value provided should be greater than ‘0’. If it is less than or equal to ‘0’, then an implementation specific default will be used. <P></td>
+<td align="left">SecurityException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getImpl(): SocketImpl</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the ‘SocketImpl’ attached to this socket, creating it if necessary.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkOldImpl(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setImpl(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createImpl(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates the socket implementation.</td>
+<td align="left">IOException<br/>SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>bind(SocketAddress endpoint): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Binds the ‘ServerSocket’ to a specific address (IP address and port number). <p> If the address is ‘null’, then the system will pick up an ephemeral port and a valid local address to bind the socket. <p></td>
+<td align="left">SecurityException<br/>IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>bind(SocketAddress endpoint, int backlog): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Binds the ‘ServerSocket’ to a specific address (IP address and port number). <p> If the address is ‘null’, then the system will pick up an ephemeral port and a valid local address to bind the socket. <P> The ‘backlog’ argument is the requested maximum number of pending connections on the socket. Its exact semantics are implementation specific. In particular, an implementation may impose a maximum length or may choose to ignore the parameter altogther. The value provided should be greater than ‘0’. If it is less than or equal to ‘0’, then an implementation specific default will be used.</td>
+<td align="left">SecurityException<br/>IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInetAddress(): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the local address of this server socket. <p> If the socket was bound prior to being ‘#close closed’, then this method will continue to return the local address after the socket is closed. <p> If there is a security manager set, its ‘checkConnect’ method is called with the local address and ‘-1’ as its arguments to see if the operation is allowed. If the operation is not allowed, the ‘InetAddress#getLoopbackAddress loopback’ address is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocalPort(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the port number on which this socket is listening. <p> If the socket was bound prior to being ‘#close closed’, then this method will continue to return the port number after the socket is closed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocalSocketAddress(): SocketAddress</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the address of the endpoint this socket is bound to. <p> If the socket was bound prior to being ‘#close closed’, then this method will continue to return the address of the endpoint after the socket is closed. <p> If there is a security manager set, its ‘checkConnect’ method is called with the local address and ‘-1’ as its arguments to see if the operation is allowed. If the operation is not allowed, a ‘SocketAddress’ representing the ‘InetAddress#getLoopbackAddress loopback’ address and the local port to which the socket is bound is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>accept(): Socket</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Listens for a connection to be made to this socket and accepts it. The method blocks until a connection is made.  <p>A new Socket ‘s’ is created and, if there is a security manager, the security manager’s ‘checkAccept’ method is called with ‘s.getInetAddress().getHostAddress()’ and ‘s.getPort()’ as its arguments to ensure the operation is allowed. This could result in a SecurityException.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>implAccept(Socket s): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subclasses of ServerSocket use this method to override accept() to return their own subclass of socket.  So a FooServerSocket will typically hand this method an <i>empty</i> FooSocket.  On return from implAccept the FooSocket will be connected to a client.</td>
+<td align="left">IOException<br/>java.nio.channels.IllegalBlockingModeException</td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closes this socket.  Any thread currently blocked in ‘#accept()’ will throw a ‘SocketException’.  <p> If this socket has an associated channel then the channel is closed as well.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getChannel(): ServerSocketChannel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the unique ‘java.nio.channels.ServerSocketChannel’ object associated with this socket, if any.  <p> A server socket will have a channel if, and only if, the channel itself was created via the ‘java.nio.channels.ServerSocketChannel#open ServerSocketChannel.open’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isBound(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the binding state of the ServerSocket.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isClosed(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the closed state of the ServerSocket.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setSoTimeout(int timeout): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enable&#x2F;disable ‘SocketOptions#SO_TIMEOUT SO_TIMEOUT’ with the specified timeout, in milliseconds.  With this option set to a non-zero timeout, a call to accept() for this ServerSocket will block for only this amount of time.  If the timeout expires, a <B>java.net.SocketTimeoutException</B> is raised, though the ServerSocket is still valid.  The option <B>must</B> be enabled prior to entering the blocking operation to have effect.  The timeout must be ‘&gt; 0’. A timeout of zero is interpreted as an infinite timeout.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSoTimeout(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieve setting for ‘SocketOptions#SO_TIMEOUT SO_TIMEOUT’. 0 returns implies that the option is disabled (i.e., timeout of infinity).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>setReuseAddress(boolean on): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Enable&#x2F;disable the ‘SocketOptions#SO_REUSEADDR SO_REUSEADDR’ socket option. <p> When a TCP connection is closed the connection may remain in a timeout state for a period of time after the connection is closed (typically known as the ‘TIME_WAIT’ state or ‘2MSL’ wait state). For applications using a well known socket address or port it may not be possible to bind a socket to the required ‘SocketAddress’ if there is a connection in the timeout state involving the socket address or port. <p> Enabling ‘SocketOptions#SO_REUSEADDR SO_REUSEADDR’ prior to binding the socket using ‘#bind(SocketAddress)’ allows the socket to be bound even though a previous connection is in a timeout state. <p> When a ‘ServerSocket’ is created the initial setting of ‘SocketOptions#SO_REUSEADDR SO_REUSEADDR’ is not defined. Applications can use ‘#getReuseAddress()’ to determine the initial setting of ‘SocketOptions#SO_REUSEADDR SO_REUSEADDR’. <p> The behaviour when ‘SocketOptions#SO_REUSEADDR SO_REUSEADDR’ is enabled or disabled after a socket is bound (See ‘#isBound()’) is not defined.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>getReuseAddress(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if ‘SocketOptions#SO_REUSEADDR SO_REUSEADDR’ is enabled.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the implementation address and implementation port of this socket as a ‘String’. <p> If there is a security manager set, its ‘checkConnect’ method is called with the local address and ‘-1’ as its arguments to see if the operation is allowed. If the operation is not allowed, an ‘InetAddress’ representing the ‘InetAddress#getLoopbackAddress loopback’ address is returned as the implementation address.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setBound(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCreated(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setSocketFactory(SocketImplFactory fac): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the server socket implementation factory for the application. The factory can be specified only once. <p> When an application creates a new server socket, the socket implementation factory’s ‘createSocketImpl’ method is called to create the actual socket implementation. <p> Passing ‘null’ to the method is a no-op unless the factory was already set. <p> If there is a security manager, this method first calls the security manager’s ‘checkSetFactory’ method to ensure the operation is allowed. This could result in a SecurityException.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getReceiveBufferSize(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the ‘SocketOptions#SO_RCVBUF SO_RCVBUF’ option for this ‘ServerSocket’, that is the proposed buffer size that will be used for Sockets accepted from this ‘ServerSocket’.  <p>Note, the value actually set in the accepted socket is determined by calling ‘Socket#getReceiveBufferSize()’.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>setPerformancePreferences(int connectionTime, int latency, int bandwidth): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets performance preferences for this ServerSocket.  <p> Sockets use the TCP&#x2F;IP protocol by default.  Some implementations may offer alternative protocols which have different performance characteristics than TCP&#x2F;IP.  This method allows the application to express its own preferences as to how these tradeoffs should be made when the implementation chooses from the available protocols.  <p> Performance preferences are described by three integers whose values indicate the relative importance of short connection time, low latency, and high bandwidth.  The absolute values of the integers are irrelevant; in order to choose a protocol the values are simply compared, with larger values indicating stronger preferences.  If the application prefers short connection time over both low latency and high bandwidth, for example, then it could invoke this method with the values ‘(1, 0, 0)’.  If the application prefers high bandwidth above low latency, and low latency above short connection time, then it could invoke this method with the values ‘(0, 1, 2)’.  <p> Invoking this method after this socket has been bound will have no effect. This implies that in order to use this capability requires the socket to be created with the no-argument constructor.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

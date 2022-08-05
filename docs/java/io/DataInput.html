@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/DataInput.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DataInput"><a href="#DataInput" class="headerlink" title="DataInput"></a>DataInput</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.DataInput</strong></td>
+<td align="center">interface</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>readFully(byte b[]): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads some bytes from an input stream and stores them into the buffer array ‘b’. The number of bytes read is equal to the length of ‘b’. <p> This method blocks until one of the following conditions occurs: <ul> <li>‘b.length’ bytes of input data are available, in which case a normal return is made.  <li>End of file is detected, in which case an ‘EOFException’ is thrown.  <li>An I&#x2F;O error occurs, in which case an ‘IOException’ other than ‘EOFException’ is thrown. </ul> <p> If ‘b’ is ‘null’, a ‘NullPointerException’ is thrown. If ‘b.length’ is zero, then no bytes are read. Otherwise, the first byte read is stored into element ‘b[0]’, the next one into ‘b[1]’, and so on. If an exception is thrown from this method, then it may be that some but not all bytes of ‘b’ have been updated with data from the input stream.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFully(byte b[], int off, int len): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads ‘len’ bytes from an input stream. <p> This method blocks until one of the following conditions occurs: <ul> <li>‘len’ bytes of input data are available, in which case a normal return is made.  <li>End of file is detected, in which case an ‘EOFException’ is thrown.  <li>An I&#x2F;O error occurs, in which case an ‘IOException’ other than ‘EOFException’ is thrown. </ul> <p> If ‘b’ is ‘null’, a ‘NullPointerException’ is thrown. If ‘off’ is negative, or ‘len’ is negative, or ‘off+len’ is greater than the length of the array ‘b’, then an ‘IndexOutOfBoundsException’ is thrown. If ‘len’ is zero, then no bytes are read. Otherwise, the first byte read is stored into element ‘b[off]’, the next one into ‘b[off+1]’, and so on. The number of bytes read is, at most, equal to ‘len’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>skipBytes(int n): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Makes an attempt to skip over ‘n’ bytes of data from the input stream, discarding the skipped bytes. However, it may skip over some smaller number of bytes, possibly zero. This may result from any of a number of conditions; reaching end of file before ‘n’ bytes have been skipped is only one possibility. This method never throws an ‘EOFException’. The actual number of bytes skipped is returned.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBoolean(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads one input byte and returns ‘true’ if that byte is nonzero, ‘false’ if that byte is zero. This method is suitable for reading the byte written by the ‘writeBoolean’ method of interface ‘DataOutput’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readByte(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads and returns one input byte. The byte is treated as a signed value in the range ‘-128’ through ‘127’, inclusive. This method is suitable for reading the byte written by the ‘writeByte’ method of interface ‘DataOutput’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUnsignedByte(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads one input byte, zero-extends it to type ‘int’, and returns the result, which is therefore in the range ‘0’ through ‘255’. This method is suitable for reading the byte written by the ‘writeByte’ method of interface ‘DataOutput’ if the argument to ‘writeByte’ was intended to be a value in the range ‘0’ through ‘255’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readShort(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads two input bytes and returns a ‘short’ value. Let ‘a’ be the first byte read and ‘b’ be the second byte. The value returned is: <pre>'(short)((a << 8)</td>
+<td align="left">(b & 0xff))'</pre> This method is suitable for reading the bytes written by the ‘writeShort’ method of interface ‘DataOutput’.</td>
+</tr>
+<tr>
+<td align="center"><strong>readUnsignedShort(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads two input bytes and returns an ‘int’ value in the range ‘0’ through ‘65535’. Let ‘a’ be the first byte read and ‘b’ be the second byte. The value returned is: <pre>'(((a & 0xff) << 8)</td>
+<td align="left">(b & 0xff))'</pre> This method is suitable for reading the bytes written by the ‘writeShort’ method of interface ‘DataOutput’  if the argument to ‘writeShort’ was intended to be a value in the range ‘0’ through ‘65535’.</td>
+</tr>
+<tr>
+<td align="center"><strong>readChar(): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads two input bytes and returns a ‘char’ value. Let ‘a’ be the first byte read and ‘b’ be the second byte. The value returned is: <pre>'(char)((a << 8)</td>
+<td align="left">(b & 0xff))'</pre> This method is suitable for reading bytes written by the ‘writeChar’ method of interface ‘DataOutput’.</td>
+</tr>
+<tr>
+<td align="center"><strong>readInt(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads four input bytes and returns an ‘int’ value. Let ‘a-d’ be the first through fourth bytes read. The value returned is: <pre>'(((a & 0xff) << 24)</td>
+<td align="left">((b & 0xff) << 16)</td>
+</tr>
+<tr>
+<td align="center"><strong>readLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads eight input bytes and returns a 'long' value. Let 'a-h' be the first through eighth bytes read. The value returned is: <pre>'(((long)(a & 0xff) << 56)</td>
+<td align="left">((long)(b & 0xff) << 48)</td>
+</tr>
+<tr>
+<td align="center"><strong>readFloat(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads four input bytes and returns a 'float' value. It does this by first constructing an 'int' value in exactly the manner of the 'readInt' method, then converting this 'int' value to a 'float' in exactly the manner of the method 'Float.intBitsToFloat'. This method is suitable for reading bytes written by the 'writeFloat' method of interface 'DataOutput'.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readDouble(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads eight input bytes and returns a 'double' value. It does this by first constructing a 'long' value in exactly the manner of the 'readLong' method, then converting this 'long' value to a 'double' in exactly the manner of the method 'Double.longBitsToDouble'. This method is suitable for reading bytes written by the 'writeDouble' method of interface 'DataOutput'.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLine(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads the next line of text from the input stream. It reads successive bytes, converting each byte separately into a character, until it encounters a line terminator or end of file; the characters read are then returned as a 'String'. Note that because this method processes bytes, it does not support input of the full Unicode character set. <p> If end of file is encountered before even one byte can be read, then 'null' is returned. Otherwise, each byte that is read is converted to type 'char' by zero-extension. If the character ''\n'' is encountered, it is discarded and reading ceases. If the character ''\r'' is encountered, it is discarded and, if the following byte converts &#32;to the character ''\n'', then that is discarded also; reading then ceases. If end of file is encountered before either of the characters ''\n'' and ''\r'' is encountered, reading ceases. Once reading has ceased, a 'String' is returned that contains all the characters read and not discarded, taken in order. Note that every character in this string will have a value less than '\u005Cu0100', that is, '(char)256'.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUTF(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reads in a string that has been encoded using a <a href="#modified-utf-8">modified UTF-8</a> format. The general contract of 'readUTF' is that it reads a representation of a Unicode character string encoded in modified UTF-8 format; this string of characters is then returned as a 'String'. <p> First, two bytes are read and used to construct an unsigned 16-bit integer in exactly the manner of the 'readUnsignedShort' method . This integer value is called the <i>UTF length</i> and specifies the number of additional bytes to be read. These bytes are then converted to characters by considering them in groups. The length of each group is computed from the value of the first byte of the group. The byte following a group, if any, is the first byte of the next group. <p> If the first byte of a group matches the bit pattern '0xxxxxxx' (where 'x' means "may be '0' or '1'"), then the group consists of just that byte. The byte is zero-extended to form a character. <p> If the first byte of a group matches the bit pattern '110xxxxx', then the group consists of that byte 'a' and a second byte 'b'. If there is no byte 'b' (because byte 'a' was the last of the bytes to be read), or if byte 'b' does not match the bit pattern '10xxxxxx', then a 'UTFDataFormatException' is thrown. Otherwise, the group is converted to the character: <pre>'(char)(((a & 0x1F) << 6)</td>
+<td align="left">(b & 0x3F))'</pre> If the first byte of a group matches the bit pattern ‘1110xxxx’, then the group consists of that byte ‘a’ and two more bytes ‘b’ and ‘c’. If there is no byte ‘c’ (because byte ‘a’ was one of the last two of the bytes to be read), or either byte ‘b’ or byte ‘c’ does not match the bit pattern ‘10xxxxxx’, then a ‘UTFDataFormatException’ is thrown. Otherwise, the group is converted to the character: <pre>'(char)(((a & 0x0F) << 12)</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

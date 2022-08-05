@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/peer/ComponentPeer.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ComponentPeer"><a href="#ComponentPeer" class="headerlink" title="ComponentPeer"></a>ComponentPeer</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.peer.ComponentPeer</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SET_LOCATION: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation for {@link #setBounds(int, int, int, int, int)}, indicating a change in the component location only.  @see #setBounds(int, int, int, int, int)</td>
+</tr>
+<tr>
+<td align="center"><strong>SET_SIZE: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation for {@link #setBounds(int, int, int, int, int)}, indicating a change in the component size only.  @see #setBounds(int, int, int, int, int)</td>
+</tr>
+<tr>
+<td align="center"><strong>SET_BOUNDS: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation for {@link #setBounds(int, int, int, int, int)}, indicating a change in the component size and location.  @see #setBounds(int, int, int, int, int)</td>
+</tr>
+<tr>
+<td align="center"><strong>SET_CLIENT_SIZE: int</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation for {@link #setBounds(int, int, int, int, int)}, indicating a change in the component client size. This is used for setting the ‘inside’ size of windows, without the border insets.  @see #setBounds(int, int, int, int, int)</td>
+</tr>
+<tr>
+<td align="center"><strong>RESET_OPERATION: int</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resets the setBounds() operation to DEFAULT_OPERATION. This is not passed into {@link #setBounds(int, int, int, int, int)}.  TODO: This is only used internally and should probably be moved outside the peer interface.  @see Component#setBoundsOp</td>
+</tr>
+<tr>
+<td align="center"><strong>NO_EMBEDDED_CHECK: int</strong></td>
+<td align="center">(1 &lt;&lt; 14)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A flag that is used to suppress checks for embedded frames.  TODO: This is only used internally and should probably be moved outside the peer interface.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_OPERATION: int</strong></td>
+<td align="center">SET_BOUNDS</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default operation, which is to set size and location.  TODO: This is only used internally and should probably be moved outside the peer interface.  @see Component#setBoundsOp</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>isObscured(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines if a component has been obscured, i.e. by an overlapping window or similar. This is used by JViewport for optimizing performance. This doesn’t have to be implemented, when ‘#canDetermineObscurity()’ returns ‘false’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>canDetermineObscurity(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns ‘true’ when the peer can determine if a component has been obscured, ‘false’ false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setVisible(boolean v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Makes a component visible or invisible.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setEnabled(boolean e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Enables or disables a component. Disabled components are usually grayed out and cannot be activated.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paint(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Paints the component to the specified graphics context. This is called by ‘Component#paintAll(Graphics)’ to paint the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>print(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Prints the component to the specified graphics context. This is called by ‘Component#printAll(Graphics)’ to print the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setBounds(int x, int y, int width, int height, int op): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the location or size or both of the component. The location is specified relative to the component’s parent. The ‘op’ parameter specifies which properties change. If it is ‘#SET_LOCATION’, then only the location changes (and the size parameters can be ignored). If ‘op’ is ‘#SET_SIZE’, then only the size changes (and the location can be ignored). If ‘op’ is ‘#SET_BOUNDS’, then both change. There is a special value ‘#SET_CLIENT_SIZE’, which is used only for window-like components to set the size of the client (i.e. the ‘inner’ size, without the insets of the window borders).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>handleEvent(AWTEvent e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Called to let the component peer handle events.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>coalescePaintEvent(PaintEvent e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Called to coalesce paint events.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocationOnScreen(): Point</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines the location of the component on the screen.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPreferredSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines the preferred size of the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines the minimum size of the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getColorModel(): ColorModel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the color model used by the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGraphics(): Graphics</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a graphics object to paint on the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFontMetrics(Font font): FontMetrics</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a font metrics object to determine the metrics properties of the specified font.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispose(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Disposes all resources held by the component peer. This is called when the component has been disconnected from the component hierarchy and is about to be garbage collected.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setForeground(Color c): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the foreground color of this component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setBackground(Color c): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the background color of this component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFont(Font f): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the font of this component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateCursorImmediately(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Updates the cursor of the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>requestFocus(Component lightweightChild, boolean temporary, boolean focusedWindowChangeAllowed, long time, CausedFocusEvent.Cause cause): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Requests focus on this component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isFocusable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns ‘true’ when the component takes part in the focus traversal, ‘false’ otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(ImageProducer producer): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates an image using the specified image producer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(int width, int height): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates an empty image with the specified width and height. This is generally used as a non-accelerated backbuffer for drawing onto the component (e.g. by Swing).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createVolatileImage(int width, int height): VolatileImage</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates an empty volatile image with the specified width and height. This is generally used as an accelerated backbuffer for drawing onto the component (e.g. by Swing).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>prepareImage(Image img, int w, int h, ImageObserver o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Prepare the specified image for rendering on this component. This should start loading the image (if not already loaded) and create an appropriate screen representation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkImage(Image img, int w, int h, ImageObserver o): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines the status of the construction of the screen representaion of the specified image.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGraphicsConfiguration(): GraphicsConfiguration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the graphics configuration that corresponds to this component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>handlesWheelScrolling(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines if the component handles wheel scrolling itself. Otherwise it is delegated to the component’s parent.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createBuffers(int numBuffers, BufferCapabilities caps): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Create ‘numBuffers’ flipping buffers with the specified buffer capabilities.</td>
+<td align="left">AWTException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBackBuffer(): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the back buffer as image.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flip(int x1, int y1, int x2, int y2, BufferCapabilities.FlipContents flipAction): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Move the back buffer to the front buffer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>destroyBuffers(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Destroys all created buffers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reparent(ContainerPeer newContainer): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Reparents this peer to the new parent referenced by ‘newContainer’ peer. Implementation depends on toolkit and container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isReparentSupported(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns whether this peer supports reparenting to another parent without destroying the peer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>layout(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Used by lightweight implementations to tell a ComponentPeer to layout its sub-elements.  For instance, a lightweight Checkbox needs to layout the box, as well as the text label.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyShape(Region shape): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Applies the shape to the native component window.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setZOrder(ComponentPeer above): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Lowers this component at the bottom of the above HW peer. If the above parameter is null then the method places this component at the top of the Z-order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateGraphicsData(GraphicsConfiguration gc): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Updates internal data structures related to the component’s GC.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

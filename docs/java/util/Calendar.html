@@ -630,8 +630,8 @@
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
-<td align="center">0</td>
+<td align="center"><strong>stamp: int[]</strong></td>
+<td align="center">null</td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -641,7 +641,7 @@
 <td align="left">Pseudo-time-stamps which specify when each field was set. There are two special values, UNSET and COMPUTED. Values from MINIMUM_USER_SET to Integer.MAX_VALUE are legal user set values.</td>
 </tr>
 <tr>
-<td align="center"><strong>: boolean</strong></td>
+<td align="center"><strong>areAllFieldsSet: boolean</strong></td>
 <td align="center">false</td>
 <td align="center">default</td>
 <td align="center">否</td>
@@ -652,7 +652,7 @@
 <td align="left">True if all fields have been set. @serial</td>
 </tr>
 <tr>
-<td align="center"><strong>: boolean</strong></td>
+<td align="center"><strong>lenient: boolean</strong></td>
 <td align="center">true</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -663,7 +663,7 @@
 <td align="left"><code>True</code> if this calendar allows out-of-range field values during computation of <code>time</code> from <code>fields[]</code>. @see #setLenient @see #isLenient @serial</td>
 </tr>
 <tr>
-<td align="center"><strong>: TimeZone</strong></td>
+<td align="center"><strong>zone: TimeZone</strong></td>
 <td align="center">null</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -685,7 +685,7 @@
 <td align="left"><code>True</code> if zone references to a shared TimeZone object.</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>firstDayOfWeek: int</strong></td>
 <td align="center">0</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -696,7 +696,7 @@
 <td align="left">The first day of the week, with possible values <code>SUNDAY</code>, <code>MONDAY</code>, etc.  This is a locale-dependent value. @serial</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>minimalDaysInFirstWeek: int</strong></td>
 <td align="center">0</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -707,7 +707,18 @@
 <td align="left">The number of days required for the first week in a month or year, with possible values from 1 to 7.  This is a locale-dependent value. @serial</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>cachedLocaleData: ConcurrentMap&lt;Locale, int[]&gt;</strong></td>
+<td align="center">new ConcurrentHashMap&lt;&gt;(3)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cache to hold the firstDayOfWeek and minimalDaysInFirstWeek of a Locale.</td>
+</tr>
+<tr>
+<td align="center"><strong>UNSET: int</strong></td>
 <td align="center">0</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -718,7 +729,7 @@
 <td align="left">The corresponding fields[] has no value.</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>COMPUTED: int</strong></td>
 <td align="center">1</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -729,7 +740,7 @@
 <td align="left">The value of the corresponding fields[] has been calculated internally.</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>MINIMUM_USER_STAMP: int</strong></td>
 <td align="center">2</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -751,7 +762,7 @@
 <td align="left">The mask value that represents all of the fields.</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>nextStamp: int</strong></td>
 <td align="center">MINIMUM_USER_STAMP</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -762,7 +773,7 @@
 <td align="left">The next available value for <code>stamp[]</code>, an internal array. This actually should not be written out to the stream, and will probably be removed from the stream in the near future.  In the meantime, a value of <code>MINIMUM_USER_STAMP</code> should be used. @serial</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>currentSerialVersion: int</strong></td>
 <td align="center">1</td>
 <td align="center">default</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -773,7 +784,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>serialVersionOnStream: int</strong></td>
 <td align="center">currentSerialVersion</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -784,7 +795,7 @@
 <td align="left">The version of the serialized data on the stream.  Possible values: <dl> <dt><b>0</b> or not present on stream</dt> <dd> JDK 1.1.5 or earlier. </dd> <dt><b>1</b></dt> <dd> JDK 1.1.6 or later.  Writes a correct ‘time’ value as well as compatible values for other fields.  This is a transitional format. </dd> </dl> When streaming out this class, the most recent format and the highest allowable <code>serialVersionOnStream</code> is written. @serial @since JDK1.1.6</td>
 </tr>
 <tr>
-<td align="center"><strong>: long</strong></td>
+<td align="center"><strong>serialVersionUID: long</strong></td>
 <td align="center">-1807547505821590642L</td>
 <td align="center">default</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -1058,7 +1069,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getInstance(TimeZone zone,Locale aLocale): Calendar</strong></td>
+<td align="center"><strong>getInstance(TimeZone zone, Locale aLocale): Calendar</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1070,7 +1081,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>createCalendar(TimeZone zone,Locale aLocale): Calendar</strong></td>
+<td align="center"><strong>createCalendar(TimeZone zone, Locale aLocale): Calendar</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -1238,7 +1249,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>set(int year, int month, int date, int hourOfDay, int minute,int second): void</strong></td>
+<td align="center"><strong>set(int year, int month, int date, int hourOfDay, int minute, int second): void</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -1322,7 +1333,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>checkDisplayNameParams(int field, int style, int minStyle, int maxStyle,Locale locale, int fieldMask)</strong></td>
+<td align="center"><strong>checkDisplayNameParams(int field, int style, int minStyle, int maxStyle, Locale locale, int fieldMask): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1466,7 +1477,7 @@
 <td align="left">(1&lt;&lt;MONTH)</td>
 </tr>
 <tr>
-<td align="center"><strong>getBaseStyle(int style)</strong></td>
+<td align="center"><strong>getBaseStyle(int style): int</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1682,7 +1693,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getZone()</strong></td>
+<td align="center"><strong>getZone(): TimeZone</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -1694,7 +1705,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>setZoneShared(boolean shared)</strong></td>
+<td align="center"><strong>setZoneShared(boolean shared): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -2016,6 +2027,30 @@
 <td align="center">否</td>
 <td align="left">Sets the WEEK_OF_MONTH and WEEK_OF_YEAR fields to new values with the new parameter value if they have been calculated internally.</td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Save the state of this object to a stream (i.e., serialize it).  Ideally, <code>Calendar</code> would only write out its state data and the current time, and not write any field data out, such as <code>fields[]</code>, <code>isTimeSet</code>, <code>areFieldsSet</code>, and <code>isSet[]</code>.  <code>nextStamp</code> also should not be part of the persistent state. Unfortunately, this didn’t happen before JDK 1.1 shipped. To be compatible with JDK 1.1, we will always have to write out the field values and state flags.  However, <code>nextStamp</code> can be removed from the serialization stream; this will probably happen in the near future.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitutes this object from a stream (i.e., deserialize it).</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>toInstant(): Instant</strong></td>

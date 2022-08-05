@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/image/ImageFilter.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ImageFilter"><a href="#ImageFilter" class="headerlink" title="ImageFilter"></a>ImageFilter</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.image.ImageFilter</strong></td>
+<td align="center">class</td>
+<td align="center">ImageConsumer,Cloneable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>consumer: ImageConsumer</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The consumer of the particular image data stream for which this instance of the ImageFilter is filtering data.  It is not initialized during the constructor, but rather during the getFilterInstance() method call when the FilteredImageSource is creating a unique instance of this object for a particular image data stream. @see #getFilterInstance @see ImageConsumer</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getFilterInstance(ImageConsumer ic): ImageFilter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a unique instance of an ImageFilter object which will actually perform the filtering for the specified ImageConsumer. The default implementation just clones this object. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDimensions(int width, int height): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Filters the information provided in the setDimensions method of the ImageConsumer interface. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setProperties(Hashtable&lt;?,?&gt; props): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Passes the properties from the source object along after adding a property indicating the stream of filters it has been run through. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setColorModel(ColorModel model): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Filter the information provided in the setColorModel method of the ImageConsumer interface. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setHints(int hints): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Filters the information provided in the setHints method of the ImageConsumer interface. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPixels(int x, int y, int w, int h, ColorModel model, byte pixels[], int off, int scansize): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Filters the information provided in the setPixels method of the ImageConsumer interface which takes an array of bytes. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPixels(int x, int y, int w, int h, ColorModel model, int pixels[], int off, int scansize): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Filters the information provided in the setPixels method of the ImageConsumer interface which takes an array of integers. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>imageComplete(int status): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Filters the information provided in the imageComplete method of the ImageConsumer interface. <p> Note: This method is intended to be called by the ImageProducer of the Image whose pixels are being filtered.  Developers using this class to filter pixels from an image should avoid calling this method directly since that operation could interfere with the filtering operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resendTopDownLeftRight(ImageProducer ip): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Responds to a request for a TopDownLeftRight (TDLR) ordered resend of the pixel data from an <code>ImageConsumer</code>. When an <code>ImageConsumer</code> being fed by an instance of this <code>ImageFilter</code> requests a resend of the data in TDLR order, the <code>FilteredImageSource</code> invokes this method of the <code>ImageFilter</code>.  <p>  An <code>ImageFilter</code> subclass might override this method or not, depending on if and how it can send data in TDLR order. Three possibilities exist:  <ul> <li> Do not override this method. This makes the subclass use the default implementation, which is to forward the request to the indicated <code>ImageProducer</code> using this filter as the requesting <code>ImageConsumer</code>. This behavior is appropriate if the filter can determine that it will forward the pixels in TDLR order if its upstream producer object sends them in TDLR order.  <li> Override the method to simply send the data. This is appropriate if the filter can handle the request itself &amp;#151; for example, if the generated pixels have been saved in some sort of buffer.  <li> Override the method to do nothing. This is appropriate if the filter cannot produce filtered data in TDLR order. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clones this object.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

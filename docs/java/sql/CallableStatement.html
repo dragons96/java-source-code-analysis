@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/sql/CallableStatement.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="CallableStatement"><a href="#CallableStatement" class="headerlink" title="CallableStatement"></a>CallableStatement</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.sql.CallableStatement</strong></td>
+<td align="center">interface</td>
+<td align="center">PreparedStatement</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>registerOutParameter(int parameterIndex, int sqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the OUT parameter in ordinal position <code>parameterIndex</code> to the JDBC type <code>sqlType</code>.  All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by <code>sqlType</code> for an OUT parameter determines the Java type that must be used in the <code>get</code> method to read the value of that parameter. <p> If the JDBC type expected to be returned to this output parameter is specific to this particular database, <code>sqlType</code> should be <code>java.sql.Types.OTHER</code>.  The method ‘#getObject’ retrieves the value.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(int parameterIndex, int sqlType, int scale): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the parameter in ordinal position <code>parameterIndex</code> to be of JDBC type <code>sqlType</code>. All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by <code>sqlType</code> for an OUT parameter determines the Java type that must be used in the <code>get</code> method to read the value of that parameter. <p> This version of <code>registerOutParameter</code> should be used when the parameter is of JDBC type <code>NUMERIC</code> or <code>DECIMAL</code>.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>wasNull(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves whether the last OUT parameter read had the value of SQL <code>NULL</code>.  Note that this method should be called only after calling a getter method; otherwise, there is no value to use in determining whether it is <code>null</code> or not.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getString(int parameterIndex): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>CHAR</code>, <code>VARCHAR</code>, or <code>LONGVARCHAR</code> parameter as a <code>String</code> in the Java programming language. <p> For the fixed-length type JDBC <code>CHAR</code>, the <code>String</code> object returned has exactly the same value the SQL <code>CHAR</code> value had in the database, including any padding added by the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBoolean(int parameterIndex): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>BIT</code> or <code>BOOLEAN</code> parameter as a <code>boolean</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByte(int parameterIndex): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>TINYINT</code> parameter as a <code>byte</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getShort(int parameterIndex): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>SMALLINT</code> parameter as a <code>short</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(int parameterIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>INTEGER</code> parameter as an <code>int</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(int parameterIndex): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>BIGINT</code> parameter as a <code>long</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(int parameterIndex): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>FLOAT</code> parameter as a <code>float</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(int parameterIndex): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>DOUBLE</code> parameter as a <code>double</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBigDecimal(int parameterIndex, int scale): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>NUMERIC</code> parameter as a <code>java.math.BigDecimal</code> object with <i>scale</i> digits to the right of the decimal point.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBytes(int parameterIndex): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>BINARY</code> or <code>VARBINARY</code> parameter as an array of <code>byte</code> values in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDate(int parameterIndex): java.sql.Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTime(int parameterIndex): java.sql.Time</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTimestamp(int parameterIndex): java.sql.Timestamp</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>TIMESTAMP</code> parameter as a <code>java.sql.Timestamp</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getObject(int parameterIndex): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated parameter as an <code>Object</code> in the Java programming language. If the value is an SQL <code>NULL</code>, the driver returns a Java <code>null</code>. <p> This method returns a Java object whose type corresponds to the JDBC type that was registered for this parameter using the method <code>registerOutParameter</code>.  By registering the target JDBC type as <code>java.sql.Types.OTHER</code>, this method can be used to read database-specific abstract data types.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBigDecimal(int parameterIndex): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>NUMERIC</code> parameter as a <code>java.math.BigDecimal</code> object with as many digits to the right of the decimal point as the value contains.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getObject(int parameterIndex, java.util.Map&lt;String,Class&lt;?&gt;&gt; map): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object representing the value of OUT parameter <code>parameterIndex</code> and uses <code>map</code> for the custom mapping of the parameter value. <p> This method returns a Java object whose type corresponds to the JDBC type that was registered for this parameter using the method <code>registerOutParameter</code>.  By registering the target JDBC type as <code>java.sql.Types.OTHER</code>, this method can be used to read database-specific abstract data types.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDate(int parameterIndex, Calendar cal): java.sql.Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code> object, using the given <code>Calendar</code> object to construct the date. With a <code>Calendar</code> object, the driver can calculate the date taking into account a custom timezone and locale. If no <code>Calendar</code> object is specified, the driver uses the default timezone and locale.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTime(int parameterIndex, Calendar cal): java.sql.Time</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code> object, using the given <code>Calendar</code> object to construct the time. With a <code>Calendar</code> object, the driver can calculate the time taking into account a custom timezone and locale. If no <code>Calendar</code> object is specified, the driver uses the default timezone and locale.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTimestamp(int parameterIndex, Calendar cal): java.sql.Timestamp</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>TIMESTAMP</code> parameter as a <code>java.sql.Timestamp</code> object, using the given <code>Calendar</code> object to construct the <code>Timestamp</code> object. With a <code>Calendar</code> object, the driver can calculate the timestamp taking into account a custom timezone and locale. If no <code>Calendar</code> object is specified, the driver uses the default timezone and locale.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(String parameterName, int sqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the OUT parameter named <code>parameterName</code> to the JDBC type <code>sqlType</code>.  All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by <code>sqlType</code> for an OUT parameter determines the Java type that must be used in the <code>get</code> method to read the value of that parameter. <p> If the JDBC type expected to be returned to this output parameter is specific to this particular database, <code>sqlType</code> should be <code>java.sql.Types.OTHER</code>.  The method ‘#getObject’ retrieves the value.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(String parameterName, int sqlType, int scale): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the parameter named <code>parameterName</code> to be of JDBC type <code>sqlType</code>.  All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by <code>sqlType</code> for an OUT parameter determines the Java type that must be used in the <code>get</code> method to read the value of that parameter. <p> This version of <code>registerOutParameter</code> should be used when the parameter is of JDBC type <code>NUMERIC</code> or <code>DECIMAL</code>.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getURL(int parameterIndex): java.net.URL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>DATALINK</code> parameter as a <code>java.net.URL</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setURL(String parameterName, java.net.URL val): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.net.URL</code> object. The driver converts this to an SQL <code>DATALINK</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNull(String parameterName, int sqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to SQL <code>NULL</code>.  <P><B>Note:</B> You must specify the parameter’s SQL type.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBoolean(String parameterName, boolean x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>boolean</code> value. The driver converts this to an SQL <code>BIT</code> or <code>BOOLEAN</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setByte(String parameterName, byte x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>byte</code> value. The driver converts this to an SQL <code>TINYINT</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setShort(String parameterName, short x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>short</code> value. The driver converts this to an SQL <code>SMALLINT</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setInt(String parameterName, int x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>int</code> value. The driver converts this to an SQL <code>INTEGER</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setLong(String parameterName, long x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>long</code> value. The driver converts this to an SQL <code>BIGINT</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setFloat(String parameterName, float x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>float</code> value. The driver converts this to an SQL <code>FLOAT</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDouble(String parameterName, double x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>double</code> value. The driver converts this to an SQL <code>DOUBLE</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBigDecimal(String parameterName, BigDecimal x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.math.BigDecimal</code> value. The driver converts this to an SQL <code>NUMERIC</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setString(String parameterName, String x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java <code>String</code> value. The driver converts this to an SQL <code>VARCHAR</code> or <code>LONGVARCHAR</code> value (depending on the argument’s size relative to the driver’s limits on <code>VARCHAR</code> values) when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBytes(String parameterName, byte x[]): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given Java array of bytes. The driver converts this to an SQL <code>VARBINARY</code> or <code>LONGVARBINARY</code> (depending on the argument’s size relative to the driver’s limits on <code>VARBINARY</code> values) when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDate(String parameterName, java.sql.Date x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.Date</code> value using the default time zone of the virtual machine that is running the application. The driver converts this to an SQL <code>DATE</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setTime(String parameterName, java.sql.Time x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.Time</code> value. The driver converts this to an SQL <code>TIME</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setTimestamp(String parameterName, java.sql.Timestamp x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.Timestamp</code> value. The driver converts this to an SQL <code>TIMESTAMP</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setAsciiStream(String parameterName, java.io.InputStream x, int length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given input stream, which will have the specified number of bytes. When a very large ASCII value is input to a <code>LONGVARCHAR</code> parameter, it may be more practical to send it via a <code>java.io.InputStream</code>. Data will be read from the stream as needed until end-of-file is reached.  The JDBC driver will do any necessary conversion from ASCII to the database char format.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBinaryStream(String parameterName, java.io.InputStream x, int length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given input stream, which will have the specified number of bytes. When a very large binary value is input to a <code>LONGVARBINARY</code> parameter, it may be more practical to send it via a <code>java.io.InputStream</code> object. The data will be read from the stream as needed until end-of-file is reached.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setObject(String parameterName, Object x, int targetSqlType, int scale): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the value of the designated parameter with the given object.  <p>The given Java object will be converted to the given targetSqlType before being sent to the database.  If the object has a custom mapping (is of a class implementing the interface <code>SQLData</code>), the JDBC driver should call the method <code>SQLData.writeSQL</code> to write it to the SQL data stream. If, on the other hand, the object is of a class implementing <code>Ref</code>, <code>Blob</code>, <code>Clob</code>,  <code>NClob</code>, <code>Struct</code>, <code>java.net.URL</code>, or <code>Array</code>, the driver should pass it to the database as a value of the corresponding SQL type. <P> Note that this method may be used to pass datatabase- specific abstract data types.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setObject(String parameterName, Object x, int targetSqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the value of the designated parameter with the given object.  This method is similar to ‘#setObject(String parameterName, Object x, int targetSqlType, int scaleOrLength)’, except that it assumes a scale of zero.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setObject(String parameterName, Object x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the value of the designated parameter with the given object.  <p>The JDBC specification specifies a standard mapping from Java <code>Object</code> types to SQL types.  The given argument will be converted to the corresponding SQL type before being sent to the database. <p>Note that this method may be used to pass datatabase- specific abstract data types, by using a driver-specific Java type.  If the object is of a class implementing the interface <code>SQLData</code>, the JDBC driver should call the method <code>SQLData.writeSQL</code> to write it to the SQL data stream. If, on the other hand, the object is of a class implementing <code>Ref</code>, <code>Blob</code>, <code>Clob</code>,  <code>NClob</code>, <code>Struct</code>, <code>java.net.URL</code>, or <code>Array</code>, the driver should pass it to the database as a value of the corresponding SQL type. <P> This method throws an exception if there is an ambiguity, for example, if the object is of a class implementing more than one of the interfaces named above. <p> <b>Note:</b> Not all databases allow for a non-typed Null to be sent to the backend. For maximum portability, the <code>setNull</code> or the <code>setObject(String parameterName, Object x, int sqlType)</code> method should be used instead of <code>setObject(String parameterName, Object x)</code>. <p></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCharacterStream(String parameterName, java.io.Reader reader, int length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>Reader</code> object, which is the given number of characters long. When a very large UNICODE value is input to a <code>LONGVARCHAR</code> parameter, it may be more practical to send it via a <code>java.io.Reader</code> object. The data will be read from the stream as needed until end-of-file is reached.  The JDBC driver will do any necessary conversion from UNICODE to the database char format.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDate(String parameterName, java.sql.Date x, Calendar cal): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.Date</code> value, using the given <code>Calendar</code> object.  The driver uses the <code>Calendar</code> object to construct an SQL <code>DATE</code> value, which the driver then sends to the database.  With a a <code>Calendar</code> object, the driver can calculate the date taking into account a custom timezone.  If no <code>Calendar</code> object is specified, the driver uses the default timezone, which is that of the virtual machine running the application.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setTime(String parameterName, java.sql.Time x, Calendar cal): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.Time</code> value, using the given <code>Calendar</code> object.  The driver uses the <code>Calendar</code> object to construct an SQL <code>TIME</code> value, which the driver then sends to the database.  With a a <code>Calendar</code> object, the driver can calculate the time taking into account a custom timezone.  If no <code>Calendar</code> object is specified, the driver uses the default timezone, which is that of the virtual machine running the application.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setTimestamp(String parameterName, java.sql.Timestamp x, Calendar cal): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.Timestamp</code> value, using the given <code>Calendar</code> object.  The driver uses the <code>Calendar</code> object to construct an SQL <code>TIMESTAMP</code> value, which the driver then sends to the database.  With a a <code>Calendar</code> object, the driver can calculate the timestamp taking into account a custom timezone.  If no <code>Calendar</code> object is specified, the driver uses the default timezone, which is that of the virtual machine running the application.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getString(String parameterName): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>CHAR</code>, <code>VARCHAR</code>, or <code>LONGVARCHAR</code> parameter as a <code>String</code> in the Java programming language. <p> For the fixed-length type JDBC <code>CHAR</code>, the <code>String</code> object returned has exactly the same value the SQL <code>CHAR</code> value had in the database, including any padding added by the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBoolean(String parameterName): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>BIT</code> or <code>BOOLEAN</code> parameter as a <code>boolean</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByte(String parameterName): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>TINYINT</code> parameter as a <code>byte</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getShort(String parameterName): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>SMALLINT</code> parameter as a <code>short</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(String parameterName): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>INTEGER</code> parameter as an <code>int</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(String parameterName): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>BIGINT</code> parameter as a <code>long</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(String parameterName): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>FLOAT</code> parameter as a <code>float</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(String parameterName): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>DOUBLE</code> parameter as a <code>double</code> in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBytes(String parameterName): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>BINARY</code> or <code>VARBINARY</code> parameter as an array of <code>byte</code> values in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDate(String parameterName): java.sql.Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTime(String parameterName): java.sql.Time</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTimestamp(String parameterName): java.sql.Timestamp</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>TIMESTAMP</code> parameter as a <code>java.sql.Timestamp</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getObject(String parameterName): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a parameter as an <code>Object</code> in the Java programming language. If the value is an SQL <code>NULL</code>, the driver returns a Java <code>null</code>. <p> This method returns a Java object whose type corresponds to the JDBC type that was registered for this parameter using the method <code>registerOutParameter</code>.  By registering the target JDBC type as <code>java.sql.Types.OTHER</code>, this method can be used to read database-specific abstract data types.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBigDecimal(String parameterName): BigDecimal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>NUMERIC</code> parameter as a <code>java.math.BigDecimal</code> object with as many digits to the right of the decimal point as the value contains.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getObject(String parameterName, java.util.Map&lt;String,Class&lt;?&gt;&gt; map): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object representing the value of OUT parameter <code>parameterName</code> and uses <code>map</code> for the custom mapping of the parameter value. <p> This method returns a Java object whose type corresponds to the JDBC type that was registered for this parameter using the method <code>registerOutParameter</code>.  By registering the target JDBC type as <code>java.sql.Types.OTHER</code>, this method can be used to read database-specific abstract data types.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDate(String parameterName, Calendar cal): java.sql.Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code> object, using the given <code>Calendar</code> object to construct the date. With a <code>Calendar</code> object, the driver can calculate the date taking into account a custom timezone and locale. If no <code>Calendar</code> object is specified, the driver uses the default timezone and locale.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTime(String parameterName, Calendar cal): java.sql.Time</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code> object, using the given <code>Calendar</code> object to construct the time. With a <code>Calendar</code> object, the driver can calculate the time taking into account a custom timezone and locale. If no <code>Calendar</code> object is specified, the driver uses the default timezone and locale.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTimestamp(String parameterName, Calendar cal): java.sql.Timestamp</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>TIMESTAMP</code> parameter as a <code>java.sql.Timestamp</code> object, using the given <code>Calendar</code> object to construct the <code>Timestamp</code> object. With a <code>Calendar</code> object, the driver can calculate the timestamp taking into account a custom timezone and locale. If no <code>Calendar</code> object is specified, the driver uses the default timezone and locale.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getURL(String parameterName): java.net.URL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of a JDBC <code>DATALINK</code> parameter as a <code>java.net.URL</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getRowId(int parameterIndex): RowId</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>ROWID</code> parameter as a <code>java.sql.RowId</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getRowId(String parameterName): RowId</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated JDBC <code>ROWID</code> parameter as a <code>java.sql.RowId</code> object.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setRowId(String parameterName, RowId x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.RowId</code> object. The driver converts this to a SQL <code>ROWID</code> when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNString(String parameterName, String value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>String</code> object. The driver converts this to a SQL <code>NCHAR</code> or <code>NVARCHAR</code> or <code>LONGNVARCHAR</code></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNCharacterStream(String parameterName, Reader value, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>Reader</code> object. The <code>Reader</code> reads the data till end-of-file is reached. The driver does the necessary conversion from Java character format to the national character set in the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNClob(String parameterName, NClob value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>java.sql.NClob</code> object. The object implements the <code>java.sql.NClob</code> interface. This <code>NClob</code> object maps to a SQL <code>NCLOB</code>.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setClob(String parameterName, Reader reader, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>Reader</code> object.  The <code>reader</code> must contain  the number of characters specified by length otherwise a <code>SQLException</code> will be generated when the <code>CallableStatement</code> is executed. This method differs from the <code>setCharacterStream (int, Reader, int)</code> method because it informs the driver that the parameter value should be sent to the server as a <code>CLOB</code>.  When the <code>setCharacterStream</code> method is used, the driver may have to do extra work to determine whether the parameter data should be send to the server as a <code>LONGVARCHAR</code> or a <code>CLOB</code></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBlob(String parameterName, InputStream inputStream, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>InputStream</code> object.  The <code>inputstream</code> must contain  the number of characters specified by length, otherwise a <code>SQLException</code> will be generated when the <code>CallableStatement</code> is executed. This method differs from the <code>setBinaryStream (int, InputStream, int)</code> method because it informs the driver that the parameter value should be sent to the server as a <code>BLOB</code>.  When the <code>setBinaryStream</code> method is used, the driver may have to do extra work to determine whether the parameter data should be sent to the server as a <code>LONGVARBINARY</code> or a <code>BLOB</code></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNClob(String parameterName, Reader reader, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>Reader</code> object.  The <code>reader</code> must contain  the number of characters specified by length otherwise a <code>SQLException</code> will be generated when the <code>CallableStatement</code> is executed. This method differs from the <code>setCharacterStream (int, Reader, int)</code> method because it informs the driver that the parameter value should be sent to the server as a <code>NCLOB</code>.  When the <code>setCharacterStream</code> method is used, the driver may have to do extra work to determine whether the parameter data should be send to the server as a <code>LONGNVARCHAR</code> or a <code>NCLOB</code></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setSQLXML(String parameterName, SQLXML xmlObject): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>java.sql.SQLXML</code> object. The driver converts this to an <code>SQL XML</code> value when it sends it to the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSQLXML(int parameterIndex): SQLXML</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated <code>SQL XML</code> parameter as a <code>java.sql.SQLXML</code> object in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSQLXML(String parameterName): SQLXML</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated <code>SQL XML</code> parameter as a <code>java.sql.SQLXML</code> object in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNString(int parameterIndex): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated <code>NCHAR</code>, <code>NVARCHAR</code> or <code>LONGNVARCHAR</code> parameter as a <code>String</code> in the Java programming language. <p> For the fixed-length type JDBC <code>NCHAR</code>, the <code>String</code> object returned has exactly the same value the SQL <code>NCHAR</code> value had in the database, including any padding added by the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNString(String parameterName): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated <code>NCHAR</code>, <code>NVARCHAR</code> or <code>LONGNVARCHAR</code> parameter as a <code>String</code> in the Java programming language. <p> For the fixed-length type JDBC <code>NCHAR</code>, the <code>String</code> object returned has exactly the same value the SQL <code>NCHAR</code> value had in the database, including any padding added by the database.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNCharacterStream(int parameterIndex): java.io.Reader</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated parameter as a <code>java.io.Reader</code> object in the Java programming language. It is intended for use when accessing  <code>NCHAR</code>,<code>NVARCHAR</code> and <code>LONGNVARCHAR</code> parameters.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNCharacterStream(String parameterName): java.io.Reader</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated parameter as a <code>java.io.Reader</code> object in the Java programming language. It is intended for use when accessing  <code>NCHAR</code>,<code>NVARCHAR</code> and <code>LONGNVARCHAR</code> parameters.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCharacterStream(int parameterIndex): java.io.Reader</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated parameter as a <code>java.io.Reader</code> object in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCharacterStream(String parameterName): java.io.Reader</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the value of the designated parameter as a <code>java.io.Reader</code> object in the Java programming language.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setAsciiStream(String parameterName, java.io.InputStream x, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given input stream, which will have the specified number of bytes. When a very large ASCII value is input to a <code>LONGVARCHAR</code> parameter, it may be more practical to send it via a <code>java.io.InputStream</code>. Data will be read from the stream as needed until end-of-file is reached.  The JDBC driver will do any necessary conversion from ASCII to the database char format.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBinaryStream(String parameterName, java.io.InputStream x, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given input stream, which will have the specified number of bytes. When a very large binary value is input to a <code>LONGVARBINARY</code> parameter, it may be more practical to send it via a <code>java.io.InputStream</code> object. The data will be read from the stream as needed until end-of-file is reached.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCharacterStream(String parameterName, java.io.Reader reader, long length): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>Reader</code> object, which is the given number of characters long. When a very large UNICODE value is input to a <code>LONGVARCHAR</code> parameter, it may be more practical to send it via a <code>java.io.Reader</code> object. The data will be read from the stream as needed until end-of-file is reached.  The JDBC driver will do any necessary conversion from UNICODE to the database char format.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setAsciiStream(String parameterName, java.io.InputStream x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given input stream. When a very large ASCII value is input to a <code>LONGVARCHAR</code> parameter, it may be more practical to send it via a <code>java.io.InputStream</code>. Data will be read from the stream as needed until end-of-file is reached.  The JDBC driver will do any necessary conversion from ASCII to the database char format.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface. <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setAsciiStream</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBinaryStream(String parameterName, java.io.InputStream x): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given input stream. When a very large binary value is input to a <code>LONGVARBINARY</code> parameter, it may be more practical to send it via a <code>java.io.InputStream</code> object. The data will be read from the stream as needed until end-of-file is reached.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface. <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setBinaryStream</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCharacterStream(String parameterName, java.io.Reader reader): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to the given <code>Reader</code> object. When a very large UNICODE value is input to a <code>LONGVARCHAR</code> parameter, it may be more practical to send it via a <code>java.io.Reader</code> object. The data will be read from the stream as needed until end-of-file is reached.  The JDBC driver will do any necessary conversion from UNICODE to the database char format.  <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface. <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setCharacterStream</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNCharacterStream(String parameterName, Reader value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>Reader</code> object. The <code>Reader</code> reads the data till end-of-file is reached. The driver does the necessary conversion from Java character format to the national character set in the database. <P><B>Note:</B> This stream object can either be a standard Java stream object or your own subclass that implements the standard interface. <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setNCharacterStream</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setClob(String parameterName, Reader reader): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>Reader</code> object. This method differs from the <code>setCharacterStream (int, Reader)</code> method because it informs the driver that the parameter value should be sent to the server as a <code>CLOB</code>.  When the <code>setCharacterStream</code> method is used, the driver may have to do extra work to determine whether the parameter data should be send to the server as a <code>LONGVARCHAR</code> or a <code>CLOB</code>  <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setClob</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBlob(String parameterName, InputStream inputStream): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>InputStream</code> object. This method differs from the <code>setBinaryStream (int, InputStream)</code> method because it informs the driver that the parameter value should be sent to the server as a <code>BLOB</code>.  When the <code>setBinaryStream</code> method is used, the driver may have to do extra work to determine whether the parameter data should be send to the server as a <code>LONGVARBINARY</code> or a <code>BLOB</code>  <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setBlob</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNClob(String parameterName, Reader reader): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the designated parameter to a <code>Reader</code> object. This method differs from the <code>setCharacterStream (int, Reader)</code> method because it informs the driver that the parameter value should be sent to the server as a <code>NCLOB</code>.  When the <code>setCharacterStream</code> method is used, the driver may have to do extra work to determine whether the parameter data should be send to the server as a <code>LONGNVARCHAR</code> or a <code>NCLOB</code> <P><B>Note:</B> Consult your JDBC driver documentation to determine if it might be more efficient to use a version of <code>setNClob</code> which takes a length parameter.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>getObject(int parameterIndex, Class&lt;T&gt; type): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"><p>Returns an object representing the value of OUT parameter ‘parameterIndex’ and will convert from the SQL type of the parameter to the requested Java data type, if the conversion is supported. If the conversion is not supported or null is specified for the type, a <code>SQLException</code> is thrown. <p> At a minimum, an implementation must support the conversions defined in Appendix B, Table B-3 and conversion of appropriate user defined SQL types to a Java type which implements ‘SQLData’, or ‘Struct’. Additional conversions may be supported and are vendor defined.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>getObject(String parameterName, Class&lt;T&gt; type): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"><p>Returns an object representing the value of OUT parameter ‘parameterName’ and will convert from the SQL type of the parameter to the requested Java data type, if the conversion is supported. If the conversion is not supported  or null is specified for the type, a <code>SQLException</code> is thrown. <p> At a minimum, an implementation must support the conversions defined in Appendix B, Table B-3 and conversion of appropriate user defined SQL types to a Java type which implements ‘SQLData’, or ‘Struct’. Additional conversions may be supported and are vendor defined.</td>
+<td align="left">SQLException<br/>SQLFeatureNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>setObject(String parameterName, Object x, SQLType targetSqlType, int scaleOrLength): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"><p>Sets the value of the designated parameter with the given object.  If the second argument is an ‘InputStream’ then the stream must contain the number of bytes specified by scaleOrLength. If the second argument is a ‘Reader’ then the reader must contain the number of characters specified by scaleOrLength. If these conditions are not true the driver will generate a ‘SQLException’ when the prepared statement is executed.  <p>The given Java object will be converted to the given targetSqlType before being sent to the database.  If the object has a custom mapping (is of a class implementing the interface ‘SQLData’), the JDBC driver should call the method ‘SQLData.writeSQL’ to write it to the SQL data stream. If, on the other hand, the object is of a class implementing ‘Ref’, ‘Blob’, ‘Clob’,  ‘NClob’, ‘Struct’, ‘java.net.URL’, or ‘Array’, the driver should pass it to the database as a value of the corresponding SQL type.  <p>Note that this method may be used to pass database-specific abstract data types. <P> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setObject(String parameterName, Object x, SQLType targetSqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the value of the designated parameter with the given object.  This method is similar to ‘#setObject(String parameterName, Object x, SQLType targetSqlType, int scaleOrLength)’, except that it assumes a scale of zero. <P> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(int parameterIndex, SQLType sqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the OUT parameter in ordinal position ‘parameterIndex’ to the JDBC type ‘sqlType’.  All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by ‘sqlType’ for an OUT parameter determines the Java type that must be used in the ‘get’ method to read the value of that parameter. <p> If the JDBC type expected to be returned to this output parameter is specific to this particular database, ‘sqlType’ may be ‘JDBCType.OTHER’ or a ‘SQLType’ that is supported by the JDBC driver.  The method ‘#getObject’ retrieves the value. <P> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(int parameterIndex, SQLType sqlType, int scale): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the parameter in ordinal position ‘parameterIndex’ to be of JDBC type ‘sqlType’. All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by ‘sqlType’ for an OUT parameter determines the Java type that must be used in the ‘get’ method to read the value of that parameter. <p> This version of ‘registerOutParameter’ should be used when the parameter is of JDBC type ‘JDBCType.NUMERIC’ or ‘JDBCType.DECIMAL’. <P> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(String parameterName, SQLType sqlType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the OUT parameter named <code>parameterName</code> to the JDBC type ‘sqlType’.  All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by ‘sqlType’ for an OUT parameter determines the Java type that must be used in the ‘get’ method to read the value of that parameter. <p> If the JDBC type expected to be returned to this output parameter is specific to this particular database, ‘sqlType’ should be ‘JDBCType.OTHER’ or a ‘SQLType’ that is supported by the JDBC driver..  The method ‘#getObject’ retrieves the value. <P> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerOutParameter(String parameterName, SQLType sqlType, int scale): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Registers the parameter named <code>parameterName</code> to be of JDBC type ‘sqlType’.  All OUT parameters must be registered before a stored procedure is executed. <p> The JDBC type specified by ‘sqlType’ for an OUT parameter determines the Java type that must be used in the ‘get’ method to read the value of that parameter. <p> This version of ‘registerOutParameter’ should be used when the parameter is of JDBC type ‘JDBCType.NUMERIC’ or ‘JDBCType.DECIMAL’. <P> The default implementation will throw ‘SQLFeatureNotSupportedException’</td>
+<td align="left">SQLException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

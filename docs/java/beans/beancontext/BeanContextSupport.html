@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/beans/beancontext/BeanContextSupport.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="BeanContextSupport"><a href="#BeanContextSupport" class="headerlink" title="BeanContextSupport"></a>BeanContextSupport</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.beans.beancontext.BeanContextSupport</strong></td>
+<td align="center">class</td>
+<td align="center">BeanContextChildSupport</td>
+<td align="center">BeanContext,Serializable,PropertyChangeListener,VetoableChangeListener</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-4879613978649577204L</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>children: HashMap</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">all accesses to the <code> protected HashMap children </code> field shall be synchronized on that object.</td>
+</tr>
+<tr>
+<td align="center">**serializable: **</td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bcmListeners: ArrayList</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">all accesses to the <code> protected ArrayList bcmListeners </code> field shall be synchronized on that object.</td>
+</tr>
+<tr>
+<td align="center">**locale: **</td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The current locale of this BeanContext.</td>
+</tr>
+<tr>
+<td align="center">**okToUseGui: **</td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A <tt>boolean</tt> indicating if this instance may now render a GUI.</td>
+</tr>
+<tr>
+<td align="center">**designTime: **</td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A <tt>boolean</tt> indicating whether or not this object is currently in design time mode.</td>
+</tr>
+<tr>
+<td align="center"><strong>childPCL: PropertyChangeListener</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">transient</td>
+</tr>
+<tr>
+<td align="center"><strong>childVCL: VetoableChangeListener</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serializing: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>BeanContextSupport(BeanContext peer, Locale lcle, boolean dTime, boolean visible)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Construct a BeanContextSupport instance</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BeanContextSupport(BeanContext peer, Locale lcle, boolean dtime)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create an instance using the specified Locale and design mode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BeanContextSupport(BeanContext peer, Locale lcle)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create an instance using the specified locale</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BeanContextSupport(BeanContext peer)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create an instance using with a default locale</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BeanContextSupport()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create an instance that is not a delegate of another object</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBeanContextPeer(): BeanContext</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the instance of <tt>BeanContext</tt> that this object is providing the implementation for.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>instantiateChild(String beanName): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> The instantiateChild method is a convenience hook in BeanContext to simplify the task of instantiating a Bean, nested, into a <tt>BeanContext</tt>. </p> <p> The semantics of the beanName parameter are defined by java.beans.Beans.instantiate. </p></td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>size(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of children currently nested in this BeanContext.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reports whether or not this <tt>BeanContext</tt> is empty. A <tt>BeanContext</tt> is considered empty when it contains zero nested children.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contains(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether or not the specified object is currently a child of this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsKey(Object o): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether or not the specified object is currently a child of this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>iterator(): Iterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all JavaBean or <tt>BeanContext</tt> instances currently nested in this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all JavaBean or <tt>BeanContext</tt> instances currently nested in this BeanContext.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toArray(Object[] arry): Object[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets an array containing all children of this <tt>BeanContext</tt> that match the types contained in arry.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createBCSChild(Object targetChild, Object peer): BCSChild</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> Subclasses can override this method to insert their own subclass of Child without having to override add() or the other Collection methods that add children to the set. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(Object targetChild): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds&#x2F;nests a child within this <tt>BeanContext</tt>. <p> Invoked as a side effect of java.beans.Beans.instantiate(). If the child object is not valid for adding then this method throws an IllegalStateException. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object targetChild): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a child from this BeanContext.  If the child object is not for adding then this method throws an IllegalStateException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Object targetChild, boolean callChildSetBC): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">internal remove used when removal caused by unexpected <tt>setBeanContext</tt> or by <tt>remove()</tt> invocation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsAll(Collection c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests to see if all objects in the specified <tt>Collection</tt> are children of this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addAll(Collection c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">add Collection to set of Children (Unsupported) implementations must synchronized on the hierarchy lock and “children” protected field</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeAll(Collection c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">remove all specified children (Unsupported) implementations must synchronized on the hierarchy lock and “children” protected field</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>retainAll(Collection c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">retain only specified children (Unsupported) implementations must synchronized on the hierarchy lock and “children” protected field</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>clear(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">clear the children (Unsupported) implementations must synchronized on the hierarchy lock and “children” protected field</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>addBeanContextMembershipListener(BeanContextMembershipListener bcml): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a BeanContextMembershipListener</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeBeanContextMembershipListener(BeanContextMembershipListener bcml): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a BeanContextMembershipListener</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResourceAsStream(String name, BeanContextChild bcc): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResource(String name, BeanContextChild bcc): URL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDesignTime(boolean dTime): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the new design time value for this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDesignTime(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reports whether or not this object is in currently in design time mode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLocale(Locale newLocale): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the locale of this BeanContext.</td>
+<td align="left">PropertyVetoException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLocale(): Locale</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the locale for this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>needsGui(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> This method is typically called from the environment in order to determine if the implementor “needs” a GUI. </p> <p> The algorithm used herein tests the BeanContextPeer, and its current children to determine if they are either Containers, Components, or if they implement Visibility and return needsGui() &#x3D;&#x3D; true. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dontUseGui(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">notify this instance that it may no longer render a GUI.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>okToUseGui(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Notify this instance that it may now render a GUI</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>avoidingGui(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to determine if the <tt>BeanContext</tt> child is avoiding using its GUI.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSerializing(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Is this <tt>BeanContext</tt> in the process of being serialized?</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bcsChildren(): Iterator</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iterator of all children of this <tt>BeanContext</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bcsPreSerializationHook(ObjectOutputStream oos): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">called by writeObject after defaultWriteObject() but prior to serialization of currently serializable children.  This method may be overridden by subclasses to perform custom serialization of their state prior to this superclass serializing the children.  This method should not however be used by subclasses to replace their own implementation (if any) of writeObject().</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>bcsPreDeserializationHook(ObjectInputStream ois): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">called by readObject after defaultReadObject() but prior to deserialization of any children.  This method may be overridden by subclasses to perform custom deserialization of their state prior to this superclass deserializing the children.  This method should not however be used by subclasses to replace their own implementation (if any) of readObject().</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>childDeserializedHook(Object child, BCSChild bcsc): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Called by readObject with the newly deserialized child and BCSChild.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialize(ObjectOutputStream oos, Collection coll): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used by writeObject to serialize a Collection.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>deserialize(ObjectInputStream ois, Collection coll): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">used by readObject to deserialize a collection.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeChildren(ObjectOutputStream oos): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to serialize all children of this <tt>BeanContext</tt>.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream oos): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialize the BeanContextSupport, if this instance has a distinct peer (that is this object is acting as a delegate for another) then the children of this instance are not serialized here due to a ‘chicken and egg’ problem that occurs on deserialization of the children at the same time as this instance.  Therefore in situations where there is a distinct peer to this instance it should always call writeObject() followed by writeChildren() and readObject() followed by readChildren().</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readChildren(ObjectInputStream ois): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">When an instance of this class is used as a delegate for the implementation of the BeanContext protocols (and its subprotocols) there exists a ‘chicken and egg’ problem during deserialization</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream ois): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">deserialize contents … if this instance has a distinct peer the children are <em>not</em> serialized here, the peer’s readObject() must call readChildren() after deserializing this instance.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>vetoableChange(PropertyChangeEvent pce): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">subclasses may envelope to monitor veto child property changes.</td>
+<td align="left">PropertyVetoException</td>
+</tr>
+<tr>
+<td align="center"><strong>propertyChange(PropertyChangeEvent pce): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">subclasses may envelope to monitor child property changes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validatePendingAdd(Object targetChild): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> Subclasses of this class may override, or envelope, this method to add validation behavior for the BeanContext to examine child objects immediately prior to their being added to the BeanContext. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validatePendingRemove(Object targetChild): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> Subclasses of this class may override, or envelope, this method to add validation behavior for the BeanContext to examine child objects immediately prior to their being removed from the BeanContext. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>childJustAddedHook(Object child, BCSChild bcsc): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">subclasses may override this method to simply extend add() semantics after the child has been added and before the event notification has occurred. The method is called with the child synchronized.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>childJustRemovedHook(Object child, BCSChild bcsc): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">subclasses may override this method to simply extend remove() semantics after the child has been removed and before the event notification has occurred. The method is called with the child synchronized.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildVisibility(Object child): Visibility</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the Component (if any) associated with the specified child.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildSerializable(Object child): Serializable</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the Serializable (if any) associated with the specified Child</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildPropertyChangeListener(Object child): PropertyChangeListener</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the PropertyChangeListener (if any) of the specified child</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildVetoableChangeListener(Object child): VetoableChangeListener</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the VetoableChangeListener (if any) of the specified child</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildBeanContextMembershipListener(Object child): BeanContextMembershipListener</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the BeanContextMembershipListener (if any) of the specified child</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildBeanContextChild(Object child): BeanContextChild</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the BeanContextChild (if any) of the specified child</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>fireChildrenAdded(BeanContextMembershipEvent bcme): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fire a BeanContextshipEvent on the BeanContextMembershipListener interface</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fireChildrenRemoved(BeanContextMembershipEvent bcme): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fire a BeanContextshipEvent on the BeanContextMembershipListener interface</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initialize(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">protected method called from constructor and readObject to initialize transient state of BeanContextSupport instance.  This class uses this method to instantiate inner class listeners used to monitor PropertyChange and VetoableChange events on children.  subclasses may envelope this method to add their own initialization behavior</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copyChildren(): Object[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets a copy of the this BeanContext’s children.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classEquals(Class first, Class second): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests to see if two class objects, or their names are equal.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="BeanContextSupport-BCSIterator"><a href="#BeanContextSupport-BCSIterator" class="headerlink" title="BeanContextSupport$BCSIterator"></a><a href="./BeanContextSupport$BCSIterator.html">BeanContextSupport$BCSIterator</a></h3><h3 id="BeanContextSupport-BCSChild"><a href="#BeanContextSupport-BCSChild" class="headerlink" title="BeanContextSupport$BCSChild"></a><a href="./BeanContextSupport$BCSChild.html">BeanContextSupport$BCSChild</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

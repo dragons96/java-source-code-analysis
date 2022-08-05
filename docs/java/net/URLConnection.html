@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/net/URLConnection.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="URLConnection"><a href="#URLConnection" class="headerlink" title="URLConnection"></a>URLConnection</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.net.URLConnection</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>url: URL</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The URL represents the remote object on the World Wide Web to which this connection is opened. <p> The value of this field can be accessed by the {@code getURL} method. <p> The default value of this variable is the value of the URL argument in the {@code URLConnection} constructor.  @see     java.net.URLConnection#getURL() @see     java.net.URLConnection#url</td>
+</tr>
+<tr>
+<td align="center"><strong>doInput: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This variable is set by the {@code setDoInput} method. Its value is returned by the {@code getDoInput} method. <p> A URL connection can be used for input and&#x2F;or output. Setting the {@code doInput} flag to {@code true} indicates that the application intends to read data from the URL connection. <p> The default value of this field is {@code true}.  @see     java.net.URLConnection#getDoInput() @see     java.net.URLConnection#setDoInput(boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>doOutput: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This variable is set by the {@code setDoOutput} method. Its value is returned by the {@code getDoOutput} method. <p> A URL connection can be used for input and&#x2F;or output. Setting the {@code doOutput} flag to {@code true} indicates that the application intends to write data to the URL connection. <p> The default value of this field is {@code false}.  @see     java.net.URLConnection#getDoOutput() @see     java.net.URLConnection#setDoOutput(boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultAllowUserInteraction: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>allowUserInteraction: boolean</strong></td>
+<td align="center">defaultAllowUserInteraction</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If {@code true}, this {@code URL} is being examined in a context in which it makes sense to allow user interactions such as popping up an authentication dialog. If {@code false}, then no user interaction is allowed. <p> The value of this field can be set by the {@code setAllowUserInteraction} method. Its value is returned by the {@code getAllowUserInteraction} method. Its default value is the value of the argument in the last invocation of the {@code setDefaultAllowUserInteraction} method.  @see     java.net.URLConnection#getAllowUserInteraction() @see     java.net.URLConnection#setAllowUserInteraction(boolean) @see     java.net.URLConnection#setDefaultAllowUserInteraction(boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultUseCaches: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useCaches: boolean</strong></td>
+<td align="center">defaultUseCaches</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If {@code true}, the protocol is allowed to use caching whenever it can. If {@code false}, the protocol must always try to get a fresh copy of the object. <p> This field is set by the {@code setUseCaches} method. Its value is returned by the {@code getUseCaches} method. <p> Its default value is the value given in the last invocation of the {@code setDefaultUseCaches} method.  @see     java.net.URLConnection#setUseCaches(boolean) @see     java.net.URLConnection#getUseCaches() @see     java.net.URLConnection#setDefaultUseCaches(boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>ifModifiedSince: long</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Some protocols support skipping the fetching of the object unless the object has been modified more recently than a certain time. <p> A nonzero value gives a time as the number of milliseconds since January 1, 1970, GMT. The object is fetched only if it has been modified more recently than that time. <p> This variable is set by the {@code setIfModifiedSince} method. Its value is returned by the {@code getIfModifiedSince} method. <p> The default value of this field is {@code 0}, indicating that the fetching must always occur.  @see     java.net.URLConnection#getIfModifiedSince() @see     java.net.URLConnection#setIfModifiedSince(long)</td>
+</tr>
+<tr>
+<td align="center"><strong>connected: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If {@code false}, this connection object has not created a communications link to the specified URL. If {@code true}, the communications link has been established.</td>
+</tr>
+<tr>
+<td align="center"><strong>connectTimeout: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>readTimeout: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>requests: MessageHeader</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.6</td>
+</tr>
+<tr>
+<td align="center"><strong>fileNameMap: FileNameMap</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since   JDK1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>fileNameMapLoaded: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2.2</td>
+</tr>
+<tr>
+<td align="center"><strong>factory: ContentHandlerFactory</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ContentHandler factory.</td>
+</tr>
+<tr>
+<td align="center"><strong>handlers: Hashtable&lt;String, ContentHandler&gt;</strong></td>
+<td align="center">new Hashtable&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contentClassPrefix: String</strong></td>
+<td align="center">“sun.net.<a target="_blank" rel="noopener" href="http://www.content&quot;/">www.content&quot;</a></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contentPathProp: String</strong></td>
+<td align="center">“java.content.handler.pkgs”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getFileNameMap(): FileNameMap</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Loads filename map (a mimetable) from a data file. It will first try to load the user-specific table, defined by &quot;content.types.user.table&quot; property. If that fails, it tries to load the default built-in table.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFileNameMap(FileNameMap map): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the FileNameMap. <p> If there is a security manager, this method first calls the security manager’s ‘checkSetFactory’ method to ensure the operation is allowed. This could result in a SecurityException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>connect(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Opens a communications link to the resource referenced by this URL, if such a connection has not already been established. <p> If the ‘connect’ method is called when the connection has already been opened (indicated by the ‘connected’ field having the value ‘true’), the call is ignored. <p> URLConnection objects go through two phases: first they are created, then they are connected.  After being created, and before being connected, various options can be specified (e.g., doInput and UseCaches).  After connecting, it is an error to try to set them.  Operations that depend on being connected, like getContentLength, will implicitly perform the connection, if necessary.</td>
+<td align="left">IOException<br/>SocketTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>setConnectTimeout(int timeout): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets a specified timeout value, in milliseconds, to be used when opening a communications link to the resource referenced by this URLConnection.  If the timeout expires before the connection can be established, a java.net.SocketTimeoutException is raised. A timeout of zero is interpreted as an infinite timeout. <p> Some non-standard implementation of this method may ignore the specified timeout. To see the connect timeout set, please call getConnectTimeout().</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getConnectTimeout(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns setting for connect timeout. <p> 0 return implies that the option is disabled (i.e., timeout of infinity).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setReadTimeout(int timeout): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the read timeout to a specified timeout, in milliseconds. A non-zero value specifies the timeout when reading from Input stream when a connection is established to a resource. If the timeout expires before there is data available for read, a java.net.SocketTimeoutException is raised. A timeout of zero is interpreted as an infinite timeout.  <p> Some non-standard implementation of this method ignores the specified timeout. To see the read timeout set, please call getReadTimeout().</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getReadTimeout(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns setting for read timeout. 0 return implies that the option is disabled (i.e., timeout of infinity).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>URLConnection(URL url)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a URL connection to the specified URL. A connection to the object referenced by the URL is not created.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getURL(): URL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘URLConnection’’s ‘URL’ field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContentLength(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘content-length’ header field. <P> <B>Note</B>: ‘#getContentLengthLong() getContentLengthLong()’ should be preferred over this method, since it returns a ‘long’ instead and is therefore more portable.</P></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContentLengthLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘content-length’ header field as a long.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContentType(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘content-type’ header field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContentEncoding(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘content-encoding’ header field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getExpiration(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘expires’ header field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDate(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘date’ header field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLastModified(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘last-modified’ header field. The result is the number of milliseconds since January 1, 1970 GMT.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderField(String name): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the named header field. <p> If called on a connection that sets the same header multiple times with possibly different values, only the last value is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderFields(): Map&lt;String,List<String>&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an unmodifiable Map of the header fields. The Map keys are Strings that represent the response-header field names. Each Map value is an unmodifiable List of Strings that represents the corresponding field values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderFieldInt(String name, int Default): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the named field parsed as a number. <p> This form of ‘getHeaderField’ exists because some connection types (e.g., ‘http-ng’) have pre-parsed headers. Classes for that connection type can override this method and short-circuit the parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderFieldLong(String name, long Default): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the named field parsed as a number. <p> This form of ‘getHeaderField’ exists because some connection types (e.g., ‘http-ng’) have pre-parsed headers. Classes for that connection type can override this method and short-circuit the parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderFieldDate(String name, long Default): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the named field parsed as date. The result is the number of milliseconds since January 1, 1970 GMT represented by the named field. <p> This form of ‘getHeaderField’ exists because some connection types (e.g., ‘http-ng’) have pre-parsed headers. Classes for that connection type can override this method and short-circuit the parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderFieldKey(int n): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the key for the ‘n’<sup>th</sup> header field. It returns ‘null’ if there are fewer than ‘n+1’ fields.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeaderField(int n): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value for the ‘n’<sup>th</sup> header field. It returns ‘null’ if there are fewer than ‘n+1’fields. <p> This method can be used in conjunction with the ‘#getHeaderFieldKey(int) getHeaderFieldKey’ method to iterate through all the headers in the message.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContent(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the contents of this URL connection. <p> This method first determines the content type of the object by calling the ‘getContentType’ method. If this is the first time that the application has seen that specific content type, a content handler for that content type is created: <ol> <li>If the application has set up a content handler factory instance using the ‘setContentHandlerFactory’ method, the ‘createContentHandler’ method of that instance is called with the content type as an argument; the result is a content handler for that content type. <li>If no content handler factory has yet been set up, or if the factory’s ‘createContentHandler’ method returns ‘null’, then the application loads the class named: <blockquote><pre> sun.net.<a target="_blank" rel="noopener" href="http://www.content/">www.content</a>.&lt;<i>contentType</i>&gt; </pre></blockquote> where &lt;<i>contentType</i>&gt; is formed by taking the content-type string, replacing all slash characters with a ‘period’ (‘.’), and all other non-alphanumeric characters with the underscore character ‘’_’’. The alphanumeric characters are specifically the 26 uppercase ASCII letters ‘’A’’ through ‘’Z’’, the 26 lowercase ASCII letters ‘’a’’ through ‘’z’’, and the 10 ASCII digits ‘’0’’ through ‘’9’’. If the specified class does not exist, or is not a subclass of ‘ContentHandler’, then an ‘UnknownServiceException’ is thrown. </ol></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getContent(Class[] classes): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the contents of this URL connection.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPermission(): Permission</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a permission object representing the permission necessary to make the connection represented by this object. This method returns null if no permission is required to make the connection. By default, this method returns ‘java.security.AllPermission’. Subclasses should override this method and return the permission that best represents the permission required to make a a connection to the URL. For example, a ‘URLConnection’ representing a ‘file:’ URL would return a ‘java.io.FilePermission’ object.  <p>The permission returned may dependent upon the state of the connection. For example, the permission before connecting may be different from that after connecting. For example, an HTTP sever, say foo.com, may redirect the connection to a different host, say bar.com. Before connecting the permission returned by the connection will represent the permission needed to connect to foo.com, while the permission returned after connecting will be to bar.com.  <p>Permissions are generally used for two purposes: to protect caches of objects obtained through URLConnections, and to check the right of a recipient to learn about a particular URL. In the first case, the permission should be obtained <em>after</em> the object has been obtained. For example, in an HTTP connection, this will represent the permission to connect to the host from which the data was ultimately fetched. In the second case, the permission should be obtained and tested <em>before</em> connecting.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInputStream(): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an input stream that reads from this open connection.  A SocketTimeoutException can be thrown when reading from the returned input stream if the read timeout expires before data is available for read.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getOutputStream(): OutputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an output stream that writes to this connection.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘String’ representation of this URL connection.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDoInput(boolean doinput): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of the ‘doInput’ field for this ‘URLConnection’ to the specified value. <p> A URL connection can be used for input and&#x2F;or output.  Set the DoInput flag to true if you intend to use the URL connection for input, false if not.  The default is true.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDoInput(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘URLConnection’’s ‘doInput’ flag.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDoOutput(boolean dooutput): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of the ‘doOutput’ field for this ‘URLConnection’ to the specified value. <p> A URL connection can be used for input and&#x2F;or output.  Set the DoOutput flag to true if you intend to use the URL connection for output, false if not.  The default is false.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDoOutput(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘URLConnection’’s ‘doOutput’ flag.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setAllowUserInteraction(boolean allowuserinteraction): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the value of the ‘allowUserInteraction’ field of this ‘URLConnection’.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAllowUserInteraction(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the ‘allowUserInteraction’ field for this object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultAllowUserInteraction(boolean defaultallowuserinteraction): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default value of the ‘allowUserInteraction’ field for all future ‘URLConnection’ objects to the specified value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultAllowUserInteraction(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the default value of the ‘allowUserInteraction’ field. <p> Ths default is “sticky”, being a part of the static state of all URLConnections.  This flag applies to the next, and all following URLConnections that are created.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setUseCaches(boolean usecaches): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of the ‘useCaches’ field of this ‘URLConnection’ to the specified value. <p> Some protocols do caching of documents.  Occasionally, it is important to be able to “tunnel through” and ignore the caches (e.g., the “reload” button in a browser).  If the UseCaches flag on a connection is true, the connection is allowed to use whatever caches it can. If false, caches are to be ignored. The default value comes from DefaultUseCaches, which defaults to true.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getUseCaches(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘URLConnection’’s ‘useCaches’ field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setIfModifiedSince(long ifmodifiedsince): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of the ‘ifModifiedSince’ field of this ‘URLConnection’ to the specified value.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getIfModifiedSince(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this object’s ‘ifModifiedSince’ field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultUseCaches(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the default value of a ‘URLConnection’’s ‘useCaches’ flag. <p> Ths default is “sticky”, being a part of the static state of all URLConnections.  This flag applies to the next, and all following URLConnections that are created.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultUseCaches(boolean defaultusecaches): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default value of the ‘useCaches’ field to the specified value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRequestProperty(String key, String value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the general request property. If a property with the key already exists, overwrite its value with the new value.  <p> NOTE: HTTP requires all request properties which can legally have multiple instances with the same key to use a comma-separated list syntax which enables multiple properties to be appended into a single property.</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>addRequestProperty(String key, String value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a general request property specified by a key-value pair.  This method will not overwrite existing values associated with the same key.</td>
+<td align="left">NullPointerException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getRequestProperty(String key): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the named general request property for this connection.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>getRequestProperties(): Map&lt;String,List<String>&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an unmodifiable Map of general request properties for this connection. The Map keys are Strings that represent the request-header field names. Each Map value is a unmodifiable List of Strings that represents the corresponding field values.</td>
+<td align="left">IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultRequestProperty(String key, String value): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default value of a general request property. When a ‘URLConnection’ is created, it is initialized with these properties.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultRequestProperty(String key): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the default request property. Default request properties are set for every connection.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setContentHandlerFactory(ContentHandlerFactory fac): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the ‘ContentHandlerFactory’ of an application. It can be called at most once by an application. <p> The ‘ContentHandlerFactory’ instance is used to construct a content handler from a content type <p> If there is a security manager, this method first calls the security manager’s ‘checkSetFactory’ method to ensure the operation is allowed. This could result in a SecurityException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContentHandler(): ContentHandler</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the Content Handler appropriate for this connection.</td>
+<td align="left">UnknownServiceException</td>
+</tr>
+<tr>
+<td align="center"><strong>stripOffParameters(String contentType): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Media types are in the format: type&#x2F;subtype*(; parameter). For looking up the content handler, we should ignore those parameters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupContentHandlerClassFor(String contentType): ContentHandler</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Looks for a content handler in a user-defineable set of places. By default it looks in sun.net.<a target="_blank" rel="noopener" href="http://www.content/">www.content</a>, but users can define a vertical-bar delimited set of class prefixes to search through in addition by defining the java.content.handler.pkgs property. The class name must be of the form: <pre> {package-prefix}.{major}.{minor} e.g. YoyoDyne.experimental.text.plain </pre></td>
+<td align="left">InstantiationException<br/>ClassNotFoundException<br/>IllegalAccessException</td>
+</tr>
+<tr>
+<td align="center"><strong>typeToPackageName(String contentType): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Utility function to map a MIME content type into an equivalent pair of class name components.  For example: “text&#x2F;html” would be returned as “text.html”</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContentHandlerPkgPrefixes(): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a vertical bar separated list of package prefixes for potential content handlers.  Tries to get the java.content.handler.pkgs property to use as a set of package prefixes to search.  Whether or not that property has been defined, the sun.net.<a target="_blank" rel="noopener" href="http://www.content/">www.content</a> is always the last one on the returned package list.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>guessContentTypeFromName(String fname): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to determine the content type of an object, based on the specified “file” component of a URL. This is a convenience method that can be used by subclasses that override the ‘getContentType’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>guessContentTypeFromStream(InputStream is): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to determine the type of an input stream based on the characters at the beginning of the input stream. This method can be used by subclasses that override the ‘getContentType’ method. <p> Ideally, this routine would not be needed. But many ‘http’ servers return the incorrect content type; in addition, there are many nonstandard extensions. Direct inspection of the bytes to determine the content type is often more accurate than believing the content type claimed by the ‘http’ server.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkfpx(InputStream is): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check for FlashPix image data in InputStream is.  Return true if the stream has FlashPix data, false otherwise.  Before calling this method, the stream should have already been checked to be sure it contains Microsoft Structured Storage data.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBytes(int c[], int len, InputStream is): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tries to read the specified number of bytes from the stream Returns -1, If EOF is reached before len bytes are read, returns 0 otherwise</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>skipForward(InputStream is, long toSkip): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Skips through the specified number of bytes from the stream until either EOF is reached, or the specified number of bytes have been skipped</td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="URLConnection-UnknownContentHandler"><a href="#URLConnection-UnknownContentHandler" class="headerlink" title="URLConnection$UnknownContentHandler"></a><a href="./URLConnection$UnknownContentHandler.html">URLConnection$UnknownContentHandler</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

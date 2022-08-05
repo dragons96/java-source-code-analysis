@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/RandomAccessFile.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="RandomAccessFile"><a href="#RandomAccessFile" class="headerlink" title="RandomAccessFile"></a>RandomAccessFile</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.RandomAccessFile</strong></td>
+<td align="center">class</td>
+<td align="center">DataOutput,DataInput,Closeable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>fd: FileDescriptor</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>channel: FileChannel</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rw: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>path: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The path of the referenced file (null if the stream is created with a file descriptor)</td>
+</tr>
+<tr>
+<td align="center"><strong>closeLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>closed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>O_RDONLY: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>O_RDWR: int</strong></td>
+<td align="center">2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>O_SYNC: int</strong></td>
+<td align="center">4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>O_DSYNC: int</strong></td>
+<td align="center">8</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>RandomAccessFile(String name, String mode)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a random access file stream to read from, and optionally to write to, a file with the specified name. A new ‘FileDescriptor’ object is created to represent the connection to the file.  <p> The <tt>mode</tt> argument specifies the access mode with which the file is to be opened.  The permitted values and their meanings are as specified for the <a href="#mode"><tt>RandomAccessFile(File,String)</tt></a> constructor.  <p> If there is a security manager, its ‘checkRead’ method is called with the ‘name’ argument as its argument to see if read access to the file is allowed. If the mode allows writing, the security manager’s ‘checkWrite’ method is also called with the ‘name’ argument as its argument to see if write access to the file is allowed.</td>
+<td align="left">FileNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>RandomAccessFile(File file, String mode)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a random access file stream to read from, and optionally to write to, the file specified by the ‘File’ argument.  A new ‘FileDescriptor’ object is created to represent this file connection.  <p>The <a name="mode"><tt>mode</tt></a> argument specifies the access mode in which the file is to be opened.  The permitted values and their meanings are:  <table summary="Access mode permitted values and meanings"> <tr><th align="left">Value</th><th align="left">Meaning</th></tr> <tr><td valign="top"><tt>“r”</tt></td> <td> Open for reading only.  Invoking any of the <tt>write</tt> methods of the resulting object will cause an ‘java.io.IOException’ to be thrown. </td></tr> <tr><td valign="top"><tt>“rw”</tt></td> <td> Open for reading and writing.  If the file does not already exist then an attempt will be made to create it. </td></tr> <tr><td valign="top"><tt>“rws”</tt></td> <td> Open for reading and writing, as with <tt>“rw”</tt>, and also require that every update to the file’s content or metadata be written synchronously to the underlying storage device.  </td></tr> <tr><td valign="top"><tt>“rwd”&amp;nbsp;&amp;nbsp;</tt></td> <td> Open for reading and writing, as with <tt>“rw”</tt>, and also require that every update to the file’s content be written synchronously to the underlying storage device. </td></tr> </table>  The <tt>“rws”</tt> and <tt>“rwd”</tt> modes work much like the ‘java.nio.channels.FileChannel#force(boolean) force(boolean)’ method of the ‘java.nio.channels.FileChannel’ class, passing arguments of <tt>true</tt> and <tt>false</tt>, respectively, except that they always apply to every I&#x2F;O operation and are therefore often more efficient.  If the file resides on a local storage device then when an invocation of a method of this class returns it is guaranteed that all changes made to the file by that invocation will have been written to that device.  This is useful for ensuring that critical information is not lost in the event of a system crash.  If the file does not reside on a local device then no such guarantee is made.  <p>The <tt>“rwd”</tt> mode can be used to reduce the number of I&#x2F;O operations performed.  Using <tt>“rwd”</tt> only requires updates to the file’s content to be written to storage; using <tt>“rws”</tt> requires updates to both the file’s content and its metadata to be written, which generally requires at least one more low-level I&#x2F;O operation.  <p>If there is a security manager, its ‘checkRead’ method is called with the pathname of the ‘file’ argument as its argument to see if read access to the file is allowed.  If the mode allows writing, the security manager’s ‘checkWrite’ method is also called with the path argument to see if write access to the file is allowed.</td>
+<td align="left">FileNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFD(): FileDescriptor</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the opaque file descriptor object associated with this stream.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getChannel(): FileChannel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the unique ‘java.nio.channels.FileChannel FileChannel’ object associated with this file.  <p> The ‘java.nio.channels.FileChannel#position() position’ of the returned channel will always be equal to this object’s file-pointer offset as returned by the ‘#getFilePointer getFilePointer’ method.  Changing this object’s file-pointer offset, whether explicitly or by reading or writing bytes, will change the position of the channel, and vice versa.  Changing the file’s length via this object will change the length seen via the file channel, and vice versa.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>open0(String name, int mode): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Opens a file and returns the file descriptor.  The file is opened in read-write mode if the O_RDWR bit in ‘mode’ is true, else the file is opened as read-only. If the ‘name’ refers to a directory, an IOException is thrown.</td>
+<td align="left">FileNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>open(String name, int mode): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Opens a file and returns the file descriptor.  The file is opened in read-write mode if the O_RDWR bit in ‘mode’ is true, else the file is opened as read-only. If the ‘name’ refers to a directory, an IOException is thrown.</td>
+<td align="left">FileNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>read(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a byte of data from this file. The byte is returned as an integer in the range 0 to 255 (‘0x00-0x0ff’). This method blocks if no input is yet available. <p> Although ‘RandomAccessFile’ is not a subclass of ‘InputStream’, this method behaves in exactly the same way as the ‘InputStream#read()’ method of ‘InputStream’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>read0(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBytes(byte b[], int off, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a sub array as a sequence of bytes.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>read(byte b[], int off, int len): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads up to ‘len’ bytes of data from this file into an array of bytes. This method blocks until at least one byte of input is available. <p> Although ‘RandomAccessFile’ is not a subclass of ‘InputStream’, this method behaves in exactly the same way as the ‘InputStream#read(byte[], int, int)’ method of ‘InputStream’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>read(byte b[]): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads up to ‘b.length’ bytes of data from this file into an array of bytes. This method blocks until at least one byte of input is available. <p> Although ‘RandomAccessFile’ is not a subclass of ‘InputStream’, this method behaves in exactly the same way as the ‘InputStream#read(byte[])’ method of ‘InputStream’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFully(byte b[]): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads ‘b.length’ bytes from this file into the byte array, starting at the current file pointer. This method reads repeatedly from the file until the requested number of bytes are read. This method blocks until the requested number of bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFully(byte b[], int off, int len): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads exactly ‘len’ bytes from this file into the byte array, starting at the current file pointer. This method reads repeatedly from the file until the requested number of bytes are read. This method blocks until the requested number of bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>skipBytes(int n): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to skip over ‘n’ bytes of input discarding the skipped bytes. <p>  This method may skip over some smaller number of bytes, possibly zero. This may result from any of a number of conditions; reaching end of file before ‘n’ bytes have been skipped is only one possibility. This method never throws an ‘EOFException’. The actual number of bytes skipped is returned.  If ‘n’ is negative, no bytes are skipped.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>write(int b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the specified byte to this file. The write starts at the current file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>write0(int b): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeBytes(byte b[], int off, int len): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a sub array as a sequence of bytes.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>write(byte b[]): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes ‘b.length’ bytes from the specified byte array to this file, starting at the current file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>write(byte b[], int off, int len): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes ‘len’ bytes from the specified byte array starting at offset ‘off’ to this file.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFilePointer(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current offset in this file.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>seek(long pos): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the file-pointer offset, measured from the beginning of this file, at which the next read or write occurs.  The offset may be set beyond the end of the file. Setting the offset beyond the end of the file does not change the file length.  The file length will change only by writing after the offset has been set beyond the end of the file.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>seek0(long pos): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>length(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of this file.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>setLength(long newLength): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the length of this file.  <p> If the present length of the file as returned by the ‘length’ method is greater than the ‘newLength’ argument then the file will be truncated.  In this case, if the file offset as returned by the ‘getFilePointer’ method is greater than ‘newLength’ then after this method returns the offset will be equal to ‘newLength’.  <p> If the present length of the file as returned by the ‘length’ method is smaller than the ‘newLength’ argument then the file will be extended.  In this case, the contents of the extended portion of the file are not defined.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closes this random access file stream and releases any system resources associated with the stream. A closed random access file cannot perform input or output operations and cannot be reopened.  <p> If this file has an associated channel then the channel is closed as well.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBoolean(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a ‘boolean’ from this file. This method reads a single byte from the file, starting at the current file pointer. A value of ‘0’ represents ‘false’. Any other value represents ‘true’. This method blocks until the byte is read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readByte(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a signed eight-bit value from this file. This method reads a byte from the file, starting from the current file pointer. If the byte read is ‘b’, where <code>0&nbsp;&lt;=&nbsp;b&nbsp;&lt;=&nbsp;255</code>, then the result is: <blockquote><pre> (byte)(b) </pre></blockquote> <p> This method blocks until the byte is read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUnsignedByte(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads an unsigned eight-bit number from this file. This method reads a byte from this file, starting at the current file pointer, and returns that byte. <p> This method blocks until the byte is read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readShort(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a signed 16-bit number from this file. The method reads two bytes from this file, starting at the current file pointer. If the two bytes read, in order, are ‘b1’ and ‘b2’, where each of the two values is between ‘0’ and ‘255’, inclusive, then the result is equal to: <blockquote><pre> (short)((b1 &lt;&lt; 8)</td>
+<td align="left">b2) </pre></blockquote> <p> This method blocks until the two bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+</tr>
+<tr>
+<td align="center"><strong>readUnsignedShort(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads an unsigned 16-bit number from this file. This method reads two bytes from the file, starting at the current file pointer. If the bytes read, in order, are ‘b1’ and ‘b2’, where <code>0&nbsp;&lt;=&nbsp;b1, b2&nbsp;&lt;=&nbsp;255</code>, then the result is equal to: <blockquote><pre> (b1 &lt;&lt; 8)</td>
+<td align="left">b2 </pre></blockquote> <p> This method blocks until the two bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+</tr>
+<tr>
+<td align="center"><strong>readChar(): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a character from this file. This method reads two bytes from the file, starting at the current file pointer. If the bytes read, in order, are ‘b1’ and ‘b2’, where <code>0&nbsp;&lt;=&nbsp;b1,&nbsp;b2&nbsp;&lt;=&nbsp;255</code>, then the result is equal to: <blockquote><pre> (char)((b1 &lt;&lt; 8)</td>
+<td align="left">b2) </pre></blockquote> <p> This method blocks until the two bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+</tr>
+<tr>
+<td align="center"><strong>readInt(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a signed 32-bit integer from this file. This method reads 4 bytes from the file, starting at the current file pointer. If the bytes read, in order, are ‘b1’, ‘b2’, ‘b3’, and ‘b4’, where <code>0&nbsp;&lt;=&nbsp;b1, b2, b3, b4&nbsp;&lt;=&nbsp;255</code>, then the result is equal to: <blockquote><pre> (b1 &lt;&lt; 24)</td>
+<td align="left">(b2 &lt;&lt; 16) + (b3 &lt;&lt; 8) + b4 </pre></blockquote> <p> This method blocks until the four bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+</tr>
+<tr>
+<td align="center"><strong>readLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a signed 64-bit integer from this file. This method reads eight bytes from the file, starting at the current file pointer. If the bytes read, in order, are ‘b1’, ‘b2’, ‘b3’, ‘b4’, ‘b5’, ‘b6’, ‘b7’, and ‘b8,’ where: <blockquote><pre> 0 &lt;= b1, b2, b3, b4, b5, b6, b7, b8 &lt;=255, </pre></blockquote> <p> then the result is equal to: <blockquote><pre> ((long)b1 &lt;&lt; 56) + ((long)b2 &lt;&lt; 48) + ((long)b3 &lt;&lt; 40) + ((long)b4 &lt;&lt; 32) + ((long)b5 &lt;&lt; 24) + ((long)b6 &lt;&lt; 16) + ((long)b7 &lt;&lt; 8) + b8 </pre></blockquote> <p> This method blocks until the eight bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFloat(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a ‘float’ from this file. This method reads an ‘int’ value, starting at the current file pointer, as if by the ‘readInt’ method and then converts that ‘int’ to a ‘float’ using the ‘intBitsToFloat’ method in class ‘Float’. <p> This method blocks until the four bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readDouble(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads a ‘double’ from this file. This method reads a ‘long’ value, starting at the current file pointer, as if by the ‘readLong’ method and then converts that ‘long’ to a ‘double’ using the ‘longBitsToDouble’ method in class ‘Double’. <p> This method blocks until the eight bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLine(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads the next line of text from this file.  This method successively reads bytes from the file, starting at the current file pointer, until it reaches a line terminator or the end of the file.  Each byte is converted into a character by taking the byte’s value for the lower eight bits of the character and setting the high eight bits of the character to zero.  This method does not, therefore, support the full Unicode character set.  <p> A line of text is terminated by a carriage-return character (‘’\u005Cr’’), a newline character (‘’\u005Cn’’), a carriage-return character immediately followed by a newline character, or the end of the file.  Line-terminating characters are discarded and are not included as part of the string returned.  <p> This method blocks until a newline character is read, a carriage return and the byte following it are read (to see if it is a newline), the end of the file is reached, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUTF(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads in a string from this file. The string has been encoded using a <a href="DataInput.html#modified-utf-8">modified UTF-8</a> format. <p> The first two bytes are read, starting from the current file pointer, as if by ‘readUnsignedShort’. This value gives the number of following bytes that are in the encoded string, not the length of the resulting string. The following bytes are then interpreted as bytes encoding characters in the modified UTF-8 format and are converted into characters. <p> This method blocks until all the bytes are read, the end of the stream is detected, or an exception is thrown.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeBoolean(boolean v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a ‘boolean’ to the file as a one-byte value. The value ‘true’ is written out as the value ‘(byte)1’; the value ‘false’ is written out as the value ‘(byte)0’. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeByte(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a ‘byte’ to the file as a one-byte value. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeShort(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a ‘short’ to the file as two bytes, high byte first. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeChar(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a ‘char’ to the file as a two-byte value, high byte first. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeInt(int v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes an ‘int’ to the file as four bytes, high byte first. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeLong(long v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a ‘long’ to the file as eight bytes, high byte first. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeFloat(float v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the float argument to an ‘int’ using the ‘floatToIntBits’ method in class ‘Float’, and then writes that ‘int’ value to the file as a four-byte quantity, high byte first. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeDouble(double v): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the double argument to a ‘long’ using the ‘doubleToLongBits’ method in class ‘Double’, and then writes that ‘long’ value to the file as an eight-byte quantity, high byte first. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeBytes(String s): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the string to the file as a sequence of bytes. Each character in the string is written out, in sequence, by discarding its high eight bits. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeChars(String s): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a string to the file as a sequence of characters. Each character is written to the data output stream as if by the ‘writeChar’ method. The write starts at the current position of the file pointer.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeUTF(String str): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes a string to the file using <a href="DataInput.html#modified-utf-8">modified UTF-8</a> encoding in a machine-independent manner. <p> First, two bytes are written to the file, starting at the current file pointer, as if by the ‘writeShort’ method giving the number of bytes to follow. This value is the number of bytes actually written out, not the length of the string. Following the length, each character of the string is output, in sequence, using the modified UTF-8 encoding for each character.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>close0(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

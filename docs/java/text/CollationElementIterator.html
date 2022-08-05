@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/text/CollationElementIterator.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="CollationElementIterator"><a href="#CollationElementIterator" class="headerlink" title="CollationElementIterator"></a>CollationElementIterator</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.text.CollationElementIterator</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>NULLORDER: int</strong></td>
+<td align="center">0xffffffff</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Null order which indicates the end of string is reached by the cursor.</td>
+</tr>
+<tr>
+<td align="center"><strong>UNMAPPEDCHARVALUE: int</strong></td>
+<td align="center">0x7FFF0000</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>text: NormalizerBase</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>buffer: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>expIndex: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>key: StringBuffer</strong></td>
+<td align="center">new StringBuffer(5)</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>swapOrder: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ordering: RBCollationTables</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>owner: RuleBasedCollator</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>CollationElementIterator(String sourceText, RuleBasedCollator owner)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">CollationElementIterator constructor.  This takes the source string and the collation object.  The cursor will walk thru the source string based on the predefined collation rules.  If the source string is empty, NULLORDER will be returned on the calls to next().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CollationElementIterator(CharacterIterator sourceText, RuleBasedCollator owner)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">CollationElementIterator constructor.  This takes the source string and the collation object.  The cursor will walk thru the source string based on the predefined collation rules.  If the source string is empty, NULLORDER will be returned on the calls to next().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reset(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resets the cursor to the beginning of the string.  The next call to next() will return the first collation element in the string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>next(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the next collation element in the string.  <p>This iterator iterates over a sequence of collation elements that were built from the string. Because there isn’t necessarily a one-to-one mapping from characters to collation elements, this doesn’t mean the same thing as “return the collation element [or ordering priority] of the next character in the string”.</p> <p>This function returns the collation element that the iterator is currently pointing to and then updates the internal pointer to point to the next element. previous() updates the pointer first and then returns the element.  This means that when you change direction while iterating (i.e., call next() and then call previous(), or call previous() and then call next()), you’ll get back the same element twice.</p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>previous(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the previous collation element in the string.  <p>This iterator iterates over a sequence of collation elements that were built from the string. Because there isn’t necessarily a one-to-one mapping from characters to collation elements, this doesn’t mean the same thing as “return the collation element [or ordering priority] of the previous character in the string”.</p> <p>This function updates the iterator’s internal pointer to point to the collation element preceding the one it’s currently pointing to and then returns that element, while next() returns the current element and then updates the pointer.  This means that when you change direction while iterating (i.e., call next() and then call previous(), or call previous() and then call next()), you’ll get back the same element twice.</p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primaryOrder(int order): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the primary component of a collation element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>secondaryOrder(int order): short</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the secondary component of a collation element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tertiaryOrder(int order): short</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the tertiary component of a collation element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>strengthOrder(int order): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the comparison order in the desired strength.  Ignore the other differences.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setOffset(int newOffset): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the iterator to point to the collation element corresponding to the specified character (the parameter is a CHARACTER offset in the original string, not an offset into its corresponding sequence of collation elements).  The value returned by the next call to next() will be the collation element corresponding to the specified position in the text.  If that position is in the middle of a contracting character sequence, the result of the next call to next() is the collation element for that sequence.  This means that getOffset() is not guaranteed to return the same value as was passed to a preceding call to setOffset().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the character offset in the original text corresponding to the next collation element.  (That is, getOffset() returns the position in the text corresponding to the collation element that will be returned by the next call to next().)  This value will always be the index of the FIRST character corresponding to the collation element (a contracting character sequence is when two or more characters all correspond to the same collation element). This means if you do setOffset(x) followed immediately by getOffset(), getOffset() won’t necessarily return x.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaxExpansion(int order): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the maximum length of any expansion sequences that end with the specified comparison order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setText(String source): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set a new string over which to iterate.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setText(CharacterIterator source): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set a new string over which to iterate.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isThaiPreVowel(int ch): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determine if a character is a Thai vowel (which sorts after its base consonant).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isThaiBaseConsonant(int ch): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determine if a character is a Thai base consonant</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLaoPreVowel(int ch): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determine if a character is a Lao vowel (which sorts after its base consonant).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLaoBaseConsonant(int ch): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determine if a character is a Lao base consonant</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeReorderedBuffer(int colFirst, int lastValue, int[] lastExpansion, boolean forward): int[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method produces a buffer which contains the collation elements for the two characters, with colFirst’s values preceding another character’s.  Presumably, the other character precedes colFirst in logical order (otherwise you wouldn’t need this method would you?). The assumption is that the other char’s value(s) have already been computed.  If this char has a single element it is passed to this method as lastValue, and lastExpansion is null.  If it has an expansion it is passed in lastExpansion, and colLastValue is ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isIgnorable(int order): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check if a comparison order is ignorable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextContractChar(int ch): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the ordering priority of the next contracting character in the string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>prevContractChar(int ch): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the ordering priority of the previous contracting character in the string.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

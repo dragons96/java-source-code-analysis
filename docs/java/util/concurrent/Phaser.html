@@ -78,7 +78,7 @@
 <td align="left">Primary state representation, holding four bit-fields:  unarrived  – the number of parties yet to hit barrier (bits  0-15) parties    – the number of parties to wait            (bits 16-31) phase      – the generation of the barrier            (bits 32-62) terminated – set if barrier is terminated             (bit  63 &#x2F; sign)  Except that a phaser with no registered parties is distinguished by the otherwise illegal state of having zero parties and one unarrived parties (encoded as EMPTY below).  To efficiently maintain atomicity, these values are packed into a single (atomic) long. Good performance relies on keeping state decoding and encoding simple, and keeping race windows short.  All state updates are performed via CAS except initial registration of a sub-phaser (i.e., one with a non-null parent).  In this (relatively rare) case, we use built-in synchronization to lock while first registering with its parent.  The phase of a subphaser is allowed to lag that of its ancestors until it is actually accessed – see method reconcileState.</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>MAX_PARTIES: int</strong></td>
 <td align="center">0xffff</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -89,7 +89,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>MAX_PHASE: int</strong></td>
 <td align="center">Integer.MAX_VALUE</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -100,7 +100,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>PARTIES_SHIFT: int</strong></td>
 <td align="center">16</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -111,7 +111,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>PHASE_SHIFT: int</strong></td>
 <td align="center">32</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -122,7 +122,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>UNARRIVED_MASK: int</strong></td>
 <td align="center">0xffff</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -166,7 +166,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>ONE_ARRIVAL: int</strong></td>
 <td align="center">1</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -177,7 +177,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>ONE_PARTY: int</strong></td>
 <td align="center">1 &lt;&lt; PARTIES_SHIFT</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -188,7 +188,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>ONE_DEREGISTER: int</strong></td>
 <td align="center">ONE_ARRIVAL</td>
 <td align="center">ONE_PARTY</td>
 <td align="center">private</td>
@@ -199,7 +199,7 @@
 <td align="left">否</td>
 </tr>
 <tr>
-<td align="center"><strong>: int</strong></td>
+<td align="center"><strong>EMPTY: int</strong></td>
 <td align="center">1</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -566,7 +566,7 @@
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
-<td align="center"><strong>awaitAdvanceInterruptibly(int phase,long timeout, TimeUnit unit): int</strong></td>
+<td align="center"><strong>awaitAdvanceInterruptibly(int phase, long timeout, TimeUnit unit): int</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -575,7 +575,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Awaits the phase of this phaser to advance from the given phase value or the given timeout to elapse, throwing ‘InterruptedException’ if interrupted while waiting, or returning immediately if the current phase is not equal to the given phase value or this phaser is terminated.</td>
-<td align="left">TimeoutException<br/>InterruptedException</td>
+<td align="left">InterruptedException<br/>TimeoutException</td>
 </tr>
 <tr>
 <td align="center"><strong>forceTermination(): void</strong></td>

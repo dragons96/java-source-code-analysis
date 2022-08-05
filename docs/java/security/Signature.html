@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/security/Signature.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.security.Signature</strong></td>
+<td align="center">abstract class</td>
+<td align="center">SignatureSpi</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>debug: Debug</strong></td>
+<td align="center">Debug.getInstance(“jca”, “Signature”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pdebug: Debug</strong></td>
+<td align="center">Debug.getInstance(“provider”, “Provider”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skipDebug: boolean</strong></td>
+<td align="center">“) &amp;&amp; !Debug.isOn(“signature”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>algorithm: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The algorithm for this signature object. This value is used to map an OID to the particular algorithm. The mapping is done in AlgorithmObject.algOID(String algorithm)</td>
+</tr>
+<tr>
+<td align="center"><strong>provider: Provider</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>UNINITIALIZED: int</strong></td>
+<td align="center">0</td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possible {@link #state} value, signifying that this signature object has not yet been initialized.</td>
+</tr>
+<tr>
+<td align="center"><strong>SIGN: int</strong></td>
+<td align="center">2</td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possible {@link #state} value, signifying that this signature object has been initialized for signing.</td>
+</tr>
+<tr>
+<td align="center"><strong>VERIFY: int</strong></td>
+<td align="center">3</td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Possible {@link #state} value, signifying that this signature object has been initialized for verification.</td>
+</tr>
+<tr>
+<td align="center"><strong>state: int</strong></td>
+<td align="center">UNINITIALIZED</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Current state of this signature object.</td>
+</tr>
+<tr>
+<td align="center"><strong>RSA_SIGNATURE: String</strong></td>
+<td align="center">“NONEwithRSA”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RSA_CIPHER: String</strong></td>
+<td align="center">“RSA&#x2F;ECB&#x2F;PKCS1Padding”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signatureInfo: Map&lt;String,Boolean&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Signature(String algorithm)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a Signature object for the specified algorithm.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(String algorithm): Signature</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a Signature object that implements the specified signature algorithm.  <p> This method traverses the list of registered security Providers, starting with the most preferred Provider. A new Signature object encapsulating the SignatureSpi implementation from the first Provider that supports the specified algorithm is returned.  <p> Note that the list of registered providers may be retrieved via the ‘Security#getProviders() Security.getProviders()’ method.</td>
+<td align="left">NoSuchAlgorithmException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(Instance instance, String algorithm): Signature</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSpi(Service s): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(String algorithm, String provider): Signature</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a Signature object that implements the specified signature algorithm.  <p> A new Signature object encapsulating the SignatureSpi implementation from the specified provider is returned.  The specified provider must be registered in the security provider list.  <p> Note that the list of registered providers may be retrieved via the ‘Security#getProviders() Security.getProviders()’ method.</td>
+<td align="left">NoSuchProviderException<br/>NoSuchAlgorithmException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(String algorithm, Provider provider): Signature</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a Signature object that implements the specified signature algorithm.  <p> A new Signature object encapsulating the SignatureSpi implementation from the specified Provider object is returned.  Note that the specified Provider object does not have to be registered in the provider list.</td>
+<td align="left">NoSuchAlgorithmException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInstanceRSA(Provider p): Signature</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchAlgorithmException</td>
+</tr>
+<tr>
+<td align="center"><strong>getProvider(): Provider</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the provider of this signature object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getProviderName(): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>chooseFirstProvider(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initVerify(PublicKey publicKey): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes this object for verification. If this method is called again with a different argument, it negates the effect of this call.</td>
+<td align="left">InvalidKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>initVerify(Certificate certificate): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes this object for verification, using the public key from the given certificate. <p>If the certificate is of type X.509 and has a <i>key usage</i> extension field marked as critical, and the value of the <i>key usage</i> extension field implies that the public key in the certificate and its corresponding private key are not supposed to be used for digital signatures, an ‘InvalidKeyException’ is thrown.</td>
+<td align="left">InvalidKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>initSign(PrivateKey privateKey): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize this object for signing. If this method is called again with a different argument, it negates the effect of this call.</td>
+<td align="left">InvalidKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>initSign(PrivateKey privateKey, SecureRandom random): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize this object for signing. If this method is called again with a different argument, it negates the effect of this call.</td>
+<td align="left">InvalidKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>sign(): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the signature bytes of all the data updated. The format of the signature depends on the underlying signature scheme.  <p>A call to this method resets this signature object to the state it was in when previously initialized for signing via a call to ‘initSign(PrivateKey)’. That is, the object is reset and available to generate another signature from the same signer, if desired, via new calls to ‘update’ and ‘sign’.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>sign(byte[] outbuf, int offset, int len): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finishes the signature operation and stores the resulting signature bytes in the provided buffer ‘outbuf’, starting at ‘offset’. The format of the signature depends on the underlying signature scheme.  <p>This signature object is reset to its initial state (the state it was in after a call to one of the ‘initSign’ methods) and can be reused to generate further signatures with the same private key.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>verify(byte[] signature): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Verifies the passed-in signature.  <p>A call to this method resets this signature object to the state it was in when previously initialized for verification via a call to ‘initVerify(PublicKey)’. That is, the object is reset and available to verify another signature from the identity whose public key was specified in the call to ‘initVerify’.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>verify(byte[] signature, int offset, int length): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Verifies the passed-in signature in the specified array of bytes, starting at the specified offset.  <p>A call to this method resets this signature object to the state it was in when previously initialized for verification via a call to ‘initVerify(PublicKey)’. That is, the object is reset and available to verify another signature from the identity whose public key was specified in the call to ‘initVerify’.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>update(byte b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Updates the data to be signed or verified by a byte.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>update(byte[] data): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Updates the data to be signed or verified, using the specified array of bytes.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>update(byte[] data, int off, int len): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Updates the data to be signed or verified, using the specified array of bytes, starting at the specified offset.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>update(ByteBuffer data): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Updates the data to be signed or verified using the specified ByteBuffer. Processes the ‘data.remaining()’ bytes starting at at ‘data.position()’. Upon return, the buffer’s position will be equal to its limit; its limit will not have changed.</td>
+<td align="left">SignatureException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAlgorithm(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the name of the algorithm for this signature object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this signature object, providing information that includes the state of the object and the name of the algorithm used.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setParameter(String param, Object value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the specified algorithm parameter to the specified value. This method supplies a general-purpose mechanism through which it is possible to set the various parameters of this object. A parameter may be any settable parameter for the algorithm, such as a parameter size, or a source of random bits for signature generation (if appropriate), or an indication of whether or not to perform a specific but optional computation. A uniform algorithm-specific naming scheme for each parameter is desirable but left unspecified at this time.</td>
+<td align="left">InvalidParameterException</td>
+</tr>
+<tr>
+<td align="center"><strong>setParameter(AlgorithmParameterSpec params): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes this signature engine with the specified parameter set.</td>
+<td align="left">InvalidAlgorithmParameterException</td>
+</tr>
+<tr>
+<td align="center"><strong>getParameters(): AlgorithmParameters</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the parameters used with this signature object.  <p>The returned parameters may be the same that were used to initialize this signature, or may contain a combination of default and randomly generated parameter values used by the underlying signature implementation if this signature requires algorithm parameters but was not initialized with any.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getParameter(String param): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the specified algorithm parameter. This method supplies a general-purpose mechanism through which it is possible to get the various parameters of this object. A parameter may be any settable parameter for the algorithm, such as a parameter size, or a source of random bits for signature generation (if appropriate), or an indication of whether or not to perform a specific but optional computation. A uniform algorithm-specific naming scheme for each parameter is desirable but left unspecified at this time.</td>
+<td align="left">InvalidParameterException</td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a clone if the implementation is cloneable.</td>
+<td align="left">CloneNotSupportedException</td>
+</tr>
+<tr>
+<td align="center"><strong>SuppressWarnings(“deprecation”) @SuppressWarnings(“deprecation”) }</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The following class allows providers to extend from SignatureSpi rather than from Signature. It represents a Signature with an encapsulated, provider-supplied SPI object (of type SignatureSpi). If the provider implementation is an instance of SignatureSpi, the getInstance() methods above return an instance of this class, with the SPI object encapsulated.  Note: All SPI methods from the original Signature class have been moved up the hierarchy into a new class (SignatureSpi), which has been interposed in the hierarchy between the API (Signature) and its original parent (Object).</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Signature-Delegate"><a href="#Signature-Delegate" class="headerlink" title="Signature$Delegate"></a><a href="./Signature$Delegate.html">Signature$Delegate</a></h3><h3 id="Signature-CipherAdapter"><a href="#Signature-CipherAdapter" class="headerlink" title="Signature$CipherAdapter"></a><a href="./Signature$CipherAdapter.html">Signature$CipherAdapter</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

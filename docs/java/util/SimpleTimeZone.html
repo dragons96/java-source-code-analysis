@@ -201,7 +201,7 @@
 <td align="left">The offset in milliseconds between this zone and GMT.  Negative offsets are to the west of Greenwich.  To obtain local <em>standard</em> time, add the offset to GMT time.  To obtain local wall time it may also be necessary to add <code>dstSavings</code>. @serial</td>
 </tr>
 <tr>
-<td align="center"><strong>useDaylight&#x3D;false: boolean</strong></td>
+<td align="center"><strong>useDaylight: boolean</strong></td>
 <td align="center">false</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -234,10 +234,10 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>&#x3D;: monthLength[]</strong></td>
+<td align="center"><strong>monthLength: byte[]</strong></td>
 <td align="center">staticMonthLength</td>
 <td align="center">private</td>
-<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -245,7 +245,7 @@
 <td align="left">This field was serialized in JDK 1.1, so we have to keep it that way to maintain serialization compatibility. However, there’s no need to recreate the array each time we create a new time zone. @serial An array of bytes containing the values {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}.  This is ignored as of the Java 2 platform v1.2, however, it must be streamed out for compatibility with JDK 1.1.</td>
 </tr>
 <tr>
-<td align="center"><strong>staticMonthLength[]: byte</strong></td>
+<td align="center"><strong>staticMonthLength: byte[]</strong></td>
 <td align="center">{31,28,31,30,31,30,31,31,30,31,30,31}</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -256,7 +256,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>staticLeapMonthLength[]: byte</strong></td>
+<td align="center"><strong>staticLeapMonthLength: byte[]</strong></td>
 <td align="center">{31,29,31,30,31,30,31,31,30,31,30,31}</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -493,7 +493,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID,int startMonth, int startDay, int startDayOfWeek, int startTime,int endMonth, int endDay, int endDayOfWeek, int endTime)</strong></td>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID, int startMonth, int startDay, int startDayOfWeek, int startTime, int endMonth, int endDay, int endDayOfWeek, int endTime)</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -505,7 +505,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID,int startMonth, int startDay, int startDayOfWeek, int startTime,int endMonth, int endDay, int endDayOfWeek, int endTime,int dstSavings)</strong></td>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID, int startMonth, int startDay, int startDayOfWeek, int startTime, int endMonth, int endDay, int endDayOfWeek, int endTime, int dstSavings)</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -517,7 +517,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID,int startMonth, int startDay, int startDayOfWeek,int startTime, int startTimeMode,int endMonth, int endDay, int endDayOfWeek,int endTime, int endTimeMode,int dstSavings)</strong></td>
+<td align="center"><strong>SimpleTimeZone(int rawOffset, String ID, int startMonth, int startDay, int startDayOfWeek, int startTime, int startTimeMode, int endMonth, int endDay, int endDayOfWeek, int endTime, int endTimeMode, int dstSavings)</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -565,7 +565,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>setStartRule(int startMonth, int startDay, int startDayOfWeek,int startTime, boolean after): void</strong></td>
+<td align="center"><strong>setStartRule(int startMonth, int startDay, int startDayOfWeek, int startTime, boolean after): void</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -577,7 +577,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>setEndRule(int endMonth, int endDay, int endDayOfWeek,int endTime): void</strong></td>
+<td align="center"><strong>setEndRule(int endMonth, int endDay, int endDayOfWeek, int endTime): void</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -625,7 +625,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getOffsets(long date, int[] offsets)</strong></td>
+<td align="center"><strong>getOffsets(long date, int[] offsets): int</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -637,7 +637,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getOffset(int era, int year, int month, int day, int dayOfWeek,int millis): int</strong></td>
+<td align="center"><strong>getOffset(int era, int year, int month, int day, int dayOfWeek, int millis): int</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -685,7 +685,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>getTransition(BaseCalendar cal, BaseCalendar.Date cdate,int mode, int year, int month, int dayOfMonth,int dayOfWeek, int timeOfDay): long</strong></td>
+<td align="center"><strong>getTransition(BaseCalendar cal, BaseCalendar.Date cdate, int mode, int year, int month, int dayOfMonth, int dayOfWeek, int timeOfDay): long</strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -947,6 +947,30 @@
 <td align="center">否</td>
 <td align="left">Unpack the start and end times from an array of bytes.  This is required as of serial version 2.</td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Save the state of this object to a stream (i.e., serialize it).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitute this object from a stream (i.e., deserialize it).  We handle both JDK 1.1 binary formats and full formats with a packed byte array.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
 </tr>
 </tbody></table>
 

@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/KeyboardFocusManager.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="KeyboardFocusManager"><a href="#KeyboardFocusManager" class="headerlink" title="KeyboardFocusManager"></a>KeyboardFocusManager</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.KeyboardFocusManager</strong></td>
+<td align="center">abstract class</td>
+<td align="center">KeyEventDispatcher,KeyEventPostProcessor</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>focusLog: PlatformLogger</strong></td>
+<td align="center">PlatformLogger.getLogger(“java.awt.focus.KeyboardFocusManager”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peer: KeyboardFocusManagerPeer</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>log: PlatformLogger</strong></td>
+<td align="center">PlatformLogger.getLogger(“java.awt.KeyboardFocusManager”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>FORWARD_TRAVERSAL_KEYS: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The identifier for the Forward focus traversal keys.  @see #setDefaultFocusTraversalKeys @see #getDefaultFocusTraversalKeys @see Component#setFocusTraversalKeys @see Component#getFocusTraversalKeys</td>
+</tr>
+<tr>
+<td align="center"><strong>BACKWARD_TRAVERSAL_KEYS: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The identifier for the Backward focus traversal keys.  @see #setDefaultFocusTraversalKeys @see #getDefaultFocusTraversalKeys @see Component#setFocusTraversalKeys @see Component#getFocusTraversalKeys</td>
+</tr>
+<tr>
+<td align="center"><strong>UP_CYCLE_TRAVERSAL_KEYS: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The identifier for the Up Cycle focus traversal keys.  @see #setDefaultFocusTraversalKeys @see #getDefaultFocusTraversalKeys @see Component#setFocusTraversalKeys @see Component#getFocusTraversalKeys</td>
+</tr>
+<tr>
+<td align="center"><strong>DOWN_CYCLE_TRAVERSAL_KEYS: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The identifier for the Down Cycle focus traversal keys.  @see #setDefaultFocusTraversalKeys @see #getDefaultFocusTraversalKeys @see Component#setFocusTraversalKeys @see Component#getFocusTraversalKeys</td>
+</tr>
+<tr>
+<td align="center"><strong>TRAVERSAL_KEY_LENGTH: int</strong></td>
+<td align="center">DOWN_CYCLE_TRAVERSAL_KEYS + 1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>focusOwner: Component</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Component in an application that will typically receive all KeyEvents generated by the user.</td>
+</tr>
+<tr>
+<td align="center"><strong>permanentFocusOwner: Component</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Component in an application that will regain focus when an outstanding temporary focus transfer has completed, or the focus owner, if no outstanding temporary transfer exists.</td>
+</tr>
+<tr>
+<td align="center"><strong>focusedWindow: Window</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Window which is, or contains, the focus owner.</td>
+</tr>
+<tr>
+<td align="center"><strong>activeWindow: Window</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Only a Frame or a Dialog can be the active Window. The native windowing system may denote the active Window with a special decoration, such as a highlighted title bar. The active Window is always either the focused Window, or the first Frame or Dialog which is an owner of the focused Window.</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultPolicy: FocusTraversalPolicy</strong></td>
+<td align="center">new DefaultFocusTraversalPolicy()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default FocusTraversalPolicy for all Windows that have no policy of their own set. If those Windows have focus-cycle-root children that have no keyboard-traversal policy of their own, then those children will also inherit this policy (as will, recursively, their focus-cycle-root children).</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultFocusTraversalKeys: Set&lt;AWTKeyStroke&gt;[]</strong></td>
+<td align="center">new Set[4]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default focus traversal keys. Each array of traversal keys will be in effect on all Windows that have no such array of their own explicitly set. Each array will also be inherited, recursively, by any child Component of those Windows that has no such array of its own explicitly set.</td>
+</tr>
+<tr>
+<td align="center"><strong>currentFocusCycleRoot: Container</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The current focus cycle root. If the focus owner is itself a focus cycle root, then it may be ambiguous as to which Components represent the next and previous Components to focus during normal focus traversal. In that case, the current focus cycle root is used to differentiate among the possibilities.</td>
+</tr>
+<tr>
+<td align="center"><strong>vetoableSupport: VetoableChangeSupport</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A description of any VetoableChangeListeners which have been registered.</td>
+</tr>
+<tr>
+<td align="center"><strong>changeSupport: PropertyChangeSupport</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A description of any PropertyChangeListeners which have been registered.</td>
+</tr>
+<tr>
+<td align="center"><strong>keyEventDispatchers: java.util.LinkedList&lt;KeyEventDispatcher&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This KeyboardFocusManager’s KeyEventDispatcher chain. The List does not include this KeyboardFocusManager unless it was explicitly re-registered via a call to <code>addKeyEventDispatcher</code>. If no other KeyEventDispatchers are registered, this field may be null or refer to a List of length 0.</td>
+</tr>
+<tr>
+<td align="center"><strong>keyEventPostProcessors: java.util.LinkedList&lt;KeyEventPostProcessor&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This KeyboardFocusManager’s KeyEventPostProcessor chain. The List does not include this KeyboardFocusManager unless it was explicitly re-registered via a call to <code>addKeyEventPostProcessor</code>. If no other KeyEventPostProcessors are registered, this field may be null or refer to a List of length 0.</td>
+</tr>
+<tr>
+<td align="center"><strong>mostRecentFocusOwners: java.util.Map&lt;Window, WeakReference&lt;Component&gt;&gt;</strong></td>
+<td align="center">new WeakHashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Maps Windows to those Windows’ most recent focus owners.</td>
+</tr>
+<tr>
+<td align="center"><strong>replaceKeyboardFocusManagerPermission: AWTPermission</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">We cache the permission used to verify that the calling thread is permitted to access the global focus state.</td>
+</tr>
+<tr>
+<td align="center"><strong>currentSequencedEvent: SequencedEvent</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">SequencedEvent which is currently dispatched in AppContext.</td>
+</tr>
+<tr>
+<td align="center"><strong>heavyweightRequests: LinkedList&lt;HeavyweightFocusRequest&gt;</strong></td>
+<td align="center">new LinkedList<HeavyweightFocusRequest>()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">heavyweightRequests is used as a monitor for synchronized changes of currentLightweightRequests, clearingCurrentLightweightRequests and newFocusOwner.</td>
+</tr>
+<tr>
+<td align="center"><strong>currentLightweightRequests: LinkedList&lt;LightweightFocusRequest&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearingCurrentLightweightRequests: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>allowSyncFocusRequests: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newFocusOwner: Component</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>disableRestoreFocus: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SNFH_FAILURE: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SNFH_SUCCESS_HANDLED: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SNFH_SUCCESS_PROCEED: int</strong></td>
+<td align="center">2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>proxyActive: Field</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize JNI field and method IDs</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrentKeyboardFocusManager(): KeyboardFocusManager</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current KeyboardFocusManager instance for the calling thread’s context.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrentKeyboardFocusManager(AppContext appcontext): KeyboardFocusManager</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCurrentKeyboardFocusManager( KeyboardFocusManager newManager): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the current KeyboardFocusManager instance for the calling thread’s context. If null is specified, then the current KeyboardFocusManager is replaced with a new instance of DefaultKeyboardFocusManager. <p> If a SecurityManager is installed, the calling thread must be granted the AWTPermission “replaceKeyboardFocusManager” in order to replace the the current KeyboardFocusManager. If this permission is not granted, this method will throw a SecurityException, and the current KeyboardFocusManager will be unchanged.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCurrentSequencedEvent(SequencedEvent current): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrentSequencedEvent(): SequencedEvent</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initFocusTraversalKeysSet(String value, Set&lt;AWTKeyStroke&gt; targetSet): Set<AWTKeyStroke></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KeyboardFocusManager()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes a KeyboardFocusManager.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initPeer(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFocusOwner(): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the focus owner, if the focus owner is in the same context as the calling thread. The focus owner is defined as the Component in an application that will typically receive all KeyEvents generated by the user. KeyEvents which map to the focus owner’s focus traversal keys will not be delivered if focus traversal keys are enabled for the focus owner. In addition, KeyEventDispatchers may retarget or consume KeyEvents before they reach the focus owner.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGlobalFocusOwner(): Component</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the focus owner, even if the calling thread is in a different context than the focus owner. The focus owner is defined as the Component in an application that will typically receive all KeyEvents generated by the user. KeyEvents which map to the focus owner’s focus traversal keys will not be delivered if focus traversal keys are enabled for the focus owner. In addition, KeyEventDispatchers may retarget or consume KeyEvents before they reach the focus owner. <p> This method will throw a SecurityException if this KeyboardFocusManager is not the current KeyboardFocusManager for the calling thread’s context.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGlobalFocusOwner(Component focusOwner): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the focus owner. The operation will be cancelled if the Component is not focusable. The focus owner is defined as the Component in an application that will typically receive all KeyEvents generated by the user. KeyEvents which map to the focus owner’s focus traversal keys will not be delivered if focus traversal keys are enabled for the focus owner. In addition, KeyEventDispatchers may retarget or consume KeyEvents before they reach the focus owner. <p> This method does not actually set the focus to the specified Component. It merely stores the value to be subsequently returned by <code>getFocusOwner()</code>. Use <code>Component.requestFocus()</code> or <code>Component.requestFocusInWindow()</code> to change the focus owner, subject to platform limitations.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>clearFocusOwner(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clears the focus owner at both the Java and native levels if the focus owner exists and resides in the same context as the calling thread, otherwise the method returns silently. <p> The focus owner component will receive a permanent FOCUS_LOST event. After this operation completes, the native windowing system will discard all user-generated KeyEvents until the user selects a new Component to receive focus, or a Component is given focus explicitly via a call to ‘requestFocus()’. This operation does not change the focused or active Windows.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearGlobalFocusOwner(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clears the global focus owner at both the Java and native levels. If there exists a focus owner, that Component will receive a permanent FOCUS_LOST event. After this operation completes, the native windowing system will discard all user-generated KeyEvents until the user selects a new Component to receive focus, or a Component is given focus explicitly via a call to <code>requestFocus()</code>. This operation does not change the focused or active Windows. <p> If a SecurityManager is installed, the calling thread must be granted the “replaceKeyboardFocusManager” AWTPermission. If this permission is not granted, this method will throw a SecurityException, and the current focus owner will not be cleared. <p> This method is intended to be used only by KeyboardFocusManager set as current KeyboardFocusManager for the calling thread’s context. It is not for general client use.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>_clearGlobalFocusOwner(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearGlobalFocusOwnerPriv(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNativeFocusOwner(): Component</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setNativeFocusOwner(Component comp): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNativeFocusedWindow(): Window</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPermanentFocusOwner(): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the permanent focus owner, if the permanent focus owner is in the same context as the calling thread. The permanent focus owner is defined as the last Component in an application to receive a permanent FOCUS_GAINED event. The focus owner and permanent focus owner are equivalent unless a temporary focus change is currently in effect. In such a situation, the permanent focus owner will again be the focus owner when the temporary focus change ends.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGlobalPermanentFocusOwner(): Component</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the permanent focus owner, even if the calling thread is in a different context than the permanent focus owner. The permanent focus owner is defined as the last Component in an application to receive a permanent FOCUS_GAINED event. The focus owner and permanent focus owner are equivalent unless a temporary focus change is currently in effect. In such a situation, the permanent focus owner will again be the focus owner when the temporary focus change ends.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGlobalPermanentFocusOwner(Component permanentFocusOwner): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the permanent focus owner. The operation will be cancelled if the Component is not focusable. The permanent focus owner is defined as the last Component in an application to receive a permanent FOCUS_GAINED event. The focus owner and permanent focus owner are equivalent unless a temporary focus change is currently in effect. In such a situation, the permanent focus owner will again be the focus owner when the temporary focus change ends. <p> This method does not actually set the focus to the specified Component. It merely stores the value to be subsequently returned by <code>getPermanentFocusOwner()</code>. Use <code>Component.requestFocus()</code> or <code>Component.requestFocusInWindow()</code> to change the focus owner, subject to platform limitations.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFocusedWindow(): Window</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the focused Window, if the focused Window is in the same context as the calling thread. The focused Window is the Window that is or contains the focus owner.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGlobalFocusedWindow(): Window</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the focused Window, even if the calling thread is in a different context than the focused Window. The focused Window is the Window that is or contains the focus owner.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGlobalFocusedWindow(Window focusedWindow): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the focused Window. The focused Window is the Window that is or contains the focus owner. The operation will be cancelled if the specified Window to focus is not a focusable Window. <p> This method does not actually change the focused Window as far as the native windowing system is concerned. It merely stores the value to be subsequently returned by <code>getFocusedWindow()</code>. Use <code>Component.requestFocus()</code> or <code>Component.requestFocusInWindow()</code> to change the focused Window, subject to platform limitations.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getActiveWindow(): Window</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the active Window, if the active Window is in the same context as the calling thread. Only a Frame or a Dialog can be the active Window. The native windowing system may denote the active Window or its children with special decorations, such as a highlighted title bar. The active Window is always either the focused Window, or the first Frame or Dialog that is an owner of the focused Window.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGlobalActiveWindow(): Window</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the active Window, even if the calling thread is in a different context than the active Window. Only a Frame or a Dialog can be the active Window. The native windowing system may denote the active Window or its children with special decorations, such as a highlighted title bar. The active Window is always either the focused Window, or the first Frame or Dialog that is an owner of the focused Window.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGlobalActiveWindow(Window activeWindow): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the active Window. Only a Frame or a Dialog can be the active Window. The native windowing system may denote the active Window or its children with special decorations, such as a highlighted title bar. The active Window is always either the focused Window, or the first Frame or Dialog that is an owner of the focused Window. <p> This method does not actually change the active Window as far as the native windowing system is concerned. It merely stores the value to be subsequently returned by <code>getActiveWindow()</code>. Use <code>Component.requestFocus()</code> or <code>Component.requestFocusInWindow()</code>to change the active Window, subject to platform limitations.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultFocusTraversalPolicy(): FocusTraversalPolicy</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the default FocusTraversalPolicy. Top-level components use this value on their creation to initialize their own focus traversal policy by explicit call to Container.setFocusTraversalPolicy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultFocusTraversalPolicy(FocusTraversalPolicy defaultPolicy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default FocusTraversalPolicy. Top-level components use this value on their creation to initialize their own focus traversal policy by explicit call to Container.setFocusTraversalPolicy. Note: this call doesn’t affect already created components as they have their policy initialized. Only new components will use this policy as their default policy.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultFocusTraversalKeys(int id, Set&lt;? extends AWTKeyStroke&gt; keystrokes): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default focus traversal keys for a given traversal operation. This traversal key ‘Set’ will be in effect on all ‘Window’s that have no such ‘Set’ of their own explicitly defined. This ‘Set’ will also be inherited, recursively, by any child ‘Component’ of those ‘Windows’ that has no such ‘Set’ of its own explicitly defined. <p> The default values for the default focus traversal keys are implementation-dependent. Sun recommends that all implementations for a particular native platform use the same default values. The recommendations for Windows and Unix are listed below. These recommendations are used in the Sun AWT implementations.  <table border=1 summary="Recommended default values for focus traversal keys"> <tr> <th>Identifier</th> <th>Meaning</th> <th>Default</th> </tr> <tr> <td>‘KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS’</td> <td>Normal forward keyboard traversal</td> <td>‘TAB’ on ‘KEY_PRESSED’, ‘CTRL-TAB’ on ‘KEY_PRESSED’</td> </tr> <tr> <td>‘KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS’</td> <td>Normal reverse keyboard traversal</td> <td>‘SHIFT-TAB’ on ‘KEY_PRESSED’, ‘CTRL-SHIFT-TAB’ on ‘KEY_PRESSED’</td> </tr> <tr> <td>‘KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS’</td> <td>Go up one focus traversal cycle</td> <td>none</td> </tr> <tr> <td>‘KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS’</td> <td>Go down one focus traversal cycle</td> <td>none</td> </tr> </table>  To disable a traversal key, use an empty ‘Set’; ‘Collections.EMPTY_SET’ is recommended. <p> Using the ‘AWTKeyStroke’ API, client code can specify on which of two specific ‘KeyEvent’s, ‘KEY_PRESSED’ or ‘KEY_RELEASED’, the focus traversal operation will occur. Regardless of which ‘KeyEvent’ is specified, however, all ‘KeyEvent’s related to the focus traversal key, including the associated ‘KEY_TYPED’ event, will be consumed, and will not be dispatched to any ‘Component’. It is a runtime error to specify a ‘KEY_TYPED’ event as mapping to a focus traversal operation, or to map the same event to multiple default focus traversal operations. <p> This method may throw a ‘ClassCastException’ if any ‘Object’ in ‘keystrokes’ is not an ‘AWTKeyStroke’.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultFocusTraversalKeys(int id): Set<AWTKeyStroke></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a Set of default focus traversal keys for a given traversal operation. This traversal key Set will be in effect on all Windows that have no such Set of their own explicitly defined. This Set will also be inherited, recursively, by any child Component of those Windows that has no such Set of its own explicitly defined. (See <code>setDefaultFocusTraversalKeys</code> for a full description of each operation.)</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrentFocusCycleRoot(): Container</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current focus cycle root, if the current focus cycle root is in the same context as the calling thread. If the focus owner is itself a focus cycle root, then it may be ambiguous as to which Components represent the next and previous Components to focus during normal focus traversal. In that case, the current focus cycle root is used to differentiate among the possibilities. <p> This method is intended to be used only by KeyboardFocusManagers and focus implementations. It is not for general client use.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGlobalCurrentFocusCycleRoot(): Container</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current focus cycle root, even if the calling thread is in a different context than the current focus cycle root. If the focus owner is itself a focus cycle root, then it may be ambiguous as to which Components represent the next and previous Components to focus during normal focus traversal. In that case, the current focus cycle root is used to differentiate among the possibilities.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGlobalCurrentFocusCycleRoot(Container newFocusCycleRoot): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the current focus cycle root. If the focus owner is itself a focus cycle root, then it may be ambiguous as to which Components represent the next and previous Components to focus during normal focus traversal. In that case, the current focus cycle root is used to differentiate among the possibilities. <p> If a SecurityManager is installed, the calling thread must be granted the “replaceKeyboardFocusManager” AWTPermission. If this permission is not granted, this method will throw a SecurityException, and the current focus cycle root will not be changed. <p> This method is intended to be used only by KeyboardFocusManagers and focus implementations. It is not for general client use.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGlobalCurrentFocusCycleRootPriv(final Container newFocusCycleRoot): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyChangeListener(PropertyChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a PropertyChangeListener to the listener list. The listener is registered for all bound properties of this class, including the following: <ul> <li>whether the KeyboardFocusManager is currently managing focus for this application or applet’s browser context (“managingFocus”)</li> <li>the focus owner (“focusOwner”)</li> <li>the permanent focus owner (“permanentFocusOwner”)</li> <li>the focused Window (“focusedWindow”)</li> <li>the active Window (“activeWindow”)</li> <li>the default focus traversal policy (“defaultFocusTraversalPolicy”)</li> <li>the Set of default FORWARD_TRAVERSAL_KEYS (“forwardDefaultFocusTraversalKeys”)</li> <li>the Set of default BACKWARD_TRAVERSAL_KEYS (“backwardDefaultFocusTraversalKeys”)</li> <li>the Set of default UP_CYCLE_TRAVERSAL_KEYS (“upCycleDefaultFocusTraversalKeys”)</li> <li>the Set of default DOWN_CYCLE_TRAVERSAL_KEYS (“downCycleDefaultFocusTraversalKeys”)</li> <li>the current focus cycle root (“currentFocusCycleRoot”)</li> </ul> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removePropertyChangeListener(PropertyChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a PropertyChangeListener from the listener list. This method should be used to remove the PropertyChangeListeners that were registered for all bound properties of this class. <p> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPropertyChangeListeners(): PropertyChangeListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the property change listeners registered on this keyboard focus manager.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyChangeListener(String propertyName, PropertyChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a PropertyChangeListener to the listener list for a specific property. The specified property may be user-defined, or one of the following: <ul> <li>whether the KeyboardFocusManager is currently managing focus for this application or applet’s browser context (“managingFocus”)</li> <li>the focus owner (“focusOwner”)</li> <li>the permanent focus owner (“permanentFocusOwner”)</li> <li>the focused Window (“focusedWindow”)</li> <li>the active Window (“activeWindow”)</li> <li>the default focus traversal policy (“defaultFocusTraversalPolicy”)</li> <li>the Set of default FORWARD_TRAVERSAL_KEYS (“forwardDefaultFocusTraversalKeys”)</li> <li>the Set of default BACKWARD_TRAVERSAL_KEYS (“backwardDefaultFocusTraversalKeys”)</li> <li>the Set of default UP_CYCLE_TRAVERSAL_KEYS (“upCycleDefaultFocusTraversalKeys”)</li> <li>the Set of default DOWN_CYCLE_TRAVERSAL_KEYS (“downCycleDefaultFocusTraversalKeys”)</li> <li>the current focus cycle root (“currentFocusCycleRoot”)</li> </ul> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removePropertyChangeListener(String propertyName, PropertyChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a PropertyChangeListener from the listener list for a specific property. This method should be used to remove PropertyChangeListeners that were registered for a specific bound property. <p> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPropertyChangeListeners(String propertyName): PropertyChangeListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the <code>PropertyChangeListener</code>s associated with the named property.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>firePropertyChange(String propertyName, Object oldValue, Object newValue): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fires a PropertyChangeEvent in response to a change in a bound property. The event will be delivered to all registered PropertyChangeListeners. No event will be delivered if oldValue and newValue are the same.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addVetoableChangeListener(VetoableChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a VetoableChangeListener to the listener list. The listener is registered for all vetoable properties of this class, including the following: <ul> <li>the focus owner (“focusOwner”)</li> <li>the permanent focus owner (“permanentFocusOwner”)</li> <li>the focused Window (“focusedWindow”)</li> <li>the active Window (“activeWindow”)</li> </ul> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeVetoableChangeListener(VetoableChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a VetoableChangeListener from the listener list. This method should be used to remove the VetoableChangeListeners that were registered for all vetoable properties of this class. <p> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getVetoableChangeListeners(): VetoableChangeListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the vetoable change listeners registered on this keyboard focus manager.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addVetoableChangeListener(String propertyName, VetoableChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a VetoableChangeListener to the listener list for a specific property. The specified property may be user-defined, or one of the following: <ul> <li>the focus owner (“focusOwner”)</li> <li>the permanent focus owner (“permanentFocusOwner”)</li> <li>the focused Window (“focusedWindow”)</li> <li>the active Window (“activeWindow”)</li> </ul> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeVetoableChangeListener(String propertyName, VetoableChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a VetoableChangeListener from the listener list for a specific property. This method should be used to remove VetoableChangeListeners that were registered for a specific bound property. <p> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getVetoableChangeListeners(String propertyName): VetoableChangeListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the <code>VetoableChangeListener</code>s associated with the named property.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fireVetoableChange(String propertyName, Object oldValue, Object newValue): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fires a PropertyChangeEvent in response to a change in a vetoable property. The event will be delivered to all registered VetoableChangeListeners. If a VetoableChangeListener throws a PropertyVetoException, a new event is fired reverting all VetoableChangeListeners to the old value and the exception is then rethrown. No event will be delivered if oldValue and newValue are the same.</td>
+<td align="left">java.beans.PropertyVetoException<br/>PropertyVetoException</td>
+</tr>
+<tr>
+<td align="center"><strong>addKeyEventDispatcher(KeyEventDispatcher dispatcher): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a KeyEventDispatcher to this KeyboardFocusManager’s dispatcher chain. This KeyboardFocusManager will request that each KeyEventDispatcher dispatch KeyEvents generated by the user before finally dispatching the KeyEvent itself. KeyEventDispatchers will be notified in the order in which they were added. Notifications will halt as soon as one KeyEventDispatcher returns <code>true</code> from its <code>dispatchKeyEvent</code> method. There is no limit to the total number of KeyEventDispatchers which can be added, nor to the number of times which a particular KeyEventDispatcher instance can be added. <p> If a null dispatcher is specified, no action is taken and no exception is thrown. <p> In a multithreaded application, ‘KeyEventDispatcher’ behaves the same as other AWT listeners.  See <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeKeyEventDispatcher(KeyEventDispatcher dispatcher): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a KeyEventDispatcher which was previously added to this KeyboardFocusManager’s dispatcher chain. This KeyboardFocusManager cannot itself be removed, unless it was explicitly re-registered via a call to <code>addKeyEventDispatcher</code>. <p> If a null dispatcher is specified, if the specified dispatcher is not in the dispatcher chain, or if this KeyboardFocusManager is specified without having been explicitly re-registered, no action is taken and no exception is thrown. <p> In a multithreaded application, ‘KeyEventDispatcher’ behaves the same as other AWT listeners.  See <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyEventDispatchers(): java.util.List<KeyEventDispatcher></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this KeyboardFocusManager’s KeyEventDispatcher chain as a List. The List will not include this KeyboardFocusManager unless it was explicitly re-registered via a call to <code>addKeyEventDispatcher</code>. If no other KeyEventDispatchers are registered, implementations are free to return null or a List of length 0. Client code should not assume one behavior over another, nor should it assume that the behavior, once established, will not change.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addKeyEventPostProcessor(KeyEventPostProcessor processor): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a KeyEventPostProcessor to this KeyboardFocusManager’s post- processor chain. After a KeyEvent has been dispatched to and handled by its target, KeyboardFocusManager will request that each KeyEventPostProcessor perform any necessary post-processing as part of the KeyEvent’s final resolution. KeyEventPostProcessors will be notified in the order in which they were added; the current KeyboardFocusManager will be notified last. Notifications will halt as soon as one KeyEventPostProcessor returns <code>true</code> from its <code>postProcessKeyEvent</code> method. There is no limit to the the total number of KeyEventPostProcessors that can be added, nor to the number of times that a particular KeyEventPostProcessor instance can be added. <p> If a null post-processor is specified, no action is taken and no exception is thrown. <p> In a multithreaded application, ‘KeyEventPostProcessor’ behaves the same as other AWT listeners.  See <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeKeyEventPostProcessor(KeyEventPostProcessor processor): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes a previously added KeyEventPostProcessor from this KeyboardFocusManager’s post-processor chain. This KeyboardFocusManager cannot itself be entirely removed from the chain. Only additional references added via <code>addKeyEventPostProcessor</code> can be removed. <p> If a null post-processor is specified, if the specified post-processor is not in the post-processor chain, or if this KeyboardFocusManager is specified without having been explicitly added, no action is taken and no exception is thrown. <p> In a multithreaded application, ‘KeyEventPostProcessor’ behaves the same as other AWT listeners.  See <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyEventPostProcessors(): java.util.List<KeyEventPostProcessor></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this KeyboardFocusManager’s KeyEventPostProcessor chain as a List. The List will not include this KeyboardFocusManager unless it was explicitly added via a call to <code>addKeyEventPostProcessor</code>. If no KeyEventPostProcessors are registered, implementations are free to return null or a List of length 0. Client code should not assume one behavior over another, nor should it assume that the behavior, once established, will not change.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMostRecentFocusOwner(Component component): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMostRecentFocusOwner(Window window, Component component): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearMostRecentFocusOwner(Component comp): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMostRecentFocusOwner(Window window): Component</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Please be careful changing this method! It is called from javax.swing.JComponent.runInputVerifier() using reflection.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchEvent(AWTEvent e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This method is called by the AWT event dispatcher requesting that the current KeyboardFocusManager dispatch the specified event on its behalf. It is expected that all KeyboardFocusManagers will dispatch all FocusEvents, all WindowEvents related to focus, and all KeyEvents. These events should be dispatched based on the KeyboardFocusManager’s notion of the focus owner and the focused and active Windows, sometimes overriding the source of the specified AWTEvent. Dispatching must be done using <code>redispatchEvent</code> to prevent the AWT event dispatcher from recursively requesting that the KeyboardFocusManager dispatch the event again. If this method returns <code>false</code>, then the AWT event dispatcher will attempt to dispatch the event itself.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>redispatchEvent(Component target, AWTEvent e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Redispatches an AWTEvent in such a way that the AWT event dispatcher will not recursively request that the KeyboardFocusManager, or any installed KeyEventDispatchers, dispatch the event again. Client implementations of <code>dispatchEvent</code> and client-defined KeyEventDispatchers must call <code>redispatchEvent(target, e)</code> instead of <code>target.dispatchEvent(e)</code> to dispatch an event. <p> This method is intended to be used only by KeyboardFocusManagers and KeyEventDispatchers. It is not for general client use.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchKeyEvent(KeyEvent e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Typically this method will be called by <code>dispatchEvent</code> if no other KeyEventDispatcher in the dispatcher chain dispatched the KeyEvent, or if no other KeyEventDispatchers are registered. If an implementation of this method returns <code>false</code>, <code>dispatchEvent</code> may try to dispatch the KeyEvent itself, or may simply return <code>false</code>. If <code>true</code> is returned, <code>dispatchEvent</code> should return <code>true</code> as well.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postProcessKeyEvent(KeyEvent e): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This method will be called by <code>dispatchKeyEvent</code>. By default, this method will handle any unconsumed KeyEvents that map to an AWT <code>MenuShortcut</code> by consuming the event and activating the shortcut.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processKeyEvent(Component focusedComponent, KeyEvent e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This method initiates a focus traversal operation if and only if the KeyEvent represents a focus traversal key for the specified focusedComponent. It is expected that focusedComponent is the current focus owner, although this need not be the case. If it is not, focus traversal will nevertheless proceed as if focusedComponent were the current focus owner.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enqueueKeyEvents(long after, Component untilFocused): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Called by the AWT to notify the KeyboardFocusManager that it should delay dispatching of KeyEvents until the specified Component becomes the focus owner. If client code requests a focus change, and the AWT determines that this request might be granted by the native windowing system, then the AWT will call this method. It is the responsibility of the KeyboardFocusManager to delay dispatching of KeyEvents with timestamps later than the specified time stamp until the specified Component receives a FOCUS_GAINED event, or the AWT cancels the delay request by invoking <code>dequeueKeyEvents</code> or <code>discardKeyEvents</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dequeueKeyEvents(long after, Component untilFocused): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Called by the AWT to notify the KeyboardFocusManager that it should cancel delayed dispatching of KeyEvents. All KeyEvents which were enqueued because of a call to <code>enqueueKeyEvents</code> with the same timestamp and Component should be released for normal dispatching to the current focus owner. If the given timestamp is less than zero, the outstanding enqueue request for the given Component with the <b> oldest</b> timestamp (if any) should be cancelled.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>discardKeyEvents(Component comp): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Called by the AWT to notify the KeyboardFocusManager that it should cancel delayed dispatching of KeyEvents. All KeyEvents which were enqueued because of one or more calls to <code>enqueueKeyEvents</code> with the same Component should be discarded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>focusNextComponent(Component aComponent): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Focuses the Component after aComponent, typically based on a FocusTraversalPolicy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>focusPreviousComponent(Component aComponent): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Focuses the Component before aComponent, typically based on a FocusTraversalPolicy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>upFocusCycle(Component aComponent): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Moves the focus up one focus traversal cycle. Typically, the focus owner is set to aComponent’s focus cycle root, and the current focus cycle root is set to the new focus owner’s focus cycle root. If, however, aComponent’s focus cycle root is a Window, then typically the focus owner is set to the Window’s default Component to focus, and the current focus cycle root is unchanged.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>downFocusCycle(Container aContainer): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Moves the focus down one focus traversal cycle. Typically, if aContainer is a focus cycle root, then the focus owner is set to aContainer’s default Component to focus, and the current focus cycle root is set to aContainer. If aContainer is not a focus cycle root, then no focus traversal operation occurs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>focusNextComponent(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Focuses the Component after the current focus owner.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>focusPreviousComponent(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Focuses the Component before the current focus owner.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>upFocusCycle(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Moves the focus up one focus traversal cycle from the current focus owner. Typically, the new focus owner is set to the current focus owner’s focus cycle root, and the current focus cycle root is set to the new focus owner’s focus cycle root. If, however, the current focus owner’s focus cycle root is a Window, then typically the focus owner is set to the focus cycle root’s default Component to focus, and the current focus cycle root is unchanged.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>downFocusCycle(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Moves the focus down one focus traversal cycle from the current focus owner, if and only if the current focus owner is a Container that is a focus cycle root. Typically, the focus owner is set to the current focus owner’s default Component to focus, and the current focus cycle root is set to the current focus owner. If the current focus owner is not a Container that is a focus cycle root, then no focus traversal operation occurs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dumpRequests(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Dumps the list of focus requests to stderr</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processSynchronousLightweightTransfer(Component heavyweight, Component descendant, boolean temporary, boolean focusedWindowChangeAllowed, long time): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>markClearGlobalFocusOwner(): Window</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Window which will be active after processing this request, or null if this is a duplicate request. The active Window is useful because some native platforms do not support setting the native focus owner to null. On these platforms, the obvious choice is to set the focus owner to the focus proxy of the active Window.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCurrentWaitingRequest(Component parent): Component</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAutoFocusTransferEnabled(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAutoFocusTransferEnabledFor(Component comp): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchAndCatchException(Throwable ex, Component comp, FocusEvent event): Throwable</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to process exceptions in dispatching focus event (in focusLost&#x2F;focusGained callbacks).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>handleException(Throwable ex): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processCurrentLightweightRequests(): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>retargetUnexpectedFocusEvent(FocusEvent fe): FocusEvent</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>retargetFocusGained(FocusEvent fe): FocusEvent</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>retargetFocusLost(FocusEvent fe): FocusEvent</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>retargetFocusEvent(AWTEvent event): AWTEvent</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearMarkers(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clears markers queue This method is not intended to be overridden by KFM’s. Only DefaultKeyboardFocusManager can implement it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeFirstRequest(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeLastFocusRequest(Component heavyweight): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>focusedWindowChanged(Component to, Component from): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isTemporary(Component to, Component from): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeavyweight(Component comp): Component</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isProxyActiveImpl(KeyEvent e): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isProxyActive(KeyEvent e): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLastHWRequest(): HeavyweightFocusRequest</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFirstHWRequest(): HeavyweightFocusRequest</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkReplaceKFMPermission(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkKFMSecurity(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">SecurityException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="KeyboardFocusManager-LightweightFocusRequest"><a href="#KeyboardFocusManager-LightweightFocusRequest" class="headerlink" title="KeyboardFocusManager$LightweightFocusRequest"></a><a href="./KeyboardFocusManager$LightweightFocusRequest.html">KeyboardFocusManager$LightweightFocusRequest</a></h3><h3 id="KeyboardFocusManager-HeavyweightFocusRequest"><a href="#KeyboardFocusManager-HeavyweightFocusRequest" class="headerlink" title="KeyboardFocusManager$HeavyweightFocusRequest"></a><a href="./KeyboardFocusManager$HeavyweightFocusRequest.html">KeyboardFocusManager$HeavyweightFocusRequest</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

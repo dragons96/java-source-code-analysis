@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/security/cert/PKIXParameters.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="PKIXParameters"><a href="#PKIXParameters" class="headerlink" title="PKIXParameters"></a>PKIXParameters</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.security.cert.PKIXParameters</strong></td>
+<td align="center">class</td>
+<td align="center">CertPathParameters</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>unmodTrustAnchors: Set&lt;TrustAnchor&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>date: Date</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>certPathCheckers: List&lt;PKIXCertPathChecker&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sigProvider: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>revocationEnabled: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>unmodInitialPolicies: Set&lt;String&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>explicitPolicyRequired: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>policyMappingInhibited: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>anyPolicyInhibited: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>policyQualifiersRejected: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>certStores: List&lt;CertStore&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>certSelector: CertSelector</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>PKIXParameters(Set&lt;TrustAnchor&gt; trustAnchors)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance of ‘PKIXParameters’ with the specified ‘Set’ of most-trusted CAs. Each element of the set is a ‘TrustAnchor TrustAnchor’. <p> Note that the ‘Set’ is copied to protect against subsequent modifications.</td>
+<td align="left">InvalidAlgorithmParameterException<br/>NullPointerException<br/>ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>PKIXParameters(KeyStore keystore)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance of ‘PKIXParameters’ that populates the set of most-trusted CAs from the trusted certificate entries contained in the specified ‘KeyStore’. Only keystore entries that contain trusted ‘X509Certificates’ are considered; all other certificate types are ignored.</td>
+<td align="left">KeyStoreException<br/>NullPointerException<br/>InvalidAlgorithmParameterException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTrustAnchors(): Set<TrustAnchor></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an immutable ‘Set’ of the most-trusted CAs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setTrustAnchors(Set&lt;TrustAnchor&gt; trustAnchors): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the ‘Set’ of most-trusted CAs. <p> Note that the ‘Set’ is copied to protect against subsequent modifications.</td>
+<td align="left">InvalidAlgorithmParameterException<br/>NullPointerException<br/>ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInitialPolicies(): Set<String></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an immutable ‘Set’ of initial policy identifiers (OID strings), indicating that any one of these policies would be acceptable to the certificate user for the purposes of certification path processing. The default return value is an empty ‘Set’, which is interpreted as meaning that any policy would be acceptable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setInitialPolicies(Set&lt;String&gt; initialPolicies): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the ‘Set’ of initial policy identifiers (OID strings), indicating that any one of these policies would be acceptable to the certificate user for the purposes of certification path processing. By default, any policy is acceptable (i.e. all policies), so a user that wants to allow any policy as acceptable does not need to call this method, or can call it with an empty ‘Set’ (or ‘null’). <p> Note that the ‘Set’ is copied to protect against subsequent modifications.</td>
+<td align="left">ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCertStores(List&lt;CertStore&gt; stores): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the list of ‘CertStore’s to be used in finding certificates and CRLs. May be ‘null’, in which case no ‘CertStore’s will be used. The first ‘CertStore’s in the list may be preferred to those that appear later. <p> Note that the ‘List’ is copied to protect against subsequent modifications.</td>
+<td align="left">ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>addCertStore(CertStore store): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a ‘CertStore’ to the end of the list of ‘CertStore’s used in finding certificates and CRLs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCertStores(): List<CertStore></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an immutable ‘List’ of ‘CertStore’s that are used to find certificates and CRLs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setRevocationEnabled(boolean val): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the RevocationEnabled flag. If this flag is true, the default revocation checking mechanism of the underlying PKIX service provider will be used. If this flag is false, the default revocation checking mechanism will be disabled (not used). <p> When a ‘PKIXParameters’ object is created, this flag is set to true. This setting reflects the most common strategy for checking revocation, since each service provider must support revocation checking to be PKIX compliant. Sophisticated applications should set this flag to false when it is not practical to use a PKIX service provider’s default revocation checking mechanism or when an alternative revocation checking mechanism is to be substituted (by also calling the ‘#addCertPathChecker addCertPathChecker’ or ‘#setCertPathCheckers setCertPathCheckers’ methods).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isRevocationEnabled(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks the RevocationEnabled flag. If this flag is true, the default revocation checking mechanism of the underlying PKIX service provider will be used. If this flag is false, the default revocation checking mechanism will be disabled (not used). See the ‘#setRevocationEnabled setRevocationEnabled’ method for more details on setting the value of this flag.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setExplicitPolicyRequired(boolean val): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the ExplicitPolicyRequired flag. If this flag is true, an acceptable policy needs to be explicitly identified in every certificate. By default, the ExplicitPolicyRequired flag is false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isExplicitPolicyRequired(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if explicit policy is required. If this flag is true, an acceptable policy needs to be explicitly identified in every certificate. By default, the ExplicitPolicyRequired flag is false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPolicyMappingInhibited(boolean val): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the PolicyMappingInhibited flag. If this flag is true, policy mapping is inhibited. By default, policy mapping is not inhibited (the flag is false).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isPolicyMappingInhibited(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if policy mapping is inhibited. If this flag is true, policy mapping is inhibited. By default, policy mapping is not inhibited (the flag is false).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setAnyPolicyInhibited(boolean val): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets state to determine if the any policy OID should be processed if it is included in a certificate. By default, the any policy OID is not inhibited (‘#isAnyPolicyInhibited isAnyPolicyInhibited()’ returns ‘false’).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAnyPolicyInhibited(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks whether the any policy OID should be processed if it is included in a certificate.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPolicyQualifiersRejected(boolean qualifiersRejected): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the PolicyQualifiersRejected flag. If this flag is true, certificates that include policy qualifiers in a certificate policies extension that is marked critical are rejected. If the flag is false, certificates are not rejected on this basis.  <p> When a ‘PKIXParameters’ object is created, this flag is set to true. This setting reflects the most common (and simplest) strategy for processing policy qualifiers. Applications that want to use a more sophisticated policy must set this flag to false. <p> Note that the PKIX certification path validation algorithm specifies that any policy qualifier in a certificate policies extension that is marked critical must be processed and validated. Otherwise the certification path must be rejected. If the policyQualifiersRejected flag is set to false, it is up to the application to validate all policy qualifiers in this manner in order to be PKIX compliant.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPolicyQualifiersRejected(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the PolicyQualifiersRejected flag. If this flag is true, certificates that include policy qualifiers in a certificate policies extension that is marked critical are rejected. If the flag is false, certificates are not rejected on this basis.  <p> When a ‘PKIXParameters’ object is created, this flag is set to true. This setting reflects the most common (and simplest) strategy for processing policy qualifiers. Applications that want to use a more sophisticated policy must set this flag to false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDate(): Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the time for which the validity of the certification path should be determined. If ‘null’, the current time is used. <p> Note that the ‘Date’ returned is copied to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDate(Date date): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the time for which the validity of the certification path should be determined. If ‘null’, the current time is used. <p> Note that the ‘Date’ supplied here is copied to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCertPathCheckers(List&lt;PKIXCertPathChecker&gt; checkers): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets a ‘List’ of additional certification path checkers. If the specified ‘List’ contains an object that is not a ‘PKIXCertPathChecker’, it is ignored. <p> Each ‘PKIXCertPathChecker’ specified implements additional checks on a certificate. Typically, these are checks to process and verify private extensions contained in certificates. Each ‘PKIXCertPathChecker’ should be instantiated with any initialization parameters needed to execute the check. <p> This method allows sophisticated applications to extend a PKIX ‘CertPathValidator’ or ‘CertPathBuilder’. Each of the specified ‘PKIXCertPathChecker’s will be called, in turn, by a PKIX ‘CertPathValidator’ or ‘CertPathBuilder’ for each certificate processed or validated. <p> Regardless of whether these additional ‘PKIXCertPathChecker’s are set, a PKIX ‘CertPathValidator’ or ‘CertPathBuilder’ must perform all of the required PKIX checks on each certificate. The one exception to this rule is if the RevocationEnabled flag is set to false (see the ‘#setRevocationEnabled setRevocationEnabled’ method). <p> Note that the ‘List’ supplied here is copied and each ‘PKIXCertPathChecker’ in the list is cloned to protect against subsequent modifications.</td>
+<td align="left">ClassCastException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCertPathCheckers(): List<PKIXCertPathChecker></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘List’ of certification path checkers. The returned ‘List’ is immutable, and each ‘PKIXCertPathChecker’ in the ‘List’ is cloned to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addCertPathChecker(PKIXCertPathChecker checker): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a ‘PKIXCertPathChecker’ to the list of certification path checkers. See the ‘#setCertPathCheckers setCertPathCheckers’ method for more details. <p> Note that the ‘PKIXCertPathChecker’ is cloned to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSigProvider(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the signature provider’s name, or ‘null’ if not set.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setSigProvider(String sigProvider): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the signature provider’s name. The specified provider will be preferred when creating ‘java.security.Signature Signature’ objects. If ‘null’ or not set, the first provider found supporting the algorithm will be used.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTargetCertConstraints(): CertSelector</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the required constraints on the target certificate. The constraints are returned as an instance of ‘CertSelector’. If ‘null’, no constraints are defined.  <p>Note that the ‘CertSelector’ returned is cloned to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setTargetCertConstraints(CertSelector selector): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the required constraints on the target certificate. The constraints are specified as an instance of ‘CertSelector’. If ‘null’, no constraints are defined.  <p>Note that the ‘CertSelector’ specified is cloned to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Makes a copy of this ‘PKIXParameters’ object. Changes to the copy will not affect the original and vice versa.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a formatted string describing the parameters.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

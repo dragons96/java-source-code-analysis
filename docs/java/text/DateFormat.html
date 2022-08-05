@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/text/DateFormat.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DateFormat"><a href="#DateFormat" class="headerlink" title="DateFormat"></a>DateFormat</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.text.DateFormat</strong></td>
+<td align="center">abstract class</td>
+<td align="center">Format</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>calendar: Calendar</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The {@link Calendar} instance used for calculating the date-time fields and the instant of time. This field is used for both formatting and parsing.  <p>Subclasses should initialize this field to a {@link Calendar} appropriate for the {@link Locale} associated with this <code>DateFormat</code>. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>numberFormat: NumberFormat</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number formatter that <code>DateFormat</code> uses to format numbers in dates and times.  Subclasses should initialize this to a number format appropriate for the locale associated with this <code>DateFormat</code>. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>ERA_FIELD: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for ERA field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>YEAR_FIELD: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for YEAR field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>MONTH_FIELD: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for MONTH field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>DATE_FIELD: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for DATE field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>HOUR_OF_DAY1_FIELD: int</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for one-based HOUR_OF_DAY field alignment. Used in FieldPosition of date&#x2F;time formatting. HOUR_OF_DAY1_FIELD is used for the one-based 24-hour clock. For example, 23:59 + 01:00 results in 24:59.</td>
+</tr>
+<tr>
+<td align="center"><strong>HOUR_OF_DAY0_FIELD: int</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for zero-based HOUR_OF_DAY field alignment. Used in FieldPosition of date&#x2F;time formatting. HOUR_OF_DAY0_FIELD is used for the zero-based 24-hour clock. For example, 23:59 + 01:00 results in 00:59.</td>
+</tr>
+<tr>
+<td align="center"><strong>MINUTE_FIELD: int</strong></td>
+<td align="center">6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for MINUTE field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>SECOND_FIELD: int</strong></td>
+<td align="center">7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for SECOND field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>MILLISECOND_FIELD: int</strong></td>
+<td align="center">8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for MILLISECOND field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>DAY_OF_WEEK_FIELD: int</strong></td>
+<td align="center">9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for DAY_OF_WEEK field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>DAY_OF_YEAR_FIELD: int</strong></td>
+<td align="center">10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for DAY_OF_YEAR field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>DAY_OF_WEEK_IN_MONTH_FIELD: int</strong></td>
+<td align="center">11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for DAY_OF_WEEK_IN_MONTH field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>WEEK_OF_YEAR_FIELD: int</strong></td>
+<td align="center">12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for WEEK_OF_YEAR field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>WEEK_OF_MONTH_FIELD: int</strong></td>
+<td align="center">13</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for WEEK_OF_MONTH field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>AM_PM_FIELD: int</strong></td>
+<td align="center">14</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for AM_PM field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>HOUR1_FIELD: int</strong></td>
+<td align="center">15</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for one-based HOUR field alignment. Used in FieldPosition of date&#x2F;time formatting. HOUR1_FIELD is used for the one-based 12-hour clock. For example, 11:30 PM + 1 hour results in 12:30 AM.</td>
+</tr>
+<tr>
+<td align="center"><strong>HOUR0_FIELD: int</strong></td>
+<td align="center">16</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for zero-based HOUR field alignment. Used in FieldPosition of date&#x2F;time formatting. HOUR0_FIELD is used for the zero-based 12-hour clock. For example, 11:30 PM + 1 hour results in 00:30 AM.</td>
+</tr>
+<tr>
+<td align="center"><strong>TIMEZONE_FIELD: int</strong></td>
+<td align="center">17</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Useful constant for TIMEZONE field alignment. Used in FieldPosition of date&#x2F;time formatting.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">7218322306649953788L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>FULL: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for full style pattern.</td>
+</tr>
+<tr>
+<td align="center"><strong>LONG: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for long style pattern.</td>
+</tr>
+<tr>
+<td align="center"><strong>MEDIUM: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for medium style pattern.</td>
+</tr>
+<tr>
+<td align="center"><strong>SHORT: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for short style pattern.</td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT: int</strong></td>
+<td align="center">MEDIUM</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for default style pattern.  Its value is MEDIUM.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>format(Object obj, StringBuffer toAppendTo, FieldPosition fieldPosition): StringBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides Format. Formats a time object into a time string. Examples of time objects are a time value expressed in milliseconds and a Date object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(Date date, StringBuffer toAppendTo, FieldPosition fieldPosition): StringBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Formats a Date into a date&#x2F;time string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(Date date): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats a Date into a date&#x2F;time string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parse(String source): Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses text from the beginning of the given string to produce a date. The method may not use the entire text of the given string. <p> See the ‘#parse(String, ParsePosition)’ method for more information on date parsing.</td>
+<td align="left">ParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(String source, ParsePosition pos): Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Parse a date&#x2F;time string according to the given parse position.  For example, a time text ‘“07&#x2F;10&#x2F;96 4:5 PM, PDT”‘ will be parsed into a ‘Date’ that is equivalent to ‘Date(837039900000L)’.  <p> By default, parsing is lenient: If the input is not in the form used by this object’s format method but can still be parsed as a date, then the parse succeeds.  Clients may insist on strict adherence to the format by calling ‘#setLenient(boolean) setLenient(false)’.  <p>This parsing operation uses the ‘#calendar’ to produce a ‘Date’. As a result, the ‘calendar’’s date-time fields and the ‘TimeZone’ value may have been overwritten, depending on subclass implementations. Any ‘TimeZone’ value that has previously been set by a call to ‘#setTimeZone(java.util.TimeZone) setTimeZone’ may need to be restored for further operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseObject(String source, ParsePosition pos): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses text from a string to produce a <code>Date</code>. <p> The method attempts to parse text starting at the index given by <code>pos</code>. If parsing succeeds, then the index of <code>pos</code> is updated to the index after the last character used (parsing does not necessarily use all characters up to the end of the string), and the parsed date is returned. The updated <code>pos</code> can be used to indicate the starting point for the next call to this method. If an error occurs, then the index of <code>pos</code> is not changed, the error index of <code>pos</code> is set to the index of the character where the error occurred, and null is returned. <p> See the ‘#parse(String, ParsePosition)’ method for more information on date parsing.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeInstance(): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the time formatter with the default formatting style for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getTimeInstance(int, Locale) getTimeInstance(DEFAULT, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeInstance(int style): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the time formatter with the given formatting style for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getTimeInstance(int, Locale) getTimeInstance(style, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeInstance(int style, Locale aLocale): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the time formatter with the given formatting style for the given locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateInstance(): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the date formatter with the default formatting style for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getDateInstance(int, Locale) getDateInstance(DEFAULT, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateInstance(int style): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the date formatter with the given formatting style for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getDateInstance(int, Locale) getDateInstance(style, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateInstance(int style, Locale aLocale): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the date formatter with the given formatting style for the given locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateTimeInstance(): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the date&#x2F;time formatter with the default formatting style for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getDateTimeInstance(int, int, Locale) getDateTimeInstance(DEFAULT, DEFAULT, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateTimeInstance(int dateStyle, int timeStyle): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the date&#x2F;time formatter with the given date and time formatting styles for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <p>This is equivalent to calling ‘#getDateTimeInstance(int, int, Locale) getDateTimeInstance(dateStyle, timeStyle, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateTimeInstance(int dateStyle, int timeStyle, Locale aLocale): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the date&#x2F;time formatter with the given formatting styles for the given locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(): DateFormat</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get a default date&#x2F;time formatter that uses the SHORT style for both the date and the time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAvailableLocales(): Locale[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all locales for which the <code>get*Instance</code> methods of this class can return localized instances. The returned array represents the union of locales supported by the Java runtime and by installed ‘java.text.spi.DateFormatProvider DateFormatProvider’ implementations. It must contain at least a <code>Locale</code> instance equal to ‘java.util.Locale#US Locale.US’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCalendar(Calendar newCalendar): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the calendar to be used by this date format.  Initially, the default calendar for the specified or default locale is used.  <p>Any ‘java.util.TimeZone TimeZone’ and ‘#isLenient() leniency’ values that have previously been set are overwritten by ‘newCalendar’’s values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCalendar(): Calendar</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the calendar associated with this date&#x2F;time formatter.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setNumberFormat(NumberFormat newNumberFormat): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allows you to set the number formatter.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumberFormat(): NumberFormat</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number formatter which this date&#x2F;time formatter uses to format and parse a time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setTimeZone(TimeZone zone): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the time zone for the calendar of this ‘DateFormat’ object. This method is equivalent to the following call. <blockquote><pre>'getCalendar().setTimeZone(zone)'</pre></blockquote>  <p>The ‘TimeZone’ set by this method is overwritten by a ‘#setCalendar(java.util.Calendar) setCalendar’ call.  <p>The ‘TimeZone’ set by this method may be overwritten as a result of a call to the parse method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeZone(): TimeZone</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the time zone. This method is equivalent to the following call. <blockquote><pre>'getCalendar().getTimeZone()'</pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLenient(boolean lenient): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Specify whether or not date&#x2F;time parsing is to be lenient.  With lenient parsing, the parser may use heuristics to interpret inputs that do not precisely match this object’s format.  With strict parsing, inputs must match this object’s format.  <p>This method is equivalent to the following call. <blockquote><pre>'getCalendar().setLenient(lenient)'</pre></blockquote>  <p>This leniency value is overwritten by a call to ‘#setCalendar(java.util.Calendar) setCalendar()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLenient(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tell whether date&#x2F;time parsing is to be lenient. This method is equivalent to the following call. <blockquote><pre>'getCalendar().isLenient()'</pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides hashCode</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides equals</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Overrides Cloneable</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(int timeStyle, int dateStyle, int flags, Locale loc): DateFormat</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a DateFormat with the given time and&#x2F;or date style in the given locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(LocaleProviderAdapter adapter, int timeStyle, int dateStyle, Locale loc): DateFormat</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DateFormat()</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create a new date format.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="DateFormat-Field"><a href="#DateFormat-Field" class="headerlink" title="DateFormat$Field"></a><a href="./DateFormat$Field.html">DateFormat$Field</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

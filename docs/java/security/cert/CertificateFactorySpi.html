@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/security/cert/CertificateFactorySpi.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="CertificateFactorySpi"><a href="#CertificateFactorySpi" class="headerlink" title="CertificateFactorySpi"></a>CertificateFactorySpi</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.security.cert.CertificateFactorySpi</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>engineGenerateCertificate(InputStream inStream): Certificate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Generates a certificate object and initializes it with the data read from the input stream ‘inStream’.  <p>In order to take advantage of the specialized certificate format supported by this certificate factory, the returned certificate object can be typecast to the corresponding certificate class. For example, if this certificate factory implements X.509 certificates, the returned certificate object can be typecast to the ‘X509Certificate’ class.  <p>In the case of a certificate factory for X.509 certificates, the certificate provided in ‘inStream’ must be DER-encoded and may be supplied in binary or printable (Base64) encoding. If the certificate is provided in Base64 encoding, it must be bounded at the beginning by —–BEGIN CERTIFICATE—–, and must be bounded at the end by —–END CERTIFICATE—–.  <p>Note that if the given input stream does not support ‘java.io.InputStream#mark(int) mark’ and ‘java.io.InputStream#reset() reset’, this method will consume the entire input stream. Otherwise, each call to this method consumes one certificate and the read position of the input stream is positioned to the next available byte after the inherent end-of-certificate marker. If the data in the input stream does not contain an inherent end-of-certificate marker (other than EOF) and there is trailing data after the certificate is parsed, a ‘CertificateException’ is thrown.</td>
+<td align="left">CertificateException</td>
+</tr>
+<tr>
+<td align="center"><strong>engineGenerateCertPath(InputStream inStream): CertPath</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Generates a ‘CertPath’ object and initializes it with the data read from the ‘InputStream’ inStream. The data is assumed to be in the default encoding.  <p> This method was added to version 1.4 of the Java 2 Platform Standard Edition. In order to maintain backwards compatibility with existing service providers, this method cannot be ‘abstract’ and by default throws an ‘UnsupportedOperationException’.</td>
+<td align="left">CertificateException</td>
+</tr>
+<tr>
+<td align="center"><strong>engineGenerateCertPath(InputStream inStream, String encoding): CertPath</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Generates a ‘CertPath’ object and initializes it with the data read from the ‘InputStream’ inStream. The data is assumed to be in the specified encoding.  <p> This method was added to version 1.4 of the Java 2 Platform Standard Edition. In order to maintain backwards compatibility with existing service providers, this method cannot be ‘abstract’ and by default throws an ‘UnsupportedOperationException’.</td>
+<td align="left">CertificateException</td>
+</tr>
+<tr>
+<td align="center"><strong>engineGenerateCertPath(List&lt;? extends Certificate&gt; certificates): CertPath</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Generates a ‘CertPath’ object and initializes it with a ‘List’ of ‘Certificate’s. <p> The certificates supplied must be of a type supported by the ‘CertificateFactory’. They will be copied out of the supplied ‘List’ object.  <p> This method was added to version 1.4 of the Java 2 Platform Standard Edition. In order to maintain backwards compatibility with existing service providers, this method cannot be ‘abstract’ and by default throws an ‘UnsupportedOperationException’.</td>
+<td align="left">CertificateException</td>
+</tr>
+<tr>
+<td align="center"><strong>engineGetCertPathEncodings(): Iterator<String></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an iteration of the ‘CertPath’ encodings supported by this certificate factory, with the default encoding first. See the CertPath Encodings section in the <a href= "'docRoot'/../technotes/guides/security/StandardNames.html#CertPathEncodings"> Java Cryptography Architecture Standard Algorithm Name Documentation</a> for information about standard encoding names. <p> Attempts to modify the returned ‘Iterator’ via its ‘remove’ method result in an ‘UnsupportedOperationException’.  <p> This method was added to version 1.4 of the Java 2 Platform Standard Edition. In order to maintain backwards compatibility with existing service providers, this method cannot be ‘abstract’ and by default throws an ‘UnsupportedOperationException’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>engineGenerateCertificates(InputStream inStream): Certificate&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a (possibly empty) collection view of the certificates read from the given input stream ‘inStream’.  <p>In order to take advantage of the specialized certificate format supported by this certificate factory, each element in the returned collection view can be typecast to the corresponding certificate class. For example, if this certificate factory implements X.509 certificates, the elements in the returned collection can be typecast to the ‘X509Certificate’ class.  <p>In the case of a certificate factory for X.509 certificates, ‘inStream’ may contain a single DER-encoded certificate in the formats described for ‘CertificateFactory#generateCertificate(java.io.InputStream) generateCertificate’. In addition, ‘inStream’ may contain a PKCS#7 certificate chain. This is a PKCS#7 <i>SignedData</i> object, with the only significant field being <i>certificates</i>. In particular, the signature and the contents are ignored. This format allows multiple certificates to be downloaded at once. If no certificates are present, an empty collection is returned.  <p>Note that if the given input stream does not support ‘java.io.InputStream#mark(int) mark’ and ‘java.io.InputStream#reset() reset’, this method will consume the entire input stream.</td>
+<td align="left">CertificateException</td>
+</tr>
+<tr>
+<td align="center"><strong>engineGenerateCRL(InputStream inStream): CRL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Generates a certificate revocation list (CRL) object and initializes it with the data read from the input stream ‘inStream’.  <p>In order to take advantage of the specialized CRL format supported by this certificate factory, the returned CRL object can be typecast to the corresponding CRL class. For example, if this certificate factory implements X.509 CRLs, the returned CRL object can be typecast to the ‘X509CRL’ class.  <p>Note that if the given input stream does not support ‘java.io.InputStream#mark(int) mark’ and ‘java.io.InputStream#reset() reset’, this method will consume the entire input stream. Otherwise, each call to this method consumes one CRL and the read position of the input stream is positioned to the next available byte after the inherent end-of-CRL marker. If the data in the input stream does not contain an inherent end-of-CRL marker (other than EOF) and there is trailing data after the CRL is parsed, a ‘CRLException’ is thrown.</td>
+<td align="left">CRLException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

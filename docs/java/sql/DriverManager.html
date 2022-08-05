@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/sql/DriverManager.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DriverManager"><a href="#DriverManager" class="headerlink" title="DriverManager"></a>DriverManager</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.sql.DriverManager</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>registeredDrivers: CopyOnWriteArrayList&lt;DriverInfo&gt;</strong></td>
+<td align="center">new CopyOnWriteArrayList&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loginTimeout: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>logWriter: java.io.PrintWriter</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>logStream: java.io.PrintStream</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">**logSync: **</td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SET_LOG_PERMISSION: SQLPermission</strong></td>
+<td align="center">new SQLPermission(“setLog”)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The <code>SQLPermission</code> constant that allows the setting of the logging stream. @since 1.3</td>
+</tr>
+<tr>
+<td align="center"><strong>DEREGISTER_DRIVER_PERMISSION: SQLPermission</strong></td>
+<td align="center">new SQLPermission(“deregisterDriver”)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The {@code SQLPermission} constant that allows the un-register a registered JDBC driver. @since 1.8</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DriverManager()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prevent the DriverManager class from being instantiated.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLogWriter(): java.io.PrintWriter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the log writer.  The <code>getLogWriter</code> and <code>setLogWriter</code> methods should be used instead of the <code>get/setlogStream</code> methods, which are deprecated.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLogWriter(java.io.PrintWriter out): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the logging&#x2F;tracing <code>PrintWriter</code> object that is used by the <code>DriverManager</code> and all drivers. <P> There is a minor versioning problem created by the introduction of the method <code>setLogWriter</code>.  The method <code>setLogWriter</code> cannot create a <code>PrintStream</code> object that will be returned by <code>getLogStream</code>—the Java platform does not provide a backward conversion.  As a result, a new application that uses <code>setLogWriter</code> and also uses a JDBC 1.0 driver that uses <code>getLogStream</code> will likely not see debugging information written by that driver. <P> Starting with the Java 2 SDK, Standard Edition, version 1.3 release, this method checks to see that there is an <code>SQLPermission</code> object before setting the logging stream.  If a <code>SecurityManager</code> exists and its <code>checkPermission</code> method denies setting the log writer, this method throws a <code>java.lang.SecurityException</code>.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getConnection(String url, java.util.Properties info): Connection</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to establish a connection to the given database URL. The <code>DriverManager</code> attempts to select an appropriate driver from the set of registered JDBC drivers. <p> <B>Note:</B> If a property is specified as part of the ‘url’ and is also specified in the ‘Properties’ object, it is implementation-defined as to which value will take precedence. For maximum portability, an application should only specify a property once.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>getConnection(String url, String user, String password): Connection</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to establish a connection to the given database URL. The <code>DriverManager</code> attempts to select an appropriate driver from the set of registered JDBC drivers. <p> <B>Note:</B> If the ‘user’ or ‘password’ property are also specified as part of the ‘url’, it is implementation-defined as to which value will take precedence. For maximum portability, an application should only specify a property once.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>getConnection(String url): Connection</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to establish a connection to the given database URL. The <code>DriverManager</code> attempts to select an appropriate driver from the set of registered JDBC drivers.</td>
+<td align="left">SQLException<br/>SQLTimeoutException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDriver(String url): Driver</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to locate a driver that understands the given URL. The <code>DriverManager</code> attempts to select an appropriate driver from the set of registered JDBC drivers.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerDriver(java.sql.Driver driver): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registers the given driver with the ‘DriverManager’. A newly-loaded driver class should call the method ‘registerDriver’ to make itself known to the ‘DriverManager’. If the driver is currently registered, no action is taken.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerDriver(java.sql.Driver driver, DriverAction da): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registers the given driver with the ‘DriverManager’. A newly-loaded driver class should call the method ‘registerDriver’ to make itself known to the ‘DriverManager’. If the driver is currently registered, no action is taken.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>deregisterDriver(Driver driver): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified driver from the ‘DriverManager’’s list of registered drivers. <p> If a ‘null’ value is specified for the driver to be removed, then no action is taken. <p> If a security manager exists and its ‘checkPermission’ denies permission, then a ‘SecurityException’ will be thrown. <p> If the specified driver is not found in the list of registered drivers, then no action is taken.  If the driver was found, it will be removed from the list of registered drivers. <p> If a ‘DriverAction’ instance was specified when the JDBC driver was registered, its deregister method will be called prior to the driver being removed from the list of registered drivers.</td>
+<td align="left">SecurityException<br/>SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDrivers(): java.util.Enumeration<Driver></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves an Enumeration with all of the currently loaded JDBC drivers to which the current caller has access.  <P><B>Note:</B> The classname of a driver can be found using <CODE>d.getClass().getName()</CODE></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLoginTimeout(int seconds): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the maximum time in seconds that a driver will wait while attempting to connect to a database once the driver has been identified.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLoginTimeout(): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the maximum time in seconds that a driver can wait when attempting to log in to a database.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLogStream(java.io.PrintStream out): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the logging&#x2F;tracing PrintStream that is used by the <code>DriverManager</code> and all drivers. <P> In the Java 2 SDK, Standard Edition, version 1.3 release, this method checks to see that there is an <code>SQLPermission</code> object before setting the logging stream.  If a <code>SecurityManager</code> exists and its <code>checkPermission</code> method denies setting the log writer, this method throws a <code>java.lang.SecurityException</code>.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLogStream(): java.io.PrintStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the logging&#x2F;tracing PrintStream that is used by the <code>DriverManager</code> and all drivers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>println(String message): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints a message to the current JDBC log stream.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDriverAllowed(Driver driver, Class&lt;?&gt; caller): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDriverAllowed(Driver driver, ClassLoader classLoader): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadInitialDrivers(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getConnection( String url, java.util.Properties info, Class&lt;?&gt; caller): Connection</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">SQLException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="DriverManager-DriverInfo"><a href="#DriverManager-DriverInfo" class="headerlink" title="DriverManager$DriverInfo"></a><a href="./DriverManager$DriverInfo.html">DriverManager$DriverInfo</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

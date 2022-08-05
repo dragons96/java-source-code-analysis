@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/dnd/DragSource.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DragSource"><a href="#DragSource" class="headerlink" title="DragSource"></a>DragSource</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.dnd.DragSource</strong></td>
+<td align="center">class</td>
+<td align="center">Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">6236096958971414066L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DefaultCopyDrop: Cursor</strong></td>
+<td align="center">load(“DnD.Cursor.CopyDrop”)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default <code>Cursor</code> to use with a copy operation indicating that a drop is currently allowed. <code>null</code> if <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.  @see java.awt.GraphicsEnvironment#isHeadless</td>
+</tr>
+<tr>
+<td align="center"><strong>DefaultMoveDrop: Cursor</strong></td>
+<td align="center">load(“DnD.Cursor.MoveDrop”)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default <code>Cursor</code> to use with a move operation indicating that a drop is currently allowed. <code>null</code> if <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.  @see java.awt.GraphicsEnvironment#isHeadless</td>
+</tr>
+<tr>
+<td align="center"><strong>DefaultLinkDrop: Cursor</strong></td>
+<td align="center">load(“DnD.Cursor.LinkDrop”)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default <code>Cursor</code> to use with a link operation indicating that a drop is currently allowed. <code>null</code> if <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.  @see java.awt.GraphicsEnvironment#isHeadless</td>
+</tr>
+<tr>
+<td align="center"><strong>DefaultCopyNoDrop: Cursor</strong></td>
+<td align="center">load(“DnD.Cursor.CopyNoDrop”)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default <code>Cursor</code> to use with a copy operation indicating that a drop is currently not allowed. <code>null</code> if <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.  @see java.awt.GraphicsEnvironment#isHeadless</td>
+</tr>
+<tr>
+<td align="center"><strong>DefaultMoveNoDrop: Cursor</strong></td>
+<td align="center">load(“DnD.Cursor.MoveNoDrop”)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default <code>Cursor</code> to use with a move operation indicating that a drop is currently not allowed. <code>null</code> if <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.  @see java.awt.GraphicsEnvironment#isHeadless</td>
+</tr>
+<tr>
+<td align="center"><strong>DefaultLinkNoDrop: Cursor</strong></td>
+<td align="center">load(“DnD.Cursor.LinkNoDrop”)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default <code>Cursor</code> to use with a link operation indicating that a drop is currently not allowed. <code>null</code> if <code>GraphicsEnvironment.isHeadless()</code> returns <code>true</code>.  @see java.awt.GraphicsEnvironment#isHeadless</td>
+</tr>
+<tr>
+<td align="center"><strong>dflt: DragSource</strong></td>
+<td align="center">(GraphicsEnvironment.isHeadless()) ? null : new DragSource()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dragSourceListenerK: String</strong></td>
+<td align="center">“dragSourceL”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal constants for serialization.</td>
+</tr>
+<tr>
+<td align="center"><strong>dragSourceMotionListenerK: String</strong></td>
+<td align="center">“dragSourceMotionL”</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>flavorMap: FlavorMap</strong></td>
+<td align="center">SystemFlavorMap.getDefaultFlavorMap()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">fields</td>
+</tr>
+<tr>
+<td align="center"><strong>listener: DragSourceListener</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>motionListener: DragSourceMotionListener</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>load(String name): Cursor</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">load a system default cursor</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultDragSource(): DragSource</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the <code>DragSource</code> object associated with the underlying platform.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDragImageSupported(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reports whether or not drag <code>Image</code> support is available on the underlying platform. <P></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DragSource()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new <code>DragSource</code>.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>startDrag(DragGestureEvent   trigger, Cursor             dragCursor, Image              dragImage, Point              imageOffset, Transferable       transferable, DragSourceListener dsl, FlavorMap          flavorMap): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Start a drag, given the <code>DragGestureEvent</code> that initiated the drag, the initial <code>Cursor</code> to use, the <code>Image</code> to drag, the offset of the <code>Image</code> origin from the hotspot of the <code>Cursor</code> at the instant of the trigger, the <code>Transferable</code> subject data of the drag, the <code>DragSourceListener</code>, and the <code>FlavorMap</code>. <P></td>
+<td align="left">java.awt.dnd.InvalidDnDOperationException<br/>InvalidDnDOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>startDrag(DragGestureEvent   trigger, Cursor             dragCursor, Transferable       transferable, DragSourceListener dsl, FlavorMap          flavorMap): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Start a drag, given the <code>DragGestureEvent</code> that initiated the drag, the initial <code>Cursor</code> to use, the <code>Transferable</code> subject data of the drag, the <code>DragSourceListener</code>, and the <code>FlavorMap</code>. <P></td>
+<td align="left">java.awt.dnd.InvalidDnDOperationException<br/>InvalidDnDOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>startDrag(DragGestureEvent   trigger, Cursor             dragCursor, Image              dragImage, Point              dragOffset, Transferable       transferable, DragSourceListener dsl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Start a drag, given the <code>DragGestureEvent</code> that initiated the drag, the initial <code>Cursor</code> to use, the <code>Image</code> to drag, the offset of the <code>Image</code> origin from the hotspot of the <code>Cursor</code> at the instant of the trigger, the subject data of the drag, and the <code>DragSourceListener</code>. <P></td>
+<td align="left">java.awt.dnd.InvalidDnDOperationException<br/>InvalidDnDOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>startDrag(DragGestureEvent   trigger, Cursor             dragCursor, Transferable       transferable, DragSourceListener dsl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Start a drag, given the <code>DragGestureEvent</code> that initiated the drag, the initial <code>Cursor</code> to use, the <code>Transferable</code> subject data of the drag, and the <code>DragSourceListener</code>. <P></td>
+<td align="left">java.awt.dnd.InvalidDnDOperationException<br/>InvalidDnDOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>createDragSourceContext(DragSourceContextPeer dscp, DragGestureEvent dgl, Cursor dragCursor, Image dragImage, Point imageOffset, Transferable t, DragSourceListener dsl): DragSourceContext</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates the ‘DragSourceContext’ to handle the current drag operation. <p> To incorporate a new <code>DragSourceContext</code> subclass, subclass <code>DragSource</code> and override this method. <p> If <code>dragImage</code> is <code>null</code>, no image is used to represent the drag over feedback for this drag operation, but <code>NullPointerException</code> is not thrown. <p> If <code>dsl</code> is <code>null</code>, no drag source listener is registered with the created <code>DragSourceContext</code>, but <code>NullPointerException</code> is not thrown.</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFlavorMap(): FlavorMap</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method returns the <code>FlavorMap</code> for this <code>DragSource</code>. <P></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createDragGestureRecognizer(Class&lt;T&gt; recognizerAbstractClass, Component c, int actions, DragGestureListener dgl): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new <code>DragGestureRecognizer</code> that implements the specified abstract subclass of <code>DragGestureRecognizer</code>, and sets the specified <code>Component</code> and <code>DragGestureListener</code> on the newly created object. <P></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createDefaultDragGestureRecognizer(Component c, int actions, DragGestureListener dgl): DragGestureRecognizer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new <code>DragGestureRecognizer</code> that implements the default abstract subclass of <code>DragGestureRecognizer</code> for this <code>DragSource</code>, and sets the specified <code>Component</code> and <code>DragGestureListener</code> on the newly created object.  For this <code>DragSource</code> the default is <code>MouseDragGestureRecognizer</code>. <P></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addDragSourceListener(DragSourceListener dsl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified <code>DragSourceListener</code> to this <code>DragSource</code> to receive drag source events during drag operations intiated with this <code>DragSource</code>. If a <code>null</code> listener is specified, no action is taken and no exception is thrown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeDragSourceListener(DragSourceListener dsl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified <code>DragSourceListener</code> from this <code>DragSource</code>. If a <code>null</code> listener is specified, no action is taken and no exception is thrown. If the listener specified by the argument was not previously added to this <code>DragSource</code>, no action is taken and no exception is thrown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDragSourceListeners(): DragSourceListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all the <code>DragSourceListener</code>s registered with this <code>DragSource</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addDragSourceMotionListener(DragSourceMotionListener dsml): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified <code>DragSourceMotionListener</code> to this <code>DragSource</code> to receive drag motion events during drag operations intiated with this <code>DragSource</code>. If a <code>null</code> listener is specified, no action is taken and no exception is thrown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeDragSourceMotionListener(DragSourceMotionListener dsml): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified <code>DragSourceMotionListener</code> from this <code>DragSource</code>. If a <code>null</code> listener is specified, no action is taken and no exception is thrown. If the listener specified by the argument was not previously added to this <code>DragSource</code>, no action is taken and no exception is thrown.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDragSourceMotionListeners(): DragSourceMotionListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all of the  <code>DragSourceMotionListener</code>s registered with this <code>DragSource</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getListeners(Class&lt;T&gt; listenerType): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all the objects currently registered as <code><em>Foo</em>Listener</code>s upon this <code>DragSource</code>. <code><em>Foo</em>Listener</code>s are registered using the <code>add<em>Foo</em>Listener</code> method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processDragEnter(DragSourceDragEvent dsde): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method calls <code>dragEnter</code> on the <code>DragSourceListener</code>s registered with this <code>DragSource</code>, and passes them the specified <code>DragSourceDragEvent</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processDragOver(DragSourceDragEvent dsde): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method calls <code>dragOver</code> on the <code>DragSourceListener</code>s registered with this <code>DragSource</code>, and passes them the specified <code>DragSourceDragEvent</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processDropActionChanged(DragSourceDragEvent dsde): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method calls <code>dropActionChanged</code> on the <code>DragSourceListener</code>s registered with this <code>DragSource</code>, and passes them the specified <code>DragSourceDragEvent</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processDragExit(DragSourceEvent dse): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method calls <code>dragExit</code> on the <code>DragSourceListener</code>s registered with this <code>DragSource</code>, and passes them the specified <code>DragSourceEvent</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processDragDropEnd(DragSourceDropEvent dsde): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method calls <code>dragDropEnd</code> on the <code>DragSourceListener</code>s registered with this <code>DragSource</code>, and passes them the specified <code>DragSourceDropEvent</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processDragMouseMoved(DragSourceDragEvent dsde): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method calls <code>dragMouseMoved</code> on the <code>DragSourceMotionListener</code>s registered with this <code>DragSource</code>, and passes them the specified <code>DragSourceDragEvent</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serializes this <code>DragSource</code>. This method first performs default serialization. Next, it writes out this object’s <code>FlavorMap</code> if and only if it can be serialized. If not, <code>null</code> is written instead. Next, it writes out <code>Serializable</code> listeners registered with this object. Listeners are written in a <code>null</code>-terminated sequence of 0 or more pairs. The pair consists of a <code>String</code> and an <code>Object</code>; the <code>String</code> indicates the type of the <code>Object</code> and is one of the following: <ul> <li><code>dragSourceListenerK</code> indicating a <code>DragSourceListener</code> object; <li><code>dragSourceMotionListenerK</code> indicating a <code>DragSourceMotionListener</code> object. </ul></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Deserializes this <code>DragSource</code>. This method first performs default deserialization. Next, this object’s <code>FlavorMap</code> is deserialized by using the next object in the stream. If the resulting <code>FlavorMap</code> is <code>null</code>, this object’s <code>FlavorMap</code> is set to the default FlavorMap for this thread’s <code>ClassLoader</code>. Next, this object’s listeners are deserialized by reading a <code>null</code>-terminated sequence of 0 or more key&#x2F;value pairs from the stream: <ul> <li>If a key object is a <code>String</code> equal to <code>dragSourceListenerK</code>, a <code>DragSourceListener</code> is deserialized using the corresponding value object and added to this <code>DragSource</code>. <li>If a key object is a <code>String</code> equal to <code>dragSourceMotionListenerK</code>, a <code>DragSourceMotionListener</code> is deserialized using the corresponding value object and added to this <code>DragSource</code>. <li>Otherwise, the key&#x2F;value pair is skipped. </ul></td>
+<td align="left">IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDragThreshold(): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the drag gesture motion threshold. The drag gesture motion threshold defines the recommended behavior for ‘MouseDragGestureRecognizer’s. <p> If the system property <code>awt.dnd.drag.threshold</code> is set to a positive integer, this method returns the value of the system property; otherwise if a pertinent desktop property is available and supported by the implementation of the Java platform, this method returns the value of that property; otherwise this method returns some default value. The pertinent desktop property can be queried using <code>java.awt.Toolkit.getDesktopProperty("DnD.gestureMotionThreshold")</code>.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

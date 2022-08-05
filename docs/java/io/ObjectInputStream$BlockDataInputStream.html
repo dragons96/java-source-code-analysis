@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/ObjectInputStream$BlockDataInputStream.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ObjectInputStream-BlockDataInputStream"><a href="#ObjectInputStream-BlockDataInputStream" class="headerlink" title="ObjectInputStream$BlockDataInputStream"></a>ObjectInputStream$BlockDataInputStream</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.ObjectInputStream$BlockDataInputStream</strong></td>
+<td align="center">class</td>
+<td align="center">InputStream</td>
+<td align="center">DataInput</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MAX_BLOCK_SIZE: int</strong></td>
+<td align="center">1024</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">maximum data block length</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_HEADER_SIZE: int</strong></td>
+<td align="center">5</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">maximum data block header length</td>
+</tr>
+<tr>
+<td align="center"><strong>CHAR_BUF_SIZE: int</strong></td>
+<td align="center">256</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">(tunable) length of char buffer (for reading strings)</td>
+</tr>
+<tr>
+<td align="center"><strong>HEADER_BLOCKED: int</strong></td>
+<td align="center">-2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">readBlockHeader() return value indicating header read may block</td>
+</tr>
+<tr>
+<td align="center"><strong>buf: byte[]</strong></td>
+<td align="center">new byte[MAX_BLOCK_SIZE]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">buffer for reading general&#x2F;block data</td>
+</tr>
+<tr>
+<td align="center"><strong>hbuf: byte[]</strong></td>
+<td align="center">new byte[MAX_HEADER_SIZE]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">buffer for reading block data headers</td>
+</tr>
+<tr>
+<td align="center"><strong>cbuf: char[]</strong></td>
+<td align="center">new char[CHAR_BUF_SIZE]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">char buffer for fast string reads</td>
+</tr>
+<tr>
+<td align="center"><strong>blkmode: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">block data mode</td>
+</tr>
+<tr>
+<td align="center"><strong>pos: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">current offset into buf</td>
+</tr>
+<tr>
+<td align="center"><strong>end: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">end offset of valid data in buf, or -1 if no more block data</td>
+</tr>
+<tr>
+<td align="center"><strong>unread: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">number of bytes in current block yet to be read from stream</td>
+</tr>
+<tr>
+<td align="center"><strong>in: PeekInputStream</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">underlying stream (wrapped in peekable filter stream)</td>
+</tr>
+<tr>
+<td align="center"><strong>din: DataInputStream</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">loopback stream (for data reads that span data blocks)</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>BlockDataInputStream(InputStream in)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates new BlockDataInputStream on top of given underlying stream. Block data mode is turned off by default.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setBlockDataMode(boolean newmode): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets block data mode to the given mode (true &#x3D;&#x3D; on, false &#x3D;&#x3D; off) and returns the previous mode value.  If the new mode is the same as the old mode, no action is taken.  Throws IllegalStateException if block data mode is being switched from on to off while unconsumed block data is still present in the stream.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBlockDataMode(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the stream is currently in block data mode, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skipBlockData(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If in block data mode, skips to the end of the current group of data blocks (but does not unset block data mode).  If not in block data mode, throws an IllegalStateException.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBlockHeader(boolean canBlock): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to read in the next block data header (if any).  If canBlock is false and a full header cannot be read without possibly blocking, returns HEADER_BLOCKED, else if the next element in the stream is a block data header, returns the block data length specified by the header, else returns -1.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>refill(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Refills internal buffer buf with block data.  Any data in buf at the time of the call is considered consumed.  Sets the pos, end, and unread fields to reflect the new amount of available block data; if the next element in the stream is not a data block, sets pos and unread to 0 and end to -1.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>currentBlockRemaining(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If in block data mode, returns the number of unconsumed bytes remaining in the current data block.  If not in block data mode, throws an IllegalStateException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peek(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Peeks at (but does not consume) and returns the next byte value in the stream, or -1 if the end of the stream&#x2F;block data (if in block data mode) has been reached.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>peekByte(): byte</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Peeks at (but does not consume) and returns the next byte value in the stream, or throws EOFException if end of stream&#x2F;block data has been reached.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>read(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The following methods are equivalent to their counterparts in InputStream, except that they interpret data block boundaries and read the requested data from within data blocks when in block data mode.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>read(byte[] b, int off, int len): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>skip(long len): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>available(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>read(byte[] b, int off, int len, boolean copy): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attempts to read len bytes into byte array b at offset off.  Returns the number of bytes read, or -1 if the end of stream&#x2F;block data has been reached.  If copy is true, reads values into an intermediate buffer before copying them to b (to avoid exposing a reference to b).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFully(byte[] b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The following methods are equivalent to their counterparts in DataInputStream, except that they interpret data block boundaries and read the requested data from within data blocks when in block data mode.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFully(byte[] b, int off, int len): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFully(byte[] b, int off, int len, boolean copy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>skipBytes(int n): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBoolean(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readByte(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUnsignedByte(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readChar(): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readShort(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUnsignedShort(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readInt(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFloat(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readDouble(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUTF(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLine(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readBooleans(boolean[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The following methods read in spans of primitive data values. Though equivalent to calling the corresponding primitive read methods repeatedly, these methods are optimized for reading groups of primitive data values more efficiently.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readChars(char[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readShorts(short[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readInts(int[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readFloats(float[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLongs(long[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readDoubles(double[] v, int off, int len): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readLongUTF(): String</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads in string written in “long” UTF format.  “Long” UTF format is identical to standard UTF, except that it uses an 8 byte header (instead of the standard 2 bytes) to convey the UTF encoding length.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUTFBody(long utflen): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads in the “body” (i.e., the UTF representation minus the 2-byte or 8-byte length header) of a UTF encoding, which occupies the next utflen bytes.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUTFSpan(StringBuilder sbuf, long utflen): long</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads span of UTF-encoded characters out of internal buffer (starting at offset pos and ending at or before offset end), consuming no more than utflen bytes.  Appends read characters to sbuf.  Returns the number of bytes consumed.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readUTFChar(StringBuilder sbuf, long utflen): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads in single UTF-encoded character one byte at a time, appends the character to sbuf, and returns the number of bytes consumed. This method is used when reading in UTF strings written in block data mode to handle UTF-encoded characters which (potentially) straddle block-data boundaries.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBytesRead(): long</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of bytes read from the input stream.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="外部类"><a href="#外部类" class="headerlink" title="外部类"></a>外部类</h4><h3 id="ObjectInputStream"><a href="#ObjectInputStream" class="headerlink" title="ObjectInputStream"></a><a href="./ObjectInputStream.html">ObjectInputStream</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

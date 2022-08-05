@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/math/BigInteger.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="BigInteger"><a href="#BigInteger" class="headerlink" title="BigInteger"></a>BigInteger</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.math.BigInteger</strong></td>
+<td align="center">class</td>
+<td align="center">Number</td>
+<td align="center">Comparable&lt;BigInteger&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>signum: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The signum of this BigInteger: -1 for negative, 0 for zero, or 1 for positive.  Note that the BigInteger zero <i>must</i> have a signum of 0.  This is necessary to ensures that there is exactly one representation for each BigInteger value.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>mag: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The magnitude of this BigInteger, in <i>big-endian</i> order: the zeroth element of this array is the most-significant int of the magnitude.  The magnitude must be “minimal” in that the most-significant int ({@code mag[0]}) must be non-zero.  This is necessary to ensure that there is exactly one representation for each BigInteger value.  Note that this implies that the BigInteger zero has a zero-length mag array.</td>
+</tr>
+<tr>
+<td align="center"><strong>bitCount: private</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">One plus the bitCount of this BigInteger. Zeros means unitialized.  @serial @see #bitCount @deprecated Deprecated since logical value is offset from stored value and correction factor is applied in accessor method.</td>
+</tr>
+<tr>
+<td align="center"><strong>bitLength: private</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">One plus the bitLength of this BigInteger. Zeros means unitialized. (either value is acceptable).  @serial @see #bitLength() @deprecated Deprecated since logical value is offset from stored value and correction factor is applied in accessor method.</td>
+</tr>
+<tr>
+<td align="center"><strong>lowestSetBit: private</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Two plus the lowest set bit of this BigInteger, as returned by getLowestSetBit().  @serial @see #getLowestSetBit @deprecated Deprecated since logical value is offset from stored value and correction factor is applied in accessor method.</td>
+</tr>
+<tr>
+<td align="center"><strong>firstNonzeroIntNum: private</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Two plus the index of the lowest-order int in the magnitude of this BigInteger that contains a nonzero int, or -2 (either value is acceptable). The least significant int has int-number 0, the next int in order of increasing significance has int-number 1, and so forth. @deprecated Deprecated since logical value is offset from stored value and correction factor is applied in accessor method.</td>
+</tr>
+<tr>
+<td align="center"><strong>LONG_MASK: long</strong></td>
+<td align="center">0xffffffffL</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This mask is used to obtain the value of an int as if it were unsigned.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_MAG_LENGTH: int</strong></td>
+<td align="center">Integer.MAX_VALUE &#x2F; Integer.SIZE + 1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant limits {@code mag.length} of BigIntegers to the supported range.</td>
+</tr>
+<tr>
+<td align="center">**PRIME_SEARCH_BIT_LENGTH_LIMIT: **</td>
+<td align="center">500000000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Bit lengths larger than this constant can cause overflow in searchLen calculation and in BitSieve.singleSearch method.</td>
+</tr>
+<tr>
+<td align="center"><strong>KARATSUBA_THRESHOLD: int</strong></td>
+<td align="center">80</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using Karatsuba multiplication.  If the number of ints in both mag arrays are greater than this number, then Karatsuba multiplication will be used.   This value is found experimentally to work well.</td>
+</tr>
+<tr>
+<td align="center"><strong>TOOM_COOK_THRESHOLD: int</strong></td>
+<td align="center">240</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using 3-way Toom-Cook multiplication. If the number of ints in each mag array is greater than the Karatsuba threshold, and the number of ints in at least one of the mag arrays is greater than this threshold, then Toom-Cook multiplication will be used.</td>
+</tr>
+<tr>
+<td align="center"><strong>KARATSUBA_SQUARE_THRESHOLD: int</strong></td>
+<td align="center">128</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using Karatsuba squaring.  If the number of ints in the number are larger than this value, Karatsuba squaring will be used.   This value is found experimentally to work well.</td>
+</tr>
+<tr>
+<td align="center"><strong>TOOM_COOK_SQUARE_THRESHOLD: int</strong></td>
+<td align="center">216</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using Toom-Cook squaring.  If the number of ints in the number are larger than this value, Toom-Cook squaring will be used.   This value is found experimentally to work well.</td>
+</tr>
+<tr>
+<td align="center"><strong>BURNIKEL_ZIEGLER_THRESHOLD: int</strong></td>
+<td align="center">80</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using Burnikel-Ziegler division.  If the number of ints in the divisor are larger than this value, Burnikel-Ziegler division may be used.  This value is found experimentally to work well.</td>
+</tr>
+<tr>
+<td align="center"><strong>BURNIKEL_ZIEGLER_OFFSET: int</strong></td>
+<td align="center">40</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The offset value for using Burnikel-Ziegler division.  If the number of ints in the divisor exceeds the Burnikel-Ziegler threshold, and the number of ints in the dividend is greater than the number of ints in the divisor plus this value, Burnikel-Ziegler division will be used.  This value is found experimentally to work well.</td>
+</tr>
+<tr>
+<td align="center"><strong>SCHOENHAGE_BASE_CONVERSION_THRESHOLD: int</strong></td>
+<td align="center">20</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using Schoenhage recursive base conversion. If the number of ints in the number are larger than this value, the Schoenhage algorithm will be used.  In practice, it appears that the Schoenhage routine is faster for any threshold down to 2, and is relatively flat for thresholds between 2-25, so this choice may be varied within this range for very small effect.</td>
+</tr>
+<tr>
+<td align="center"><strong>MULTIPLY_SQUARE_THRESHOLD: int</strong></td>
+<td align="center">20</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold value for using squaring code to perform multiplication of a {@code BigInteger} instance by itself.  If the number of ints in the number are larger than this value, {@code multiply(this)} will return {@code square()}.</td>
+</tr>
+<tr>
+<td align="center"><strong>MONTGOMERY_INTRINSIC_THRESHOLD: int</strong></td>
+<td align="center">512</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The threshold for using an intrinsic version of implMontgomeryXXX to perform Montgomery multiplication.  If the number of ints in the number is more than this value we do not use the intrinsic.</td>
+</tr>
+<tr>
+<td align="center"><strong>bitsPerDigit: long[]</strong></td>
+<td align="center">{ 0, 0, 1024, 1624, 2048, 2378, 2648, 2875, 3072, 3247, 3402, 3543, 3672, 3790, 3899, 4001, 4096, 4186, 4271, 4350, 4426, 4498, 4567, 4633, 4696, 4756, 4814, 4870, 4923, 4975, 5025, 5074, 5120, 5166, 5210, 5253, 5295}</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SMALL_PRIME_THRESHOLD: int</strong></td>
+<td align="center">95</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DEFAULT_PRIME_CERTAINTY: int</strong></td>
+<td align="center">100</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SMALL_PRIME_PRODUCT: BigInteger</strong></td>
+<td align="center">valueOf(3L<em>5</em>7<em>11</em>13<em>17</em>19<em>23</em>29<em>31</em>37*41)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_CONSTANT: int</strong></td>
+<td align="center">16</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize static constant array when class is loaded.</td>
+</tr>
+<tr>
+<td align="center"><strong>posConst: BigInteger[]</strong></td>
+<td align="center">new BigInteger[MAX_CONSTANT+1]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>negConst: BigInteger[]</strong></td>
+<td align="center">new BigInteger[MAX_CONSTANT+1]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>powerCache: BigInteger[][]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The cache of powers of each radix.  This allows us to not have to recalculate powers of radix^(2^n) more than once.  This speeds Schoenhage recursive base conversion significantly.</td>
+</tr>
+<tr>
+<td align="center"><strong>logCache: double[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The cache of logarithms of radices for base conversion.</td>
+</tr>
+<tr>
+<td align="center"><strong>LOG_TWO: double</strong></td>
+<td align="center">Math.log(2.0)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The natural log of 2.  This is used in computing cache indices.</td>
+</tr>
+<tr>
+<td align="center"><strong>ZERO: BigInteger</strong></td>
+<td align="center">new BigInteger(new int[0], 0)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The BigInteger constant zero.  @since   1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>ONE: BigInteger</strong></td>
+<td align="center">valueOf(1)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The BigInteger constant one.  @since   1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TWO: BigInteger</strong></td>
+<td align="center">valueOf(2)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The BigInteger constant two.  (Not exported.)</td>
+</tr>
+<tr>
+<td align="center"><strong>NEGATIVE_ONE: BigInteger</strong></td>
+<td align="center">valueOf(-1)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The BigInteger constant -1.  (Not exported.)</td>
+</tr>
+<tr>
+<td align="center"><strong>TEN: BigInteger</strong></td>
+<td align="center">valueOf(10)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The BigInteger constant ten.  @since   1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>bnExpModThreshTable: int[]</strong></td>
+<td align="center">{7, 25, 81, 241, 673, 1793, Integer.MAX_VALUE}</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zeros: String[]</strong></td>
+<td align="center">new String[64]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">zero[i] is a string of i consecutive zeros.</td>
+</tr>
+<tr>
+<td align="center"><strong>digitsPerLong: int[]</strong></td>
+<td align="center">{0, 0, 62, 39, 31, 27, 24, 22, 20, 19, 18, 18, 17, 17, 16, 16, 15, 15, 15, 14, 14, 14, 14, 13, 13, 13, 13, 13, 13, 12, 12, 12, 12, 12, 12, 12, 12}</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The following two arrays are used for fast String conversions.  Both are indexed by radix.  The first is the number of digits of the given radix that can fit in a Java long without “going negative”, i.e., the highest integer n such that radix<strong>n &lt; 2</strong>63.  The second is the “long radix” that tears each number into “long digits”, each of which consists of the number of digits in the corresponding element in digitsPerLong (longRadix[i] &#x3D; i**digitPerLong[i]).  Both arrays have nonsense values in their 0 and 1 elements, as radixes 0 and 1 are not used.</td>
+</tr>
+<tr>
+<td align="center"><strong>longRadix: BigInteger[]</strong></td>
+<td align="center">{null, null, valueOf(0x4000000000000000L), valueOf(0x383d9170b85ff80bL), valueOf(0x4000000000000000L), valueOf(0x6765c793fa10079dL), valueOf(0x41c21cb8e1000000L), valueOf(0x3642798750226111L), valueOf(0x1000000000000000L), valueOf(0x12bf307ae81ffd59L), valueOf( 0xde0b6b3a7640000L), valueOf(0x4d28cb56c33fa539L), valueOf(0x1eca170c00000000L), valueOf(0x780c7372621bd74dL), valueOf(0x1e39a5057d810000L), valueOf(0x5b27ac993df97701L), valueOf(0x1000000000000000L), valueOf(0x27b95e997e21d9f1L), valueOf(0x5da0e1e53c5c8000L), valueOf( 0xb16a458ef403f19L), valueOf(0x16bcc41e90000000L), valueOf(0x2d04b7fdd9c0ef49L), valueOf(0x5658597bcaa24000L), valueOf( 0x6feb266931a75b7L), valueOf( 0xc29e98000000000L), valueOf(0x14adf4b7320334b9L), valueOf(0x226ed36478bfa000L), valueOf(0x383d9170b85ff80bL), valueOf(0x5a3c23e39c000000L), valueOf( 0x4e900abb53e6b71L), valueOf( 0x7600ec618141000L), valueOf( 0xaee5720ee830681L), valueOf(0x1000000000000000L), valueOf(0x172588ad4f5f0981L), valueOf(0x211e44f7d02c1000L), valueOf(0x2ee56725f06e5c71L), valueOf(0x41c21cb8e1000000L)}</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>digitsPerInt: int[]</strong></td>
+<td align="center">{0, 0, 30, 19, 15, 13, 11, 11, 10, 9, 9, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5}</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">These two arrays are the integer analogue of above.</td>
+</tr>
+<tr>
+<td align="center"><strong>intRadix: int[]</strong></td>
+<td align="center">{0, 0, 0x40000000, 0x4546b3db, 0x40000000, 0x48c27395, 0x159fd800, 0x75db9c97, 0x40000000, 0x17179149, 0x3b9aca00, 0xcc6db61, 0x19a10000, 0x309f1021, 0x57f6c100, 0xa2f1b6f,  0x10000000, 0x18754571, 0x247dbc80, 0x3547667b, 0x4c4b4000, 0x6b5a6e1d, 0x6c20a40,  0x8d2d931,  0xb640000,  0xe8d4a51,  0x1269ae40, 0x17179149, 0x1cb91000, 0x23744899, 0x2b73a840, 0x34e63b41, 0x40000000, 0x4cfa3cc1, 0x5c13d840, 0x6d91b519, 0x39aa400 }</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-8287574255936472291L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">use serialVersionUID from JDK 1.1. for interoperability</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>BigInteger(byte[] val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a byte array containing the two’s-complement binary representation of a BigInteger into a BigInteger.  The input array is assumed to be in <i>big-endian</i> byte-order: the most significant byte is in the zeroth element.</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(int[] val)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This private constructor translates an int array containing the two’s-complement binary representation of a BigInteger into a BigInteger. The input array is assumed to be in <i>big-endian</i> int-order: the most significant int is in the zeroth element.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(int signum, byte[] magnitude)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates the sign-magnitude representation of a BigInteger into a BigInteger.  The sign is represented as an integer signum value: -1 for negative, 0 for zero, or 1 for positive.  The magnitude is a byte array in <i>big-endian</i> byte-order: the most significant byte is in the zeroth element.  A zero-length magnitude array is permissible, and will result in a BigInteger value of 0, whether signum is -1, 0 or 1.</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(int signum, int[] magnitude)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constructor for internal use that translates the sign-magnitude representation of a BigInteger into a BigInteger. It checks the arguments and copies the magnitude so this constructor would be safe for external use.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(String val, int radix)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates the String representation of a BigInteger in the specified radix into a BigInteger.  The String representation consists of an optional minus or plus sign followed by a sequence of one or more digits in the specified radix.  The character-to-digit mapping is provided by ‘Character.digit’.  The String may not contain any extraneous characters (whitespace, for example).</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(char[] val, int sign, int len)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new BigInteger using a char array with radix&#x3D;10. Sign is precalculated outside and not allowed in the val.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseInt(char[] source, int start, int end): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>destructiveMulAdd(int[] x, int y, int z): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(String val)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates the decimal String representation of a BigInteger into a BigInteger.  The String representation consists of an optional minus sign followed by a sequence of one or more decimal digits.  The character-to-digit mapping is provided by ‘Character.digit’. The String may not contain any extraneous characters (whitespace, for example).</td>
+<td align="left">NumberFormatException</td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(int numBits, Random rnd)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a randomly generated BigInteger, uniformly distributed over the range 0 to (2<sup>‘numBits’</sup> - 1), inclusive. The uniformity of the distribution assumes that a fair source of random bits is provided in ‘rnd’.  Note that this constructor always constructs a non-negative BigInteger.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>randomBits(int numBits, Random rnd): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(int bitLength, int certainty, Random rnd)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a randomly generated positive BigInteger that is probably prime, with the specified bitLength.  <p>It is recommended that the ‘#probablePrime probablePrime’ method be used in preference to this constructor unless there is a compelling need to specify a certainty.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>probablePrime(int bitLength, Random rnd): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a positive BigInteger that is probably prime, with the specified bitLength. The probability that a BigInteger returned by this method is composite does not exceed 2<sup>-100</sup>.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>smallPrime(int bitLength, int certainty, Random rnd): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find a random number of the specified bitLength that is probably prime. This method is used for smaller primes, its performance degrades on larger bitlengths.  This method assumes bitLength &gt; 1.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>largePrime(int bitLength, int certainty, Random rnd): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find a random number of the specified bitLength that is probably prime. This method is more appropriate for larger bitlengths since it uses a sieve to eliminate most composites before using a more expensive test.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nextProbablePrime(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the first integer greater than this ‘BigInteger’ that is probably prime.  The probability that the number returned by this method is composite does not exceed 2<sup>-100</sup>. This method will never skip over a prime when searching: if it returns ‘p’, there is no prime ‘q’ such that ‘this &lt; q &lt; p’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPrimeSearchLen(int bitLength): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primeToCertainty(int certainty, Random random): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this BigInteger is probably prime, ‘false’ if it’s definitely composite.  This method assumes bitLength &gt; 2.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>passesLucasLehmer(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this BigInteger is a Lucas-Lehmer probable prime.  The following assumptions are made: This BigInteger is a positive, odd number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>jacobiSymbol(int p, BigInteger n): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes Jacobi(p,n). Assumes n positive, odd, n&gt;&#x3D;3.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lucasLehmerSequence(int z, BigInteger k, BigInteger n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>passesMillerRabin(int iterations, Random rnd): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true iff this BigInteger passes the specified number of Miller-Rabin tests. This test is taken from the DSA spec (NIST FIPS 186-2).  The following assumptions are made: This BigInteger is a positive, odd number greater than 2. iterations&lt;&#x3D;50.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(int[] magnitude, int signum)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This internal constructor differs from its public cousin with the arguments reversed in two ways: it assumes that its arguments are correct, and it doesn’t copy the magnitude array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(byte[] magnitude, int signum)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This private constructor is for internal use and assumes that its arguments are correct.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkRange(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws an ‘ArithmeticException’ if the ‘BigInteger’ would be out of the supported range.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>reportOverflow(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(long val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is equal to that of the specified ‘long’.  This “static factory method” is provided in preference to a (‘long’) constructor because it allows for reuse of frequently used BigIntegers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>BigInteger(long val)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a BigInteger with the specified value, which may not be zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(int val[]): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger with the given two’s complement representation. Assumes that the input array will not be modified (the returned BigInteger will reference the input array if feasible).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this + val)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(long val): BigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package private methods used by BigDecimal code to add a BigInteger with a long. Assumes val is not equal to INFLATED.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(int[] x, long val): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the contents of the int array x and long value val. This method allocates a new int array to hold the answer and returns a reference to that array.  Assumes x.length &gt; 0 and val is non-negative</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(int[] x, int[] y): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the contents of the int arrays x and y. This method allocates a new int array to hold the answer and returns a reference to that array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(long val, int[] little): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(int[] big, long val): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts the contents of the second argument (val) from the first (big).  The first int array (big) must represent a larger number than the second.  This method allocates the space necessary to hold the answer. assumes val &gt;&#x3D; 0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this - val)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subtract(int[] big, int[] little): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts the contents of the second int arrays (little) from the first (big).  The first int array (big) must represent a larger number than the second.  This method allocates the space necessary to hold the answer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this * val)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyByInt(int[] x, int y, int sign): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiply(long v): BigInteger</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package private methods used by BigDecimal code to multiply a BigInteger with a long. Assumes v is not equal to INFLATED.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyToLen(int[] x, int xlen, int[] y, int ylen, int[] z): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiplies int arrays x and y to the specified lengths and places the result into z. There will be no leading zeros in the resultant array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyKaratsuba(BigInteger x, BigInteger y): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiplies two BigIntegers using the Karatsuba multiplication algorithm.  This is a recursive divide-and-conquer algorithm which is more efficient for large numbers than what is commonly called the “grade-school” algorithm used in multiplyToLen.  If the numbers to be multiplied have length n, the “grade-school” algorithm has an asymptotic complexity of O(n^2).  In contrast, the Karatsuba algorithm has complexity of O(n^(log2(3))), or O(n^1.585).  It achieves this increased performance by doing 3 multiplies instead of 4 when evaluating the product.  As it has some overhead, should be used when both numbers are larger than a certain threshold (found experimentally).  See:  http:</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>multiplyToomCook3(BigInteger a, BigInteger b): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiplies two BigIntegers using a 3-way Toom-Cook multiplication algorithm.  This is a recursive divide-and-conquer algorithm which is more efficient for large numbers than what is commonly called the “grade-school” algorithm used in multiplyToLen.  If the numbers to be multiplied have length n, the “grade-school” algorithm has an asymptotic complexity of O(n^2).  In contrast, 3-way Toom-Cook has a complexity of about O(n^1.465).  It achieves this increased asymptotic performance by breaking each number into three parts and by doing 5 multiplies instead of 9 when evaluating the product.  Due to overhead (additions, shifts, and one division) in the Toom-Cook algorithm, it should only be used when both numbers are larger than a certain threshold (found experimentally).  This threshold is generally larger than that for Karatsuba multiplication, so this algorithm is generally only used when numbers become significantly larger.  The algorithm used is the “optimal” 3-way Toom-Cook algorithm outlined by Marco Bodrato.  See: http: http:  “Towards Optimal Toom-Cook Multiplication for Univariate and Multivariate Polynomials in Characteristic 2 and 0.” by Marco BODRATO; In C.Carlet and B.Sunar, Eds., “WAIFI’07 proceedings”, p. 116-133, LNCS #4547. Springer, Madrid, Spain, June 21-22, 2007.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getToomSlice(int lowerSize, int upperSize, int slice, int fullsize): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a slice of a BigInteger for use in Toom-Cook multiplication.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>exactDivideBy3(): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Does an exact division (that is, the remainder is known to be zero) of the specified number by 3.  This is used in Toom-Cook multiplication.  This is an efficient algorithm that runs in linear time.  If the argument is not exactly divisible by 3, results are undefined.  Note that this is expected to be called with positive arguments only.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLower(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new BigInteger representing n lower ints of the number. This is used by Karatsuba multiplication and Karatsuba squaring.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getUpper(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new BigInteger representing mag.length-n upper ints of the number.  This is used by Karatsuba multiplication and Karatsuba squaring.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>square(): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this<sup>2</sup>)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>squareToLen(int[] x, int len, int[] z): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Squares the contents of the int array x. The result is placed into the int array z.  The contents of x are not changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>implSquareToLenChecks(int[] x, int len, int[] z, int zlen): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parameters validation.</td>
+<td align="left">RuntimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>implSquareToLen(int[] x, int len, int[] z, int zlen): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java Runtime may use intrinsic for this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>squareKaratsuba(): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Squares a BigInteger using the Karatsuba squaring algorithm.  It should be used when both numbers are larger than a certain threshold (found experimentally).  It is a recursive divide-and-conquer algorithm that has better asymptotic performance than the algorithm used in squareToLen.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>squareToomCook3(): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Squares a BigInteger using the 3-way Toom-Cook squaring algorithm.  It should be used when both numbers are larger than a certain threshold (found experimentally).  It is a recursive divide-and-conquer algorithm that has better asymptotic performance than the algorithm used in squareToLen or squareKaratsuba.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divide(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &#x2F; val)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideKnuth(BigInteger val): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &#x2F; val)’ using an O(n^2) algorithm from Knuth.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRemainder(BigInteger val): BigInteger[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of two BigIntegers containing ‘(this &#x2F; val)’ followed by ‘(this % val)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRemainderKnuth(BigInteger val): BigInteger[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Long division</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remainder(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this % val)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>remainderKnuth(BigInteger val): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Long division</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideBurnikelZiegler(BigInteger val): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates ‘this &#x2F; val’ using the Burnikel-Ziegler algorithm.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remainderBurnikelZiegler(BigInteger val): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates ‘this % val’ using the Burnikel-Ziegler algorithm.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>divideAndRemainderBurnikelZiegler(BigInteger val): BigInteger[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes ‘this &#x2F; val’ and ‘this % val’ using the Burnikel-Ziegler algorithm.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>pow(int exponent): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is <tt>(this<sup>exponent</sup>)</tt>. Note that ‘exponent’ is an integer rather than a BigInteger.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>gcd(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is the greatest common divisor of ‘abs(this)’ and ‘abs(val)’.  Returns 0 if ‘this &#x3D;&#x3D; 0 &amp;&amp; val &#x3D;&#x3D; 0’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bitLengthForInt(int n): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package private method to return bit length for an integer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>leftShift(int[] a, int len, int n): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Left shift int array a up to len by n bits. Returns the array that results from the shift since space may have to be reallocated.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primitiveRightShift(int[] a, int len, int n): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primitiveLeftShift(int[] a, int len, int n): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bitLength(int[] val, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate bitlength of contents of the first len elements an int array, assuming there are no leading zero ints.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>abs(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is the absolute value of this BigInteger.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>negate(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(-this)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signum(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the signum function of this BigInteger.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mod(BigInteger m): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this mod m’).  This method differs from ‘remainder’ in that it always returns a <i>non-negative</i> BigInteger.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>modPow(BigInteger exponent, BigInteger m): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is <tt>(this<sup>exponent</sup> mod m)</tt>.  (Unlike ‘pow’, this method permits negative exponents.)</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>montgomeryMultiply(int[] a, int[] b, int[] n, int len, long inv, int[] product): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>montgomerySquare(int[] a, int[] n, int len, long inv, int[] product): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>materialize(int[] z, int len): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>implMontgomeryMultiply(int[] a, int[] b, int[] n, int len, long inv, int[] product): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>implMontgomerySquare(int[] a, int[] n, int len, long inv, int[] product): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>oddModPow(BigInteger y, BigInteger z): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is x to the power of y mod z. Assumes: z is odd &amp;&amp; x &lt; z.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>montReduce(int[] n, int[] mod, int mlen, int inv): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Montgomery reduce n, modulo mod.  This reduces modulo mod and divides by 2^(32*mlen). Adapted from Colin Plumb’s C library.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intArrayCmpToLen(int[] arg1, int[] arg2, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns -1, 0 or +1 as big-endian unsigned int array arg1 is less than, equal to, or greater than arg2 up to length len.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subN(int[] a, int[] b, int len): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts two numbers of same length, returning borrow.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mulAdd(int[] out, int[] in, int offset, int len, int k): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Multiply an array by one word k and add to result, return the carry</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>implMulAddCheck(int[] out, int[] in, int offset, int len, int k): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parameters validation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>implMulAdd(int[] out, int[] in, int offset, int len, int k): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Java Runtime may use intrinsic for this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addOne(int[] a, int offset, int mlen, int carry): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Add one word to the number a mlen words into a. Return the resulting carry.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modPow2(BigInteger exponent, int p): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is (this ** exponent) mod (2**p)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mod2(int p): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is this mod(2**p). Assumes that this ‘BigInteger &gt;&#x3D; 0’ and ‘p &gt; 0’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modInverse(BigInteger m): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this’<sup>-1</sup> ‘mod m)’.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>shiftLeft(int n): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &lt;&lt; n)’. The shift distance, ‘n’, may be negative, in which case this method performs a right shift. (Computes <tt>floor(this * 2<sup>n</sup>)</tt>.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shiftLeft(int[] mag, int n): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a magnitude array whose value is ‘(mag &lt;&lt; n)’. The shift distance, ‘n’, is considered unnsigned. (Computes <tt>this * 2<sup>n</sup></tt>.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shiftRight(int n): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &gt;&gt; n)’.  Sign extension is performed.  The shift distance, ‘n’, may be negative, in which case this method performs a left shift. (Computes <tt>floor(this &#x2F; 2<sup>n</sup>)</tt>.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shiftRightImpl(int n): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &gt;&gt; n)’. The shift distance, ‘n’, is considered unsigned. (Computes <tt>floor(this * 2<sup>-n</sup>)</tt>.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>javaIncrement(int[] val): int[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>and(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &amp; val)’.  (This method returns a negative BigInteger if and only if this and val are both negative.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>or(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this</td>
+<td align="left">val)’.  (This method returns a negative BigInteger if and only if either this or val is negative.)</td>
+</tr>
+<tr>
+<td align="center"><strong>xor(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this ^ val)’.  (This method returns a negative BigInteger if and only if exactly one of this and val are negative.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>not(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(~this)’.  (This method returns a negative value if and only if this BigInteger is non-negative.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>andNot(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is ‘(this &amp; ~val)’.  This method, which is equivalent to ‘and(val.not())’, is provided as a convenience for masking operations.  (This method returns a negative BigInteger if and only if ‘this’ is negative and ‘val’ is positive.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>testBit(int n): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if and only if the designated bit is set. (Computes ‘((this &amp; (1&lt;&lt;n)) !&#x3D; 0)’.)</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBit(int n): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is equivalent to this BigInteger with the designated bit set.  (Computes ‘(this</td>
+<td align="left">(1&lt;&lt;n))’.)</td>
+</tr>
+<tr>
+<td align="center"><strong>clearBit(int n): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is equivalent to this BigInteger with the designated bit cleared. (Computes ‘(this &amp; ~(1&lt;&lt;n))’.)</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>flipBit(int n): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a BigInteger whose value is equivalent to this BigInteger with the designated bit flipped. (Computes ‘(this ^ (1&lt;&lt;n))’.)</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLowestSetBit(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the rightmost (lowest-order) one bit in this BigInteger (the number of zero bits to the right of the rightmost one bit).  Returns -1 if this BigInteger contains no one bits. (Computes ‘(this &#x3D;&#x3D; 0? -1 : log2(this &amp; -this))’.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bitLength(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of bits in the minimal two’s-complement representation of this BigInteger, <i>excluding</i> a sign bit. For positive BigIntegers, this is equivalent to the number of bits in the ordinary binary representation.  (Computes ‘(ceil(log2(this &lt; 0 ? -this : this+1)))’.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bitCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of bits in the two’s complement representation of this BigInteger that differ from its sign bit.  This method is useful when implementing bit-vector style sets atop BigIntegers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isProbablePrime(int certainty): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this BigInteger is probably prime, ‘false’ if it’s definitely composite.  If ‘certainty’ is &amp;le; 0, ‘true’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(BigInteger val): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this BigInteger with the specified BigInteger.  This method is provided in preference to individual methods for each of the six boolean comparison operators (‘&lt;’, &#x3D;&#x3D;, ‘&gt;’, ‘&gt;&#x3D;’, !&#x3D;, ‘&lt;&#x3D;’).  The suggested idiom for performing these comparisons is: ‘(x.compareTo(y)’ &lt;<i>op</i>&gt; ‘0)’, where &lt;<i>op</i>&gt; is one of the six comparison operators.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareMagnitude(BigInteger val): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the magnitude array of this BigInteger with the specified BigInteger’s. This is the version of compareTo ignoring sign.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareMagnitude(long val): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Version of compareMagnitude that compares magnitude with long value. val can’t be Long.MIN_VALUE.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object x): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this BigInteger with the specified Object for equality.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>min(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum of this BigInteger and ‘val’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>max(BigInteger val): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum of this BigInteger and ‘val’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code for this BigInteger.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(int radix): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the String representation of this BigInteger in the given radix.  If the radix is outside the range from ‘Character#MIN_RADIX’ to ‘Character#MAX_RADIX’ inclusive, it will default to 10 (as is the case for ‘Integer.toString’).  The digit-to-character mapping provided by ‘Character.forDigit’ is used, and a minus sign is prepended if appropriate.  (This representation is compatible with the ‘#BigInteger(String, int) (String, int)’ constructor.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>smallToString(int radix): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is used to perform toString when arguments are small.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(BigInteger u, StringBuilder sb, int radix, int digits): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the specified BigInteger to a string and appends to ‘sb’.  This implements the recursive Schoenhage algorithm for base conversions. <p/> See Knuth, Donald,  <em>The Art of Computer Programming</em>, Vol. 2, Answers to Exercises (4.4) Question 14.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRadixConversionCache(int radix, int exponent): BigInteger</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value radix^(2^exponent) from the cache. If this value doesn’t already exist in the cache, it is added. <p/> This could be changed to a more complicated caching method using ‘Future’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the decimal String representation of this BigInteger. The digit-to-character mapping provided by ‘Character.forDigit’ is used, and a minus sign is prepended if appropriate.  (This representation is compatible with the ‘#BigInteger(String) (String)’ constructor, and allows for String concatenation with Java’s + operator.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toByteArray(): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a byte array containing the two’s-complement representation of this BigInteger.  The byte array will be in <i>big-endian</i> byte-order: the most significant byte is in the zeroth element.  The array will contain the minimum number of bytes required to represent this BigInteger, including at least one sign bit, which is ‘(ceil((this.bitLength() + 1)&#x2F;8))’.  (This representation is compatible with the ‘#BigInteger(byte[]) (byte[])’ constructor.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intValue(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this BigInteger to an ‘int’.  This conversion is analogous to a <i>narrowing primitive conversion</i> from ‘long’ to ‘int’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: if this BigInteger is too big to fit in an ‘int’, only the low-order 32 bits are returned. Note that this conversion can lose information about the overall magnitude of the BigInteger value as well as return a result with the opposite sign.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longValue(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this BigInteger to a ‘long’.  This conversion is analogous to a <i>narrowing primitive conversion</i> from ‘long’ to ‘int’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: if this BigInteger is too big to fit in a ‘long’, only the low-order 64 bits are returned. Note that this conversion can lose information about the overall magnitude of the BigInteger value as well as return a result with the opposite sign.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>floatValue(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this BigInteger to a ‘float’.  This conversion is similar to the <i>narrowing primitive conversion</i> from ‘double’ to ‘float’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: if this BigInteger has too great a magnitude to represent as a ‘float’, it will be converted to ‘Float#NEGATIVE_INFINITY’ or ‘Float#POSITIVE_INFINITY’ as appropriate.  Note that even when the return value is finite, this conversion can lose information about the precision of the BigInteger value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doubleValue(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this BigInteger to a ‘double’.  This conversion is similar to the <i>narrowing primitive conversion</i> from ‘double’ to ‘float’ as defined in section 5.1.3 of <cite>The Java&amp;trade; Language Specification</cite>: if this BigInteger has too great a magnitude to represent as a ‘double’, it will be converted to ‘Double#NEGATIVE_INFINITY’ or ‘Double#POSITIVE_INFINITY’ as appropriate.  Note that even when the return value is finite, this conversion can lose information about the precision of the BigInteger value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stripLeadingZeroInts(int val[]): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of the input array stripped of any leading zero bytes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>trustedStripLeadingZeroInts(int val[]): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the input array stripped of any leading zero bytes. Since the source is trusted the copying may be skipped.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stripLeadingZeroBytes(byte a[]): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of the input array stripped of any leading zero bytes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makePositive(byte a[]): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Takes an array a representing a negative 2’s-complement number and returns the minimal (no leading zero bytes) unsigned whose value is -a.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makePositive(int a[]): int[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Takes an array a representing a negative 2’s-complement number and returns the minimal (no leading zero ints) unsigned whose value is -a.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>intLength(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the two’s complement representation in ints, including space for at least one sign bit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signBit(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns sign bit</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signInt(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an int of sign bits</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(int n): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the specified int of the little-endian two’s complement representation (int 0 is the least significant).  The int number can be arbitrarily high (values are logically preceded by infinitely many sign ints).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>firstNonzeroIntNum(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index of the int that contains the first nonzero int in the little-endian binary representation of the magnitude (int 0 is the least significant). If the magnitude is zero, return value is undefined.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reconstitute the ‘BigInteger’ instance from a stream (that is, deserialize it). The magnitude is read in as an array of bytes for historical reasons, but it is converted to an array of ints and the byte array is discarded. Note: The current convention is to initialize the cache fields, bitCount, bitLength and lowestSetBit, to 0 rather than some other marker value. Therefore, no explicit action to set these fields needs to be taken in readObject because those fields already have a 0 value be default since defaultReadObject is not being used.</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Save the ‘BigInteger’ instance to a stream. The magnitude of a BigInteger is serialized as a byte array for historical reasons.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>magSerializedForm(): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the mag array as an array of bytes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>longValueExact(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigInteger’ to a ‘long’, checking for lost information.  If the value of this ‘BigInteger’ is out of the range of the ‘long’ type, then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>intValueExact(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigInteger’ to an ‘int’, checking for lost information.  If the value of this ‘BigInteger’ is out of the range of the ‘int’ type, then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>shortValueExact(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigInteger’ to a ‘short’, checking for lost information.  If the value of this ‘BigInteger’ is out of the range of the ‘short’ type, then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>byteValueExact(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this ‘BigInteger’ to a ‘byte’, checking for lost information.  If the value of this ‘BigInteger’ is out of the range of the ‘byte’ type, then an ‘ArithmeticException’ is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="BigInteger-UnsafeHolder"><a href="#BigInteger-UnsafeHolder" class="headerlink" title="BigInteger$UnsafeHolder"></a><a href="./BigInteger$UnsafeHolder.html">BigInteger$UnsafeHolder</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

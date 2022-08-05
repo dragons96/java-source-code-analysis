@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/im/spi/InputMethod.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="InputMethod"><a href="#InputMethod" class="headerlink" title="InputMethod"></a>InputMethod</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.im.spi.InputMethod</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>setInputMethodContext(InputMethodContext context): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the input method context, which is used to dispatch input method events to the client component and to request information from the client component. <p> This method is called once immediately after instantiating this input method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLocale(Locale locale): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Attempts to set the input locale. If the input method supports the desired locale, it changes its behavior to support input for the locale and returns true. Otherwise, it returns false and does not change its behavior. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod’, <li>when switching to this input method through the user interface if the user specified a locale or if the previously selected input method’s ‘java.awt.im.spi.InputMethod#getLocale getLocale’ method returns a non-null value. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocale(): Locale</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the current input locale. Might return null in exceptional cases. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#getLocale InputContext.getLocale’ and <li>when switching from this input method to a different one through the user interface. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCharacterSubsets(Subset[] subsets): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the subsets of the Unicode character set that this input method is allowed to input. Null may be passed in to indicate that all characters are allowed. <p> This method is called <ul> <li>immediately after instantiating this input method, <li>when switching to this input method from a different one, and <li>by ‘java.awt.im.InputContext#setCharacterSubsets InputContext.setCharacterSubsets’. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCompositionEnabled(boolean enable): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Enables or disables this input method for composition, depending on the value of the parameter <code>enable</code>. <p> An input method that is enabled for composition interprets incoming events for both composition and control purposes, while a disabled input method does not interpret events for composition. Note however that events are passed on to the input method regardless whether it is enabled or not, and that an input method that is disabled for composition may still interpret events for control purposes, including to enable or disable itself for composition. <p> For input methods provided by host operating systems, it is not always possible to determine whether this operation is supported. For example, an input method may enable composition only for some locales, and do nothing for other locales. For such input methods, it is possible that this method does not throw ‘java.lang.UnsupportedOperationException UnsupportedOperationException’, but also does not affect whether composition is enabled. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#setCompositionEnabled InputContext.setCompositionEnabled’, <li>when switching to this input method from a different one using the user interface or ‘java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod’, if the previously selected input method’s ‘java.awt.im.spi.InputMethod#isCompositionEnabled isCompositionEnabled’ method returns without throwing an exception. </ul></td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>isCompositionEnabled(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines whether this input method is enabled. An input method that is enabled for composition interprets incoming events for both composition and control purposes, while a disabled input method does not interpret events for composition. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#isCompositionEnabled InputContext.isCompositionEnabled’ and <li>when switching from this input method to a different one using the user interface or ‘java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod’. </ul></td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>reconvert(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Starts the reconversion operation. The input method obtains the text to be reconverted from the current client component using the ‘java.awt.im.InputMethodRequests#getSelectedText InputMethodRequests.getSelectedText’ method. It can use other <code>InputMethodRequests</code> methods to request additional information required for the reconversion operation. The composed and committed text produced by the operation is sent to the client component as a sequence of <code>InputMethodEvent</code>s. If the given text cannot be reconverted, the same text should be sent to the client component as committed text. <p> This method is called by ‘java.awt.im.InputContext#reconvert() InputContext.reconvert’.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchEvent(AWTEvent event): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Dispatches the event to the input method. If input method support is enabled for the focussed component, incoming events of certain types are dispatched to the current input method for this component before they are dispatched to the component’s methods or event listeners. The input method decides whether it needs to handle the event. If it does, it also calls the event’s <code>consume</code> method; this causes the event to not get dispatched to the component’s event processing methods or event listeners. <p> Events are dispatched if they are instances of InputEvent or its subclasses. This includes instances of the AWT classes KeyEvent and MouseEvent. <p> This method is called by ‘java.awt.im.InputContext#dispatchEvent InputContext.dispatchEvent’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>notifyClientWindowChange(Rectangle bounds): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Notifies this input method of changes in the client window location or state. This method is called while this input method is the current input method of its input context and notifications for it are enabled (see ‘InputMethodContext#enableClientWindowNotification InputMethodContext.enableClientWindowNotification’). Calls to this method are temporarily suspended if the input context’s ‘java.awt.im.InputContext#removeNotify removeNotify’ method is called, and resume when the input method is activated for a new client component. It is called in the following situations: <ul> <li> when the window containing the current client component changes in location, size, visibility, iconification state, or when the window is closed.</li> <li> from <code> enableClientWindowNotification(inputMethod, true)</code> if the current client component exists,</li> <li> when activating the input method for the first time after it called <code>enableClientWindowNotification(inputMethod, true)</code> if during the call no current client component was available,</li> <li> when activating the input method for a new client component after the input context’s removeNotify method has been called.</li> </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>activate(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Activates the input method for immediate input processing. <p> If an input method provides its own windows, it should make sure at this point that all necessary windows are open and visible. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#dispatchEvent InputContext.dispatchEvent’ when a client component receives a FOCUS_GAINED event, <li>when switching to this input method from a different one using the user interface or ‘java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod’. </ul> The method is only called when the input method is inactive. A newly instantiated input method is assumed to be inactive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deactivate(boolean isTemporary): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Deactivates the input method. The isTemporary argument has the same meaning as in ‘java.awt.event.FocusEvent#isTemporary FocusEvent.isTemporary’. <p> If an input method provides its own windows, only windows that relate to the current composition (such as a lookup choice window) should be closed at this point. It is possible that the input method will be immediately activated again for a different client component, and closing and reopening more persistent windows (such as a control panel) would create unnecessary screen flicker. Before an instance of a different input method class is activated, ‘#hideWindows’ is called on the current input method. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#dispatchEvent InputContext.dispatchEvent’ when a client component receives a FOCUS_LOST event, <li>when switching from this input method to a different one using the user interface or ‘java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod’, <li>before ‘#removeNotify removeNotify’ if the current client component is removed. </ul> The method is only called when the input method is active.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hideWindows(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Closes or hides all windows opened by this input method instance or its class. <p> This method is called <ul> <li>before calling ‘#activate activate’ on an instance of a different input method class, <li>before calling ‘#dispose dispose’ on this input method. </ul> The method is only called when the input method is inactive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNotify(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Notifies the input method that a client component has been removed from its containment hierarchy, or that input method support has been disabled for the component. <p> This method is called by ‘java.awt.im.InputContext#removeNotify InputContext.removeNotify’. <p> The method is only called when the input method is inactive.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>endComposition(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Ends any input composition that may currently be going on in this context. Depending on the platform and possibly user preferences, this may commit or delete uncommitted text. Any changes to the text are communicated to the active component using an input method event.  <p> A text editing component may call this in a variety of situations, for example, when the user moves the insertion point within the text (but outside the composed text), or when the component’s text is saved to a file or copied to the clipboard. <p> This method is called <ul> <li>by ‘java.awt.im.InputContext#endComposition InputContext.endComposition’, <li>by ‘java.awt.im.InputContext#dispatchEvent InputContext.dispatchEvent’ when switching to a different client component <li>when switching from this input method to a different one using the user interface or ‘java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod’. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispose(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Releases the resources used by this input method. In particular, the input method should dispose windows and close files that are no longer needed. <p> This method is called by ‘java.awt.im.InputContext#dispose InputContext.dispose’. <p> The method is only called when the input method is inactive. No method of this interface is called on this instance after dispose.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getControlObject(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a control object from this input method, or null. A control object provides methods that control the behavior of the input method or obtain information from the input method. The type of the object is an input method specific class. Clients have to compare the result against known input method control object classes and cast to the appropriate class to invoke the methods provided. <p> This method is called by ‘java.awt.im.InputContext#getInputMethodControlObject InputContext.getInputMethodControlObject’.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

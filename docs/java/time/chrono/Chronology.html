@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/chrono/Chronology.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Chronology"><a href="#Chronology" class="headerlink" title="Chronology"></a>Chronology</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.chrono.Chronology</strong></td>
+<td align="center">interface</td>
+<td align="center">Comparable&lt;Chronology&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>from(TemporalAccessor temporal): Chronology</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains an instance of ‘Chronology’ from a temporal object. <p> This obtains a chronology based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘Chronology’. <p> The conversion will obtain the chronology using ‘TemporalQueries#chronology()’. If the specified temporal object does not have a chronology, ‘IsoChronology’ is returned. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘Chronology::from’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofLocale(Locale locale): Chronology</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains an instance of ‘Chronology’ from a locale. <p> This returns a ‘Chronology’ based on the specified locale, typically returning ‘IsoChronology’. Other calendar systems are only returned if they are explicitly selected within the locale. <p> The ‘Locale’ class provide access to a range of information useful for localizing an application. This includes the language and region, such as “en-GB” for English as used in Great Britain. <p> The ‘Locale’ class also supports an extension mechanism that can be used to identify a calendar system. The mechanism is a form of key-value pairs, where the calendar system has the key “ca”. For example, the locale “en-JP-u-ca-japanese” represents the English language as used in Japan with the Japanese calendar system. <p> This method finds the desired calendar system by in a manner equivalent to passing “ca” to ‘Locale#getUnicodeLocaleType(String)’. If the “ca” key is not present, then ‘IsoChronology’ is returned. <p> Note that the behavior of this method differs from the older ‘java.util.Calendar#getInstance(Locale)’ method. If that method receives a locale of “th_TH” it will return ‘BuddhistCalendar’. By contrast, this method will return ‘IsoChronology’. Passing the locale “th-TH-u-ca-buddhist” into either method will result in the Thai Buddhist calendar system and is therefore the recommended approach going forward for Thai calendar system localization. <p> A similar, but simpler, situation occurs for the Japanese calendar system. The locale “jp_JP_JP” has previously been used to access the calendar. However, unlike the Thai locale, “ja_JP_JP” is automatically converted by ‘Locale’ to the modern and recommended form of “ja-JP-u-ca-japanese”. Thus, there is no difference in behavior between this method and ‘Calendar#getInstance(Locale)’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>of(String id): Chronology</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains an instance of ‘Chronology’ from a chronology ID or calendar system type. <p> This returns a chronology based on either the ID or the type. The ‘#getId() chronology ID’ uniquely identifies the chronology. The ‘#getCalendarType() calendar system type’ is defined by the CLDR specification. <p> The chronology may be a system chronology or a chronology provided by the application via ServiceLoader configuration. <p> Since some calendars can be customized, the ID or type typically refers to the default customization. For example, the Gregorian calendar can have multiple cutover dates from the Julian, but the lookup only provides the default cutover date.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAvailableChronologies(): Set<Chronology></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the available chronologies. <p> Each returned ‘Chronology’ is available for use in the system. The set of chronologies includes the system chronologies and any chronologies provided by the application via ServiceLoader configuration.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getId(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the ID of the chronology. <p> The ID uniquely identifies the ‘Chronology’. It can be used to lookup the ‘Chronology’ using ‘#of(String)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCalendarType(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the calendar type of the calendar system. <p> The calendar type is an identifier defined by the CLDR and <em>Unicode Locale Data Markup Language (LDML)</em> specifications to uniquely identification a calendar. The ‘getCalendarType’ is the concatenation of the CLDR calendar type and the variant, if applicable, is appended separated by “-“. The calendar type is used to lookup the ‘Chronology’ using ‘#of(String)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>date(Era era, int yearOfEra, int month, int dayOfMonth): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date in this chronology from the era, year-of-era, month-of-year and day-of-month fields.</td>
+<td align="left">ClassCastException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>date(int prolepticYear, int month, int dayOfMonth): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date in this chronology from the proleptic-year, month-of-year and day-of-month fields.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateYearDay(Era era, int yearOfEra, int dayOfYear): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date in this chronology from the era, year-of-era and day-of-year fields.</td>
+<td align="left">ClassCastException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateYearDay(int prolepticYear, int dayOfYear): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date in this chronology from the proleptic-year and day-of-year fields.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateEpochDay(long epochDay): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date in this chronology from the epoch-day. <p> The definition of ‘ChronoField#EPOCH_DAY EPOCH_DAY’ is the same for all calendar systems, thus it can be used for conversion.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateNow(): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains the current local date in this chronology from the system clock in the default time-zone. <p> This will query the ‘Clock#systemDefaultZone() system clock’ in the default time-zone to obtain the current date. <p> Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateNow(ZoneId zone): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains the current local date in this chronology from the system clock in the specified time-zone. <p> This will query the ‘Clock#system(ZoneId) system clock’ to obtain the current date. Specifying the time-zone avoids dependence on the default time-zone. <p> Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>dateNow(Clock clock): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains the current local date in this chronology from the specified clock. <p> This will query the specified clock to obtain the current date - today. Using this method allows the use of an alternate clock for testing. The alternate clock may be introduced using ‘Clock dependency injection’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>date(TemporalAccessor temporal): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date in this chronology from another temporal object. <p> This obtains a date in this chronology based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘ChronoLocalDate’. <p> The conversion typically uses the ‘ChronoField#EPOCH_DAY EPOCH_DAY’ field, which is standardized across calendar systems. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘aChronology::date’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>localDateTime(TemporalAccessor temporal): ChronoLocalDate&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a local date-time in this chronology from another temporal object. <p> This obtains a date-time in this chronology based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘ChronoLocalDateTime’. <p> The conversion extracts and combines the ‘ChronoLocalDate’ and the ‘LocalTime’ from the temporal object. Implementations are permitted to perform optimizations such as accessing those fields that are equivalent to the relevant objects. The result uses this chronology. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘aChronology::localDateTime’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>zonedDateTime(TemporalAccessor temporal): ChronoLocalDate&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a ‘ChronoZonedDateTime’ in this chronology from another temporal object. <p> This obtains a zoned date-time in this chronology based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘ChronoZonedDateTime’. <p> The conversion will first obtain a ‘ZoneId’ from the temporal object, falling back to a ‘ZoneOffset’ if necessary. It will then try to obtain an ‘Instant’, falling back to a ‘ChronoLocalDateTime’ if necessary. The result will be either the combination of ‘ZoneId’ or ‘ZoneOffset’ with ‘Instant’ or ‘ChronoLocalDateTime’. Implementations are permitted to perform optimizations such as accessing those fields that are equivalent to the relevant objects. The result uses this chronology. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘aChronology::zonedDateTime’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>zonedDateTime(Instant instant, ZoneId zone): ChronoLocalDate&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a ‘ChronoZonedDateTime’ in this chronology from an ‘Instant’. <p> This obtains a zoned date-time with the same instant as that specified.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>isLeapYear(long prolepticYear): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the specified year is a leap year. <p> A leap-year is a year of a longer length than normal. The exact meaning is determined by the chronology according to the following constraints. <ul> <li>a leap-year must imply a year-length longer than a non leap-year. <li>a chronology that does not support the concept of a year must return false. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>prolepticYear(Era era, int yearOfEra): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Calculates the proleptic-year given the era and year-of-era. <p> This combines the era and year-of-era into the single proleptic-year field. <p> If the chronology makes active use of eras, such as ‘JapaneseChronology’ then the year-of-era will be validated against the era. For other chronologies, validation is optional.</td>
+<td align="left">ClassCastException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>eraOf(int eraValue): Era</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates the chronology era object from the numeric value. <p> The era is, conceptually, the largest division of the time-line. Most calendar systems have a single epoch dividing the time-line into two eras. However, some have multiple eras, such as one for the reign of each leader. The exact meaning is determined by the chronology according to the following constraints. <p> The era in use at 1970-01-01 must have the value 1. Later eras must have sequentially higher values. Earlier eras must have sequentially lower values. Each chronology must refer to an enum or similar singleton to provide the era values. <p> This method returns the singleton era of the correct type for the specified era value.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>eras(): List<Era></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the list of eras for the chronology. <p> Most calendar systems have an era, within which the year has meaning. If the calendar system does not support the concept of eras, an empty list must be returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>range(ChronoField field): ValueRange</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the range of valid values for the specified field. <p> All fields can be expressed as a ‘long’ integer. This method returns an object that describes the valid range for that value. <p> Note that the result only describes the minimum and maximum valid values and it is important not to read too much into them. For example, there could be values within the range that are invalid for the field. <p> This method will return a result whether or not the chronology supports the field.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayName(TextStyle style, Locale locale): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the textual representation of this chronology. <p> This returns the textual name used to identify the chronology, suitable for presentation to the user. The parameters control the style of the returned text and the locale.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resolveDate(Map&lt;TemporalField, Long&gt; fieldValues, ResolverStyle resolverStyle): ChronoLocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Resolves parsed ‘ChronoField’ values into a date during parsing. <p> Most ‘TemporalField’ implementations are resolved using the resolve method on the field. By contrast, the ‘ChronoField’ class defines fields that only have meaning relative to the chronology. As such, ‘ChronoField’ date fields are resolved here in the context of a specific chronology. <p> The default implementation, which explains typical resolve behaviour, is provided in ‘AbstractChronology’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>period(int years, int months, int days): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains a period for this chronology based on years, months and days. <p> This returns a period tied to this chronology using the specified years, months and days.  All supplied chronologies use periods based on years, months and days, however the ‘ChronoPeriod’ API allows the period to be represented using other units.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(Chronology other): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Compares this chronology to another chronology. <p> The comparison order first by the chronology ID string, then by any additional information specific to the subclass. It is “consistent with equals”, as defined by ‘Comparable’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if this chronology is equal to another chronology. <p> The comparison is based on the entire state of the object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A hash code for this chronology. <p> The hash code should be based on the entire state of the object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Outputs this chronology as a ‘String’. <p> The format should include the entire state of the object.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

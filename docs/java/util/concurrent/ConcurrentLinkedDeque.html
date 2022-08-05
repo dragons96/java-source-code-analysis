@@ -106,7 +106,7 @@
 <td align="left">A node from which the last node on list (that is, the unique node p with p.next &#x3D;&#x3D; null &amp;&amp; p.prev !&#x3D; p) can be reached in O(1) time. Invariants: - the last node is always O(1) reachable from tail via next links - all live nodes are reachable from the last node via pred() - tail !&#x3D; null - tail is never gc-unlinked (but may be unlinked) Non-invariants: - tail.item may or may not be null - tail may not be reachable from the first or last node, or from head</td>
 </tr>
 <tr>
-<td align="center"><strong>PREV_TERMINATOR,: Node&lt;Object&gt;</strong></td>
+<td align="center"><strong>NEXT_TERMINATOR: Node&lt;Object&gt;</strong></td>
 <td align="center">null</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -177,7 +177,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><strong>@SuppressWarnings(“unchecked”)Node&lt;E&gt; prevTerminator()</strong></td>
+<td align="center"><strong>prevTerminator(): Node<E></strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -189,7 +189,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>@SuppressWarnings(“unchecked”)Node&lt;E&gt; nextTerminator()</strong></td>
+<td align="center"><strong>nextTerminator(): Node<E></strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -225,7 +225,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>unlink(Node&lt;E&gt; x)</strong></td>
+<td align="center"><strong>unlink(Node&lt;E&gt; x): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -333,7 +333,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>first()</strong></td>
+<td align="center"><strong>first(): Node<E></strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -345,7 +345,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>last()</strong></td>
+<td align="center"><strong>last(): Node<E></strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -597,6 +597,78 @@
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
+<td align="center"><strong>poll(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peek(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>pop(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>element(): E</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NoSuchElementException</td>
+</tr>
+<tr>
+<td align="center"><strong>push(E e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
 <td align="center"><strong>removeFirstOccurrence(Object o): boolean</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
@@ -774,7 +846,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Reconstitutes this deque from a stream (that is, deserializes it).</td>
-<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
+<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
 </tr>
 <tr>
 <td align="center"><strong>casHead(Node&lt;E&gt; cmp, Node&lt;E&gt; val): boolean</strong></td>

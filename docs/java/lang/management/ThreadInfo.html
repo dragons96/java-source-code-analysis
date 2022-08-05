@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/management/ThreadInfo.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ThreadInfo"><a href="#ThreadInfo" class="headerlink" title="ThreadInfo"></a>ThreadInfo</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.management.ThreadInfo</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>threadName: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>threadId: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>blockedTime: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>blockedCount: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>waitedTime: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>waitedCount: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lock: LockInfo</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockName: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockOwnerId: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockOwnerName: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inNative: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>suspended: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>threadState: Thread.State</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stackTrace: StackTraceElement[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockedMonitors: MonitorInfo[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lockedSynchronizers: LockInfo[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_MONITORS: MonitorInfo[]</strong></td>
+<td align="center">new MonitorInfo[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_SYNCS: LockInfo[]</strong></td>
+<td align="center">new LockInfo[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_FRAMES: int</strong></td>
+<td align="center">8</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>NO_STACK_TRACE: StackTraceElement[]</strong></td>
+<td align="center">new StackTraceElement[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ThreadInfo(Thread t, int state, Object lockObj, Thread lockOwner, long blockedCount, long blockedTime, long waitedCount, long waitedTime, StackTraceElement[] stackTrace)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor of ThreadInfo created by the JVM</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadInfo(Thread t, int state, Object lockObj, Thread lockOwner, long blockedCount, long blockedTime, long waitedCount, long waitedTime, StackTraceElement[] stackTrace, Object[] monitors, int[] stackDepths, Object[] synchronizers)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor of ThreadInfo created by the JVM for ‘ThreadMXBean#getThreadInfo(long[],boolean,boolean)’ and ‘ThreadMXBean#dumpAllThreads’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initialize(Thread t, int state, Object lockObj, Thread lockOwner, long blockedCount, long blockedTime, long waitedCount, long waitedTime, StackTraceElement[] stackTrace, MonitorInfo[] lockedMonitors, LockInfo[] lockedSynchronizers): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize ThreadInfo object</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadInfo(CompositeData cd)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <tt>ThreadInfo</tt> object from a ‘CompositeData CompositeData’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getThreadId(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ID of the thread associated with this <tt>ThreadInfo</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getThreadName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the name of the thread associated with this <tt>ThreadInfo</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getThreadState(): Thread.State</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the state of the thread associated with this <tt>ThreadInfo</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBlockedTime(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the approximate accumulated elapsed time (in milliseconds) that the thread associated with this <tt>ThreadInfo</tt> has blocked to enter or reenter a monitor since thread contention monitoring is enabled. I.e. the total accumulated time the thread has been in the ‘java.lang.Thread.State#BLOCKED BLOCKED’ state since thread contention monitoring was last enabled. This method returns <tt>-1</tt> if thread contention monitoring is disabled.  <p>The Java virtual machine may measure the time with a high resolution timer.  This statistic is reset when the thread contention monitoring is reenabled.</td>
+<td align="left">java.lang.UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBlockedCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the total number of times that the thread associated with this <tt>ThreadInfo</tt> blocked to enter or reenter a monitor. I.e. the number of times a thread has been in the ‘java.lang.Thread.State#BLOCKED BLOCKED’ state.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getWaitedTime(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the approximate accumulated elapsed time (in milliseconds) that the thread associated with this <tt>ThreadInfo</tt> has waited for notification since thread contention monitoring is enabled. I.e. the total accumulated time the thread has been in the ‘java.lang.Thread.State#WAITING WAITING’ or ‘java.lang.Thread.State#TIMED_WAITING TIMED_WAITING’ state since thread contention monitoring is enabled. This method returns <tt>-1</tt> if thread contention monitoring is disabled.  <p>The Java virtual machine may measure the time with a high resolution timer.  This statistic is reset when the thread contention monitoring is reenabled.</td>
+<td align="left">java.lang.UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getWaitedCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the total number of times that the thread associated with this <tt>ThreadInfo</tt> waited for notification. I.e. the number of times that a thread has been in the ‘java.lang.Thread.State#WAITING WAITING’ or ‘java.lang.Thread.State#TIMED_WAITING TIMED_WAITING’ state.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLockInfo(): LockInfo</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <tt>LockInfo</tt> of an object for which the thread associated with this <tt>ThreadInfo</tt> is blocked waiting. A thread can be blocked waiting for one of the following: <ul> <li>an object monitor to be acquired for entering or reentering a synchronization block&#x2F;method. <br>The thread is in the ‘java.lang.Thread.State#BLOCKED BLOCKED’ state waiting to enter the <tt>synchronized</tt> statement or method. <p></li> <li>an object monitor to be notified by another thread. <br>The thread is in the ‘java.lang.Thread.State#WAITING WAITING’ or ‘java.lang.Thread.State#TIMED_WAITING TIMED_WAITING’ state due to a call to the ‘Object#wait Object.wait’ method. <p></li> <li>a synchronization object responsible for the thread parking. <br>The thread is in the ‘java.lang.Thread.State#WAITING WAITING’ or ‘java.lang.Thread.State#TIMED_WAITING TIMED_WAITING’ state due to a call to the ‘java.util.concurrent.locks.LockSupport#park(Object) LockSupport.park’ method.  The synchronization object is the object returned from ‘java.util.concurrent.locks.LockSupport#getBlocker LockSupport.getBlocker’ method. Typically it is an <a href="LockInfo.html#OwnableSynchronizer"> ownable synchronizer</a> or a ‘java.util.concurrent.locks.Condition Condition’.</li> </ul>  <p>This method returns <tt>null</tt> if the thread is not in any of the above conditions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLockName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘LockInfo#toString string representation’ of an object for which the thread associated with this <tt>ThreadInfo</tt> is blocked waiting. This method is equivalent to calling: <blockquote> <pre> getLockInfo().toString() </pre></blockquote>  <p>This method will return <tt>null</tt> if this thread is not blocked waiting for any object or if the object is not owned by any thread.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLockOwnerId(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ID of the thread which owns the object for which the thread associated with this <tt>ThreadInfo</tt> is blocked waiting. This method will return <tt>-1</tt> if this thread is not blocked waiting for any object or if the object is not owned by any thread.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLockOwnerName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the name of the thread which owns the object for which the thread associated with this <tt>ThreadInfo</tt> is blocked waiting. This method will return <tt>null</tt> if this thread is not blocked waiting for any object or if the object is not owned by any thread.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getStackTrace(): StackTraceElement[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the stack trace of the thread associated with this <tt>ThreadInfo</tt>. If no stack trace was requested for this thread info, this method will return a zero-length array. If the returned array is of non-zero length then the first element of the array represents the top of the stack, which is the most recent method invocation in the sequence.  The last element of the array represents the bottom of the stack, which is the least recent method invocation in the sequence.  <p>Some Java virtual machines may, under some circumstances, omit one or more stack frames from the stack trace.  In the extreme case, a virtual machine that has no stack trace information concerning the thread associated with this <tt>ThreadInfo</tt> is permitted to return a zero-length array from this method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSuspended(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if the thread associated with this <tt>ThreadInfo</tt> is suspended.  This method returns <tt>true</tt> if ‘Thread#suspend’ has been called.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isInNative(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if the thread associated with this <tt>ThreadInfo</tt> is executing native code via the Java Native Interface (JNI). The JNI native code does not include the virtual machine support code or the compiled native code generated by the virtual machine.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this thread info. The format of this string depends on the implementation. The returned string will typically include the ‘#getThreadName thread name’, the ‘#getThreadId thread ID’, its ‘#getThreadState state’, and a ‘#getStackTrace stack trace’ if any.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>from(CompositeData cd): ThreadInfo</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <tt>ThreadInfo</tt> object represented by the given <tt>CompositeData</tt>. The given <tt>CompositeData</tt> must contain the following attributes unless otherwise specified below: <blockquote> <table border summary="The attributes and their types the given CompositeData contains"> <tr> <th align=left>Attribute Name</th> <th align=left>Type</th> </tr> <tr> <td>threadId</td> <td><tt>java.lang.Long</tt></td> </tr> <tr> <td>threadName</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td>threadState</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td>suspended</td> <td><tt>java.lang.Boolean</tt></td> </tr> <tr> <td>inNative</td> <td><tt>java.lang.Boolean</tt></td> </tr> <tr> <td>blockedCount</td> <td><tt>java.lang.Long</tt></td> </tr> <tr> <td>blockedTime</td> <td><tt>java.lang.Long</tt></td> </tr> <tr> <td>waitedCount</td> <td><tt>java.lang.Long</tt></td> </tr> <tr> <td>waitedTime</td> <td><tt>java.lang.Long</tt></td> </tr> <tr> <td>lockInfo</td> <td><tt>javax.management.openmbean.CompositeData</tt> - the mapped type for ‘LockInfo’ as specified in the ‘LockInfo#from’ method. <p> If <tt>cd</tt> does not contain this attribute, the <tt>LockInfo</tt> object will be constructed from the value of the <tt>lockName</tt> attribute. </td> </tr> <tr> <td>lockName</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td>lockOwnerId</td> <td><tt>java.lang.Long</tt></td> </tr> <tr> <td>lockOwnerName</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td><a name="StackTrace">stackTrace</a></td> <td><tt>javax.management.openmbean.CompositeData[]</tt> <p> Each element is a <tt>CompositeData</tt> representing StackTraceElement containing the following attributes: <blockquote> <table cellspacing=1 cellpadding=0 summary="The attributes and their types the given CompositeData contains"> <tr> <th align=left>Attribute Name</th> <th align=left>Type</th> </tr> <tr> <td>className</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td>methodName</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td>fileName</td> <td><tt>java.lang.String</tt></td> </tr> <tr> <td>lineNumber</td> <td><tt>java.lang.Integer</tt></td> </tr> <tr> <td>nativeMethod</td> <td><tt>java.lang.Boolean</tt></td> </tr> </table> </blockquote> </td> </tr> <tr> <td>lockedMonitors</td> <td><tt>javax.management.openmbean.CompositeData[]</tt> whose element type is the mapped type for ‘MonitorInfo’ as specified in the ‘MonitorInfo#from Monitor.from’ method. <p> If <tt>cd</tt> does not contain this attribute, this attribute will be set to an empty array. </td> </tr> <tr> <td>lockedSynchronizers</td> <td><tt>javax.management.openmbean.CompositeData[]</tt> whose element type is the mapped type for ‘LockInfo’ as specified in the ‘LockInfo#from’ method. <p> If <tt>cd</tt> does not contain this attribute, this attribute will be set to an empty array. </td> </tr> </table> </blockquote></td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLockedMonitors(): MonitorInfo[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of ‘MonitorInfo’ objects, each of which represents an object monitor currently locked by the thread associated with this <tt>ThreadInfo</tt>. If no locked monitor was requested for this thread info or no monitor is locked by the thread, this method will return a zero-length array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLockedSynchronizers(): LockInfo[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of ‘LockInfo’ objects, each of which represents an <a href="LockInfo.html#OwnableSynchronizer">ownable synchronizer</a> currently locked by the thread associated with this <tt>ThreadInfo</tt>.  If no locked synchronizer was requested for this thread info or no synchronizer is locked by the thread, this method will return a zero-length array.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

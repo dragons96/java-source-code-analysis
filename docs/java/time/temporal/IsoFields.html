@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/temporal/IsoFields.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="IsoFields"><a href="#IsoFields" class="headerlink" title="IsoFields"></a>IsoFields</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.temporal.IsoFields</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DAY_OF_QUARTER: TemporalField</strong></td>
+<td align="center">Field.DAY_OF_QUARTER</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The field that represents the day-of-quarter. <p> This field allows the day-of-quarter value to be queried and set. The day-of-quarter has values from 1 to 90 in Q1 of a standard year, from 1 to 91 in Q1 of a leap year, from 1 to 91 in Q2 and from 1 to 92 in Q3 and Q4. <p> The day-of-quarter can only be calculated if the day-of-year, month-of-year and year are available. <p> When setting this field, the value is allowed to be partially lenient, taking any value from 1 to 92. If the quarter has less than 92 days, then day 92, and potentially day 91, is in the following quarter. <p> In the resolving phase of parsing, a date can be created from a year, quarter-of-year and day-of-quarter. <p> In {@linkplain ResolverStyle#STRICT strict mode}, all three fields are validated against their range of valid values. The day-of-quarter field is validated from 1 to 90, 91 or 92 depending on the year and quarter. <p> In {@linkplain ResolverStyle#SMART smart mode}, all three fields are validated against their range of valid values. The day-of-quarter field is validated between 1 and 92, ignoring the actual range based on the year and quarter. If the day-of-quarter exceeds the actual range by one day, then the resulting date is one day later. If the day-of-quarter exceeds the actual range by two days, then the resulting date is two days later. <p> In {@linkplain ResolverStyle#LENIENT lenient mode}, only the year is validated against the range of valid values. The resulting date is calculated equivalent to the following three stage approach. First, create a date on the first of January in the requested year. Then take the quarter-of-year, subtract one, and add the amount in quarters to the date. Finally, take the day-of-quarter, subtract one, and add the amount in days to the date. <p> This unit is an immutable and thread-safe singleton.</td>
+</tr>
+<tr>
+<td align="center"><strong>QUARTER_OF_YEAR: TemporalField</strong></td>
+<td align="center">Field.QUARTER_OF_YEAR</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The field that represents the quarter-of-year. <p> This field allows the quarter-of-year value to be queried and set. The quarter-of-year has values from 1 to 4. <p> The quarter-of-year can only be calculated if the month-of-year is available. <p> In the resolving phase of parsing, a date can be created from a year, quarter-of-year and day-of-quarter. See {@link #DAY_OF_QUARTER} for details. <p> This unit is an immutable and thread-safe singleton.</td>
+</tr>
+<tr>
+<td align="center"><strong>WEEK_OF_WEEK_BASED_YEAR: TemporalField</strong></td>
+<td align="center">Field.WEEK_OF_WEEK_BASED_YEAR</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The field that represents the week-of-week-based-year. <p> This field allows the week of the week-based-year value to be queried and set. The week-of-week-based-year has values from 1 to 52, or 53 if the week-based-year has 53 weeks. <p> In the resolving phase of parsing, a date can be created from a week-based-year, week-of-week-based-year and day-of-week. <p> In {@linkplain ResolverStyle#STRICT strict mode}, all three fields are validated against their range of valid values. The week-of-week-based-year field is validated from 1 to 52 or 53 depending on the week-based-year. <p> In {@linkplain ResolverStyle#SMART smart mode}, all three fields are validated against their range of valid values. The week-of-week-based-year field is validated between 1 and 53, ignoring the week-based-year. If the week-of-week-based-year is 53, but the week-based-year only has 52 weeks, then the resulting date is in week 1 of the following week-based-year. <p> In {@linkplain ResolverStyle#LENIENT lenient mode}, only the week-based-year is validated against the range of valid values. If the day-of-week is outside the range 1 to 7, then the resulting date is adjusted by a suitable number of weeks to reduce the day-of-week to the range 1 to 7. If the week-of-week-based-year value is outside the range 1 to 52, then any excess weeks are added or subtracted from the resulting date. <p> This unit is an immutable and thread-safe singleton.</td>
+</tr>
+<tr>
+<td align="center"><strong>WEEK_BASED_YEAR: TemporalField</strong></td>
+<td align="center">Field.WEEK_BASED_YEAR</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The field that represents the week-based-year. <p> This field allows the week-based-year value to be queried and set. <p> The field has a range that matches {@link LocalDate#MAX} and {@link LocalDate#MIN}. <p> In the resolving phase of parsing, a date can be created from a week-based-year, week-of-week-based-year and day-of-week. See {@link #WEEK_OF_WEEK_BASED_YEAR} for details. <p> This unit is an immutable and thread-safe singleton.</td>
+</tr>
+<tr>
+<td align="center"><strong>WEEK_BASED_YEARS: TemporalUnit</strong></td>
+<td align="center">Unit.WEEK_BASED_YEARS</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The unit that represents week-based-years for the purpose of addition and subtraction. <p> This allows a number of week-based-years to be added to, or subtracted from, a date. The unit is equal to either 52 or 53 weeks. The estimated duration of a week-based-year is the same as that of a standard ISO year at {@code 365.2425 Days}. <p> The rules for addition add the number of week-based-years to the existing value for the week-based-year field. If the resulting week-based-year only has 52 weeks, then the date will be in week 1 of the following week-based-year. <p> This unit is an immutable and thread-safe singleton.</td>
+</tr>
+<tr>
+<td align="center"><strong>QUARTER_YEARS: TemporalUnit</strong></td>
+<td align="center">Unit.QUARTER_YEARS</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unit that represents the concept of a quarter-year. For the ISO calendar system, it is equal to 3 months. The estimated duration of a quarter-year is one quarter of {@code 365.2425 Days}. <p> This unit is an immutable and thread-safe singleton.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>IsoFields()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Restricted constructor.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="IsoFields-Field"><a href="#IsoFields-Field" class="headerlink" title="IsoFields$Field"></a><a href="./IsoFields$Field.html">IsoFields$Field</a></h3><h3 id="IsoFields-Unit"><a href="#IsoFields-Unit" class="headerlink" title="IsoFields$Unit"></a><a href="./IsoFields$Unit.html">IsoFields$Unit</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

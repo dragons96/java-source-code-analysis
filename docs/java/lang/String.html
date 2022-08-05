@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/String.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.String</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable,Comparable&lt;String&gt;,CharSequence</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>value: char[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The value is used for character storage.</td>
+</tr>
+<tr>
+<td align="center"><strong>hash: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cache the hash code for the string</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-6849794470754667710L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">use serialVersionUID from JDK 1.0.2 for interoperability</td>
+</tr>
+<tr>
+<td align="center"><strong>serialPersistentFields: ObjectStreamField[]</strong></td>
+<td align="center">new ObjectStreamField[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Class String is special cased within the Serialization Stream Protocol.  A String instance is written into an ObjectOutputStream according to <a href="{@docRoot}/../platform/serialization/spec/output.html"> Object Serialization Specification, Section 6.2, “Stream Elements”</a></td>
+</tr>
+<tr>
+<td align="center"><strong>CASE_INSENSITIVE_ORDER: Comparator&lt;String&gt;</strong></td>
+<td align="center">new CaseInsensitiveComparator()</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A Comparator that orders {@code String} objects as by {@code compareToIgnoreCase}. This comparator is serializable. <p> Note that this Comparator does <em>not</em> take locale into account, and will result in an unsatisfactory ordering for certain locales. The java.text package provides <em>Collators</em> to allow locale-sensitive ordering.  @see     java.text.Collator#compare(String, String) @since   1.2</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>String()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes a newly created ‘String’ object so that it represents an empty character sequence.  Note that use of this constructor is unnecessary since Strings are immutable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(String original)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes a newly created ‘String’ object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of ‘original’ is needed, use of this constructor is unnecessary since Strings are immutable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(char value[])</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new ‘String’ so that it represents the sequence of characters currently contained in the character array argument. The contents of the character array are copied; subsequent modification of the character array does not affect the newly created string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(char value[], int offset, int count)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new ‘String’ that contains characters from a subarray of the character array argument. The ‘offset’ argument is the index of the first character of the subarray and the ‘count’ argument specifies the length of the subarray. The contents of the subarray are copied; subsequent modification of the character array does not affect the newly created string.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(int[] codePoints, int offset, int count)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new ‘String’ that contains characters from a subarray of the <a href="Character.html#unicode">Unicode code point</a> array argument.  The ‘offset’ argument is the index of the first code point of the subarray and the ‘count’ argument specifies the length of the subarray.  The contents of the subarray are converted to ‘char’s; subsequent modification of the ‘int’ array does not affect the newly created string.</td>
+<td align="left">IndexOutOfBoundsException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte ascii[], int hibyte, int offset, int count)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new ‘String’ constructed from a subarray of an array of 8-bit integer values.  <p> The ‘offset’ argument is the index of the first byte of the subarray, and the ‘count’ argument specifies the length of the subarray.  <p> Each ‘byte’ in the subarray is converted to a ‘char’ as specified in the method above.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte ascii[], int hibyte)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new ‘String’ containing characters constructed from an array of 8-bit integer values. Each character <i>c</i>in the resulting string is constructed from the corresponding component <i>b</i> in the byte array such that:  <blockquote><pre> <b><i>c</i></b> == (char)(((hibyte &amp; 0xff) &lt;&lt; 8)</td>
+<td align="left">(<b><i>b</i></b> &amp; 0xff)) </pre></blockquote></td>
+</tr>
+<tr>
+<td align="center"><strong>checkBounds(byte[] bytes, int offset, int length): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Common private utility method used to bounds check the byte array and requested offset &amp; length values used by the String(byte[],..) constructors.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte bytes[], int offset, int length, String charsetName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘String’ by decoding the specified subarray of bytes using the specified charset.  The length of the new ‘String’ is a function of the charset, and hence may not be equal to the length of the subarray.  <p> The behavior of this constructor when the given bytes are not valid in the given charset is unspecified.  The ‘java.nio.charset.CharsetDecoder’ class should be used when more control over the decoding process is required.</td>
+<td align="left">UnsupportedEncodingException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte bytes[], int offset, int length, Charset charset)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘String’ by decoding the specified subarray of bytes using the specified ‘java.nio.charset.Charset charset’. The length of the new ‘String’ is a function of the charset, and hence may not be equal to the length of the subarray.  <p> This method always replaces malformed-input and unmappable-character sequences with this charset’s default replacement string.  The ‘java.nio.charset.CharsetDecoder’ class should be used when more control over the decoding process is required.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte bytes[], String charsetName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘String’ by decoding the specified array of bytes using the specified ‘java.nio.charset.Charset charset’.  The length of the new ‘String’ is a function of the charset, and hence may not be equal to the length of the byte array.  <p> The behavior of this constructor when the given bytes are not valid in the given charset is unspecified.  The ‘java.nio.charset.CharsetDecoder’ class should be used when more control over the decoding process is required.</td>
+<td align="left">UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte bytes[], Charset charset)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘String’ by decoding the specified array of bytes using the specified ‘java.nio.charset.Charset charset’. The length of the new ‘String’ is a function of the charset, and hence may not be equal to the length of the byte array.  <p> This method always replaces malformed-input and unmappable-character sequences with this charset’s default replacement string.  The ‘java.nio.charset.CharsetDecoder’ class should be used when more control over the decoding process is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte bytes[], int offset, int length)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘String’ by decoding the specified subarray of bytes using the platform’s default charset.  The length of the new ‘String’ is a function of the charset, and hence may not be equal to the length of the subarray.  <p> The behavior of this constructor when the given bytes are not valid in the default charset is unspecified.  The ‘java.nio.charset.CharsetDecoder’ class should be used when more control over the decoding process is required.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>String(byte bytes[])</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘String’ by decoding the specified array of bytes using the platform’s default charset.  The length of the new ‘String’ is a function of the charset, and hence may not be equal to the length of the byte array.  <p> The behavior of this constructor when the given bytes are not valid in the default charset is unspecified.  The ‘java.nio.charset.CharsetDecoder’ class should be used when more control over the decoding process is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(StringBuffer buffer)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new string that contains the sequence of characters currently contained in the string buffer argument. The contents of the string buffer are copied; subsequent modification of the string buffer does not affect the newly created string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(StringBuilder builder)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new string that contains the sequence of characters currently contained in the string builder argument. The contents of the string builder are copied; subsequent modification of the string builder does not affect the newly created string.  <p> This constructor is provided to ease migration to ‘StringBuilder’. Obtaining a string from a string builder via the ‘toString’ method is likely to run faster and is generally preferred.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>String(char[] value, boolean share)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package private constructor which shares value array for speed. this constructor is always expected to be called with share&#x3D;&#x3D;true. a separate constructor is needed because we already have a public String(char[]) constructor that makes a copy of the given char[].</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>length(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of this string. The length is equal to the number of <a href="Character.html#unicode">Unicode code units</a> in the string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEmpty(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if, and only if, ‘#length()’ is ‘0’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>charAt(int index): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘char’ value at the specified index. An index ranges from ‘0’ to ‘length() - 1’. The first ‘char’ value of the sequence is at index ‘0’, the next at index ‘1’, and so on, as for array indexing.  <p>If the ‘char’ value specified by the index is a <a href="Character.html#unicode">surrogate</a>, the surrogate value is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointAt(int index): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the character (Unicode code point) at the specified index. The index refers to ‘char’ values (Unicode code units) and ranges from ‘0’ to ‘#length()’’- 1’.  <p> If the ‘char’ value specified at the given index is in the high-surrogate range, the following index is less than the length of this ‘String’, and the ‘char’ value at the following index is in the low-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at the given index is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointBefore(int index): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the character (Unicode code point) before the specified index. The index refers to ‘char’ values (Unicode code units) and ranges from ‘1’ to ‘CharSequence#length() length’.  <p> If the ‘char’ value at ‘(index - 1)’ is in the low-surrogate range, ‘(index - 2)’ is not negative, and the ‘char’ value at ‘(index - 2)’ is in the high-surrogate range, then the supplementary code point value of the surrogate pair is returned. If the ‘char’ value at ‘index - 1’ is an unpaired low-surrogate or a high-surrogate, the surrogate value is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointCount(int beginIndex, int endIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of Unicode code points in the specified text range of this ‘String’. The text range begins at the specified ‘beginIndex’ and extends to the ‘char’ at index ‘endIndex - 1’. Thus the length (in ‘char’s) of the text range is ‘endIndex-beginIndex’. Unpaired surrogates within the text range count as one code point each.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>offsetByCodePoints(int index, int codePointOffset): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this ‘String’ that is offset from the given ‘index’ by ‘codePointOffset’ code points. Unpaired surrogates within the text range given by ‘index’ and ‘codePointOffset’ count as one code point each.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChars(char dst[], int dstBegin): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copy characters from this string into dst starting at dstBegin. This method doesn’t perform any range checking.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChars(int srcBegin, int srcEnd, char dst[], int dstBegin): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies characters from this string into the destination character array. <p> The first character to be copied is at index ‘srcBegin’; the last character to be copied is at index ‘srcEnd-1’ (thus the total number of characters to be copied is ‘srcEnd-srcBegin’). The characters are copied into the subarray of ‘dst’ starting at index ‘dstBegin’ and ending at index: <blockquote><pre> dstBegin + (srcEnd-srcBegin) - 1 </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBytes(int srcBegin, int srcEnd, byte dst[], int dstBegin): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies characters from this string into the destination byte array. Each byte receives the 8 low-order bits of the corresponding character. The eight high-order bits of each character are not copied and do not participate in the transfer in any way.  <p> The first character to be copied is at index ‘srcBegin’; the last character to be copied is at index ‘srcEnd-1’.  The total number of characters to be copied is ‘srcEnd-srcBegin’. The characters, converted to bytes, are copied into the subarray of ‘dst’ starting at index ‘dstBegin’ and ending at index:  <blockquote><pre> dstBegin + (srcEnd-srcBegin) - 1 </pre></blockquote></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBytes(String charsetName): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Encodes this ‘String’ into a sequence of bytes using the named charset, storing the result into a new byte array.  <p> The behavior of this method when this string cannot be encoded in the given charset is unspecified.  The ‘java.nio.charset.CharsetEncoder’ class should be used when more control over the encoding process is required.</td>
+<td align="left">UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBytes(Charset charset): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Encodes this ‘String’ into a sequence of bytes using the given ‘java.nio.charset.Charset charset’, storing the result into a new byte array.  <p> This method always replaces malformed-input and unmappable-character sequences with this charset’s default replacement byte array.  The ‘java.nio.charset.CharsetEncoder’ class should be used when more control over the encoding process is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBytes(): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Encodes this ‘String’ into a sequence of bytes using the platform’s default charset, storing the result into a new byte array.  <p> The behavior of this method when this string cannot be encoded in the default charset is unspecified.  The ‘java.nio.charset.CharsetEncoder’ class should be used when more control over the encoding process is required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object anObject): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this string to the specified object.  The result is ‘true’ if and only if the argument is not ‘null’ and is a ‘String’ object that represents the same sequence of characters as this object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contentEquals(StringBuffer sb): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this string to the specified ‘StringBuffer’.  The result is ‘true’ if and only if this ‘String’ represents the same sequence of characters as the specified ‘StringBuffer’. This method synchronizes on the ‘StringBuffer’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nonSyncContentEquals(AbstractStringBuilder sb): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>contentEquals(CharSequence cs): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this string to the specified ‘CharSequence’.  The result is ‘true’ if and only if this ‘String’ represents the same sequence of char values as the specified sequence. Note that if the ‘CharSequence’ is a ‘StringBuffer’ then the method synchronizes on it.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equalsIgnoreCase(String anotherString): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this ‘String’ to another ‘String’, ignoring case considerations.  Two strings are considered equal ignoring case if they are of the same length and corresponding characters in the two strings are equal ignoring case.  <p> Two characters ‘c1’ and ‘c2’ are considered the same ignoring case if at least one of the following is true: <ul> <li> The two characters are the same (as compared by the ‘&#x3D;&#x3D;’ operator) <li> Applying the method ‘java.lang.Character#toUpperCase(char)’ to each character produces the same result <li> Applying the method ‘java.lang.Character#toLowerCase(char)’ to each character produces the same result </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(String anotherString): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares two strings lexicographically. The comparison is based on the Unicode value of each character in the strings. The character sequence represented by this ‘String’ object is compared lexicographically to the character sequence represented by the argument string. The result is a negative integer if this ‘String’ object lexicographically precedes the argument string. The result is a positive integer if this ‘String’ object lexicographically follows the argument string. The result is zero if the strings are equal; ‘compareTo’ returns ‘0’ exactly when the ‘#equals(Object)’ method would return ‘true’. <p> This is the definition of lexicographic ordering. If two strings are different, then either they have different characters at some index that is a valid index for both strings, or their lengths are different, or both. If they have different characters at one or more index positions, let <i>k</i> be the smallest such index; then the string whose character at position <i>k</i> has the smaller value, as determined by using the &lt; operator, lexicographically precedes the other string. In this case, ‘compareTo’ returns the difference of the two character values at position ‘k’ in the two string – that is, the value: <blockquote><pre> this.charAt(k)-anotherString.charAt(k) </pre></blockquote> If there is no index position at which they differ, then the shorter string lexicographically precedes the longer string. In this case, ‘compareTo’ returns the difference of the lengths of the strings – that is, the value: <blockquote><pre> this.length()-anotherString.length() </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareToIgnoreCase(String str): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares two strings lexicographically, ignoring case differences. This method returns an integer whose sign is that of calling ‘compareTo’ with normalized versions of the strings where case differences have been eliminated by calling ‘Character.toLowerCase(Character.toUpperCase(character))’ on each character. <p> Note that this method does <em>not</em> take locale into account, and will result in an unsatisfactory ordering for certain locales. The java.text package provides <em>collators</em> to allow locale-sensitive ordering.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>regionMatches(int toffset, String other, int ooffset, int len): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if two string regions are equal. <p> A substring of this ‘String’ object is compared to a substring of the argument other. The result is true if these substrings represent identical character sequences. The substring of this ‘String’ object to be compared begins at index ‘toffset’ and has length ‘len’. The substring of other to be compared begins at index ‘ooffset’ and has length ‘len’. The result is ‘false’ if and only if at least one of the following is true: <ul><li>‘toffset’ is negative. <li>‘ooffset’ is negative. <li>‘toffset+len’ is greater than the length of this ‘String’ object. <li>‘ooffset+len’ is greater than the length of the other argument. <li>There is some nonnegative integer <i>k</i> less than ‘len’ such that: ‘this.charAt(toffset +’<i>k</i>‘) !&#x3D; other.charAt(ooffset +’ <i>k</i>‘)’ </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if two string regions are equal. <p> A substring of this ‘String’ object is compared to a substring of the argument ‘other’. The result is ‘true’ if these substrings represent character sequences that are the same, ignoring case if and only if ‘ignoreCase’ is true. The substring of this ‘String’ object to be compared begins at index ‘toffset’ and has length ‘len’. The substring of ‘other’ to be compared begins at index ‘ooffset’ and has length ‘len’. The result is ‘false’ if and only if at least one of the following is true: <ul><li>‘toffset’ is negative. <li>‘ooffset’ is negative. <li>‘toffset+len’ is greater than the length of this ‘String’ object. <li>‘ooffset+len’ is greater than the length of the other argument. <li>‘ignoreCase’ is ‘false’ and there is some nonnegative integer <i>k</i> less than ‘len’ such that: <blockquote><pre> this.charAt(toffset+k) != other.charAt(ooffset+k) </pre></blockquote> <li>‘ignoreCase’ is ‘true’ and there is some nonnegative integer <i>k</i> less than ‘len’ such that: <blockquote><pre> Character.toLowerCase(this.charAt(toffset+k)) != </pre></blockquote> and: <blockquote><pre> Character.toUpperCase(this.charAt(toffset+k)) != Character.toUpperCase(other.charAt(ooffset+k)) </pre></blockquote> </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>startsWith(String prefix, int toffset): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if the substring of this string beginning at the specified index starts with the specified prefix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>startsWith(String prefix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if this string starts with the specified prefix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>endsWith(String suffix): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if this string ends with the specified suffix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code for this string. The hash code for a ‘String’ object is computed as <blockquote><pre> s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] </pre></blockquote> using ‘int’ arithmetic, where ‘s[i]’ is the <i>i</i>th character of the string, ‘n’ is the length of the string, and ‘^’ indicates exponentiation. (The hash value of the empty string is zero.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(int ch): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the first occurrence of the specified character. If a character with value ‘ch’ occurs in the character sequence represented by this ‘String’ object, then the index (in Unicode code units) of the first such occurrence is returned. For values of ‘ch’ in the range from 0 to 0xFFFF (inclusive), this is the smallest value <i>k</i> such that: <blockquote><pre> this.charAt(<i>k</i>) == ch </pre></blockquote> is true. For other values of ‘ch’, it is the smallest value <i>k</i> such that: <blockquote><pre> this.codePointAt(<i>k</i>) == ch </pre></blockquote> is true. In either case, if no such character occurs in this string, then ‘-1’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(int ch, int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index. <p> If a character with value ‘ch’ occurs in the character sequence represented by this ‘String’ object at an index no smaller than ‘fromIndex’, then the index of the first such occurrence is returned. For values of ‘ch’ in the range from 0 to 0xFFFF (inclusive), this is the smallest value <i>k</i> such that: <blockquote><pre> (this.charAt(<i>k</i>) == ch) '&&' (<i>k</i> &gt;= fromIndex) </pre></blockquote> is true. For other values of ‘ch’, it is the smallest value <i>k</i> such that: <blockquote><pre> (this.codePointAt(<i>k</i>) == ch) '&&' (<i>k</i> &gt;= fromIndex) </pre></blockquote> is true. In either case, if no such character occurs in this string at or after position ‘fromIndex’, then ‘-1’ is returned.  <p> There is no restriction on the value of ‘fromIndex’. If it is negative, it has the same effect as if it were zero: this entire string may be searched. If it is greater than the length of this string, it has the same effect as if it were equal to the length of this string: ‘-1’ is returned.  <p>All indices are specified in ‘char’ values (Unicode code units).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOfSupplementary(int ch, int fromIndex): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Handles (rare) calls of indexOf with a supplementary character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(int ch): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the last occurrence of the specified character. For values of ‘ch’ in the range from 0 to 0xFFFF (inclusive), the index (in Unicode code units) returned is the largest value <i>k</i> such that: <blockquote><pre> this.charAt(<i>k</i>) == ch </pre></blockquote> is true. For other values of ‘ch’, it is the largest value <i>k</i> such that: <blockquote><pre> this.codePointAt(<i>k</i>) == ch </pre></blockquote> is true.  In either case, if no such character occurs in this string, then ‘-1’ is returned.  The ‘String’ is searched backwards starting at the last character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(int ch, int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the last occurrence of the specified character, searching backward starting at the specified index. For values of ‘ch’ in the range from 0 to 0xFFFF (inclusive), the index returned is the largest value <i>k</i> such that: <blockquote><pre> (this.charAt(<i>k</i>) == ch) '&&' (<i>k</i> &lt;= fromIndex) </pre></blockquote> is true. For other values of ‘ch’, it is the largest value <i>k</i> such that: <blockquote><pre> (this.codePointAt(<i>k</i>) == ch) '&&' (<i>k</i> &lt;= fromIndex) </pre></blockquote> is true. In either case, if no such character occurs in this string at or before position ‘fromIndex’, then ‘-1’ is returned.  <p>All indices are specified in ‘char’ values (Unicode code units).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOfSupplementary(int ch, int fromIndex): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Handles (rare) calls of lastIndexOf with a supplementary character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(String str): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the first occurrence of the specified substring.  <p>The returned index is the smallest value <i>k</i> for which: <blockquote><pre> this.startsWith(str, <i>k</i>) </pre></blockquote> If no such value of <i>k</i> exists, then ‘-1’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(String str, int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.  <p>The returned index is the smallest value <i>k</i> for which: <blockquote><pre> <i>k</i> &gt;= fromIndex '&&' this.startsWith(str, <i>k</i>) </pre></blockquote> If no such value of <i>k</i> exists, then ‘-1’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(char[] source, int sourceOffset, int sourceCount, String target, int fromIndex): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Code shared by String and AbstractStringBuilder to do searches. The source is the character array being searched, and the target is the string being searched for.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Code shared by String and StringBuffer to do searches. The source is the character array being searched, and the target is the string being searched for.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(String str): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the last occurrence of the specified substring.  The last occurrence of the empty string “” is considered to occur at the index value ‘this.length()’.  <p>The returned index is the largest value <i>k</i> for which: <blockquote><pre> this.startsWith(str, <i>k</i>) </pre></blockquote> If no such value of <i>k</i> exists, then ‘-1’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(String str, int fromIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within this string of the last occurrence of the specified substring, searching backward starting at the specified index.  <p>The returned index is the largest value <i>k</i> for which: <blockquote><pre> <i>k</i> '<=' fromIndex '&&' this.startsWith(str, <i>k</i>) </pre></blockquote> If no such value of <i>k</i> exists, then ‘-1’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(char[] source, int sourceOffset, int sourceCount, String target, int fromIndex): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Code shared by String and AbstractStringBuilder to do searches. The source is the character array being searched, and the target is the string being searched for.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lastIndexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Code shared by String and StringBuffer to do searches. The source is the character array being searched, and the target is the string being searched for.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>substring(int beginIndex): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string that is a substring of this string. The substring begins with the character at the specified index and extends to the end of this string. <p> Examples: <blockquote><pre> "unhappy".substring(2) returns "happy" "Harbison".substring(3) returns "bison" "emptiness".substring(9) returns "" (an empty string) </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>substring(int beginIndex, int endIndex): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string that is a substring of this string. The substring begins at the specified ‘beginIndex’ and extends to the character at index ‘endIndex - 1’. Thus the length of the substring is ‘endIndex-beginIndex’. <p> Examples: <blockquote><pre> "hamburger".substring(4, 8) returns "urge" "smiles".substring(1, 5) returns "mile" </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subSequence(int beginIndex, int endIndex): CharSequence</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a character sequence that is a subsequence of this sequence.  <p> An invocation of this method of the form  <blockquote><pre> str.subSequence(begin,&nbsp;end)</pre></blockquote>  behaves in exactly the same way as the invocation  <blockquote><pre> str.substring(begin,&nbsp;end)</pre></blockquote></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>concat(String str): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates the specified string to the end of this string. <p> If the length of the argument string is ‘0’, then this ‘String’ object is returned. Otherwise, a ‘String’ object is returned that represents a character sequence that is the concatenation of the character sequence represented by this ‘String’ object and the character sequence represented by the argument string.<p> Examples: <blockquote><pre> "cares".concat("s") returns "caress" "to".concat("get").concat("her") returns "together" </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replace(char oldChar, char newChar): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string resulting from replacing all occurrences of ‘oldChar’ in this string with ‘newChar’. <p> If the character ‘oldChar’ does not occur in the character sequence represented by this ‘String’ object, then a reference to this ‘String’ object is returned. Otherwise, a ‘String’ object is returned that represents a character sequence identical to the character sequence represented by this ‘String’ object, except that every occurrence of ‘oldChar’ is replaced by an occurrence of ‘newChar’. <p> Examples: <blockquote><pre> "mesquite in your cellar".replace('e', 'o') returns "mosquito in your collar" "the war of baronets".replace('r', 'y') returns "the way of bayonets" "sparring with a purple porpoise".replace('p', 't') returns "starring with a turtle tortoise" "JonL".replace('q', 'x') returns "JonL" (no change) </pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matches(String regex): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether or not this string matches the given <a href="../util/regex/Pattern.html#sum">regular expression</a>.  <p> An invocation of this method of the form <i>str</i>‘.matches(‘<i>regex</i>‘)’ yields exactly the same result as the expression  <blockquote> ‘java.util.regex.Pattern’.’java.util.regex.Pattern#matches(String,CharSequence) matches(<i>regex</i>, <i>str</i>)’ </blockquote></td>
+<td align="left">PatternSyntaxException</td>
+</tr>
+<tr>
+<td align="center"><strong>contains(CharSequence s): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if and only if this string contains the specified sequence of char values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>replaceFirst(String regex, String replacement): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces the first substring of this string that matches the given <a href="../util/regex/Pattern.html#sum">regular expression</a> with the given replacement.  <p> An invocation of this method of the form <i>str</i>‘.replaceFirst(‘<i>regex</i>‘,’ <i>repl</i>‘)’ yields exactly the same result as the expression  <blockquote> <code> 'java.util.regex.Pattern'.'java.util.regex.Pattern#compile compile'(<i>regex</i>).'java.util.regex.Pattern#matcher(java.lang.CharSequence) matcher'(<i>str</i>).'java.util.regex.Matcher#replaceFirst replaceFirst'(<i>repl</i>) </code> </blockquote>  <p> Note that backslashes (‘&#39;) and dollar signs (‘$’) in the replacement string may cause the results to be different than if it were being treated as a literal replacement string; see ‘java.util.regex.Matcher#replaceFirst’. Use ‘java.util.regex.Matcher#quoteReplacement’ to suppress the special meaning of these characters, if desired.</td>
+<td align="left">PatternSyntaxException</td>
+</tr>
+<tr>
+<td align="center"><strong>replaceAll(String regex, String replacement): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces each substring of this string that matches the given <a href="../util/regex/Pattern.html#sum">regular expression</a> with the given replacement.  <p> An invocation of this method of the form <i>str</i>‘.replaceAll(‘<i>regex</i>‘,’ <i>repl</i>‘)’ yields exactly the same result as the expression  <blockquote> <code> 'java.util.regex.Pattern'.'java.util.regex.Pattern#compile compile'(<i>regex</i>).'java.util.regex.Pattern#matcher(java.lang.CharSequence) matcher'(<i>str</i>).'java.util.regex.Matcher#replaceAll replaceAll'(<i>repl</i>) </code> </blockquote>  <p> Note that backslashes (‘&#39;) and dollar signs (‘$’) in the replacement string may cause the results to be different than if it were being treated as a literal replacement string; see ‘java.util.regex.Matcher#replaceAll Matcher.replaceAll’. Use ‘java.util.regex.Matcher#quoteReplacement’ to suppress the special meaning of these characters, if desired.</td>
+<td align="left">PatternSyntaxException</td>
+</tr>
+<tr>
+<td align="center"><strong>replace(CharSequence target, CharSequence replacement): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Replaces each substring of this string that matches the literal target sequence with the specified literal replacement sequence. The replacement proceeds from the beginning of the string to the end, for example, replacing “aa” with “b” in the string “aaa” will result in “ba” rather than “ab”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>split(String regex, int limit): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Splits this string around matches of the given <a href="../util/regex/Pattern.html#sum">regular expression</a>.  <p> The array returned by this method contains each substring of this string that is terminated by another substring that matches the given expression or is terminated by the end of the string.  The substrings in the array are in the order in which they occur in this string.  If the expression does not match any part of the input then the resulting array has just one element, namely this string.  <p> When there is a positive-width match at the beginning of this string then an empty leading substring is included at the beginning of the resulting array. A zero-width match at the beginning however never produces such empty leading substring.  <p> The ‘limit’ parameter controls the number of times the pattern is applied and therefore affects the length of the resulting array.  If the limit <i>n</i> is greater than zero then the pattern will be applied at most <i>n</i>&amp;nbsp;-&amp;nbsp;1 times, the array’s length will be no greater than <i>n</i>, and the array’s last entry will contain all input beyond the last matched delimiter.  If <i>n</i> is non-positive then the pattern will be applied as many times as possible and the array can have any length.  If <i>n</i> is zero then the pattern will be applied as many times as possible, the array can have any length, and trailing empty strings will be discarded.  <p> The string ‘“boo:and:foo”‘, for example, yields the following results with these parameters:  <blockquote><table cellpadding=1 cellspacing=0 summary="Split example showing regex, limit, and result"> <tr> <th>Regex</th> <th>Limit</th> <th>Result</th> </tr> <tr><td align=center>:</td> <td align=center>2</td> <td>‘{ “boo”, “and:foo”‘}</td></tr> <tr><td align=center>:</td> <td align=center>5</td> <td>‘{ “boo”, “and”, “foo”‘}</td></tr> <tr><td align=center>:</td> <td align=center>-2</td> <td>‘{ “boo”, “and”, “foo”‘}</td></tr> <tr><td align=center>o</td> <td align=center>5</td> <td>‘{ “b”, “”, “:and:f”, “”, “”‘}</td></tr> <tr><td align=center>o</td> <td align=center>-2</td> <td>‘{ “b”, “”, “:and:f”, “”, “”‘}</td></tr> <tr><td align=center>o</td> <td align=center>0</td> <td>‘{ “b”, “”, “:and:f”‘}</td></tr> </table></blockquote>  <p> An invocation of this method of the form <i>str.</i>‘split(‘<i>regex</i>‘,’&amp;nbsp;<i>n</i>‘)’ yields the same result as the expression  <blockquote> <code> 'java.util.regex.Pattern'.'java.util.regex.Pattern#compile compile'(<i>regex</i>).'java.util.regex.Pattern#split(java.lang.CharSequence,int) split'(<i>str</i>,&nbsp;<i>n</i>) </code> </blockquote></td>
+<td align="left">PatternSyntaxException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="String-CaseInsensitiveComparator"><a href="#String-CaseInsensitiveComparator" class="headerlink" title="String$CaseInsensitiveComparator"></a><a href="./String$CaseInsensitiveComparator.html">String$CaseInsensitiveComparator</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

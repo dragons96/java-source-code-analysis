@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/im/InputMethodRequests.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="InputMethodRequests"><a href="#InputMethodRequests" class="headerlink" title="InputMethodRequests"></a>InputMethodRequests</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.im.InputMethodRequests</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getTextLocation(TextHitInfo offset): Rectangle</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the location of a specified offset in the current composed text, or of the selection in committed text. This information is, for example, used to position the candidate window near the composed text, or a composition window near the location where committed text will be inserted.  <p> If the component has composed text (because the most recent InputMethodEvent sent to it contained composed text), then the offset is relative to the composed text - offset 0 indicates the first character in the composed text. The location returned should be for this character.  <p> If the component doesn’t have composed text, the offset should be ignored, and the location returned should reflect the beginning (in line direction) of the highlight in the last line containing selected text. For example, for horizontal left-to-right text (such as English), the location to the left of the left-most character on the last line containing selected text is returned. For vertical top-to-bottom text, with lines proceeding from right to left, the location to the top of the left-most line containing selected text is returned.  <p> The location is represented as a 0-thickness caret, that is, it has 0 width if the text is drawn horizontally, and 0 height if the text is drawn vertically. Other text orientations need to be mapped to horizontal or vertical orientation. The rectangle uses absolute screen coordinates.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocationOffset(int x, int y): TextHitInfo</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the offset within the composed text for the specified absolute x and y coordinates on the screen. This information is used, for example to handle mouse clicks and the mouse cursor. The offset is relative to the composed text, so offset 0 indicates the beginning of the composed text.  <p> Return null if the location is outside the area occupied by the composed text.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInsertPositionOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the offset of the insert position in the committed text contained in the text editing component. This is the offset at which characters entered through an input method are inserted. This information is used by an input method, for example, to examine the text surrounding the insert position.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCommittedText(int beginIndex, int endIndex, Attribute[] attributes): AttributedCharacterIterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets an iterator providing access to the entire text and attributes contained in the text editing component except for uncommitted text. Uncommitted (composed) text should be ignored for index calculations and should not be made accessible through the iterator.  <p> The input method may provide a list of attributes that it is interested in. In that case, information about other attributes that the implementor may have need not be made accessible through the iterator. If the list is null, all available attribute information should be made accessible.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCommittedTextLength(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the length of the entire text contained in the text editing component except for uncommitted (composed) text.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cancelLatestCommittedText(Attribute[] attributes): AttributedCharacterIterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the latest committed text from the text editing component and removes it from the component’s text body. This is used for the “Undo Commit” feature in some input methods, where the committed text reverts to its previous composed state. The composed text will be sent to the component using an InputMethodEvent.  <p> Generally, this feature should only be supported immediately after the text was committed, not after the user performed other operations on the text. When the feature is not supported, return null.  <p> The input method may provide a list of attributes that it is interested in. In that case, information about other attributes that the implementor may have need not be made accessible through the iterator. If the list is null, all available attribute information should be made accessible.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSelectedText(Attribute[] attributes): AttributedCharacterIterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the currently selected text from the text editing component. This may be used for a variety of purposes. One of them is the “Reconvert” feature in some input methods. In this case, the input method will typically send an input method event to replace the selected text with composed text. Depending on the input method’s capabilities, this may be the original composed text for the selected text, the latest composed text entered anywhere in the text, or a version of the text that’s converted back from the selected text.  <p> The input method may provide a list of attributes that it is interested in. In that case, information about other attributes that the implementor may have need not be made accessible through the iterator. If the list is null, all available attribute information should be made accessible.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/Process.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.Process</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getOutputStream(): OutputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the output stream connected to the normal input of the subprocess.  Output to the stream is piped into the standard input of the process represented by this ‘Process’ object.  <p>If the standard input of the subprocess has been redirected using ‘ProcessBuilder#redirectInput(Redirect) ProcessBuilder.redirectInput’ then this method will return a <a href="ProcessBuilder.html#redirect-input">null output stream</a>.  <p>Implementation note: It is a good idea for the returned output stream to be buffered.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInputStream(): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the input stream connected to the normal output of the subprocess.  The stream obtains data piped from the standard output of the process represented by this ‘Process’ object.  <p>If the standard output of the subprocess has been redirected using ‘ProcessBuilder#redirectOutput(Redirect) ProcessBuilder.redirectOutput’ then this method will return a <a href="ProcessBuilder.html#redirect-output">null input stream</a>.  <p>Otherwise, if the standard error of the subprocess has been redirected using ‘ProcessBuilder#redirectErrorStream(boolean) ProcessBuilder.redirectErrorStream’ then the input stream returned by this method will receive the merged standard output and the standard error of the subprocess.  <p>Implementation note: It is a good idea for the returned input stream to be buffered.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getErrorStream(): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the input stream connected to the error output of the subprocess.  The stream obtains data piped from the error output of the process represented by this ‘Process’ object.  <p>If the standard error of the subprocess has been redirected using ‘ProcessBuilder#redirectError(Redirect) ProcessBuilder.redirectError’ or ‘ProcessBuilder#redirectErrorStream(boolean) ProcessBuilder.redirectErrorStream’ then this method will return a <a href="ProcessBuilder.html#redirect-output">null input stream</a>.  <p>Implementation note: It is a good idea for the returned input stream to be buffered.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>waitFor(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Causes the current thread to wait, if necessary, until the process represented by this ‘Process’ object has terminated.  This method returns immediately if the subprocess has already terminated.  If the subprocess has not yet terminated, the calling thread will be blocked until the subprocess exits.</td>
+<td align="left">InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>waitFor(long timeout, TimeUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Causes the current thread to wait, if necessary, until the subprocess represented by this ‘Process’ object has terminated, or the specified waiting time elapses.  <p>If the subprocess has already terminated then this method returns immediately with the value ‘true’.  If the process has not terminated and the timeout value is less than, or equal to, zero, then this method returns immediately with the value ‘false’.  <p>The default implementation of this methods polls the ‘exitValue’ to check if the process has terminated. Concrete implementations of this class are strongly encouraged to override this method with a more efficient implementation.</td>
+<td align="left">NullPointerException<br/>InterruptedException</td>
+</tr>
+<tr>
+<td align="center"><strong>exitValue(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the exit value for the subprocess.</td>
+<td align="left">IllegalThreadStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>destroy(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Kills the subprocess. Whether the subprocess represented by this ‘Process’ object is forcibly terminated or not is implementation dependent.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>destroyForcibly(): Process</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Kills the subprocess. The subprocess represented by this ‘Process’ object is forcibly terminated.  <p>The default implementation of this method invokes ‘#destroy’ and so may not forcibly terminate the process. Concrete implementations of this class are strongly encouraged to override this method with a compliant implementation.  Invoking this method on ‘Process’ objects returned by ‘ProcessBuilder#start’ and ‘Runtime#exec’ will forcibly terminate the process.  <p>Note: The subprocess may not terminate immediately. i.e. ‘isAlive()’ may return true for a brief period after ‘destroyForcibly()’ is called. This method may be chained to ‘waitFor()’ if needed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAlive(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether the subprocess represented by this ‘Process’ is alive.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

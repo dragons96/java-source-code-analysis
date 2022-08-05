@@ -67,7 +67,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><strong>emptyHandlers[]: Handler</strong></td>
+<td align="center"><strong>emptyHandlers: Handler[]</strong></td>
 <td align="center">new Handler[0]</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -144,7 +144,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: CopyOnWriteArrayList&lt;Handler&gt; handlers &#x3D;new CopyOnWriteArrayList&lt;&gt;()</strong></td>
+<td align="center"><strong>handlers: CopyOnWriteArrayList&lt;Handler&gt;</strong></td>
 <td align="center">new CopyOnWriteArrayList&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -320,7 +320,7 @@
 <td align="left">GLOBAL_LOGGER_NAME is a name for the global logger.  @since 1.6</td>
 </tr>
 <tr>
-<td align="center"><strong>global: Logger</strong></td>
+<td align="center"><strong>global: final</strong></td>
 <td align="center">new Logger(GLOBAL_LOGGER_NAME)</td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -419,7 +419,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>setLogManager(LogManager manager)</strong></td>
+<td align="center"><strong>setLogManager(LogManager manager): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -476,7 +476,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Find or create a logger for a named subsystem.  If a logger has already been created with the given name it is returned.  Otherwise a new logger is created. <p> If a new logger is created its log level will be configured based on the LogManager and it will configured to also send logging output to its parent’s Handlers.  It will be registered in the LogManager global namespace. <p> Note: The LogManager may only retain a weak reference to the newly created Logger. It is important to understand that a previously created Logger with the given name may be garbage collected at any time if there is no strong reference to the Logger. In particular, this means that two back-to-back calls like ‘getLogger(“MyLogger”, …).log(…)’ may use different Logger objects named “MyLogger” if there is no strong reference to the Logger named “MyLogger” elsewhere in the program. <p> If the named Logger already exists and does not yet have a localization resource bundle then the given resource bundle name is used.  If the named Logger already exists and has a different resource bundle name then an IllegalArgumentException is thrown. <p></td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>MissingResourceException</td>
+<td align="left">MissingResourceException<br/>NullPointerException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>getPlatformLogger(String name): Logger</strong></td>

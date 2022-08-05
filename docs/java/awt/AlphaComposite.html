@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/AlphaComposite.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AlphaComposite"><a href="#AlphaComposite" class="headerlink" title="AlphaComposite"></a>AlphaComposite</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.AlphaComposite</strong></td>
+<td align="center">class</td>
+<td align="center">Composite</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>CLEAR: final</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Both the color and the alpha of the destination are cleared (Porter-Duff Clear rule). Neither the source nor the destination is used as input. <p> <em>F<sub>s</sub></em> &#x3D; 0 and <em>F<sub>d</sub></em> &#x3D; 0, thus: <pre> <em>A<sub>r</sub></em> = 0 <em>C<sub>r</sub></em> = 0 </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>SRC: final</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The source is copied to the destination (Porter-Duff Source rule). The destination is not used as input. <p> <em>F<sub>s</sub></em> &#x3D; 1 and <em>F<sub>d</sub></em> &#x3D; 0, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em> </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>DST: final</strong></td>
+<td align="center">9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The destination is left untouched (Porter-Duff Destination rule). <p> <em>F<sub>s</sub></em> &#x3D; 0 and <em>F<sub>d</sub></em> &#x3D; 1, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>d</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>d</sub></em> </pre> @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>SRC_OVER: final</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The source is composited over the destination (Porter-Duff Source Over Destination rule). <p> <em>F<sub>s</sub></em> &#x3D; 1 and <em>F<sub>d</sub></em> &#x3D; (1-<em>A<sub>s</sub></em>), thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em> + <em>A<sub>d</sub></em><em>(1-<em>A<sub>s</sub></em>) <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em> + <em>C<sub>d</sub></em></em>(1-<em>A<sub>s</sub></em>) </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>DST_OVER: final</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The destination is composited over the source and the result replaces the destination (Porter-Duff Destination Over Source rule). <p> <em>F<sub>s</sub></em> &#x3D; (1-<em>A<sub>d</sub></em>) and <em>F<sub>d</sub></em> &#x3D; 1, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em><em>(1-<em>A<sub>d</sub></em>) + <em>A<sub>d</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em></em>(1-<em>A<sub>d</sub></em>) + <em>C<sub>d</sub></em> </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>SRC_IN: final</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the source lying inside of the destination replaces the destination (Porter-Duff Source In Destination rule). <p> <em>F<sub>s</sub></em> &#x3D; <em>A<sub>d</sub></em> and <em>F<sub>d</sub></em> &#x3D; 0, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em><em><em>A<sub>d</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em></em><em>A<sub>d</sub></em> </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>DST_IN: final</strong></td>
+<td align="center">6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the destination lying inside of the source replaces the destination (Porter-Duff Destination In Source rule). <p> <em>F<sub>s</sub></em> &#x3D; 0 and <em>F<sub>d</sub></em> &#x3D; <em>A<sub>s</sub></em>, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>d</sub></em><em><em>A<sub>s</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>d</sub></em></em><em>A<sub>s</sub></em> </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>SRC_OUT: final</strong></td>
+<td align="center">7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the source lying outside of the destination replaces the destination (Porter-Duff Source Held Out By Destination rule). <p> <em>F<sub>s</sub></em> &#x3D; (1-<em>A<sub>d</sub></em>) and <em>F<sub>d</sub></em> &#x3D; 0, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em><em>(1-<em>A<sub>d</sub></em>) <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em></em>(1-<em>A<sub>d</sub></em>) </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>DST_OUT: final</strong></td>
+<td align="center">8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the destination lying outside of the source replaces the destination (Porter-Duff Destination Held Out By Source rule). <p> <em>F<sub>s</sub></em> &#x3D; 0 and <em>F<sub>d</sub></em> &#x3D; (1-<em>A<sub>s</sub></em>), thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>d</sub></em><em>(1-<em>A<sub>s</sub></em>) <em>C<sub>r</sub></em> = <em>C<sub>d</sub></em></em>(1-<em>A<sub>s</sub></em>) </pre></td>
+</tr>
+<tr>
+<td align="center"><strong>SRC_ATOP: final</strong></td>
+<td align="center">10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the source lying inside of the destination is composited onto the destination (Porter-Duff Source Atop Destination rule). <p> <em>F<sub>s</sub></em> &#x3D; <em>A<sub>d</sub></em> and <em>F<sub>d</sub></em> &#x3D; (1-<em>A<sub>s</sub></em>), thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em><em><em>A<sub>d</sub></em> + <em>A<sub>d</sub></em></em>(1-<em>A<sub>s</sub></em>) = <em>A<sub>d</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em><em><em>A<sub>d</sub></em> + <em>C<sub>d</sub></em></em>(1-<em>A<sub>s</sub></em>) </pre> @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DST_ATOP: final</strong></td>
+<td align="center">11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the destination lying inside of the source is composited over the source and replaces the destination (Porter-Duff Destination Atop Source rule). <p> <em>F<sub>s</sub></em> &#x3D; (1-<em>A<sub>d</sub></em>) and <em>F<sub>d</sub></em> &#x3D; <em>A<sub>s</sub></em>, thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em><em>(1-<em>A<sub>d</sub></em>) + <em>A<sub>d</sub></em></em><em>A<sub>s</sub></em> = <em>A<sub>s</sub></em> <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em><em>(1-<em>A<sub>d</sub></em>) + <em>C<sub>d</sub></em></em><em>A<sub>s</sub></em> </pre> @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>XOR: final</strong></td>
+<td align="center">12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The part of the source that lies outside of the destination is combined with the part of the destination that lies outside of the source (Porter-Duff Source Xor Destination rule). <p> <em>F<sub>s</sub></em> &#x3D; (1-<em>A<sub>d</sub></em>) and <em>F<sub>d</sub></em> &#x3D; (1-<em>A<sub>s</sub></em>), thus: <pre> <em>A<sub>r</sub></em> = <em>A<sub>s</sub></em><em>(1-<em>A<sub>d</sub></em>) + <em>A<sub>d</sub></em></em>(1-<em>A<sub>s</sub></em>) <em>C<sub>r</sub></em> = <em>C<sub>s</sub></em><em>(1-<em>A<sub>d</sub></em>) + <em>C<sub>d</sub></em></em>(1-<em>A<sub>s</sub></em>) </pre> @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>Clear: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(CLEAR)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque CLEAR rule with an alpha of 1.0f. @see #CLEAR</td>
+</tr>
+<tr>
+<td align="center"><strong>Src: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(SRC)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque SRC rule with an alpha of 1.0f. @see #SRC</td>
+</tr>
+<tr>
+<td align="center"><strong>Dst: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(DST)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque DST rule with an alpha of 1.0f. @see #DST @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>SrcOver: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(SRC_OVER)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque SRC_OVER rule with an alpha of 1.0f. @see #SRC_OVER</td>
+</tr>
+<tr>
+<td align="center"><strong>DstOver: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(DST_OVER)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque DST_OVER rule with an alpha of 1.0f. @see #DST_OVER</td>
+</tr>
+<tr>
+<td align="center"><strong>SrcIn: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(SRC_IN)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque SRC_IN rule with an alpha of 1.0f. @see #SRC_IN</td>
+</tr>
+<tr>
+<td align="center"><strong>DstIn: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(DST_IN)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque DST_IN rule with an alpha of 1.0f. @see #DST_IN</td>
+</tr>
+<tr>
+<td align="center"><strong>SrcOut: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(SRC_OUT)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque SRC_OUT rule with an alpha of 1.0f. @see #SRC_OUT</td>
+</tr>
+<tr>
+<td align="center"><strong>DstOut: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(DST_OUT)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque DST_OUT rule with an alpha of 1.0f. @see #DST_OUT</td>
+</tr>
+<tr>
+<td align="center"><strong>SrcAtop: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(SRC_ATOP)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque SRC_ATOP rule with an alpha of 1.0f. @see #SRC_ATOP @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DstAtop: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(DST_ATOP)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque DST_ATOP rule with an alpha of 1.0f. @see #DST_ATOP @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>Xor: AlphaComposite</strong></td>
+<td align="center">new AlphaComposite(XOR)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>AlphaComposite</code> object that implements the opaque XOR rule with an alpha of 1.0f. @see #XOR @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_RULE: final</strong></td>
+<td align="center">CLEAR</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_RULE: final</strong></td>
+<td align="center">XOR</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>extraAlpha: float</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rule: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>AlphaComposite(int rule)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AlphaComposite(int rule, float alpha)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(int rule): AlphaComposite</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an <code>AlphaComposite</code> object with the specified rule.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInstance(int rule, float alpha): AlphaComposite</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an <code>AlphaComposite</code> object with the specified rule and the constant alpha to multiply with the alpha of the source. The source is multiplied with the specified alpha before being composited with the destination.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>createContext(ColorModel srcColorModel, ColorModel dstColorModel, RenderingHints hints): CompositeContext</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a context for the compositing operation. The context contains state that is used in performing the compositing operation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAlpha(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the alpha value of this <code>AlphaComposite</code>.  If this <code>AlphaComposite</code> does not have an alpha value, 1.0 is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRule(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the compositing rule of this <code>AlphaComposite</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>derive(int rule): AlphaComposite</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a similar <code>AlphaComposite</code> object that uses the specified compositing rule. If this object already uses the specified compositing rule, this object is returned.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>derive(float alpha): AlphaComposite</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a similar <code>AlphaComposite</code> object that uses the specified alpha value. If this object already has the specified alpha value, this object is returned.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hashcode for this composite.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the specified object is equal to this <code>AlphaComposite</code>. <p> The result is <code>true</code> if and only if the argument is not <code>null</code> and is an <code>AlphaComposite</code> object that has the same compositing rule and alpha value as this object.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

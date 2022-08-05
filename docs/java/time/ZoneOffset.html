@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/ZoneOffset.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ZoneOffset"><a href="#ZoneOffset" class="headerlink" title="ZoneOffset"></a>ZoneOffset</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.ZoneOffset</strong></td>
+<td align="center">class</td>
+<td align="center">ZoneId</td>
+<td align="center">TemporalAccessor,TemporalAdjuster,Comparable&lt;ZoneOffset&gt;,Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SECONDS_CACHE: ConcurrentMap&lt;Integer, ZoneOffset&gt;</strong></td>
+<td align="center">new ConcurrentHashMap&lt;&gt;(16, 0.75f, 4)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cache of time-zone offset by offset in seconds.</td>
+</tr>
+<tr>
+<td align="center"><strong>ID_CACHE: ConcurrentMap&lt;String, ZoneOffset&gt;</strong></td>
+<td align="center">new ConcurrentHashMap&lt;&gt;(16, 0.75f, 4)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cache of time-zone offset by ID.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_SECONDS: int</strong></td>
+<td align="center">18 * SECONDS_PER_HOUR</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The abs maximum seconds.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">2357656521762053153L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+<tr>
+<td align="center"><strong>UTC: ZoneOffset</strong></td>
+<td align="center">ZoneOffset.ofTotalSeconds(0)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The time-zone offset for UTC, with an ID of ‘Z’.</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN: ZoneOffset</strong></td>
+<td align="center">ZoneOffset.ofTotalSeconds(-MAX_SECONDS)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the maximum supported offset.</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX: ZoneOffset</strong></td>
+<td align="center">ZoneOffset.ofTotalSeconds(MAX_SECONDS)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the maximum supported offset.</td>
+</tr>
+<tr>
+<td align="center"><strong>totalSeconds: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The total offset in seconds.</td>
+</tr>
+<tr>
+<td align="center"><strong>id: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The string form of the time-zone offset.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>of(String offsetId): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneOffset’ using the ID. <p> This method parses the string ID of a ‘ZoneOffset’ to return an instance. The parsing accepts all the formats generated by ‘#getId()’, plus some additional formats: <ul> <li>‘Z’ - for UTC <li>‘+h’ <li>‘+hh’ <li>‘+hh:mm’ <li>‘-hh:mm’ <li>‘+hhmm’ <li>‘-hhmm’ <li>‘+hh:mm:ss’ <li>‘-hh:mm:ss’ <li>‘+hhmmss’ <li>‘-hhmmss’ </ul> Note that &amp;plusmn; means either the plus or minus symbol. <p> The ID of the returned offset will be normalized to one of the formats described by ‘#getId()’. <p> The maximum supported range is from +18:00 to -18:00 inclusive.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseNumber(CharSequence offsetId, int pos, boolean precededByColon): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parse a two digit zero-prefixed number.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofHours(int hours): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneOffset’ using an offset in hours.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofHoursMinutes(int hours, int minutes): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneOffset’ using an offset in hours and minutes. <p> The sign of the hours and minutes components must match. Thus, if the hours is negative, the minutes must be negative or zero. If the hours is zero, the minutes may be positive, negative or zero.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofHoursMinutesSeconds(int hours, int minutes, int seconds): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneOffset’ using an offset in hours, minutes and seconds. <p> The sign of the hours, minutes and seconds components must match. Thus, if the hours is negative, the minutes and seconds must be negative or zero.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAccessor temporal): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneOffset’ from a temporal object. <p> This obtains an offset based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘ZoneOffset’. <p> A ‘TemporalAccessor’ represents some form of date and time information. This factory converts the arbitrary temporal object to an instance of ‘ZoneOffset’. <p> The conversion uses the ‘TemporalQueries#offset()’ query, which relies on extracting the ‘ChronoField#OFFSET_SECONDS OFFSET_SECONDS’ field. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘ZoneOffset::from’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>validate(int hours, int minutes, int seconds): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Validates the offset fields.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>totalSeconds(int hours, int minutes, int seconds): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates the total offset in seconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofTotalSeconds(int totalSeconds): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneOffset’ specifying the total offset in seconds <p> The offset must be in the range ‘-18:00’ to ‘+18:00’, which corresponds to -64800 to +64800.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>ZoneOffset(int totalSeconds)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>buildId(int totalSeconds): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTotalSeconds(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the total zone offset in seconds. <p> This is the primary way to access the offset amount. It returns the total of the hours, minutes and seconds fields as a single offset that can be added to a time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getId(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the normalized zone offset ID. <p> The ID is minor variation to the standard ISO-8601 formatted string for the offset. There are three formats: <ul> <li>‘Z’ - for UTC (ISO-8601) <li>‘+hh:mm’ or ‘-hh:mm’ - if the seconds are zero (ISO-8601) <li>‘+hh:mm:ss’ or ‘-hh:mm:ss’ - if the seconds are non-zero (not ISO-8601) </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRules(): ZoneRules</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the associated time-zone rules. <p> The rules will always return this offset when queried. The implementation class is immutable, thread-safe and serializable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupported(TemporalField field): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the specified field is supported. <p> This checks if this offset can be queried for the specified field. If false, then calling the ‘#range(TemporalField) range’ and ‘#get(TemporalField) get’ methods will throw an exception. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘OFFSET_SECONDS’ field returns true. All other ‘ChronoField’ instances will return false. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.isSupportedBy(TemporalAccessor)’ passing ‘this’ as the argument. Whether the field is supported is determined by the field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>range(TemporalField field): ValueRange</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the range of valid values for the specified field. <p> The range object expresses the minimum and maximum valid values for a field. This offset is used to enhance the accuracy of the returned range. If it is not possible to return the range, because the field is not supported or for some other reason, an exception is thrown. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘#isSupported(TemporalField) supported fields’ will return appropriate range instances. All other ‘ChronoField’ instances will throw an ‘UnsupportedTemporalTypeException’. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.rangeRefinedBy(TemporalAccessor)’ passing ‘this’ as the argument. Whether the range can be obtained is determined by the field.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(TemporalField field): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the specified field from this offset as an ‘int’. <p> This queries this offset for the value of the specified field. The returned value will always be within the valid range of values for the field. If it is not possible to return the value, because the field is not supported or for some other reason, an exception is thrown. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘OFFSET_SECONDS’ field returns the value of the offset. All other ‘ChronoField’ instances will throw an ‘UnsupportedTemporalTypeException’. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.getFrom(TemporalAccessor)’ passing ‘this’ as the argument. Whether the value can be obtained, and what the value represents, is determined by the field.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(TemporalField field): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the specified field from this offset as a ‘long’. <p> This queries this offset for the value of the specified field. If it is not possible to return the value, because the field is not supported or for some other reason, an exception is thrown. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘OFFSET_SECONDS’ field returns the value of the offset. All other ‘ChronoField’ instances will throw an ‘UnsupportedTemporalTypeException’. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.getFrom(TemporalAccessor)’ passing ‘this’ as the argument. Whether the value can be obtained, and what the value represents, is determined by the field.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>query(TemporalQuery&lt;R&gt; query): R</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries this offset using the specified query. <p> This queries this offset using the specified query strategy object. The ‘TemporalQuery’ object defines the logic to be used to obtain the result. Read the documentation of the query to understand what the result of this method will be. <p> The result of this method is obtained by invoking the ‘TemporalQuery#queryFrom(TemporalAccessor)’ method on the specified query passing ‘this’ as the argument.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>adjustInto(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adjusts the specified temporal object to have the same offset as this object. <p> This returns a temporal object of the same observable type as the input with the offset changed to be the same as this. <p> The adjustment is equivalent to using ‘Temporal#with(TemporalField, long)’ passing ‘ChronoField#OFFSET_SECONDS’ as the field. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#with(TemporalAdjuster)’: <pre>  temporal = thisOffset.adjustInto(temporal); temporal = temporal.with(thisOffset); </pre> <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(ZoneOffset other): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this offset to another offset in descending order. <p> The offsets are compared in the order that they occur for the same time of day around the world. Thus, an offset of ‘+10:00’ comes before an offset of ‘+09:00’ and so on down to ‘-18:00’. <p> The comparison is “consistent with equals”, as defined by ‘Comparable’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this offset is equal to another offset. <p> The comparison is based on the amount of the offset in seconds. This is equivalent to a comparison by ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A hash code for this offset.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Outputs this offset as a ‘String’, using the normalized ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the object using a <a href="../../serialized-form.html#java.time.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>write(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeExternal(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readExternal(DataInput in): ZoneOffset</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

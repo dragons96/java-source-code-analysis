@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/ZoneId.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ZoneId"><a href="#ZoneId" class="headerlink" title="ZoneId"></a>ZoneId</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.ZoneId</strong></td>
+<td align="center">abstract class</td>
+<td align="center">Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SHORT_IDS: Map&lt;String, String&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A map of zone overrides to enable the short time-zone names to be used. <p> Use of short zone IDs has been deprecated in {@code java.util.TimeZone}. This map allows the IDs to continue to be used via the {@link #of(String, Map)} factory method. <p> This map contains a mapping of the IDs that is in line with TZDB 2005r and later, where ‘EST’, ‘MST’ and ‘HST’ map to IDs which do not include daylight savings. <p> This maps as follows: <ul> <li>EST - -05:00</li> <li>HST - -10:00</li> <li>MST - -07:00</li> <li>ACT - Australia&#x2F;Darwin</li> <li>AET - Australia&#x2F;Sydney</li> <li>AGT - America&#x2F;Argentina&#x2F;Buenos_Aires</li> <li>ART - Africa&#x2F;Cairo</li> <li>AST - America&#x2F;Anchorage</li> <li>BET - America&#x2F;Sao_Paulo</li> <li>BST - Asia&#x2F;Dhaka</li> <li>CAT - Africa&#x2F;Harare</li> <li>CNT - America&#x2F;St_Johns</li> <li>CST - America&#x2F;Chicago</li> <li>CTT - Asia&#x2F;Shanghai</li> <li>EAT - Africa&#x2F;Addis_Ababa</li> <li>ECT - Europe&#x2F;Paris</li> <li>IET - America&#x2F;Indiana&#x2F;Indianapolis</li> <li>IST - Asia&#x2F;Kolkata</li> <li>JST - Asia&#x2F;Tokyo</li> <li>MIT - Pacific&#x2F;Apia</li> <li>NET - Asia&#x2F;Yerevan</li> <li>NST - Pacific&#x2F;Auckland</li> <li>PLT - Asia&#x2F;Karachi</li> <li>PNT - America&#x2F;Phoenix</li> <li>PRT - America&#x2F;Puerto_Rico</li> <li>PST - America&#x2F;Los_Angeles</li> <li>SST - Pacific&#x2F;Guadalcanal</li> <li>VST - Asia&#x2F;Ho_Chi_Minh</li> </ul> The map is unmodifiable.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">8352817235686L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>systemDefault(): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the system default time-zone. <p> This queries ‘TimeZone#getDefault()’ to find the default time-zone and converts it to a ‘ZoneId’. If the system default time-zone is changed, then the result of this method will also change.</td>
+<td align="left">DateTimeException<br/>ZoneRulesException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAvailableZoneIds(): Set<String></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the set of available zone IDs. <p> This set includes the string form of all available region-based IDs. Offset-based zone IDs are not included in the returned set. The ID can be passed to ‘#of(String)’ to create a ‘ZoneId’. <p> The set of zone IDs can increase over time, although in a typical application the set of IDs is fixed. Each call to this method is thread-safe.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>of(String zoneId, Map&lt;String, String&gt; aliasMap): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneId’ using its ID using a map of aliases to supplement the standard zone IDs. <p> Many users of time-zones use short abbreviations, such as PST for ‘Pacific Standard Time’ and PDT for ‘Pacific Daylight Time’. These abbreviations are not unique, and so cannot be used as IDs. This method allows a map of string to time-zone to be setup and reused within an application.</td>
+<td align="left">DateTimeException<br/>ZoneRulesException</td>
+</tr>
+<tr>
+<td align="center"><strong>of(String zoneId): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneId’ from an ID ensuring that the ID is valid and available for use. <p> This method parses the ID producing a ‘ZoneId’ or ‘ZoneOffset’. A ‘ZoneOffset’ is returned if the ID is ‘Z’, or starts with ‘+’ or ‘-‘. The result will always be a valid ID for which ‘ZoneRules’ can be obtained. <p> Parsing matches the zone ID step by step as follows. <ul> <li>If the zone ID equals ‘Z’, the result is ‘ZoneOffset.UTC’. <li>If the zone ID consists of a single letter, the zone ID is invalid and ‘DateTimeException’ is thrown. <li>If the zone ID starts with ‘+’ or ‘-‘, the ID is parsed as a ‘ZoneOffset’ using ‘ZoneOffset#of(String)’. <li>If the zone ID equals ‘GMT’, ‘UTC’ or ‘UT’ then the result is a ‘ZoneId’ with the same ID and rules equivalent to ‘ZoneOffset.UTC’. <li>If the zone ID starts with ‘UTC+’, ‘UTC-‘, ‘GMT+’, ‘GMT-‘, ‘UT+’ or ‘UT-‘ then the ID is a prefixed offset-based ID. The ID is split in two, with a two or three letter prefix and a suffix starting with the sign. The suffix is parsed as a ‘ZoneOffset#of(String) ZoneOffset’. The result will be a ‘ZoneId’ with the specified UTC&#x2F;GMT&#x2F;UT prefix and the normalized offset ID as per ‘ZoneOffset#getId()’. The rules of the returned ‘ZoneId’ will be equivalent to the parsed ‘ZoneOffset’. <li>All other IDs are parsed as region-based zone IDs. Region IDs must match the regular expression <code>[A-Za-z][A-Za-z0-9~/._+-]+</code> otherwise a ‘DateTimeException’ is thrown. If the zone ID is not in the configured set of IDs, ‘ZoneRulesException’ is thrown. The detailed format of the region ID depends on the group supplying the data. The default set of data is supplied by the IANA Time Zone Database (TZDB). This has region IDs of the form ‘{area}&#x2F;{city}’, such as ‘Europe&#x2F;Paris’ or ‘America&#x2F;New_York’. This is compatible with most IDs from ‘java.util.TimeZone’. </ul></td>
+<td align="left">DateTimeException<br/>ZoneRulesException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofOffset(String prefix, ZoneOffset offset): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneId’ wrapping an offset. <p> If the prefix is “GMT”, “UTC”, or “UT” a ‘ZoneId’ with the prefix and the non-zero offset is returned. If the prefix is empty ‘“”‘ the ‘ZoneOffset’ is returned.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>of(String zoneId, boolean checkAvailable): ZoneId</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses the ID, taking a flag to indicate whether ‘ZoneRulesException’ should be thrown or not, used in deserialization.</td>
+<td align="left">DateTimeException<br/>ZoneRulesException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofWithPrefix(String zoneId, int prefixLength, boolean checkAvailable): ZoneId</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parse once a prefix is established.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAccessor temporal): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘ZoneId’ from a temporal object. <p> This obtains a zone based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘ZoneId’. <p> A ‘TemporalAccessor’ represents some form of date and time information. This factory converts the arbitrary temporal object to an instance of ‘ZoneId’. <p> The conversion will try to obtain the zone in a way that favours region-based zones over offset-based zones using ‘TemporalQueries#zone()’. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘ZoneId::from’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>ZoneId()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor only accessible within the package.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getId(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the unique time-zone ID. <p> This ID uniquely defines this object. The format of an offset based ID is defined by ‘ZoneOffset#getId()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayName(TextStyle style, Locale locale): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the textual representation of the zone, such as ‘British Time’ or ‘+02:00’. <p> This returns the textual name used to identify the time-zone ID, suitable for presentation to the user. The parameters control the style of the returned text and the locale. <p> If no textual mapping is found then the ‘#getId() full ID’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toTemporal(): TemporalAccessor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this zone to a ‘TemporalAccessor’. <p> A ‘ZoneId’ can be fully represented as a ‘TemporalAccessor’. However, the interface is not implemented by this class as most of the methods on the interface have no meaning to ‘ZoneId’. <p> The returned temporal has no supported fields, with the query method supporting the return of the zone using ‘TemporalQueries#zoneId()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRules(): ZoneRules</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the time-zone rules for this ID allowing calculations to be performed. <p> The rules provide the functionality associated with a time-zone, such as finding the offset for a given instant or local date-time. <p> A time-zone can be invalid if it is deserialized in a Java Runtime which does not have the same rules loaded as the Java Runtime that stored it. In this case, calling this method will throw a ‘ZoneRulesException’. <p> The rules are supplied by ‘ZoneRulesProvider’. An advanced provider may support dynamic updates to the rules without restarting the Java Runtime. If so, then the result of this method may change over time. Each individual call will be still remain thread-safe. <p> ‘ZoneOffset’ will always return a set of rules where the offset never changes.</td>
+<td align="left">ZoneRulesException</td>
+</tr>
+<tr>
+<td align="center"><strong>normalized(): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Normalizes the time-zone ID, returning a ‘ZoneOffset’ where possible. <p> The returns a normalized ‘ZoneId’ that can be used in place of this ID. The result will have ‘ZoneRules’ equivalent to those returned by this object, however the ID returned by ‘getId()’ may be different. <p> The normalization checks if the rules of this ‘ZoneId’ have a fixed offset. If they do, then the ‘ZoneOffset’ equal to that offset is returned. Otherwise ‘this’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this time-zone ID is equal to another time-zone ID. <p> The comparison is based on the ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A hash code for this time-zone ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Outputs this zone as a ‘String’, using the ID.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the object using a <a href="../../serialized-form.html#java.time.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>write(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

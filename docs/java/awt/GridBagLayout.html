@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/GridBagLayout.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="GridBagLayout"><a href="#GridBagLayout" class="headerlink" title="GridBagLayout"></a>GridBagLayout</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.GridBagLayout</strong></td>
+<td align="center">class</td>
+<td align="center">LayoutManager2,java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>EMPIRICMULTIPLIER: int</strong></td>
+<td align="center">2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MAXGRIDSIZE: int</strong></td>
+<td align="center">512</td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field is no longer used to reserve arrays and kept for backward compatibility. Previously, this was the maximum number of grid positions (both horizontal and vertical) that could be laid out by the grid bag layout. Current implementation doesn’t impose any limits on the size of a grid.</td>
+</tr>
+<tr>
+<td align="center"><strong>MINSIZE: int</strong></td>
+<td align="center">1</td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The smallest grid that can be laid out by the grid bag layout.</td>
+</tr>
+<tr>
+<td align="center"><strong>PREFERREDSIZE: int</strong></td>
+<td align="center">2</td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The preferred grid size that can be laid out by the grid bag layout.</td>
+</tr>
+<tr>
+<td align="center"><strong>comptable: Hashtable&lt;Component,GridBagConstraints&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This hashtable maintains the association between a component and its gridbag constraints. The Keys in <code>comptable</code> are the components and the values are the instances of <code>GridBagConstraints</code>.  @serial @see java.awt.GridBagConstraints</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultConstraints: GridBagConstraints</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field holds a gridbag constraints instance containing the default values, so if a component does not have gridbag constraints associated with it, then the component will be assigned a copy of the <code>defaultConstraints</code>.  @serial @see #getConstraints(Component) @see #setConstraints(Component, GridBagConstraints) @see #lookupConstraints(Component)</td>
+</tr>
+<tr>
+<td align="center"><strong>layoutInfo: GridBagLayoutInfo</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field holds the layout information for the gridbag.  The information in this field is based on the most recent validation of the gridbag. If <code>layoutInfo</code> is <code>null</code> this indicates that there are no components in the gridbag or if there are components, they have not yet been validated.  @serial @see #getLayoutInfo(Container, int)</td>
+</tr>
+<tr>
+<td align="center"><strong>columnWidths: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field holds the overrides to the column minimum width.  If this field is non-<code>null</code> the values are applied to the gridbag after all of the minimum columns widths have been calculated. If columnWidths has more elements than the number of columns, columns are added to the gridbag to match the number of elements in columnWidth.  @serial @see #getLayoutDimensions()</td>
+</tr>
+<tr>
+<td align="center"><strong>rowHeights: int[]</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field holds the overrides to the row minimum heights.  If this field is non-<code>null</code> the values are applied to the gridbag after all of the minimum row heights have been calculated. If <code>rowHeights</code> has more elements than the number of rows, rows are added to the gridbag to match the number of elements in <code>rowHeights</code>.  @serial @see #getLayoutDimensions()</td>
+</tr>
+<tr>
+<td align="center"><strong>columnWeights: double[]</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field holds the overrides to the column weights. If this field is non-<code>null</code> the values are applied to the gridbag after all of the columns weights have been calculated. If <code>columnWeights[i]</code> &gt; weight for column i, then column i is assigned the weight in <code>columnWeights[i]</code>. If <code>columnWeights</code> has more elements than the number of columns, the excess elements are ignored - they do not cause more columns to be created.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>rowWeights: double[]</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This field holds the overrides to the row weights. If this field is non-<code>null</code> the values are applied to the gridbag after all of the rows weights have been calculated. If <code>rowWeights[i]</code> &gt; weight for row i, then row i is assigned the weight in <code>rowWeights[i]</code>. If <code>rowWeights</code> has more elements than the number of rows, the excess elements are ignored - they do not cause more rows to be created.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>componentAdjusting: Component</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The component being positioned.  This is set before calling into <code>adjustForGravity</code>.</td>
+</tr>
+<tr>
+<td align="center"><strong>rightToLeft: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">8838754796412211005L</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>setConstraints(Component comp, GridBagConstraints constraints): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the constraints for the specified component in this layout.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getConstraints(Component comp): GridBagConstraints</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the constraints for the specified component.  A copy of the actual <code>GridBagConstraints</code> object is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupConstraints(Component comp): GridBagConstraints</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the constraints for the specified component. The return value is not a copy, but is the actual <code>GridBagConstraints</code> object used by the layout mechanism. <p> If <code>comp</code> is not in the <code>GridBagLayout</code>, a set of default <code>GridBagConstraints</code> are returned. A <code>comp</code> value of <code>null</code> is invalid and returns <code>null</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeConstraints(Component comp): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the constraints for the specified component in this layout</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>location(int x, int y): Point</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines which cell in the layout grid contains the point specified by <code>(x,&nbsp;y)</code>. Each cell is identified by its column index (ranging from 0 to the number of columns minus 1) and its row index (ranging from 0 to the number of rows minus 1). <p> If the <code>(x,&nbsp;y)</code> point lies outside the grid, the following rules are used. The column index is returned as zero if <code>x</code> lies to the left of the layout for a left-to-right container or to the right of the layout for a right-to-left container.  The column index is returned as the number of columns if <code>x</code> lies to the right of the layout in a left-to-right container or to the left in a right-to-left container. The row index is returned as zero if <code>y</code> lies above the layout, and as the number of rows if <code>y</code> lies below the layout.  The orientation of a container is determined by its <code>ComponentOrientation</code> property.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addLayoutComponent(String name, Component comp): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Has no effect, since this layout manager does not use a per-component string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addLayoutComponent(Component comp, Object constraints): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified component to the layout, using the specified <code>constraints</code> object.  Note that constraints are mutable and are, therefore, cloned when cached.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeLayoutComponent(Component comp): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified component from this layout. <p> Most applications do not call this method directly.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preferredLayoutSize(Container parent): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the preferred size of the <code>parent</code> container using this grid bag layout. <p> Most applications do not call this method directly.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minimumLayoutSize(Container parent): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the minimum size of the <code>parent</code> container using this grid bag layout. <p> Most applications do not call this method directly.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>maximumLayoutSize(Container target): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum dimensions for this layout given the components in the specified target container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLayoutAlignmentX(Container parent): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the alignment along the x axis.  This specifies how the component would like to be aligned relative to other components.  The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from the origin, 0.5 is centered, etc. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLayoutAlignmentY(Container parent): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the alignment along the y axis.  This specifies how the component would like to be aligned relative to other components.  The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from the origin, 0.5 is centered, etc. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>invalidateLayout(Container target): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invalidates the layout, indicating that if the layout manager has cached information it should be discarded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>layoutContainer(Container parent): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Lays out the specified container using this grid bag layout. This method reshapes components in the specified container in order to satisfy the constraints of this <code>GridBagLayout</code> object. <p> Most applications do not call this method directly.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this grid bag layout’s values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLayoutInfo(Container parent, int sizeflag): GridBagLayoutInfo</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fills in an instance of <code>GridBagLayoutInfo</code> for the current set of managed children. This requires three passes through the set of children:  <ol> <li>Figure out the dimensions of the layout grid. <li>Determine which cells the components occupy. <li>Distribute the weights and min sizes among the rows&#x2F;columns. </ol>  This also caches the minsizes for all the children when they are first encountered (so subsequent loops don’t need to ask again). <p> This method should only be used internally by <code>GridBagLayout</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preInitMaximumArraySizes(Container parent): long[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate maximum array sizes to allocate arrays without ensureCapacity we may use preCalculated sizes in whole class because of upper estimation of maximumArrayXIndex and maximumArrayYIndex.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>GetLayoutInfo(Container parent, int sizeflag): GridBagLayoutInfo</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is obsolete and supplied for backwards compatibility only; new code should call ‘#getLayoutInfo(java.awt.Container, int) getLayoutInfo’ instead. This method is the same as <code>getLayoutInfo</code>; refer to <code>getLayoutInfo</code> for details on parameters and return value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>calculateBaseline(Component c, GridBagConstraints constraints, Dimension size): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculate the baseline for the specified component. If ‘c’ is positioned along it’s baseline, the baseline is obtained and the ‘constraints’ ascent, descent and baseline resize behavior are set from the component; and true is returned. Otherwise false is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>adjustForGravity(GridBagConstraints constraints, Rectangle r): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adjusts the x, y, width, and height fields to the correct values depending on the constraint geometry and pads. This method should only be used internally by <code>GridBagLayout</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AdjustForGravity(GridBagConstraints constraints, Rectangle r): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is obsolete and supplied for backwards compatibility only; new code should call ‘#adjustForGravity(java.awt.GridBagConstraints, java.awt.Rectangle) adjustForGravity’ instead. This method is the same as <code>adjustForGravity</code>; refer to <code>adjustForGravity</code> for details on parameters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>alignOnBaseline(GridBagConstraints cons, Rectangle r, int cellY, int cellHeight): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Positions on the baseline.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>alignAboveBaseline(GridBagConstraints cons, Rectangle r, int cellY, int cellHeight): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Positions the specified component above the baseline. That is the bottom edge of the component will be aligned along the baseline. If the row does not have a baseline, this centers the component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>alignBelowBaseline(GridBagConstraints cons, Rectangle r, int cellY, int cellHeight): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Positions below the baseline.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>centerVertically(GridBagConstraints cons, Rectangle r, int cellHeight): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinSize(Container parent, GridBagLayoutInfo info): Dimension</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Figures out the minimum size of the master based on the information from <code>getLayoutInfo</code>. This method should only be used internally by <code>GridBagLayout</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>GetMinSize(Container parent, GridBagLayoutInfo info): Dimension</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is obsolete and supplied for backwards compatibility only; new code should call ‘#getMinSize(java.awt.Container, GridBagLayoutInfo) getMinSize’ instead. This method is the same as <code>getMinSize</code>; refer to <code>getMinSize</code> for details on parameters and return value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>arrangeGrid(Container parent): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Lays out the grid. This method should only be used internally by <code>GridBagLayout</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ArrangeGrid(Container parent): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is obsolete and supplied for backwards compatibility only; new code should call ‘#arrangeGrid(Container) arrangeGrid’ instead. This method is the same as <code>arrangeGrid</code>; refer to <code>arrangeGrid</code> for details on the parameter.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

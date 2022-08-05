@@ -121,7 +121,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Appends the specified element to the end of this list (optional operation).  <p>Lists that support this operation may place limitations on what elements may be added to this list.  In particular, some lists will refuse to add null elements, and others will impose restrictions on the type of elements that may be added.  List classes should clearly specify in their documentation any restrictions on what elements may be added.  <p>This implementation calls ‘add(size(), e)’.  <p>Note that this implementation throws an ‘UnsupportedOperationException’ unless ‘#add(int, Object) add(int, E)’ is overridden.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>ClassCastException<br/>UnsupportedOperationException</td>
+<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(int index): E</strong></td>
@@ -145,7 +145,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation always throws an ‘UnsupportedOperationException’.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>UnsupportedOperationException<br/>IndexOutOfBoundsException<br/>ClassCastException</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException<br/>IndexOutOfBoundsException<br/>ClassCastException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>add(int index, E element): void</strong></td>
@@ -157,7 +157,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation always throws an ‘UnsupportedOperationException’.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>UnsupportedOperationException<br/>IndexOutOfBoundsException<br/>ClassCastException</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException<br/>IndexOutOfBoundsException<br/>ClassCastException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>remove(int index): E</strong></td>
@@ -169,7 +169,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation always throws an ‘UnsupportedOperationException’.</td>
-<td align="left">UnsupportedOperationException<br/>IndexOutOfBoundsException</td>
+<td align="left">IndexOutOfBoundsException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>indexOf(Object o): int</strong></td>
@@ -181,7 +181,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation first gets a list iterator (with ‘listIterator()’).  Then, it iterates over the list until the specified element is found or the end of the list is reached.</td>
-<td align="left">NullPointerException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>lastIndexOf(Object o): int</strong></td>
@@ -193,7 +193,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation first gets a list iterator that points to the end of the list (with ‘listIterator(size())’).  Then, it iterates backwards over the list until the specified element is found, or the beginning of the list is reached.</td>
-<td align="left">NullPointerException<br/>ClassCastException</td>
+<td align="left">ClassCastException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>clear(): void</strong></td>
@@ -217,7 +217,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation gets an iterator over the specified collection and iterates over it, inserting the elements obtained from the iterator into this list at the appropriate position, one at a time, using ‘add(int, E)’. Many implementations will override this method for efficiency.  <p>Note that this implementation throws an ‘UnsupportedOperationException’ unless ‘#add(int, Object) add(int, E)’ is overridden.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>UnsupportedOperationException<br/>IndexOutOfBoundsException<br/>ClassCastException</td>
+<td align="left">NullPointerException<br/>IllegalArgumentException<br/>IndexOutOfBoundsException<br/>ClassCastException<br/>UnsupportedOperationException</td>
 </tr>
 <tr>
 <td align="center"><strong>iterator(): Iterator<E></strong></td>
@@ -265,7 +265,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">‘inheritDoc’  <p>This implementation returns a list that subclasses ‘AbstractList’.  The subclass stores, in private fields, the offset of the subList within the backing list, the size of the subList (which can change over its lifetime), and the expected ‘modCount’ value of the backing list.  There are two variants of the subclass, one of which implements ‘RandomAccess’. If this list implements ‘RandomAccess’ the returned list will be an instance of the subclass that implements ‘RandomAccess’.  <p>The subclass’s ‘set(int, E)’, ‘get(int)’, ‘add(int, E)’, ‘remove(int)’, ‘addAll(int, Collection)’ and ‘removeRange(int, int)’ methods all delegate to the corresponding methods on the backing abstract list, after bounds-checking the index and adjusting for the offset.  The ‘addAll(Collection c)’ method merely returns ‘addAll(size, c)’.  <p>The ‘listIterator(int)’ method returns a “wrapper object” over a list iterator on the backing list, which is created with the corresponding method on the backing list.  The ‘iterator’ method merely returns ‘listIterator()’, and the ‘size’ method merely returns the subclass’s ‘size’ field.  <p>All methods first check to see if the actual ‘modCount’ of the backing list is equal to its expected value, and throw a ‘ConcurrentModificationException’ if it is not.</td>
-<td align="left">IllegalArgumentException<br/>IndexOutOfBoundsException</td>
+<td align="left">IndexOutOfBoundsException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>equals(Object o): boolean</strong></td>

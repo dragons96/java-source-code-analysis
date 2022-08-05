@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/MonthDay.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="MonthDay"><a href="#MonthDay" class="headerlink" title="MonthDay"></a>MonthDay</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.MonthDay</strong></td>
+<td align="center">class</td>
+<td align="center">TemporalAccessor,TemporalAdjuster,Comparable&lt;MonthDay&gt;,Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-939150713474957432L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+<tr>
+<td align="center"><strong>PARSER: DateTimeFormatter</strong></td>
+<td align="center">new DateTimeFormatterBuilder() .appendLiteral(“–”) .appendValue(MONTH_OF_YEAR, 2) .appendLiteral(‘-‘) .appendValue(DAY_OF_MONTH, 2) .toFormatter()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parser.</td>
+</tr>
+<tr>
+<td align="center"><strong>month: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The month-of-year, not null.</td>
+</tr>
+<tr>
+<td align="center"><strong>day: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The day-of-month.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>now(): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains the current month-day from the system clock in the default time-zone. <p> This will query the ‘Clock#systemDefaultZone() system clock’ in the default time-zone to obtain the current month-day. <p> Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>now(ZoneId zone): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains the current month-day from the system clock in the specified time-zone. <p> This will query the ‘Clock#system(ZoneId) system clock’ to obtain the current month-day. Specifying the time-zone avoids dependence on the default time-zone. <p> Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>now(Clock clock): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains the current month-day from the specified clock. <p> This will query the specified clock to obtain the current month-day. Using this method allows the use of an alternate clock for testing. The alternate clock may be introduced using ‘Clock dependency injection’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>of(Month month, int dayOfMonth): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘MonthDay’. <p> The day-of-month must be valid for the month within a leap year. Hence, for February, day 29 is valid. <p> For example, passing in April and day 31 will throw an exception, as there can never be April 31st in any year. By contrast, passing in February 29th is permitted, as that month-day can sometimes be valid.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>of(int month, int dayOfMonth): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘MonthDay’. <p> The day-of-month must be valid for the month within a leap year. Hence, for month 2 (February), day 29 is valid. <p> For example, passing in month 4 (April) and day 31 will throw an exception, as there can never be April 31st in any year. By contrast, passing in February 29th is permitted, as that month-day can sometimes be valid.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAccessor temporal): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘MonthDay’ from a temporal object. <p> This obtains a month-day based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘MonthDay’. <p> The conversion extracts the ‘ChronoField#MONTH_OF_YEAR MONTH_OF_YEAR’ and ‘ChronoField#DAY_OF_MONTH DAY_OF_MONTH’ fields. The extraction is only permitted if the temporal object has an ISO chronology, or can be converted to a ‘LocalDate’. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘MonthDay::from’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘MonthDay’ from a text string such as ‘–12-03’. <p> The string must represent a valid month-day. The format is ‘–MM-dd’.</td>
+<td align="left">DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text, DateTimeFormatter formatter): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘MonthDay’ from a text string using a specific formatter. <p> The text is parsed using the formatter, returning a month-day.</td>
+<td align="left">DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>MonthDay(int month, int dayOfMonth)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor, previously validated.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupported(TemporalField field): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the specified field is supported. <p> This checks if this month-day can be queried for the specified field. If false, then calling the ‘#range(TemporalField) range’ and ‘#get(TemporalField) get’ methods will throw an exception. <p> If the field is a ‘ChronoField’ then the query is implemented here. The supported fields are: <ul> <li>‘MONTH_OF_YEAR’ <li>‘YEAR’ </ul> All other ‘ChronoField’ instances will return false. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.isSupportedBy(TemporalAccessor)’ passing ‘this’ as the argument. Whether the field is supported is determined by the field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>range(TemporalField field): ValueRange</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the range of valid values for the specified field. <p> The range object expresses the minimum and maximum valid values for a field. This month-day is used to enhance the accuracy of the returned range. If it is not possible to return the range, because the field is not supported or for some other reason, an exception is thrown. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘#isSupported(TemporalField) supported fields’ will return appropriate range instances. All other ‘ChronoField’ instances will throw an ‘UnsupportedTemporalTypeException’. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.rangeRefinedBy(TemporalAccessor)’ passing ‘this’ as the argument. Whether the range can be obtained is determined by the field.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(TemporalField field): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the specified field from this month-day as an ‘int’. <p> This queries this month-day for the value of the specified field. The returned value will always be within the valid range of values for the field. If it is not possible to return the value, because the field is not supported or for some other reason, an exception is thrown. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘#isSupported(TemporalField) supported fields’ will return valid values based on this month-day. All other ‘ChronoField’ instances will throw an ‘UnsupportedTemporalTypeException’. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.getFrom(TemporalAccessor)’ passing ‘this’ as the argument. Whether the value can be obtained, and what the value represents, is determined by the field.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(TemporalField field): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the specified field from this month-day as a ‘long’. <p> This queries this month-day for the value of the specified field. If it is not possible to return the value, because the field is not supported or for some other reason, an exception is thrown. <p> If the field is a ‘ChronoField’ then the query is implemented here. The ‘#isSupported(TemporalField) supported fields’ will return valid values based on this month-day. All other ‘ChronoField’ instances will throw an ‘UnsupportedTemporalTypeException’. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.getFrom(TemporalAccessor)’ passing ‘this’ as the argument. Whether the value can be obtained, and what the value represents, is determined by the field.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMonthValue(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the month-of-year field from 1 to 12. <p> This method returns the month as an ‘int’ from 1 to 12. Application code is frequently clearer if the enum ‘Month’ is used by calling ‘#getMonth()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMonth(): Month</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the month-of-year field using the ‘Month’ enum. <p> This method returns the enum ‘Month’ for the month. This avoids confusion as to what ‘int’ values mean. If you need access to the primitive ‘int’ value then the enum provides the ‘Month#getValue() int value’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDayOfMonth(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the day-of-month field. <p> This method returns the primitive ‘int’ value for the day-of-month.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isValidYear(int year): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the year is valid for this month-day. <p> This method checks whether this month and day and the input year form a valid date. This can only return false for February 29th.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withMonth(int month): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this ‘MonthDay’ with the month-of-year altered. <p> This returns a month-day with the specified month. If the day-of-month is invalid for the specified month, the day will be adjusted to the last valid day-of-month. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>with(Month month): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this ‘MonthDay’ with the month-of-year altered. <p> This returns a month-day with the specified month. If the day-of-month is invalid for the specified month, the day will be adjusted to the last valid day-of-month. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withDayOfMonth(int dayOfMonth): MonthDay</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this ‘MonthDay’ with the day-of-month altered. <p> This returns a month-day with the specified day-of-month. If the day-of-month is invalid for the month, an exception is thrown. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>query(TemporalQuery&lt;R&gt; query): R</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Queries this month-day using the specified query. <p> This queries this month-day using the specified query strategy object. The ‘TemporalQuery’ object defines the logic to be used to obtain the result. Read the documentation of the query to understand what the result of this method will be. <p> The result of this method is obtained by invoking the ‘TemporalQuery#queryFrom(TemporalAccessor)’ method on the specified query passing ‘this’ as the argument.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>adjustInto(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adjusts the specified temporal object to have this month-day. <p> This returns a temporal object of the same observable type as the input with the month and day-of-month changed to be the same as this. <p> The adjustment is equivalent to using ‘Temporal#with(TemporalField, long)’ twice, passing ‘ChronoField#MONTH_OF_YEAR’ and ‘ChronoField#DAY_OF_MONTH’ as the fields. If the specified temporal object does not use the ISO calendar system then a ‘DateTimeException’ is thrown. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#with(TemporalAdjuster)’: <pre>  temporal = thisMonthDay.adjustInto(temporal); temporal = temporal.with(thisMonthDay); </pre> <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>format(DateTimeFormatter formatter): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats this month-day using the specified formatter. <p> This month-day will be passed to the formatter to produce a string.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>atYear(int year): LocalDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Combines this month-day with a year to create a ‘LocalDate’. <p> This returns a ‘LocalDate’ formed from this month-day and the specified year. <p> A month-day of February 29th will be adjusted to February 28th in the resulting date if the year is not a leap year. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(MonthDay other): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this month-day to another month-day. <p> The comparison is based first on value of the month, then on the value of the day. It is “consistent with equals”, as defined by ‘Comparable’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAfter(MonthDay other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this month-day is after the specified month-day.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isBefore(MonthDay other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this month-day is before the specified month-day.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this month-day is equal to another month-day. <p> The comparison is based on the time-line position of the month-day within a year.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A hash code for this month-day.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Outputs this month-day as a ‘String’, such as ‘–12-03’. <p> The output will be in the format ‘–MM-dd’:</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the object using a <a href="../../serialized-form.html#java.time.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeExternal(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readExternal(DataInput in): MonthDay</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

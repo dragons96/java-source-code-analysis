@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/invoke/MethodHandleProxies.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="MethodHandleProxies"><a href="#MethodHandleProxies" class="headerlink" title="MethodHandleProxies"></a>MethodHandleProxies</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.invoke.MethodHandleProxies</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MethodHandleProxies()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asInterfaceInstance(final Class&lt;T&gt; intfc, final MethodHandle target): T</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces an instance of the given single-method interface which redirects its calls to the given method handle. <p> A single-method interface is an interface which declares a uniquely named method. When determining the uniquely named method of a single-method interface, the public ‘Object’ methods (‘toString’, ‘equals’, ‘hashCode’) are disregarded.  For example, ‘java.util.Comparator’ is a single-method interface, even though it re-declares the ‘Object.equals’ method. <p> The interface must be public.  No additional access checks are performed. <p> The resulting instance of the required type will respond to invocation of the type’s uniquely named method by calling the given target on the incoming arguments, and returning or throwing whatever the target returns or throws.  The invocation will be as if by ‘target.invoke’. The target’s type will be checked before the instance is created, as if by a call to ‘asType’, which may result in a ‘WrongMethodTypeException’. <p> The uniquely named method is allowed to be multiply declared, with distinct type descriptors.  (E.g., it can be overloaded, or can possess bridge methods.)  All such declarations are connected directly to the target method handle. Argument and return types are adjusted by ‘asType’ for each individual declaration. <p> The wrapper instance will implement the requested interface and its super-types, but no other single-method interfaces. This means that the instance will not unexpectedly pass an ‘instanceof’ test for any unrequested type. <p style="font-size:smaller;"> <em>Implementation Note:</em> Therefore, each instance must implement a unique single-method interface. Implementations may not bundle together multiple single-method interfaces onto single implementation classes in the style of ‘java.awt.AWTEventMulticaster’. <p> The method handle may throw an <em>undeclared exception</em>, which means any checked exception (or other checked throwable) not declared by the requested type’s single abstract method. If this happens, the throwable will be wrapped in an instance of ‘java.lang.reflect.UndeclaredThrowableException UndeclaredThrowableException’ and thrown in that wrapped form. <p> Like ‘java.lang.Integer#valueOf Integer.valueOf’, ‘asInterfaceInstance’ is a factory method whose results are defined by their behavior. It is not guaranteed to return a new instance for every call. <p> Because of the possibility of ‘java.lang.reflect.Method#isBridge bridge methods’ and other corner cases, the interface may also have several abstract methods with the same name but having distinct descriptors (types of returns and parameters). In this case, all the methods are bound in common to the one given target. The type check and effective ‘asType’ conversion is applied to each method type descriptor, and all abstract methods are bound to the target in common. Beyond this type check, no further checks are made to determine that the abstract methods are related in any way. <p> Future versions of this API may accept additional types, such as abstract classes with single abstract methods. Future versions of this API may also equip wrapper instances with one or more additional public “marker” interfaces. <p> If a security manager is installed, this method is caller sensitive. During any invocation of the target method handle via the returned wrapper, the original creator of the wrapper (the caller) will be visible to context checks requested by the security manager.</td>
+<td align="left">WrongMethodTypeException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>bindCaller(MethodHandle target, Class&lt;?&gt; hostClass): MethodHandle</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isWrapperInstance(Object x): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the given object was produced by a call to ‘#asInterfaceInstance asInterfaceInstance’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asWrapperInstance(Object x): WrapperInstance</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>wrapperInstanceTarget(Object x): MethodHandle</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Produces or recovers a target method handle which is behaviorally equivalent to the unique method of this wrapper instance. The object ‘x’ must have been produced by a call to ‘#asInterfaceInstance asInterfaceInstance’. This requirement may be tested via ‘#isWrapperInstance isWrapperInstance’.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>wrapperInstanceType(Object x): Class&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recovers the unique single-method interface type for which this wrapper instance was created. The object ‘x’ must have been produced by a call to ‘#asInterfaceInstance asInterfaceInstance’. This requirement may be tested via ‘#isWrapperInstance isWrapperInstance’.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>isObjectMethod(Method m): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>callObjectMethod(Object self, Method m, Object[] args): Object</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSingleNameMethods(Class&lt;?&gt; intfc): Method[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

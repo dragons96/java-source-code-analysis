@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/reflect/Proxy.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.reflect.Proxy</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-2222568056686623797L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>constructorParams: Class&lt;?&gt;[]</strong></td>
+<td align="center">{ InvocationHandler.class }</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">parameter types of a proxy class constructor</td>
+</tr>
+<tr>
+<td align="center"><strong>proxyClassCache: WeakCache&lt;ClassLoader, Class&lt;?&gt;[], Class&lt;?&gt;&gt;</strong></td>
+<td align="center">new WeakCache&lt;&gt;(new KeyFactory(), new ProxyClassFactory())</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">a cache of proxy classes</td>
+</tr>
+<tr>
+<td align="center"><strong>h: InvocationHandler</strong></td>
+<td align="center">null</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">the invocation handler for this proxy instance. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>key0: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">a key used for proxy class with 0 implemented interfaces</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Proxy()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prohibits instantiation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Proxy(InvocationHandler h)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘Proxy’ instance from a subclass (typically, a dynamic proxy class) with the specified value for its invocation handler.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getProxyClass(ClassLoader loader, Class&lt;?&gt;… interfaces): Class&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘java.lang.Class’ object for a proxy class given a class loader and an array of interfaces.  The proxy class will be defined by the specified class loader and will implement all of the supplied interfaces.  If any of the given interfaces is non-public, the proxy class will be non-public. If a proxy class for the same permutation of interfaces has already been defined by the class loader, then the existing proxy class will be returned; otherwise, a proxy class for those interfaces will be generated dynamically and defined by the class loader.  <p>There are several restrictions on the parameters that may be passed to ‘Proxy.getProxyClass’:  <ul> <li>All of the ‘Class’ objects in the ‘interfaces’ array must represent interfaces, not classes or primitive types.  <li>No two elements in the ‘interfaces’ array may refer to identical ‘Class’ objects.  <li>All of the interface types must be visible by name through the specified class loader.  In other words, for class loader ‘cl’ and every interface ‘i’, the following expression must be true: <pre> Class.forName(i.getName(), false, cl) == i </pre>  <li>All non-public interfaces must be in the same package; otherwise, it would not be possible for the proxy class to implement all of the interfaces, regardless of what package it is defined in.  <li>For any set of member methods of the specified interfaces that have the same signature: <ul> <li>If the return type of any of the methods is a primitive type or void, then all of the methods must have that same return type. <li>Otherwise, one of the methods must have a return type that is assignable to all of the return types of the rest of the methods. </ul>  <li>The resulting proxy class must not exceed any limits imposed on classes by the virtual machine.  For example, the VM may limit the number of interfaces that a class may implement to 65535; in that case, the size of the ‘interfaces’ array must not exceed 65535. </ul>  <p>If any of these restrictions are violated, ‘Proxy.getProxyClass’ will throw an ‘IllegalArgumentException’.  If the ‘interfaces’ array argument or any of its elements are ‘null’, a ‘NullPointerException’ will be thrown.  <p>Note that the order of the specified proxy interfaces is significant: two requests for a proxy class with the same combination of interfaces but in a different order will result in two distinct proxy classes.</td>
+<td align="left">SecurityException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkProxyAccess(Class&lt;?&gt; caller, ClassLoader loader, Class&lt;?&gt;… interfaces): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check permissions required to create a Proxy class.  To define a proxy class, it performs the access checks as in Class.forName (VM will invoke ClassLoader.checkPackageAccess): 1. “getClassLoader” permission check if loader &#x3D;&#x3D; null 2. checkPackageAccess on the interfaces it implements  To get a constructor and new instance of a proxy class, it performs the package access check on the interfaces it implements as in Class.getConstructor.  If an interface is non-public, the proxy class must be defined by the defining loader of the interface.  If the caller’s class loader is not the same as the defining loader of the interface, the VM will throw IllegalAccessError when the generated proxy class is being defined via the defineClass0 method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getProxyClass0(ClassLoader loader, Class&lt;?&gt;… interfaces): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Generate a proxy class.  Must call the checkProxyAccess method to perform permission checks before calling this.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h): Object</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an instance of a proxy class for the specified interfaces that dispatches method invocations to the specified invocation handler.  <p>‘Proxy.newProxyInstance’ throws ‘IllegalArgumentException’ for the same reasons that ‘Proxy.getProxyClass’ does.</td>
+<td align="left">SecurityException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkNewProxyPermission(Class&lt;?&gt; caller, Class&lt;?&gt; proxyClass): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isProxyClass(Class&lt;?&gt; cl): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if and only if the specified class was dynamically generated to be a proxy class using the ‘getProxyClass’ method or the ‘newProxyInstance’ method.  <p>The reliability of this method is important for the ability to use it to make security decisions, so its implementation should not just test if the class in question extends ‘Proxy’.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInvocationHandler(Object proxy): InvocationHandler</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the invocation handler for the specified proxy instance.</td>
+<td align="left">SecurityException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass0(ClassLoader loader, String name, byte[] b, int off, int len): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Proxy-Key1"><a href="#Proxy-Key1" class="headerlink" title="Proxy$Key1"></a><a href="./Proxy$Key1.html">Proxy$Key1</a></h3><h3 id="Proxy-Key2"><a href="#Proxy-Key2" class="headerlink" title="Proxy$Key2"></a><a href="./Proxy$Key2.html">Proxy$Key2</a></h3><h3 id="Proxy-KeyX"><a href="#Proxy-KeyX" class="headerlink" title="Proxy$KeyX"></a><a href="./Proxy$KeyX.html">Proxy$KeyX</a></h3><h3 id="Proxy-KeyFactory"><a href="#Proxy-KeyFactory" class="headerlink" title="Proxy$KeyFactory"></a><a href="./Proxy$KeyFactory.html">Proxy$KeyFactory</a></h3><h3 id="Proxy-ProxyClassFactory"><a href="#Proxy-ProxyClassFactory" class="headerlink" title="Proxy$ProxyClassFactory"></a><a href="./Proxy$ProxyClassFactory.html">Proxy$ProxyClassFactory</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

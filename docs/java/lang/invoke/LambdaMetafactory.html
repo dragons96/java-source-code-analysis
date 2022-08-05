@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/invoke/LambdaMetafactory.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="LambdaMetafactory"><a href="#LambdaMetafactory" class="headerlink" title="LambdaMetafactory"></a>LambdaMetafactory</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.invoke.LambdaMetafactory</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>FLAG_SERIALIZABLE: int</strong></td>
+<td align="center">1 &lt;&lt; 0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag for alternate metafactories indicating the lambda object must be serializable</td>
+</tr>
+<tr>
+<td align="center"><strong>FLAG_MARKERS: int</strong></td>
+<td align="center">1 &lt;&lt; 1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag for alternate metafactories indicating the lambda object implements other marker interfaces besides Serializable</td>
+</tr>
+<tr>
+<td align="center"><strong>FLAG_BRIDGES: int</strong></td>
+<td align="center">1 &lt;&lt; 2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Flag for alternate metafactories indicating the lambda object requires additional bridge methods</td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_CLASS_ARRAY: Class&lt;?&gt;[]</strong></td>
+<td align="center">new Class&lt;?&gt;[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_MT_ARRAY: MethodType[]</strong></td>
+<td align="center">new MethodType[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>metafactory(MethodHandles.Lookup caller, String invokedName, MethodType invokedType, MethodType samMethodType, MethodHandle implMethod, MethodType instantiatedMethodType): CallSite</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Facilitates the creation of simple “function objects” that implement one or more interfaces by delegation to a provided ‘MethodHandle’, after appropriate type adaptation and partial evaluation of arguments. Typically used as a <em>bootstrap method</em> for ‘invokedynamic’ call sites, to support the <em>lambda expression</em> and <em>method reference expression</em> features of the Java Programming Language.  <p>This is the standard, streamlined metafactory; additional flexibility is provided by ‘#altMetafactory(MethodHandles.Lookup, String, MethodType, Object…)’. A general description of the behavior of this method is provided ‘LambdaMetafactory above’.  <p>When the target of the ‘CallSite’ returned from this method is invoked, the resulting function objects are instances of a class which implements the interface named by the return type of ‘invokedType’, declares a method with the name given by ‘invokedName’ and the signature given by ‘samMethodType’.  It may also override additional methods from ‘Object’.</td>
+<td align="left">LambdaConversionException</td>
+</tr>
+<tr>
+<td align="center"><strong>altMetafactory(MethodHandles.Lookup caller, String invokedName, MethodType invokedType, Object… args): CallSite</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Facilitates the creation of simple “function objects” that implement one or more interfaces by delegation to a provided ‘MethodHandle’, after appropriate type adaptation and partial evaluation of arguments. Typically used as a <em>bootstrap method</em> for ‘invokedynamic’ call sites, to support the <em>lambda expression</em> and <em>method reference expression</em> features of the Java Programming Language.  <p>This is the general, more flexible metafactory; a streamlined version is provided by ‘#metafactory(java.lang.invoke.MethodHandles.Lookup, String, MethodType, MethodType, MethodHandle, MethodType)’. A general description of the behavior of this method is provided ‘LambdaMetafactory above’.  <p>The argument list for this method includes three fixed parameters, corresponding to the parameters automatically stacked by the VM for the bootstrap method in an ‘invokedynamic’ invocation, and an ‘Object[]’ parameter that contains additional parameters.  The declared argument list for this method is:  <pre>'CallSite altMetafactory(MethodHandles.Lookup caller, String invokedName, MethodType invokedType, Object... args)'</pre>  <p>but it behaves as if the argument list is as follows:  <pre>'CallSite altMetafactory(MethodHandles.Lookup caller, String invokedName, MethodType invokedType, MethodType samMethodType, MethodHandle implMethod, MethodType instantiatedMethodType, int flags, int markerInterfaceCount, Class... markerInterfaces, int bridgeCount, MethodType... bridges )'</pre>  <p>Arguments that appear in the argument list for ‘#metafactory(MethodHandles.Lookup, String, MethodType, MethodType, MethodHandle, MethodType)’ have the same specification as in that method.  The additional arguments are interpreted as follows: <ul> <li>‘flags’ indicates additional options; this is a bitwise OR of desired flags.  Defined flags are ‘#FLAG_BRIDGES’, ‘#FLAG_MARKERS’, and ‘#FLAG_SERIALIZABLE’.</li> <li>‘markerInterfaceCount’ is the number of additional interfaces the function object should implement, and is present if and only if the ‘FLAG_MARKERS’ flag is set.</li> <li>‘markerInterfaces’ is a variable-length list of additional interfaces to implement, whose length equals ‘markerInterfaceCount’, and is present if and only if the ‘FLAG_MARKERS’ flag is set.</li> <li>‘bridgeCount’ is the number of additional method signatures the function object should implement, and is present if and only if the ‘FLAG_BRIDGES’ flag is set.</li> <li>‘bridges’ is a variable-length list of additional methods signatures to implement, whose length equals ‘bridgeCount’, and is present if and only if the ‘FLAG_BRIDGES’ flag is set.</li> </ul>  <p>Each class named by ‘markerInterfaces’ is subject to the same restrictions as ‘Rd’, the return type of ‘invokedType’, as described ‘LambdaMetafactory above’.  Each ‘MethodType’ named by ‘bridges’ is subject to the same restrictions as ‘samMethodType’, as described ‘LambdaMetafactory above’.  <p>When FLAG_SERIALIZABLE is set in ‘flags’, the function objects will implement ‘Serializable’, and will have a ‘writeReplace’ method that returns an appropriate ‘SerializedLambda’.  The ‘caller’ class must have an appropriate ‘$deserializeLambda$’ method, as described in ‘SerializedLambda’.  <p>When the target of the ‘CallSite’ returned from this method is invoked, the resulting function objects are instances of a class with the following properties: <ul> <li>The class implements the interface named by the return type of ‘invokedType’ and any interfaces named by ‘markerInterfaces’</li> <li>The class declares methods with the name given by ‘invokedName’, and the signature given by ‘samMethodType’ and additional signatures given by ‘bridges’</li> <li>The class may override methods from ‘Object’, and may implement methods related to serialization.</li> </ul></td>
+<td align="left">LambdaConversionException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

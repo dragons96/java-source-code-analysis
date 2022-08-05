@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/reflect/Field.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Field"><a href="#Field" class="headerlink" title="Field"></a>Field</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.reflect.Field</strong></td>
+<td align="center">class</td>
+<td align="center">AccessibleObject</td>
+<td align="center">Member</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>clazz: Class&lt;?&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>slot: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>name: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>type: Class&lt;?&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>modifiers: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>signature: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>genericInfo: FieldRepository</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>annotations: byte[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>fieldAccessor: FieldAccessor</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>overrideFieldAccessor: FieldAccessor</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>root: Field</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>declaredAnnotations: Map&lt;Class&lt;? extends Annotation&gt;, Annotation&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getGenericSignature(): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFactory(): GenericsFactory</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGenericInfo(): FieldRepository</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Field(Class&lt;?&gt; declaringClass, String name, Class&lt;?&gt; type, int modifiers, int slot, String signature, byte[] annotations)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package-private constructor used by ReflectAccess to enable instantiation of these objects in Java code from the java.lang package via sun.reflect.LangReflectAccess.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>copy(): Field</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Package-private routine (exposed to java.lang.Class via ReflectAccess) which returns a copy of this Field. The copy’s “root” field points to this Field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDeclaringClass(): Class&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘Class’ object representing the class or interface that declares the field represented by this ‘Field’ object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the name of the field represented by this ‘Field’ object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getModifiers(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Java language modifiers for the field represented by this ‘Field’ object, as an integer. The ‘Modifier’ class should be used to decode the modifiers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEnumConstant(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this field represents an element of an enumerated type; returns ‘false’ otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSynthetic(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ‘true’ if this field is a synthetic field; returns ‘false’ otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getType(): Class&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Class’ object that identifies the declared type for the field represented by this ‘Field’ object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getGenericType(): Type</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘Type’ object that represents the declared type for the field represented by this ‘Field’ object.  <p>If the ‘Type’ is a parameterized type, the ‘Type’ object returned must accurately reflect the actual type parameters used in the source code.  <p>If the type of the underlying field is a type variable or a parameterized type, it is created. Otherwise, it is resolved.</td>
+<td align="left">MalformedParameterizedTypeException<br/>TypeNotPresentException<br/>GenericSignatureFormatError</td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this ‘Field’ against the specified object.  Returns true if the objects are the same.  Two ‘Field’ objects are the same if they were declared by the same class and have the same name and type.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hashcode for this ‘Field’.  This is computed as the exclusive-or of the hashcodes for the underlying field’s declaring class name and its name.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string describing this ‘Field’.  The format is the access modifiers for the field, if any, followed by the field type, followed by a space, followed by the fully-qualified name of the class declaring the field, followed by a period, followed by the name of the field. For example: <pre> public static final int java.lang.Thread.MIN_PRIORITY private int java.io.FileDescriptor.fd </pre>  <p>The modifiers are placed in canonical order as specified by “The Java Language Specification”.  This is ‘public’, ‘protected’ or ‘private’ first, and then other modifiers in the following order: ‘static’, ‘final’, ‘transient’, ‘volatile’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toGenericString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string describing this ‘Field’, including its generic type.  The format is the access modifiers for the field, if any, followed by the generic field type, followed by a space, followed by the fully-qualified name of the class declaring the field, followed by a period, followed by the name of the field.  <p>The modifiers are placed in canonical order as specified by “The Java Language Specification”.  This is ‘public’, ‘protected’ or ‘private’ first, and then other modifiers in the following order: ‘static’, ‘final’, ‘transient’, ‘volatile’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Object obj): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the field represented by this ‘Field’, on the specified object. The value is automatically wrapped in an object if it has a primitive type.  <p>The underlying field’s value is obtained as follows:  <p>If the underlying field is a static field, the ‘obj’ argument is ignored; it may be null.  <p>Otherwise, the underlying field is an instance field.  If the specified ‘obj’ argument is null, the method throws a ‘NullPointerException’. If the specified object is not an instance of the class or interface declaring the underlying field, the method throws an ‘IllegalArgumentException’.  <p>If this ‘Field’ object is enforcing Java language access control, and the underlying field is inaccessible, the method throws an ‘IllegalAccessException’. If the underlying field is static, the class that declared the field is initialized if it has not already been initialized.  <p>Otherwise, the value is retrieved from the underlying instance or static field.  If the field has a primitive type, the value is wrapped in an object before being returned, otherwise it is returned as is.  <p>If the field is hidden in the type of ‘obj’, the field’s value is obtained according to the preceding rules.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBoolean(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance ‘boolean’ field.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getByte(Object obj): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance ‘byte’ field.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getChar(Object obj): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance field of type ‘char’ or of another primitive type convertible to type ‘char’ via a widening conversion.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getShort(Object obj): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance field of type ‘short’ or of another primitive type convertible to type ‘short’ via a widening conversion.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(Object obj): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance field of type ‘int’ or of another primitive type convertible to type ‘int’ via a widening conversion.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(Object obj): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance field of type ‘long’ or of another primitive type convertible to type ‘long’ via a widening conversion.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(Object obj): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance field of type ‘float’ or of another primitive type convertible to type ‘float’ via a widening conversion.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(Object obj): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of a static or instance field of type ‘double’ or of another primitive type convertible to type ‘double’ via a widening conversion.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>set(Object obj, Object value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the field represented by this ‘Field’ object on the specified object argument to the specified new value. The new value is automatically unwrapped if the underlying field has a primitive type.  <p>The operation proceeds as follows:  <p>If the underlying field is static, the ‘obj’ argument is ignored; it may be null.  <p>Otherwise the underlying field is an instance field.  If the specified object argument is null, the method throws a ‘NullPointerException’.  If the specified object argument is not an instance of the class or interface declaring the underlying field, the method throws an ‘IllegalArgumentException’.  <p>If this ‘Field’ object is enforcing Java language access control, and the underlying field is inaccessible, the method throws an ‘IllegalAccessException’.  <p>If the underlying field is final, the method throws an ‘IllegalAccessException’ unless ‘setAccessible(true)’ has succeeded for this ‘Field’ object and the field is non-static. Setting a final field in this way is meaningful only during deserialization or reconstruction of instances of classes with blank final fields, before they are made available for access by other parts of a program. Use in any other context may have unpredictable effects, including cases in which other parts of a program continue to use the original value of this field.  <p>If the underlying field is of a primitive type, an unwrapping conversion is attempted to convert the new value to a value of a primitive type.  If this attempt fails, the method throws an ‘IllegalArgumentException’.  <p>If, after possible unwrapping, the new value cannot be converted to the type of the underlying field by an identity or widening conversion, the method throws an ‘IllegalArgumentException’.  <p>If the underlying field is static, the class that declared the field is initialized if it has not already been initialized.  <p>The field is set to the possibly unwrapped and widened new value.  <p>If the field is hidden in the type of ‘obj’, the field’s value is set according to the preceding rules.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBoolean(Object obj, boolean z): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘boolean’ on the specified object. This method is equivalent to ‘set(obj, zObj)’, where ‘zObj’ is a ‘Boolean’ object and ‘zObj.booleanValue() &#x3D;&#x3D; z’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setByte(Object obj, byte b): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘byte’ on the specified object. This method is equivalent to ‘set(obj, bObj)’, where ‘bObj’ is a ‘Byte’ object and ‘bObj.byteValue() &#x3D;&#x3D; b’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setChar(Object obj, char c): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘char’ on the specified object. This method is equivalent to ‘set(obj, cObj)’, where ‘cObj’ is a ‘Character’ object and ‘cObj.charValue() &#x3D;&#x3D; c’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setShort(Object obj, short s): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘short’ on the specified object. This method is equivalent to ‘set(obj, sObj)’, where ‘sObj’ is a ‘Short’ object and ‘sObj.shortValue() &#x3D;&#x3D; s’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setInt(Object obj, int i): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as an ‘int’ on the specified object. This method is equivalent to ‘set(obj, iObj)’, where ‘iObj’ is a ‘Integer’ object and ‘iObj.intValue() &#x3D;&#x3D; i’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setLong(Object obj, long l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘long’ on the specified object. This method is equivalent to ‘set(obj, lObj)’, where ‘lObj’ is a ‘Long’ object and ‘lObj.longValue() &#x3D;&#x3D; l’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setFloat(Object obj, float f): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘float’ on the specified object. This method is equivalent to ‘set(obj, fObj)’, where ‘fObj’ is a ‘Float’ object and ‘fObj.floatValue() &#x3D;&#x3D; f’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDouble(Object obj, double d): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the value of a field as a ‘double’ on the specified object. This method is equivalent to ‘set(obj, dObj)’, where ‘dObj’ is a ‘Double’ object and ‘dObj.doubleValue() &#x3D;&#x3D; d’.</td>
+<td align="left">IllegalAccessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFieldAccessor(Object obj): FieldAccessor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IllegalAccessException</td>
+</tr>
+<tr>
+<td align="center"><strong>acquireFieldAccessor(boolean overrideFinalCheck): FieldAccessor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFieldAccessor(boolean overrideFinalCheck): FieldAccessor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFieldAccessor(FieldAccessor accessor, boolean overrideFinalCheck): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAnnotation(Class&lt;T&gt; annotationClass): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAnnotationsByType(Class&lt;T&gt; annotationClass): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDeclaredAnnotations(): Annotation[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>declaredAnnotations(): Annotation&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTypeAnnotationBytes0(): byte[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAnnotatedType(): AnnotatedType</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an AnnotatedType object that represents the use of a type to specify the declared type of the field represented by this Field.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -152,7 +152,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Reads a property list (key and element pairs) from the input character stream in a simple line-oriented format. <p> Properties are processed in terms of lines. There are two kinds of line, <i>natural lines</i> and <i>logical lines</i>. A natural line is defined as a line of characters that is terminated either by a set of line terminator characters (‘\n’ or ‘\r’ or ‘\r\n’) or by the end of the stream. A natural line may be either a blank line, a comment line, or hold all or some of a key-element pair. A logical line holds all the data of a key-element pair, which may be spread out across several adjacent natural lines by escaping the line terminator sequence with a backslash character ‘&#39;.  Note that a comment line cannot be extended in this manner; every natural line that is a comment must have its own comment indicator, as described below. Lines are read from input until the end of the stream is reached.  <p> A natural line that contains only white space characters is considered blank and is ignored.  A comment line has an ASCII ‘’#’’ or ‘’!’’ as its first non-white space character; comment lines are also ignored and do not encode key-element information.  In addition to line terminators, this format considers the characters space (‘’ ‘’, ‘’\u005Cu0020’’), tab (‘’\t’’, ‘’\u005Cu0009’’), and form feed (‘’\f’’, ‘’\u005Cu000C’’) to be white space.  <p> If a logical line is spread across several natural lines, the backslash escaping the line terminator sequence, the line terminator sequence, and any white space at the start of the following line have no affect on the key or element values. The remainder of the discussion of key and element parsing (when loading) will assume all the characters constituting the key and element appear on a single natural line after line continuation characters have been removed.  Note that it is <i>not</i> sufficient to only examine the character preceding a line terminator sequence to decide if the line terminator is escaped; there must be an odd number of contiguous backslashes for the line terminator to be escaped. Since the input is processed from left to right, a non-zero even number of 2<i>n</i> contiguous backslashes before a line terminator (or elsewhere) encodes <i>n</i> backslashes after escape processing.  <p> The key contains all of the characters in the line starting with the first non-white space character and up to, but not including, the first unescaped ‘’&#x3D;’’, ‘’:’’, or white space character other than a line terminator. All of these key termination characters may be included in the key by escaping them with a preceding backslash character; for example,<p>  ‘:=‘<p>  would be the two-character key ‘“:&#x3D;”‘.  Line terminator characters can be included using ‘\r’ and ‘\n’ escape sequences.  Any white space after the key is skipped; if the first non-white space character after the key is ‘’&#x3D;’’ or ‘’:’’, then it is ignored and any white space characters after it are also skipped.  All remaining characters on the line become part of the associated element string; if there are no remaining characters, the element is the empty string ‘“”‘.  Once the raw character sequences constituting the key and element are identified, escape processing is performed as described above.  <p> As an example, each of the following three lines specifies the key ‘“Truth”‘ and the associated element value ‘“Beauty”‘: <pre> Truth = Beauty Truth:Beauty Truth                    :Beauty </pre> As another example, the following three lines specify a single property: <pre> fruits                           apple, banana, pear, \ cantaloupe, watermelon, \ kiwi, mango </pre> The key is ‘“fruits”‘ and the associated element is: <pre>"apple, banana, pear, cantaloupe, watermelon, kiwi, mango"</pre> Note that a space appears before each ‘&#39; so that a space will appear after each comma in the final result; the ‘&#39;, line terminator, and leading white space on the continuation line are merely discarded and are <i>not</i> replaced by one or more other characters. <p> As a third example, the line: <pre>cheeses </pre> specifies that the key is ‘“cheeses”‘ and the associated element is the empty string ‘“”‘. <p> <a name="unicodeescapes"></a> Characters in keys and elements can be represented in escape sequences similar to those used for character and string literals (see sections 3.3 and 3.10.6 of <cite>The Java&amp;trade; Language Specification</cite>).  The differences from the character escape sequences and Unicode escapes used for characters and strings are:  <ul> <li> Octal escapes are not recognized.  <li> The character sequence ‘\b’ does <i>not</i> represent a backspace character.  <li> The method does not treat a backslash character, ‘&#39;, before a non-valid escape character as an error; the backslash is silently dropped.  For example, in a Java string the sequence ‘“\z”‘ would cause a compile time error.  In contrast, this method silently drops the backslash.  Therefore, this method treats the two character sequence ‘“\b”‘ as equivalent to the single character ‘’b’’.  <li> Escapes are not necessary for single and double quotes; however, by the rule above, single and double quote characters preceded by a backslash still yield single and double quote characters, respectively.  <li> Only a single ‘u’ character is allowed in a Unicode escape sequence.  </ul> <p> The specified stream remains open after this method returns.</td>
-<td align="left">IllegalArgumentException<br/>IOException</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>load(InputStream inStream): void</strong></td>
@@ -164,10 +164,10 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Reads a property list (key and element pairs) from the input byte stream. The input stream is in a simple line-oriented format as specified in ‘#load(java.io.Reader) load(Reader)’ and is assumed to use the ISO 8859-1 character encoding; that is each byte is one Latin1 character. Characters not in Latin1, and certain special characters, are represented in keys and elements using Unicode escapes as defined in section 3.3 of <cite>The Java&amp;trade; Language Specification</cite>. <p> The specified stream remains open after this method returns.</td>
-<td align="left">IllegalArgumentException<br/>IOException</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
-<td align="center"><strong>saveConvert(String theString,boolean escapeSpace,boolean escapeUnicode): String</strong></td>
+<td align="center"><strong>saveConvert(String theString, boolean escapeSpace, boolean escapeUnicode): String</strong></td>
 <td align="center">private</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -201,6 +201,78 @@
 <td align="center">否</td>
 <td align="left">Calls the ‘store(OutputStream out, String comments)’ method and suppresses IOExceptions that were thrown.</td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>store(Writer writer, String comments): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes this property list (key and element pairs) in this ‘Properties’ table to the output character stream in a format suitable for using the ‘#load(java.io.Reader) load(Reader)’ method. <p> Properties from the defaults table of this ‘Properties’ table (if any) are <i>not</i> written out by this method. <p> If the comments argument is not null, then an ASCII ‘#’ character, the comments string, and a line separator are first written to the output stream. Thus, the ‘comments’ can serve as an identifying comment. Any one of a line feed (‘\n’), a carriage return (‘\r’), or a carriage return followed immediately by a line feed in comments is replaced by a line separator generated by the ‘Writer’ and if the next character in comments is not character ‘#’ or character ‘!’ then an ASCII ‘#’ is written out after that line separator. <p> Next, a comment line is always written, consisting of an ASCII ‘#’ character, the current date and time (as if produced by the ‘toString’ method of ‘Date’ for the current time), and a line separator as generated by the ‘Writer’. <p> Then every entry in this ‘Properties’ table is written out, one per line. For each entry the key string is written, then an ASCII ‘&#x3D;’, then the associated element string. For the key, all space characters are written with a preceding ‘&#39; character.  For the element, leading space characters, but not embedded or trailing space characters, are written with a preceding ‘&#39; character. The key and element characters ‘#’, ‘!’, ‘&#x3D;’, and ‘:’ are written with a preceding backslash to ensure that they are properly loaded. <p> After the entries have been written, the output stream is flushed. The output stream remains open after this method returns. <p></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>store(OutputStream out, String comments): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes this property list (key and element pairs) in this ‘Properties’ table to the output stream in a format suitable for loading into a ‘Properties’ table using the ‘#load(InputStream) load(InputStream)’ method. <p> Properties from the defaults table of this ‘Properties’ table (if any) are <i>not</i> written out by this method. <p> This method outputs the comments, properties keys and values in the same format as specified in ‘#store(java.io.Writer, java.lang.String) store(Writer)’, with the following differences: <ul> <li>The stream is written using the ISO 8859-1 character encoding.  <li>Characters not in Latin-1 in the comments are written as ‘\u005Cu’<i>xxxx</i> for their appropriate unicode hexadecimal value <i>xxxx</i>.  <li>Characters less than ‘\u005Cu0020’ and characters greater than ‘\u005Cu007E’ in property keys or values are written as ‘\u005Cu’<i>xxxx</i> for the appropriate hexadecimal value <i>xxxx</i>. </ul> <p> After the entries have been written, the output stream is flushed. The output stream remains open after this method returns. <p></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>store0(BufferedWriter bw, String comments, boolean escUnicode): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>loadFromXML(InputStream in): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Loads all of the properties represented by the XML document on the specified input stream into this properties table.  <p>The XML document must have the following DOCTYPE declaration: <pre> &lt;!DOCTYPE properties SYSTEM "http: </pre> Furthermore, the document must satisfy the properties DTD described above.  <p> An implementation is required to read XML documents that use the “‘UTF-8’” or “‘UTF-16’” encoding. An implementation may support additional encodings.  <p>The specified stream is closed after this method returns.</td>
+<td align="left">InvalidPropertiesFormatException<br/>IOException<br/>NullPointerException<br/>java.io.UnsupportedEncodingException</td>
+</tr>
+<tr>
+<td align="center"><strong>storeToXML(OutputStream os, String comment): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Emits an XML document representing all of the properties contained in this table.  <p> An invocation of this method of the form <tt>props.storeToXML(os, comment)</tt> behaves in exactly the same way as the invocation <tt>props.storeToXML(os, comment, “UTF-8”);</tt>.</td>
+<td align="left">ClassCastException<br/>IOException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>storeToXML(OutputStream os, String comment, String encoding): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Emits an XML document representing all of the properties contained in this table, using the specified encoding.  <p>The XML document will have the following DOCTYPE declaration: <pre> &lt;!DOCTYPE properties SYSTEM "http: </pre>  <p>If the specified comment is ‘null’ then no comment will be stored in the document.  <p> An implementation is required to support writing of XML documents that use the “‘UTF-8’” or “‘UTF-16’” encoding. An implementation may support additional encodings.  <p>The specified stream remains open after this method returns.</td>
+<td align="left">ClassCastException<br/>IOException<br/>NullPointerException<br/>java.io.UnsupportedEncodingException</td>
 </tr>
 <tr>
 <td align="center"><strong>getProperty(String key): String</strong></td>

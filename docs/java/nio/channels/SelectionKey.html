@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/nio/channels/SelectionKey.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="SelectionKey"><a href="#SelectionKey" class="headerlink" title="SelectionKey"></a>SelectionKey</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.nio.channels.SelectionKey</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>OP_READ: int</strong></td>
+<td align="center">1 &lt;&lt; 0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation-set bit for read operations.  <p> Suppose that a selection key’s interest set contains <tt>OP_READ</tt> at the start of a <a href="Selector.html#selop">selection operation</a>.  If the selector detects that the corresponding channel is ready for reading, has reached end-of-stream, has been remotely shut down for further reading, or has an error pending, then it will add <tt>OP_READ</tt> to the key’s ready-operation set and add the key to its selected-key&amp;nbsp;set.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>OP_WRITE: int</strong></td>
+<td align="center">1 &lt;&lt; 2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation-set bit for write operations.  <p> Suppose that a selection key’s interest set contains <tt>OP_WRITE</tt> at the start of a <a href="Selector.html#selop">selection operation</a>.  If the selector detects that the corresponding channel is ready for writing, has been remotely shut down for further writing, or has an error pending, then it will add <tt>OP_WRITE</tt> to the key’s ready set and add the key to its selected-key&amp;nbsp;set.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>OP_CONNECT: int</strong></td>
+<td align="center">1 &lt;&lt; 3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation-set bit for socket-connect operations.  <p> Suppose that a selection key’s interest set contains <tt>OP_CONNECT</tt> at the start of a <a href="Selector.html#selop">selection operation</a>.  If the selector detects that the corresponding socket channel is ready to complete its connection sequence, or has an error pending, then it will add <tt>OP_CONNECT</tt> to the key’s ready set and add the key to its selected-key&amp;nbsp;set.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>OP_ACCEPT: int</strong></td>
+<td align="center">1 &lt;&lt; 4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Operation-set bit for socket-accept operations.  <p> Suppose that a selection key’s interest set contains <tt>OP_ACCEPT</tt> at the start of a <a href="Selector.html#selop">selection operation</a>.  If the selector detects that the corresponding server-socket channel is ready to accept another connection, or has an error pending, then it will add <tt>OP_ACCEPT</tt> to the key’s ready set and add the key to its selected-key&amp;nbsp;set.  </p></td>
+</tr>
+<tr>
+<td align="center"><strong>attachment: Object</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>attachmentUpdater: AtomicReferenceFieldUpdater&lt;SelectionKey,Object&gt;</strong></td>
+<td align="center">AtomicReferenceFieldUpdater.newUpdater( SelectionKey.class, Object.class, “attachment” )</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SelectionKey()</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an instance of this class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>channel(): SelectableChannel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the channel for which this key was created.  This method will continue to return the channel even after the key is cancelled.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>selector(): Selector</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the selector for which this key was created.  This method will continue to return the selector even after the key is cancelled.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isValid(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tells whether or not this key is valid.  <p> A key is valid upon creation and remains so until it is cancelled, its channel is closed, or its selector is closed.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cancel(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Requests that the registration of this key’s channel with its selector be cancelled.  Upon return the key will be invalid and will have been added to its selector’s cancelled-key set.  The key will be removed from all of the selector’s key sets during the next selection operation.  <p> If this key has already been cancelled then invoking this method has no effect.  Once cancelled, a key remains forever invalid. </p>  <p> This method may be invoked at any time.  It synchronizes on the selector’s cancelled-key set, and therefore may block briefly if invoked concurrently with a cancellation or selection operation involving the same selector.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>interestOps(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves this key’s interest set.  <p> It is guaranteed that the returned set will only contain operation bits that are valid for this key’s channel.  <p> This method may be invoked at any time.  Whether or not it blocks, and for how long, is implementation-dependent.  </p></td>
+<td align="left">CancelledKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>interestOps(int ops): SelectionKey</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets this key’s interest set to the given value.  <p> This method may be invoked at any time.  Whether or not it blocks, and for how long, is implementation-dependent.  </p></td>
+<td align="left">CancelledKeyException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>readyOps(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves this key’s ready-operation set.  <p> It is guaranteed that the returned set will only contain operation bits that are valid for this key’s channel.  </p></td>
+<td align="left">CancelledKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>isReadable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether this key’s channel is ready for reading.  <p> An invocation of this method of the form <tt>k.isReadable()</tt> behaves in exactly the same way as the expression  <blockquote><pre>'k.readyOps() & OP_READ != 0'</pre></blockquote>  <p> If this key’s channel does not support read operations then this method always returns <tt>false</tt>.  </p></td>
+<td align="left">CancelledKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>isWritable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether this key’s channel is ready for writing.  <p> An invocation of this method of the form <tt>k.isWritable()</tt> behaves in exactly the same way as the expression  <blockquote><pre>'k.readyOps() & OP_WRITE != 0'</pre></blockquote>  <p> If this key’s channel does not support write operations then this method always returns <tt>false</tt>.  </p></td>
+<td align="left">CancelledKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>isConnectable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether this key’s channel has either finished, or failed to finish, its socket-connection operation.  <p> An invocation of this method of the form <tt>k.isConnectable()</tt> behaves in exactly the same way as the expression  <blockquote><pre>'k.readyOps() & OP_CONNECT != 0'</pre></blockquote>  <p> If this key’s channel does not support socket-connect operations then this method always returns <tt>false</tt>.  </p></td>
+<td align="left">CancelledKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>isAcceptable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests whether this key’s channel is ready to accept a new socket connection.  <p> An invocation of this method of the form <tt>k.isAcceptable()</tt> behaves in exactly the same way as the expression  <blockquote><pre>'k.readyOps() & OP_ACCEPT != 0'</pre></blockquote>  <p> If this key’s channel does not support socket-accept operations then this method always returns <tt>false</tt>.  </p></td>
+<td align="left">CancelledKeyException</td>
+</tr>
+<tr>
+<td align="center"><strong>attach(Object ob): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Attaches the given object to this key.  <p> An attached object may later be retrieved via the ‘#attachment() attachment’ method.  Only one object may be attached at a time; invoking this method causes any previous attachment to be discarded.  The current attachment may be discarded by attaching <tt>null</tt>.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>attachment(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the current attachment.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

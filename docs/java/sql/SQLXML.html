@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/sql/SQLXML.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="SQLXML"><a href="#SQLXML" class="headerlink" title="SQLXML"></a>SQLXML</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.sql.SQLXML</strong></td>
+<td align="center">interface</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>free(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This method closes this object and releases the resources that it held. The SQL XML object becomes invalid and neither readable or writeable when this method is called.  After <code>free</code> has been called, any attempt to invoke a method other than <code>free</code> will result in a <code>SQLException</code> being thrown.  If <code>free</code> is called multiple times, the subsequent calls to <code>free</code> are treated as a no-op.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBinaryStream(): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the XML value designated by this SQLXML instance as a stream. The bytes of the input stream are interpreted according to appendix F of the XML 1.0 specification. The behavior of this method is the same as ResultSet.getBinaryStream() when the designated column of the ResultSet has a type java.sql.Types of SQLXML. <p> The SQL XML object becomes not readable when this method is called and may also become not writable depending on implementation.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setBinaryStream(): OutputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves a stream that can be used to write the XML value that this SQLXML instance represents. The stream begins at position 0. The bytes of the stream are interpreted according to appendix F of the XML 1.0 specification The behavior of this method is the same as ResultSet.updateBinaryStream() when the designated column of the ResultSet has a type java.sql.Types of SQLXML. <p> The SQL XML object becomes not writeable when this method is called and may also become not readable depending on implementation.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCharacterStream(): Reader</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves the XML value designated by this SQLXML instance as a java.io.Reader object. The format of this stream is defined by org.xml.sax.InputSource, where the characters in the stream represent the unicode code points for XML according to section 2 and appendix B of the XML 1.0 specification. Although an encoding declaration other than unicode may be present, the encoding of the stream is unicode. The behavior of this method is the same as ResultSet.getCharacterStream() when the designated column of the ResultSet has a type java.sql.Types of SQLXML. <p> The SQL XML object becomes not readable when this method is called and may also become not writable depending on implementation.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCharacterStream(): Writer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Retrieves a stream to be used to write the XML value that this SQLXML instance represents. The format of this stream is defined by org.xml.sax.InputSource, where the characters in the stream represent the unicode code points for XML according to section 2 and appendix B of the XML 1.0 specification. Although an encoding declaration other than unicode may be present, the encoding of the stream is unicode. The behavior of this method is the same as ResultSet.updateCharacterStream() when the designated column of the ResultSet has a type java.sql.Types of SQLXML. <p> The SQL XML object becomes not writeable when this method is called and may also become not readable depending on implementation.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a string representation of the XML value designated by this SQLXML instance. The format of this String is defined by org.xml.sax.InputSource, where the characters in the stream represent the unicode code points for XML according to section 2 and appendix B of the XML 1.0 specification. Although an encoding declaration other than unicode may be present, the encoding of the String is unicode. The behavior of this method is the same as ResultSet.getString() when the designated column of the ResultSet has a type java.sql.Types of SQLXML. <p> The SQL XML object becomes not readable when this method is called and may also become not writable depending on implementation.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setString(String value): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the XML value designated by this SQLXML instance to the given String representation. The format of this String is defined by org.xml.sax.InputSource, where the characters in the stream represent the unicode code points for XML according to section 2 and appendix B of the XML 1.0 specification. Although an encoding declaration other than unicode may be present, the encoding of the String is unicode. The behavior of this method is the same as ResultSet.updateString() when the designated column of the ResultSet has a type java.sql.Types of SQLXML. <p> The SQL XML object becomes not writeable when this method is called and may also become not readable depending on implementation.</td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSource(Class&lt;T&gt; sourceClass): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a Source for reading the XML value designated by this SQLXML instance. Sources are used as inputs to XML parsers and XSLT transformers. <p> Sources for XML parsers will have namespace processing on by default. The systemID of the Source is implementation dependent. <p> The SQL XML object becomes not readable when this method is called and may also become not writable depending on implementation. <p> Note that SAX is a callback architecture, so a returned SAXSource should then be set with a content handler that will receive the SAX events from parsing.  The content handler will receive callbacks based on the contents of the XML. <pre> SAXSource saxSource = sqlxml.getSource(SAXSource.class); XMLReader xmlReader = saxSource.getXMLReader(); xmlReader.setContentHandler(myHandler); xmlReader.parse(saxSource.getInputSource()); </pre></td>
+<td align="left">SQLException</td>
+</tr>
+<tr>
+<td align="center"><strong>setResult(Class&lt;T&gt; resultClass): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a Result for setting the XML value designated by this SQLXML instance. <p> The systemID of the Result is implementation dependent. <p> The SQL XML object becomes not writeable when this method is called and may also become not readable depending on implementation. <p> Note that SAX is a callback architecture and the returned SAXResult has a content handler assigned that will receive the SAX events based on the contents of the XML.  Call the content handler with the contents of the XML document to assign the values. <pre> SAXResult saxResult = sqlxml.setResult(SAXResult.class); ContentHandler contentHandler = saxResult.getXMLReader().getContentHandler(); contentHandler.startDocument();  contentHandler.endDocument(); </pre></td>
+<td align="left">SQLException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/chrono/JapaneseDate.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="JapaneseDate"><a href="#JapaneseDate" class="headerlink" title="JapaneseDate"></a>JapaneseDate</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.chrono.JapaneseDate</strong></td>
+<td align="center">class</td>
+<td align="center">ChronoLocalDateImpl&lt;JapaneseDate&gt;implements</td>
+<td align="center">ChronoLocalDate,Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-305327627230580483L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+<tr>
+<td align="center"><strong>isoDate: LocalDate</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The underlying ISO local date.</td>
+</tr>
+<tr>
+<td align="center"><strong>era: JapaneseEra</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The JapaneseEra of this date.</td>
+</tr>
+<tr>
+<td align="center"><strong>yearOfEra: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The Japanese imperial calendar year of this date.</td>
+</tr>
+<tr>
+<td align="center"><strong>MEIJI_6_ISODATE: LocalDate</strong></td>
+<td align="center">LocalDate.of(1873, 1, 1)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The first day supported by the JapaneseChronology is Meiji 6, January 1st.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>now(): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains the current ‘JapaneseDate’ from the system clock in the default time-zone. <p> This will query the ‘Clock#systemDefaultZone() system clock’ in the default time-zone to obtain the current date. <p> Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>now(ZoneId zone): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains the current ‘JapaneseDate’ from the system clock in the specified time-zone. <p> This will query the ‘Clock#system(ZoneId) system clock’ to obtain the current date. Specifying the time-zone avoids dependence on the default time-zone. <p> Using this method will prevent the ability to use an alternate clock for testing because the clock is hard-coded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>now(Clock clock): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains the current ‘JapaneseDate’ from the specified clock. <p> This will query the specified clock to obtain the current date - today. Using this method allows the use of an alternate clock for testing. The alternate clock may be introduced using ‘Clock dependency injection’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>of(JapaneseEra era, int yearOfEra, int month, int dayOfMonth): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘JapaneseDate’ representing a date in the Japanese calendar system from the era, year-of-era, month-of-year and day-of-month fields. <p> This returns a ‘JapaneseDate’ with the specified fields. The day must be valid for the year and month, otherwise an exception will be thrown. <p> The Japanese month and day-of-month are the same as those in the ISO calendar system. They are not reset when the era changes. For example: <pre> 6th Jan Showa 64 = ISO 1989-01-06 7th Jan Showa 64 = ISO 1989-01-07 8th Jan Heisei 1 = ISO 1989-01-08 9th Jan Heisei 1 = ISO 1989-01-09 </pre></td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>of(int prolepticYear, int month, int dayOfMonth): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘JapaneseDate’ representing a date in the Japanese calendar system from the proleptic-year, month-of-year and day-of-month fields. <p> This returns a ‘JapaneseDate’ with the specified fields. The day must be valid for the year and month, otherwise an exception will be thrown. <p> The Japanese proleptic year, month and day-of-month are the same as those in the ISO calendar system. They are not reset when the era changes.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofYearDay(JapaneseEra era, int yearOfEra, int dayOfYear): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘JapaneseDate’ representing a date in the Japanese calendar system from the era, year-of-era and day-of-year fields. <p> This returns a ‘JapaneseDate’ with the specified fields. The day must be valid for the year, otherwise an exception will be thrown. <p> The day-of-year in this factory is expressed relative to the start of the year-of-era. This definition changes the normal meaning of day-of-year only in those years where the year-of-era is reset to one due to a change in the era. For example: <pre> 6th Jan Showa 64 = day-of-year 6 7th Jan Showa 64 = day-of-year 7 8th Jan Heisei 1 = day-of-year 1 9th Jan Heisei 1 = day-of-year 2 </pre></td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAccessor temporal): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘JapaneseDate’ from a temporal object. <p> This obtains a date in the Japanese calendar system based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘JapaneseDate’. <p> The conversion typically uses the ‘ChronoField#EPOCH_DAY EPOCH_DAY’ field, which is standardized across calendar systems. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘JapaneseDate::from’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>JapaneseDate(LocalDate isoDate)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance from an ISO date.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>JapaneseDate(JapaneseEra era, int year, LocalDate isoDate)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a ‘JapaneseDate’. This constructor does NOT validate the given parameters, and ‘era’ and ‘year’ must agree with ‘isoDate’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChronology(): JapaneseChronology</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the chronology of this date, which is the Japanese calendar system. <p> The ‘Chronology’ represents the calendar system in use. The era and other fields in ‘ChronoField’ are defined by the chronology.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEra(): JapaneseEra</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the era applicable at this date. <p> The Japanese calendar system has multiple eras defined by ‘JapaneseEra’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lengthOfMonth(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the length of the month represented by this date. <p> This returns the length of the month in days. Month lengths match those of the ISO calendar system.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lengthOfYear(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupported(TemporalField field): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the specified field is supported. <p> This checks if this date can be queried for the specified field. If false, then calling the ‘#range(TemporalField) range’ and ‘#get(TemporalField) get’ methods will throw an exception. <p> If the field is a ‘ChronoField’ then the query is implemented here. The supported fields are: <ul> <li>‘DAY_OF_WEEK’ <li>‘DAY_OF_MONTH’ <li>‘DAY_OF_YEAR’ <li>‘EPOCH_DAY’ <li>‘MONTH_OF_YEAR’ <li>‘PROLEPTIC_MONTH’ <li>‘YEAR_OF_ERA’ <li>‘YEAR’ <li>‘ERA’ </ul> All other ‘ChronoField’ instances will return false. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.isSupportedBy(TemporalAccessor)’ passing ‘this’ as the argument. Whether the field is supported is determined by the field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>range(TemporalField field): ValueRange</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(TemporalField field): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toPrivateJapaneseDate(LocalDate isoDate): LocalGregorianCalendar.Date</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘LocalGregorianCalendar.Date’ converted from the given ‘isoDate’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>with(TemporalField field, long newValue): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>with(TemporalAdjuster adjuster): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(TemporalAmount amount): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(TemporalAmount amount): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>withYear(JapaneseEra era, int yearOfEra): JapaneseDate</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this date with the year altered. <p> This method changes the year of the date. If the month-day is invalid for the year, then the previous valid day will be selected instead. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>withYear(int year): JapaneseDate</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this date with the year-of-era altered. <p> This method changes the year-of-era of the date. If the month-day is invalid for the year, then the previous valid day will be selected instead. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusYears(long years): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plusMonths(long months): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plusWeeks(long weeksToAdd): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plusDays(long days): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>plus(long amountToAdd, TemporalUnit unit): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minus(long amountToAdd, TemporalUnit unit): JapaneseDate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minusYears(long yearsToSubtract): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minusMonths(long monthsToSubtract): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minusWeeks(long weeksToSubtract): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minusDays(long daysToSubtract): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>with(LocalDate newDate): JapaneseDate</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>atTime(LocalTime localTime): ChronoLocalDateTime<JapaneseDate></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>until(ChronoLocalDate endDate): ChronoPeriod</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toEpochDay(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this date to another date, including the chronology. <p> Compares this ‘JapaneseDate’ with another ensuring that the date is the same. <p> Only objects of type ‘JapaneseDate’ are compared, other types return false. To compare the dates of two ‘TemporalAccessor’ instances, including dates in two different chronologies, use ‘ChronoField#EPOCH_DAY’ as a comparator.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A hash code for this date.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the object using a <a href="../../../serialized-form.html#java.time.chrono.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeExternal(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readExternal(DataInput in): JapaneseDate</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

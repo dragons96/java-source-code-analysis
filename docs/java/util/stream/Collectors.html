@@ -67,6 +67,50 @@
 </tr>
 </thead>
 <tbody><tr>
+<td align="center"><strong>CH_CONCURRENT_ID: Set&lt;Collector.Characteristics&gt;</strong></td>
+<td align="center">Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.CONCURRENT, Collector.Characteristics.UNORDERED, Collector.Characteristics.IDENTITY_FINISH))</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CH_CONCURRENT_NOID: Set&lt;Collector.Characteristics&gt;</strong></td>
+<td align="center">Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.CONCURRENT, Collector.Characteristics.UNORDERED))</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CH_ID: Set&lt;Collector.Characteristics&gt;</strong></td>
+<td align="center">Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.IDENTITY_FINISH))</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>CH_UNORDERED_ID: Set&lt;Collector.Characteristics&gt;</strong></td>
+<td align="center">Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.UNORDERED, Collector.Characteristics.IDENTITY_FINISH))</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="center"><strong>CH_NOID: Set&lt;Collector.Characteristics&gt;</strong></td>
 <td align="center">Collections.emptySet()</td>
 <td align="center">default</td>
@@ -94,6 +138,18 @@
 </tr>
 </thead>
 <tbody><tr>
+<td align="center"><strong>Collectors()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="center"><strong>throwingMerger(): BinaryOperator<T></strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -119,8 +175,8 @@
 </tr>
 <tr>
 <td align="center"><strong>toCollection(Supplier&lt;C&gt; collectionFactory): C&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -131,8 +187,8 @@
 </tr>
 <tr>
 <td align="center"><strong>toList(): List<T>&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -143,8 +199,8 @@
 </tr>
 <tr>
 <td align="center"><strong>toSet(): Set<T>&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -178,7 +234,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>joining(CharSequence delimiter,CharSequence prefix,CharSequence suffix): String&gt;</strong></td>
+<td align="center"><strong>joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix): String&gt;</strong></td>
 <td align="center">public</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -190,9 +246,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>mapMerger(BinaryOperator&lt;V&gt; mergeFunction)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>mapMerger(BinaryOperator&lt;V&gt; mergeFunction): BinaryOperator<M></strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -202,9 +258,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>mapping(Function&lt;? super T, ? extends U&gt; mapper,Collector&lt;? super U, A, R&gt; downstream): R&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>mapping(Function&lt;? super T, ? extends U&gt; mapper, Collector&lt;? super U, A, R&gt; downstream): R&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -214,9 +270,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>collectingAndThen(Collector&lt;T,A,R&gt; downstream,Function&lt;R,RR&gt; finisher): Collector&lt;T,A,RR&gt;</strong></td>
+<td align="center"><strong>collectingAndThen(Collector&lt;T,A,R&gt; downstream, Function&lt;R,RR&gt; finisher): Collector&lt;T,A,RR&gt;</strong></td>
 <td align="center">public</td>
-<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -226,9 +282,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>counting()</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>counting(): Long&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -238,9 +294,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>minBy(Comparator&lt;? super T&gt; comparator)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>minBy(Comparator&lt;? super T&gt; comparator): Optional<T>&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -250,9 +306,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>maxBy(Comparator&lt;? super T&gt; comparator)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>maxBy(Comparator&lt;? super T&gt; comparator): Optional<T>&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -262,9 +318,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>summingInt(ToIntFunction&lt;? super T&gt; mapper)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>summingInt(ToIntFunction&lt;? super T&gt; mapper): Integer&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -274,9 +330,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>summingLong(ToLongFunction&lt;? super T&gt; mapper)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>summingLong(ToLongFunction&lt;? super T&gt; mapper): Long&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -286,9 +342,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>summingDouble(ToDoubleFunction&lt;? super T&gt; mapper)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>summingDouble(ToDoubleFunction&lt;? super T&gt; mapper): Double&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -322,9 +378,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>averagingInt(ToIntFunction&lt;? super T&gt; mapper)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>averagingInt(ToIntFunction&lt;? super T&gt; mapper): Double&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -334,9 +390,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>averagingLong(ToLongFunction&lt;? super T&gt; mapper)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>averagingLong(ToLongFunction&lt;? super T&gt; mapper): Double&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -346,9 +402,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>averagingDouble(ToDoubleFunction&lt;? super T&gt; mapper)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>averagingDouble(ToDoubleFunction&lt;? super T&gt; mapper): Double&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -358,9 +414,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>reducing(T identity, BinaryOperator&lt;T&gt; op)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>reducing(T identity, BinaryOperator&lt;T&gt; op): T&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -382,9 +438,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>reducing(BinaryOperator&lt;T&gt; op)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>reducing(BinaryOperator&lt;T&gt; op): Optional<T>&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -394,9 +450,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>reducing(U identity,Function&lt;? super T, ? extends U&gt; mapper,BinaryOperator&lt;U&gt; op): U&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>reducing(U identity, Function&lt;? super T, ? extends U&gt; mapper, BinaryOperator&lt;U&gt; op): U&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -406,9 +462,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>groupingBy(Function&lt;? super T, ? extends K&gt; classifier)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>groupingBy(Function&lt;? super T, ? extends K&gt; classifier): List<T>&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -418,9 +474,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>groupingBy(Function&lt;? super T, ? extends K&gt; classifier,Collector&lt;? super T, A, D&gt; downstream): D&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>groupingBy(Function&lt;? super T, ? extends K&gt; classifier, Collector&lt;? super T, A, D&gt; downstream): D&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -430,9 +486,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>groupingBy(Function&lt;? super T, ? extends K&gt; classifier,Supplier&lt;M&gt; mapFactory,Collector&lt;? super T, A, D&gt; downstream): M&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>groupingBy(Function&lt;? super T, ? extends K&gt; classifier, Supplier&lt;M&gt; mapFactory, Collector&lt;? super T, A, D&gt; downstream): M&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -442,9 +498,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>groupingByConcurrent(Function&lt;? super T, ? extends K&gt; classifier)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>groupingByConcurrent(Function&lt;? super T, ? extends K&gt; classifier): List<T>&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -454,9 +510,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>groupingByConcurrent(Function&lt;? super T, ? extends K&gt; classifier,Collector&lt;? super T, A, D&gt; downstream): D&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>groupingByConcurrent(Function&lt;? super T, ? extends K&gt; classifier, Collector&lt;? super T, A, D&gt; downstream): D&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -466,9 +522,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>groupingByConcurrent(Function&lt;? super T, ? extends K&gt; classifier,Supplier&lt;M&gt; mapFactory,Collector&lt;? super T, A, D&gt; downstream): M&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>groupingByConcurrent(Function&lt;? super T, ? extends K&gt; classifier, Supplier&lt;M&gt; mapFactory, Collector&lt;? super T, A, D&gt; downstream): M&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -479,8 +535,8 @@
 </tr>
 <tr>
 <td align="center"><strong>partitioningBy(Predicate&lt;? super T&gt; predicate): List<T>&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -490,9 +546,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>partitioningBy(Predicate&lt;? super T&gt; predicate,Collector&lt;? super T, A, D&gt; downstream): D&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>partitioningBy(Predicate&lt;? super T&gt; predicate, Collector&lt;? super T, A, D&gt; downstream): D&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -502,9 +558,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>toMap(Function&lt;? super T, ? extends K&gt; keyMapper,Function&lt;? super T, ? extends U&gt; valueMapper): Map&lt;K,U&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>toMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper): Map&lt;K,U&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -514,9 +570,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>toMap(Function&lt;? super T, ? extends K&gt; keyMapper,Function&lt;? super T, ? extends U&gt; valueMapper,BinaryOperator&lt;U&gt; mergeFunction): Map&lt;K,U&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>toMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper, BinaryOperator&lt;U&gt; mergeFunction): Map&lt;K,U&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -526,9 +582,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>toMap(Function&lt;? super T, ? extends K&gt; keyMapper,Function&lt;? super T, ? extends U&gt; valueMapper,BinaryOperator&lt;U&gt; mergeFunction,Supplier&lt;M&gt; mapSupplier): M&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>toMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper, BinaryOperator&lt;U&gt; mergeFunction, Supplier&lt;M&gt; mapSupplier): M&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -538,9 +594,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>toConcurrentMap(Function&lt;? super T, ? extends K&gt; keyMapper,Function&lt;? super T, ? extends U&gt; valueMapper): ConcurrentMap&lt;K,U&gt;&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>toConcurrentMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper): ConcurrentMap&lt;K,U&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -550,9 +606,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>toConcurrentMap(Function&lt;? super T, ? extends K&gt; keyMapper,Function&lt;? super T, ? extends U&gt; valueMapper,BinaryOperator&lt;U&gt; mergeFunction)</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>toConcurrentMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper, BinaryOperator&lt;U&gt; mergeFunction): ConcurrentMap&lt;K,U&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -562,9 +618,9 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>toConcurrentMap(Function&lt;? super T, ? extends K&gt; keyMapper,Function&lt;? super T, ? extends U&gt; valueMapper,BinaryOperator&lt;U&gt; mergeFunction,Supplier&lt;M&gt; mapSupplier): M&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center"><strong>toConcurrentMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper, BinaryOperator&lt;U&gt; mergeFunction, Supplier&lt;M&gt; mapSupplier): M&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -575,8 +631,8 @@
 </tr>
 <tr>
 <td align="center"><strong>summarizingInt(ToIntFunction&lt;? super T&gt; mapper): IntSummaryStatistics&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -587,8 +643,8 @@
 </tr>
 <tr>
 <td align="center"><strong>summarizingLong(ToLongFunction&lt;? super T&gt; mapper): LongSummaryStatistics&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -599,8 +655,8 @@
 </tr>
 <tr>
 <td align="center"><strong>summarizingDouble(ToDoubleFunction&lt;? super T&gt; mapper): DoubleSummaryStatistics&gt;</strong></td>
-<td align="center">default</td>
-<td align="center">否</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>

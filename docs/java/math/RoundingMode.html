@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/math/RoundingMode.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="RoundingMode"><a href="#RoundingMode" class="headerlink" title="RoundingMode"></a>RoundingMode</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.math.RoundingMode</strong></td>
+<td align="center">enum</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">枚举实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>UP(BigDecimal.ROUND_UP)</strong></td>
+<td align="left">Rounding mode to round away from zero.  Always increments the digit prior to a non-zero discarded fraction.  Note that this rounding mode never decreases the magnitude of the calculated value.  <p>Example: <table border> <caption><b>Rounding mode UP Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code UP} rounding <tr align=right><td>5.5</td>  <td>6</td> <tr align=right><td>2.5</td>  <td>3</td> <tr align=right><td>1.6</td>  <td>2</td> <tr align=right><td>1.1</td>  <td>2</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-2</td> <tr align=right><td>-1.6</td> <td>-2</td> <tr align=right><td>-2.5</td> <td>-3</td> <tr align=right><td>-5.5</td> <td>-6</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>DOWN(BigDecimal.ROUND_DOWN)</strong></td>
+<td align="left">Rounding mode to round towards zero.  Never increments the digit prior to a discarded fraction (i.e., truncates).  Note that this rounding mode never increases the magnitude of the calculated value.  <p>Example: <table border> <caption><b>Rounding mode DOWN Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code DOWN} rounding <tr align=right><td>5.5</td>  <td>5</td> <tr align=right><td>2.5</td>  <td>2</td> <tr align=right><td>1.6</td>  <td>1</td> <tr align=right><td>1.1</td>  <td>1</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-1</td> <tr align=right><td>-1.6</td> <td>-1</td> <tr align=right><td>-2.5</td> <td>-2</td> <tr align=right><td>-5.5</td> <td>-5</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>CEILING(BigDecimal.ROUND_CEILING)</strong></td>
+<td align="left">Rounding mode to round towards positive infinity.  If the result is positive, behaves as for {@code RoundingMode.UP}; if negative, behaves as for {@code RoundingMode.DOWN}.  Note that this rounding mode never decreases the calculated value.  <p>Example: <table border> <caption><b>Rounding mode CEILING Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code CEILING} rounding <tr align=right><td>5.5</td>  <td>6</td> <tr align=right><td>2.5</td>  <td>3</td> <tr align=right><td>1.6</td>  <td>2</td> <tr align=right><td>1.1</td>  <td>2</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-1</td> <tr align=right><td>-1.6</td> <td>-1</td> <tr align=right><td>-2.5</td> <td>-2</td> <tr align=right><td>-5.5</td> <td>-5</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>FLOOR(BigDecimal.ROUND_FLOOR)</strong></td>
+<td align="left">Rounding mode to round towards negative infinity.  If the result is positive, behave as for {@code RoundingMode.DOWN}; if negative, behave as for {@code RoundingMode.UP}.  Note that this rounding mode never increases the calculated value.  <p>Example: <table border> <caption><b>Rounding mode FLOOR Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code FLOOR} rounding <tr align=right><td>5.5</td>  <td>5</td> <tr align=right><td>2.5</td>  <td>2</td> <tr align=right><td>1.6</td>  <td>1</td> <tr align=right><td>1.1</td>  <td>1</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-2</td> <tr align=right><td>-1.6</td> <td>-2</td> <tr align=right><td>-2.5</td> <td>-3</td> <tr align=right><td>-5.5</td> <td>-6</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>HALF_UP(BigDecimal.ROUND_HALF_UP)</strong></td>
+<td align="left">Rounding mode to round towards {@literal “nearest neighbor”} unless both neighbors are equidistant, in which case round up. Behaves as for {@code RoundingMode.UP} if the discarded fraction is &amp;ge; 0.5; otherwise, behaves as for {@code RoundingMode.DOWN}.  Note that this is the rounding mode commonly taught at school.  <p>Example: <table border> <caption><b>Rounding mode HALF_UP Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code HALF_UP} rounding <tr align=right><td>5.5</td>  <td>6</td> <tr align=right><td>2.5</td>  <td>3</td> <tr align=right><td>1.6</td>  <td>2</td> <tr align=right><td>1.1</td>  <td>1</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-1</td> <tr align=right><td>-1.6</td> <td>-2</td> <tr align=right><td>-2.5</td> <td>-3</td> <tr align=right><td>-5.5</td> <td>-6</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>HALF_DOWN(BigDecimal.ROUND_HALF_DOWN)</strong></td>
+<td align="left">Rounding mode to round towards {@literal “nearest neighbor”} unless both neighbors are equidistant, in which case round down.  Behaves as for {@code RoundingMode.UP} if the discarded fraction is &gt; 0.5; otherwise, behaves as for {@code RoundingMode.DOWN}.  <p>Example: <table border> <caption><b>Rounding mode HALF_DOWN Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code HALF_DOWN} rounding <tr align=right><td>5.5</td>  <td>5</td> <tr align=right><td>2.5</td>  <td>2</td> <tr align=right><td>1.6</td>  <td>2</td> <tr align=right><td>1.1</td>  <td>1</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-1</td> <tr align=right><td>-1.6</td> <td>-2</td> <tr align=right><td>-2.5</td> <td>-2</td> <tr align=right><td>-5.5</td> <td>-5</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>HALF_EVEN(BigDecimal.ROUND_HALF_EVEN)</strong></td>
+<td align="left">Rounding mode to round towards the {@literal “nearest neighbor”} unless both neighbors are equidistant, in which case, round towards the even neighbor.  Behaves as for {@code RoundingMode.HALF_UP} if the digit to the left of the discarded fraction is odd; behaves as for {@code RoundingMode.HALF_DOWN} if it’s even.  Note that this is the rounding mode that statistically minimizes cumulative error when applied repeatedly over a sequence of calculations. It is sometimes known as {@literal “Banker’s rounding,”} and is chiefly used in the USA.  This rounding mode is analogous to the rounding policy used for {@code float} and {@code double} arithmetic in Java.  <p>Example: <table border> <caption><b>Rounding mode HALF_EVEN Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code HALF_EVEN} rounding <tr align=right><td>5.5</td>  <td>6</td> <tr align=right><td>2.5</td>  <td>2</td> <tr align=right><td>1.6</td>  <td>2</td> <tr align=right><td>1.1</td>  <td>1</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>-1</td> <tr align=right><td>-1.6</td> <td>-2</td> <tr align=right><td>-2.5</td> <td>-2</td> <tr align=right><td>-5.5</td> <td>-6</td> </table></td>
+</tr>
+<tr>
+<td align="center"><strong>UNNECESSARY(BigDecimal.ROUND_UNNECESSARY)</strong></td>
+<td align="left">Rounding mode to assert that the requested operation has an exact result, hence no rounding is necessary.  If this rounding mode is specified on an operation that yields an inexact result, an {@code ArithmeticException} is thrown. <p>Example: <table border> <caption><b>Rounding mode UNNECESSARY Examples</b></caption> <tr valign=top><th>Input Number</th> <th>Input rounded to one digit<br> with {@code UNNECESSARY} rounding <tr align=right><td>5.5</td>  <td>throw {@code ArithmeticException}</td> <tr align=right><td>2.5</td>  <td>throw {@code ArithmeticException}</td> <tr align=right><td>1.6</td>  <td>throw {@code ArithmeticException}</td> <tr align=right><td>1.1</td>  <td>throw {@code ArithmeticException}</td> <tr align=right><td>1.0</td>  <td>1</td> <tr align=right><td>-1.0</td> <td>-1</td> <tr align=right><td>-1.1</td> <td>throw {@code ArithmeticException}</td> <tr align=right><td>-1.6</td> <td>throw {@code ArithmeticException}</td> <tr align=right><td>-2.5</td> <td>throw {@code ArithmeticException}</td> <tr align=right><td>-5.5</td> <td>throw {@code ArithmeticException}</td> </table></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>oldMode: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>RoundingMode(int oldMode)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(int rm): RoundingMode</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘RoundingMode’ object corresponding to a legacy integer rounding mode constant in ‘BigDecimal’.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

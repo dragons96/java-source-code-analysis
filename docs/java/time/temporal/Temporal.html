@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/temporal/Temporal.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Temporal"><a href="#Temporal" class="headerlink" title="Temporal"></a>Temporal</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.temporal.Temporal</strong></td>
+<td align="center">interface</td>
+<td align="center">TemporalAccessor</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>isSupported(TemporalUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the specified unit is supported. <p> This checks if the specified unit can be added to, or subtracted from, this date-time. If false, then calling the ‘#plus(long, TemporalUnit)’ and ‘#minus(long, TemporalUnit) minus’ methods will throw an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>with(TemporalAdjuster adjuster): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an adjusted object of the same type as this object with the adjustment made. <p> This adjusts this date-time according to the rules of the specified adjuster. A simple adjuster might simply set the one of the fields, such as the year field. A more complex adjuster might set the date to the last day of the month. A selection of common adjustments is provided in ‘java.time.temporal.TemporalAdjusters TemporalAdjusters’. These include finding the “last day of the month” and “next Wednesday”. The adjuster is responsible for handling special cases, such as the varying lengths of month and leap years. <p> Some example code indicating how and why this method is used: <pre> date = date.with(Month.JULY); date = date.with(lastDayOfMonth()); date = date.with(next(WEDNESDAY)); </pre></td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>with(TemporalField field, long newValue): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object of the same type as this object with the specified field altered. <p> This returns a new object based on this one with the value for the specified field changed. For example, on a ‘LocalDate’, this could be used to set the year, month or day-of-month. The returned object will have the same observable type as this object. <p> In some cases, changing a field is not fully defined. For example, if the target object is a date representing the 31st January, then changing the month to February would be unclear. In cases like this, the field is responsible for resolving the result. Typically it will choose the previous valid date, which would be the last valid day of February in this example.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(TemporalAmount amount): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object of the same type as this object with an amount added. <p> This adjusts this temporal, adding according to the rules of the specified amount. The amount is typically a ‘java.time.Period’ but may be any other type implementing the ‘TemporalAmount’ interface, such as ‘java.time.Duration’. <p> Some example code indicating how and why this method is used: <pre> date = date.plus(period); date = date.plus(duration); date = date.plus(workingDays(6)); </pre> <p> Note that calling ‘plus’ followed by ‘minus’ is not guaranteed to return the same date-time.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(long amountToAdd, TemporalUnit unit): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object of the same type as this object with the specified period added. <p> This method returns a new object based on this one with the specified period added. For example, on a ‘LocalDate’, this could be used to add a number of years, months or days. The returned object will have the same observable type as this object. <p> In some cases, changing a field is not fully defined. For example, if the target object is a date representing the 31st January, then adding one month would be unclear. In cases like this, the field is responsible for resolving the result. Typically it will choose the previous valid date, which would be the last valid day of February in this example.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(TemporalAmount amount): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object of the same type as this object with an amount subtracted. <p> This adjusts this temporal, subtracting according to the rules of the specified amount. The amount is typically a ‘java.time.Period’ but may be any other type implementing the ‘TemporalAmount’ interface, such as ‘java.time.Duration’. <p> Some example code indicating how and why this method is used: <pre> date = date.minus(period); date = date.minus(duration); date = date.minus(workingDays(6)); </pre> <p> Note that calling ‘plus’ followed by ‘minus’ is not guaranteed to return the same date-time.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(long amountToSubtract, TemporalUnit unit): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an object of the same type as this object with the specified period subtracted. <p> This method returns a new object based on this one with the specified period subtracted. For example, on a ‘LocalDate’, this could be used to subtract a number of years, months or days. The returned object will have the same observable type as this object. <p> In some cases, changing a field is not fully defined. For example, if the target object is a date representing the 31st March, then subtracting one month would be unclear. In cases like this, the field is responsible for resolving the result. Typically it will choose the previous valid date, which would be the last valid day of February in this example.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>until(Temporal endExclusive, TemporalUnit unit): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Calculates the amount of time until another temporal in terms of the specified unit. <p> This calculates the amount of time between two temporal objects in terms of a single ‘TemporalUnit’. The start and end points are ‘this’ and the specified temporal. The end point is converted to be of the same type as the start point if different. The result will be negative if the end is before the start. For example, the amount in hours between two temporal objects can be calculated using ‘startTime.until(endTime, HOURS)’. <p> The calculation returns a whole number, representing the number of complete units between the two temporals. For example, the amount in hours between the times 11:30 and 13:29 will only be one hour as it is one minute short of two hours. <p> There are two equivalent ways of using this method. The first is to invoke this method directly. The second is to use ‘TemporalUnit#between(Temporal, Temporal)’: <pre>  temporal = start.until(end, unit); temporal = unit.between(start, end); </pre> The choice should be made based on which makes the code more readable. <p> For example, this method allows the number of days between two dates to be calculated: <pre> long daysBetween = start.until(end, DAYS);  long daysBetween = DAYS.between(start, end); </pre></td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException<br/>ArithmeticException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

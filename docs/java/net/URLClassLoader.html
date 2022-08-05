@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/net/URLClassLoader.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="URLClassLoader"><a href="#URLClassLoader" class="headerlink" title="URLClassLoader"></a>URLClassLoader</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.net.URLClassLoader</strong></td>
+<td align="center">class</td>
+<td align="center">SecureClassLoader</td>
+<td align="center">Closeable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ucp: URLClassPath</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The search path for classes and resources</td>
+</tr>
+<tr>
+<td align="center"><strong>acc: AccessControlContext</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The context to be used when loading classes and resources</td>
+</tr>
+<tr>
+<td align="center"><strong>closeables: WeakHashMap&lt;Closeable,Void&gt;</strong></td>
+<td align="center">new WeakHashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A map (used as a set) to keep track of closeable local resources (either JarFiles or FileInputStreams). We don’t care about Http resources since they don’t need to be closed.  If the resource is coming from a jar file we keep a (weak) reference to the JarFile object which can be closed if URLClassLoader.close() called. Due to jar file caching there will typically be only one JarFile object per underlying jar file.  For file resources, which is probably a less common situation we have to keep a weak reference to each stream.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>URLClassLoader(URL[] urls, ClassLoader parent)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new URLClassLoader for the given URLs. The URLs will be searched in the order specified for classes and resources after first searching in the specified parent class loader. Any URL that ends with a ‘&#x2F;‘ is assumed to refer to a directory. Otherwise, the URL is assumed to refer to a JAR file which will be downloaded and opened as needed.  <p>If there is a security manager, this method first calls the security manager’s ‘checkCreateClassLoader’ method to ensure creation of a class loader is allowed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>URLClassLoader(URL[] urls, ClassLoader parent, AccessControlContext acc)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>URLClassLoader(URL[] urls)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new URLClassLoader for the specified URLs using the default delegation parent ‘ClassLoader’. The URLs will be searched in the order specified for classes and resources after first searching in the parent class loader. Any URL that ends with a ‘&#x2F;‘ is assumed to refer to a directory. Otherwise, the URL is assumed to refer to a JAR file which will be downloaded and opened as needed.  <p>If there is a security manager, this method first calls the security manager’s ‘checkCreateClassLoader’ method to ensure creation of a class loader is allowed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>URLClassLoader(URL[] urls, AccessControlContext acc)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>URLClassLoader(URL[] urls, ClassLoader parent, URLStreamHandlerFactory factory)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new URLClassLoader for the specified URLs, parent class loader, and URLStreamHandlerFactory. The parent argument will be used as the parent class loader for delegation. The factory argument will be used as the stream handler factory to obtain protocol handlers when creating new jar URLs.  <p>If there is a security manager, this method first calls the security manager’s ‘checkCreateClassLoader’ method to ensure creation of a class loader is allowed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResourceAsStream(String name): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an input stream for reading the specified resource. If this loader is closed, then any resources opened by this method will be closed.  <p> The search order is described in the documentation for ‘#getResource(String)’.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>close(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Closes this URLClassLoader, so that it can no longer be used to load new classes or resources that are defined by this loader. Classes and resources defined by any of this loader’s parents in the delegation hierarchy are still accessible. Also, any classes or resources that are already loaded, are still accessible. <p> In the case of jar: and file: URLs, it also closes any files that were opened by it. If another thread is loading a class when the ‘close’ method is invoked, then the result of that load is undefined. <p> The method makes a best effort attempt to close all opened files, by catching ‘IOException’s internally. Unchecked exceptions and errors are not caught. Calling close on an already closed loader has no effect. <p></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>addURL(URL url): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends the specified URL to the list of URLs to search for classes and resources. <p> If the URL specified is ‘null’ or is already in the list of URLs, or if this loader is closed, then invoking this method has no effect.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getURLs(): URL[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the search path of URLs for loading classes and resources. This includes the original list of URLs specified to the constructor, along with any URLs subsequently appended by the addURL() method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findClass(final String name): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds and loads the class with the specified name from the URL search path. Any URLs referring to JAR files are loaded and opened as needed until the class is found.</td>
+<td align="left">ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAndVerifyPackage(String pkgname, Manifest man, URL url): Package</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieve the package using the specified package name. If non-null, verify the package using the specified code source and manifest.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>definePackageInternal(String pkgname, Manifest man, URL url): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass(String name, Resource res): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defines a Class using the class bytes obtained from the specified Resource. The resulting Class must be resolved before it can be used.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>definePackage(String name, Manifest man, URL url): Package</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defines a new package by name in this ClassLoader. The attributes contained in the specified Manifest will be used to obtain package version and sealing information. For sealed packages, the additional URL specifies the code source URL from which the package was loaded.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>isSealed(String name, Manifest man): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the specified package name is sealed according to the given manifest.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>findResource(final String name): URL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds the resource with the specified name on the URL search path.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findResources(final String name): Enumeration<URL></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an Enumeration of URLs representing all of the resources on the URL search path having the specified name.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPermissions(CodeSource codesource): PermissionCollection</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the permissions for the given codesource object. The implementation of this method first calls super.getPermissions and then adds permissions based on the URL of the codesource. <p> If the protocol of this URL is “jar”, then the permission granted is based on the permission that is required by the URL of the Jar file. <p> If the protocol is “file” and there is an authority component, then permission to connect to and accept connections from that authority may be granted. If the protocol is “file” and the path specifies a file, then permission to read that file is granted. If protocol is “file” and the path is a directory, permission is granted to read all files and (recursively) all files and subdirectories contained in that directory. <p> If the protocol is not “file”, then permission to connect to and accept connections from the URL’s host is granted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newInstance(final URL[] urls, final ClassLoader parent): URLClassLoader</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new instance of URLClassLoader for the specified URLs and parent class loader. If a security manager is installed, the ‘loadClass’ method of the URLClassLoader returned by this method will invoke the ‘SecurityManager.checkPackageAccess’ method before loading the class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newInstance(final URL[] urls): URLClassLoader</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new instance of URLClassLoader for the specified URLs and default parent class loader. If a security manager is installed, the ‘loadClass’ method of the URLClassLoader returned by this method will invoke the ‘SecurityManager.checkPackageAccess’ before loading the class.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="URLClassLoader-FactoryURLClassLoader"><a href="#URLClassLoader-FactoryURLClassLoader" class="headerlink" title="URLClassLoader$FactoryURLClassLoader"></a><a href="./URLClassLoader$FactoryURLClassLoader.html">URLClassLoader$FactoryURLClassLoader</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

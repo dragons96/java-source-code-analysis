@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/nio/ByteBuffer.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ByteBuffer"><a href="#ByteBuffer" class="headerlink" title="ByteBuffer"></a>ByteBuffer</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.nio.ByteBuffer</strong></td>
+<td align="center">abstract class</td>
+<td align="center">Buffer</td>
+<td align="center">Comparable&lt;ByteBuffer&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>hb: byte[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>offset: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isReadOnly: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bigEndian: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nativeByteOrder: boolean</strong></td>
+<td align="center">ByteOrder.BIG_ENDIAN)</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ByteBuffer(int mark, int pos, int lim, int cap, byte[] hb, int offset)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ByteBuffer(int mark, int pos, int lim, int cap)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>allocateDirect(int capacity): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new direct byte buffer.  <p> The new buffer’s position will be zero, its limit will be its capacity, its mark will be undefined, and each of its elements will be initialized to zero.  Whether or not it has a ‘#hasArray backing array’ is unspecified.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>allocate(int capacity): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Allocates a new byte buffer.  <p> The new buffer’s position will be zero, its limit will be its capacity, its mark will be undefined, and each of its elements will be initialized to zero.  It will have a ‘#array backing array’, and its ‘#arrayOffset array offset’ will be zero.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>wrap(byte[] array, int offset, int length): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Wraps a byte array into a buffer.  <p> The new buffer will be backed by the given byte array; that is, modifications to the buffer will cause the array to be modified and vice versa.  The new buffer’s capacity will be <tt>array.length</tt>, its position will be <tt>offset</tt>, its limit will be <tt>offset + length</tt>, and its mark will be undefined.  Its ‘#array backing array’ will be the given array, and its ‘#arrayOffset array offset’ will be zero.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>wrap(byte[] array): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Wraps a byte array into a buffer.  <p> The new buffer will be backed by the given byte array; that is, modifications to the buffer will cause the array to be modified and vice versa.  The new buffer’s capacity and limit will be <tt>array.length</tt>, its position will be zero, and its mark will be undefined.  Its ‘#array backing array’ will be the given array, and its ‘#arrayOffset array offset&gt;’ will be zero.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>slice(): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a new byte buffer whose content is a shared subsequence of this buffer’s content.  <p> The content of the new buffer will start at this buffer’s current position.  Changes to this buffer’s content will be visible in the new buffer, and vice versa; the two buffers’ position, limit, and mark values will be independent.  <p> The new buffer’s position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>duplicate(): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a new byte buffer that shares this buffer’s content.  <p> The content of the new buffer will be that of this buffer.  Changes to this buffer’s content will be visible in the new buffer, and vice versa; the two buffers’ position, limit, and mark values will be independent.  <p> The new buffer’s capacity, limit, position, and mark values will be identical to those of this buffer.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>asReadOnlyBuffer(): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a new, read-only byte buffer that shares this buffer’s content.  <p> The content of the new buffer will be that of this buffer.  Changes to this buffer’s content will be visible in the new buffer; the new buffer itself, however, will be read-only and will not allow the shared content to be modified.  The two buffers’ position, limit, and mark values will be independent.  <p> The new buffer’s capacity, limit, position, and mark values will be identical to those of this buffer.  <p> If this buffer is itself read-only then this method behaves in exactly the same way as the ‘#duplicate duplicate’ method.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method.  Reads the byte at this buffer’s current position, and then increments the position.</td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(byte b): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> Writes the given byte into this buffer at the current position, and then increments the position. </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(int index): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method.  Reads the byte at the given index.</td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(int index, byte b): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> Writes the given byte into this buffer at the given index. </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(byte[] dst, int offset, int length): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Relative bulk <i>get</i> method.  <p> This method transfers bytes from this buffer into the given destination array.  If there are fewer bytes remaining in the buffer than are required to satisfy the request, that is, if <tt>length</tt>&amp;nbsp;<tt>&gt;</tt>&amp;nbsp;<tt>remaining()</tt>, then no bytes are transferred and a ‘BufferUnderflowException’ is thrown.  <p> Otherwise, this method copies <tt>length</tt> bytes from this buffer into the given array, starting at the current position of this buffer and at the given offset in the array.  The position of this buffer is then incremented by <tt>length</tt>.  <p> In other words, an invocation of this method of the form <tt>src.get(dst,&amp;nbsp;off,&amp;nbsp;len)</tt> has exactly the same effect as the loop  <pre>'for (int i = off; i < off + len; i++) dst[i] = src.get():'</pre>  except that it first checks that there are sufficient bytes in this buffer and it is potentially much more efficient.</td>
+<td align="left">BufferUnderflowException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>get(byte[] dst): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Relative bulk <i>get</i> method.  <p> This method transfers bytes from this buffer into the given destination array.  An invocation of this method of the form <tt>src.get(a)</tt> behaves in exactly the same way as the invocation  <pre> src.get(a, 0, a.length) </pre></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(ByteBuffer src): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Relative bulk <i>put</i> method&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> This method transfers the bytes remaining in the given source buffer into this buffer.  If there are more bytes remaining in the source buffer than in this buffer, that is, if <tt>src.remaining()</tt>&amp;nbsp;<tt>&gt;</tt>&amp;nbsp;<tt>remaining()</tt>, then no bytes are transferred and a ‘BufferOverflowException’ is thrown.  <p> Otherwise, this method copies <i>n</i>&amp;nbsp;&#x3D;&amp;nbsp;<tt>src.remaining()</tt> bytes from the given buffer into this buffer, starting at each buffer’s current position. The positions of both buffers are then incremented by <i>n</i>.  <p> In other words, an invocation of this method of the form <tt>dst.put(src)</tt> has exactly the same effect as the loop  <pre> while (src.hasRemaining()) dst.put(src.get()); </pre>  except that it first checks that there is sufficient space in this buffer and it is potentially much more efficient.</td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(byte[] src, int offset, int length): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Relative bulk <i>put</i> method&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> This method transfers bytes into this buffer from the given source array.  If there are more bytes to be copied from the array than remain in this buffer, that is, if <tt>length</tt>&amp;nbsp;<tt>&gt;</tt>&amp;nbsp;<tt>remaining()</tt>, then no bytes are transferred and a ‘BufferOverflowException’ is thrown.  <p> Otherwise, this method copies <tt>length</tt> bytes from the given array into this buffer, starting at the given offset in the array and at the current position of this buffer.  The position of this buffer is then incremented by <tt>length</tt>.  <p> In other words, an invocation of this method of the form <tt>dst.put(src,&amp;nbsp;off,&amp;nbsp;len)</tt> has exactly the same effect as the loop  <pre>'for (int i = off; i < off + len; i++) dst.put(a[i]);'</pre>  except that it first checks that there is sufficient space in this buffer and it is potentially much more efficient.</td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(byte[] src): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Relative bulk <i>put</i> method&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> This method transfers the entire content of the given source byte array into this buffer.  An invocation of this method of the form <tt>dst.put(a)</tt> behaves in exactly the same way as the invocation  <pre> dst.put(a, 0, a.length) </pre></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>hasArray(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether or not this buffer is backed by an accessible byte array.  <p> If this method returns <tt>true</tt> then the ‘#array() array’ and ‘#arrayOffset() arrayOffset’ methods may safely be invoked. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>array(): byte[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the byte array that backs this buffer&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> Modifications to this buffer’s content will cause the returned array’s content to be modified, and vice versa.  <p> Invoke the ‘#hasArray hasArray’ method before invoking this method in order to ensure that this buffer has an accessible backing array.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>arrayOffset(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the offset within this buffer’s backing array of the first element of the buffer&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> If this buffer is backed by an array then buffer position <i>p</i> corresponds to array index <i>p</i>&amp;nbsp;+&amp;nbsp;<tt>arrayOffset()</tt>.  <p> Invoke the ‘#hasArray hasArray’ method before invoking this method in order to ensure that this buffer has an accessible backing array.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>compact(): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Compacts this buffer&amp;nbsp;&amp;nbsp;<i>(optional operation)</i>.  <p> The bytes between the buffer’s current position and its limit, if any, are copied to the beginning of the buffer.  That is, the byte at index <i>p</i>&amp;nbsp;&#x3D;&amp;nbsp;<tt>position()</tt> is copied to index zero, the byte at index <i>p</i>&amp;nbsp;+&amp;nbsp;1 is copied to index one, and so forth until the byte at index <tt>limit()</tt>&amp;nbsp;-&amp;nbsp;1 is copied to index <i>n</i>&amp;nbsp;&#x3D;&amp;nbsp;<tt>limit()</tt>&amp;nbsp;-&amp;nbsp;<tt>1</tt>&amp;nbsp;-&amp;nbsp;<i>p</i>. The buffer’s position is then set to <i>n+1</i> and its limit is set to its capacity.  The mark, if defined, is discarded.  <p> The buffer’s position is set to the number of bytes copied, rather than to zero, so that an invocation of this method can be followed immediately by an invocation of another relative <i>put</i> method. </p>   <p> Invoke this method after writing data from a buffer in case the write was incomplete.  The following loop, for example, copies bytes from one channel to another via the buffer <tt>buf</tt>:  <blockquote><pre>'buf.clear(); while (in.read(buf) >= 0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDirect(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tells whether or not this byte buffer is direct.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string summarizing the state of this buffer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current hash code of this buffer.  <p> The hash code of a byte buffer depends only upon its remaining elements; that is, upon the elements from <tt>position()</tt> up to, and including, the element at <tt>limit()</tt>&nbsp;-&nbsp;<tt>1</tt>.  <p> Because buffer hash codes are content-dependent, it is inadvisable to use buffers as keys in hash maps or similar data structures unless it is known that their contents will not change.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object ob): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tells whether or not this buffer is equal to another object.  <p> Two byte buffers are equal if, and only if,  <ol>  <li><p> They have the same element type,  </p></li>  <li><p> They have the same number of remaining elements, and </p></li>  <li><p> The two sequences of remaining elements, considered independently of their starting positions, are pointwise equal. </p></li>  </ol>  <p> A byte buffer is not equal to any other type of object.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(byte x, byte y): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(ByteBuffer that): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this buffer to another.  <p> Two byte buffers are compared by comparing their sequences of remaining elements lexicographically, without regard to the starting position of each sequence within its corresponding buffer. Pairs of 'byte' elements are compared as if by invoking 'Byte#compare(byte,byte)'.  <p> A byte buffer is not comparable to any other type of object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compare(byte x, byte y): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>order(): ByteOrder</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves this buffer's byte order.  <p> The byte order is used when reading or writing multibyte values, and when creating buffers that are views of this byte buffer.  The order of a newly-created byte buffer is always 'ByteOrder#BIG_ENDIAN BIG_ENDIAN'.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>order(ByteOrder bo): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Modifies this buffer's byte order.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>_get(int i): byte</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>_put(int i, byte b): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChar(): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method for reading a char value.  <p> Reads the next two bytes at this buffer's current position, composing them into a char value according to the current byte order, and then increments the position by two.  </p></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>putChar(char value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method for writing a char value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes two bytes containing the given char value, in the current byte order, into this buffer at the current position, and then increments the position by two.  </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>getChar(int index): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method for reading a char value.  <p> Reads two bytes at the given index, composing them into a char value according to the current byte order.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>putChar(int index, char value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method for writing a char value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes two bytes containing the given char value, in the current byte order, into this buffer at the given index.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asCharBuffer(): CharBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a view of this byte buffer as a char buffer.  <p> The content of the new buffer will start at this buffer's current position.  Changes to this buffer's content will be visible in the new buffer, and vice versa; the two buffers' position, limit, and mark values will be independent.  <p> The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided by two, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getShort(): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method for reading a short value.  <p> Reads the next two bytes at this buffer's current position, composing them into a short value according to the current byte order, and then increments the position by two.  </p></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>putShort(short value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method for writing a short value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes two bytes containing the given short value, in the current byte order, into this buffer at the current position, and then increments the position by two.  </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>getShort(int index): short</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method for reading a short value.  <p> Reads two bytes at the given index, composing them into a short value according to the current byte order.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>putShort(int index, short value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method for writing a short value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes two bytes containing the given short value, in the current byte order, into this buffer at the given index.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asShortBuffer(): ShortBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a view of this byte buffer as a short buffer.  <p> The content of the new buffer will start at this buffer's current position.  Changes to this buffer's content will be visible in the new buffer, and vice versa; the two buffers' position, limit, and mark values will be independent.  <p> The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided by two, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method for reading an int value.  <p> Reads the next four bytes at this buffer's current position, composing them into an int value according to the current byte order, and then increments the position by four.  </p></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>putInt(int value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method for writing an int value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes four bytes containing the given int value, in the current byte order, into this buffer at the current position, and then increments the position by four.  </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInt(int index): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method for reading an int value.  <p> Reads four bytes at the given index, composing them into a int value according to the current byte order.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>putInt(int index, int value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method for writing an int value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes four bytes containing the given int value, in the current byte order, into this buffer at the given index.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asIntBuffer(): IntBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a view of this byte buffer as an int buffer.  <p> The content of the new buffer will start at this buffer's current position.  Changes to this buffer's content will be visible in the new buffer, and vice versa; the two buffers' position, limit, and mark values will be independent.  <p> The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided by four, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method for reading a long value.  <p> Reads the next eight bytes at this buffer's current position, composing them into a long value according to the current byte order, and then increments the position by eight.  </p></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>putLong(long value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method for writing a long value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes eight bytes containing the given long value, in the current byte order, into this buffer at the current position, and then increments the position by eight.  </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(int index): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method for reading a long value.  <p> Reads eight bytes at the given index, composing them into a long value according to the current byte order.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>putLong(int index, long value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method for writing a long value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes eight bytes containing the given long value, in the current byte order, into this buffer at the given index.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asLongBuffer(): LongBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a view of this byte buffer as a long buffer.  <p> The content of the new buffer will start at this buffer's current position.  Changes to this buffer's content will be visible in the new buffer, and vice versa; the two buffers' position, limit, and mark values will be independent.  <p> The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided by eight, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method for reading a float value.  <p> Reads the next four bytes at this buffer's current position, composing them into a float value according to the current byte order, and then increments the position by four.  </p></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>putFloat(float value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method for writing a float value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes four bytes containing the given float value, in the current byte order, into this buffer at the current position, and then increments the position by four.  </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFloat(int index): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method for reading a float value.  <p> Reads four bytes at the given index, composing them into a float value according to the current byte order.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>putFloat(int index, float value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method for writing a float value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes four bytes containing the given float value, in the current byte order, into this buffer at the given index.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asFloatBuffer(): FloatBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a view of this byte buffer as a float buffer.  <p> The content of the new buffer will start at this buffer's current position.  Changes to this buffer's content will be visible in the new buffer, and vice versa; the two buffers' position, limit, and mark values will be independent.  <p> The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided by four, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>get</i> method for reading a double value.  <p> Reads the next eight bytes at this buffer's current position, composing them into a double value according to the current byte order, and then increments the position by eight.  </p></td>
+<td align="left">BufferUnderflowException</td>
+</tr>
+<tr>
+<td align="center"><strong>putDouble(double value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Relative <i>put</i> method for writing a double value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes eight bytes containing the given double value, in the current byte order, into this buffer at the current position, and then increments the position by eight.  </p></td>
+<td align="left">BufferOverflowException<br/>ReadOnlyBufferException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDouble(int index): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>get</i> method for reading a double value.  <p> Reads eight bytes at the given index, composing them into a double value according to the current byte order.  </p></td>
+<td align="left">IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>putDouble(int index, double value): ByteBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Absolute <i>put</i> method for writing a double value&nbsp;&nbsp;<i>(optional operation)</i>.  <p> Writes eight bytes containing the given double value, in the current byte order, into this buffer at the given index.  </p></td>
+<td align="left">ReadOnlyBufferException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>asDoubleBuffer(): DoubleBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a view of this byte buffer as a double buffer.  <p> The content of the new buffer will start at this buffer's current position.  Changes to this buffer's content will be visible in the new buffer, and vice versa; the two buffers' position, limit, and mark values will be independent.  <p> The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided by eight, and its mark will be undefined.  The new buffer will be direct if, and only if, this buffer is direct, and it will be read-only if, and only if, this buffer is read-only.  </p></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

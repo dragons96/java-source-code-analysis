@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/Toolkit.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Toolkit"><a href="#Toolkit" class="headerlink" title="Toolkit"></a>Toolkit</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.Toolkit</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>lightweightMarker: LightweightPeer</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toolkit: Toolkit</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The default toolkit.</td>
+</tr>
+<tr>
+<td align="center"><strong>atNames: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used internally by the assistive technologies functions; set at init time and used at load time</td>
+</tr>
+<tr>
+<td align="center"><strong>resources: ResourceBundle</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Support for I18N: any visible strings should be stored in sun.awt.resources.awt.properties.  The ResourceBundle is stored here, so that only one copy is maintained.</td>
+</tr>
+<tr>
+<td align="center"><strong>platformResources: ResourceBundle</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loaded: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">WARNING: This is a temporary workaround for a problem in the way the AWT loads native libraries. A number of classes in the AWT package have a native method, initIDs(), which initializes the JNI field and method ids used in the native portion of their implementation.  Since the use and storage of these ids is done by the implementation libraries, the implementation of these method is provided by the particular AWT implementations (for example, “Toolkit”s&#x2F;Peer), such as Motif, Microsoft Windows, or Tiny. The problem is that this means that the native libraries must be loaded by the java.* classes, which do not necessarily know the names of the libraries to load. A better way of doing this would be to provide a separate library which defines java.awt. initIDs, and exports the relevant symbols out to the implementation libraries.  For now, we know it’s done by the implementation, and we assume that the name of the library is “awt”.  -br.  If you change loadLibraries(), please add the change to java.awt.image.ColorModel.loadLibraries(). Unfortunately, classes can be loaded in java.awt.image that depend on libawt and there is no way to call Toolkit.loadLibraries() directly.  -hung</td>
+</tr>
+<tr>
+<td align="center"><strong>desktopProperties: Map&lt;String,Object&gt;</strong></td>
+<td align="center">new HashMap&lt;String,Object&gt;()</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>desktopPropsSupport: PropertyChangeSupport</strong></td>
+<td align="center">Toolkit.createPropertyChangeSupport(this)</td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>LONG_BITS: int</strong></td>
+<td align="center">64</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>calls: int[]</strong></td>
+<td align="center">new int[LONG_BITS]</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enabledOnToolkitMask: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eventListener: AWTEventListener</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>listener2SelectiveListener: WeakHashMap&lt;AWTEventListener, SelectiveAWTEventListener&gt;</strong></td>
+<td align="center">new WeakHashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>createDesktopPeer(Desktop target): DesktopPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of the <code>Desktop</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createButton(Button target): ButtonPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Button</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createTextField(TextField target): TextFieldPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>TextField</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createLabel(Label target): LabelPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Label</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createList(java.awt.List target): ListPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>List</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createCheckbox(Checkbox target): CheckboxPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Checkbox</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createScrollbar(Scrollbar target): ScrollbarPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Scrollbar</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createScrollPane(ScrollPane target): ScrollPanePeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>ScrollPane</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createTextArea(TextArea target): TextAreaPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>TextArea</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createChoice(Choice target): ChoicePeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Choice</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createFrame(Frame target): FramePeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Frame</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createCanvas(Canvas target): CanvasPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Canvas</code> using the specified peer interface.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createPanel(Panel target): PanelPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Panel</code> using the specified peer interface.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createWindow(Window target): WindowPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Window</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createDialog(Dialog target): DialogPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Dialog</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createMenuBar(MenuBar target): MenuBarPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>MenuBar</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createMenu(Menu target): MenuPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Menu</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createPopupMenu(PopupMenu target): PopupMenuPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>PopupMenu</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createMenuItem(MenuItem target): MenuItemPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>MenuItem</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createFileDialog(FileDialog target): FileDialogPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>FileDialog</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createCheckboxMenuItem( CheckboxMenuItem target): CheckboxMenuItemPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>CheckboxMenuItem</code> using the specified peer interface.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMouseInfoPeer(): MouseInfoPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains this toolkit’s implementation of helper class for <code>MouseInfo</code> operations.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>createComponent(Component target): LightweightPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a peer for a component or container.  This peer is windowless and allows the Component and Container classes to be extended directly to create windowless components that are defined entirely in java.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFontPeer(String name, int style): FontPeer</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates this toolkit’s implementation of <code>Font</code> using the specified peer interface.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadSystemColors(int[] systemColors): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fills in the integer array that is supplied as an argument with the current system color values.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>setDynamicLayout(final boolean dynamic): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Controls whether the layout of Containers is validated dynamically during resizing, or statically, after resizing is complete. Use ‘isDynamicLayoutActive()’ to detect if this feature enabled in this program and is supported by this operating system and&#x2F;or window manager. Note that this feature is supported not on all platforms, and conversely, that this feature cannot be turned off on some platforms. On these platforms where dynamic layout during resizing is not supported (or is always supported), setting this property has no effect. Note that this feature can be set or unset as a property of the operating system or window manager on some platforms.  On such platforms, the dynamic resize property must be set at the operating system or window manager level before this method can take effect. This method does not change support or settings of the underlying operating system or window manager.  The OS&#x2F;WM support can be queried using getDesktopProperty(“awt.dynamicLayoutSupported”) method.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>isDynamicLayoutSet(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the layout of Containers is validated dynamically during resizing, or statically, after resizing is complete. Note: this method returns the value that was set programmatically; it does not reflect support at the level of the operating system or window manager for dynamic layout on resizing, or the current operating system or window manager settings.  The OS&#x2F;WM support can be queried using getDesktopProperty(“awt.dynamicLayoutSupported”).</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>isDynamicLayoutActive(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether dynamic layout of Containers on resize is currently active (both set in program ( ‘isDynamicLayoutSet()’ ) , and supported by the underlying operating system and&#x2F;or window manager). If dynamic layout is currently inactive then Containers re-layout their components when resizing is completed. As a result the ‘Component.validate()’ method will be invoked only once per resize. If dynamic layout is currently active then Containers re-layout their components on every native resize event and the ‘validate()’ method will be invoked each time. The OS&#x2F;WM support can be queried using the getDesktopProperty(“awt.dynamicLayoutSupported”) method.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getScreenSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the size of the screen.  On systems with multiple displays, the primary display is used.  Multi-screen aware display dimensions are available from <code>GraphicsConfiguration</code> and <code>GraphicsDevice</code>.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getScreenResolution(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the screen resolution in dots-per-inch.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getScreenInsets(GraphicsConfiguration gc): Insets</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the insets of the screen.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getColorModel(): ColorModel</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Determines the color model of this toolkit’s screen. <p> <code>ColorModel</code> is an abstract class that encapsulates the ability to translate between the pixel values of an image and its red, green, blue, and alpha components. <p> This toolkit method is called by the <code>getColorModel</code> method of the <code>Component</code> class.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFontList(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the names of the available fonts in this toolkit.<p> For 1.1, the following font names are deprecated (the replacement name follows): <ul> <li>TimesRoman (use Serif) <li>Helvetica (use SansSerif) <li>Courier (use Monospaced) </ul><p> The ZapfDingbats fontname is also deprecated in 1.1 but the characters are defined in Unicode starting at 0x2700, and as of 1.1 Java supports those characters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFontMetrics(Font font): FontMetrics</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the screen device metrics for rendering of the font.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sync(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Synchronizes this toolkit’s graphics state. Some window systems may do buffering of graphics events. <p> This method ensures that the display is up-to-date. It is useful for animation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initAssistiveTechnologies(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes properties related to assistive technologies. These properties are used both in the loadAssistiveProperties() function below, as well as other classes in the jdk that depend on the properties (such as the use of the screen_magnifier_present property in Java2D hardware acceleration initialization).  The initialization of the properties must be done before the platform- specific Toolkit class is instantiated so that all necessary properties are set up properly before any classes dependent upon them are initialized.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadAssistiveTechnologies(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Loads additional classes into the VM, using the property ‘assistive_technologies’ specified in the Sun reference implementation by a line in the ‘accessibility.properties’ file.  The form is “assistive_technologies&#x3D;…” where the “…” is a comma-separated list of assistive technology classes to load.  Each class is loaded in the order given and a single instance of each is created using Class.forName(class).newInstance().  All errors are handled via an AWTError exception.  <p>The assumption is made that assistive technology classes are supplied as part of INSTALLED (as opposed to: BUNDLED) extensions or specified on the class path (and therefore can be loaded using the class loader returned by a call to <code>ClassLoader.getSystemClassLoader</code>, whose delegation parent is the extension class loader for installed extensions).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultToolkit(): Toolkit</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the default toolkit. <p> If a system property named <code>"java.awt.headless"</code> is set to <code>true</code> then the headless implementation of <code>Toolkit</code> is used. <p> If there is no <code>"java.awt.headless"</code> or it is set to <code>false</code> and there is a system property named <code>"awt.toolkit"</code>, that property is treated as the name of a class that is a subclass of <code>Toolkit</code>; otherwise the default platform-specific implementation of <code>Toolkit</code> is used. <p> Also loads additional classes into the VM, using the property ‘assistive_technologies’ specified in the Sun reference implementation by a line in the ‘accessibility.properties’ file.  The form is “assistive_technologies&#x3D;…” where the “…” is a comma-separated list of assistive technology classes to load.  Each class is loaded in the order given and a single instance of each is created using Class.forName(class).newInstance().  This is done just after the AWT toolkit is created.  All errors are handled via an AWTError exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getImage(String filename): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an image which gets pixel data from the specified file, whose format can be either GIF, JPEG or PNG. The underlying toolkit attempts to resolve multiple requests with the same filename to the same returned Image. <p> Since the mechanism required to facilitate this sharing of <code>Image</code> objects may continue to hold onto images that are no longer in use for an indefinite period of time, developers are encouraged to implement their own caching of images by using the ‘#createImage(java.lang.String) createImage’ variant wherever available. If the image data contained in the specified file changes, the <code>Image</code> object returned from this method may still contain stale information which was loaded from the file after a prior call. Previously loaded image data can be manually discarded by calling the ‘Image#flush flush’ method on the returned <code>Image</code>. <p> This method first checks if there is a security manager installed. If so, the method calls the security manager’s <code>checkRead</code> method with the file specified to ensure that the access to the image is allowed.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getImage(URL url): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an image which gets pixel data from the specified URL. The pixel data referenced by the specified URL must be in one of the following formats: GIF, JPEG or PNG. The underlying toolkit attempts to resolve multiple requests with the same URL to the same returned Image. <p> Since the mechanism required to facilitate this sharing of <code>Image</code> objects may continue to hold onto images that are no longer in use for an indefinite period of time, developers are encouraged to implement their own caching of images by using the ‘#createImage(java.net.URL) createImage’ variant wherever available. If the image data stored at the specified URL changes, the <code>Image</code> object returned from this method may still contain stale information which was fetched from the URL after a prior call. Previously loaded image data can be manually discarded by calling the ‘Image#flush flush’ method on the returned <code>Image</code>. <p> This method first checks if there is a security manager installed. If so, the method calls the security manager’s <code>checkPermission</code> method with the url.openConnection().getPermission() permission to ensure that the access to the image is allowed. For compatibility with pre-1.2 security managers, if the access is denied with <code>FilePermission</code> or <code>SocketPermission</code>, the method throws the <code>SecurityException</code> if the corresponding 1.1-style SecurityManager.checkXXX method also denies permission.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(String filename): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an image which gets pixel data from the specified file. The returned Image is a new object which will not be shared with any other caller of this method or its getImage variant. <p> This method first checks if there is a security manager installed. If so, the method calls the security manager’s <code>checkRead</code> method with the specified file to ensure that the image creation is allowed.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(URL url): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an image which gets pixel data from the specified URL. The returned Image is a new object which will not be shared with any other caller of this method or its getImage variant. <p> This method first checks if there is a security manager installed. If so, the method calls the security manager’s <code>checkPermission</code> method with the url.openConnection().getPermission() permission to ensure that the image creation is allowed. For compatibility with pre-1.2 security managers, if the access is denied with <code>FilePermission</code> or <code>SocketPermission</code>, the method throws <code>SecurityException</code> if the corresponding 1.1-style SecurityManager.checkXXX method also denies permission.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>prepareImage(Image image, int width, int height, ImageObserver observer): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Prepares an image for rendering. <p> If the values of the width and height arguments are both <code>-1</code>, this method prepares the image for rendering on the default screen; otherwise, this method prepares an image for rendering on the default screen at the specified width and height. <p> The image data is downloaded asynchronously in another thread, and an appropriately scaled screen representation of the image is generated. <p> This method is called by components <code>prepareImage</code> methods. <p> Information on the flags returned by this method can be found with the definition of the <code>ImageObserver</code> interface.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkImage(Image image, int width, int height, ImageObserver observer): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Indicates the construction status of a specified image that is being prepared for display. <p> If the values of the width and height arguments are both <code>-1</code>, this method returns the construction status of a screen representation of the specified image in this toolkit. Otherwise, this method returns the construction status of a scaled representation of the image at the specified width and height. <p> This method does not cause the image to begin loading. An application must call <code>prepareImage</code> to force the loading of an image. <p> This method is called by the component’s <code>checkImage</code> methods. <p> Information on the flags returned by this method can be found with the definition of the <code>ImageObserver</code> interface.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(ImageProducer producer): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates an image with the specified image producer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(byte[] imagedata): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an image which decodes the image stored in the specified byte array. <p> The data must be in some image format, such as GIF or JPEG, that is supported by this toolkit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createImage(byte[] imagedata, int imageoffset, int imagelength): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates an image which decodes the image stored in the specified byte array, and at the specified offset and length. The data must be in some image format, such as GIF or JPEG, that is supported by this toolkit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPrintJob(Frame frame, String jobtitle, Properties props): PrintJob</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets a <code>PrintJob</code> object which is the result of initiating a print operation on the toolkit’s platform. <p> Each actual implementation of this method should first check if there is a security manager installed. If there is, the method should call the security manager’s <code>checkPrintJobAccess</code> method to ensure initiation of a print operation is allowed. If the default implementation of <code>checkPrintJobAccess</code> is used (that is, that method is not overriden), then this results in a call to the security manager’s <code>checkPermission</code> method with a <code> RuntimePermission("queuePrintJob")</code> permission.</td>
+<td align="left">SecurityException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPrintJob(Frame frame, String jobtitle, JobAttributes jobAttributes, PageAttributes pageAttributes): PrintJob</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets a <code>PrintJob</code> object which is the result of initiating a print operation on the toolkit’s platform. <p> Each actual implementation of this method should first check if there is a security manager installed. If there is, the method should call the security manager’s <code>checkPrintJobAccess</code> method to ensure initiation of a print operation is allowed. If the default implementation of <code>checkPrintJobAccess</code> is used (that is, that method is not overriden), then this results in a call to the security manager’s <code>checkPermission</code> method with a <code> RuntimePermission("queuePrintJob")</code> permission.</td>
+<td align="left">SecurityException<br/>NullPointerException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>beep(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Emits an audio beep depending on native system settings and hardware capabilities.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemClipboard(): Clipboard</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the singleton instance of the system Clipboard which interfaces with clipboard facilities provided by the native platform. This clipboard enables data transfer between Java programs and native applications which use native clipboard facilities. <p> In addition to any and all formats specified in the flavormap.properties file, or other file specified by the <code>AWT.DnD.flavorMapFileURL </code> Toolkit property, text returned by the system Clipboard’s <code> getTransferData()</code> method is available in the following flavors: <ul> <li>DataFlavor.stringFlavor</li> <li>DataFlavor.plainTextFlavor (<b>deprecated</b>)</li> </ul> As with <code>java.awt.datatransfer.StringSelection</code>, if the requested flavor is <code>DataFlavor.plainTextFlavor</code>, or an equivalent flavor, a Reader is returned. <b>Note:</b> The behavior of the system Clipboard’s <code>getTransferData()</code> method for <code> DataFlavor.plainTextFlavor</code>, and equivalent DataFlavors, is inconsistent with the definition of <code>DataFlavor.plainTextFlavor </code>. Because of this, support for <code> DataFlavor.plainTextFlavor</code>, and equivalent flavors, is <b>deprecated</b>. <p> Each actual implementation of this method should first check if there is a security manager installed. If there is, the method should call the security manager’s ‘SecurityManager#checkPermission checkPermission’ method to check ‘AWTPermission(“accessClipboard”)’.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemSelection(): Clipboard</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the singleton instance of the system selection as a <code>Clipboard</code> object. This allows an application to read and modify the current, system-wide selection. <p> An application is responsible for updating the system selection whenever the user selects text, using either the mouse or the keyboard. Typically, this is implemented by installing a <code>FocusListener</code> on all <code>Component</code>s which support text selection, and, between <code>FOCUS_GAINED</code> and <code>FOCUS_LOST</code> events delivered to that <code>Component</code>, updating the system selection <code>Clipboard</code> when the selection changes inside the <code>Component</code>. Properly updating the system selection ensures that a Java application will interact correctly with native applications and other Java applications running simultaneously on the system. Note that <code>java.awt.TextComponent</code> and <code>javax.swing.text.JTextComponent</code> already adhere to this policy. When using these classes, and their subclasses, developers need not write any additional code. <p> Some platforms do not support a system selection <code>Clipboard</code>. On those platforms, this method will return <code>null</code>. In such a case, an application is absolved from its responsibility to update the system selection <code>Clipboard</code> as described above. <p> Each actual implementation of this method should first check if there is a security manager installed. If there is, the method should call the security manager’s ‘SecurityManager#checkPermission checkPermission’ method to check ‘AWTPermission(“accessClipboard”)’.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMenuShortcutKeyMask(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines which modifier key is the appropriate accelerator key for menu shortcuts. <p> Menu shortcuts, which are embodied in the <code>MenuShortcut</code> class, are handled by the <code>MenuBar</code> class. <p> By default, this method returns <code>Event.CTRL_MASK</code>. Toolkit implementations should override this method if the <b>Control</b> key isn’t the correct key for accelerators.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLockingKeyState(int keyCode): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the given locking key on the keyboard is currently in its “on” state. Valid key codes are ‘java.awt.event.KeyEvent#VK_CAPS_LOCK VK_CAPS_LOCK’, ‘java.awt.event.KeyEvent#VK_NUM_LOCK VK_NUM_LOCK’, ‘java.awt.event.KeyEvent#VK_SCROLL_LOCK VK_SCROLL_LOCK’, and ‘java.awt.event.KeyEvent#VK_KANA_LOCK VK_KANA_LOCK’.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>setLockingKeyState(int keyCode, boolean on): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the state of the given locking key on the keyboard. Valid key codes are ‘java.awt.event.KeyEvent#VK_CAPS_LOCK VK_CAPS_LOCK’, ‘java.awt.event.KeyEvent#VK_NUM_LOCK VK_NUM_LOCK’, ‘java.awt.event.KeyEvent#VK_SCROLL_LOCK VK_SCROLL_LOCK’, and ‘java.awt.event.KeyEvent#VK_KANA_LOCK VK_KANA_LOCK’. <p> Depending on the platform, setting the state of a locking key may involve event processing and therefore may not be immediately observable through getLockingKeyState.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNativeContainer(Component c): Container</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Give native peers the ability to query the native container given a native component (eg the direct parent may be lightweight).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createCustomCursor(Image cursor, Point hotSpot, String name): Cursor</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new custom cursor object. If the image to display is invalid, the cursor will be hidden (made completely transparent), and the hotspot will be set to (0, 0).  <p>Note that multi-frame images are invalid and may cause this method to hang.</td>
+<td align="left">HeadlessException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBestCursorSize(int preferredWidth, int preferredHeight): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the supported cursor dimension which is closest to the desired sizes.  Systems which only support a single cursor size will return that size regardless of the desired sizes.  Systems which don’t support custom cursors will return a dimension of 0, 0. <p> Note:  if an image is used whose dimensions don’t match a supported size (as returned by this method), the Toolkit implementation will attempt to resize the image to a supported size. Since converting low-resolution images is difficult, no guarantees are made as to the quality of a cursor image which isn’t a supported size.  It is therefore recommended that this method be called and an appropriate image used so no image conversion is made.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumCursorColors(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum number of colors the Toolkit supports in a custom cursor palette.<p> Note: if an image is used which has more colors in its palette than the supported maximum, the Toolkit implementation will attempt to flatten the palette to the maximum.  Since converting low-resolution images is difficult, no guarantees are made as to the quality of a cursor image which has more colors than the system supports.  It is therefore recommended that this method be called and an appropriate image used so no image conversion is made.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>isFrameStateSupported(int state): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether Toolkit supports this state for <code>Frame</code>s.  This method tells whether the <em>UI concept</em> of, say, maximization or iconification is supported.  It will always return false for “compound” states like <code>Frame.ICONIFIED</td>
+<td align="left">Frame.MAXIMIZED_VERT</code>. In other words, the rule of thumb is that only queries with a single frame state constant as an argument are meaningful. <p>Note that supporting a given concept is a platform- dependent feature. Due to native limitations the Toolkit object may report a particular state as supported, however at the same time the Toolkit object will be unable to apply the state to a given frame.  This circumstance has two following consequences: <ul> <li>Only the return value of ‘false’ for the present method actually indicates that the given state is not supported. If the method returns ‘true’ the given state may still be unsupported and&#x2F;or unavailable for a particular frame. <li>The developer should consider examining the value of the ‘java.awt.event.WindowEvent#getNewState’ method of the ‘WindowEvent’ received through the ‘java.awt.event.WindowStateListener’, rather than assuming that the state given to the ‘setExtendedState()’ method will be definitely applied. For more information see the documentation for the ‘Frame#setExtendedState’ method. </ul></td>
+</tr>
+<tr>
+<td align="center"><strong>setPlatformResources(ResourceBundle bundle): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize JNI field and method ids</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadLibraries(): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getProperty(String key, String defaultValue): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets a property with the specified key and default. This method returns defaultValue if the property is not found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemEventQueue(): EventQueue</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the application’s or applet’s EventQueue instance. Depending on the Toolkit implementation, different EventQueues may be returned for different applets.  Applets should therefore not assume that the EventQueue instance returned by this method will be shared by other applets or the system.  <p> If there is a security manager then its ‘SecurityManager#checkPermission checkPermission’ method is called to check ‘AWTPermission(“accessEventQueue”)’.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemEventQueueImpl(): EventQueue</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the application’s or applet’s <code>EventQueue</code> instance, without checking access.  For security reasons, this can only be called from a <code>Toolkit</code> subclass.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getEventQueue(): EventQueue</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Accessor method for use by AWT package routines.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createDragSourceContextPeer(DragGestureEvent dge): DragSourceContextPeer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates the peer for a DragSourceContext. Always throws InvalidDndOperationException if GraphicsEnvironment.isHeadless() returns true.</td>
+<td align="left">InvalidDnDOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>createDragGestureRecognizer(Class&lt;T&gt; abstractRecognizerClass, DragSource ds, Component c, int srcActions, DragGestureListener dgl): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Creates a concrete, platform dependent, subclass of the abstract DragGestureRecognizer class requested, and associates it with the DragSource, Component and DragGestureListener specified.  subclasses should override this to provide their own implementation</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDesktopProperty(String propertyName): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a value for the specified desktop property.  A desktop property is a uniquely named value for a resource that is Toolkit global in nature. Usually it also is an abstract representation for an underlying platform dependent desktop setting. For more information on desktop properties supported by the AWT see <a href="doc-files/DesktopProperties.html">AWT Desktop Properties</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDesktopProperty(String name, Object newValue): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the named desktop property to the specified value and fires a property change event to notify any listeners that the value has changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lazilyLoadDesktopProperty(String name): Object</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">an opportunity to lazily evaluate desktop property values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializeDesktopProperties(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">initializeDesktopProperties</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyChangeListener(String name, PropertyChangeListener pcl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified property change listener for the named desktop property. When a ‘java.beans.PropertyChangeListenerProxy’ object is added, its property name is ignored, and the wrapped listener is added. If ‘name’ is ‘null’ or ‘pcl’ is ‘null’, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removePropertyChangeListener(String name, PropertyChangeListener pcl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified property change listener for the named desktop property. When a ‘java.beans.PropertyChangeListenerProxy’ object is removed, its property name is ignored, and the wrapped listener is removed. If ‘name’ is ‘null’ or ‘pcl’ is ‘null’, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPropertyChangeListeners(): PropertyChangeListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the property change listeners registered on this toolkit. The returned array contains ‘java.beans.PropertyChangeListenerProxy’ objects that associate listeners with the names of desktop properties.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPropertyChangeListeners(String propertyName): PropertyChangeListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all property change listeners associated with the specified name of a desktop property.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAlwaysOnTopSupported(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the always-on-top mode is supported by this toolkit. To detect whether the always-on-top mode is supported for a particular Window, use ‘Window#isAlwaysOnTopSupported’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isModalityTypeSupported(Dialog.ModalityType modalityType): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns whether the given modality type is supported by this toolkit. If a dialog with unsupported modality type is created, then <code>Dialog.ModalityType.MODELESS</code> is used instead.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isModalExclusionTypeSupported(Dialog.ModalExclusionType modalExclusionType): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns whether the given modal exclusion type is supported by this toolkit. If an unsupported modal exclusion type property is set on a window, then <code>Dialog.ModalExclusionType.NO_EXCLUDE</code> is used instead.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deProxyAWTEventListener(AWTEventListener l): AWTEventListener</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Extracts a “pure” AWTEventListener from a AWTEventListenerProxy, if the listener is proxied.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addAWTEventListener(AWTEventListener listener, long eventMask): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds an AWTEventListener to receive all AWTEvents dispatched system-wide that conform to the given <code>eventMask</code>. <p> First, if there is a security manager, its <code>checkPermission</code> method is called with an <code>AWTPermission("listenToAllAWTEvents")</code> permission. This may result in a SecurityException. <p> <code>eventMask</code> is a bitmask of event types to receive. It is constructed by bitwise OR-ing together the event masks defined in <code>AWTEvent</code>. <p> Note:  event listener use is not recommended for normal application use, but are intended solely to support special purpose facilities including support for accessibility, event record&#x2F;playback, and diagnostic tracing.  If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeAWTEventListener(AWTEventListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes an AWTEventListener from receiving dispatched AWTEvents. <p> First, if there is a security manager, its <code>checkPermission</code> method is called with an <code>AWTPermission("listenToAllAWTEvents")</code> permission. This may result in a SecurityException. <p> Note:  event listener use is not recommended for normal application use, but are intended solely to support special purpose facilities including support for accessibility, event record&#x2F;playback, and diagnostic tracing.  If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>enabledOnToolkit(long eventMask): boolean</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countAWTEventListeners(long eventMask): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAWTEventListeners(): AWTEventListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the <code>AWTEventListener</code>s registered on this toolkit. If there is a security manager, its ‘checkPermission’ method is called with an ‘AWTPermission(“listenToAllAWTEvents”)’ permission. This may result in a SecurityException. Listeners can be returned within <code>AWTEventListenerProxy</code> objects, which also contain the event mask for the given listener. Note that listener objects added multiple times appear only once in the returned array.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAWTEventListeners(long eventMask): AWTEventListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the <code>AWTEventListener</code>s registered on this toolkit which listen to all of the event types specified in the ‘eventMask’ argument. If there is a security manager, its ‘checkPermission’ method is called with an ‘AWTPermission(“listenToAllAWTEvents”)’ permission. This may result in a SecurityException. Listeners can be returned within <code>AWTEventListenerProxy</code> objects, which also contain the event mask for the given listener. Note that listener objects added multiple times appear only once in the returned array.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>notifyAWTEventListeners(AWTEvent theEvent): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method notifies any AWTEventListeners that an event is about to be dispatched.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mapInputMethodHighlight(InputMethodHighlight highlight): Map&lt;java.awt.font.TextAttribute,?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a map of visual attributes for the abstract level description of the given input method highlight, or null if no mapping is found. The style field of the input method highlight is ignored. The map returned is unmodifiable.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>createPropertyChangeSupport(Toolkit toolkit): PropertyChangeSupport</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>areExtraMouseButtonsEnabled(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reports whether events from extra mouse buttons are allowed to be processed and posted into ‘EventQueue’. <br> To change the returned value it is necessary to set the ‘sun.awt.enableExtraMouseButtons’ property before the ‘Toolkit’ class initialization. This setting could be done on the application startup by the following command: <pre> java -Dsun.awt.enableExtraMouseButtons=false Application </pre> Alternatively, the property could be set in the application by using the following code: <pre> System.setProperty("sun.awt.enableExtraMouseButtons", "true"); </pre> before the ‘Toolkit’ class initialization. If not set by the time of the ‘Toolkit’ class initialization, this property will be initialized with ‘true’. Changing this value after the ‘Toolkit’ class initialization will have no effect. <p></td>
+<td align="left">HeadlessException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Toolkit-ToolkitEventMulticaster"><a href="#Toolkit-ToolkitEventMulticaster" class="headerlink" title="Toolkit$ToolkitEventMulticaster"></a><a href="./Toolkit$ToolkitEventMulticaster.html">Toolkit$ToolkitEventMulticaster</a></h3><h3 id="Toolkit-SelectiveAWTEventListener"><a href="#Toolkit-SelectiveAWTEventListener" class="headerlink" title="Toolkit$SelectiveAWTEventListener"></a><a href="./Toolkit$SelectiveAWTEventListener.html">Toolkit$SelectiveAWTEventListener</a></h3><h3 id="Toolkit-DesktopPropertyChangeSupport"><a href="#Toolkit-DesktopPropertyChangeSupport" class="headerlink" title="Toolkit$DesktopPropertyChangeSupport"></a><a href="./Toolkit$DesktopPropertyChangeSupport.html">Toolkit$DesktopPropertyChangeSupport</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

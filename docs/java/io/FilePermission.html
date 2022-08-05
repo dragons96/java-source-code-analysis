@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/FilePermission.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="FilePermission"><a href="#FilePermission" class="headerlink" title="FilePermission"></a>FilePermission</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.FilePermission</strong></td>
+<td align="center">class</td>
+<td align="center">Permission</td>
+<td align="center">Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>EXECUTE: int</strong></td>
+<td align="center">0x1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Execute action.</td>
+</tr>
+<tr>
+<td align="center"><strong>WRITE: int</strong></td>
+<td align="center">0x2</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Write action.</td>
+</tr>
+<tr>
+<td align="center"><strong>READ: int</strong></td>
+<td align="center">0x4</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Read action.</td>
+</tr>
+<tr>
+<td align="center"><strong>DELETE: int</strong></td>
+<td align="center">0x8</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Delete action.</td>
+</tr>
+<tr>
+<td align="center"><strong>READLINK: int</strong></td>
+<td align="center">0x10</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Read link action.</td>
+</tr>
+<tr>
+<td align="center"><strong>ALL: int</strong></td>
+<td align="center">READ</td>
+<td align="center">WRITE</td>
+<td align="center">EXECUTE</td>
+<td align="center">DELETE</td>
+<td align="center">READLINK</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"><strong><font color='red'>是</font></strong></td>
+</tr>
+<tr>
+<td align="center"><strong>NONE: int</strong></td>
+<td align="center">0x0</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">No actions.</td>
+</tr>
+<tr>
+<td align="center"><strong>mask: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>directory: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursive: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>actions: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">the actions string.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>cpath: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>RECURSIVE_CHAR: char</strong></td>
+<td align="center">‘-‘</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>WILD_CHAR: char</strong></td>
+<td align="center">‘*’</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">7930732926638008763L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>init(int mask): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">initialize a FilePermission object. Common to all constructors. Also called during de-serialization.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>FilePermission(String path, String actions)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new FilePermission object with the specified actions. <i>path</i> is the pathname of a file or directory, and <i>actions</i> contains a comma-separated list of the desired actions granted on the file or directory. Possible actions are “read”, “write”, “execute”, “delete”, and “readlink”.  <p>A pathname that ends in “&#x2F;<em>“ (where “&#x2F;“ is the file separator character, <code>File.separatorChar</code>) indicates all the files and directories contained in that directory. A pathname that ends with “&#x2F;-“ indicates (recursively) all files and subdirectories contained in that directory. The special pathname “&lt;&lt;ALL FILES&gt;&gt;” matches any file.  <p>A pathname consisting of a single “</em>“ indicates all the files in the current directory, while a pathname consisting of a single “-“ indicates all the files in the current directory and (recursively) all files and subdirectories contained in the current directory.  <p>A pathname containing an empty string represents an empty path.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>FilePermission(String path, int mask)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new FilePermission object using an action mask. More efficient than the FilePermission(String, String) constructor. Can be used from within code that needs to create a FilePermission object to pass into the <code>implies</code> method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>implies(Permission p): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this FilePermission object “implies” the specified permission. <P> More specifically, this method returns true if: <ul> <li> <i>p</i> is an instanceof FilePermission, <li> <i>p</i>‘s actions are a proper subset of this object’s actions, and <li> <i>p</i>‘s pathname is implied by this object’s pathname. For example, “&#x2F;tmp&#x2F;<em>“ implies “&#x2F;tmp&#x2F;foo”, since “&#x2F;tmp&#x2F;</em>“ encompasses all files in the “&#x2F;tmp” directory, including the one named “foo”. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>impliesIgnoreMask(FilePermission that): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the Permission’s actions are a proper subset of the this object’s actions. Returns the effective mask iff the this FilePermission’s path also implies that FilePermission’s path.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks two FilePermission objects for equality. Checks that <i>obj</i> is a FilePermission, and has the same pathname and actions as this object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code value for this object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMask(String actions): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts an actions String to an actions mask.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMask(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the current action mask. Used by the FilePermissionCollection.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getActions(int mask): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the canonical string representation of the actions. Always returns present actions in the following order: read, write, execute, delete, readlink.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getActions(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the “canonical string representation” of the actions. That is, this method always returns present actions in the following order: read, write, execute, delete, readlink. For example, if this FilePermission object allows both write and read actions, a call to <code>getActions</code> will return the string “read,write”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newPermissionCollection(): PermissionCollection</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new PermissionCollection object for storing FilePermission objects. <p> FilePermission objects must be stored in a manner that allows them to be inserted into the collection in any order, but that also enables the PermissionCollection <code>implies</code> method to be implemented in an efficient (and consistent) manner.  <p>For example, if you have two FilePermissions: <OL> <LI>  <code>"/tmp/-", "read"</code> <LI>  <code>"/tmp/scratch/foo", "write"</code> </OL>  <p>and you are calling the <code>implies</code> method with the FilePermission:  <pre> "/tmp/scratch/foo", "read,write", </pre>  then the <code>implies</code> function must take into account both the “&#x2F;tmp&#x2F;-“ and “&#x2F;tmp&#x2F;scratch&#x2F;foo” permissions, so the effective permission is “read,write”, and <code>implies</code> returns true. The “implies” semantics for FilePermissions are handled properly by the PermissionCollection object returned by this <code>newPermissionCollection</code> method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">WriteObject is called to save the state of the FilePermission to a stream. The actions are serialized, and the superclass takes care of the name.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">readObject is called to restore the state of the FilePermission from a stream.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="FilePermission-FilePermissionCollection"><a href="#FilePermission-FilePermissionCollection" class="headerlink" title="FilePermission$FilePermissionCollection"></a><a href="./FilePermission$FilePermissionCollection.html">FilePermission$FilePermissionCollection</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

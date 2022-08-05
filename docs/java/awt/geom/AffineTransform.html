@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/geom/AffineTransform.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="AffineTransform"><a href="#AffineTransform" class="headerlink" title="AffineTransform"></a>AffineTransform</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.geom.AffineTransform</strong></td>
+<td align="center">class</td>
+<td align="center">Cloneable,java.io.Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>TYPE_UNKNOWN: int</strong></td>
+<td align="center">-1</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant is only useful for the cached type field. It indicates that the type has been decached and must be recalculated.</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_IDENTITY: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant indicates that the transform defined by this object is an identity transform. An identity transform is one in which the output coordinates are always the same as the input coordinates. If this transform is anything other than the identity transform, the type will either be the constant GENERAL_TRANSFORM or a combination of the appropriate flag bits for the various coordinate conversions that this transform performs. @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_TRANSLATION: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This flag bit indicates that the transform defined by this object performs a translation in addition to the conversions indicated by other flag bits. A translation moves the coordinates by a constant amount in x and y without changing the length or angle of vectors. @see #TYPE_IDENTITY @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_UNIFORM_SCALE: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This flag bit indicates that the transform defined by this object performs a uniform scale in addition to the conversions indicated by other flag bits. A uniform scale multiplies the length of vectors by the same amount in both the x and y directions without changing the angle between vectors. This flag bit is mutually exclusive with the TYPE_GENERAL_SCALE flag. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_GENERAL_SCALE: int</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This flag bit indicates that the transform defined by this object performs a general scale in addition to the conversions indicated by other flag bits. A general scale multiplies the length of vectors by different amounts in the x and y directions without changing the angle between perpendicular vectors. This flag bit is mutually exclusive with the TYPE_UNIFORM_SCALE flag. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_MASK_SCALE: int</strong></td>
+<td align="center">(TYPE_UNIFORM_SCALE</td>
+<td align="center">TYPE_GENERAL_SCALE)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_FLIP: int</strong></td>
+<td align="center">64</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This flag bit indicates that the transform defined by this object performs a mirror image flip about some axis which changes the normally right handed coordinate system into a left handed system in addition to the conversions indicated by other flag bits. A right handed coordinate system is one where the positive X axis rotates counterclockwise to overlay the positive Y axis similar to the direction that the fingers on your right hand curl when you stare end on at your thumb. A left handed coordinate system is one where the positive X axis rotates clockwise to overlay the positive Y axis similar to the direction that the fingers on your left hand curl. There is no mathematical way to determine the angle of the original flipping or mirroring transformation since all angles of flip are identical given an appropriate adjusting rotation. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_QUADRANT_ROTATION: int</strong></td>
+<td align="center">8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This flag bit indicates that the transform defined by this object performs a quadrant rotation by some multiple of 90 degrees in addition to the conversions indicated by other flag bits. A rotation changes the angles of vectors by the same amount regardless of the original direction of the vector and without changing the length of the vector. This flag bit is mutually exclusive with the TYPE_GENERAL_ROTATION flag. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_GENERAL_ROTATION: int</strong></td>
+<td align="center">16</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This flag bit indicates that the transform defined by this object performs a rotation by an arbitrary angle in addition to the conversions indicated by other flag bits. A rotation changes the angles of vectors by the same amount regardless of the original direction of the vector and without changing the length of the vector. This flag bit is mutually exclusive with the TYPE_QUADRANT_ROTATION flag. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_MASK_ROTATION: int</strong></td>
+<td align="center">(TYPE_QUADRANT_ROTATION</td>
+<td align="center">TYPE_GENERAL_ROTATION)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="center"><strong>TYPE_GENERAL_TRANSFORM: int</strong></td>
+<td align="center">32</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant indicates that the transform defined by this object performs an arbitrary conversion of the input coordinates. If this transform can be classified by any of the above constants, the type will either be the constant TYPE_IDENTITY or a combination of the appropriate flag bits for the various coordinate conversions that this transform performs. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #getType @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>APPLY_IDENTITY: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant is used for the internal state variable to indicate that no calculations need to be performed and that the source coordinates only need to be copied to their destinations to complete the transformation equation of this transform. @see #APPLY_TRANSLATE @see #APPLY_SCALE @see #APPLY_SHEAR @see #state</td>
+</tr>
+<tr>
+<td align="center"><strong>APPLY_TRANSLATE: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant is used for the internal state variable to indicate that the translation components of the matrix (m02 and m12) need to be added to complete the transformation equation of this transform. @see #APPLY_IDENTITY @see #APPLY_SCALE @see #APPLY_SHEAR @see #state</td>
+</tr>
+<tr>
+<td align="center"><strong>APPLY_SCALE: int</strong></td>
+<td align="center">2</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant is used for the internal state variable to indicate that the scaling components of the matrix (m00 and m11) need to be factored in to complete the transformation equation of this transform.  If the APPLY_SHEAR bit is also set then it indicates that the scaling components are not both 0.0.  If the APPLY_SHEAR bit is not also set then it indicates that the scaling components are not both 1.0.  If neither the APPLY_SHEAR nor the APPLY_SCALE bits are set then the scaling components are both 1.0, which means that the x and y components contribute to the transformed coordinate, but they are not multiplied by any scaling factor. @see #APPLY_IDENTITY @see #APPLY_TRANSLATE @see #APPLY_SHEAR @see #state</td>
+</tr>
+<tr>
+<td align="center"><strong>APPLY_SHEAR: int</strong></td>
+<td align="center">4</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant is used for the internal state variable to indicate that the shearing components of the matrix (m01 and m10) need to be factored in to complete the transformation equation of this transform.  The presence of this bit in the state variable changes the interpretation of the APPLY_SCALE bit as indicated in its documentation. @see #APPLY_IDENTITY @see #APPLY_TRANSLATE @see #APPLY_SCALE @see #state</td>
+</tr>
+<tr>
+<td align="center"><strong>HI_SHIFT: int</strong></td>
+<td align="center">3</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">For methods which combine together the state of two separate transforms and dispatch based upon the combination, these constants specify how far to shift one of the states so that the two states are mutually non-interfering and provide constants for testing the bits of the shifted (HI) state.  The methods in this class use the convention that the state of “this” transform is unshifted and the state of the “other” or “argument” transform is shifted (HI).</td>
+</tr>
+<tr>
+<td align="center"><strong>HI_IDENTITY: int</strong></td>
+<td align="center">APPLY_IDENTITY &lt;&lt; HI_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HI_TRANSLATE: int</strong></td>
+<td align="center">APPLY_TRANSLATE &lt;&lt; HI_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HI_SCALE: int</strong></td>
+<td align="center">APPLY_SCALE &lt;&lt; HI_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>HI_SHEAR: int</strong></td>
+<td align="center">APPLY_SHEAR &lt;&lt; HI_SHIFT</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>m00: double</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The X coordinate scaling element of the 3x3 affine transformation matrix.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>m10: double</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Y coordinate shearing element of the 3x3 affine transformation matrix.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>m01: double</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The X coordinate shearing element of the 3x3 affine transformation matrix.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>m11: double</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Y coordinate scaling element of the 3x3 affine transformation matrix.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>m02: double</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The X coordinate of the translation element of the 3x3 affine transformation matrix.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>m12: double</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Y coordinate of the translation element of the 3x3 affine transformation matrix.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>state: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This field keeps track of which components of the matrix need to be applied when performing a transformation. @see #APPLY_IDENTITY @see #APPLY_TRANSLATE @see #APPLY_SCALE @see #APPLY_SHEAR</td>
+</tr>
+<tr>
+<td align="center"><strong>type: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">This field caches the current transformation type of the matrix. @see #TYPE_IDENTITY @see #TYPE_TRANSLATION @see #TYPE_UNIFORM_SCALE @see #TYPE_GENERAL_SCALE @see #TYPE_FLIP @see #TYPE_QUADRANT_ROTATION @see #TYPE_GENERAL_ROTATION @see #TYPE_GENERAL_TRANSFORM @see #TYPE_UNKNOWN @see #getType</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">1330973210523860834L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">JDK 1.2 serialVersionUID</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>AffineTransform(double m00, double m10, double m01, double m11, double m02, double m12, int state)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AffineTransform()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>AffineTransform</code> representing the Identity transformation.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AffineTransform(AffineTransform Tx)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>AffineTransform</code> that is a copy of the specified <code>AffineTransform</code> object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AffineTransform(float m00, float m10, float m01, float m11, float m02, float m12)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>AffineTransform</code> from 6 floating point values representing the 6 specifiable entries of the 3x3 transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AffineTransform(float[] flatmatrix)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>AffineTransform</code> from an array of floating point values representing either the 4 non-translation entries or the 6 specifiable entries of the 3x3 transformation matrix.  The values are retrieved from the array as {&amp;nbsp;m00&amp;nbsp;m10&amp;nbsp;m01&amp;nbsp;m11&amp;nbsp;[m02&amp;nbsp;m12]}.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AffineTransform(double m00, double m10, double m01, double m11, double m02, double m12)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>AffineTransform</code> from 6 double precision values representing the 6 specifiable entries of the 3x3 transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>AffineTransform(double[] flatmatrix)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>AffineTransform</code> from an array of double precision values representing either the 4 non-translation entries or the 6 specifiable entries of the 3x3 transformation matrix. The values are retrieved from the array as {&amp;nbsp;m00&amp;nbsp;m10&amp;nbsp;m01&amp;nbsp;m11&amp;nbsp;[m02&amp;nbsp;m12]}.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTranslateInstance(double tx, double ty): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform representing a translation transformation. The matrix representing the returned transform is: <pre> [   1    0    tx  ] [   0    1    ty  ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRotateInstance(double theta): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform representing a rotation transformation. The matrix representing the returned transform is: <pre> [   cos(theta)    -sin(theta)    0   ] [   sin(theta)     cos(theta)    0   ] [       0              0         1   ] </pre> Rotating by a positive angle theta rotates points on the positive X axis toward the positive Y axis. Note also the discussion of <a href="#quadrantapproximation">Handling 90-Degree Rotations</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRotateInstance(double theta, double anchorx, double anchory): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform that rotates coordinates around an anchor point. This operation is equivalent to translating the coordinates so that the anchor point is at the origin (S1), then rotating them about the new origin (S2), and finally translating so that the intermediate origin is restored to the coordinates of the original anchor point (S3). <p> This operation is equivalent to the following sequence of calls: <pre> AffineTransform Tx = new AffineTransform(); Tx.translate(anchorx, anchory); Tx.rotate(theta); Tx.translate(-anchorx, -anchory); </pre> The matrix representing the returned transform is: <pre> [   cos(theta)    -sin(theta)    x-x<em>cos+y</em>sin  ] [   sin(theta)     cos(theta)    y-x<em>sin-y</em>cos  ] [       0              0               1        ] </pre> Rotating by a positive angle theta rotates points on the positive X axis toward the positive Y axis. Note also the discussion of <a href="#quadrantapproximation">Handling 90-Degree Rotations</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRotateInstance(double vecx, double vecy): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform that rotates coordinates according to a rotation vector. All coordinates rotate about the origin by the same amount. The amount of rotation is such that coordinates along the former positive X axis will subsequently align with the vector pointing from the origin to the specified vector coordinates. If both <code>vecx</code> and <code>vecy</code> are 0.0, an identity transform is returned. This operation is equivalent to calling: <pre> AffineTransform.getRotateInstance(Math.atan2(vecy, vecx)); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getRotateInstance(double vecx, double vecy, double anchorx, double anchory): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform that rotates coordinates around an anchor point according to a rotation vector. All coordinates rotate about the specified anchor coordinates by the same amount. The amount of rotation is such that coordinates along the former positive X axis will subsequently align with the vector pointing from the origin to the specified vector coordinates. If both <code>vecx</code> and <code>vecy</code> are 0.0, an identity transform is returned. This operation is equivalent to calling: <pre> AffineTransform.getRotateInstance(Math.atan2(vecy, vecx), anchorx, anchory); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getQuadrantRotateInstance(int numquadrants): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform that rotates coordinates by the specified number of quadrants. This operation is equivalent to calling: <pre> AffineTransform.getRotateInstance(numquadrants * Math.PI / 2.0); </pre> Rotating by a positive number of quadrants rotates points on the positive X axis toward the positive Y axis.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getQuadrantRotateInstance(int numquadrants, double anchorx, double anchory): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform that rotates coordinates by the specified number of quadrants around the specified anchor point. This operation is equivalent to calling: <pre> AffineTransform.getRotateInstance(numquadrants * Math.PI / 2.0, anchorx, anchory); </pre> Rotating by a positive number of quadrants rotates points on the positive X axis toward the positive Y axis.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getScaleInstance(double sx, double sy): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform representing a scaling transformation. The matrix representing the returned transform is: <pre> [   sx   0    0   ] [   0    sy   0   ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getShearInstance(double shx, double shy): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a transform representing a shearing transformation. The matrix representing the returned transform is: <pre> [   1   shx   0   ] [  shy   1    0   ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getType(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the flag bits describing the conversion properties of this transform. The return value is either one of the constants TYPE_IDENTITY or TYPE_GENERAL_TRANSFORM, or a combination of the appropriate flag bits. A valid combination of flag bits is an exclusive OR operation that can combine the TYPE_TRANSLATION flag bit in addition to either of the TYPE_UNIFORM_SCALE or TYPE_GENERAL_SCALE flag bits as well as either of the TYPE_QUADRANT_ROTATION or TYPE_GENERAL_ROTATION flag bits.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>calculateType(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This is the utility function to calculate the flag bits when they have not been cached.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDeterminant(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the determinant of the matrix representation of the transform. The determinant is useful both to determine if the transform can be inverted and to get a single value representing the combined X and Y scaling of the transform. <p> If the determinant is non-zero, then this transform is invertible and the various methods that depend on the inverse transform do not need to throw a ‘NoninvertibleTransformException’. If the determinant is zero then this transform can not be inverted since the transform maps all input coordinates onto a line or a point. If the determinant is near enough to zero then inverse transform operations might not carry enough precision to produce meaningful results. <p> If this transform represents a uniform scale, as indicated by the <code>getType</code> method then the determinant also represents the square of the uniform scale factor by which all of the points are expanded from or contracted towards the origin. If this transform represents a non-uniform scale or more general transform then the determinant is not likely to represent a value useful for any purpose other than determining if inverse transforms are possible. <p> Mathematically, the determinant is calculated using the formula: <pre></td>
+<td align="left">m00  m01  m02</td>
+</tr>
+<tr>
+<td align="center"><strong>updateState(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Manually recalculates the state of the transform when the matrix changes too much to predict the effects on the state. The following table specifies what the various settings of the state field say about the values of the corresponding matrix element fields. Note that the rules governing the SCALE fields are slightly different depending on whether the SHEAR flag is also set. <pre> SCALE            SHEAR          TRANSLATE m00/m11          m01/m10          m02/m12  IDENTITY             1.0              0.0              0.0 TRANSLATE (TR)       1.0              0.0          not both 0.0 SCALE (SC)       not both 1.0         0.0              0.0 TR</td>
+<td align="left">SC          not both 1.0         0.0          not both 0.0 SHEAR (SH)           0.0          not both 0.0         0.0 TR</td>
+</tr>
+<tr>
+<td align="center"><strong>stateError(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convenience method used internally to throw exceptions when a case was forgotten in a switch statement.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMatrix(double[] flatmatrix): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieves the 6 specifiable values in the 3x3 affine transformation matrix and places them into an array of double precisions values. The values are stored in the array as {&nbsp;m00&nbsp;m10&nbsp;m01&nbsp;m11&nbsp;m02&nbsp;m12&nbsp;}. An array of 4 doubles can also be specified, in which case only the first four elements representing the non-transform parts of the array are retrieved and the values are stored into the array as {&nbsp;m00&nbsp;m10&nbsp;m01&nbsp;m11&nbsp;}</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getScaleX(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the X coordinate scaling element (m00) of the 3x3 affine transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getScaleY(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Y coordinate scaling element (m11) of the 3x3 affine transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getShearX(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the X coordinate shearing element (m01) of the 3x3 affine transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getShearY(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Y coordinate shearing element (m10) of the 3x3 affine transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTranslateX(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the X coordinate of the translation element (m02) of the 3x3 affine transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTranslateY(): double</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Y coordinate of the translation element (m12) of the 3x3 affine transformation matrix.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>translate(double tx, double ty): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a translation transformation. This is equivalent to calling concatenate(T), where T is an <code>AffineTransform</code> represented by the following matrix: <pre> [   1    0    tx  ] [   0    1    ty  ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate90(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate180(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate270(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate(double theta): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a rotation transformation. This is equivalent to calling concatenate(R), where R is an <code>AffineTransform</code> represented by the following matrix: <pre> [   cos(theta)    -sin(theta)    0   ] [   sin(theta)     cos(theta)    0   ] [       0              0         1   ] </pre> Rotating by a positive angle theta rotates points on the positive X axis toward the positive Y axis. Note also the discussion of <a href="#quadrantapproximation">Handling 90-Degree Rotations</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate(double theta, double anchorx, double anchory): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a transform that rotates coordinates around an anchor point. This operation is equivalent to translating the coordinates so that the anchor point is at the origin (S1), then rotating them about the new origin (S2), and finally translating so that the intermediate origin is restored to the coordinates of the original anchor point (S3). <p> This operation is equivalent to the following sequence of calls: <pre> translate(anchorx, anchory); rotate(theta); translate(-anchorx, -anchory); </pre> Rotating by a positive angle theta rotates points on the positive X axis toward the positive Y axis. Note also the discussion of <a href="#quadrantapproximation">Handling 90-Degree Rotations</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate(double vecx, double vecy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a transform that rotates coordinates according to a rotation vector. All coordinates rotate about the origin by the same amount. The amount of rotation is such that coordinates along the former positive X axis will subsequently align with the vector pointing from the origin to the specified vector coordinates. If both <code>vecx</code> and <code>vecy</code> are 0.0, no additional rotation is added to this transform. This operation is equivalent to calling: <pre> rotate(Math.atan2(vecy, vecx)); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>rotate(double vecx, double vecy, double anchorx, double anchory): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a transform that rotates coordinates around an anchor point according to a rotation vector. All coordinates rotate about the specified anchor coordinates by the same amount. The amount of rotation is such that coordinates along the former positive X axis will subsequently align with the vector pointing from the origin to the specified vector coordinates. If both <code>vecx</code> and <code>vecy</code> are 0.0, the transform is not modified in any way. This method is equivalent to calling: <pre> rotate(Math.atan2(vecy, vecx), anchorx, anchory); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>quadrantRotate(int numquadrants): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a transform that rotates coordinates by the specified number of quadrants. This is equivalent to calling: <pre> rotate(numquadrants * Math.PI / 2.0); </pre> Rotating by a positive number of quadrants rotates points on the positive X axis toward the positive Y axis.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>quadrantRotate(int numquadrants, double anchorx, double anchory): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a transform that rotates coordinates by the specified number of quadrants around the specified anchor point. This method is equivalent to calling: <pre> rotate(numquadrants * Math.PI / 2.0, anchorx, anchory); </pre> Rotating by a positive number of quadrants rotates points on the positive X axis toward the positive Y axis.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scale(double sx, double sy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a scaling transformation. This is equivalent to calling concatenate(S), where S is an <code>AffineTransform</code> represented by the following matrix: <pre> [   sx   0    0   ] [   0    sy   0   ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>shear(double shx, double shy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates this transform with a shearing transformation. This is equivalent to calling concatenate(SH), where SH is an <code>AffineTransform</code> represented by the following matrix: <pre> [   1   shx   0   ] [  shy   1    0   ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToIdentity(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resets this transform to the Identity transform.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToTranslation(double tx, double ty): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a translation transformation. The matrix representing this transform becomes: <pre> [   1    0    tx  ] [   0    1    ty  ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToRotation(double theta): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a rotation transformation. The matrix representing this transform becomes: <pre> [   cos(theta)    -sin(theta)    0   ] [   sin(theta)     cos(theta)    0   ] [       0              0         1   ] </pre> Rotating by a positive angle theta rotates points on the positive X axis toward the positive Y axis. Note also the discussion of <a href="#quadrantapproximation">Handling 90-Degree Rotations</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToRotation(double theta, double anchorx, double anchory): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a translated rotation transformation. This operation is equivalent to translating the coordinates so that the anchor point is at the origin (S1), then rotating them about the new origin (S2), and finally translating so that the intermediate origin is restored to the coordinates of the original anchor point (S3). <p> This operation is equivalent to the following sequence of calls: <pre> setToTranslation(anchorx, anchory); rotate(theta); translate(-anchorx, -anchory); </pre> The matrix representing this transform becomes: <pre> [   cos(theta)    -sin(theta)    x-x<em>cos+y</em>sin  ] [   sin(theta)     cos(theta)    y-x<em>sin-y</em>cos  ] [       0              0               1        ] </pre> Rotating by a positive angle theta rotates points on the positive X axis toward the positive Y axis. Note also the discussion of <a href="#quadrantapproximation">Handling 90-Degree Rotations</a> above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToRotation(double vecx, double vecy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a rotation transformation that rotates coordinates according to a rotation vector. All coordinates rotate about the origin by the same amount. The amount of rotation is such that coordinates along the former positive X axis will subsequently align with the vector pointing from the origin to the specified vector coordinates. If both <code>vecx</code> and <code>vecy</code> are 0.0, the transform is set to an identity transform. This operation is equivalent to calling: <pre> setToRotation(Math.atan2(vecy, vecx)); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToRotation(double vecx, double vecy, double anchorx, double anchory): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a rotation transformation that rotates coordinates around an anchor point according to a rotation vector. All coordinates rotate about the specified anchor coordinates by the same amount. The amount of rotation is such that coordinates along the former positive X axis will subsequently align with the vector pointing from the origin to the specified vector coordinates. If both <code>vecx</code> and <code>vecy</code> are 0.0, the transform is set to an identity transform. This operation is equivalent to calling: <pre> setToTranslation(Math.atan2(vecy, vecx), anchorx, anchory); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToQuadrantRotation(int numquadrants): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a rotation transformation that rotates coordinates by the specified number of quadrants. This operation is equivalent to calling: <pre> setToRotation(numquadrants * Math.PI / 2.0); </pre> Rotating by a positive number of quadrants rotates points on the positive X axis toward the positive Y axis.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToQuadrantRotation(int numquadrants, double anchorx, double anchory): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a translated rotation transformation that rotates coordinates by the specified number of quadrants around the specified anchor point. This operation is equivalent to calling: <pre> setToRotation(numquadrants * Math.PI / 2.0, anchorx, anchory); </pre> Rotating by a positive number of quadrants rotates points on the positive X axis toward the positive Y axis.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToScale(double sx, double sy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a scaling transformation. The matrix representing this transform becomes: <pre> [   sx   0    0   ] [   0    sy   0   ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToShear(double shx, double shy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a shearing transformation. The matrix representing this transform becomes: <pre> [   1   shx   0   ] [  shy   1    0   ] [   0    0    1   ] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setTransform(AffineTransform Tx): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to a copy of the transform in the specified <code>AffineTransform</code> object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setTransform(double m00, double m10, double m01, double m11, double m02, double m12): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to the matrix specified by the 6 double precision values.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>concatenate(AffineTransform Tx): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates an <code>AffineTransform</code> <code>Tx</code> to this <code>AffineTransform</code> Cx in the most commonly useful way to provide a new user space that is mapped to the former user space by <code>Tx</code>. Cx is updated to perform the combined transformation. Transforming a point p by the updated transform Cx’ is equivalent to first transforming p by <code>Tx</code> and then transforming the result by the original transform Cx like this: Cx’(p) &#x3D; Cx(Tx(p)) In matrix notation, if this transform Cx is represented by the matrix [this] and <code>Tx</code> is represented by the matrix [Tx] then this method does the following: <pre> [this] = [this] x [Tx] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preConcatenate(AffineTransform Tx): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Concatenates an <code>AffineTransform</code> <code>Tx</code> to this <code>AffineTransform</code> Cx in a less commonly used way such that <code>Tx</code> modifies the coordinate transformation relative to the absolute pixel space rather than relative to the existing user space. Cx is updated to perform the combined transformation. Transforming a point p by the updated transform Cx’ is equivalent to first transforming p by the original transform Cx and then transforming the result by <code>Tx</code> like this: Cx’(p) &#x3D; Tx(Cx(p)) In matrix notation, if this transform Cx is represented by the matrix [this] and <code>Tx</code> is represented by the matrix [Tx] then this method does the following: <pre> [this] = [Tx] x [this] </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createInverse(): AffineTransform</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an <code>AffineTransform</code> object representing the inverse transformation. The inverse transform Tx’ of this transform Tx maps coordinates transformed by Tx back to their original coordinates. In other words, Tx’(Tx(p)) &#x3D; p &#x3D; Tx(Tx’(p)). <p> If this transform maps all coordinates onto a point or a line then it will not have an inverse, since coordinates that do not lie on the destination point or line will not have an inverse mapping. The <code>getDeterminant</code> method can be used to determine if this transform has no inverse, in which case an exception will be thrown if the <code>createInverse</code> method is called.</td>
+<td align="left">NoninvertibleTransformException</td>
+</tr>
+<tr>
+<td align="center"><strong>invert(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets this transform to the inverse of itself. The inverse transform Tx’ of this transform Tx maps coordinates transformed by Tx back to their original coordinates. In other words, Tx’(Tx(p)) &#x3D; p &#x3D; Tx(Tx’(p)). <p> If this transform maps all coordinates onto a point or a line then it will not have an inverse, since coordinates that do not lie on the destination point or line will not have an inverse mapping. The <code>getDeterminant</code> method can be used to determine if this transform has no inverse, in which case an exception will be thrown if the <code>invert</code> method is called.</td>
+<td align="left">NoninvertibleTransformException</td>
+</tr>
+<tr>
+<td align="center"><strong>transform(Point2D ptSrc, Point2D ptDst): Point2D</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms the specified <code>ptSrc</code> and stores the result in <code>ptDst</code>. If <code>ptDst</code> is <code>null</code>, a new ‘Point2D’ object is allocated and then the result of the transformation is stored in this object. In either case, <code>ptDst</code>, which contains the transformed point, is returned for convenience. If <code>ptSrc</code> and <code>ptDst</code> are the same object, the input point is correctly overwritten with the transformed point.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transform(Point2D[] ptSrc, int srcOff, Point2D[] ptDst, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms an array of point objects by this transform. If any element of the <code>ptDst</code> array is <code>null</code>, a new <code>Point2D</code> object is allocated and stored into that element before storing the results of the transformation. <p> Note that this method does not take any precautions to avoid problems caused by storing results into <code>Point2D</code> objects that will be used as the source for calculations further down the source array. This method does guarantee that if a specified <code>Point2D</code> object is both the source and destination for the same single point transform operation then the results will not be stored until the calculations are complete to avoid storing the results on top of the operands. If, however, the destination <code>Point2D</code> object for one operation is the same object as the source <code>Point2D</code> object for another operation further down the source array then the original coordinates in that point are overwritten before they can be converted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transform(float[] srcPts, int srcOff, float[] dstPts, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms an array of floating point coordinates by this transform. The two coordinate array sections can be exactly the same or can be overlapping sections of the same array without affecting the validity of the results. This method ensures that no source coordinates are overwritten by a previous operation before they can be transformed. The coordinates are stored in the arrays starting at the specified offset in the order <code>[x0, y0, x1, y1, ..., xn, yn]</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transform(double[] srcPts, int srcOff, double[] dstPts, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms an array of double precision coordinates by this transform. The two coordinate array sections can be exactly the same or can be overlapping sections of the same array without affecting the validity of the results. This method ensures that no source coordinates are overwritten by a previous operation before they can be transformed. The coordinates are stored in the arrays starting at the indicated offset in the order <code>[x0, y0, x1, y1, ..., xn, yn]</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transform(float[] srcPts, int srcOff, double[] dstPts, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms an array of floating point coordinates by this transform and stores the results into an array of doubles. The coordinates are stored in the arrays starting at the specified offset in the order <code>[x0, y0, x1, y1, ..., xn, yn]</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transform(double[] srcPts, int srcOff, float[] dstPts, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms an array of double precision coordinates by this transform and stores the results into an array of floats. The coordinates are stored in the arrays starting at the specified offset in the order <code>[x0, y0, x1, y1, ..., xn, yn]</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>inverseTransform(Point2D ptSrc, Point2D ptDst): Point2D</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inverse transforms the specified <code>ptSrc</code> and stores the result in <code>ptDst</code>. If <code>ptDst</code> is <code>null</code>, a new <code>Point2D</code> object is allocated and then the result of the transform is stored in this object. In either case, <code>ptDst</code>, which contains the transformed point, is returned for convenience. If <code>ptSrc</code> and <code>ptDst</code> are the same object, the input point is correctly overwritten with the transformed point.</td>
+<td align="left">NoninvertibleTransformException</td>
+</tr>
+<tr>
+<td align="center"><strong>inverseTransform(double[] srcPts, int srcOff, double[] dstPts, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Inverse transforms an array of double precision coordinates by this transform. The two coordinate array sections can be exactly the same or can be overlapping sections of the same array without affecting the validity of the results. This method ensures that no source coordinates are overwritten by a previous operation before they can be transformed. The coordinates are stored in the arrays starting at the specified offset in the order <code>[x0, y0, x1, y1, ..., xn, yn]</code>.</td>
+<td align="left">NoninvertibleTransformException</td>
+</tr>
+<tr>
+<td align="center"><strong>deltaTransform(Point2D ptSrc, Point2D ptDst): Point2D</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms the relative distance vector specified by <code>ptSrc</code> and stores the result in <code>ptDst</code>. A relative distance vector is transformed without applying the translation components of the affine transformation matrix using the following equations: <pre> [  x' ]   [  m00  m01 (m02) ] [  x  ]   [ m00x + m01y ] [  y' ] = [  m10  m11 (m12) ] [  y  ] = [ m10x + m11y ] [ (1) ]   [  (0)  (0) ( 1 ) ] [ (1) ]   [     (1)     ] </pre> If <code>ptDst</code> is <code>null</code>, a new <code>Point2D</code> object is allocated and then the result of the transform is stored in this object. In either case, <code>ptDst</code>, which contains the transformed point, is returned for convenience. If <code>ptSrc</code> and <code>ptDst</code> are the same object, the input point is correctly overwritten with the transformed point.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deltaTransform(double[] srcPts, int srcOff, double[] dstPts, int dstOff, int numPts): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transforms an array of relative distance vectors by this transform. A relative distance vector is transformed without applying the translation components of the affine transformation matrix using the following equations: <pre> [  x' ]   [  m00  m01 (m02) ] [  x  ]   [ m00x + m01y ] [  y' ] = [  m10  m11 (m12) ] [  y  ] = [ m10x + m11y ] [ (1) ]   [  (0)  (0) ( 1 ) ] [ (1) ]   [     (1)     ] </pre> The two coordinate array sections can be exactly the same or can be overlapping sections of the same array without affecting the validity of the results. This method ensures that no source coordinates are overwritten by a previous operation before they can be transformed. The coordinates are stored in the arrays starting at the indicated offset in the order <code>[x0, y0, x1, y1, ..., xn, yn]</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createTransformedShape(Shape pSrc): Shape</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a new ‘Shape’ object defined by the geometry of the specified <code>Shape</code> after it has been transformed by this transform.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>_matround(double matval): double</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <code>String</code> that represents the value of this ‘Object’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isIdentity(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <code>true</code> if this <code>AffineTransform</code> is an identity transform.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this <code>AffineTransform</code> object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hashcode for this transform.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns <code>true</code> if this <code>AffineTransform</code> represents the same affine coordinate transform as the specified argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(java.io.ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">java.io.IOException<br/>java.lang.ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(java.io.ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">java.io.IOException<br/>java.lang.ClassNotFoundException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

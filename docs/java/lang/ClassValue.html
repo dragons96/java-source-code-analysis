@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/ClassValue.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ClassValue"><a href="#ClassValue" class="headerlink" title="ClassValue"></a>ClassValue<T></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.ClassValue&lt;T&gt;</strong></td>
+<td align="center">abstract class</td>
+<td align="center">&lt;T&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>EMPTY_CACHE: Entry&lt;?&gt;[]</strong></td>
+<td align="center">{ null }</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initial, one-element, empty cache used by all Class instances.  Must never be filled.</td>
+</tr>
+<tr>
+<td align="center"><strong>hashCodeForCache: int</strong></td>
+<td align="center">nextHashCode.getAndAdd(HASH_INCREMENT) &amp; HASH_MASK</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Internal hash code for accessing Class.classValueMap.cacheArray.</td>
+</tr>
+<tr>
+<td align="center"><strong>nextHashCode: AtomicInteger</strong></td>
+<td align="center">new AtomicInteger()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Value stream for hashCodeForCache.  See similar structure in ThreadLocal.</td>
+</tr>
+<tr>
+<td align="center"><strong>HASH_INCREMENT: int</strong></td>
+<td align="center">0x61c88647</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Good for power-of-two tables.  See similar structure in ThreadLocal.</td>
+</tr>
+<tr>
+<td align="center"><strong>HASH_MASK: int</strong></td>
+<td align="center">(-1 &gt;&gt;&gt; 2)</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Mask a hash code to be positive but not too large, to prevent wraparound.</td>
+</tr>
+<tr>
+<td align="center"><strong>identity: Identity</strong></td>
+<td align="center">new Identity()</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This ClassValue’s identity, expressed as an opaque object. The main object {@code ClassValue.this} is incorrect since subclasses may override {@code ClassValue.equals}, which could confuse keys in the ClassValueMap.</td>
+</tr>
+<tr>
+<td align="center"><strong>version: Version&lt;T&gt;</strong></td>
+<td align="center">new Version&lt;&gt;(this)</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Current version for retrieving this class value from the cache. Any number of computeValue calls can be cached in association with one version. But the version changes when a remove (on any type) is executed. A version change invalidates all cache entries for the affected ClassValue, by marking them as stale.  Stale cache entries do not force another call to computeValue, but they do require a synchronized visit to a backing map. <p> All user-visible state changes on the ClassValue take place under a lock inside the synchronized methods of ClassValueMap. Readers (of ClassValue.get) are notified of such state changes when this.version is bumped to a new token. This variable must be volatile so that an unsynchronized reader will receive the notification without delay. <p> If version were not volatile, one thread T1 could persistently hold onto a stale value this.value &#x3D;&#x3D; V1, while while another thread T2 advances (under a lock) to this.value &#x3D;&#x3D; V2.  This will typically be harmless, but if T1 and T2 interact causally via some other channel, such that T1’s further actions are constrained (in the JMM) to happen after the V2 event, then T1’s observation of V1 will be an error. <p> The practical effect of making this.version be volatile is that it cannot be hoisted out of a loop (by an optimizing JIT) or otherwise cached. Some machines may also require a barrier instruction to execute before this.version.</td>
+</tr>
+<tr>
+<td align="center"><strong>CRITICAL_SECTION: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ClassValue()</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sole constructor.  (For invocation by subclass constructors, typically implicit.)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>computeValue(Class&lt;?&gt; type): T</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Computes the given class’s derived value for this ‘ClassValue’. <p> This method will be invoked within the first thread that accesses the value with the ‘#get get’ method. <p> Normally, this method is invoked at most once per class, but it may be invoked again if there has been a call to ‘#remove remove’. <p> If this method throws an exception, the corresponding call to ‘get’ will terminate abnormally with that exception, and no class value will be recorded.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(Class&lt;?&gt; type): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value for the given class. If no value has yet been computed, it is obtained by an invocation of the ‘#computeValue computeValue’ method. <p> The actual installation of the value on the class is performed atomically. At that point, if several racing threads have computed values, one is chosen, and returned to all the racing threads. <p> The ‘type’ parameter is typically a class, but it may be any type, such as an interface, a primitive type (like ‘int.class’), or ‘void.class’. <p> In the absence of ‘remove’ calls, a class value has a simple state diagram:  uninitialized and initialized. When ‘remove’ calls are made, the rules for value observation are more complex. See the documentation for ‘#remove remove’ for more information.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Class&lt;?&gt; type): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the associated value for the given class. If this value is subsequently ‘#get read’ for the same class, its value will be reinitialized by invoking its ‘#computeValue computeValue’ method. This may result in an additional invocation of the ‘computeValue’ method for the given class. <p> In order to explain the interaction between ‘get’ and ‘remove’ calls, we must model the state transitions of a class value to take into account the alternation between uninitialized and initialized states. To do this, number these states sequentially from zero, and note that uninitialized (or removed) states are numbered with even numbers, while initialized (or re-initialized) states have odd numbers. <p> When a thread ‘T’ removes a class value in state ‘2N’, nothing happens, since the class value is already uninitialized. Otherwise, the state is advanced atomically to ‘2N+1’. <p> When a thread ‘T’ queries a class value in state ‘2N’, the thread first attempts to initialize the class value to state ‘2N+1’ by invoking ‘computeValue’ and installing the resulting value. <p> When ‘T’ attempts to install the newly computed value, if the state is still at ‘2N’, the class value will be initialized with the computed value, advancing it to state ‘2N+1’. <p> Otherwise, whether the new state is even or odd, ‘T’ will discard the newly computed value and retry the ‘get’ operation. <p> Discarding and retrying is an important proviso, since otherwise ‘T’ could potentially install a disastrously stale value.  For example: <ul> <li>‘T’ calls ‘CV.get(C)’ and sees state ‘2N’ <li>‘T’ quickly computes a time-dependent value ‘V0’ and gets ready to install it <li>‘T’ is hit by an unlucky paging or scheduling event, and goes to sleep for a long time <li>…meanwhile, ‘T2’ also calls ‘CV.get(C)’ and sees state ‘2N’ <li>‘T2’ quickly computes a similar time-dependent value ‘V1’ and installs it on ‘CV.get(C)’ <li>‘T2’ (or a third thread) then calls ‘CV.remove(C)’, undoing ‘T2’’s work <li> the previous actions of ‘T2’ are repeated several times <li> also, the relevant computed values change over time: ‘V1’, ‘V2’, … <li>…meanwhile, ‘T’ wakes up and attempts to install ‘V0’; <em>this must fail</em> </ul> We can assume in the above scenario that ‘CV.computeValue’ uses locks to properly observe the time-dependent states as it computes ‘V1’, etc. This does not remove the threat of a stale value, since there is a window of time between the return of ‘computeValue’ in ‘T’ and the installation of the the new value.  No user synchronization is possible during this time.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>put(Class&lt;?&gt; type, T value): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCacheCarefully(Class&lt;?&gt; type): Entry&lt;?&gt;[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the cache, if it exists, else a dummy empty cache.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFromBackup(Entry&lt;?&gt;[] cache, Class&lt;?&gt; type): T</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Slow tail of ClassValue.get to retry at nearby locations in the cache, or take a slow lock and check the hash table. Called only if the first probe was empty or a collision. This is a separate method, so compilers can process it independently.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>castEntry(Entry&lt;?&gt; e): Entry<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFromHashMap(Class&lt;?&gt; type): T</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Called when the fast path of get fails, and cache reprobe also fails.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>match(Entry&lt;?&gt; e): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check that e is non-null, matches this ClassValue, and is live.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>version(): Version<T></strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>bumpVersion(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMap(Class&lt;?&gt; type): ClassValueMap</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the backing map associated with this type.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializeMap(Class&lt;?&gt; type): ClassValueMap</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>makeEntry(Version&lt;T&gt; explicitVersion, T value): Entry<T></strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ClassValue-Identity"><a href="#ClassValue-Identity" class="headerlink" title="ClassValue$Identity"></a><a href="./ClassValue$Identity.html">ClassValue$Identity</a></h3><h3 id="ClassValue-Version"><a href="#ClassValue-Version" class="headerlink" title="ClassValue$Version"></a><a href="./ClassValue$Version.html">ClassValue$Version</a></h3><h3 id="ClassValue-Entry"><a href="#ClassValue-Entry" class="headerlink" title="ClassValue$Entry"></a><a href="./ClassValue$Entry.html">ClassValue$Entry</a></h3><h3 id="ClassValue-ClassValueMap"><a href="#ClassValue-ClassValueMap" class="headerlink" title="ClassValue$ClassValueMap"></a><a href="./ClassValue$ClassValueMap.html">ClassValue$ClassValueMap</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/ThreadGroup.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ThreadGroup"><a href="#ThreadGroup" class="headerlink" title="ThreadGroup"></a>ThreadGroup</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.ThreadGroup</strong></td>
+<td align="center">class</td>
+<td align="center">Thread.UncaughtExceptionHandler</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>parent: ThreadGroup</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>name: String</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>maxPriority: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>destroyed: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>daemon: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>vmAllowSuspension: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nUnstartedThreads: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nthreads: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>threads: Thread[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ngroups: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>groups: ThreadGroup[]</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ThreadGroup()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an empty Thread group that is not in any Thread group. This method is used to create the system Thread group.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadGroup(String name)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new thread group. The parent of this new group is the thread group of the currently running thread. <p> The <code>checkAccess</code> method of the parent thread group is called with no arguments; this may result in a security exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadGroup(ThreadGroup parent, String name)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new thread group. The parent of this new group is the specified thread group. <p> The <code>checkAccess</code> method of the parent thread group is called with no arguments; this may result in a security exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ThreadGroup(Void unused, ThreadGroup parent, String name)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkParentAccess(ThreadGroup parent): Void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">SecurityException<br/>NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the name of this thread group.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getParent(): ThreadGroup</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the parent of this thread group. <p> First, if the parent is not <code>null</code>, the <code>checkAccess</code> method of the parent thread group is called with no arguments; this may result in a security exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaxPriority(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum priority of this thread group. Threads that are part of this group cannot have a higher priority than the maximum priority.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDaemon(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if this thread group is a daemon thread group. A daemon thread group is automatically destroyed when its last thread is stopped or its last thread group is destroyed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDestroyed(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if this thread group has been destroyed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDaemon(boolean daemon): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Changes the daemon status of this thread group. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception. <p> A daemon thread group is automatically destroyed when its last thread is stopped or its last thread group is destroyed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMaxPriority(int pri): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the maximum priority of the group. Threads in the thread group that already have a higher priority are not affected. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception. <p> If the <code>pri</code> argument is less than ‘Thread#MIN_PRIORITY’ or greater than ‘Thread#MAX_PRIORITY’, the maximum priority of the group remains unchanged. <p> Otherwise, the priority of this ThreadGroup object is set to the smaller of the specified <code>pri</code> and the maximum permitted priority of the parent of this thread group. (If this thread group is the system thread group, which has no parent, then its maximum priority is simply set to <code>pri</code>.) Then this method is called recursively, with <code>pri</code> as its argument, for every thread group that belongs to this thread group.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parentOf(ThreadGroup g): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tests if this thread group is either the thread group argument or one of its ancestor thread groups.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAccess(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the currently running thread has permission to modify this thread group. <p> If there is a security manager, its <code>checkAccess</code> method is called with this thread group as its argument. This may result in throwing a <code>SecurityException</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>activeCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of active threads in this thread group and its subgroups. Recursively iterates over all subgroups in this thread group.  <p> The value returned is only an estimate because the number of threads may change dynamically while this method traverses internal data structures, and might be affected by the presence of certain system threads. This method is intended primarily for debugging and monitoring purposes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enumerate(Thread list[]): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies into the specified array every active thread in this thread group and its subgroups.  <p> An invocation of this method behaves in exactly the same way as the invocation  <blockquote> ‘#enumerate(Thread[], boolean) enumerate’’(list, true)’ </blockquote></td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>enumerate(Thread list[], boolean recurse): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies into the specified array every active thread in this thread group. If ‘recurse’ is ‘true’, this method recursively enumerates all subgroups of this thread group and references to every active thread in these subgroups are also included. If the array is too short to hold all the threads, the extra threads are silently ignored.  <p> An application might use the ‘#activeCount activeCount’ method to get an estimate of how big the array should be, however <i>if the array is too short to hold all the threads, the extra threads are silently ignored.</i>  If it is critical to obtain every active thread in this thread group, the caller should verify that the returned int value is strictly less than the length of ‘list’.  <p> Due to the inherent race condition in this method, it is recommended that the method only be used for debugging and monitoring purposes.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>enumerate(Thread list[], int n, boolean recurse): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>activeGroupCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an estimate of the number of active groups in this thread group and its subgroups. Recursively iterates over all subgroups in this thread group.  <p> The value returned is only an estimate because the number of thread groups may change dynamically while this method traverses internal data structures. This method is intended primarily for debugging and monitoring purposes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>enumerate(ThreadGroup list[]): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies into the specified array references to every active subgroup in this thread group and its subgroups.  <p> An invocation of this method behaves in exactly the same way as the invocation  <blockquote> ‘#enumerate(ThreadGroup[], boolean) enumerate’’(list, true)’ </blockquote></td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>enumerate(ThreadGroup list[], boolean recurse): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Copies into the specified array references to every active subgroup in this thread group. If ‘recurse’ is ‘true’, this method recursively enumerates all subgroups of this thread group and references to every active thread group in these subgroups are also included.  <p> An application might use the ‘#activeGroupCount activeGroupCount’ method to get an estimate of how big the array should be, however <i>if the array is too short to hold all the thread groups, the extra thread groups are silently ignored.</i>  If it is critical to obtain every active subgroup in this thread group, the caller should verify that the returned int value is strictly less than the length of ‘list’.  <p> Due to the inherent race condition in this method, it is recommended that the method only be used for debugging and monitoring purposes.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>enumerate(ThreadGroup list[], int n, boolean recurse): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stop(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stops all threads in this thread group. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception. <p> This method then calls the <code>stop</code> method on all the threads in this thread group and in all of its subgroups.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>interrupt(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Interrupts all threads in this thread group. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception. <p> This method then calls the <code>interrupt</code> method on all the threads in this thread group and in all of its subgroups.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>suspend(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Suspends all threads in this thread group. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception. <p> This method then calls the <code>suspend</code> method on all the threads in this thread group and in all of its subgroups.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stopOrSuspend(boolean suspend): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Helper method: recursively stops or suspends (as directed by the boolean argument) all of the threads in this thread group and its subgroups, except the current thread.  This method returns true if (and only if) the current thread is found to be in this thread group or one of its subgroups.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resume(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Resumes all threads in this thread group. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception. <p> This method then calls the <code>resume</code> method on all the threads in this thread group and in all of its sub groups.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>destroy(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Destroys this thread group and all of its subgroups. This thread group must be empty, indicating that all threads that had been in this thread group have since stopped. <p> First, the <code>checkAccess</code> method of this thread group is called with no arguments; this may result in a security exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(ThreadGroup g): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified Thread group to this group.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(ThreadGroup g): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified Thread group from this group.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addUnstarted(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Increments the count of unstarted threads in the thread group. Unstarted threads are not added to the thread group so that they can be collected if they are never started, but they must be counted so that daemon thread groups with unstarted threads in them are not destroyed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(Thread t): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified thread to this thread group.  <p> Note: This method is called from both library code and the Virtual Machine. It is called from VM to add certain system threads to the system thread group.</td>
+<td align="left">IllegalThreadStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>threadStartFailed(Thread t): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Notifies the group that the thread ‘t’ has failed an attempt to start.  <p> The state of this thread group is rolled back as if the attempt to start the thread has never occurred. The thread is again considered an unstarted member of the thread group, and a subsequent attempt to start the thread is permitted.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>threadTerminated(Thread t): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Notifies the group that the thread ‘t’ has terminated.  <p> Destroy the group if all of the following conditions are true: this is a daemon thread group; there are no more alive or unstarted threads in the group; there are no subgroups in this thread group.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Thread t): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified Thread from this group. Invoking this method on a thread group that has been destroyed has no effect.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>list(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints information about this thread group to the standard output. This method is useful only for debugging.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>list(PrintStream out, int indent): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>uncaughtException(Thread t, Throwable e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Called by the Java Virtual Machine when a thread in this thread group stops because of an uncaught exception, and the thread does not have a specific ‘Thread.UncaughtExceptionHandler’ installed. <p> The <code>uncaughtException</code> method of <code>ThreadGroup</code> does the following: <ul> <li>If this thread group has a parent thread group, the <code>uncaughtException</code> method of that parent is called with the same two arguments. <li>Otherwise, this method checks to see if there is a ‘Thread#getDefaultUncaughtExceptionHandler default uncaught exception handler’ installed, and if so, its <code>uncaughtException</code> method is called with the same two arguments. <li>Otherwise, this method determines if the <code>Throwable</code> argument is an instance of ‘ThreadDeath’. If so, nothing special is done. Otherwise, a message containing the thread’s name, as returned from the thread’s ‘Thread#getName getName’ method, and a stack backtrace, using the <code>Throwable</code>‘s ‘Throwable#printStackTrace printStackTrace’ method, is printed to the ‘System#err standard error stream’. </ul> <p> Applications can override this method in subclasses of <code>ThreadGroup</code> to provide alternative handling of uncaught exceptions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>allowThreadSuspension(boolean b): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used by VM to control lowmem implicit suspension.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representation of this Thread group.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

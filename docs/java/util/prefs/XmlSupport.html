@@ -67,13 +67,13 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">**: String PREFS_DTD &#x3D;”&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;” +”&lt;!– DTD for preferences –&gt;”               +”&lt;!ELEMENT preferences (root) &gt;”             +”&lt;!ATTLIST preferences”                      +” EXTERNAL_XML_VERSION CDATA &quot;0.0&quot;  &gt;”     +”&lt;!ELEMENT root (map, node*) &gt;”              +”&lt;!ATTLIST root”                             +”          type (system</td>
-<td align="center">user) #REQUIRED &gt;”   +”&lt;!ELEMENT node (map, node*) &gt;”              +”&lt;!ATTLIST node”                             +”          name CDATA #REQUIRED &gt;”           +”&lt;!ELEMENT map (entry*) &gt;”                   +”&lt;!ATTLIST map”                              +”  MAP_XML_VERSION CDATA &quot;0.0&quot;  &gt;”         +”&lt;!ELEMENT entry EMPTY &gt;”                    +”&lt;!ATTLIST entry”                            +”          key CDATA #REQUIRED”              +”          value CDATA #REQUIRED &gt;”**</td>
-<td align="center">&quot;UTF-8&quot;?&gt;” +”<!-- DTD for preferences -->“               +”<!ELEMENT preferences (root) >“             +”<!ATTLIST preferences"                      +" EXTERNAL_XML_VERSION CDATA \"0.0\"  >“     +”<!ELEMENT root (map, node*) >“              +”&lt;!ATTLIST root”                             +”          type (system</td>
-<td align="center">user) #REQUIRED &gt;”   +”<!ELEMENT node (map, node*) >“              +”<!ATTLIST node"                             +"          name CDATA #REQUIRED >“           +”<!ELEMENT map (entry*) >“                   +”<!ATTLIST map"                              +"  MAP_XML_VERSION CDATA \"0.0\"  >“         +”<!ELEMENT entry EMPTY >“                    +”<!ATTLIST entry"                            +"          key CDATA #REQUIRED"              +"          value CDATA #REQUIRED >“</td>
+<td align="center"><strong>PREFS_DTD_URI: String</strong></td>
+<td align="center">&quot;UTF-8&quot;?&gt;” + “<!-- DTD for preferences -->“               + “<!ELEMENT preferences (root) >“             + “<!ATTLIST preferences"                      + " EXTERNAL_XML_VERSION CDATA \"0.0\"  >“     + “<!ELEMENT root (map, node*) >“              + “&lt;!ATTLIST root”                             + “          type (system</td>
+<td align="center">user) #REQUIRED &gt;”   + “<!ELEMENT node (map, node*) >“              + “<!ATTLIST node"                             + "          name CDATA #REQUIRED >“           + “<!ELEMENT map (entry*) >“                   + “<!ATTLIST map"                              + "  MAP_XML_VERSION CDATA \"0.0\"  >“         + “<!ELEMENT entry EMPTY >“                    + “<!ATTLIST entry"                            + "          key CDATA #REQUIRED"              + "          value CDATA #REQUIRED >“</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
 <td align="center">否</td>
 <td align="left">否</td>
 </tr>
@@ -125,7 +125,31 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Export the specified preferences node and, if subTree is true, all subnodes, to the specified output stream.  Preferences are exported as an XML document conforming to the definition in the Preferences spec.</td>
-<td align="left">IllegalStateException<br/>BackingStoreException<br/>IOException</td>
+<td align="left">BackingStoreException<br/>IOException<br/>IllegalStateException</td>
+</tr>
+<tr>
+<td align="center"><strong>putPreferencesInXml(Element elt, Document doc, Preferences prefs, boolean subTree): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Put the preferences in the specified Preferences node into the specified XML element which is assumed to represent a node in the specified XML document which is assumed to conform to PREFS_DTD.  If subTree is true, create children of the specified XML node conforming to all of the children of the specified Preferences node and recurse.</td>
+<td align="left">BackingStoreException</td>
+</tr>
+<tr>
+<td align="center"><strong>importPreferences(InputStream is): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Import preferences from the specified input stream, which is assumed to contain an XML document in the format described in the Preferences spec.</td>
+<td align="left">InvalidPreferencesFormatException<br/>IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>createPrefsDoc( String qname ): Document</strong></td>
@@ -138,6 +162,30 @@
 <td align="center">否</td>
 <td align="left">Create a new prefs XML document.</td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadPrefsDoc(InputStream in): Document</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Load an XML document from specified input stream, which must have the requisite DTD URI.</td>
+<td align="left">IOException<br/>SAXException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeDoc(Document doc, OutputStream out): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Write XML document to the specified output stream.</td>
+<td align="left">IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>ImportSubtree(Preferences prefsNode, Element xmlNode): void</strong></td>
@@ -174,6 +222,18 @@
 <td align="center">否</td>
 <td align="left">Export the specified Map&lt;String,String&gt; to a map document on the specified OutputStream as per the prefs DTD.  This is used as the internal (undocumented) format for FileSystemPrefs.</td>
 <td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>importMap(InputStream is, Map&lt;String, String&gt; m): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Import Map from the specified input stream, which is assumed to contain a map document as per the prefs DTD.  This is used as the internal (undocumented) format for FileSystemPrefs.  The key-value pairs specified in the XML document will be put into the specified Map.  (If this Map is empty, it will contain exactly the key-value pairs int the XML-document when this method returns.)</td>
+<td align="left">InvalidPreferencesFormatException<br/>IOException</td>
 </tr>
 </tbody></table>
 <h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="XmlSupport-Resolver"><a href="#XmlSupport-Resolver" class="headerlink" title="XmlSupport$Resolver"></a><a href="./XmlSupport$Resolver.html">XmlSupport$Resolver</a></h3><h3 id="XmlSupport-EH"><a href="#XmlSupport-EH" class="headerlink" title="XmlSupport$EH"></a><a href="./XmlSupport$EH.html">XmlSupport$EH</a></h3>

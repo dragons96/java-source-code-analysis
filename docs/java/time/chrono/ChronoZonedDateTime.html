@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/chrono/ChronoZonedDateTime.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ChronoZonedDateTime"><a href="#ChronoZonedDateTime" class="headerlink" title="ChronoZonedDateTime"></a>ChronoZonedDateTime<D extends ChronoLocalDate></h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">泛型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.chrono.ChronoZonedDateTime&lt;D extends ChronoLocalDate&gt;</strong></td>
+<td align="center">interface</td>
+<td align="center">Temporal,</td>
+<td align="center">&lt;D extends ChronoLocalDate&gt;</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>timeLineOrder(): Comparator&lt;ChronoZonedDateTime&lt;?&gt;&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets a comparator that compares ‘ChronoZonedDateTime’ in time-line order ignoring the chronology. <p> This comparator differs from the comparison in ‘#compareTo’ in that it only compares the underlying instant and not the chronology. This allows dates in different calendar systems to be compared based on the position of the date-time on the instant time-line. The underlying comparison is equivalent to comparing the epoch-second and nano-of-second.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAccessor temporal): ChronoZonedDateTime&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Obtains an instance of ‘ChronoZonedDateTime’ from a temporal object. <p> This creates a zoned date-time based on the specified temporal. A ‘TemporalAccessor’ represents an arbitrary set of date and time information, which this factory converts to an instance of ‘ChronoZonedDateTime’. <p> The conversion extracts and combines the chronology, date, time and zone from the temporal object. The behavior is equivalent to using ‘Chronology#zonedDateTime(TemporalAccessor)’ with the extracted chronology. Implementations are permitted to perform optimizations such as accessing those fields that are equivalent to the relevant objects. <p> This method matches the signature of the functional interface ‘TemporalQuery’ allowing it to be used as a query via method reference, ‘ChronoZonedDateTime::from’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>range(TemporalField field): ValueRange</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(TemporalField field): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLong(TemporalField field): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLocalDate(): D</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the local date part of this date-time. <p> This returns a local date with the same year, month and day as this date-time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLocalTime(): LocalTime</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the local time part of this date-time. <p> This returns a local time with the same hour, minute, second and nanosecond as this date-time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLocalDateTime(): ChronoLocalDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the local date-time part of this date-time. <p> This returns a local date with the same year, month and day as this date-time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChronology(): Chronology</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the chronology of this date-time. <p> The ‘Chronology’ represents the calendar system in use. The era and other fields in ‘ChronoField’ are defined by the chronology.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOffset(): ZoneOffset</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the zone offset, such as ‘+01:00’. <p> This is the offset of the local date-time from UTC&#x2F;Greenwich.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getZone(): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Gets the zone ID, such as ‘Europe&#x2F;Paris’. <p> This returns the stored time-zone id used to determine the time-zone rules.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withEarlierOffsetAtOverlap(): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this date-time changing the zone offset to the earlier of the two valid offsets at a local time-line overlap. <p> This method only has any effect when the local time-line overlaps, such as at an autumn daylight savings cutover. In this scenario, there are two valid offsets for the local date-time. Calling this method will return a zoned date-time with the earlier of the two selected. <p> If this method is called when it is not an overlap, ‘this’ is returned. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>withLaterOffsetAtOverlap(): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this date-time changing the zone offset to the later of the two valid offsets at a local time-line overlap. <p> This method only has any effect when the local time-line overlaps, such as at an autumn daylight savings cutover. In this scenario, there are two valid offsets for the local date-time. Calling this method will return a zoned date-time with the later of the two selected. <p> If this method is called when it is not an overlap, ‘this’ is returned. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>withZoneSameLocal(ZoneId zone): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this date-time with a different time-zone, retaining the local date-time if possible. <p> This method changes the time-zone and retains the local date-time. The local date-time is only changed if it is invalid for the new zone. <p> To change the zone and adjust the local date-time, use ‘#withZoneSameInstant(ZoneId)’. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withZoneSameInstant(ZoneId zone): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns a copy of this date-time with a different time-zone, retaining the instant. <p> This method changes the time-zone and retains the instant. This normally results in a change to the local date-time. <p> This method is based on retaining the same instant, thus gaps and overlaps in the local time-line have no effect on the result. <p> To change the offset while keeping the local time, use ‘#withZoneSameLocal(ZoneId)’.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>isSupported(TemporalField field): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the specified field is supported. <p> This checks if the specified field can be queried on this date-time. If false, then calling the ‘#range(TemporalField) range’, ‘#get(TemporalField) get’ and ‘#with(TemporalField, long)’ methods will throw an exception. <p> The set of supported fields is defined by the chronology and normally includes all ‘ChronoField’ fields. <p> If the field is not a ‘ChronoField’, then the result of this method is obtained by invoking ‘TemporalField.isSupportedBy(TemporalAccessor)’ passing ‘this’ as the argument. Whether the field is supported is determined by the field.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupported(TemporalUnit unit): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the specified unit is supported. <p> This checks if the specified unit can be added to or subtracted from this date-time. If false, then calling the ‘#plus(long, TemporalUnit)’ and ‘#minus(long, TemporalUnit) minus’ methods will throw an exception. <p> The set of supported units is defined by the chronology and normally includes all ‘ChronoUnit’ units except ‘FOREVER’. <p> If the unit is not a ‘ChronoUnit’, then the result of this method is obtained by invoking ‘TemporalUnit.isSupportedBy(Temporal)’ passing ‘this’ as the argument. Whether the unit is supported is determined by the unit.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>with(TemporalAdjuster adjuster): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>with(TemporalField field, long newValue): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(TemporalAmount amount): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(long amountToAdd, TemporalUnit unit): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(TemporalAmount amount): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(long amountToSubtract, TemporalUnit unit): ChronoZonedDateTime<D></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">‘inheritDoc’</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>query(TemporalQuery&lt;R&gt; query): R</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Queries this date-time using the specified query. <p> This queries this date-time using the specified query strategy object. The ‘TemporalQuery’ object defines the logic to be used to obtain the result. Read the documentation of the query to understand what the result of this method will be. <p> The result of this method is obtained by invoking the ‘TemporalQuery#queryFrom(TemporalAccessor)’ method on the specified query passing ‘this’ as the argument.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>format(DateTimeFormatter formatter): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Formats this date-time using the specified formatter. <p> This date-time will be passed to the formatter to produce a string. <p> The default implementation must behave as follows: <pre> return formatter.format(this); </pre></td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>toInstant(): Instant</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Converts this date-time to an ‘Instant’. <p> This returns an ‘Instant’ representing the same point on the time-line as this date-time. The calculation combines the ‘#toLocalDateTime() local date-time’ and ‘#getOffset() offset’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toEpochSecond(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Converts this date-time to the number of seconds from the epoch of 1970-01-01T00:00:00Z. <p> This uses the ‘#toLocalDateTime() local date-time’ and ‘#getOffset() offset’ to calculate the epoch-second value, which is the number of elapsed seconds from 1970-01-01T00:00:00Z. Instants on the time-line after the epoch are positive, earlier are negative.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(ChronoZonedDateTime&lt;?&gt; other): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Compares this date-time to another date-time, including the chronology. <p> The comparison is based first on the instant, then on the local date-time, then on the zone ID, then on the chronology. It is “consistent with equals”, as defined by ‘Comparable’. <p> If all the date-time objects being compared are in the same chronology, then the additional chronology stage is not required. <p> This default implementation performs the comparison defined above.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isBefore(ChronoZonedDateTime&lt;?&gt; other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the instant of this date-time is before that of the specified date-time. <p> This method differs from the comparison in ‘#compareTo’ in that it only compares the instant of the date-time. This is equivalent to using ‘dateTime1.toInstant().isBefore(dateTime2.toInstant());’. <p> This default implementation performs the comparison based on the epoch-second and nano-of-second.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAfter(ChronoZonedDateTime&lt;?&gt; other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the instant of this date-time is after that of the specified date-time. <p> This method differs from the comparison in ‘#compareTo’ in that it only compares the instant of the date-time. This is equivalent to using ‘dateTime1.toInstant().isAfter(dateTime2.toInstant());’. <p> This default implementation performs the comparison based on the epoch-second and nano-of-second.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEqual(ChronoZonedDateTime&lt;?&gt; other): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if the instant of this date-time is equal to that of the specified date-time. <p> This method differs from the comparison in ‘#compareTo’ and ‘#equals’ in that it only compares the instant of the date-time. This is equivalent to using ‘dateTime1.toInstant().equals(dateTime2.toInstant());’. <p> This default implementation performs the comparison based on the epoch-second and nano-of-second.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Checks if this date-time is equal to another date-time. <p> The comparison is based on the offset date-time and the zone. To compare for the same instant on the time-line, use ‘#compareTo’. Only objects of type ‘ChronoZonedDateTime’ are compared, other types return false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">A hash code for this date-time.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Outputs this date-time as a ‘String’. <p> The output will include the full zoned date-time.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

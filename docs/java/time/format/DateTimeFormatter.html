@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/format/DateTimeFormatter.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.format.DateTimeFormatter</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>printerParser: CompositePrinterParser</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The printer and&#x2F;or parser to use, not null.</td>
+</tr>
+<tr>
+<td align="center"><strong>locale: Locale</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The locale to use for formatting, not null.</td>
+</tr>
+<tr>
+<td align="center"><strong>decimalStyle: DecimalStyle</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The symbols to use for formatting, not null.</td>
+</tr>
+<tr>
+<td align="center"><strong>resolverStyle: ResolverStyle</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The resolver style to use, not null.</td>
+</tr>
+<tr>
+<td align="center"><strong>resolverFields: Set&lt;TemporalField&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The fields to use in resolving, null for all fields.</td>
+</tr>
+<tr>
+<td align="center"><strong>chrono: Chronology</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The chronology to use for formatting, null for no override.</td>
+</tr>
+<tr>
+<td align="center"><strong>zone: ZoneId</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The zone to use for formatting, null for no override.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_LOCAL_DATE: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date formatter that formats or parses a date without an offset, such as ‘2011-12-03’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended local date format. The format consists of: <ul> <li>Four digits or more for the {@link ChronoField#YEAR year}. Years in the range 0000 to 9999 will be pre-padded by zero to ensure four digits. Years outside that range will have a prefixed positive or negative symbol. <li>A dash <li>Two digits for the {@link ChronoField#MONTH_OF_YEAR month-of-year}. This is pre-padded by zero to ensure two digits. <li>A dash <li>Two digits for the {@link ChronoField#DAY_OF_MONTH day-of-month}. This is pre-padded by zero to ensure two digits. </ul> <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_OFFSET_DATE: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date formatter that formats or parses a date with an offset, such as ‘2011-12-03+01:00’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended offset date format. The format consists of: <ul> <li>The {@link #ISO_LOCAL_DATE} <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_DATE: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date formatter that formats or parses a date with the offset if available, such as ‘2011-12-03’ or ‘2011-12-03+01:00’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended date format. The format consists of: <ul> <li>The {@link #ISO_LOCAL_DATE} <li>If the offset is not available then the format is complete. <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> As this formatter has an optional element, it may be necessary to parse using {@link DateTimeFormatter#parseBest}. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_LOCAL_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO time formatter that formats or parses a time without an offset, such as ‘10:15’ or ‘10:15:30’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended local time format. The format consists of: <ul> <li>Two digits for the {@link ChronoField#HOUR_OF_DAY hour-of-day}. This is pre-padded by zero to ensure two digits. <li>A colon <li>Two digits for the {@link ChronoField#MINUTE_OF_HOUR minute-of-hour}. This is pre-padded by zero to ensure two digits. <li>If the second-of-minute is not available then the format is complete. <li>A colon <li>Two digits for the {@link ChronoField#SECOND_OF_MINUTE second-of-minute}. This is pre-padded by zero to ensure two digits. <li>If the nano-of-second is zero or not available then the format is complete. <li>A decimal point <li>One to nine digits for the {@link ChronoField#NANO_OF_SECOND nano-of-second}. As many digits will be output as required. </ul> <p> The returned formatter has no override chronology or zone. It uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_OFFSET_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO time formatter that formats or parses a time with an offset, such as ‘10:15+01:00’ or ‘10:15:30+01:00’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended offset time format. The format consists of: <ul> <li>The {@link #ISO_LOCAL_TIME} <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> The returned formatter has no override chronology or zone. It uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO time formatter that formats or parses a time, with the offset if available, such as ‘10:15’, ‘10:15:30’ or ‘10:15:30+01:00’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended offset time format. The format consists of: <ul> <li>The {@link #ISO_LOCAL_TIME} <li>If the offset is not available then the format is complete. <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> As this formatter has an optional element, it may be necessary to parse using {@link DateTimeFormatter#parseBest}. <p> The returned formatter has no override chronology or zone. It uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_LOCAL_DATE_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date-time formatter that formats or parses a date-time without an offset, such as ‘2011-12-03T10:15:30’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended offset date-time format. The format consists of: <ul> <li>The {@link #ISO_LOCAL_DATE} <li>The letter ‘T’. Parsing is case insensitive. <li>The {@link #ISO_LOCAL_TIME} </ul> <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_OFFSET_DATE_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date-time formatter that formats or parses a date-time with an offset, such as ‘2011-12-03T10:15:30+01:00’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended offset date-time format. The format consists of: <ul> <li>The {@link #ISO_LOCAL_DATE_TIME} <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_ZONED_DATE_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO-like date-time formatter that formats or parses a date-time with offset and zone, such as ‘2011-12-03T10:15:30+01:00[Europe&#x2F;Paris]’. <p> This returns an immutable formatter capable of formatting and parsing a format that extends the ISO-8601 extended offset date-time format to add the time-zone. The section in square brackets is not part of the ISO-8601 standard. The format consists of: <ul> <li>The {@link #ISO_OFFSET_DATE_TIME} <li>If the zone ID is not available or is a {@code ZoneOffset} then the format is complete. <li>An open square bracket ‘[‘. <li>The {@link ZoneId#getId() zone ID}. This is not part of the ISO-8601 standard. Parsing is case sensitive. <li>A close square bracket ‘]’. </ul> <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_DATE_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO-like date-time formatter that formats or parses a date-time with the offset and zone if available, such as ‘2011-12-03T10:15:30’, ‘2011-12-03T10:15:30+01:00’ or ‘2011-12-03T10:15:30+01:00[Europe&#x2F;Paris]’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended local or offset date-time format, as well as the extended non-ISO form specifying the time-zone. The format consists of: <ul> <li>The {@link #ISO_LOCAL_DATE_TIME} <li>If the offset is not available to format or parse then the format is complete. <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. <li>If the zone ID is not available or is a {@code ZoneOffset} then the format is complete. <li>An open square bracket ‘[‘. <li>The {@link ZoneId#getId() zone ID}. This is not part of the ISO-8601 standard. Parsing is case sensitive. <li>A close square bracket ‘]’. </ul> <p> As this formatter has an optional element, it may be necessary to parse using {@link DateTimeFormatter#parseBest}. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_ORDINAL_DATE: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date formatter that formats or parses the ordinal date without an offset, such as ‘2012-337’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended ordinal date format. The format consists of: <ul> <li>Four digits or more for the {@link ChronoField#YEAR year}. Years in the range 0000 to 9999 will be pre-padded by zero to ensure four digits. Years outside that range will have a prefixed positive or negative symbol. <li>A dash <li>Three digits for the {@link ChronoField#DAY_OF_YEAR day-of-year}. This is pre-padded by zero to ensure three digits. <li>If the offset is not available to format or parse then the format is complete. <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> As this formatter has an optional element, it may be necessary to parse using {@link DateTimeFormatter#parseBest}. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_WEEK_DATE: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date formatter that formats or parses the week-based date without an offset, such as ‘2012-W48-6’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 extended week-based date format. The format consists of: <ul> <li>Four digits or more for the {@link IsoFields#WEEK_BASED_YEAR week-based-year}. Years in the range 0000 to 9999 will be pre-padded by zero to ensure four digits. Years outside that range will have a prefixed positive or negative symbol. <li>A dash <li>The letter ‘W’. Parsing is case insensitive. <li>Two digits for the {@link IsoFields#WEEK_OF_WEEK_BASED_YEAR week-of-week-based-year}. This is pre-padded by zero to ensure three digits. <li>A dash <li>One digit for the {@link ChronoField#DAY_OF_WEEK day-of-week}. The value run from Monday (1) to Sunday (7). <li>If the offset is not available to format or parse then the format is complete. <li>The {@link ZoneOffset#getId() offset ID}. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> As this formatter has an optional element, it may be necessary to parse using {@link DateTimeFormatter#parseBest}. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>ISO_INSTANT: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO instant formatter that formats or parses an instant in UTC, such as ‘2011-12-03T10:15:30Z’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 instant format. When formatting, the second-of-minute is always output. The nano-of-second outputs zero, three, six or nine digits digits as necessary. When parsing, time to at least the seconds field is required. Fractional seconds from zero to nine are parsed. The localized decimal style is not used. <p> This is a special case formatter intended to allow a human readable form of an {@link java.time.Instant}. The {@code Instant} class is designed to only represent a point in time and internally stores a value in nanoseconds from a fixed epoch of 1970-01-01Z. As such, an {@code Instant} cannot be formatted as a date or time without providing some form of time-zone. This formatter allows the {@code Instant} to be formatted, by providing a suitable conversion using {@code ZoneOffset.UTC}. <p> The format consists of: <ul> <li>The {@link #ISO_OFFSET_DATE_TIME} where the instant is converted from {@link ChronoField#INSTANT_SECONDS} and {@link ChronoField#NANO_OF_SECOND} using the {@code UTC} offset. Parsing is case insensitive. </ul> <p> The returned formatter has no override chronology or zone. It uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>BASIC_ISO_DATE: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The ISO date formatter that formats or parses a date without an offset, such as ‘20111203’. <p> This returns an immutable formatter capable of formatting and parsing the ISO-8601 basic local date format. The format consists of: <ul> <li>Four digits for the {@link ChronoField#YEAR year}. Only years in the range 0000 to 9999 are supported. <li>Two digits for the {@link ChronoField#MONTH_OF_YEAR month-of-year}. This is pre-padded by zero to ensure two digits. <li>Two digits for the {@link ChronoField#DAY_OF_MONTH day-of-month}. This is pre-padded by zero to ensure two digits. <li>If the offset is not available to format or parse then the format is complete. <li>The {@link ZoneOffset#getId() offset ID} without colons. If the offset has seconds then they will be handled even though this is not part of the ISO-8601 standard. Parsing is case insensitive. </ul> <p> As this formatter has an optional element, it may be necessary to parse using {@link DateTimeFormatter#parseBest}. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#STRICT STRICT} resolver style.</td>
+</tr>
+<tr>
+<td align="center"><strong>RFC_1123_DATE_TIME: DateTimeFormatter</strong></td>
+<td align="center">null</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The RFC-1123 date-time formatter, such as ‘Tue, 3 Jun 2008 11:05:30 GMT’. <p> This returns an immutable formatter capable of formatting and parsing most of the RFC-1123 format. RFC-1123 updates RFC-822 changing the year from two digits to four. This implementation requires a four digit year. This implementation also does not handle North American or military zone names, only ‘GMT’ and offset amounts. <p> The format consists of: <ul> <li>If the day-of-week is not available to format or parse then jump to day-of-month. <li>Three letter {@link ChronoField#DAY_OF_WEEK day-of-week} in English. <li>A comma <li>A space <li>One or two digits for the {@link ChronoField#DAY_OF_MONTH day-of-month}. <li>A space <li>Three letter {@link ChronoField#MONTH_OF_YEAR month-of-year} in English. <li>A space <li>Four digits for the {@link ChronoField#YEAR year}. Only years in the range 0000 to 9999 are supported. <li>A space <li>Two digits for the {@link ChronoField#HOUR_OF_DAY hour-of-day}. This is pre-padded by zero to ensure two digits. <li>A colon <li>Two digits for the {@link ChronoField#MINUTE_OF_HOUR minute-of-hour}. This is pre-padded by zero to ensure two digits. <li>If the second-of-minute is not available then jump to the next space. <li>A colon <li>Two digits for the {@link ChronoField#SECOND_OF_MINUTE second-of-minute}. This is pre-padded by zero to ensure two digits. <li>A space <li>The {@link ZoneOffset#getId() offset ID} without colons or seconds. An offset of zero uses “GMT”. North American zone names and military zone names are not handled. </ul> <p> Parsing is case insensitive. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the {@link ResolverStyle#SMART SMART} resolver style.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ofPattern(String pattern): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a formatter using the specified pattern. <p> This method will create a formatter based on a simple <a href="#patterns">pattern of letters and symbols</a> as described in the class documentation. For example, ‘d MMM uuuu’ will format 2011-12-03 as ‘3 Dec 2011’. <p> The formatter will use the ‘Locale#getDefault(Locale.Category) default FORMAT locale’. This can be changed using ‘DateTimeFormatter#withLocale(Locale)’ on the returned formatter Alternatively use the ‘#ofPattern(String, Locale)’ variant of this method. <p> The returned formatter has no override chronology or zone. It uses ‘ResolverStyle#SMART SMART’ resolver style.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofPattern(String pattern, Locale locale): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a formatter using the specified pattern and locale. <p> This method will create a formatter based on a simple <a href="#patterns">pattern of letters and symbols</a> as described in the class documentation. For example, ‘d MMM uuuu’ will format 2011-12-03 as ‘3 Dec 2011’. <p> The formatter will use the specified locale. This can be changed using ‘DateTimeFormatter#withLocale(Locale)’ on the returned formatter <p> The returned formatter has no override chronology or zone. It uses ‘ResolverStyle#SMART SMART’ resolver style.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofLocalizedDate(FormatStyle dateStyle): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a locale specific date format for the ISO chronology. <p> This returns a formatter that will format or parse a date. The exact format pattern used varies by locale. <p> The locale is determined from the formatter. The formatter returned directly by this method will use the ‘Locale#getDefault(Locale.Category) default FORMAT locale’. The locale can be controlled using ‘DateTimeFormatter#withLocale(Locale) withLocale(Locale)’ on the result of this method. <p> Note that the localized pattern is looked up lazily. This ‘DateTimeFormatter’ holds the style required and the locale, looking up the pattern required on demand. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the ‘ResolverStyle#SMART SMART’ resolver style.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofLocalizedTime(FormatStyle timeStyle): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a locale specific time format for the ISO chronology. <p> This returns a formatter that will format or parse a time. The exact format pattern used varies by locale. <p> The locale is determined from the formatter. The formatter returned directly by this method will use the ‘Locale#getDefault(Locale.Category) default FORMAT locale’. The locale can be controlled using ‘DateTimeFormatter#withLocale(Locale) withLocale(Locale)’ on the result of this method. <p> Note that the localized pattern is looked up lazily. This ‘DateTimeFormatter’ holds the style required and the locale, looking up the pattern required on demand. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the ‘ResolverStyle#SMART SMART’ resolver style.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofLocalizedDateTime(FormatStyle dateTimeStyle): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a locale specific date-time formatter for the ISO chronology. <p> This returns a formatter that will format or parse a date-time. The exact format pattern used varies by locale. <p> The locale is determined from the formatter. The formatter returned directly by this method will use the ‘Locale#getDefault(Locale.Category) default FORMAT locale’. The locale can be controlled using ‘DateTimeFormatter#withLocale(Locale) withLocale(Locale)’ on the result of this method. <p> Note that the localized pattern is looked up lazily. This ‘DateTimeFormatter’ holds the style required and the locale, looking up the pattern required on demand. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the ‘ResolverStyle#SMART SMART’ resolver style.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofLocalizedDateTime(FormatStyle dateStyle, FormatStyle timeStyle): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a locale specific date and time format for the ISO chronology. <p> This returns a formatter that will format or parse a date-time. The exact format pattern used varies by locale. <p> The locale is determined from the formatter. The formatter returned directly by this method will use the ‘Locale#getDefault() default FORMAT locale’. The locale can be controlled using ‘DateTimeFormatter#withLocale(Locale) withLocale(Locale)’ on the result of this method. <p> Note that the localized pattern is looked up lazily. This ‘DateTimeFormatter’ holds the style required and the locale, looking up the pattern required on demand. <p> The returned formatter has a chronology of ISO set to ensure dates in other calendar systems are correctly converted. It has no override zone and uses the ‘ResolverStyle#SMART SMART’ resolver style.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parsedExcessDays(): TemporalQuery<Period></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A query that provides access to the excess days that were parsed. <p> This returns a singleton ‘TemporalQuery query’ that provides access to additional information from the parse. The query always returns a non-null period, with a zero period returned instead of null. <p> There are two situations where this query may return a non-zero period. <ul> <li>If the ‘ResolverStyle’ is ‘LENIENT’ and a time is parsed without a date, then the complete result of the parse consists of a ‘LocalTime’ and an excess ‘Period’ in days.  <li>If the ‘ResolverStyle’ is ‘SMART’ and a time is parsed without a date where the time is 24:00:00, then the complete result of the parse consists of a ‘LocalTime’ of 00:00:00 and an excess ‘Period’ of one day. </ul> <p> In both cases, if a complete ‘ChronoLocalDateTime’ or ‘Instant’ is parsed, then the excess days are added to the date part. As a result, this query will return a zero period. <p> The ‘SMART’ behaviour handles the common “end of day” 24:00 value. Processing in ‘LENIENT’ mode also produces the same result: <pre> Text to parse        Parsed object                         Excess days "2012-12-03T00:00"   LocalDateTime.of(2012, 12, 3, 0, 0)   ZERO "2012-12-03T24:00"   LocalDateTime.of(2012, 12, 4, 0, 0)   ZERO "00:00"              LocalTime.of(0, 0)                    ZERO "24:00"              LocalTime.of(0, 0)                    Period.ofDays(1) </pre> The query can be used as follows: <pre> TemporalAccessor parsed = formatter.parse(str); LocalTime time = parsed.query(LocalTime::from); Period extraDays = parsed.query(DateTimeFormatter.parsedExcessDays()); </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parsedLeapSecond(): TemporalQuery<Boolean></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A query that provides access to whether a leap-second was parsed. <p> This returns a singleton ‘TemporalQuery query’ that provides access to additional information from the parse. The query always returns a non-null boolean, true if parsing saw a leap-second, false if not. <p> Instant parsing handles the special “leap second” time of ‘23:59:60’. Leap seconds occur at ‘23:59:60’ in the UTC time-zone, but at other local times in different time-zones. To avoid this potential ambiguity, the handling of leap-seconds is limited to ‘DateTimeFormatterBuilder#appendInstant()’, as that method always parses the instant with the UTC zone offset. <p> If the time ‘23:59:60’ is received, then a simple conversion is applied, replacing the second-of-minute of 60 with 59. This query can be used on the parse result to determine if the leap-second adjustment was made. The query will return ‘true’ if it did adjust to remove the leap-second, and ‘false’ if not. Note that applying a leap-second smoothing mechanism, such as UTC-SLS, is the responsibility of the application, as follows: <pre> TemporalAccessor parsed = formatter.parse(str); Instant instant = parsed.query(Instant::from); if (parsed.query(DateTimeFormatter.parsedLeapSecond())) {  } </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>DateTimeFormatter(CompositePrinterParser printerParser, Locale locale, DecimalStyle decimalStyle, ResolverStyle resolverStyle, Set&lt;TemporalField&gt; resolverFields, Chronology chrono, ZoneId zone)</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocale(): Locale</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the locale to be used during formatting. <p> This is used to lookup any part of the formatter needing specific localization, such as the text or localized pattern.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withLocale(Locale locale): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new locale. <p> This is used to lookup any part of the formatter needing specific localization, such as the text or localized pattern. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDecimalStyle(): DecimalStyle</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the DecimalStyle to be used during formatting.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withDecimalStyle(DecimalStyle decimalStyle): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new DecimalStyle. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChronology(): Chronology</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the overriding chronology to be used during formatting. <p> This returns the override chronology, used to convert dates. By default, a formatter has no override chronology, returning null. See ‘#withChronology(Chronology)’ for more details on overriding.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withChronology(Chronology chrono): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new override chronology. <p> This returns a formatter with similar state to this formatter but with the override chronology set. By default, a formatter has no override chronology, returning null. <p> If an override is added, then any date that is formatted or parsed will be affected. <p> When formatting, if the temporal object contains a date, then it will be converted to a date in the override chronology. Whether the temporal contains a date is determined by querying the ‘ChronoField#EPOCH_DAY EPOCH_DAY’ field. Any time or zone will be retained unaltered unless overridden. <p> If the temporal object does not contain a date, but does contain one or more ‘ChronoField’ date fields, then a ‘DateTimeException’ is thrown. In all other cases, the override chronology is added to the temporal, replacing any previous chronology, but without changing the date&#x2F;time. <p> When parsing, there are two distinct cases to consider. If a chronology has been parsed directly from the text, perhaps because ‘DateTimeFormatterBuilder#appendChronologyId()’ was used, then this override chronology has no effect. If no zone has been parsed, then this override chronology will be used to interpret the ‘ChronoField’ values into a date according to the date resolving rules of the chronology. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getZone(): ZoneId</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the overriding zone to be used during formatting. <p> This returns the override zone, used to convert instants. By default, a formatter has no override zone, returning null. See ‘#withZone(ZoneId)’ for more details on overriding.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withZone(ZoneId zone): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new override zone. <p> This returns a formatter with similar state to this formatter but with the override zone set. By default, a formatter has no override zone, returning null. <p> If an override is added, then any instant that is formatted or parsed will be affected. <p> When formatting, if the temporal object contains an instant, then it will be converted to a zoned date-time using the override zone. Whether the temporal is an instant is determined by querying the ‘ChronoField#INSTANT_SECONDS INSTANT_SECONDS’ field. If the input has a chronology then it will be retained unless overridden. If the input does not have a chronology, such as ‘Instant’, then the ISO chronology will be used. <p> If the temporal object does not contain an instant, but does contain an offset then an additional check is made. If the normalized override zone is an offset that differs from the offset of the temporal, then a ‘DateTimeException’ is thrown. In all other cases, the override zone is added to the temporal, replacing any previous zone, but without changing the date&#x2F;time. <p> When parsing, there are two distinct cases to consider. If a zone has been parsed directly from the text, perhaps because ‘DateTimeFormatterBuilder#appendZoneId()’ was used, then this override zone has no effect. If no zone has been parsed, then this override zone will be included in the result of the parse where it can be used to build instants and date-times. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResolverStyle(): ResolverStyle</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the resolver style to use during parsing. <p> This returns the resolver style, used during the second phase of parsing when fields are resolved into dates and times. By default, a formatter has the ‘ResolverStyle#SMART SMART’ resolver style. See ‘#withResolverStyle(ResolverStyle)’ for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withResolverStyle(ResolverStyle resolverStyle): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new resolver style. <p> This returns a formatter with similar state to this formatter but with the resolver style set. By default, a formatter has the ‘ResolverStyle#SMART SMART’ resolver style. <p> Changing the resolver style only has an effect during parsing. Parsing a text string occurs in two phases. Phase 1 is a basic text parse according to the fields added to the builder. Phase 2 resolves the parsed field-value pairs into date and&#x2F;or time objects. The resolver style is used to control how phase 2, resolving, happens. See ‘ResolverStyle’ for more information on the options available. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResolverFields(): Set<TemporalField></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the resolver fields to use during parsing. <p> This returns the resolver fields, used during the second phase of parsing when fields are resolved into dates and times. By default, a formatter has no resolver fields, and thus returns null. See ‘#withResolverFields(Set)’ for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withResolverFields(TemporalField… resolverFields): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new set of resolver fields. <p> This returns a formatter with similar state to this formatter but with the resolver fields set. By default, a formatter has no resolver fields. <p> Changing the resolver fields only has an effect during parsing. Parsing a text string occurs in two phases. Phase 1 is a basic text parse according to the fields added to the builder. Phase 2 resolves the parsed field-value pairs into date and&#x2F;or time objects. The resolver fields are used to filter the field-value pairs between phase 1 and 2. <p> This can be used to select between two or more ways that a date or time might be resolved. For example, if the formatter consists of year, month, day-of-month and day-of-year, then there are two ways to resolve a date. Calling this method with the arguments ‘ChronoField#YEAR YEAR’ and ‘ChronoField#DAY_OF_YEAR DAY_OF_YEAR’ will ensure that the date is resolved using the year and day-of-year, effectively meaning that the month and day-of-month are ignored during the resolving phase. <p> In a similar manner, this method can be used to ignore secondary fields that would otherwise be cross-checked. For example, if the formatter consists of year, month, day-of-month and day-of-week, then there is only one way to resolve a date, but the parsed value for day-of-week will be cross-checked against the resolved date. Calling this method with the arguments ‘ChronoField#YEAR YEAR’, ‘ChronoField#MONTH_OF_YEAR MONTH_OF_YEAR’ and ‘ChronoField#DAY_OF_MONTH DAY_OF_MONTH’ will ensure that the date is resolved correctly, but without any cross-check for the day-of-week. <p> In implementation terms, this method behaves as follows. The result of the parsing phase can be considered to be a map of field to value. The behavior of this method is to cause that map to be filtered between phase 1 and 2, removing all fields other than those specified as arguments to this method. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withResolverFields(Set&lt;TemporalField&gt; resolverFields): DateTimeFormatter</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this formatter with a new set of resolver fields. <p> This returns a formatter with similar state to this formatter but with the resolver fields set. By default, a formatter has no resolver fields. <p> Changing the resolver fields only has an effect during parsing. Parsing a text string occurs in two phases. Phase 1 is a basic text parse according to the fields added to the builder. Phase 2 resolves the parsed field-value pairs into date and&#x2F;or time objects. The resolver fields are used to filter the field-value pairs between phase 1 and 2. <p> This can be used to select between two or more ways that a date or time might be resolved. For example, if the formatter consists of year, month, day-of-month and day-of-year, then there are two ways to resolve a date. Calling this method with the arguments ‘ChronoField#YEAR YEAR’ and ‘ChronoField#DAY_OF_YEAR DAY_OF_YEAR’ will ensure that the date is resolved using the year and day-of-year, effectively meaning that the month and day-of-month are ignored during the resolving phase. <p> In a similar manner, this method can be used to ignore secondary fields that would otherwise be cross-checked. For example, if the formatter consists of year, month, day-of-month and day-of-week, then there is only one way to resolve a date, but the parsed value for day-of-week will be cross-checked against the resolved date. Calling this method with the arguments ‘ChronoField#YEAR YEAR’, ‘ChronoField#MONTH_OF_YEAR MONTH_OF_YEAR’ and ‘ChronoField#DAY_OF_MONTH DAY_OF_MONTH’ will ensure that the date is resolved correctly, but without any cross-check for the day-of-week. <p> In implementation terms, this method behaves as follows. The result of the parsing phase can be considered to be a map of field to value. The behavior of this method is to cause that map to be filtered between phase 1 and 2, removing all fields other than those specified as arguments to this method. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(TemporalAccessor temporal): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats a date-time object using this formatter. <p> This formats the date-time to a String using the rules of the formatter.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>formatTo(TemporalAccessor temporal, Appendable appendable): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats a date-time object to an ‘Appendable’ using this formatter. <p> This outputs the formatted date-time to the specified destination. ‘Appendable’ is a general purpose interface that is implemented by all key character output classes including ‘StringBuffer’, ‘StringBuilder’, ‘PrintStream’ and ‘Writer’. <p> Although ‘Appendable’ methods throw an ‘IOException’, this method does not. Instead, any ‘IOException’ is wrapped in a runtime exception.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text): TemporalAccessor</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fully parses the text producing a temporal object. <p> This parses the entire text producing a temporal object. It is typically more useful to use ‘#parse(CharSequence, TemporalQuery)’. The result of this method is ‘TemporalAccessor’ which has been resolved, applying basic validation checks to help ensure a valid date-time. <p> If the parse completes without reading the entire length of the text, or a problem occurs during parsing or merging, then an exception is thrown.</td>
+<td align="left">DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text, ParsePosition position): TemporalAccessor</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses the text using this formatter, providing control over the text position. <p> This parses the text without requiring the parse to start from the beginning of the string or finish at the end. The result of this method is ‘TemporalAccessor’ which has been resolved, applying basic validation checks to help ensure a valid date-time. <p> The text will be parsed from the specified start ‘ParsePosition’. The entire length of the text does not have to be parsed, the ‘ParsePosition’ will be updated with the index at the end of parsing. <p> The operation of this method is slightly different to similar methods using ‘ParsePosition’ on ‘java.text.Format’. That class will return errors using the error index on the ‘ParsePosition’. By contrast, this method will throw a ‘DateTimeParseException’ if an error occurs, with the exception containing the error index. This change in behavior is necessary due to the increased complexity of parsing and resolving dates&#x2F;times in this API. <p> If the formatter parses the same field more than once with different values, the result will be an error.</td>
+<td align="left">IndexOutOfBoundsException<br/>DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text, TemporalQuery&lt;T&gt; query): T</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fully parses the text producing an object of the specified type. <p> Most applications should use this method for parsing. It parses the entire text to produce the required date-time. The query is typically a method reference to a ‘from(TemporalAccessor)’ method. For example: <pre> LocalDateTime dt = parser.parse(str, LocalDateTime::from); </pre> If the parse completes without reading the entire length of the text, or a problem occurs during parsing or merging, then an exception is thrown.</td>
+<td align="left">DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseBest(CharSequence text, TemporalQuery&lt;?&gt;… queries): TemporalAccessor</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fully parses the text producing an object of one of the specified types. <p> This parse method is convenient for use when the parser can handle optional elements. For example, a pattern of ‘uuuu-MM-dd HH.mm[ VV]’ can be fully parsed to a ‘ZonedDateTime’, or partially parsed to a ‘LocalDateTime’. The queries must be specified in order, starting from the best matching full-parse option and ending with the worst matching minimal parse option. The query is typically a method reference to a ‘from(TemporalAccessor)’ method. <p> The result is associated with the first type that successfully parses. Normally, applications will use ‘instanceof’ to check the result. For example: <pre> TemporalAccessor dt = parser.parseBest(str, ZonedDateTime::from, LocalDateTime::from); if (dt instanceof ZonedDateTime) { ... } else { ... } </pre> If the parse completes without reading the entire length of the text, or a problem occurs during parsing or merging, then an exception is thrown.</td>
+<td align="left">DateTimeParseException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>createError(CharSequence text, RuntimeException ex): DateTimeParseException</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseResolved0(final CharSequence text, final ParsePosition position): TemporalAccessor</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses and resolves the specified text. <p> This parses to a ‘TemporalAccessor’ ensuring that the text is fully parsed.</td>
+<td align="left">DateTimeException<br/>IndexOutOfBoundsException<br/>DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseUnresolved(CharSequence text, ParsePosition position): TemporalAccessor</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses the text using this formatter, without resolving the result, intended for advanced use cases. <p> Parsing is implemented as a two-phase operation. First, the text is parsed using the layout defined by the formatter, producing a ‘Map’ of field to value, a ‘ZoneId’ and a ‘Chronology’. Second, the parsed data is <em>resolved</em>, by validating, combining and simplifying the various fields into more useful ones. This method performs the parsing stage but not the resolving stage. <p> The result of this method is ‘TemporalAccessor’ which represents the data as seen in the input. Values are not validated, thus parsing a date string of ‘2012-00-65’ would result in a temporal with three fields - year of ‘2012’, month of ‘0’ and day-of-month of ‘65’. <p> The text will be parsed from the specified start ‘ParsePosition’. The entire length of the text does not have to be parsed, the ‘ParsePosition’ will be updated with the index at the end of parsing. <p> Errors are returned using the error index field of the ‘ParsePosition’ instead of ‘DateTimeParseException’. The returned error index will be set to an index indicative of the error. Callers must check for errors before using the result. <p> If the formatter parses the same field more than once with different values, the result will be an error. <p> This method is intended for advanced use cases that need access to the internal state during parsing. Typical application code should use ‘#parse(CharSequence, TemporalQuery)’ or the parse method on the target type.</td>
+<td align="left">DateTimeException<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseUnresolved0(CharSequence text, ParsePosition position): DateTimeParseContext</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toPrinterParser(boolean optional): CompositePrinterParser</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the formatter as a composite printer parser.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toFormat(): Format</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this formatter as a ‘java.text.Format’ instance. <p> The returned ‘Format’ instance will format any ‘TemporalAccessor’ and parses to a resolved ‘TemporalAccessor’. <p> Exceptions will follow the definitions of ‘Format’, see those methods for details about ‘IllegalArgumentException’ during formatting and ‘ParseException’ or null during parsing. The format does not support attributing of the returned format string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toFormat(TemporalQuery&lt;?&gt; parseQuery): Format</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns this formatter as a ‘java.text.Format’ instance that will parse using the specified query. <p> The returned ‘Format’ instance will format any ‘TemporalAccessor’ and parses to the type specified. The type must be one that is supported by ‘#parse’. <p> Exceptions will follow the definitions of ‘Format’, see those methods for details about ‘IllegalArgumentException’ during formatting and ‘ParseException’ or null during parsing. The format does not support attributing of the returned format string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a description of the underlying formatters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SuppressWarnings(“serial”) }</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Implements the classic Java Format API.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="DateTimeFormatter-ClassicFormat"><a href="#DateTimeFormatter-ClassicFormat" class="headerlink" title="DateTimeFormatter$ClassicFormat"></a><a href="./DateTimeFormatter$ClassicFormat.html">DateTimeFormatter$ClassicFormat</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

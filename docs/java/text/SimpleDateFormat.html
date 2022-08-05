@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/text/SimpleDateFormat.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="SimpleDateFormat"><a href="#SimpleDateFormat" class="headerlink" title="SimpleDateFormat"></a>SimpleDateFormat</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.text.SimpleDateFormat</strong></td>
+<td align="center">class</td>
+<td align="center">DateFormat</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">4774881970558875024L</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>currentSerialVersion: int</strong></td>
+<td align="center">1</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionOnStream: int</strong></td>
+<td align="center">currentSerialVersion</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The version of the serialized data on the stream.  Possible values: <ul> <li><b>0</b> or not present on stream: JDK 1.1.3.  This version has no <code>defaultCenturyStart</code> on stream. <li><b>1</b> JDK 1.1.4 or later.  This version adds <code>defaultCenturyStart</code>. </ul> When streaming out this class, the most recent format and the highest allowable <code>serialVersionOnStream</code> is written. @serial @since JDK1.1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>pattern: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The pattern string of this formatter.  This is always a non-localized pattern.  May not be null.  See class documentation for details. @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>originalNumberFormat: NumberFormat</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Saved numberFormat and pattern. @see SimpleDateFormat#checkNegativeNumberExpression</td>
+</tr>
+<tr>
+<td align="center"><strong>originalNumberPattern: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minusSign: char</strong></td>
+<td align="center">‘-‘</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The minus sign to be used with format and parse.</td>
+</tr>
+<tr>
+<td align="center"><strong>hasFollowingMinusSign: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">True when a negative sign follows a number. (True as default in Arabic.)</td>
+</tr>
+<tr>
+<td align="center"><strong>forceStandaloneForm: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">True if standalone form needs to be used.</td>
+</tr>
+<tr>
+<td align="center"><strong>compiledPattern: char[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The compiled pattern.</td>
+</tr>
+<tr>
+<td align="center"><strong>TAG_QUOTE_ASCII_CHAR: int</strong></td>
+<td align="center">100</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Tags for the compiled pattern.</td>
+</tr>
+<tr>
+<td align="center"><strong>TAG_QUOTE_CHARS: int</strong></td>
+<td align="center">101</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zeroDigit: char</strong></td>
+<td align="center"></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Locale dependent digit zero. @see #zeroPaddingNumber @see java.text.DecimalFormatSymbols#getZeroDigit</td>
+</tr>
+<tr>
+<td align="center"><strong>formatData: DateFormatSymbols</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The symbols used by this formatter for week names, month names, etc.  May not be null. @serial @see java.text.DateFormatSymbols</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultCenturyStart: Date</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">We map dates with two-digit years into the century starting at <code>defaultCenturyStart</code>, which may be any date.  May not be null. @serial @since JDK1.1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultCenturyStartYear: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>MILLIS_PER_MINUTE: int</strong></td>
+<td align="center">60 * 1000</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>GMT: String</strong></td>
+<td align="center">“GMT”</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>cachedNumberFormatData: ConcurrentMap&lt;Locale, NumberFormat&gt;</strong></td>
+<td align="center">new ConcurrentHashMap&lt;&gt;(3)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Cache NumberFormat instances with Locale key.</td>
+</tr>
+<tr>
+<td align="center"><strong>locale: Locale</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The Locale used to instantiate this <code>SimpleDateFormat</code>. The value may be null if this object has been created by an older <code>SimpleDateFormat</code> and deserialized.  @serial @since 1.6</td>
+</tr>
+<tr>
+<td align="center"><strong>useDateFormatSymbols: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Indicates whether this <code>SimpleDateFormat</code> should use the DateFormatSymbols. If true, the format and parse methods use the DateFormatSymbols values. If false, the format and parse methods call Calendar.getDisplayName or Calendar.getDisplayNames.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>SimpleDateFormat()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>SimpleDateFormat</code> using the default pattern and date format symbols for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <b>Note:</b> This constructor may not support all locales. For full coverage, use the factory methods in the ‘DateFormat’ class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SimpleDateFormat(String pattern)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>SimpleDateFormat</code> using the given pattern and the default date format symbols for the default ‘java.util.Locale.Category#FORMAT FORMAT’ locale. <b>Note:</b> This constructor may not support all locales. For full coverage, use the factory methods in the ‘DateFormat’ class. <p>This is equivalent to calling ‘#SimpleDateFormat(String, Locale) SimpleDateFormat(pattern, Locale.getDefault(Locale.Category.FORMAT))’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SimpleDateFormat(String pattern, Locale locale)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>SimpleDateFormat</code> using the given pattern and the default date format symbols for the given locale. <b>Note:</b> This constructor may not support all locales. For full coverage, use the factory methods in the ‘DateFormat’ class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>SimpleDateFormat(String pattern, DateFormatSymbols formatSymbols)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>SimpleDateFormat</code> using the given pattern and date format symbols.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initialize(Locale loc): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize compiledPattern and numberFormat fields</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializeCalendar(Locale loc): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compile(String pattern): char[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the compiled form of the given pattern. The syntax of the compiled pattern is: <blockquote> CompiledPattern: EntryList EntryList: Entry EntryList Entry Entry: TagField TagField data TagField: Tag Length TaggedData Tag: pattern_char_index TAG_QUOTE_CHARS Length: short_length long_length TaggedData: TAG_QUOTE_ASCII_CHAR ascii_char  </blockquote>  where <code>short_length&#39; is an 8-bit unsigned integer between 0 and 254.  </code>long_length’ is a sequence of an 8-bit integer 255 and a 32-bit signed integer value which is split into upper and lower 16-bit fields in two char’s. <code>pattern_char_index&#39; is an 8-bit integer between 0 and 18. </code>ascii_char’ is an 7-bit ASCII character value. &#96;data’ depends on its Tag value. <p> If Length is short_length, Tag and short_length are packed in a single char, as illustrated below. <blockquote> char[0] &#x3D; (Tag &lt;&lt; 8)</td>
+<td align="left">short_length; </blockquote>  If Length is long_length, Tag and 255 are packed in the first char and a 32-bit integer, as illustrated below. <blockquote> char[0] &#x3D; (Tag &lt;&lt; 8)</td>
+</tr>
+<tr>
+<td align="center"><strong>encode(int tag, int length, StringBuilder buffer): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Encodes the given tag and length and puts encoded char(s) into buffer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializeDefaultCentury(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize the fields we use to disambiguate ambiguous years. Separate so we can call it from readObject().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseAmbiguousDatesAsAfter(Date startDate): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Define one-century window into which to disambiguate dates using two-digit years.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>set2DigitYearStart(Date startDate): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the 100-year period 2-digit years will be interpreted as being in to begin on the date the user specifies.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get2DigitYearStart(): Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the beginning date of the 100-year period 2-digit years are interpreted as being within.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(Date date, StringBuffer toAppendTo, FieldPosition pos): StringBuffer</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats the given <code>Date</code> into a date&#x2F;time string and appends the result to the given <code>StringBuffer</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>format(Date date, StringBuffer toAppendTo, FieldDelegate delegate): StringBuffer</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>formatToCharacterIterator(Object obj): AttributedCharacterIterator</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats an Object producing an <code>AttributedCharacterIterator</code>. You can use the returned <code>AttributedCharacterIterator</code> to build the resulting String, as well as to determine information about the resulting String. <p> Each attribute key of the AttributedCharacterIterator will be of type <code>DateFormat.Field</code>, with the corresponding attribute value being the same as the attribute key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subFormat(int patternCharIndex, int count, FieldDelegate delegate, StringBuffer buffer, boolean useDateFormatSymbols): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Private member function that does the real date&#x2F;time formatting.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>zeroPaddingNumber(int value, int minDigits, int maxDigits, StringBuffer buffer): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Formats a number with the specified minimum and maximum number of digits.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parse(String text, ParsePosition pos): Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses text from a string to produce a <code>Date</code>. <p> The method attempts to parse text starting at the index given by <code>pos</code>. If parsing succeeds, then the index of <code>pos</code> is updated to the index after the last character used (parsing does not necessarily use all characters up to the end of the string), and the parsed date is returned. The updated <code>pos</code> can be used to indicate the starting point for the next call to this method. If an error occurs, then the index of <code>pos</code> is not changed, the error index of <code>pos</code> is set to the index of the character where the error occurred, and null is returned.  <p>This parsing operation uses the ‘DateFormat#calendar calendar’ to produce a ‘Date’. All of the ‘calendar’’s date-time fields are ‘Calendar#clear() cleared’ before parsing, and the ‘calendar’’s default values of the date-time fields are used for any missing date-time information. For example, the year value of the parsed ‘Date’ is 1970 with ‘GregorianCalendar’ if no year value is given from the parsing operation.  The ‘TimeZone’ value may be overwritten, depending on the given pattern and the time zone value in ‘text’. Any ‘TimeZone’ value that has previously been set by a call to ‘#setTimeZone(java.util.TimeZone) setTimeZone’ may need to be restored for further operations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchString(String text, int start, int field, String[] data, CalendarBuilder calb): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Private code-size reduction function used by subParse.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchString(String text, int start, int field, Map&lt;String,Integer&gt; data, CalendarBuilder calb): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Performs the same thing as matchString(String, int, int, String[]). This method takes a Map&lt;String, Integer&gt; instead of String[].</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchZoneString(String text, int start, String[] zoneNames): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>matchDSTString(String text, int start, int zoneIndex, int standardIndex, String[][] zoneStrings): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subParseZoneString(String text, int start, CalendarBuilder calb): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">find time zone ‘text’ matched zoneStrings and set to internal calendar.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subParseNumericZone(String text, int start, int sign, int count, boolean colon, CalendarBuilder calb): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parses numeric forms of time zone offset, such as “hh:mm”, and sets calb to the parsed value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDigit(char c): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>subParse(String text, int start, int patternCharIndex, int count, boolean obeyCount, boolean[] ambiguousYear, ParsePosition origPos, boolean useFollowingMinusSignAsDelimiter, CalendarBuilder calb): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Private member function that converts the parsed date strings into timeFields. Returns -start (for ParsePosition) if failed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>useDateFormatSymbols(): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the DateFormatSymbols has been set explicitly or locale is null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>translatePattern(String pattern, String from, String to): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Translates a pattern, mapping each character in the from string to the corresponding character in the to string.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toPattern(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a pattern string describing this date format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLocalizedPattern(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a localized pattern string describing this date format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyPattern(String pattern): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Applies the given pattern string to this date format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyPatternImpl(String pattern): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyLocalizedPattern(String pattern): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Applies the given localized pattern string to this date format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateFormatSymbols(): DateFormatSymbols</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets a copy of the date and time format symbols of this date format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDateFormatSymbols(DateFormatSymbols newFormatSymbols): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the date and time format symbols of this date format.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a copy of this <code>SimpleDateFormat</code>. This also clones the format’s date format symbols.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the hash code value for this <code>SimpleDateFormat</code> object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares the given object with this <code>SimpleDateFormat</code> for equality.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDisplayNamesMap(int field, Locale locale): Integer&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream stream): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">After reading an object from the input stream, the format pattern in the object is verified. <p></td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkNegativeNumberExpression(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Analyze the negative subpattern of DecimalFormat and set&#x2F;update values as necessary.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

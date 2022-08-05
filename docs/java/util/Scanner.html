@@ -290,7 +290,7 @@
 </tr>
 <tr>
 <td align="center"><strong>WHITESPACE_PATTERN: Pattern</strong></td>
-<td align="center">Pattern.compile(“\p{javaWhitespace}+”)</td>
+<td align="center">Pattern.compile( “\p{javaWhitespace}+”)</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -312,7 +312,7 @@
 </tr>
 <tr>
 <td align="center"><strong>NON_ASCII_DIGIT: Pattern</strong></td>
-<td align="center">Pattern.compile(“[\p{javaDigit}&amp;&amp;[^0-9]]”)</td>
+<td align="center">Pattern.compile( “[\p{javaDigit}&amp;&amp;[^0-9]]”)</td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -738,6 +738,30 @@
 <td align="left">FileNotFoundException</td>
 </tr>
 <tr>
+<td align="center"><strong>Scanner(File source, String charsetName)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the specified charset.</td>
+<td align="left">FileNotFoundException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(File source, CharsetDecoder dec)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">FileNotFoundException</td>
+</tr>
+<tr>
 <td align="center"><strong>toDecoder(String charsetName): CharsetDecoder</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -746,11 +770,11 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the specified charset.</td>
-<td align="left">IllegalArgumentException<br/>FileNotFoundException</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>makeReadable(ReadableByteChannel source,CharsetDecoder dec): Readable</strong></td>
+<td align="center"><strong>makeReadable(ReadableByteChannel source, CharsetDecoder dec): Readable</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -760,6 +784,18 @@
 <td align="center">否</td>
 <td align="left"></td>
 <td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Scanner(Path source)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the underlying platform’s ‘java.nio.charset.Charset#defaultCharset() default charset’.</td>
+<td align="left">IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>Scanner(Path source, String charsetName)</strong></td>
@@ -771,7 +807,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Constructs a new <code>Scanner</code> that produces values scanned from the specified file. Bytes from the file are converted into characters using the specified charset.</td>
-<td align="left">IllegalArgumentException<br/>IOException</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>Scanner(Path source, Charset charset)</strong></td>
@@ -1203,7 +1239,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Finds and returns the next complete token from this scanner. A complete token is preceded and followed by input that matches the delimiter pattern. This method may block while waiting for input to scan, even if a previous invocation of ‘#hasNext’ returned <code>true</code>.</td>
-<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+<td align="left">NoSuchElementException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>remove(): void</strong></td>
@@ -1239,7 +1275,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns the next token if it matches the pattern constructed from the specified string.  If the match is successful, the scanner advances past the input that matched the pattern.  <p> An invocation of this method of the form <tt>next(pattern)</tt> behaves in exactly the same way as the invocation <tt>next(Pattern.compile(pattern))</tt>.</td>
-<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+<td align="left">NoSuchElementException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>hasNext(Pattern pattern): boolean</strong></td>
@@ -1263,7 +1299,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Returns the next token if it matches the specified pattern. This method may block while waiting for input to scan, even if a previous invocation of ‘#hasNext(Pattern)’ returned <code>true</code>. If the match is successful, the scanner advances past the input that matched the pattern.</td>
-<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+<td align="left">NoSuchElementException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>hasNextLine(): boolean</strong></td>
@@ -1287,7 +1323,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Advances this scanner past the current line and returns the input that was skipped.  This method returns the rest of the current line, excluding any line separator at the end. The position is set to the beginning of the next line.  <p>Since this method continues to search through the input looking for a line separator, it may buffer all of the input searching for the line to skip if no line separators are present.</td>
-<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+<td align="left">NoSuchElementException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>findInLine(String pattern): String</strong></td>
@@ -1347,7 +1383,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Skips input that matches the specified pattern, ignoring delimiters. This method will skip input if an anchored match of the specified pattern succeeds.  <p>If a match to the specified pattern is not found at the current position, then no input is skipped and a <tt>NoSuchElementException</tt> is thrown.  <p>Since this method seeks to match the specified pattern starting at the scanner’s current position, patterns that can match a lot of input (“.<em>“, for example) may cause the scanner to buffer a large amount of input.  <p>Note that it is possible to skip something without risking a <code>NoSuchElementException</code> by using a pattern that can match nothing, e.g., <code>sc.skip("[ \t]</em>")</code>.</td>
-<td align="left">IllegalStateException<br/>NoSuchElementException</td>
+<td align="left">NoSuchElementException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>skip(String pattern): Scanner</strong></td>

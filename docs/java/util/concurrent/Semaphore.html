@@ -200,7 +200,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Acquires the given number of permits from this semaphore, blocking until all are available, or the thread is ‘Thread#interrupt interrupted’.  <p>Acquires the given number of permits, if they are available, and returns immediately, reducing the number of available permits by the given amount.  <p>If insufficient permits are available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens: <ul> <li>Some other thread invokes one of the ‘#release() release’ methods for this semaphore, the current thread is next to be assigned permits and the number of available permits satisfies this request; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting for a permit, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. Any permits that were to be assigned to this thread are instead assigned to other threads trying to acquire permits, as if permits had been made available by a call to ‘#release()’.</td>
-<td align="left">IllegalArgumentException<br/>InterruptedException</td>
+<td align="left">InterruptedException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>acquireUninterruptibly(int permits): void</strong></td>
@@ -236,7 +236,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left">Acquires the given number of permits from this semaphore, if all become available within the given waiting time and the current thread has not been ‘Thread#interrupt interrupted’.  <p>Acquires the given number of permits, if they are available and returns immediately, with the value ‘true’, reducing the number of available permits by the given amount.  <p>If insufficient permits are available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens: <ul> <li>Some other thread invokes one of the ‘#release() release’ methods for this semaphore, the current thread is next to be assigned permits and the number of available permits satisfies this request; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>The specified waiting time elapses. </ul>  <p>If the permits are acquired then the value ‘true’ is returned.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting to acquire the permits, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. Any permits that were to be assigned to this thread, are instead assigned to other threads trying to acquire permits, as if the permits had been made available by a call to ‘#release()’.  <p>If the specified waiting time elapses then the value ‘false’ is returned.  If the time is less than or equal to zero, the method will not wait at all.  Any permits that were to be assigned to this thread, are instead assigned to other threads trying to acquire permits, as if the permits had been made available by a call to ‘#release()’.</td>
-<td align="left">IllegalArgumentException<br/>InterruptedException</td>
+<td align="left">InterruptedException<br/>IllegalArgumentException</td>
 </tr>
 <tr>
 <td align="center"><strong>release(int permits): void</strong></td>

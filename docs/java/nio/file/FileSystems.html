@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/nio/file/FileSystems.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="FileSystems"><a href="#FileSystems" class="headerlink" title="FileSystems"></a>FileSystems</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.nio.file.FileSystems</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>FileSystems()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDefault(): FileSystem</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the default ‘FileSystem’. The default file system creates objects that provide access to the file systems accessible to the Java virtual machine. The <em>working directory</em> of the file system is the current user directory, named by the system property ‘user.dir’. This allows for interoperability with the ‘java.io.File java.io.File’ class.  <p> The first invocation of any of the methods defined by this class locates the default ‘FileSystemProvider provider’ object. Where the system property ‘java.nio.file.spi.DefaultFileSystemProvider’ is not defined then the default provider is a system-default provider that is invoked to create the default file system.  <p> If the system property ‘java.nio.file.spi.DefaultFileSystemProvider’ is defined then it is taken to be a list of one or more fully-qualified names of concrete provider classes identified by the URI scheme ‘“file”‘. Where the property is a list of more than one name then the names are separated by a comma. Each class is loaded, using the system class loader, and instantiated by invoking a one argument constructor whose formal parameter type is ‘FileSystemProvider’. The providers are loaded and instantiated in the order they are listed in the property. If this process fails or a provider’s scheme is not equal to ‘“file”‘ then an unspecified error is thrown. URI schemes are normally compared without regard to case but for the default provider, the scheme is required to be ‘“file”‘. The first provider class is instantiated by invoking it with a reference to the system-default provider. The second provider class is instantiated by invoking it with a reference to the first provider instance. The third provider class is instantiated by invoking it with a reference to the second instance, and so on. The last provider to be instantiated becomes the default provider; its ‘getFileSystem’ method is invoked with the URI {</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFileSystem(URI uri): FileSystem</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a reference to an existing ‘FileSystem’.  <p> This method iterates over the ‘FileSystemProvider#installedProviders() installed’ providers to locate the provider that is identified by the URI ‘URI#getScheme scheme’ of the given URI. URI schemes are compared without regard to case. The exact form of the URI is highly provider dependent. If found, the provider’s ‘FileSystemProvider#getFileSystem getFileSystem’ method is invoked to obtain a reference to the ‘FileSystem’.  <p> Once a file system created by this provider is ‘FileSystem#close closed’ it is provider-dependent if this method returns a reference to the closed file system or throws ‘FileSystemNotFoundException’. If the provider allows a new file system to be created with the same URI as a file system it previously created then this method throws the exception if invoked after the file system is closed (and before a new instance is created by the ‘#newFileSystem newFileSystem’ method).  <p> If a security manager is installed then a provider implementation may require to check a permission before returning a reference to an existing file system. In the case of the ‘FileSystems#getDefault default’ file system, no permission check is required.</td>
+<td align="left">SecurityException<br/>FileSystemNotFoundException<br/>ProviderNotFoundException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>newFileSystem(URI uri, Map&lt;String,?&gt; env): FileSystem</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new file system that is identified by a ‘URI’  <p> This method iterates over the ‘FileSystemProvider#installedProviders() installed’ providers to locate the provider that is identified by the URI ‘URI#getScheme scheme’ of the given URI. URI schemes are compared without regard to case. The exact form of the URI is highly provider dependent. If found, the provider’s ‘FileSystemProvider#newFileSystem(URI,Map) newFileSystem(URI,Map)’ method is invoked to construct the new file system.  <p> Once a file system is ‘FileSystem#close closed’ it is provider-dependent if the provider allows a new file system to be created with the same URI as a file system it previously created.  <p> <b>Usage Example:</b> Suppose there is a provider identified by the scheme ‘“memory”‘ installed: <pre> Map&lt;String,String&gt; env = new HashMap&lt;&gt;(); env.put("capacity", "16G"); env.put("blockSize", "4k"); FileSystem fs = FileSystems.newFileSystem(URI.create("memory: </pre></td>
+<td align="left">FileSystemAlreadyExistsException<br/>IllegalArgumentException<br/>SecurityException<br/>ProviderNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>newFileSystem(URI uri, Map&lt;String,?&gt; env, ClassLoader loader): FileSystem</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new file system that is identified by a ‘URI’  <p> This method first attempts to locate an installed provider in exactly the same manner as the ‘#newFileSystem(URI,Map) newFileSystem(URI,Map)’ method. If none of the installed providers support the URI scheme then an attempt is made to locate the provider using the given class loader. If a provider supporting the URI scheme is located then its ‘FileSystemProvider#newFileSystem(URI,Map) newFileSystem(URI,Map)’ is invoked to construct the new file system.</td>
+<td align="left">FileSystemAlreadyExistsException<br/>IllegalArgumentException<br/>SecurityException<br/>ProviderNotFoundException<br/>IOException<br/>ServiceConfigurationError</td>
+</tr>
+<tr>
+<td align="center"><strong>newFileSystem(Path path, ClassLoader loader): FileSystem</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new ‘FileSystem’ to access the contents of a file as a file system.  <p> This method makes use of specialized providers that create pseudo file systems where the contents of one or more files is treated as a file system.  <p> This method iterates over the ‘FileSystemProvider#installedProviders() installed’ providers. It invokes, in turn, each provider’s ‘FileSystemProvider#newFileSystem(Path,Map) newFileSystem(Path,Map)’ method with an empty map. If a provider returns a file system then the iteration terminates and the file system is returned. If none of the installed providers return a ‘FileSystem’ then an attempt is made to locate the provider using the given class loader. If a provider returns a file system then the lookup terminates and the file system is returned.</td>
+<td align="left">SecurityException<br/>IOException<br/>ServiceConfigurationError<br/>ProviderNotFoundException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="FileSystems-DefaultFileSystemHolder"><a href="#FileSystems-DefaultFileSystemHolder" class="headerlink" title="FileSystems$DefaultFileSystemHolder"></a><a href="./FileSystems$DefaultFileSystemHolder.html">FileSystems$DefaultFileSystemHolder</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

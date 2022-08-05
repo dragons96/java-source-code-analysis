@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/io/ObjectStreamClass.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ObjectStreamClass"><a href="#ObjectStreamClass" class="headerlink" title="ObjectStreamClass"></a>ObjectStreamClass</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.io.ObjectStreamClass</strong></td>
+<td align="center">class</td>
+<td align="center">Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>NO_FIELDS: ObjectStreamField[]</strong></td>
+<td align="center">new ObjectStreamField[0]</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">serialPersistentFields value indicating no serializable fields</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-6120832682080437368L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialPersistentFields: ObjectStreamField[]</strong></td>
+<td align="center">NO_FIELDS</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reflFactory: ReflectionFactory</strong></td>
+<td align="center">AccessController.doPrivileged( new ReflectionFactory.GetReflectionFactoryAction())</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">reflection factory for obtaining serialization constructors</td>
+</tr>
+<tr>
+<td align="center"><strong>cl: Class&lt;?&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">class associated with this descriptor (if any)</td>
+</tr>
+<tr>
+<td align="center"><strong>name: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">name of class represented by this descriptor</td>
+</tr>
+<tr>
+<td align="center"><strong>suid: Long</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">serialVersionUID of represented class (null if not computed yet)</td>
+</tr>
+<tr>
+<td align="center"><strong>isProxy: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if represents dynamic proxy class</td>
+</tr>
+<tr>
+<td align="center"><strong>isEnum: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if represents enum type</td>
+</tr>
+<tr>
+<td align="center"><strong>serializable: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if represented class implements Serializable</td>
+</tr>
+<tr>
+<td align="center"><strong>externalizable: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if represented class implements Externalizable</td>
+</tr>
+<tr>
+<td align="center"><strong>hasWriteObjectData: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if desc has data written by class-defined writeObject method</td>
+</tr>
+<tr>
+<td align="center"><strong>hasBlockExternalData: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if desc has externalizable data written in block data format; this must be true by default to accommodate ObjectInputStream subclasses which override readClassDescriptor() to return class descriptors obtained from ObjectStreamClass.lookup() (see 4461737)</td>
+</tr>
+<tr>
+<td align="center"><strong>resolveEx: ClassNotFoundException</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">exception (if any) thrown while attempting to resolve class</td>
+</tr>
+<tr>
+<td align="center"><strong>deserializeEx: ExceptionInfo</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">exception (if any) to throw if non-enum deserialization attempted</td>
+</tr>
+<tr>
+<td align="center"><strong>serializeEx: ExceptionInfo</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">exception (if any) to throw if non-enum serialization attempted</td>
+</tr>
+<tr>
+<td align="center"><strong>defaultSerializeEx: ExceptionInfo</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">exception (if any) to throw if default serialization attempted</td>
+</tr>
+<tr>
+<td align="center"><strong>fields: ObjectStreamField[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">serializable fields</td>
+</tr>
+<tr>
+<td align="center"><strong>primDataSize: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">aggregate marshalled size of primitive fields</td>
+</tr>
+<tr>
+<td align="center"><strong>numObjFields: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">number of non-primitive fields</td>
+</tr>
+<tr>
+<td align="center"><strong>fieldRefl: FieldReflector</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">reflector for setting&#x2F;getting serializable field values</td>
+</tr>
+<tr>
+<td align="center"><strong>dataLayout: ClassDataSlot[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">data layout of serialized objects described by this class desc</td>
+</tr>
+<tr>
+<td align="center"><strong>cons: Constructor&lt;?&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">serialization-appropriate constructor, or null if none</td>
+</tr>
+<tr>
+<td align="center"><strong>domains: ProtectionDomain[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">protection domains that need to be checked when calling the constructor</td>
+</tr>
+<tr>
+<td align="center"><strong>writeObjectMethod: Method</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">class-defined writeObject method, or null if none</td>
+</tr>
+<tr>
+<td align="center"><strong>readObjectMethod: Method</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">class-defined readObject method, or null if none</td>
+</tr>
+<tr>
+<td align="center"><strong>readObjectNoDataMethod: Method</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">class-defined readObjectNoData method, or null if none</td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplaceMethod: Method</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">class-defined writeReplace method, or null if none</td>
+</tr>
+<tr>
+<td align="center"><strong>readResolveMethod: Method</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">class-defined readResolve method, or null if none</td>
+</tr>
+<tr>
+<td align="center"><strong>localDesc: ObjectStreamClass</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">local class descriptor for represented class (may point to self)</td>
+</tr>
+<tr>
+<td align="center"><strong>superDesc: ObjectStreamClass</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">superclass descriptor appearing in stream</td>
+</tr>
+<tr>
+<td align="center"><strong>initialized: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if, and only if, the object has been correctly initialized</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>doPrivileged( new PrivilegedAction&lt;Boolean&gt;()</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">true if deserialization constructor checking is disabled</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initNative(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes native code.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookup(Class&lt;?&gt; cl): ObjectStreamClass</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find the descriptor for a class that can be serialized.  Creates an ObjectStreamClass instance if one does not exist yet for class. Null is returned if the specified class does not implement java.io.Serializable or java.io.Externalizable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookupAny(Class&lt;?&gt; cl): ObjectStreamClass</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the descriptor for any class, regardless of whether it implements ‘Serializable’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the name of the class described by this descriptor. This method returns the name of the class in the format that is used by the ‘Class#getName’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSerialVersionUID(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the serialVersionUID for this class.  The serialVersionUID defines a set of classes all with the same name that have evolved from a common root class and agree to be serialized and deserialized using a common format.  NonSerializable classes have a serialVersionUID of 0L.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forClass(): Class&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return the class in the local VM that this version is mapped to.  Null is returned if there is no corresponding local class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFields(): ObjectStreamField[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return an array of the fields of this serializable class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getField(String name): ObjectStreamField</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the field of this class by name.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Return a string describing this ObjectStreamClass.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lookup(Class&lt;?&gt; cl, boolean all): ObjectStreamClass</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Looks up and returns class descriptor for given class, or null if class is non-serializable and “all” is set to false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ObjectStreamClass(final Class&lt;?&gt; cl)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates local class descriptor representing given class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ObjectStreamClass()</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates blank class descriptor which should be initialized via a subsequent call to initProxy(), initNonProxy() or readNonProxy().</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>noPermissionsDomain(): ProtectionDomain</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a PermissionDomain that grants no permission.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getProtectionDomains(Constructor&lt;?&gt; cons, Class&lt;?&gt; cl): ProtectionDomain[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Aggregate the ProtectionDomains of all the classes that separate a concrete class ‘cl’ from its ancestor’s class declaring a constructor ‘cons’.  If ‘cl’ is defined by the boot loader, or the constructor ‘cons’ is declared by ‘cl’, or if there is no security manager, then this method does nothing and ‘null’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initProxy(Class&lt;?&gt; cl, ClassNotFoundException resolveEx, ObjectStreamClass superDesc): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes class descriptor representing a proxy class.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>initNonProxy(ObjectStreamClass model, Class&lt;?&gt; cl, ClassNotFoundException resolveEx, ObjectStreamClass superDesc): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initializes class descriptor representing a non-proxy class.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>readNonProxy(ObjectInputStream in): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reads non-proxy class descriptor information from given input stream. The resulting class descriptor is not fully functional; it can only be used as input to the ObjectInputStream.resolveClass() and ObjectStreamClass.initNonProxy() methods.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeNonProxy(ObjectOutputStream out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes non-proxy class descriptor information to given output stream.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getResolveException(): ClassNotFoundException</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ClassNotFoundException (if any) thrown while attempting to resolve local class corresponding to this class descriptor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>requireInitialized(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws InternalError if not initialized.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkDeserialize(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws an InvalidClassException if object instances referencing this class descriptor should not be allowed to deserialize.  This method does not apply to deserialization of enum constants.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkSerialize(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws an InvalidClassException if objects whose class is represented by this descriptor should not be allowed to serialize.  This method does not apply to serialization of enum constants.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkDefaultSerialize(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Throws an InvalidClassException if objects whose class is represented by this descriptor should not be permitted to use default serialization (e.g., if the class declares serializable fields that do not correspond to actual fields, and hence must use the GetField API).  This method does not apply to deserialization of enum constants.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSuperDesc(): ObjectStreamClass</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns superclass descriptor.  Note that on the receiving side, the superclass descriptor may be bound to a class that is not a superclass of the subclass descriptor’s bound class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLocalDesc(): ObjectStreamClass</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the “local” class descriptor for the class associated with this class descriptor (i.e., the result of ObjectStreamClass.lookup(this.forClass())) or null if there is no class associated with this descriptor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFields(boolean copy): ObjectStreamField[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns arrays of ObjectStreamFields representing the serializable fields of the represented class.  If copy is true, a clone of this class descriptor’s field array is returned, otherwise the array itself is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getField(String name, Class&lt;?&gt; type): ObjectStreamField</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Looks up a serializable field of the represented class by name and type. A specified type of null matches all types, Object.class matches all non-primitive types, and any other non-null type matches assignable types only.  Returns matching field, or null if no match found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isProxy(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if class descriptor represents a dynamic proxy class, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isEnum(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if class descriptor represents an enum type, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isExternalizable(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class implements Externalizable, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSerializable(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class implements Serializable, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasBlockExternalData(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if class descriptor represents externalizable class that has written its data in 1.2 (block data) format, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasWriteObjectData(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if class descriptor represents serializable (but not externalizable) class which has written its data via a custom writeObject() method, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isInstantiable(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class is serializable&#x2F;externalizable and can be instantiated by the serialization runtime–i.e., if it is externalizable and defines a public no-arg constructor, or if it is non-externalizable and its first non-serializable superclass defines an accessible no-arg constructor.  Otherwise, returns false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasWriteObjectMethod(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class is serializable (but not externalizable) and defines a conformant writeObject method.  Otherwise, returns false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasReadObjectMethod(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class is serializable (but not externalizable) and defines a conformant readObject method.  Otherwise, returns false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasReadObjectNoDataMethod(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class is serializable (but not externalizable) and defines a conformant readObjectNoData method. Otherwise, returns false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasWriteReplaceMethod(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class is serializable or externalizable and defines a conformant writeReplace method.  Otherwise, returns false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasReadResolveMethod(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if represented class is serializable or externalizable and defines a conformant readResolve method.  Otherwise, returns false.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>newInstance(): Object</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new instance of the represented class.  If the class is externalizable, invokes its public no-arg constructor; otherwise, if the class is serializable, invokes the no-arg constructor of the first non-serializable superclass.  Throws UnsupportedOperationException if this class descriptor is not associated with a class, if the associated class is non-serializable or if the appropriate no-arg constructor is inaccessible&#x2F;unavailable.</td>
+<td align="left">InstantiationException<br/>InvocationTargetException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>invokeWriteObject(Object obj, ObjectOutputStream out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invokes the writeObject method of the represented serializable class. Throws UnsupportedOperationException if this class descriptor is not associated with a class, or if the class is externalizable, non-serializable or does not define writeObject.</td>
+<td align="left">IOException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>invokeReadObject(Object obj, ObjectInputStream in): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invokes the readObject method of the represented serializable class. Throws UnsupportedOperationException if this class descriptor is not associated with a class, or if the class is externalizable, non-serializable or does not define readObject.</td>
+<td align="left">IOException<br/>ClassNotFoundException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>invokeReadObjectNoData(Object obj): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invokes the readObjectNoData method of the represented serializable class.  Throws UnsupportedOperationException if this class descriptor is not associated with a class, or if the class is externalizable, non-serializable or does not define readObjectNoData.</td>
+<td align="left">IOException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>invokeWriteReplace(Object obj): Object</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invokes the writeReplace method of the represented serializable class and returns the result.  Throws UnsupportedOperationException if this class descriptor is not associated with a class, or if the class is non-serializable or does not define writeReplace.</td>
+<td align="left">IOException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>invokeReadResolve(Object obj): Object</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invokes the readResolve method of the represented serializable class and returns the result.  Throws UnsupportedOperationException if this class descriptor is not associated with a class, or if the class is non-serializable or does not define readResolve.</td>
+<td align="left">IOException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getClassDataLayout(): ClassDataSlot[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns array of ClassDataSlot instances representing the data layout (including superclass data) for serialized objects described by this class descriptor.  ClassDataSlots are ordered by inheritance with those containing “higher” superclasses appearing first.  The final ClassDataSlot contains a reference to this descriptor.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getClassDataLayout0(): ClassDataSlot[]</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPrimDataSize(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns aggregate size (in bytes) of marshalled primitive field values for represented class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumObjFields(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns number of non-primitive serializable fields of represented class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPrimFieldValues(Object obj, byte[] buf): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fetches the serializable primitive field values of object obj and marshals them into byte array buf starting at offset 0.  It is the responsibility of the caller to ensure that obj is of the proper type if non-null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPrimFieldValues(Object obj, byte[] buf): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the serializable primitive fields of object obj using values unmarshalled from byte array buf starting at offset 0.  It is the responsibility of the caller to ensure that obj is of the proper type if non-null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getObjFieldValues(Object obj, Object[] vals): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fetches the serializable object field values of object obj and stores them in array vals starting at offset 0.  It is the responsibility of the caller to ensure that obj is of the proper type if non-null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setObjFieldValues(Object obj, Object[] vals): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the serializable object fields of object obj using values from array vals starting at offset 0.  It is the responsibility of the caller to ensure that obj is of the proper type if non-null.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>computeFieldOffsets(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Calculates and sets serializable field offsets, as well as primitive data size and object field count totals.  Throws InvalidClassException if fields are illegally ordered.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getVariantFor(Class&lt;?&gt; cl): ObjectStreamClass</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">If given class is the same as the class associated with this class descriptor, returns reference to this class descriptor.  Otherwise, returns variant of this class descriptor bound to given class.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getExternalizableConstructor(Class&lt;?&gt; cl): Constructor&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns public no-arg constructor of given class, or null if none found. Access checks are disabled on the returned constructor (if any), since the defining class may still be non-public.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>superHasAccessibleConstructor(Class&lt;?&gt; cl): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Given a class, determines whether its superclass has any constructors that are accessible from the class. This is a special purpose method intended to do access checking for a serializable class and its superclasses up to, but not including, the first non-serializable superclass. This also implies that the superclass is always non-null, because a serializable class must be a class (not an interface) and Object is not serializable.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSerializableConstructor(Class&lt;?&gt; cl): Constructor&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns subclass-accessible no-arg constructor of first non-serializable superclass, or null if none found.  Access checks are disabled on the returned constructor (if any).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInheritableMethod(Class&lt;?&gt; cl, String name, Class&lt;?&gt;[] argTypes, Class&lt;?&gt; returnType): Method</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns non-static, non-abstract method with given signature provided it is defined by or accessible (via inheritance) by the given class, or null if no match found.  Access checks are disabled on the returned method (if any).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPrivateMethod(Class&lt;?&gt; cl, String name, Class&lt;?&gt;[] argTypes, Class&lt;?&gt; returnType): Method</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns non-static private method with given signature defined by given class, or null if none found.  Access checks are disabled on the returned method (if any).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packageEquals(Class&lt;?&gt; cl1, Class&lt;?&gt; cl2): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if classes are defined in the same runtime package, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPackageName(Class&lt;?&gt; cl): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns package name of given class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classNamesEqual(String name1, String name2): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares class names for equality, ignoring package names.  Returns true if class names equal, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getClassSignature(Class&lt;?&gt; cl): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns JVM type signature for given class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMethodSignature(Class&lt;?&gt;[] paramTypes, Class&lt;?&gt; retType): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns JVM type signature for given list of parameters and return type.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>throwMiscException(Throwable th): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Convenience method for throwing an exception that is either a RuntimeException, Error, or of some unexpected type (in which case it is wrapped inside an IOException).</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSerialFields(Class&lt;?&gt; cl): ObjectStreamField[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns ObjectStreamField array describing the serializable fields of the given class.  Serializable fields backed by an actual field of the class are represented by ObjectStreamFields with corresponding non-null Field objects.  Throws InvalidClassException if the (explicitly declared) serializable fields are invalid.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDeclaredSerialFields(Class&lt;?&gt; cl): ObjectStreamField[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns serializable fields of given class as defined explicitly by a “serialPersistentFields” field, or null if no appropriate “serialPersistentFields” field is defined.  Serializable fields backed by an actual field of the class are represented by ObjectStreamFields with corresponding non-null Field objects.  For compatibility with past releases, a “serialPersistentFields” field with a null value is considered equivalent to not declaring “serialPersistentFields”.  Throws InvalidClassException if the declared serializable fields are invalid–e.g., if multiple fields share the same name.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>getDefaultSerialFields(Class&lt;?&gt; cl): ObjectStreamField[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns array of ObjectStreamFields corresponding to all non-static non-transient fields declared by given class.  Each ObjectStreamField contains a Field object for the field it represents.  If no default serializable fields exist, NO_FIELDS is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDeclaredSUID(Class&lt;?&gt; cl): Long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns explicit serial version UID value declared by given class, or null if none.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>computeDefaultSUID(Class&lt;?&gt; cl): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Computes the default serial version UID value for the given class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasStaticInitializer(Class&lt;?&gt; cl): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns true if the given class defines a static initializer method, false otherwise.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getReflector(ObjectStreamField[] fields, ObjectStreamClass localDesc): FieldReflector</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Matches given set of serializable fields with serializable fields described by the given local class descriptor, and returns a FieldReflector instance capable of setting&#x2F;getting values from the subset of fields that match (non-matching fields are treated as filler, for which get operations return default values and set operations discard given values).  Throws InvalidClassException if unresolvable type conflicts exist between the two sets of fields.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>matchFields(ObjectStreamField[] fields, ObjectStreamClass localDesc): ObjectStreamField[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Matches given set of serializable fields with serializable fields obtained from the given local class descriptor (which contain bindings to reflective Field objects).  Returns list of ObjectStreamFields in which each ObjectStreamField whose signature matches that of a local field contains a Field object for that field; unmatched ObjectStreamFields contain null Field objects.  Shared&#x2F;unshared settings of the returned ObjectStreamFields also reflect those of matched local ObjectStreamFields.  Throws InvalidClassException if unresolvable type conflicts exist between the two sets of fields.</td>
+<td align="left">InvalidClassException</td>
+</tr>
+<tr>
+<td align="center"><strong>processQueue(ReferenceQueue&lt;Class&lt;?&gt;&gt; queue, ConcurrentMap&lt;? extends WeakReference&lt;Class&lt;?&gt;&gt;, ?&gt; map): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes from the specified map any keys that have been enqueued on the specified reference queue.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ObjectStreamClass-Caches"><a href="#ObjectStreamClass-Caches" class="headerlink" title="ObjectStreamClass$Caches"></a><a href="./ObjectStreamClass$Caches.html">ObjectStreamClass$Caches</a></h3><h3 id="ObjectStreamClass-ExceptionInfo"><a href="#ObjectStreamClass-ExceptionInfo" class="headerlink" title="ObjectStreamClass$ExceptionInfo"></a><a href="./ObjectStreamClass$ExceptionInfo.html">ObjectStreamClass$ExceptionInfo</a></h3><h3 id="ObjectStreamClass-EntryFuture"><a href="#ObjectStreamClass-EntryFuture" class="headerlink" title="ObjectStreamClass$EntryFuture"></a><a href="./ObjectStreamClass$EntryFuture.html">ObjectStreamClass$EntryFuture</a></h3><h3 id="ObjectStreamClass-ClassDataSlot"><a href="#ObjectStreamClass-ClassDataSlot" class="headerlink" title="ObjectStreamClass$ClassDataSlot"></a><a href="./ObjectStreamClass$ClassDataSlot.html">ObjectStreamClass$ClassDataSlot</a></h3><h3 id="ObjectStreamClass-MemberSignature"><a href="#ObjectStreamClass-MemberSignature" class="headerlink" title="ObjectStreamClass$MemberSignature"></a><a href="./ObjectStreamClass$MemberSignature.html">ObjectStreamClass$MemberSignature</a></h3><h3 id="ObjectStreamClass-FieldReflector"><a href="#ObjectStreamClass-FieldReflector" class="headerlink" title="ObjectStreamClass$FieldReflector"></a><a href="./ObjectStreamClass$FieldReflector.html">ObjectStreamClass$FieldReflector</a></h3><h3 id="ObjectStreamClass-FieldReflectorKey"><a href="#ObjectStreamClass-FieldReflectorKey" class="headerlink" title="ObjectStreamClass$FieldReflectorKey"></a><a href="./ObjectStreamClass$FieldReflectorKey.html">ObjectStreamClass$FieldReflectorKey</a></h3><h3 id="ObjectStreamClass-WeakClassKey"><a href="#ObjectStreamClass-WeakClassKey" class="headerlink" title="ObjectStreamClass$WeakClassKey"></a><a href="./ObjectStreamClass$WeakClassKey.html">ObjectStreamClass$WeakClassKey</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

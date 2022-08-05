@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/beans/Beans.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Beans"><a href="#Beans" class="headerlink" title="Beans"></a>Beans</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.beans.Beans</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>instantiate(ClassLoader cls, String beanName): Object</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> Instantiate a JavaBean. </p></td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>instantiate(ClassLoader cls, String beanName, BeanContext beanContext): Object</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><p> Instantiate a JavaBean. </p></td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>instantiate(ClassLoader cls, String beanName, BeanContext beanContext, AppletInitializer initializer): Object</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Instantiate a bean. <p> The bean is created based on a name relative to a class-loader. This name should be a dot-separated name such as “a.b.c”. <p> In Beans 1.0 the given name can indicate either a serialized object or a class.  Other mechanisms may be added in the future.  In beans 1.0 we first try to treat the beanName as a serialized object name then as a class name. <p> When using the beanName as a serialized object name we convert the given beanName to a resource pathname and add a trailing “.ser” suffix. We then try to load a serialized object from that resource. <p> For example, given a beanName of “x.y”, Beans.instantiate would first try to read a serialized object from the resource “x&#x2F;y.ser” and if that failed it would try to load the class “x.y” and create an instance of that class. <p> If the bean is a subtype of java.applet.Applet, then it is given some special initialization.  First, it is supplied with a default AppletStub and AppletContext.  Second, if it was instantiated from a classname the applet’s “init” method is called.  (If the bean was deserialized this step is skipped.) <p> Note that for beans which are applets, it is the caller’s responsiblity to call “start” on the applet.  For correct behaviour, this should be done after the applet has been added into a visible AWT container. <p> Note that applets created via beans.instantiate run in a slightly different environment than applets running inside browsers.  In particular, bean applets have no access to “parameters”, so they may wish to provide property get&#x2F;set methods to set parameter values.  We advise bean-applet developers to test their bean-applets against both the JDK appletviewer (for a reference browser environment) and the BDK BeanBox (for a reference bean container).</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>unsafeBeanContextAdd(BeanContext beanContext, Object res): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInstanceOf(Object bean, Class&lt;?&gt; targetType): Object</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">From a given bean, obtain an object representing a specified type view of that source object. <p> The result may be the same object or a different object.  If the requested target view isn’t available then the given bean is returned. <p> This method is provided in Beans 1.0 as a hook to allow the addition of more flexible bean behaviour in the future.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isInstanceOf(Object bean, Class&lt;?&gt; targetType): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check if a bean can be viewed as a given target type. The result will be true if the Beans.getInstanceof method can be used on the given bean to obtain an object that represents the specified targetType type view.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDesignTime(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Test if we are in design-mode.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isGuiAvailable(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether beans can assume a GUI is available.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDesignTime(boolean isDesignTime): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to indicate whether of not we are running in an application builder environment.  <p>Note that this method is security checked and is not available to (for example) untrusted applets. More specifically, if there is a security manager, its <code>checkPropertiesAccess</code> method is called. This could result in a SecurityException.</td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>setGuiAvailable(boolean isGuiAvailable): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used to indicate whether of not we are running in an environment where GUI interaction is available.  <p>Note that this method is security checked and is not available to (for example) untrusted applets. More specifically, if there is a security manager, its <code>checkPropertiesAccess</code> method is called. This could result in a SecurityException.</td>
+<td align="left">SecurityException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Beans-ObjectInputStreamWithLoader"><a href="#Beans-ObjectInputStreamWithLoader" class="headerlink" title="Beans$ObjectInputStreamWithLoader"></a><a href="./Beans$ObjectInputStreamWithLoader.html">Beans$ObjectInputStreamWithLoader</a></h3><h3 id="Beans-BeansAppletContext"><a href="#Beans-BeansAppletContext" class="headerlink" title="Beans$BeansAppletContext"></a><a href="./Beans$BeansAppletContext.html">Beans$BeansAppletContext</a></h3><h3 id="Beans-BeansAppletStub"><a href="#Beans-BeansAppletStub" class="headerlink" title="Beans$BeansAppletStub"></a><a href="./Beans$BeansAppletStub.html">Beans$BeansAppletStub</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

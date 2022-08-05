@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/ClassLoader.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.ClassLoader</strong></td>
+<td align="center">abstract class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>parent: ClassLoader</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parallelLockMap: ConcurrentHashMap&lt;String, Object&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Encapsulates the set of parallel capable loader types.</td>
+</tr>
+<tr>
+<td align="center"><strong>package2certs: Map &lt;String, Certificate[]&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nocerts: Certificate[]</strong></td>
+<td align="center">new Certificate[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classes: Vector&lt;Class&lt;?&gt;&gt;</strong></td>
+<td align="center">new Vector&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultDomain: ProtectionDomain</strong></td>
+<td align="center">new ProtectionDomain(new CodeSource(null, (Certificate[]) null), null, this, null)</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>domains: Set&lt;ProtectionDomain&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packages: HashMap&lt;String, Package&gt;</strong></td>
+<td align="center">new HashMap&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scl: ClassLoader</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sclSet: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadedLibraryNames: Vector&lt;String&gt;</strong></td>
+<td align="center">new Vector&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The inner class NativeLibrary denotes a loaded native library instance. Every classloader contains a vector of loaded native libraries in the private field <tt>nativeLibraries</tt>.  The native libraries loaded into the system are entered into the <tt>systemNativeLibraries</tt> vector.  <p> Every native library requires a particular version of JNI. This is denoted by the private <tt>jniVersion</tt> field.  This field is set by the VM when it loads the library, and used by the VM to pass the correct version of JNI to the native methods.  </p>  @see      ClassLoader @since    1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>systemNativeLibraries: Vector&lt;NativeLibrary&gt;</strong></td>
+<td align="center">new Vector&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nativeLibraries: Vector&lt;NativeLibrary&gt;</strong></td>
+<td align="center">new Vector&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>nativeLibraryContext: Stack&lt;NativeLibrary&gt;</strong></td>
+<td align="center">new Stack&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>usr_paths: String[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>sys_paths: String[]</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>assertionLock: Object</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defaultAssertionStatus: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>packageAssertionStatus: Map&lt;String, Boolean&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>classAssertionStatus: Map&lt;String, Boolean&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>registerNatives(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addClass(Class&lt;?&gt; c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkCreateClassLoader(): Void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ClassLoader(Void unused, ClassLoader parent)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ClassLoader(ClassLoader parent)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new class loader using the specified parent class loader for delegation.  <p> If there is a security manager, its ‘SecurityManager#checkCreateClassLoader() <tt>checkCreateClassLoader</tt>‘ method is invoked.  This may result in a security exception.  </p></td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>ClassLoader()</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a new class loader using the <tt>ClassLoader</tt> returned by the method ‘#getSystemClassLoader() <tt>getSystemClassLoader()</tt>‘ as the parent class loader.  <p> If there is a security manager, its ‘SecurityManager#checkCreateClassLoader() <tt>checkCreateClassLoader</tt>‘ method is invoked.  This may result in a security exception.  </p></td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>loadClass(String name): Class&lt;?&gt;</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Loads the class with the specified <a href="#name">binary name</a>. This method searches for classes in the same manner as the ‘#loadClass(String, boolean)’ method.  It is invoked by the Java virtual machine to resolve class references.  Invoking this method is equivalent to invoking ‘#loadClass(String, boolean) <tt>loadClass(name, false)</tt>‘.</td>
+<td align="left">ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>loadClass(String name, boolean resolve): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Loads the class with the specified <a href="#name">binary name</a>.  The default implementation of this method searches for classes in the following order:  <ol>  <li><p> Invoke ‘#findLoadedClass(String)’ to check if the class has already been loaded.  </p></li>  <li><p> Invoke the ‘#loadClass(String) <tt>loadClass</tt>‘ method on the parent class loader.  If the parent is <tt>null</tt> the class loader built-in to the virtual machine is used, instead.  </p></li>  <li><p> Invoke the ‘#findClass(String)’ method to find the class.  </p></li>  </ol>  <p> If the class was found using the above steps, and the <tt>resolve</tt> flag is true, this method will then invoke the ‘#resolveClass(Class)’ method on the resulting <tt>Class</tt> object.  <p> Subclasses of <tt>ClassLoader</tt> are encouraged to override ‘#findClass(String)’, rather than this method.  </p>  <p> Unless overridden, this method synchronizes on the result of ‘#getClassLoadingLock <tt>getClassLoadingLock</tt>‘ method during the entire class loading process.</td>
+<td align="left">ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>getClassLoadingLock(String className): Object</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the lock object for class loading operations. For backward compatibility, the default implementation of this method behaves as follows. If this ClassLoader object is registered as parallel capable, the method returns a dedicated object associated with the specified class name. Otherwise, the method returns this ClassLoader object.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>loadClassInternal(String name): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>checkPackageAccess(Class&lt;?&gt; cls, ProtectionDomain pd): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findClass(String name): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds the class with the specified <a href="#name">binary name</a>. This method should be overridden by class loader implementations that follow the delegation model for loading classes, and will be invoked by the ‘#loadClass <tt>loadClass</tt>‘ method after checking the parent class loader for the requested class.  The default implementation throws a <tt>ClassNotFoundException</tt>.</td>
+<td align="left">ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass(byte[] b, int off, int len): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts an array of bytes into an instance of class <tt>Class</tt>. Before the <tt>Class</tt> can be used it must be resolved.  This method is deprecated in favor of the version that takes a <a href="#name">binary name</a> as its first argument, and is more secure.</td>
+<td align="left">SecurityException<br/>ClassFormatError<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass(String name, byte[] b, int off, int len): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts an array of bytes into an instance of class <tt>Class</tt>. Before the <tt>Class</tt> can be used it must be resolved.  <p> This method assigns a default ‘java.security.ProtectionDomain <tt>ProtectionDomain</tt>‘ to the newly defined class.  The <tt>ProtectionDomain</tt> is effectively granted the same set of permissions returned when ‘java.security.Policy#getPermissions(java.security.CodeSource) <tt>Policy.getPolicy().getPermissions(new CodeSource(null, null))</tt>‘ is invoked.  The default domain is created on the first invocation of ‘#defineClass(String, byte[], int, int) <tt>defineClass</tt>‘, and re-used on subsequent invocations.  <p> To assign a specific <tt>ProtectionDomain</tt> to the class, use the ‘#defineClass(String, byte[], int, int, java.security.ProtectionDomain) <tt>defineClass</tt>‘ method that takes a <tt>ProtectionDomain</tt> as one of its arguments.  </p></td>
+<td align="left">SecurityException<br/>ClassFormatError<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>preDefineClass(String name, ProtectionDomain pd): ProtectionDomain</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determine protection domain, and check that:</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defineClassSourceLocation(ProtectionDomain pd): String</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postDefineClass(Class&lt;?&gt; c, ProtectionDomain pd): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass(String name, byte[] b, int off, int len, ProtectionDomain protectionDomain): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts an array of bytes into an instance of class <tt>Class</tt>, with an optional <tt>ProtectionDomain</tt>.  If the domain is <tt>null</tt>, then a default domain will be assigned to the class as specified in the documentation for ‘#defineClass(String, byte[], int, int)’.  Before the class can be used it must be resolved.  <p> The first class defined in a package determines the exact set of certificates that all subsequent classes defined in that package must contain.  The set of certificates for a class is obtained from the ‘java.security.CodeSource <tt>CodeSource</tt>‘ within the <tt>ProtectionDomain</tt> of the class.  Any classes added to that package must contain the same set of certificates or a <tt>SecurityException</tt> will be thrown.  Note that if <tt>name</tt> is <tt>null</tt>, this check is not performed. You should always pass in the <a href="#name">binary name</a> of the class you are defining as well as the bytes.  This ensures that the class you are defining is indeed the class you think it is.  <p> The specified <tt>name</tt> cannot begin with “<tt>java.</tt>“, since all classes in the “<tt>java.*</tt> packages can only be defined by the bootstrap class loader.  If <tt>name</tt> is not <tt>null</tt>, it must be equal to the <a href="#name">binary name</a> of the class specified by the byte array “<tt>b</tt>“, otherwise a ‘NoClassDefFoundError <tt>NoClassDefFoundError</tt>‘ will be thrown. </p></td>
+<td align="left">SecurityException<br/>NoClassDefFoundError<br/>ClassFormatError<br/>IndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass(String name, java.nio.ByteBuffer b, ProtectionDomain protectionDomain): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts a ‘java.nio.ByteBuffer <tt>ByteBuffer</tt>‘ into an instance of class <tt>Class</tt>, with an optional <tt>ProtectionDomain</tt>.  If the domain is <tt>null</tt>, then a default domain will be assigned to the class as specified in the documentation for ‘#defineClass(String, byte[], int, int)’.  Before the class can be used it must be resolved.  <p>The rules about the first class defined in a package determining the set of certificates for the package, and the restrictions on class names are identical to those specified in the documentation for ‘#defineClass(String, byte[], int, int, ProtectionDomain)’.  <p> An invocation of this method of the form <i>cl</i><tt>.defineClass(</tt><i>name</i><tt>,</tt> <i>bBuffer</i><tt>,</tt> <i>pd</i><tt>)</tt> yields exactly the same result as the statements  <p> <tt> …<br> byte[] temp &#x3D; new byte[bBuffer.’java.nio.ByteBuffer#remaining remaining’()];<br> bBuffer.’java.nio.ByteBuffer#get(byte[]) get’(temp);<br> return ‘#defineClass(String, byte[], int, int, ProtectionDomain) cl.defineClass’(name, temp, 0, temp.length, pd);<br> </tt></p></td>
+<td align="left">SecurityException<br/>NoClassDefFoundError<br/>ClassFormatError</td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass0(String name, byte[] b, int off, int len, ProtectionDomain pd): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass1(String name, byte[] b, int off, int len, ProtectionDomain pd, String source): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>defineClass2(String name, java.nio.ByteBuffer b, int off, int len, ProtectionDomain pd, String source): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkName(String name): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkCerts(String name, CodeSource cs): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareCerts(Certificate[] pcerts, Certificate[] certs): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">check to make sure the certs for the new class (certs) are the same as the certs for the first class inserted in the package (pcerts)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resolveClass(Class&lt;?&gt; c): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Links the specified class.  This (misleadingly named) method may be used by a class loader to link a class.  If the class <tt>c</tt> has already been linked, then this method simply returns. Otherwise, the class is linked as described in the “Execution” chapter of <cite>The Java&amp;trade; Language Specification</cite>.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>resolveClass0(Class&lt;?&gt; c): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findSystemClass(String name): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds a class with the specified <a href="#name">binary name</a>, loading it if necessary.  <p> This method loads the class through the system class loader (see ‘#getSystemClassLoader()’).  The <tt>Class</tt> object returned might have more than one <tt>ClassLoader</tt> associated with it. Subclasses of <tt>ClassLoader</tt> need not usually invoke this method, because most class loaders need to override just ‘#findClass(String)’.  </p></td>
+<td align="left">ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>findBootstrapClassOrNull(String name): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a class loaded by the bootstrap class loader; or return null if not found.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findBootstrapClass(String name): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findLoadedClass(String name): Class&lt;?&gt;</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the class with the given <a href="#name">binary name</a> if this loader has been recorded by the Java virtual machine as an initiating loader of a class with that <a href="#name">binary name</a>.  Otherwise <tt>null</tt> is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findLoadedClass0(String name): Class&lt;?&gt;</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setSigners(Class&lt;?&gt; c, Object[] signers): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the signers of a class.  This should be invoked after defining a class.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResource(String name): URL</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds the resource with the given name.  A resource is some data (images, audio, text, etc) that can be accessed by class code in a way that is independent of the location of the code.  <p> The name of a resource is a ‘<tt>&#x2F;</tt>‘-separated path name that identifies the resource.  <p> This method will first search the parent class loader for the resource; if the parent is <tt>null</tt> the path of the class loader built-in to the virtual machine is searched.  That failing, this method will invoke ‘#findResource(String)’ to find the resource.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResources(String name): Enumeration<URL></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds all the resources with the given name. A resource is some data (images, audio, text, etc) that can be accessed by class code in a way that is independent of the location of the code.  <p>The name of a resource is a <tt>&#x2F;</tt>-separated path name that identifies the resource.  <p> The search order is described in the documentation for ‘#getResource(String)’.  </p></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>findResource(String name): URL</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds the resource with the given name. Class loader implementations should override this method to specify where to find resources.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findResources(String name): Enumeration<URL></strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an enumeration of ‘java.net.URL <tt>URL</tt>‘ objects representing all the resources with the given name. Class loader implementations should override this method to specify where to load resources from.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>registerAsParallelCapable(): boolean</strong></td>
+<td align="center">protected</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registers the caller as parallel capable. The registration succeeds if and only if all of the following conditions are met: <ol> <li> no instance of the caller has been created</li> <li> all of the super classes (except class Object) of the caller are registered as parallel capable</li> </ol> <p>Note that once a class loader is registered as parallel capable, there is no way to change it back.</p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemResource(String name): URL</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find a resource of the specified name from the search path used to load classes.  This method locates the resource through the system class loader (see ‘#getSystemClassLoader()’).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemResources(String name): Enumeration<URL></strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Finds all resources of the specified name from the search path used to load classes.  The resources thus found are returned as an ‘java.util.Enumeration <tt>Enumeration</tt>‘ of ‘java.net.URL <tt>URL</tt>‘ objects.  <p> The search order is described in the documentation for ‘#getSystemResource(String)’.  </p></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBootstrapResource(String name): URL</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find resources from the VM’s built-in classloader.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBootstrapResources(String name): Enumeration<URL></strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Find resources from the VM’s built-in classloader.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getBootstrapClassPath(): URLClassPath</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getResourceAsStream(String name): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an input stream for reading the specified resource.  <p> The search order is described in the documentation for ‘#getResource(String)’.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemResourceAsStream(String name): InputStream</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Open for reading, a resource of the specified name from the search path used to load classes.  This method locates the resource through the system class loader (see ‘#getSystemClassLoader()’).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getParent(): ClassLoader</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the parent class loader for delegation. Some implementations may use <tt>null</tt> to represent the bootstrap class loader. This method will return <tt>null</tt> in such implementations if this class loader’s parent is the bootstrap class loader.  <p> If a security manager is present, and the invoker’s class loader is not <tt>null</tt> and is not an ancestor of this class loader, then this method invokes the security manager’s ‘SecurityManager#checkPermission(java.security.Permission) <tt>checkPermission</tt>‘ method with a ‘RuntimePermission#RuntimePermission(String) <tt>RuntimePermission(“getClassLoader”)</tt>‘ permission to verify access to the parent class loader is permitted.  If not, a <tt>SecurityException</tt> will be thrown.  </p></td>
+<td align="left">SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSystemClassLoader(): ClassLoader</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the system class loader for delegation.  This is the default delegation parent for new <tt>ClassLoader</tt> instances, and is typically the class loader used to start the application.  <p> This method is first invoked early in the runtime’s startup sequence, at which point it creates the system class loader and sets it as the context class loader of the invoking <tt>Thread</tt>.  <p> The default system class loader is an implementation-dependent instance of this class.  <p> If the system property “<tt>java.system.class.loader</tt>“ is defined when this method is first invoked then the value of that property is taken to be the name of a class that will be returned as the system class loader.  The class is loaded using the default system class loader and must define a public constructor that takes a single parameter of type <tt>ClassLoader</tt> which is used as the delegation parent.  An instance is then created using this constructor with the default system class loader as the parameter.  The resulting class loader is defined to be the system class loader.  <p> If a security manager is present, and the invoker’s class loader is not <tt>null</tt> and the invoker’s class loader is not the same as or an ancestor of the system class loader, then this method invokes the security manager’s ‘SecurityManager#checkPermission(java.security.Permission) <tt>checkPermission</tt>‘ method with a ‘RuntimePermission#RuntimePermission(String) <tt>RuntimePermission(“getClassLoader”)</tt>‘ permission to verify access to the system class loader.  If not, a <tt>SecurityException</tt> will be thrown.  </p></td>
+<td align="left">SecurityException<br/>IllegalStateException<br/>Error</td>
+</tr>
+<tr>
+<td align="center"><strong>initSystemClassLoader(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAncestor(ClassLoader cl): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>needsClassLoaderPermissionCheck(ClassLoader from, ClassLoader to): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getClassLoader(Class&lt;?&gt; caller): ClassLoader</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkClassLoaderPermission(ClassLoader cl, Class&lt;?&gt; caller): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks RuntimePermission(“getClassLoader”) permission if caller’s class loader is not null and caller’s class loader is not the same as or an ancestor of the given cl argument.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>definePackage(String name, String specTitle, String specVersion, String specVendor, String implTitle, String implVersion, String implVendor, URL sealBase): Package</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defines a package by name in this <tt>ClassLoader</tt>.  This allows class loaders to define the packages for their classes. Packages must be created before the class is defined, and package names must be unique within a class loader and cannot be redefined or changed once created.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPackage(String name): Package</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <tt>Package</tt> that has been defined by this class loader or any of its ancestors.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPackages(): Package[]</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns all of the <tt>Packages</tt> defined by this class loader and its ancestors.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findLibrary(String libname): String</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the absolute path name of a native library.  The VM invokes this method to locate the native libraries that belong to classes loaded with this class loader. If this method returns <tt>null</tt>, the VM searches the library along the path specified as the “<tt>java.library.path</tt>“ property.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializePath(String propname): String[]</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadLibrary(Class&lt;?&gt; fromClass, String name, boolean isAbsolute): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findBuiltinLib(String name): String</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>loadLibrary0(Class&lt;?&gt; fromClass, final File file): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findNative(ClassLoader loader, String name): long</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDefaultAssertionStatus(boolean enabled): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default assertion status for this class loader.  This setting determines whether classes loaded by this class loader and initialized in the future will have assertions enabled or disabled by default. This setting may be overridden on a per-package or per-class basis by invoking ‘#setPackageAssertionStatus(String, boolean)’ or ‘#setClassAssertionStatus(String, boolean)’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPackageAssertionStatus(String packageName, boolean enabled): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the package default assertion status for the named package.  The package default assertion status determines the assertion status for classes initialized in the future that belong to the named package or any of its “subpackages”.  <p> A subpackage of a package named p is any package whose name begins with “<tt>p.</tt>“.  For example, <tt>javax.swing.text</tt> is a subpackage of <tt>javax.swing</tt>, and both <tt>java.util</tt> and <tt>java.lang.reflect</tt> are subpackages of <tt>java</tt>.  <p> In the event that multiple package defaults apply to a given class, the package default pertaining to the most specific package takes precedence over the others.  For example, if <tt>javax.lang</tt> and <tt>javax.lang.reflect</tt> both have package defaults associated with them, the latter package default applies to classes in <tt>javax.lang.reflect</tt>.  <p> Package defaults take precedence over the class loader’s default assertion status, and may be overridden on a per-class basis by invoking ‘#setClassAssertionStatus(String, boolean)’.  </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setClassAssertionStatus(String className, boolean enabled): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the desired assertion status for the named top-level class in this class loader and any nested classes contained therein.  This setting takes precedence over the class loader’s default assertion status, and over any applicable per-package default.  This method has no effect if the named class has already been initialized.  (Once a class is initialized, its assertion status cannot change.)  <p> If the named class is not a top-level class, this invocation will have no effect on the actual assertion status of any class. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearAssertionStatus(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the default assertion status for this class loader to <tt>false</tt> and discards any package defaults or class assertion status settings associated with the class loader.  This method is provided so that class loaders can be made to ignore any command line or persistent assertion status settings and “start with a clean slate.”</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>desiredAssertionStatus(String className): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the assertion status that would be assigned to the specified class if it were to be initialized at the time this method is invoked. If the named class has had its assertion status set, the most recent setting will be returned; otherwise, if any package default assertion status pertains to this class, the most recent setting for the most specific pertinent package default assertion status is returned; otherwise, this class loader’s default assertion status is returned. </p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializeJavaAssertionMaps(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>retrieveDirectives(): AssertionStatusDirectives</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ClassLoader-ParallelLoaders"><a href="#ClassLoader-ParallelLoaders" class="headerlink" title="ClassLoader$ParallelLoaders"></a><a href="./ClassLoader$ParallelLoaders.html">ClassLoader$ParallelLoaders</a></h3><h3 id="ClassLoader-NativeLibrary"><a href="#ClassLoader-NativeLibrary" class="headerlink" title="ClassLoader$NativeLibrary"></a><a href="./ClassLoader$NativeLibrary.html">ClassLoader$NativeLibrary</a></h3><h3 id="ClassLoader-SystemClassLoaderAction"><a href="#ClassLoader-SystemClassLoaderAction" class="headerlink" title="ClassLoader$SystemClassLoaderAction"></a><a href="./ClassLoader$SystemClassLoaderAction.html">ClassLoader$SystemClassLoaderAction</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

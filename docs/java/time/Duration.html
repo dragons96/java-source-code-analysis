@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/time/Duration.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Duration"><a href="#Duration" class="headerlink" title="Duration"></a>Duration</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.time.Duration</strong></td>
+<td align="center">class</td>
+<td align="center">TemporalAmount,Comparable&lt;Duration&gt;,Serializable</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ZERO: Duration</strong></td>
+<td align="center">new Duration(0, 0)</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for a duration of zero.</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">3078945930695997490L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serialization version.</td>
+</tr>
+<tr>
+<td align="center"><strong>BI_NANOS_PER_SECOND: BigInteger</strong></td>
+<td align="center">BigInteger.valueOf(NANOS_PER_SECOND)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for nanos per second.</td>
+</tr>
+<tr>
+<td align="center"><strong>PATTERN: Pattern</strong></td>
+<td align="center">Pattern.compile(“([-+]?)P(?:([-+]?[0-9]+)D)?” + “(T(?:([-+]?[0-9]+)H)?(?:([-+]?[0-9]+)M)?(?:([-+]?[0-9]+)(?:<a href="%5B0-9%5D%7B0,9%7D">.,</a>)?S)?)?”, Pattern.CASE_INSENSITIVE)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The pattern for parsing.</td>
+</tr>
+<tr>
+<td align="center"><strong>seconds: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of seconds in the duration.</td>
+</tr>
+<tr>
+<td align="center"><strong>nanos: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of nanoseconds in the duration, expressed as a fraction of the number of seconds. This is always positive, and never exceeds 999,999,999.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>ofDays(long days): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of standard 24 hour days. <p> The seconds are calculated based on the standard definition of a day, where each day is 86400 seconds which implies a 24 hour day. The nanosecond in second field is set to zero.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofHours(long hours): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of standard hours. <p> The seconds are calculated based on the standard definition of an hour, where each hour is 3600 seconds. The nanosecond in second field is set to zero.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofMinutes(long minutes): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of standard minutes. <p> The seconds are calculated based on the standard definition of a minute, where each minute is 60 seconds. The nanosecond in second field is set to zero.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofSeconds(long seconds): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of seconds. <p> The nanosecond in second field is set to zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofSeconds(long seconds, long nanoAdjustment): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of seconds and an adjustment in nanoseconds. <p> This method allows an arbitrary number of nanoseconds to be passed in. The factory will alter the values of the second and nanosecond in order to ensure that the stored nanosecond is in the range 0 to 999,999,999. For example, the following will result in the exactly the same duration: <pre> Duration.ofSeconds(3, 1); Duration.ofSeconds(4, -999_999_999); Duration.ofSeconds(2, 1000_000_001); </pre></td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>ofMillis(long millis): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of milliseconds. <p> The seconds and nanoseconds are extracted from the specified milliseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>ofNanos(long nanos): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing a number of nanoseconds. <p> The seconds and nanoseconds are extracted from the specified nanoseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>of(long amount, TemporalUnit unit): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing an amount in the specified unit. <p> The parameters represent the two parts of a phrase like ‘6 Hours’. For example: <pre> Duration.of(3, SECONDS); Duration.of(465, HOURS); </pre> Only a subset of units are accepted by this method. The unit must either have an ‘TemporalUnit#isDurationEstimated() exact duration’ or be ‘ChronoUnit#DAYS’ which is treated as 24 hours. Other units throw an exception.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>from(TemporalAmount amount): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘Duration’ from a temporal amount. <p> This obtains a duration based on the specified amount. A ‘TemporalAmount’ represents an  amount of time, which may be date-based or time-based, which this factory extracts to a duration. <p> The conversion loops around the set of units from the amount and uses the ‘TemporalUnit#getDuration() duration’ of the unit to calculate the total ‘Duration’. Only a subset of units are accepted by this method. The unit must either have an ‘TemporalUnit#isDurationEstimated() exact duration’ or be ‘ChronoUnit#DAYS’ which is treated as 24 hours. If any other units are found then an exception is thrown.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>parse(CharSequence text): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ from a text string such as ‘PnDTnHnMn.nS’. <p> This will parse a textual representation of a duration, including the string produced by ‘toString()’. The formats accepted are based on the ISO-8601 duration format ‘PnDTnHnMn.nS’ with days considered to be exactly 24 hours. <p> The string starts with an optional sign, denoted by the ASCII negative or positive symbol. If negative, the whole period is negated. The ASCII letter “P” is next in upper or lower case. There are then four sections, each consisting of a number and a suffix. The sections have suffixes in ASCII of “D”, “H”, “M” and “S” for days, hours, minutes and seconds, accepted in upper or lower case. The suffixes must occur in order. The ASCII letter “T” must occur before the first occurrence, if any, of an hour, minute or second section. At least one of the four sections must be present, and if “T” is present there must be at least one section after the “T”. The number part of each section must consist of one or more ASCII digits. The number may be prefixed by the ASCII negative or positive symbol. The number of days, hours and minutes must parse to an ‘long’. The number of seconds must parse to an ‘long’ with optional fraction. The decimal point may be either a dot or a comma. The fractional part may have from zero to 9 digits. <p> The leading plus&#x2F;minus sign, and negative values for other units are not part of the ISO-8601 standard. <p> Examples: <pre> "PT20.345S" -- parses as "20.345 seconds" "PT15M"     -- parses as "15 minutes" (where a minute is 60 seconds) "PT10H"     -- parses as "10 hours" (where an hour is 3600 seconds) "P2D"       -- parses as "2 days" (where a day is 24 hours or 86400 seconds) "P2DT3H4M"  -- parses as "2 days, 3 hours and 4 minutes" "P-6H3M"    -- parses as "-6 hours and +3 minutes" "-P6H3M"    -- parses as "-6 hours and -3 minutes" "-P-6H+3M"  -- parses as "+6 hours and -3 minutes" </pre></td>
+<td align="left">DateTimeParseException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseNumber(CharSequence text, String parsed, int multiplier, String errorText): long</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>parseFraction(CharSequence text, String parsed, int negate): int</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>create(boolean negate, long daysAsSecs, long hoursAsSecs, long minsAsSecs, long secs, int nanos): Duration</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>between(Temporal startInclusive, Temporal endExclusive): Duration</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains a ‘Duration’ representing the duration between two temporal objects. <p> This calculates the duration between two temporal objects. If the objects are of different types, then the duration is calculated based on the type of the first object. For example, if the first argument is a ‘LocalTime’ then the second argument is converted to a ‘LocalTime’. <p> The specified temporal objects must support the ‘ChronoUnit#SECONDS SECONDS’ unit. For full accuracy, either the ‘ChronoUnit#NANOS NANOS’ unit or the ‘ChronoField#NANO_OF_SECOND NANO_OF_SECOND’ field should be supported. <p> The result of this method can be a negative period if the end is before the start. To guarantee to obtain a positive duration call ‘#abs()’ on the result.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>create(long seconds, int nanoAdjustment): Duration</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Obtains an instance of ‘Duration’ using seconds and nanoseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Duration(long seconds, int nanos)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an instance of ‘Duration’ using seconds and nanoseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>get(TemporalUnit unit): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the value of the requested unit. <p> This returns a value for each of the two supported units, ‘ChronoUnit#SECONDS SECONDS’ and ‘ChronoUnit#NANOS NANOS’. All other units throw an exception.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>getUnits(): List<TemporalUnit></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the set of units supported by this duration. <p> The supported units are ‘ChronoUnit#SECONDS SECONDS’, and ‘ChronoUnit#NANOS NANOS’. They are returned in the order seconds, nanos. <p> This set can be used in conjunction with ‘#get(TemporalUnit)’ to access the entire state of the duration.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isZero(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this duration is zero length. <p> A ‘Duration’ represents a directed distance between two points on the time-line and can therefore be positive, zero or negative. This method checks whether the length is zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isNegative(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this duration is negative, excluding zero. <p> A ‘Duration’ represents a directed distance between two points on the time-line and can therefore be positive, zero or negative. This method checks whether the length is less than zero.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getSeconds(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of seconds in this duration. <p> The length of the duration is stored using two fields - seconds and nanoseconds. The nanoseconds part is a value from 0 to 999,999,999 that is an adjustment to the length in seconds. The total duration is defined by calling this method and ‘#getNano()’. <p> A ‘Duration’ represents a directed distance between two points on the time-line. A negative duration is expressed by the negative sign of the seconds part. A duration of -1 nanosecond is stored as -1 seconds plus 999,999,999 nanoseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNano(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of nanoseconds within the second in this duration. <p> The length of the duration is stored using two fields - seconds and nanoseconds. The nanoseconds part is a value from 0 to 999,999,999 that is an adjustment to the length in seconds. The total duration is defined by calling this method and ‘#getSeconds()’. <p> A ‘Duration’ represents a directed distance between two points on the time-line. A negative duration is expressed by the negative sign of the seconds part. A duration of -1 nanosecond is stored as -1 seconds plus 999,999,999 nanoseconds.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withSeconds(long seconds): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified amount of seconds. <p> This returns a duration with the specified seconds, retaining the nano-of-second part of this duration. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>withNanos(int nanoOfSecond): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified nano-of-second. <p> This returns a duration with the specified nano-of-second, retaining the seconds part of this duration. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(Duration duration): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(long amountToAdd, TemporalUnit unit): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration added. <p> The duration amount is measured in terms of the specified unit. Only a subset of units are accepted by this method. The unit must either have an ‘TemporalUnit#isDurationEstimated() exact duration’ or be ‘ChronoUnit#DAYS’ which is treated as 24 hours. Other units throw an exception. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">UnsupportedTemporalTypeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusDays(long daysToAdd): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in standard 24 hour days added. <p> The number of days is multiplied by 86400 to obtain the number of seconds to add. This is based on the standard definition of a day as 24 hours. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusHours(long hoursToAdd): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in hours added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusMinutes(long minutesToAdd): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in minutes added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusSeconds(long secondsToAdd): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in seconds added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusMillis(long millisToAdd): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in milliseconds added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plusNanos(long nanosToAdd): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in nanoseconds added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>plus(long secondsToAdd, long nanosToAdd): Duration</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(Duration duration): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration subtracted. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minus(long amountToSubtract, TemporalUnit unit): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration subtracted. <p> The duration amount is measured in terms of the specified unit. Only a subset of units are accepted by this method. The unit must either have an ‘TemporalUnit#isDurationEstimated() exact duration’ or be ‘ChronoUnit#DAYS’ which is treated as 24 hours. Other units throw an exception. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusDays(long daysToSubtract): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in standard 24 hour days subtracted. <p> The number of days is multiplied by 86400 to obtain the number of seconds to subtract. This is based on the standard definition of a day as 24 hours. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusHours(long hoursToSubtract): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in hours subtracted. <p> The number of hours is multiplied by 3600 to obtain the number of seconds to subtract. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusMinutes(long minutesToSubtract): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in minutes subtracted. <p> The number of hours is multiplied by 60 to obtain the number of seconds to subtract. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusSeconds(long secondsToSubtract): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in seconds subtracted. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusMillis(long millisToSubtract): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in milliseconds subtracted. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>minusNanos(long nanosToSubtract): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the specified duration in nanoseconds subtracted. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>multipliedBy(long multiplicand): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration multiplied by the scalar. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>dividedBy(long divisor): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration divided by the specified value. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>toSeconds(): BigDecimal</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this duration to the total length in seconds and fractional nanoseconds expressed as a ‘BigDecimal’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>create(BigDecimal seconds): Duration</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an instance of ‘Duration’ from a number of seconds.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>negated(): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with the length negated. <p> This method swaps the sign of the total length of this duration. For example, ‘PT1.3S’ will be returned as ‘PT-1.3S’. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>abs(): Duration</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this duration with a positive length. <p> This method returns a positive duration by effectively removing the sign from any negative total length. For example, ‘PT-1.3S’ will be returned as ‘PT1.3S’. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>addTo(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds this duration to the specified temporal object. <p> This returns a temporal object of the same observable type as the input with this duration added. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#plus(TemporalAmount)’. <pre>  dateTime = thisDuration.addTo(dateTime); dateTime = dateTime.plus(thisDuration); </pre> <p> The calculation will add the seconds, then nanos. Only non-zero amounts will be added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>subtractFrom(Temporal temporal): Temporal</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Subtracts this duration from the specified temporal object. <p> This returns a temporal object of the same observable type as the input with this duration subtracted. <p> In most cases, it is clearer to reverse the calling pattern by using ‘Temporal#minus(TemporalAmount)’. <pre>  dateTime = thisDuration.subtractFrom(dateTime); dateTime = dateTime.minus(thisDuration); </pre> <p> The calculation will subtract the seconds, then nanos. Only non-zero amounts will be added. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left">DateTimeException<br/>ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>toDays(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of days in this duration. <p> This returns the total number of days in the duration by dividing the number of seconds by 86400. This is based on the standard definition of a day as 24 hours. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toHours(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of hours in this duration. <p> This returns the total number of hours in the duration by dividing the number of seconds by 3600. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toMinutes(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of minutes in this duration. <p> This returns the total number of minutes in the duration by dividing the number of seconds by 60. <p> This instance is immutable and unaffected by this method call.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toMillis(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this duration to the total length in milliseconds. <p> If this duration is too large to fit in a ‘long’ milliseconds, then an exception is thrown. <p> If this duration has greater than millisecond precision, then the conversion will drop any excess precision information as though the amount in nanoseconds was subject to integer division by one million.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>toNanos(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts this duration to the total length in nanoseconds expressed as a ‘long’. <p> If this duration is too large to fit in a ‘long’ nanoseconds, then an exception is thrown.</td>
+<td align="left">ArithmeticException</td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(Duration otherDuration): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this duration to the specified ‘Duration’. <p> The comparison is based on the total length of the durations. It is “consistent with equals”, as defined by ‘Comparable’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object otherDuration): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if this duration is equal to the specified ‘Duration’. <p> The comparison is based on the total length of the durations.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A hash code for this duration.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A string representation of this duration using ISO-8601 seconds based representation, such as ‘PT8H6M12.345S’. <p> The format of the returned string will be ‘PTnHnMnS’, where n is the relevant hours, minutes or seconds part of the duration. Any fractional seconds are placed after a decimal point i the seconds section. If a section has a zero value, it is omitted. The hours, minutes and seconds will all have the same sign. <p> Examples: <pre> "20.345 seconds"                 -- "PT20.345S "15 minutes" (15 * 60 seconds)   -- "PT15M" "10 hours" (10 * 3600 seconds)   -- "PT10H" "2 days" (2 * 86400 seconds)     -- "PT48H" </pre> Note that multiples of 24 hours are not output as days to avoid confusion with ‘Period’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeReplace(): Object</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Writes the object using a <a href="../../serialized-form.html#java.time.Ser">dedicated serialized form</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Defend against malicious streams.</td>
+<td align="left">InvalidObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>writeExternal(DataOutput out): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readExternal(DataInput in): Duration</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Duration-DurationUnits"><a href="#Duration-DurationUnits" class="headerlink" title="Duration$DurationUnits"></a><a href="./Duration$DurationUnits.html">Duration$DurationUnits</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

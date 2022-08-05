@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/security/cert/X509CRLSelector.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="X509CRLSelector"><a href="#X509CRLSelector" class="headerlink" title="X509CRLSelector"></a>X509CRLSelector</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.security.cert.X509CRLSelector</strong></td>
+<td align="center">class</td>
+<td align="center">CRLSelector</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>debug: Debug</strong></td>
+<td align="center">Debug.getInstance(“certpath”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>issuerNames: HashSet&lt;Object&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>issuerX500Principals: HashSet&lt;X500Principal&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minCRL: BigInteger</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>maxCRL: BigInteger</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dateAndTime: Date</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>certChecking: X509Certificate</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>skew: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>X509CRLSelector()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates an ‘X509CRLSelector’. Initially, no criteria are set so any ‘X509CRL’ will match.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setIssuers(Collection&lt;X500Principal&gt; issuers): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. If ‘null’, any issuer distinguished name will do. <p> This method allows the caller to specify, with a single method call, the complete set of issuer names which ‘X509CRLs’ may contain. The specified value replaces the previous value for the issuerNames criterion. <p> The ‘names’ parameter (if not ‘null’) is a ‘Collection’ of ‘X500Principal’s. <p> Note that the ‘names’ parameter can contain duplicate distinguished names, but they may be removed from the ‘Collection’ of names returned by the ‘#getIssuers getIssuers’ method. <p> Note that a copy is performed on the ‘Collection’ to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setIssuerNames(Collection&lt;?&gt; names): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><strong>Note:</strong> use ‘#setIssuers(Collection)’ instead or only specify the byte array form of distinguished names when using this method. See ‘#addIssuerName(String)’ for more information. <p> Sets the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. If ‘null’, any issuer distinguished name will do. <p> This method allows the caller to specify, with a single method call, the complete set of issuer names which ‘X509CRLs’ may contain. The specified value replaces the previous value for the issuerNames criterion. <p> The ‘names’ parameter (if not ‘null’) is a ‘Collection’ of names. Each name is a ‘String’ or a byte array representing a distinguished name (in &lt;a href&#x3D;”http: ASN.1 DER encoded form, respectively). If ‘null’ is supplied as the value for this argument, no issuerNames check will be performed. <p> Note that the ‘names’ parameter can contain duplicate distinguished names, but they may be removed from the ‘Collection’ of names returned by the ‘#getIssuerNames getIssuerNames’ method. <p> If a name is specified as a byte array, it should contain a single DER encoded distinguished name, as defined in X.501. The ASN.1 notation for this structure is as follows. <pre>'Name ::= CHOICE { RDNSequence'  RDNSequence ::= SEQUENCE OF RelativeDistinguishedName  RelativeDistinguishedName ::= SET SIZE (1 .. MAX) OF AttributeTypeAndValue  AttributeTypeAndValue ::= SEQUENCE { type     AttributeType, value    AttributeValue }  AttributeType ::= OBJECT IDENTIFIER  AttributeValue ::= ANY DEFINED BY AttributeType .... DirectoryString ::= CHOICE { teletexString           TeletexString (SIZE (1..MAX)), printableString         PrintableString (SIZE (1..MAX)), universalString         UniversalString (SIZE (1..MAX)), utf8String              UTF8String (SIZE (1.. MAX)), bmpString               BMPString (SIZE (1..MAX)) } }</pre> <p> Note that a deep copy is performed on the ‘Collection’ to protect against subsequent modifications.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>addIssuer(X500Principal issuer): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a name to the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. <p> This method allows the caller to add a name to the set of issuer names which ‘X509CRLs’ may contain. The specified name is added to any previous value for the issuerNames criterion. If the specified name is a duplicate, it may be ignored.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addIssuerName(String name): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><strong>Denigrated</strong>, use ‘#addIssuer(X500Principal)’ or ‘#addIssuerName(byte[])’ instead. This method should not be relied on as it can fail to match some CRLs because of a loss of encoding information in the RFC 2253 String form of some distinguished names. <p> Adds a name to the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. <p> This method allows the caller to add a name to the set of issuer names which ‘X509CRLs’ may contain. The specified name is added to any previous value for the issuerNames criterion. If the specified name is a duplicate, it may be ignored.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>addIssuerName(byte[] name): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a name to the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. <p> This method allows the caller to add a name to the set of issuer names which ‘X509CRLs’ may contain. The specified name is added to any previous value for the issuerNames criterion. If the specified name is a duplicate, it may be ignored. If a name is specified as a byte array, it should contain a single DER encoded distinguished name, as defined in X.501. The ASN.1 notation for this structure is as follows. <p> The name is provided as a byte array. This byte array should contain a single DER encoded distinguished name, as defined in X.501. The ASN.1 notation for this structure appears in the documentation for ‘#setIssuerNames setIssuerNames(Collection names)’. <p> Note that the byte array supplied here is cloned to protect against subsequent modifications.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>addIssuerNameInternal(Object name, X500Principal principal): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A private method that adds a name (String or byte array) to the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>cloneAndCheckIssuerNames(Collection&lt;?&gt; names): HashSet<Object></strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clone and check an argument of the form passed to setIssuerNames. Throw an IOException if the argument is malformed.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>cloneIssuerNames(Collection&lt;Object&gt; names): HashSet<Object></strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Clone an argument of the form passed to setIssuerNames. Throw a RuntimeException if the argument is malformed. <p> This method wraps cloneAndCheckIssuerNames, changing any IOException into a RuntimeException. This method should be used when the object being cloned has already been checked, so there should never be any exceptions.</td>
+<td align="left">RuntimeException</td>
+</tr>
+<tr>
+<td align="center"><strong>parseIssuerNames(Collection&lt;Object&gt; names): HashSet<X500Principal></strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Parse an argument of the form passed to setIssuerNames, returning a Collection of issuerX500Principals. Throw an IOException if the argument is malformed.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>setMinCRLNumber(BigInteger minCRL): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the minCRLNumber criterion. The ‘X509CRL’ must have a CRL number extension whose value is greater than or equal to the specified value. If ‘null’, no minCRLNumber check will be done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setMaxCRLNumber(BigInteger maxCRL): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the maxCRLNumber criterion. The ‘X509CRL’ must have a CRL number extension whose value is less than or equal to the specified value. If ‘null’, no maxCRLNumber check will be done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDateAndTime(Date dateAndTime): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the dateAndTime criterion. The specified date must be equal to or later than the value of the thisUpdate component of the ‘X509CRL’ and earlier than the value of the nextUpdate component. There is no match if the ‘X509CRL’ does not contain a nextUpdate component. If ‘null’, no dateAndTime check will be done. <p> Note that the ‘Date’ supplied here is cloned to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setDateAndTime(Date dateAndTime, long skew): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the dateAndTime criterion and allows for the specified clock skew (in milliseconds) when checking against the validity period of the CRL.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setCertificateChecking(X509Certificate cert): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the certificate being checked. This is not a criterion. Rather, it is optional information that may help a ‘CertStore’ find CRLs that would be relevant when checking revocation for the specified certificate. If ‘null’ is specified, then no such optional information is provided.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getIssuers(): Collection<X500Principal></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. If the value returned is ‘null’, any issuer distinguished name will do. <p> If the value returned is not ‘null’, it is a unmodifiable ‘Collection’ of ‘X500Principal’s.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getIssuerNames(): Collection<Object></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of the issuerNames criterion. The issuer distinguished name in the ‘X509CRL’ must match at least one of the specified distinguished names. If the value returned is ‘null’, any issuer distinguished name will do. <p> If the value returned is not ‘null’, it is a ‘Collection’ of names. Each name is a ‘String’ or a byte array representing a distinguished name (in RFC 2253 or ASN.1 DER encoded form, respectively).  Note that the ‘Collection’ returned may contain duplicate names. <p> If a name is specified as a byte array, it should contain a single DER encoded distinguished name, as defined in X.501. The ASN.1 notation for this structure is given in the documentation for ‘#setIssuerNames setIssuerNames(Collection names)’. <p> Note that a deep copy is performed on the ‘Collection’ to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinCRL(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minCRLNumber criterion. The ‘X509CRL’ must have a CRL number extension whose value is greater than or equal to the specified value. If ‘null’, no minCRLNumber check will be done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaxCRL(): BigInteger</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maxCRLNumber criterion. The ‘X509CRL’ must have a CRL number extension whose value is less than or equal to the specified value. If ‘null’, no maxCRLNumber check will be done.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDateAndTime(): Date</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the dateAndTime criterion. The specified date must be equal to or later than the value of the thisUpdate component of the ‘X509CRL’ and earlier than the value of the nextUpdate component. There is no match if the ‘X509CRL’ does not contain a nextUpdate component. If ‘null’, no dateAndTime check will be done. <p> Note that the ‘Date’ returned is cloned to protect against subsequent modifications.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCertificateChecking(): X509Certificate</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the certificate being checked. This is not a criterion. Rather, it is optional information that may help a ‘CertStore’ find CRLs that would be relevant when checking revocation for the specified certificate. If the value returned is ‘null’, then no such optional information is provided.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a printable representation of the ‘X509CRLSelector’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>match(CRL crl): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Decides whether a ‘CRL’ should be selected.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clone(): Object</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a copy of this object.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

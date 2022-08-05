@@ -412,7 +412,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>putVal(int hash, K key, V value, boolean onlyIfAbsent,boolean evict): V</strong></td>
+<td align="center"><strong>putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict): V</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -472,7 +472,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>removeNode(int hash, Object key, Object value,boolean matchValue, boolean movable): Node&lt;K,V&gt;</strong></td>
+<td align="center"><strong>removeNode(int hash, Object key, Object value, boolean matchValue, boolean movable): Node&lt;K,V&gt;</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
@@ -604,7 +604,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>computeIfAbsent(K key,Function&lt;? super K, ? extends V&gt; mappingFunction): V</strong></td>
+<td align="center"><strong>computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction): V</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -616,7 +616,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>computeIfPresent(K key,BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center"><strong>computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -628,7 +628,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>compute(K key,BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center"><strong>compute(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -640,7 +640,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>merge(K key, V value,BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
+<td align="center"><strong>merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction): V</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -688,6 +688,18 @@
 <td align="left"></td>
 </tr>
 <tr>
+<td align="center"><strong>loadFactor(): float</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="center"><strong>capacity(): int</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
@@ -724,7 +736,7 @@
 <td align="left">ClassNotFoundException<br/>IOException</td>
 </tr>
 <tr>
-<td align="center"><strong>newNode(int hash, K key, V value, Node&lt;K,V&gt; next)</strong></td>
+<td align="center"><strong>newNode(int hash, K key, V value, Node&lt;K,V&gt; next): Node&lt;K,V&gt;</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -736,7 +748,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>replacementNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next)</strong></td>
+<td align="center"><strong>replacementNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next): Node&lt;K,V&gt;</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -748,7 +760,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>newTreeNode(int hash, K key, V value, Node&lt;K,V&gt; next)</strong></td>
+<td align="center"><strong>newTreeNode(int hash, K key, V value, Node&lt;K,V&gt; next): TreeNode&lt;K,V&gt;</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -760,7 +772,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>replacementTreeNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next)</strong></td>
+<td align="center"><strong>replacementTreeNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next): TreeNode&lt;K,V&gt;</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -772,7 +784,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>reinitialize()</strong></td>
+<td align="center"><strong>reinitialize(): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -784,7 +796,43 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>internalWriteEntries(java.io.ObjectOutputStream s)</strong></td>
+<td align="center"><strong>afterNodeAccess(Node&lt;K,V&gt; p): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>afterNodeInsertion(boolean evict): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>afterNodeRemoval(Node&lt;K,V&gt; p): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>internalWriteEntries(java.io.ObjectOutputStream s): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/TrayIcon.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="TrayIcon"><a href="#TrayIcon" class="headerlink" title="TrayIcon"></a>TrayIcon</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.TrayIcon</strong></td>
+<td align="center">class</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>image: Image</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>tooltip: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>popup: PopupMenu</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>autosize: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>id: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>actionCommand: String</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>peer: TrayIconPeer</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mouseListener: MouseListener</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mouseMotionListener: MouseMotionListener</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>actionListener: ActionListener</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>acc: AccessControlContext</strong></td>
+<td align="center">AccessController.getContext()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The tray icon’s AccessControlContext.  Unlike the acc in Component, this field is made final because TrayIcon is not serializable.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getAccessControlContext(): AccessControlContext</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the acc this tray icon was constructed with.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>TrayIcon()</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">SecurityException<br/>HeadlessException<br/>UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>TrayIcon(Image image)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a <code>TrayIcon</code> with the specified image.</td>
+<td align="left">SecurityException<br/>UnsupportedOperationException<br/>HeadlessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>TrayIcon(Image image, String tooltip)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a <code>TrayIcon</code> with the specified image and tooltip text.</td>
+<td align="left">SecurityException<br/>UnsupportedOperationException<br/>HeadlessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>TrayIcon(Image image, String tooltip, PopupMenu popup)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Creates a <code>TrayIcon</code> with the specified image, tooltip and popup menu.</td>
+<td align="left">SecurityException<br/>UnsupportedOperationException<br/>HeadlessException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setImage(Image image): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the image for this <code>TrayIcon</code>.  The previous tray icon image is discarded without calling the ‘java.awt.Image#flush’ method &amp;#151; you will need to call it manually.  <p> If the image represents an animated image, it will be animated automatically.  <p> See the ‘#setImageAutoSize(boolean)’ property for details on the size of the displayed image.  <p> Calling this method with the same image that is currently being used has no effect.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getImage(): Image</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the current image used for this <code>TrayIcon</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setPopupMenu(PopupMenu popup): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the popup menu for this <code>TrayIcon</code>.  If <code>popup</code> is <code>null</code>, no popup menu will be associated with this <code>TrayIcon</code>.  <p>Note that this <code>popup</code> must not be added to any parent before or after it is set on the tray icon.  If you add it to some parent, the <code>popup</code> may be removed from that parent.  <p>The ‘popup’ can be set on one ‘TrayIcon’ only. Setting the same popup on multiple ‘TrayIcon’s will cause an ‘IllegalArgumentException’.  <p><strong>Note:</strong> Some platforms may not support showing the user-specified popup menu component when the user right-clicks the tray icon.  In this situation, either no menu will be displayed or, on some systems, a native version of the menu may be displayed.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getPopupMenu(): PopupMenu</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the popup menu associated with this <code>TrayIcon</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setToolTip(String tooltip): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the tooltip string for this <code>TrayIcon</code>. The tooltip is displayed automatically when the mouse hovers over the icon.  Setting the tooltip to <code>null</code> removes any tooltip text.  When displayed, the tooltip string may be truncated on some platforms; the number of characters that may be displayed is platform-dependent.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getToolTip(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the tooltip string associated with this <code>TrayIcon</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setImageAutoSize(boolean autosize): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the auto-size property.  Auto-size determines whether the tray image is automatically sized to fit the space allocated for the image on the tray.  By default, the auto-size property is set to <code>false</code>.  <p> If auto-size is <code>false</code>, and the image size doesn’t match the tray icon space, the image is painted as-is inside that space &amp;#151; if larger than the allocated space, it will be cropped.  <p> If auto-size is <code>true</code>, the image is stretched or shrunk to fit the tray icon space.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isImageAutoSize(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of the auto-size property.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addMouseListener(MouseListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified mouse listener to receive mouse events from this <code>TrayIcon</code>.  Calling this method with a <code>null</code> value has no effect.  <p><b>Note</b>: The ‘MouseEvent’’s coordinates (received from the ‘TrayIcon’) are relative to the screen, not the ‘TrayIcon’.  <p> <b>Note: </b>The <code>MOUSE_ENTERED</code> and <code>MOUSE_EXITED</code> mouse events are not supported. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeMouseListener(MouseListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified mouse listener.  Calling this method with <code>null</code> or an invalid value has no effect. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMouseListeners(): MouseListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the mouse listeners registered on this <code>TrayIcon</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addMouseMotionListener(MouseMotionListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified mouse listener to receive mouse-motion events from this <code>TrayIcon</code>.  Calling this method with a <code>null</code> value has no effect.  <p><b>Note</b>: The ‘MouseEvent’’s coordinates (received from the ‘TrayIcon’) are relative to the screen, not the ‘TrayIcon’.  <p> <b>Note: </b>The <code>MOUSE_DRAGGED</code> mouse event is not supported. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeMouseMotionListener(MouseMotionListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified mouse-motion listener.  Calling this method with <code>null</code> or an invalid value has no effect. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMouseMotionListeners(): MouseMotionListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the mouse-motion listeners registered on this <code>TrayIcon</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getActionCommand(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the command name of the action event fired by this tray icon.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setActionCommand(String command): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the command name for the action event fired by this tray icon.  By default, this action command is set to <code>null</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addActionListener(ActionListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified action listener to receive <code>ActionEvent</code>s from this <code>TrayIcon</code>. Action events usually occur when a user selects the tray icon, using either the mouse or keyboard.  The conditions in which action events are generated are platform-dependent.  <p>Calling this method with a <code>null</code> value has no effect. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeActionListener(ActionListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified action listener.  Calling this method with <code>null</code> or an invalid value has no effect. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getActionListeners(): ActionListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the action listeners registered on this <code>TrayIcon</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>displayMessage(String caption, String text, MessageType messageType): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Displays a popup message near the tray icon.  The message will disappear after a time or if the user clicks on it.  Clicking on the message may trigger an ‘ActionEvent’.  <p>Either the caption or the text may be <code>null</code>, but an <code>NullPointerException</code> is thrown if both are <code>null</code>.  When displayed, the caption or text strings may be truncated on some platforms; the number of characters that may be displayed is platform-dependent.  <p><strong>Note:</strong> Some platforms may not support showing a message.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>getSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the size, in pixels, of the space that the tray icon occupies in the system tray.  For the tray icon that is not yet added to the system tray, the returned size is equal to the result of the ‘SystemTray#getTrayIconSize’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addNotify(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left">AWTException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeNotify(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setID(int id): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getID(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchEvent(AWTEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processEvent(AWTEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processMouseEvent(MouseEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processMouseMotionEvent(MouseEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processActionEvent(ActionEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="TrayIcon-MessageType"><a href="#TrayIcon-MessageType" class="headerlink" title="TrayIcon$MessageType"></a><a href="./TrayIcon$MessageType.html">TrayIcon$MessageType</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/Character.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父接口</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.Character</strong></td>
+<td align="center">class</td>
+<td align="center">java.io.Serializable,Comparable&lt;Character&gt;</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MIN_RADIX: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum radix available for conversion to and from strings. The constant value of this field is the smallest value permitted for the radix argument in radix-conversion methods such as the {@code digit} method, the {@code forDigit} method, and the {@code toString} method of class {@code Integer}.  @see     Character#digit(char, int) @see     Character#forDigit(int, int) @see     Integer#toString(int, int) @see     Integer#valueOf(String)</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_RADIX: int</strong></td>
+<td align="center">36</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum radix available for conversion to and from strings. The constant value of this field is the largest value permitted for the radix argument in radix-conversion methods such as the {@code digit} method, the {@code forDigit} method, and the {@code toString} method of class {@code Integer}.  @see     Character#digit(char, int) @see     Character#forDigit(int, int) @see     Integer#toString(int, int) @see     Integer#valueOf(String)</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_VALUE: char</strong></td>
+<td align="center">‘\u0000’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant value of this field is the smallest value of type {@code char}, {@code ‘\u005Cu0000’}.  @since   1.0.2</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_VALUE: char</strong></td>
+<td align="center">‘\uFFFF’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The constant value of this field is the largest value of type {@code char}, {@code ‘\u005CuFFFF’}.  @since   1.0.2</td>
+</tr>
+<tr>
+<td align="center"><strong>UNASSIGNED: byte</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Cn” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>UPPERCASE_LETTER: byte</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Lu” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>LOWERCASE_LETTER: byte</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Ll” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>TITLECASE_LETTER: byte</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Lt” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>MODIFIER_LETTER: byte</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Lm” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>OTHER_LETTER: byte</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Lo” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>NON_SPACING_MARK: byte</strong></td>
+<td align="center">6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Mn” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>ENCLOSING_MARK: byte</strong></td>
+<td align="center">7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Me” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>COMBINING_SPACING_MARK: byte</strong></td>
+<td align="center">8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Mc” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>DECIMAL_DIGIT_NUMBER: byte</strong></td>
+<td align="center">9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Nd” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>LETTER_NUMBER: byte</strong></td>
+<td align="center">10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Nl” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>OTHER_NUMBER: byte</strong></td>
+<td align="center">11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “No” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>SPACE_SEPARATOR: byte</strong></td>
+<td align="center">12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Zs” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>LINE_SEPARATOR: byte</strong></td>
+<td align="center">13</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Zl” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>PARAGRAPH_SEPARATOR: byte</strong></td>
+<td align="center">14</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Zp” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>CONTROL: byte</strong></td>
+<td align="center">15</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Cc” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>FORMAT: byte</strong></td>
+<td align="center">16</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Cf” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>PRIVATE_USE: byte</strong></td>
+<td align="center">18</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Co” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>SURROGATE: byte</strong></td>
+<td align="center">19</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Cs” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>DASH_PUNCTUATION: byte</strong></td>
+<td align="center">20</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Pd” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>START_PUNCTUATION: byte</strong></td>
+<td align="center">21</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Ps” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>END_PUNCTUATION: byte</strong></td>
+<td align="center">22</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Pe” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>CONNECTOR_PUNCTUATION: byte</strong></td>
+<td align="center">23</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Pc” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>OTHER_PUNCTUATION: byte</strong></td>
+<td align="center">24</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Po” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>MATH_SYMBOL: byte</strong></td>
+<td align="center">25</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Sm” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>CURRENCY_SYMBOL: byte</strong></td>
+<td align="center">26</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Sc” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>MODIFIER_SYMBOL: byte</strong></td>
+<td align="center">27</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Sk” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>OTHER_SYMBOL: byte</strong></td>
+<td align="center">28</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “So” in the Unicode specification. @since   1.1</td>
+</tr>
+<tr>
+<td align="center"><strong>INITIAL_QUOTE_PUNCTUATION: byte</strong></td>
+<td align="center">29</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Pi” in the Unicode specification. @since   1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>FINAL_QUOTE_PUNCTUATION: byte</strong></td>
+<td align="center">30</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">General category “Pf” in the Unicode specification. @since   1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>ERROR: int</strong></td>
+<td align="center">0xFFFFFFFF</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Error flag. Use int (code point) to avoid confusion with U+FFFF.</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_UNDEFINED: byte</strong></td>
+<td align="center">-1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Undefined bidirectional character type. Undefined {@code char} values have undefined directionality in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_LEFT_TO_RIGHT: byte</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “L” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_RIGHT_TO_LEFT: byte</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “R” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC: byte</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “AL” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_EUROPEAN_NUMBER: byte</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “EN” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR: byte</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “ES” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR: byte</strong></td>
+<td align="center">5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “ET” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_ARABIC_NUMBER: byte</strong></td>
+<td align="center">6</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “AN” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_COMMON_NUMBER_SEPARATOR: byte</strong></td>
+<td align="center">7</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “CS” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_NONSPACING_MARK: byte</strong></td>
+<td align="center">8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “NSM” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_BOUNDARY_NEUTRAL: byte</strong></td>
+<td align="center">9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “BN” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_PARAGRAPH_SEPARATOR: byte</strong></td>
+<td align="center">10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Neutral bidirectional character type “B” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_SEGMENT_SEPARATOR: byte</strong></td>
+<td align="center">11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Neutral bidirectional character type “S” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_WHITESPACE: byte</strong></td>
+<td align="center">12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Neutral bidirectional character type “WS” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_OTHER_NEUTRALS: byte</strong></td>
+<td align="center">13</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Neutral bidirectional character type “ON” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING: byte</strong></td>
+<td align="center">14</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “LRE” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE: byte</strong></td>
+<td align="center">15</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “LRO” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING: byte</strong></td>
+<td align="center">16</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “RLE” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE: byte</strong></td>
+<td align="center">17</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Strong bidirectional character type “RLO” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>DIRECTIONALITY_POP_DIRECTIONAL_FORMAT: byte</strong></td>
+<td align="center">18</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Weak bidirectional character type “PDF” in the Unicode specification. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_HIGH_SURROGATE: char</strong></td>
+<td align="center">‘\uD800’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum value of a &lt;a href&#x3D;”http: Unicode high-surrogate code unit</a> in the UTF-16 encoding, constant {@code ‘\u005CuD800’}. A high-surrogate is also known as a <i>leading-surrogate</i>.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_HIGH_SURROGATE: char</strong></td>
+<td align="center">‘\uDBFF’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum value of a &lt;a href&#x3D;”http: Unicode high-surrogate code unit</a> in the UTF-16 encoding, constant {@code ‘\u005CuDBFF’}. A high-surrogate is also known as a <i>leading-surrogate</i>.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_LOW_SURROGATE: char</strong></td>
+<td align="center">‘\uDC00’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum value of a &lt;a href&#x3D;”http: Unicode low-surrogate code unit</a> in the UTF-16 encoding, constant {@code ‘\u005CuDC00’}. A low-surrogate is also known as a <i>trailing-surrogate</i>.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_LOW_SURROGATE: char</strong></td>
+<td align="center">‘\uDFFF’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum value of a &lt;a href&#x3D;”http: Unicode low-surrogate code unit</a> in the UTF-16 encoding, constant {@code ‘\u005CuDFFF’}. A low-surrogate is also known as a <i>trailing-surrogate</i>.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_SURROGATE: char</strong></td>
+<td align="center">MIN_HIGH_SURROGATE</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum value of a Unicode surrogate code unit in the UTF-16 encoding, constant {@code ‘\u005CuD800’}.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_SURROGATE: char</strong></td>
+<td align="center">MAX_LOW_SURROGATE</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum value of a Unicode surrogate code unit in the UTF-16 encoding, constant {@code ‘\u005CuDFFF’}.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_SUPPLEMENTARY_CODE_POINT: int</strong></td>
+<td align="center">0x010000</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum value of a &lt;a href&#x3D;”http: Unicode supplementary code point</a>, constant {@code U+10000}.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MIN_CODE_POINT: int</strong></td>
+<td align="center">0x000000</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The minimum value of a &lt;a href&#x3D;”http: Unicode code point</a>, constant {@code U+0000}.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>MAX_CODE_POINT: int</strong></td>
+<td align="center">0X10FFFF</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The maximum value of a &lt;a href&#x3D;”http: Unicode code point</a>, constant {@code U+10FFFF}.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>value: char</strong></td>
+<td align="center"></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The value of the {@code Character}.  @serial</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">3786198910865385080L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">use serialVersionUID from JDK 1.0.2 for interoperability</td>
+</tr>
+<tr>
+<td align="center"><strong>SIZE: int</strong></td>
+<td align="center">16</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of bits used to represent a <tt>char</tt> value in unsigned binary form, constant {@code 16}.  @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>BYTES: int</strong></td>
+<td align="center">SIZE &#x2F; Byte.SIZE</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The number of bytes used to represent a {@code char} value in unsigned binary form.  @since 1.8</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Character(char value)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a newly allocated ‘Character’ object that represents the specified ‘char’ value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>valueOf(char c): Character</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <tt>Character</tt> instance representing the specified <tt>char</tt> value. If a new <tt>Character</tt> instance is not required, this method should generally be used in preference to the constructor ‘#Character(char)’, as this method is likely to yield significantly better space and time performance by caching frequently requested values.  This method will always cache values in the range ‘’\u005Cu0000’’ to ‘’\u005Cu007F’’, inclusive, and may cache other values outside of this range.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>charValue(): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value of this ‘Character’ object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code for this ‘Character’; equal to the result of invoking ‘charValue()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hashCode(char value): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a hash code for a ‘char’ value; compatible with ‘Character.hashCode()’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>equals(Object obj): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares this object against the specified object. The result is ‘true’ if and only if the argument is not ‘null’ and is a ‘Character’ object that represents the same ‘char’ value as this object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘String’ object representing this ‘Character’’s value.  The result is a string of length 1 whose sole component is the primitive ‘char’ value represented by this ‘Character’ object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toString(char c): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a ‘String’ object representing the specified ‘char’.  The result is a string of length 1 consisting solely of the specified ‘char’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isValidCodePoint(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the specified code point is a valid &lt;a href&#x3D;”http: Unicode code point value</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isBmpCodePoint(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the specified character (Unicode code point) is in the <a href="#BMP">Basic Multilingual Plane (BMP)</a>. Such code points can be represented using a single ‘char’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSupplementaryCodePoint(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the specified character (Unicode code point) is in the <a href="#supplementary">supplementary character</a> range.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isHighSurrogate(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the given ‘char’ value is a &lt;a href&#x3D;”http: Unicode high-surrogate code unit</a> (also known as <i>leading-surrogate code unit</i>).  <p>Such values do not represent characters by themselves, but are used in the representation of <a href="#supplementary">supplementary characters</a> in the UTF-16 encoding.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLowSurrogate(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the given ‘char’ value is a &lt;a href&#x3D;”http: Unicode low-surrogate code unit</a> (also known as <i>trailing-surrogate code unit</i>).  <p>Such values do not represent characters by themselves, but are used in the representation of <a href="#supplementary">supplementary characters</a> in the UTF-16 encoding.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSurrogate(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the given ‘char’ value is a Unicode <i>surrogate code unit</i>.  <p>Such values do not represent characters by themselves, but are used in the representation of <a href="#supplementary">supplementary characters</a> in the UTF-16 encoding.  <p>A char value is a surrogate code unit if and only if it is either a ‘#isLowSurrogate(char) low-surrogate code unit’ or a ‘#isHighSurrogate(char) high-surrogate code unit’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSurrogatePair(char high, char low): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the specified pair of ‘char’ values is a valid &lt;a href&#x3D;”http: Unicode surrogate pair</a>. <p>This method is equivalent to the expression: <blockquote><pre>'isHighSurrogate(high) && isLowSurrogate(low)'</pre></blockquote></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>charCount(int codePoint): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the number of ‘char’ values needed to represent the specified character (Unicode code point). If the specified character is equal to or greater than 0x10000, then the method returns 2. Otherwise, the method returns 1.  <p>This method doesn’t validate the specified character to be a valid Unicode code point. The caller must validate the character value using ‘#isValidCodePoint(int) isValidCodePoint’ if necessary.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toCodePoint(char high, char low): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the specified surrogate pair to its supplementary code point value. This method does not validate the specified surrogate pair. The caller must validate it using ‘#isSurrogatePair(char, char) isSurrogatePair’ if necessary.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointAt(CharSequence seq, int index): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the code point at the given index of the ‘CharSequence’. If the ‘char’ value at the given index in the ‘CharSequence’ is in the high-surrogate range, the following index is less than the length of the ‘CharSequence’, and the ‘char’ value at the following index is in the low-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at the given index is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointAt(char[] a, int index): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the code point at the given index of the ‘char’ array. If the ‘char’ value at the given index in the ‘char’ array is in the high-surrogate range, the following index is less than the length of the ‘char’ array, and the ‘char’ value at the following index is in the low-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at the given index is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointAt(char[] a, int index, int limit): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the code point at the given index of the ‘char’ array, where only array elements with ‘index’ less than ‘limit’ can be used. If the ‘char’ value at the given index in the ‘char’ array is in the high-surrogate range, the following index is less than the ‘limit’, and the ‘char’ value at the following index is in the low-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at the given index is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointAtImpl(char[] a, int index, int limit): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointBefore(CharSequence seq, int index): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the code point preceding the given index of the ‘CharSequence’. If the ‘char’ value at ‘(index - 1)’ in the ‘CharSequence’ is in the low-surrogate range, ‘(index - 2)’ is not negative, and the ‘char’ value at ‘(index - 2)’ in the ‘CharSequence’ is in the high-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at ‘(index - 1)’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointBefore(char[] a, int index): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the code point preceding the given index of the ‘char’ array. If the ‘char’ value at ‘(index - 1)’ in the ‘char’ array is in the low-surrogate range, ‘(index - 2)’ is not negative, and the ‘char’ value at ‘(index - 2)’ in the ‘char’ array is in the high-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at ‘(index - 1)’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointBefore(char[] a, int index, int start): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the code point preceding the given index of the ‘char’ array, where only array elements with ‘index’ greater than or equal to ‘start’ can be used. If the ‘char’ value at ‘(index - 1)’ in the ‘char’ array is in the low-surrogate range, ‘(index - 2)’ is not less than ‘start’, and the ‘char’ value at ‘(index - 2)’ in the ‘char’ array is in the high-surrogate range, then the supplementary code point corresponding to this surrogate pair is returned. Otherwise, the ‘char’ value at ‘(index - 1)’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointBeforeImpl(char[] a, int index, int start): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>highSurrogate(int codePoint): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the leading surrogate (a &lt;a href&#x3D;”http: high surrogate code unit</a>) of the &lt;a href&#x3D;”http: surrogate pair</a> representing the specified supplementary character (Unicode code point) in the UTF-16 encoding.  If the specified character is not a <a href="Character.html#supplementary">supplementary character</a>, an unspecified ‘char’ is returned.  <p>If ‘#isSupplementaryCodePoint isSupplementaryCodePoint(x)’ is ‘true’, then ‘#isHighSurrogate isHighSurrogate’’(highSurrogate(x))’ and ‘#toCodePoint toCodePoint’’(highSurrogate(x),’’#lowSurrogate lowSurrogate’’(x)) &#x3D;&#x3D; x’ are also always ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lowSurrogate(int codePoint): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the trailing surrogate (a &lt;a href&#x3D;”http: low surrogate code unit</a>) of the &lt;a href&#x3D;”http: surrogate pair</a> representing the specified supplementary character (Unicode code point) in the UTF-16 encoding.  If the specified character is not a <a href="Character.html#supplementary">supplementary character</a>, an unspecified ‘char’ is returned.  <p>If ‘#isSupplementaryCodePoint isSupplementaryCodePoint(x)’ is ‘true’, then ‘#isLowSurrogate isLowSurrogate’’(lowSurrogate(x))’ and ‘#toCodePoint toCodePoint’’(‘’#highSurrogate highSurrogate’’(x), lowSurrogate(x)) &#x3D;&#x3D; x’ are also always ‘true’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toChars(int codePoint, char[] dst, int dstIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the specified character (Unicode code point) to its UTF-16 representation. If the specified code point is a BMP (Basic Multilingual Plane or Plane 0) value, the same value is stored in ‘dst[dstIndex]’, and 1 is returned. If the specified code point is a supplementary character, its surrogate values are stored in ‘dst[dstIndex]’ (high-surrogate) and ‘dst[dstIndex+1]’ (low-surrogate), and 2 is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toChars(int codePoint): char[]</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the specified character (Unicode code point) to its UTF-16 representation stored in a ‘char’ array. If the specified code point is a BMP (Basic Multilingual Plane or Plane 0) value, the resulting ‘char’ array has the same value as ‘codePoint’. If the specified code point is a supplementary code point, the resulting ‘char’ array has the corresponding surrogate pair.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toSurrogates(int codePoint, char[] dst, int index): void</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointCount(CharSequence seq, int beginIndex, int endIndex): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of Unicode code points in the text range of the specified char sequence. The text range begins at the specified ‘beginIndex’ and extends to the ‘char’ at index ‘endIndex - 1’. Thus the length (in ‘char’s) of the text range is ‘endIndex-beginIndex’. Unpaired surrogates within the text range count as one code point each.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointCount(char[] a, int offset, int count): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of Unicode code points in a subarray of the ‘char’ array argument. The ‘offset’ argument is the index of the first ‘char’ of the subarray and the ‘count’ argument specifies the length of the subarray in ‘char’s. Unpaired surrogates within the subarray count as one code point each.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>codePointCountImpl(char[] a, int offset, int count): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>offsetByCodePoints(CharSequence seq, int index, int codePointOffset): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within the given char sequence that is offset from the given ‘index’ by ‘codePointOffset’ code points. Unpaired surrogates within the text range given by ‘index’ and ‘codePointOffset’ count as one code point each.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>offsetByCodePoints(char[] a, int start, int count, int index, int codePointOffset): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the index within the given ‘char’ subarray that is offset from the given ‘index’ by ‘codePointOffset’ code points. The ‘start’ and ‘count’ arguments specify a subarray of the ‘char’ array. Unpaired surrogates within the text range given by ‘index’ and ‘codePointOffset’ count as one code point each.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>offsetByCodePointsImpl(char[]a, int start, int count, int index, int codePointOffset): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLowerCase(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is a lowercase character. <p> A character is lowercase if its general category type, provided by ‘Character.getType(ch)’, is ‘LOWERCASE_LETTER’, or it has contributory property Other_Lowercase as defined by the Unicode Standard. <p> The following are examples of lowercase characters: <blockquote><pre> a b c d e f g h i j k l m n o p q r s t u v w x y z '&#92;u00DF' '&#92;u00E0' '&#92;u00E1' '&#92;u00E2' '&#92;u00E3' '&#92;u00E4' '&#92;u00E5' '&#92;u00E6' '&#92;u00E7' '&#92;u00E8' '&#92;u00E9' '&#92;u00EA' '&#92;u00EB' '&#92;u00EC' '&#92;u00ED' '&#92;u00EE' '&#92;u00EF' '&#92;u00F0' '&#92;u00F1' '&#92;u00F2' '&#92;u00F3' '&#92;u00F4' '&#92;u00F5' '&#92;u00F6' '&#92;u00F8' '&#92;u00F9' '&#92;u00FA' '&#92;u00FB' '&#92;u00FC' '&#92;u00FD' '&#92;u00FE' '&#92;u00FF' </pre></blockquote> <p> Many other Unicode characters are lowercase too.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isLowerCase(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLowerCase(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a lowercase character. <p> A character is lowercase if its general category type, provided by ‘Character#getType getType(codePoint)’, is ‘LOWERCASE_LETTER’, or it has contributory property Other_Lowercase as defined by the Unicode Standard. <p> The following are examples of lowercase characters: <blockquote><pre> a b c d e f g h i j k l m n o p q r s t u v w x y z '&#92;u00DF' '&#92;u00E0' '&#92;u00E1' '&#92;u00E2' '&#92;u00E3' '&#92;u00E4' '&#92;u00E5' '&#92;u00E6' '&#92;u00E7' '&#92;u00E8' '&#92;u00E9' '&#92;u00EA' '&#92;u00EB' '&#92;u00EC' '&#92;u00ED' '&#92;u00EE' '&#92;u00EF' '&#92;u00F0' '&#92;u00F1' '&#92;u00F2' '&#92;u00F3' '&#92;u00F4' '&#92;u00F5' '&#92;u00F6' '&#92;u00F8' '&#92;u00F9' '&#92;u00FA' '&#92;u00FB' '&#92;u00FC' '&#92;u00FD' '&#92;u00FE' '&#92;u00FF' </pre></blockquote> <p> Many other Unicode characters are lowercase too.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUpperCase(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is an uppercase character. <p> A character is uppercase if its general category type, provided by ‘Character.getType(ch)’, is ‘UPPERCASE_LETTER’. or it has contributory property Other_Uppercase as defined by the Unicode Standard. <p> The following are examples of uppercase characters: <blockquote><pre> A B C D E F G H I J K L M N O P Q R S T U V W X Y Z '&#92;u00C0' '&#92;u00C1' '&#92;u00C2' '&#92;u00C3' '&#92;u00C4' '&#92;u00C5' '&#92;u00C6' '&#92;u00C7' '&#92;u00C8' '&#92;u00C9' '&#92;u00CA' '&#92;u00CB' '&#92;u00CC' '&#92;u00CD' '&#92;u00CE' '&#92;u00CF' '&#92;u00D0' '&#92;u00D1' '&#92;u00D2' '&#92;u00D3' '&#92;u00D4' '&#92;u00D5' '&#92;u00D6' '&#92;u00D8' '&#92;u00D9' '&#92;u00DA' '&#92;u00DB' '&#92;u00DC' '&#92;u00DD' '&#92;u00DE' </pre></blockquote> <p> Many other Unicode characters are uppercase too.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isUpperCase(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUpperCase(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is an uppercase character. <p> A character is uppercase if its general category type, provided by ‘Character#getType(int) getType(codePoint)’, is ‘UPPERCASE_LETTER’, or it has contributory property Other_Uppercase as defined by the Unicode Standard. <p> The following are examples of uppercase characters: <blockquote><pre> A B C D E F G H I J K L M N O P Q R S T U V W X Y Z '&#92;u00C0' '&#92;u00C1' '&#92;u00C2' '&#92;u00C3' '&#92;u00C4' '&#92;u00C5' '&#92;u00C6' '&#92;u00C7' '&#92;u00C8' '&#92;u00C9' '&#92;u00CA' '&#92;u00CB' '&#92;u00CC' '&#92;u00CD' '&#92;u00CE' '&#92;u00CF' '&#92;u00D0' '&#92;u00D1' '&#92;u00D2' '&#92;u00D3' '&#92;u00D4' '&#92;u00D5' '&#92;u00D6' '&#92;u00D8' '&#92;u00D9' '&#92;u00DA' '&#92;u00DB' '&#92;u00DC' '&#92;u00DD' '&#92;u00DE' </pre></blockquote> <p> Many other Unicode characters are uppercase too.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isTitleCase(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is a titlecase character. <p> A character is a titlecase character if its general category type, provided by ‘Character.getType(ch)’, is ‘TITLECASE_LETTER’. <p> Some characters look like pairs of Latin letters. For example, there is an uppercase letter that looks like “LJ” and has a corresponding lowercase letter that looks like “lj”. A third form, which looks like “Lj”, is the appropriate form to use when rendering a word in lowercase with initial capitals, as for a book title. <p> These are some of the Unicode characters for which this method returns ‘true’: <ul> <li>‘LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON’ <li>‘LATIN CAPITAL LETTER L WITH SMALL LETTER J’ <li>‘LATIN CAPITAL LETTER N WITH SMALL LETTER J’ <li>‘LATIN CAPITAL LETTER D WITH SMALL LETTER Z’ </ul> <p> Many other Unicode characters are titlecase too.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isTitleCase(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isTitleCase(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a titlecase character. <p> A character is a titlecase character if its general category type, provided by ‘Character#getType(int) getType(codePoint)’, is ‘TITLECASE_LETTER’. <p> Some characters look like pairs of Latin letters. For example, there is an uppercase letter that looks like “LJ” and has a corresponding lowercase letter that looks like “lj”. A third form, which looks like “Lj”, is the appropriate form to use when rendering a word in lowercase with initial capitals, as for a book title. <p> These are some of the Unicode characters for which this method returns ‘true’: <ul> <li>‘LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON’ <li>‘LATIN CAPITAL LETTER L WITH SMALL LETTER J’ <li>‘LATIN CAPITAL LETTER N WITH SMALL LETTER J’ <li>‘LATIN CAPITAL LETTER D WITH SMALL LETTER Z’ </ul> <p> Many other Unicode characters are titlecase too.<p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDigit(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is a digit. <p> A character is a digit if its general category type, provided by ‘Character.getType(ch)’, is ‘DECIMAL_DIGIT_NUMBER’. <p> Some Unicode character ranges that contain digits: <ul> <li>‘’\u005Cu0030’’ through ‘’\u005Cu0039’’, ISO-LATIN-1 digits (‘’0’’ through ‘’9’’) <li>‘’\u005Cu0660’’ through ‘’\u005Cu0669’’, Arabic-Indic digits <li>‘’\u005Cu06F0’’ through ‘’\u005Cu06F9’’, Extended Arabic-Indic digits <li>‘’\u005Cu0966’’ through ‘’\u005Cu096F’’, Devanagari digits <li>‘’\u005CuFF10’’ through ‘’\u005CuFF19’’, Fullwidth digits </ul>  Many other character ranges contain digits as well.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isDigit(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDigit(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a digit. <p> A character is a digit if its general category type, provided by ‘Character#getType(int) getType(codePoint)’, is ‘DECIMAL_DIGIT_NUMBER’. <p> Some Unicode character ranges that contain digits: <ul> <li>‘’\u005Cu0030’’ through ‘’\u005Cu0039’’, ISO-LATIN-1 digits (‘’0’’ through ‘’9’’) <li>‘’\u005Cu0660’’ through ‘’\u005Cu0669’’, Arabic-Indic digits <li>‘’\u005Cu06F0’’ through ‘’\u005Cu06F9’’, Extended Arabic-Indic digits <li>‘’\u005Cu0966’’ through ‘’\u005Cu096F’’, Devanagari digits <li>‘’\u005CuFF10’’ through ‘’\u005CuFF19’’, Fullwidth digits </ul>  Many other character ranges contain digits as well.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDefined(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if a character is defined in Unicode. <p> A character is defined if at least one of the following is true: <ul> <li>It has an entry in the UnicodeData file. <li>It has a value in a range defined by the UnicodeData file. </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isDefined(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isDefined(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if a character (Unicode code point) is defined in Unicode. <p> A character is defined if at least one of the following is true: <ul> <li>It has an entry in the UnicodeData file. <li>It has a value in a range defined by the UnicodeData file. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLetter(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is a letter. <p> A character is considered to be a letter if its general category type, provided by ‘Character.getType(ch)’, is any of the following: <ul> <li> ‘UPPERCASE_LETTER’ <li> ‘LOWERCASE_LETTER’ <li> ‘TITLECASE_LETTER’ <li> ‘MODIFIER_LETTER’ <li> ‘OTHER_LETTER’ </ul>  Not all letters have case. Many characters are letters but are neither uppercase nor lowercase nor titlecase.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isLetter(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLetter(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a letter. <p> A character is considered to be a letter if its general category type, provided by ‘Character#getType(int) getType(codePoint)’, is any of the following: <ul> <li> ‘UPPERCASE_LETTER’ <li> ‘LOWERCASE_LETTER’ <li> ‘TITLECASE_LETTER’ <li> ‘MODIFIER_LETTER’ <li> ‘OTHER_LETTER’ </ul>  Not all letters have case. Many characters are letters but are neither uppercase nor lowercase nor titlecase.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLetterOrDigit(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is a letter or digit. <p> A character is considered to be a letter or digit if either ‘Character.isLetter(char ch)’ or ‘Character.isDigit(char ch)’ returns ‘true’ for the character.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isLetterOrDigit(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isLetterOrDigit(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a letter or digit. <p> A character is considered to be a letter or digit if either ‘#isLetter(int) isLetter(codePoint)’ or ‘#isDigit(int) isDigit(codePoint)’ returns ‘true’ for the character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaLetter(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is permissible as the first character in a Java identifier. <p> A character may start a Java identifier if and only if one of the following is true: <ul> <li> ‘#isLetter(char) isLetter(ch)’ returns ‘true’ <li> ‘#getType(char) getType(ch)’ returns ‘LETTER_NUMBER’ <li> ‘ch’ is a currency symbol (such as ‘’$’’) <li> ‘ch’ is a connecting punctuation character (such as ‘’_’’). </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaLetterOrDigit(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character may be part of a Java identifier as other than the first character. <p> A character may be part of a Java identifier if and only if any of the following are true: <ul> <li>  it is a letter <li>  it is a currency symbol (such as ‘’$’’) <li>  it is a connecting punctuation character (such as ‘’_’’) <li>  it is a digit <li>  it is a numeric letter (such as a Roman numeral character) <li>  it is a combining mark <li>  it is a non-spacing mark <li> ‘isIdentifierIgnorable’ returns ‘true’ for the character. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAlphabetic(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is an alphabet. <p> A character is considered to be alphabetic if its general category type, provided by ‘Character#getType(int) getType(codePoint)’, is any of the following: <ul> <li> <code>UPPERCASE_LETTER</code> <li> <code>LOWERCASE_LETTER</code> <li> <code>TITLECASE_LETTER</code> <li> <code>MODIFIER_LETTER</code> <li> <code>OTHER_LETTER</code> <li> <code>LETTER_NUMBER</code> </ul> or it has contributory property Other_Alphabetic as defined by the Unicode Standard.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isIdeographic(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a CJKV (Chinese, Japanese, Korean and Vietnamese) ideograph, as defined by the Unicode Standard.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaIdentifierStart(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is permissible as the first character in a Java identifier. <p> A character may start a Java identifier if and only if one of the following conditions is true: <ul> <li> ‘#isLetter(char) isLetter(ch)’ returns ‘true’ <li> ‘#getType(char) getType(ch)’ returns ‘LETTER_NUMBER’ <li> ‘ch’ is a currency symbol (such as ‘’$’’) <li> ‘ch’ is a connecting punctuation character (such as ‘’_’’). </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isJavaIdentifierStart(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaIdentifierStart(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the character (Unicode code point) is permissible as the first character in a Java identifier. <p> A character may start a Java identifier if and only if one of the following conditions is true: <ul> <li> ‘#isLetter(int) isLetter(codePoint)’ returns ‘true’ <li> ‘#getType(int) getType(codePoint)’ returns ‘LETTER_NUMBER’ <li> the referenced character is a currency symbol (such as ‘’$’’) <li> the referenced character is a connecting punctuation character (such as ‘’_’’). </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaIdentifierPart(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character may be part of a Java identifier as other than the first character. <p> A character may be part of a Java identifier if any of the following are true: <ul> <li>  it is a letter <li>  it is a currency symbol (such as ‘’$’’) <li>  it is a connecting punctuation character (such as ‘’_’’) <li>  it is a digit <li>  it is a numeric letter (such as a Roman numeral character) <li>  it is a combining mark <li>  it is a non-spacing mark <li> ‘isIdentifierIgnorable’ returns ‘true’ for the character </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isJavaIdentifierPart(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaIdentifierPart(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the character (Unicode code point) may be part of a Java identifier as other than the first character. <p> A character may be part of a Java identifier if any of the following are true: <ul> <li>  it is a letter <li>  it is a currency symbol (such as ‘’$’’) <li>  it is a connecting punctuation character (such as ‘’_’’) <li>  it is a digit <li>  it is a numeric letter (such as a Roman numeral character) <li>  it is a combining mark <li>  it is a non-spacing mark <li> ‘#isIdentifierIgnorable(int) isIdentifierIgnorable(codePoint)’ returns ‘true’ for the character </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUnicodeIdentifierStart(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is permissible as the first character in a Unicode identifier. <p> A character may start a Unicode identifier if and only if one of the following conditions is true: <ul> <li> ‘#isLetter(char) isLetter(ch)’ returns ‘true’ <li> ‘#getType(char) getType(ch)’ returns ‘LETTER_NUMBER’. </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isUnicodeIdentifierStart(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUnicodeIdentifierStart(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is permissible as the first character in a Unicode identifier. <p> A character may start a Unicode identifier if and only if one of the following conditions is true: <ul> <li> ‘#isLetter(int) isLetter(codePoint)’ returns ‘true’ <li> ‘#getType(int) getType(codePoint)’ returns ‘LETTER_NUMBER’. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUnicodeIdentifierPart(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character may be part of a Unicode identifier as other than the first character. <p> A character may be part of a Unicode identifier if and only if one of the following statements is true: <ul> <li>  it is a letter <li>  it is a connecting punctuation character (such as ‘’_’’) <li>  it is a digit <li>  it is a numeric letter (such as a Roman numeral character) <li>  it is a combining mark <li>  it is a non-spacing mark <li> ‘isIdentifierIgnorable’ returns ‘true’ for this character. </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isUnicodeIdentifierPart(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isUnicodeIdentifierPart(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) may be part of a Unicode identifier as other than the first character. <p> A character may be part of a Unicode identifier if and only if one of the following statements is true: <ul> <li>  it is a letter <li>  it is a connecting punctuation character (such as ‘’_’’) <li>  it is a digit <li>  it is a numeric letter (such as a Roman numeral character) <li>  it is a combining mark <li>  it is a non-spacing mark <li> ‘isIdentifierIgnorable’ returns ‘true’ for this character. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isIdentifierIgnorable(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character should be regarded as an ignorable character in a Java identifier or a Unicode identifier. <p> The following Unicode characters are ignorable in a Java identifier or a Unicode identifier: <ul> <li>ISO control characters that are not whitespace <ul> <li>‘’\u005Cu0000’’ through ‘’\u005Cu0008’’ <li>‘’\u005Cu000E’’ through ‘’\u005Cu001B’’ <li>‘’\u005Cu007F’’ through ‘’\u005Cu009F’’ </ul>  <li>all characters that have the ‘FORMAT’ general category value </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isIdentifierIgnorable(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isIdentifierIgnorable(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) should be regarded as an ignorable character in a Java identifier or a Unicode identifier. <p> The following Unicode characters are ignorable in a Java identifier or a Unicode identifier: <ul> <li>ISO control characters that are not whitespace <ul> <li>‘’\u005Cu0000’’ through ‘’\u005Cu0008’’ <li>‘’\u005Cu000E’’ through ‘’\u005Cu001B’’ <li>‘’\u005Cu007F’’ through ‘’\u005Cu009F’’ </ul>  <li>all characters that have the ‘FORMAT’ general category value </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLowerCase(char ch): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character argument to lowercase using case mapping information from the UnicodeData file. <p> Note that ‘Character.isLowerCase(Character.toLowerCase(ch))’ does not always return ‘true’ for some ranges of characters, particularly those that are symbols or ideographs.  <p>In general, ‘String#toLowerCase()’ should be used to map characters to lowercase. ‘String’ case mapping methods have several benefits over ‘Character’ case mapping methods. ‘String’ case mapping methods can perform locale-sensitive mappings, context-sensitive mappings, and 1:M character mappings, whereas the ‘Character’ case mapping methods cannot.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#toLowerCase(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toLowerCase(int codePoint): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character (Unicode code point) argument to lowercase using case mapping information from the UnicodeData file.  <p> Note that ‘Character.isLowerCase(Character.toLowerCase(codePoint))’ does not always return ‘true’ for some ranges of characters, particularly those that are symbols or ideographs.  <p>In general, ‘String#toLowerCase()’ should be used to map characters to lowercase. ‘String’ case mapping methods have several benefits over ‘Character’ case mapping methods. ‘String’ case mapping methods can perform locale-sensitive mappings, context-sensitive mappings, and 1:M character mappings, whereas the ‘Character’ case mapping methods cannot.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toUpperCase(char ch): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character argument to uppercase using case mapping information from the UnicodeData file. <p> Note that ‘Character.isUpperCase(Character.toUpperCase(ch))’ does not always return ‘true’ for some ranges of characters, particularly those that are symbols or ideographs.  <p>In general, ‘String#toUpperCase()’ should be used to map characters to uppercase. ‘String’ case mapping methods have several benefits over ‘Character’ case mapping methods. ‘String’ case mapping methods can perform locale-sensitive mappings, context-sensitive mappings, and 1:M character mappings, whereas the ‘Character’ case mapping methods cannot.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#toUpperCase(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toUpperCase(int codePoint): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character (Unicode code point) argument to uppercase using case mapping information from the UnicodeData file.  <p>Note that ‘Character.isUpperCase(Character.toUpperCase(codePoint))’ does not always return ‘true’ for some ranges of characters, particularly those that are symbols or ideographs.  <p>In general, ‘String#toUpperCase()’ should be used to map characters to uppercase. ‘String’ case mapping methods have several benefits over ‘Character’ case mapping methods. ‘String’ case mapping methods can perform locale-sensitive mappings, context-sensitive mappings, and 1:M character mappings, whereas the ‘Character’ case mapping methods cannot.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toTitleCase(char ch): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character argument to titlecase using case mapping information from the UnicodeData file. If a character has no explicit titlecase mapping and is not itself a titlecase char according to UnicodeData, then the uppercase mapping is returned as an equivalent titlecase mapping. If the ‘char’ argument is already a titlecase ‘char’, the same ‘char’ value will be returned. <p> Note that ‘Character.isTitleCase(Character.toTitleCase(ch))’ does not always return ‘true’ for some ranges of characters.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#toTitleCase(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toTitleCase(int codePoint): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character (Unicode code point) argument to titlecase using case mapping information from the UnicodeData file. If a character has no explicit titlecase mapping and is not itself a titlecase char according to UnicodeData, then the uppercase mapping is returned as an equivalent titlecase mapping. If the character argument is already a titlecase character, the same character value will be returned.  <p>Note that ‘Character.isTitleCase(Character.toTitleCase(codePoint))’ does not always return ‘true’ for some ranges of characters.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>digit(char ch, int radix): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the numeric value of the character ‘ch’ in the specified radix. <p> If the radix is not in the range ‘MIN_RADIX’ &amp;le; ‘radix’ &amp;le; ‘MAX_RADIX’ or if the value of ‘ch’ is not a valid digit in the specified radix, ‘-1’ is returned. A character is a valid digit if at least one of the following is true: <ul> <li>The method ‘isDigit’ is ‘true’ of the character and the Unicode decimal digit value of the character (or its single-character decomposition) is less than the specified radix. In this case the decimal digit value is returned. <li>The character is one of the uppercase Latin letters ‘’A’’ through ‘’Z’’ and its code is less than ‘radix + ‘A’ - 10’. In this case, ‘ch - ‘A’ + 10’ is returned. <li>The character is one of the lowercase Latin letters ‘’a’’ through ‘’z’’ and its code is less than ‘radix + ‘a’ - 10’. In this case, ‘ch - ‘a’ + 10’ is returned. <li>The character is one of the fullwidth uppercase Latin letters A (‘’\u005CuFF21’’) through Z (‘’\u005CuFF3A’’) and its code is less than ‘radix + ‘\u005CuFF21’ - 10’. In this case, ‘ch - ‘\u005CuFF21’ + 10’ is returned. <li>The character is one of the fullwidth lowercase Latin letters a (‘’\u005CuFF41’’) through z (‘’\u005CuFF5A’’) and its code is less than ‘radix + ‘\u005CuFF41’ - 10’. In this case, ‘ch - ‘\u005CuFF41’ + 10’ is returned. </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#digit(int, int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>digit(int codePoint, int radix): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the numeric value of the specified character (Unicode code point) in the specified radix.  <p>If the radix is not in the range ‘MIN_RADIX’ &amp;le; ‘radix’ &amp;le; ‘MAX_RADIX’ or if the character is not a valid digit in the specified radix, ‘-1’ is returned. A character is a valid digit if at least one of the following is true: <ul> <li>The method ‘#isDigit(int) isDigit(codePoint)’ is ‘true’ of the character and the Unicode decimal digit value of the character (or its single-character decomposition) is less than the specified radix. In this case the decimal digit value is returned. <li>The character is one of the uppercase Latin letters ‘’A’’ through ‘’Z’’ and its code is less than ‘radix + ‘A’ - 10’. In this case, ‘codePoint - ‘A’ + 10’ is returned. <li>The character is one of the lowercase Latin letters ‘’a’’ through ‘’z’’ and its code is less than ‘radix + ‘a’ - 10’. In this case, ‘codePoint - ‘a’ + 10’ is returned. <li>The character is one of the fullwidth uppercase Latin letters A (‘’\u005CuFF21’’) through Z (‘’\u005CuFF3A’’) and its code is less than ‘radix + ‘\u005CuFF21’ - 10’. In this case, ‘codePoint - ‘\u005CuFF21’ + 10’ is returned. <li>The character is one of the fullwidth lowercase Latin letters a (‘’\u005CuFF41’’) through z (‘’\u005CuFF5A’’) and its code is less than ‘radix + ‘\u005CuFF41’- 10’. In this case, ‘codePoint - ‘\u005CuFF41’ + 10’ is returned. </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumericValue(char ch): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘int’ value that the specified Unicode character represents. For example, the character ‘’\u005Cu216C’’ (the roman numeral fifty) will return an int with a value of 50. <p> The letters A-Z in their uppercase (‘’\u005Cu0041’’ through ‘’\u005Cu005A’’), lowercase (‘’\u005Cu0061’’ through ‘’\u005Cu007A’’), and full width variant (‘’\u005CuFF21’’ through ‘’\u005CuFF3A’’ and ‘’\u005CuFF41’’ through ‘’\u005CuFF5A’’) forms have numeric values from 10 through 35. This is independent of the Unicode specification, which does not assign numeric values to these ‘char’ values. <p> If the character does not have a numeric value, then -1 is returned. If the character has a numeric value that cannot be represented as a nonnegative integer (for example, a fractional value), then -2 is returned.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#getNumericValue(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getNumericValue(int codePoint): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the ‘int’ value that the specified character (Unicode code point) represents. For example, the character ‘’\u005Cu216C’’ (the Roman numeral fifty) will return an ‘int’ with a value of 50. <p> The letters A-Z in their uppercase (‘’\u005Cu0041’’ through ‘’\u005Cu005A’’), lowercase (‘’\u005Cu0061’’ through ‘’\u005Cu007A’’), and full width variant (‘’\u005CuFF21’’ through ‘’\u005CuFF3A’’ and ‘’\u005CuFF41’’ through ‘’\u005CuFF5A’’) forms have numeric values from 10 through 35. This is independent of the Unicode specification, which does not assign numeric values to these ‘char’ values. <p> If the character does not have a numeric value, then -1 is returned. If the character has a numeric value that cannot be represented as a nonnegative integer (for example, a fractional value), then -2 is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSpace(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is ISO-LATIN-1 white space. This method returns ‘true’ for the following five characters only: <table summary="truechars"> <tr><td>‘’\t’’</td>            <td>‘U+0009’</td> <td>‘HORIZONTAL TABULATION’</td></tr> <tr><td>‘’\n’’</td>            <td>‘U+000A’</td> <td>‘NEW LINE’</td></tr> <tr><td>‘’\f’’</td>            <td>‘U+000C’</td> <td>‘FORM FEED’</td></tr> <tr><td>‘’\r’’</td>            <td>‘U+000D’</td> <td>‘CARRIAGE RETURN’</td></tr> <tr><td>‘’ ‘’</td>             <td>‘U+0020’</td> <td>‘SPACE’</td></tr> </table></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSpaceChar(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is a Unicode space character. A character is considered to be a space character if and only if it is specified to be a space character by the Unicode Standard. This method returns true if the character’s general category type is any of the following: <ul> <li> ‘SPACE_SEPARATOR’ <li> ‘LINE_SEPARATOR’ <li> ‘PARAGRAPH_SEPARATOR’ </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isSpaceChar(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isSpaceChar(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is a Unicode space character.  A character is considered to be a space character if and only if it is specified to be a space character by the Unicode Standard. This method returns true if the character’s general category type is any of the following:  <ul> <li> ‘#SPACE_SEPARATOR’ <li> ‘#LINE_SEPARATOR’ <li> ‘#PARAGRAPH_SEPARATOR’ </ul></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isWhitespace(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is white space according to Java. A character is a Java whitespace character if and only if it satisfies one of the following criteria: <ul> <li> It is a Unicode space character (‘SPACE_SEPARATOR’, ‘LINE_SEPARATOR’, or ‘PARAGRAPH_SEPARATOR’) but is not also a non-breaking space (‘’\u005Cu00A0’’, ‘’\u005Cu2007’’, ‘’\u005Cu202F’’). <li> It is ‘’\u005Ct’’, U+0009 HORIZONTAL TABULATION. <li> It is ‘’\u005Cn’’, U+000A LINE FEED. <li> It is ‘’\u005Cu000B’’, U+000B VERTICAL TABULATION. <li> It is ‘’\u005Cf’’, U+000C FORM FEED. <li> It is ‘’\u005Cr’’, U+000D CARRIAGE RETURN. <li> It is ‘’\u005Cu001C’’, U+001C FILE SEPARATOR. <li> It is ‘’\u005Cu001D’’, U+001D GROUP SEPARATOR. <li> It is ‘’\u005Cu001E’’, U+001E RECORD SEPARATOR. <li> It is ‘’\u005Cu001F’’, U+001F UNIT SEPARATOR. </ul>  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isWhitespace(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isWhitespace(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character (Unicode code point) is white space according to Java.  A character is a Java whitespace character if and only if it satisfies one of the following criteria: <ul> <li> It is a Unicode space character (‘#SPACE_SEPARATOR’, ‘#LINE_SEPARATOR’, or ‘#PARAGRAPH_SEPARATOR’) but is not also a non-breaking space (‘’\u005Cu00A0’’, ‘’\u005Cu2007’’, ‘’\u005Cu202F’’). <li> It is ‘’\u005Ct’’, U+0009 HORIZONTAL TABULATION. <li> It is ‘’\u005Cn’’, U+000A LINE FEED. <li> It is ‘’\u005Cu000B’’, U+000B VERTICAL TABULATION. <li> It is ‘’\u005Cf’’, U+000C FORM FEED. <li> It is ‘’\u005Cr’’, U+000D CARRIAGE RETURN. <li> It is ‘’\u005Cu001C’’, U+001C FILE SEPARATOR. <li> It is ‘’\u005Cu001D’’, U+001D GROUP SEPARATOR. <li> It is ‘’\u005Cu001E’’, U+001E RECORD SEPARATOR. <li> It is ‘’\u005Cu001F’’, U+001F UNIT SEPARATOR. </ul> <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isISOControl(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the specified character is an ISO control character.  A character is considered to be an ISO control character if its code is in the range ‘’\u005Cu0000’’ through ‘’\u005Cu001F’’ or in the range ‘’\u005Cu007F’’ through ‘’\u005Cu009F’’.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isISOControl(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isISOControl(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines if the referenced character (Unicode code point) is an ISO control character.  A character is considered to be an ISO control character if its code is in the range ‘’\u005Cu0000’’ through ‘’\u005Cu001F’’ or in the range ‘’\u005Cu007F’’ through ‘’\u005Cu009F’’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getType(char ch): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a value indicating a character’s general category.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#getType(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getType(int codePoint): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a value indicating a character’s general category.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>forDigit(int digit, int radix): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the character representation for a specific digit in the specified radix. If the value of ‘radix’ is not a valid radix, or the value of ‘digit’ is not a valid digit in the specified radix, the null character (‘’\u005Cu0000’’) is returned. <p> The ‘radix’ argument is valid if it is greater than or equal to ‘MIN_RADIX’ and less than or equal to ‘MAX_RADIX’. The ‘digit’ argument is valid if ‘0 &lt;&#x3D; digit &lt; radix’. <p> If the digit is less than 10, then ‘’0’ + digit’ is returned. Otherwise, the value ‘’a’ + digit - 10’ is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDirectionality(char ch): byte</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Unicode directionality property for the given character.  Character directionality is used to calculate the visual ordering of text. The directionality value of undefined ‘char’ values is ‘DIRECTIONALITY_UNDEFINED’.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#getDirectionality(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDirectionality(int codePoint): byte</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Unicode directionality property for the given character (Unicode code point).  Character directionality is used to calculate the visual ordering of text. The directionality value of undefined character is ‘#DIRECTIONALITY_UNDEFINED’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMirrored(char ch): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the character is mirrored according to the Unicode specification.  Mirrored characters should have their glyphs horizontally mirrored when displayed in text that is right-to-left.  For example, ‘’\u005Cu0028’’ LEFT PARENTHESIS is semantically defined to be an <i>opening parenthesis</i>.  This will appear as a “(“ in text that is left-to-right but as a “)” in text that is right-to-left.  <p><b>Note:</b> This method cannot handle <a href="#supplementary"> supplementary characters</a>. To support all Unicode characters, including supplementary characters, use the ‘#isMirrored(int)’ method.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isMirrored(int codePoint): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines whether the specified character (Unicode code point) is mirrored according to the Unicode specification.  Mirrored characters should have their glyphs horizontally mirrored when displayed in text that is right-to-left.  For example, ‘’\u005Cu0028’’ LEFT PARENTHESIS is semantically defined to be an <i>opening parenthesis</i>.  This will appear as a “(“ in text that is left-to-right but as a “)” in text that is right-to-left.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compareTo(Character anotherCharacter): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares two ‘Character’ objects numerically.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>compare(char x, char y): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Compares two ‘char’ values numerically. The value returned is identical to what would be returned by: <pre> Character.valueOf(x).compareTo(Character.valueOf(y)) </pre></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toUpperCaseEx(int codePoint): int</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character (Unicode code point) argument to uppercase using information from the UnicodeData file. <p></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>toUpperCaseCharArray(int codePoint): char[]</strong></td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Converts the character (Unicode code point) argument to uppercase using case mapping information from the SpecialCasing file in the Unicode specification. If a character has no explicit uppercase mapping, then the ‘char’ itself is returned in the ‘char[]’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reverseBytes(char ch): char</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the value obtained by reversing the order of the bytes in the specified <tt>char</tt> value.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getName(int codePoint): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Unicode name of the specified character ‘codePoint’, or null if the code point is ‘#UNASSIGNED unassigned’. <p> Note: if the specified character is not assigned a name by the <i>UnicodeData</i> file (part of the Unicode Character Database maintained by the Unicode Consortium), the returned name is the same as the result of expression.  <blockquote>‘Character.UnicodeBlock.of(codePoint).toString().replace(‘_’, ‘ ‘) + “ “ + Integer.toHexString(codePoint).toUpperCase(Locale.ENGLISH);’</blockquote></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Character-Subset"><a href="#Character-Subset" class="headerlink" title="Character$Subset"></a><a href="./Character$Subset.html">Character$Subset</a></h3><h3 id="Character-UnicodeBlock"><a href="#Character-UnicodeBlock" class="headerlink" title="Character$UnicodeBlock"></a><a href="./Character$UnicodeBlock.html">Character$UnicodeBlock</a></h3><h3 id="Character-UnicodeScript"><a href="#Character-UnicodeScript" class="headerlink" title="Character$UnicodeScript"></a><a href="./Character$UnicodeScript.html">Character$UnicodeScript</a></h3><h3 id="Character-CharacterCache"><a href="#Character-CharacterCache" class="headerlink" title="Character$CharacterCache"></a><a href="./Character$CharacterCache.html">Character$CharacterCache</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/rmi/activation/Activatable.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Activatable"><a href="#Activatable" class="headerlink" title="Activatable"></a>Activatable</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.rmi.activation.Activatable</strong></td>
+<td align="center">abstract class</td>
+<td align="center">RemoteServer</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>id: ActivationID</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-3120617863591563455L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">indicate compatibility with the Java 2 SDK v1.2 version of class</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Activatable(String location, MarshalledObject&lt;?&gt; data, boolean restart, int port)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an activatable remote object by registering an activation descriptor (with the specified location, data, and restart mode) for this object, and exporting the object with the specified port.  <p><strong>Note:</strong> Using the <code>Activatable</code> constructors that both register and export an activatable remote object is strongly discouraged because the actions of registering and exporting the remote object are <i>not</i> guaranteed to be atomic.  Instead, an application should register an activation descriptor and export a remote object separately, so that exceptions can be handled properly.  <p>This method invokes the ‘#exportObject(Remote,String,MarshalledObject,boolean,int) exportObject’ method with this object, and the specified location, data, restart mode, and port.  Subsequent calls to ‘#getID’ will return the activation identifier returned from the call to <code>exportObject</code>.</td>
+<td align="left">RemoteException<br/>ActivationException</td>
+</tr>
+<tr>
+<td align="center"><strong>Activatable(String location, MarshalledObject&lt;?&gt; data, boolean restart, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs an activatable remote object by registering an activation descriptor (with the specified location, data, and restart mode) for this object, and exporting the object with the specified port, and specified client and server socket factories.  <p><strong>Note:</strong> Using the <code>Activatable</code> constructors that both register and export an activatable remote object is strongly discouraged because the actions of registering and exporting the remote object are <i>not</i> guaranteed to be atomic.  Instead, an application should register an activation descriptor and export a remote object separately, so that exceptions can be handled properly.  <p>This method invokes the ‘#exportObject(Remote,String,MarshalledObject,boolean,int,RMIClientSocketFactory,RMIServerSocketFactory) exportObject’ method with this object, and the specified location, data, restart mode, port, and client and server socket factories. Subsequent calls to ‘#getID’ will return the activation identifier returned from the call to <code>exportObject</code>.</td>
+<td align="left">RemoteException<br/>ActivationException</td>
+</tr>
+<tr>
+<td align="center"><strong>Activatable(ActivationID id, int port)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor used to activate&#x2F;export the object on a specified port. An “activatable” remote object must have a constructor that takes two arguments: <ul> <li>the object’s activation identifier (<code>ActivationID</code>), and <li>the object’s initialization data (a <code>MarshalledObject</code>). </ul><p>  A concrete subclass of this class must call this constructor when it is <i>activated</i> via the two parameter constructor described above. As a side-effect of construction, the remote object is “exported” to the RMI runtime (on the specified <code>port</code>) and is available to accept incoming calls from clients.</td>
+<td align="left">RemoteException</td>
+</tr>
+<tr>
+<td align="center"><strong>Activatable(ActivationID id, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf)</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructor used to activate&#x2F;export the object on a specified port. An “activatable” remote object must have a constructor that takes two arguments: <ul> <li>the object’s activation identifier (<code>ActivationID</code>), and <li>the object’s initialization data (a <code>MarshalledObject</code>). </ul><p>  A concrete subclass of this class must call this constructor when it is <i>activated</i> via the two parameter constructor described above. As a side-effect of construction, the remote object is “exported” to the RMI runtime (on the specified <code>port</code>) and is available to accept incoming calls from clients.</td>
+<td align="left">RemoteException</td>
+</tr>
+<tr>
+<td align="center"><strong>getID(): ActivationID</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the object’s activation identifier.  The method is protected so that only subclasses can obtain an object’s identifier.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>register(ActivationDesc desc): Remote</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Register an object descriptor for an activatable remote object so that is can be activated on demand.</td>
+<td align="left">RemoteException<br/>ActivationException<br/>UnknownGroupException</td>
+</tr>
+<tr>
+<td align="center"><strong>inactive(ActivationID id): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Informs the system that the object with the corresponding activation <code>id</code> is currently inactive. If the object is currently active, the object is “unexported” from the RMI runtime (only if there are no pending or in-progress calls) so the that it can no longer receive incoming calls. This call informs this VM’s ActivationGroup that the object is inactive, that, in turn, informs its ActivationMonitor. If this call completes successfully, a subsequent activate request to the activator will cause the object to reactivate. The operation may still succeed if the object is considered active but has already unexported itself.</td>
+<td align="left">RemoteException<br/>ActivationException<br/>UnknownObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>unregister(ActivationID id): void</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Revokes previous registration for the activation descriptor associated with <code>id</code>. An object can no longer be activated via that <code>id</code>.</td>
+<td align="left">RemoteException<br/>ActivationException<br/>UnknownObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportObject(Remote obj, String location, MarshalledObject&lt;?&gt; data, boolean restart, int port): ActivationID</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registers an activation descriptor (with the specified location, data, and restart mode) for the specified object, and exports that object with the specified port.  <p><strong>Note:</strong> Using this method (as well as the <code>Activatable</code> constructors that both register and export an activatable remote object) is strongly discouraged because the actions of registering and exporting the remote object are <i>not</i> guaranteed to be atomic.  Instead, an application should register an activation descriptor and export a remote object separately, so that exceptions can be handled properly.  <p>This method invokes the ‘#exportObject(Remote,String,MarshalledObject,boolean,int,RMIClientSocketFactory,RMIServerSocketFactory) exportObject’ method with the specified object, location, data, restart mode, and port, and <code>null</code> for both client and server socket factories, and then returns the resulting activation identifier.</td>
+<td align="left">RemoteException<br/>ActivationException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportObject(Remote obj, String location, MarshalledObject&lt;?&gt; data, boolean restart, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf): ActivationID</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Registers an activation descriptor (with the specified location, data, and restart mode) for the specified object, and exports that object with the specified port, and the specified client and server socket factories.  <p><strong>Note:</strong> Using this method (as well as the <code>Activatable</code> constructors that both register and export an activatable remote object) is strongly discouraged because the actions of registering and exporting the remote object are <i>not</i> guaranteed to be atomic.  Instead, an application should register an activation descriptor and export a remote object separately, so that exceptions can be handled properly.  <p>This method first registers an activation descriptor for the specified object as follows. It obtains the activation system by invoking the method ‘ActivationGroup#getSystem ActivationGroup.getSystem’.  This method then obtains an ‘ActivationID’ for the object by invoking the activation system’s ‘ActivationSystem#registerObject registerObject’ method with an ‘ActivationDesc’ constructed with the specified object’s class name, and the specified location, data, and restart mode.  If an exception occurs obtaining the activation system or registering the activation descriptor, that exception is thrown to the caller.  <p>Next, this method exports the object by invoking the ‘#exportObject(Remote,ActivationID,int,RMIClientSocketFactory,RMIServerSocketFactory) exportObject’ method with the specified remote object, the activation identifier obtained from registration, the specified port, and the specified client and server socket factories.  If an exception occurs exporting the object, this method attempts to unregister the activation identifier (obtained from registration) by invoking the activation system’s ‘ActivationSystem#unregisterObject unregisterObject’ method with the activation identifier.  If an exception occurs unregistering the identifier, that exception is ignored, and the original exception that occurred exporting the object is thrown to the caller.  <p>Finally, this method invokes the ‘ActivationGroup#activeObject activeObject’ method on the activation group in this VM with the activation identifier and the specified remote object, and returns the activation identifier to the caller.</td>
+<td align="left">RemoteException<br/>ActivationException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportObject(Remote obj, ActivationID id, int port): Remote</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Export the activatable remote object to the RMI runtime to make the object available to receive incoming calls. The object is exported on an anonymous port, if <code>port</code> is zero. <p>  During activation, this <code>exportObject</code> method should be invoked explicitly by an “activatable” object, that does not extend the <code>Activatable</code> class. There is no need for objects that do extend the <code>Activatable</code> class to invoke this method directly because the object is exported during construction.</td>
+<td align="left">RemoteException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportObject(Remote obj, ActivationID id, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf): Remote</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Export the activatable remote object to the RMI runtime to make the object available to receive incoming calls. The object is exported on an anonymous port, if <code>port</code> is zero. <p>  During activation, this <code>exportObject</code> method should be invoked explicitly by an “activatable” object, that does not extend the <code>Activatable</code> class. There is no need for objects that do extend the <code>Activatable</code> class to invoke this method directly because the object is exported during construction.</td>
+<td align="left">RemoteException</td>
+</tr>
+<tr>
+<td align="center"><strong>unexportObject(Remote obj, boolean force): boolean</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Remove the remote object, obj, from the RMI runtime. If successful, the object can no longer accept incoming RMI calls. If the force parameter is true, the object is forcibly unexported even if there are pending calls to the remote object or the remote object still has calls in progress.  If the force parameter is false, the object is only unexported if there are no pending or in progress calls to the object.</td>
+<td align="left">NoSuchObjectException</td>
+</tr>
+<tr>
+<td align="center"><strong>exportObject(Remote obj, ActivatableServerRef sref): Remote</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Exports the specified object using the specified server ref.</td>
+<td align="left">RemoteException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

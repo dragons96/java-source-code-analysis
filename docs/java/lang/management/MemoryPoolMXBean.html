@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/lang/management/MemoryPoolMXBean.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="MemoryPoolMXBean"><a href="#MemoryPoolMXBean" class="headerlink" title="MemoryPoolMXBean"></a>MemoryPoolMXBean</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.lang.management.MemoryPoolMXBean</strong></td>
+<td align="center">interface</td>
+<td align="center">PlatformManagedObject</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>getName(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the name representing this memory pool.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getType(): MemoryType</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the type of this memory pool.  <p> <b>MBeanServer access</b>:<br> The mapped type of <tt>MemoryType</tt> is <tt>String</tt> and the value is the name of the <tt>MemoryType</tt>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getUsage(): MemoryUsage</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns an estimate of the memory usage of this memory pool. This method returns <tt>null</tt> if this memory pool is not valid (i.e. no longer exists).  <p> This method requests the Java virtual machine to make a best-effort estimate of the current memory usage of this memory pool. For some memory pools, this method may be an expensive operation that requires some computation to determine the estimate.  An implementation should document when this is the case.  <p>This method is designed for use in monitoring system memory usage and detecting low memory condition.  <p> <b>MBeanServer access</b>:<br> The mapped type of <tt>MemoryUsage</tt> is <tt>CompositeData</tt> with attributes as specified in ‘MemoryUsage#from MemoryUsage’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPeakUsage(): MemoryUsage</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the peak memory usage of this memory pool since the Java virtual machine was started or since the peak was reset. This method returns <tt>null</tt> if this memory pool is not valid (i.e. no longer exists).  <p> <b>MBeanServer access</b>:<br> The mapped type of <tt>MemoryUsage</tt> is <tt>CompositeData</tt> with attributes as specified in ‘MemoryUsage#from MemoryUsage’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>resetPeakUsage(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Resets the peak memory usage statistic of this memory pool to the current memory usage.</td>
+<td align="left">java.lang.SecurityException</td>
+</tr>
+<tr>
+<td align="center"><strong>isValid(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if this memory pool is valid in the Java virtual machine.  A memory pool becomes invalid once the Java virtual machine removes it from the memory system.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMemoryManagerNames(): String[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the name of memory managers that manages this memory pool. Each memory pool will be managed by at least one memory manager.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getUsageThreshold(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the usage threshold value of this memory pool in bytes. Each memory pool has a platform-dependent default threshold value. The current usage threshold can be changed via the ‘#setUsageThreshold setUsageThreshold’ method.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>setUsageThreshold(long threshold): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the threshold of this memory pool to the given <tt>threshold</tt> value if this memory pool supports the usage threshold. The usage threshold crossing checking is enabled in this memory pool if the threshold is set to a positive value. The usage threshold crossing checking is disabled if it is set to zero.</td>
+<td align="left">UnsupportedOperationException<br/>java.lang.SecurityException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>isUsageThresholdExceeded(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the memory usage of this memory pool reaches or exceeds its usage threshold value.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getUsageThresholdCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the number of times that the memory usage has crossed the usage threshold.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>isUsageThresholdSupported(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if this memory pool supports usage threshold.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getCollectionUsageThreshold(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the collection usage threshold value of this memory pool in bytes.  The default value is zero. The collection usage threshold can be changed via the ‘#setCollectionUsageThreshold setCollectionUsageThreshold’ method.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>setCollectionUsageThreshold(long threshold): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Sets the collection usage threshold of this memory pool to the given <tt>threshold</tt> value. When this threshold is set to positive, the Java virtual machine will check the memory usage at its best appropriate time after it has expended effort in recycling unused objects in this memory pool. <p> The collection usage threshold crossing checking is enabled in this memory pool if the threshold is set to a positive value. The collection usage threshold crossing checking is disabled if it is set to zero.</td>
+<td align="left">UnsupportedOperationException<br/>java.lang.SecurityException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>isCollectionUsageThresholdExceeded(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if the memory usage of this memory pool after the most recent collection on which the Java virtual machine has expended effort has reached or exceeded its collection usage threshold. This method does not request the Java virtual machine to perform any garbage collection other than its normal automatic memory management.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCollectionUsageThresholdCount(): long</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the number of times that the Java virtual machine has detected that the memory usage has reached or exceeded the collection usage threshold.</td>
+<td align="left">UnsupportedOperationException</td>
+</tr>
+<tr>
+<td align="center"><strong>getCollectionUsage(): MemoryUsage</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Returns the memory usage after the Java virtual machine most recently expended effort in recycling unused objects in this memory pool. This method does not request the Java virtual machine to perform any garbage collection other than its normal automatic memory management. This method returns <tt>null</tt> if the Java virtual machine does not support this method.  <p> <b>MBeanServer access</b>:<br> The mapped type of <tt>MemoryUsage</tt> is <tt>CompositeData</tt> with attributes as specified in ‘MemoryUsage#from MemoryUsage’.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isCollectionUsageThresholdSupported(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Tests if this memory pool supports a collection usage threshold.</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,2671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/event/KeyEvent.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="KeyEvent"><a href="#KeyEvent" class="headerlink" title="KeyEvent"></a>KeyEvent</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.event.KeyEvent</strong></td>
+<td align="center">class</td>
+<td align="center">InputEvent</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>isProxyActive: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stores the state of native event dispatching system - true, if when the event was created event proxying mechanism was active - false, if it was inactive Used in Component.dispatchEventImpl to correctly dispatch events when proxy is active</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_FIRST: int</strong></td>
+<td align="center">400</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The first number in the range of ids used for key events.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_LAST: int</strong></td>
+<td align="center">402</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The last number in the range of ids used for key events.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_TYPED: int</strong></td>
+<td align="center">KEY_FIRST</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The “key typed” event.  This event is generated when a character is entered.  In the simplest case, it is produced by a single key press. Often, however, characters are produced by series of key presses, and the mapping from key pressed events to key typed events may be many-to-one or many-to-many.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_PRESSED: int</strong></td>
+<td align="center">1 + KEY_FIRST</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The “key pressed” event. This event is generated when a key is pushed down.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_RELEASED: int</strong></td>
+<td align="center">2 + KEY_FIRST</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The “key released” event. This event is generated when a key is let up.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ENTER: int</strong></td>
+<td align="center">‘\n’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Virtual key codes.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_BACK_SPACE: int</strong></td>
+<td align="center">‘\b’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_TAB: int</strong></td>
+<td align="center">‘\t’</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CANCEL: int</strong></td>
+<td align="center">0x03</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CLEAR: int</strong></td>
+<td align="center">0x0C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SHIFT: int</strong></td>
+<td align="center">0x10</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CONTROL: int</strong></td>
+<td align="center">0x11</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ALT: int</strong></td>
+<td align="center">0x12</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PAUSE: int</strong></td>
+<td align="center">0x13</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CAPS_LOCK: int</strong></td>
+<td align="center">0x14</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ESCAPE: int</strong></td>
+<td align="center">0x1B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SPACE: int</strong></td>
+<td align="center">0x20</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PAGE_UP: int</strong></td>
+<td align="center">0x21</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PAGE_DOWN: int</strong></td>
+<td align="center">0x22</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_END: int</strong></td>
+<td align="center">0x23</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_HOME: int</strong></td>
+<td align="center">0x24</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_LEFT: int</strong></td>
+<td align="center">0x25</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the non-numpad <b>left</b> arrow key. @see #VK_KP_LEFT</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_UP: int</strong></td>
+<td align="center">0x26</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the non-numpad <b>up</b> arrow key. @see #VK_KP_UP</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_RIGHT: int</strong></td>
+<td align="center">0x27</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the non-numpad <b>right</b> arrow key. @see #VK_KP_RIGHT</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DOWN: int</strong></td>
+<td align="center">0x28</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the non-numpad <b>down</b> arrow key. @see #VK_KP_DOWN</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_COMMA: int</strong></td>
+<td align="center">0x2C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the comma key, “,”</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_MINUS: int</strong></td>
+<td align="center">0x2D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the minus key, “-“ @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PERIOD: int</strong></td>
+<td align="center">0x2E</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the period key, “.”</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SLASH: int</strong></td>
+<td align="center">0x2F</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the forward slash key, “&#x2F;“</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_0: int</strong></td>
+<td align="center">0x30</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">VK_0 thru VK_9 are the same as ASCII ‘0’ thru ‘9’ (0x30 - 0x39)</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_1: int</strong></td>
+<td align="center">0x31</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_2: int</strong></td>
+<td align="center">0x32</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_3: int</strong></td>
+<td align="center">0x33</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_4: int</strong></td>
+<td align="center">0x34</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_5: int</strong></td>
+<td align="center">0x35</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_6: int</strong></td>
+<td align="center">0x36</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_7: int</strong></td>
+<td align="center">0x37</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_8: int</strong></td>
+<td align="center">0x38</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_9: int</strong></td>
+<td align="center">0x39</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SEMICOLON: int</strong></td>
+<td align="center">0x3B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the semicolon key, “;”</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_EQUALS: int</strong></td>
+<td align="center">0x3D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the equals key, “&#x3D;”</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_A: int</strong></td>
+<td align="center">0x41</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">VK_A thru VK_Z are the same as ASCII ‘A’ thru ‘Z’ (0x41 - 0x5A)</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_B: int</strong></td>
+<td align="center">0x42</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_C: int</strong></td>
+<td align="center">0x43</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_D: int</strong></td>
+<td align="center">0x44</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_E: int</strong></td>
+<td align="center">0x45</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F: int</strong></td>
+<td align="center">0x46</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_G: int</strong></td>
+<td align="center">0x47</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_H: int</strong></td>
+<td align="center">0x48</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_I: int</strong></td>
+<td align="center">0x49</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_J: int</strong></td>
+<td align="center">0x4A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_K: int</strong></td>
+<td align="center">0x4B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_L: int</strong></td>
+<td align="center">0x4C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_M: int</strong></td>
+<td align="center">0x4D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_N: int</strong></td>
+<td align="center">0x4E</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_O: int</strong></td>
+<td align="center">0x4F</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_P: int</strong></td>
+<td align="center">0x50</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_Q: int</strong></td>
+<td align="center">0x51</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_R: int</strong></td>
+<td align="center">0x52</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_S: int</strong></td>
+<td align="center">0x53</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_T: int</strong></td>
+<td align="center">0x54</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_U: int</strong></td>
+<td align="center">0x55</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_V: int</strong></td>
+<td align="center">0x56</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_W: int</strong></td>
+<td align="center">0x57</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_X: int</strong></td>
+<td align="center">0x58</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_Y: int</strong></td>
+<td align="center">0x59</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_Z: int</strong></td>
+<td align="center">0x5A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_OPEN_BRACKET: int</strong></td>
+<td align="center">0x5B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the open bracket key, “[“</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_BACK_SLASH: int</strong></td>
+<td align="center">0x5C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the back slash key, “&quot;</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CLOSE_BRACKET: int</strong></td>
+<td align="center">0x5D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the close bracket key, “]”</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD0: int</strong></td>
+<td align="center">0x60</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD1: int</strong></td>
+<td align="center">0x61</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD2: int</strong></td>
+<td align="center">0x62</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD3: int</strong></td>
+<td align="center">0x63</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD4: int</strong></td>
+<td align="center">0x64</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD5: int</strong></td>
+<td align="center">0x65</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD6: int</strong></td>
+<td align="center">0x66</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD7: int</strong></td>
+<td align="center">0x67</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD8: int</strong></td>
+<td align="center">0x68</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMPAD9: int</strong></td>
+<td align="center">0x69</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_MULTIPLY: int</strong></td>
+<td align="center">0x6A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ADD: int</strong></td>
+<td align="center">0x6B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SEPARATER: int</strong></td>
+<td align="center">0x6C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This constant is obsolete, and is included only for backwards compatibility. @see #VK_SEPARATOR</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SEPARATOR: int</strong></td>
+<td align="center">VK_SEPARATER</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the Numpad Separator key. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SUBTRACT: int</strong></td>
+<td align="center">0x6D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DECIMAL: int</strong></td>
+<td align="center">0x6E</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DIVIDE: int</strong></td>
+<td align="center">0x6F</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUM_LOCK: int</strong></td>
+<td align="center">0x90</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">ASCII DEL</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_SCROLL_LOCK: int</strong></td>
+<td align="center">0x91</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F1: int</strong></td>
+<td align="center">0x70</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F1 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F2: int</strong></td>
+<td align="center">0x71</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F2 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F3: int</strong></td>
+<td align="center">0x72</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F3 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F4: int</strong></td>
+<td align="center">0x73</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F4 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F5: int</strong></td>
+<td align="center">0x74</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F5 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F6: int</strong></td>
+<td align="center">0x75</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F6 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F7: int</strong></td>
+<td align="center">0x76</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F7 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F8: int</strong></td>
+<td align="center">0x77</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F8 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F9: int</strong></td>
+<td align="center">0x78</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F9 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F10: int</strong></td>
+<td align="center">0x79</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F10 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F11: int</strong></td>
+<td align="center">0x7A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F11 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F12: int</strong></td>
+<td align="center">0x7B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F12 function key.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F13: int</strong></td>
+<td align="center">0xF000</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">F13 - F24 are used on IBM 3270 keyboard; use random range for constants.</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F14: int</strong></td>
+<td align="center">0xF001</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F14 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F15: int</strong></td>
+<td align="center">0xF002</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F15 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F16: int</strong></td>
+<td align="center">0xF003</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F16 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F17: int</strong></td>
+<td align="center">0xF004</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F17 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F18: int</strong></td>
+<td align="center">0xF005</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F18 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F19: int</strong></td>
+<td align="center">0xF006</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F19 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F20: int</strong></td>
+<td align="center">0xF007</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F20 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F21: int</strong></td>
+<td align="center">0xF008</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F21 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F22: int</strong></td>
+<td align="center">0xF009</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F22 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F23: int</strong></td>
+<td align="center">0xF00A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F23 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_F24: int</strong></td>
+<td align="center">0xF00B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the F24 function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PRINTSCREEN: int</strong></td>
+<td align="center">0x9A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_INSERT: int</strong></td>
+<td align="center">0x9B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_HELP: int</strong></td>
+<td align="center">0x9C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_META: int</strong></td>
+<td align="center">0x9D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_BACK_QUOTE: int</strong></td>
+<td align="center">0xC0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_QUOTE: int</strong></td>
+<td align="center">0xDE</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KP_UP: int</strong></td>
+<td align="center">0xE0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the numeric keypad <b>up</b> arrow key. @see #VK_UP @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KP_DOWN: int</strong></td>
+<td align="center">0xE1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the numeric keypad <b>down</b> arrow key. @see #VK_DOWN @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KP_LEFT: int</strong></td>
+<td align="center">0xE2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the numeric keypad <b>left</b> arrow key. @see #VK_LEFT @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KP_RIGHT: int</strong></td>
+<td align="center">0xE3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the numeric keypad <b>right</b> arrow key. @see #VK_RIGHT @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_GRAVE: int</strong></td>
+<td align="center">0x80</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_ACUTE: int</strong></td>
+<td align="center">0x81</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_CIRCUMFLEX: int</strong></td>
+<td align="center">0x82</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_TILDE: int</strong></td>
+<td align="center">0x83</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_MACRON: int</strong></td>
+<td align="center">0x84</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_BREVE: int</strong></td>
+<td align="center">0x85</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_ABOVEDOT: int</strong></td>
+<td align="center">0x86</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_DIAERESIS: int</strong></td>
+<td align="center">0x87</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_ABOVERING: int</strong></td>
+<td align="center">0x88</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_DOUBLEACUTE: int</strong></td>
+<td align="center">0x89</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_CARON: int</strong></td>
+<td align="center">0x8a</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_CEDILLA: int</strong></td>
+<td align="center">0x8b</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_OGONEK: int</strong></td>
+<td align="center">0x8c</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_IOTA: int</strong></td>
+<td align="center">0x8d</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_VOICED_SOUND: int</strong></td>
+<td align="center">0x8e</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DEAD_SEMIVOICED_SOUND: int</strong></td>
+<td align="center">0x8f</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_AMPERSAND: int</strong></td>
+<td align="center">0x96</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ASTERISK: int</strong></td>
+<td align="center">0x97</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_QUOTEDBL: int</strong></td>
+<td align="center">0x98</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_LESS: int</strong></td>
+<td align="center">0x99</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_GREATER: int</strong></td>
+<td align="center">0xa0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_BRACELEFT: int</strong></td>
+<td align="center">0xa1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_BRACERIGHT: int</strong></td>
+<td align="center">0xa2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_AT: int</strong></td>
+<td align="center">0x0200</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “@” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_COLON: int</strong></td>
+<td align="center">0x0201</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “:” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CIRCUMFLEX: int</strong></td>
+<td align="center">0x0202</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “^” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_DOLLAR: int</strong></td>
+<td align="center">0x0203</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “$” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_EURO_SIGN: int</strong></td>
+<td align="center">0x0204</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the Euro currency sign key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_EXCLAMATION_MARK: int</strong></td>
+<td align="center">0x0205</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “!” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_INVERTED_EXCLAMATION_MARK: int</strong></td>
+<td align="center">0x0206</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the inverted exclamation mark key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_LEFT_PARENTHESIS: int</strong></td>
+<td align="center">0x0207</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “(“ key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NUMBER_SIGN: int</strong></td>
+<td align="center">0x0208</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “#” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PLUS: int</strong></td>
+<td align="center">0x0209</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “+” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_RIGHT_PARENTHESIS: int</strong></td>
+<td align="center">0x020A</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “)” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_UNDERSCORE: int</strong></td>
+<td align="center">0x020B</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the “_” key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_WINDOWS: int</strong></td>
+<td align="center">0x020C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the Microsoft Windows “Windows” key. It is used for both the left and right version of the key. @see #getKeyLocation() @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CONTEXT_MENU: int</strong></td>
+<td align="center">0x020D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the Microsoft Windows Context Menu key. @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_FINAL: int</strong></td>
+<td align="center">0x0018</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">not clear what this means - listed in Microsoft Windows API</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CONVERT: int</strong></td>
+<td align="center">0x001C</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard, Japanese Solaris keyboard: henkan</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_NONCONVERT: int</strong></td>
+<td align="center">0x001D</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: muhenkan</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ACCEPT: int</strong></td>
+<td align="center">0x001E</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese Solaris keyboard: kakutei</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_MODECHANGE: int</strong></td>
+<td align="center">0x001F</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">not clear what this means - listed in Microsoft Windows API</td>
+</tr>
+<tr>
+<td align="center"><strong>Solaris: &#x2F;</strong>*</td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KANA: int</strong></td>
+<td align="center">0x0015</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">replaced by VK_KANA_LOCK for Microsoft Windows and Solaris;</td>
+</tr>
+<tr>
+<td align="center"><strong>Solaris: &#x2F;</strong>*</td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KANJI: int</strong></td>
+<td align="center">0x0019</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">replaced by VK_INPUT_METHOD_ON_OFF for Microsoft Windows and Solaris;</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ALPHANUMERIC: int</strong></td>
+<td align="center">0x00F0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: eisuu</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KATAKANA: int</strong></td>
+<td align="center">0x00F1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: katakana</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_HIRAGANA: int</strong></td>
+<td align="center">0x00F2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: hiragana</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_FULL_WIDTH: int</strong></td>
+<td align="center">0x00F3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: zenkaku</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_HALF_WIDTH: int</strong></td>
+<td align="center">0x00F4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: hankaku</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ROMAN_CHARACTERS: int</strong></td>
+<td align="center">0x00F5</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: roumaji</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ALL_CANDIDATES: int</strong></td>
+<td align="center">0x0100</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard - VK_CONVERT + ALT: zenkouho</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PREVIOUS_CANDIDATE: int</strong></td>
+<td align="center">0x0101</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard - VK_CONVERT + SHIFT: maekouho</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CODE_INPUT: int</strong></td>
+<td align="center">0x0102</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard - VK_ALPHANUMERIC + ALT: kanji bangou</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_JAPANESE_KATAKANA: int</strong></td>
+<td align="center">0x0103</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese Macintosh keyboard - VK_JAPANESE_HIRAGANA + SHIFT</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_JAPANESE_HIRAGANA: int</strong></td>
+<td align="center">0x0104</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese Macintosh keyboard</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_JAPANESE_ROMAN: int</strong></td>
+<td align="center">0x0105</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese Macintosh keyboard</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_KANA_LOCK: int</strong></td>
+<td align="center">0x0106</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard with special Windows driver - eisuu + Control; Japanese Solaris keyboard: kana</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_INPUT_METHOD_ON_OFF: int</strong></td>
+<td align="center">0x0107</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Japanese PC 106 keyboard: kanji. Japanese Solaris keyboard: nihongo</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_CUT: int</strong></td>
+<td align="center">0xFFD1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_COPY: int</strong></td>
+<td align="center">0xFFCD</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PASTE: int</strong></td>
+<td align="center">0xFFCF</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_UNDO: int</strong></td>
+<td align="center">0xFFCB</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_AGAIN: int</strong></td>
+<td align="center">0xFFC9</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_FIND: int</strong></td>
+<td align="center">0xFFD0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_PROPS: int</strong></td>
+<td align="center">0xFFCA</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_STOP: int</strong></td>
+<td align="center">0xFFC8</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">@since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_COMPOSE: int</strong></td>
+<td align="center">0xFF20</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the Compose function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_ALT_GRAPH: int</strong></td>
+<td align="center">0xFF7E</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the AltGraph function key. @since 1.2</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_BEGIN: int</strong></td>
+<td align="center">0xFF58</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constant for the Begin key. @since 1.5</td>
+</tr>
+<tr>
+<td align="center"><strong>VK_UNDEFINED: int</strong></td>
+<td align="center">0x0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This value is used to indicate that the keyCode is unknown. KEY_TYPED events do not have a keyCode value; this value is used instead.</td>
+</tr>
+<tr>
+<td align="center"><strong>CHAR_UNDEFINED: char</strong></td>
+<td align="center">0xFFFF</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">KEY_PRESSED and KEY_RELEASED events which do not map to a valid Unicode character use this for the keyChar value.</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_LOCATION_UNKNOWN: int</strong></td>
+<td align="center">0</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant indicating that the keyLocation is indeterminate or not relevant. <code>KEY_TYPED</code> events do not have a keyLocation; this value is used instead. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_LOCATION_STANDARD: int</strong></td>
+<td align="center">1</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant indicating that the key pressed or released is not distinguished as the left or right version of a key, and did not originate on the numeric keypad (or did not originate with a virtual key corresponding to the numeric keypad). @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_LOCATION_LEFT: int</strong></td>
+<td align="center">2</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant indicating that the key pressed or released is in the left key location (there is more than one possible location for this key).  Example: the left shift key. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_LOCATION_RIGHT: int</strong></td>
+<td align="center">3</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant indicating that the key pressed or released is in the right key location (there is more than one possible location for this key).  Example: the right shift key. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>KEY_LOCATION_NUMPAD: int</strong></td>
+<td align="center">4</td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant indicating that the key event originated on the numeric keypad or with a virtual key corresponding to the numeric keypad. @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>keyCode: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The unique value assigned to each of the keys on the keyboard.  There is a common set of key codes that can be fired by most keyboards. The symbolic name for a key code should be used rather than the code value itself.  @serial @see #getKeyCode() @see #setKeyCode(int)</td>
+</tr>
+<tr>
+<td align="center"><strong>keyChar: char</strong></td>
+<td align="center"></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"><code>keyChar</code> is a valid unicode character that is fired by a key or a key combination on a keyboard.  @serial @see #getKeyChar() @see #setKeyChar(char)</td>
+</tr>
+<tr>
+<td align="center"><strong>keyLocation: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The location of the key on the keyboard.  Some keys occur more than once on a keyboard, e.g. the left and right shift keys.  Additionally, some keys occur on the numeric keypad.  This variable is used to distinguish such keys.  The only legal values are <code>KEY_LOCATION_UNKNOWN</code>, <code>KEY_LOCATION_STANDARD</code>, <code>KEY_LOCATION_LEFT</code>, <code>KEY_LOCATION_RIGHT</code>, and <code>KEY_LOCATION_NUMPAD</code>.  @serial @see #getKeyLocation()</td>
+</tr>
+<tr>
+<td align="center"><strong>rawCode: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>primaryLevelUnicode: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>scancode: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>extendedKeyCode: long</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">-2352130953028126954L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">JDK 1.1 serialVersionUID</td>
+</tr>
+<tr>
+<td align="center"><strong>originalSource: Component</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The original event source.  Event source can be changed during processing, but in some cases we need to be able to obtain original source.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize JNI field and method IDs for fields that may be accessed from C.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KeyEvent(Component source, int id, long when, int modifiers, int keyCode, char keyChar, int keyLocation, boolean isProxyActive)</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>KeyEvent(Component source, int id, long when, int modifiers, int keyCode, char keyChar, int keyLocation)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>KeyEvent</code> object. <p>This method throws an <code>IllegalArgumentException</code> if <code>source</code> is <code>null</code>.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>KeyEvent(Component source, int id, long when, int modifiers, int keyCode, char keyChar)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a <code>KeyEvent</code> object. <p> This method throws an <code>IllegalArgumentException</code> if <code>source</code> is <code>null</code>.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>KeyEvent(Component source, int id, long when, int modifiers, int keyCode)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the integer keyCode associated with the key in this event.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setKeyCode(int keyCode): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the keyCode value to indicate a physical key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyChar(): char</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the character associated with the key in this event. For example, the <code>KEY_TYPED</code> event for shift + “a” returns the value for “A”. <p> <code>KEY_PRESSED</code> and <code>KEY_RELEASED</code> events are not intended for reporting of character input.  Therefore, the values returned by this method are guaranteed to be meaningful only for <code>KEY_TYPED</code> events.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setKeyChar(char keyChar): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the keyChar value to indicate a logical character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setModifiers(int modifiers): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the modifiers to indicate additional keys that were held down (e.g. shift, ctrl, alt, meta) defined as part of InputEvent. <p> NOTE:  use of this method is not recommended, because many AWT implementations do not recognize modifier changes.  This is especially true for <code>KEY_TYPED</code> events where the shift modifier is changed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyLocation(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the location of the key that originated this key event.  Some keys occur more than once on a keyboard, e.g. the left and right shift keys.  Additionally, some keys occur on the numeric keypad.  This provides a way of distinguishing such keys.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyText(int keyCode): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a String describing the keyCode, such as “HOME”, “F1” or “A”. These strings can be localized by changing the awt.properties file.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getKeyModifiersText(int modifiers): String</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a <code>String</code> describing the modifier key(s), such as “Shift”, or “Ctrl+Shift”.  These strings can be localized by changing the <code>awt.properties</code> file. <p> Note that <code>InputEvent.ALT_MASK</code> and <code>InputEvent.BUTTON2_MASK</code> have the same value, so the string “Alt” is returned for both modifiers.  Likewise, <code>InputEvent.META_MASK</code> and <code>InputEvent.BUTTON3_MASK</code> have the same value, so the string “Meta” is returned for both modifiers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isActionKey(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the key in this event is an “action” key. Typically an action key does not fire a unicode character and is not a modifier key.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paramString(): String</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a parameter string identifying this event. This method is useful for event logging and for debugging.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getExtendedKeyCode(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an extended key code for the event. The extended key code is a unique id assigned to  a key on the keyboard just like ‘keyCode’. However, unlike ‘keyCode’, this value depends on the current keyboard layout. For instance, pressing the left topmost letter key in a common English layout produces the same value as ‘keyCode’, ‘VK_Q’. Pressing the same key in a regular Russian layout gives another code, unique for the letter “Cyrillic I short”.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getExtendedKeyCodeForChar(int c): int</strong></td>
+<td align="center">public</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an extended key code for a unicode character.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setNewModifiers(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets new modifiers by the old ones. The key modifiers override overlaping mouse modifiers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setOldModifiers(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets old modifiers by the new ones.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets new modifiers by the old ones. The key modifiers override overlaping mouse modifiers.</td>
+<td align="left">ClassNotFoundException<br/>IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

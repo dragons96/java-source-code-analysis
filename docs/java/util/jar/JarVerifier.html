@@ -188,7 +188,7 @@
 <td align="left">The ManifestDigester object</td>
 </tr>
 <tr>
-<td align="center"><strong>manifestRawBytes[]: byte</strong></td>
+<td align="center"><strong>manifestRawBytes: byte[]</strong></td>
 <td align="center">null</td>
 <td align="center">default</td>
 <td align="center">否</td>
@@ -232,7 +232,7 @@
 <td align="left">collect -DIGEST-MANIFEST values for blacklist</td>
 </tr>
 <tr>
-<td align="center"><strong>: Map&lt;URL, Map&lt;CodeSigner[], CodeSource&gt;&gt; urlToCodeSourceMap &#x3D; new HashMap&lt;&gt;()</strong></td>
+<td align="center"><strong>urlToCodeSourceMap: Map&lt;URL, Map&lt;CodeSigner[], CodeSource&gt;&gt;</strong></td>
 <td align="center">new HashMap&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -243,7 +243,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>: Map&lt;CodeSigner[], CodeSource&gt; signerToCodeSource &#x3D; new HashMap&lt;&gt;()</strong></td>
+<td align="center"><strong>signerToCodeSource: Map&lt;CodeSigner[], CodeSource&gt;</strong></td>
 <td align="center">new HashMap&lt;&gt;()</td>
 <td align="center">private</td>
 <td align="center">否</td>
@@ -337,6 +337,54 @@
 <td align="left"></td>
 </tr>
 <tr>
+<td align="center"><strong>beginEntry(JarEntry je, ManifestEntryVerifier mev): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method scans to see which entry we’re parsing and keeps various state information depending on what type of file is being parsed.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>update(int b, ManifestEntryVerifier mev): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">update a single byte.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>update(int n, byte[] b, int off, int len, ManifestEntryVerifier mev): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">update an array of bytes.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>processEntry(ManifestEntryVerifier mev): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">called when we reach the end of entry in one of the read() methods.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
 <td align="center"><strong>getCerts(String name): java.security.cert.Certificate[]</strong></td>
 <td align="center">public</td>
 <td align="center">否</td>
@@ -385,7 +433,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>mapSignersToCertArray(CodeSigner[] signers): java.security.cert.Certificate[]</strong></td>
+<td align="center"><strong>mapSignersToCertArray( CodeSigner[] signers): java.security.cert.Certificate[]</strong></td>
 <td align="center">private</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
@@ -397,7 +445,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>nothingToVerify()</strong></td>
+<td align="center"><strong>nothingToVerify(): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -409,7 +457,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>doneWithMeta()</strong></td>
+<td align="center"><strong>doneWithMeta(): void</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>
@@ -601,7 +649,7 @@
 <td align="left"></td>
 </tr>
 <tr>
-<td align="center"><strong>isTrustedManifestEntry(String name)</strong></td>
+<td align="center"><strong>isTrustedManifestEntry(String name): boolean</strong></td>
 <td align="center">default</td>
 <td align="center">否</td>
 <td align="center">否</td>

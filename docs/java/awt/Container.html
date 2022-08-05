@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/awt/Container.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.awt.Container</strong></td>
+<td align="center">class</td>
+<td align="center">Component</td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>log: PlatformLogger</strong></td>
+<td align="center">PlatformLogger.getLogger(“java.awt.Container”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eventLog: PlatformLogger</strong></td>
+<td align="center">PlatformLogger.getLogger(“java.awt.event.Container”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>EMPTY_ARRAY: Component[]</strong></td>
+<td align="center">new Component[0]</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>component: java.util.List&lt;Component&gt;</strong></td>
+<td align="center">new ArrayList&lt;&gt;()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The components in this container. @see #add @see #getComponents</td>
+</tr>
+<tr>
+<td align="center"><strong>layoutMgr: LayoutManager</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Layout manager for this container. @see #doLayout @see #setLayout @see #getLayout</td>
+</tr>
+<tr>
+<td align="center"><strong>dispatcher: LightweightDispatcher</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Event router for lightweight components.  If this container is native, this dispatcher takes care of forwarding and retargeting the events to lightweight components contained (if any).</td>
+</tr>
+<tr>
+<td align="center"><strong>focusTraversalPolicy: FocusTraversalPolicy</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The focus traversal policy that will manage keyboard traversal of this Container’s children, if this Container is a focus cycle root. If the value is null, this Container inherits its policy from its focus-cycle- root ancestor. If all such ancestors of this Container have null policies, then the current KeyboardFocusManager’s default policy is used. If the value is non-null, this policy will be inherited by all focus-cycle-root children that have no keyboard-traversal policy of their own (as will, recursively, their focus-cycle-root children). <p> If this Container is not a focus cycle root, the value will be remembered, but will not be used or inherited by this or any other Containers until this Container is made a focus cycle root.  @see #setFocusTraversalPolicy @see #getFocusTraversalPolicy @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>focusCycleRoot: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates whether this Component is the root of a focus traversal cycle. Once focus enters a traversal cycle, typically it cannot leave it via focus traversal unless one of the up- or down-cycle keys is pressed. Normal traversal is limited to this Container, and all of this Container’s descendants that are not descendants of inferior focus cycle roots.  @see #setFocusCycleRoot @see #isFocusCycleRoot @since 1.4</td>
+</tr>
+<tr>
+<td align="center"><strong>focusTraversalPolicyProvider: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Stores the value of focusTraversalPolicyProvider property. @since 1.5 @see #setFocusTraversalPolicyProvider</td>
+</tr>
+<tr>
+<td align="center"><strong>printingThreads: Set&lt;Thread&gt;</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>printing: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containerListener: ContainerListener</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>listeningChildren: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">HierarchyListener and HierarchyBoundsListener support</td>
+</tr>
+<tr>
+<td align="center"><strong>listeningBoundsChildren: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendantsCount: int</strong></td>
+<td align="center">0</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preserveBackgroundColor: Color</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Non-opaque window support – see Window.setLayersOpaque</td>
+</tr>
+<tr>
+<td align="center"><strong>serialVersionUID: long</strong></td>
+<td align="center">4613797578919906343L</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">JDK 1.1 serialVersionUID</td>
+</tr>
+<tr>
+<td align="center"><strong>INCLUDE_SELF: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant which toggles one of the controllable behaviors of <code>getMouseEventTarget</code>. It is used to specify whether the method can return the Container on which it is originally called in case if none of its children are the current mouse event targets.  @see #getMouseEventTarget(int, int, boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>SEARCH_HEAVYWEIGHTS: boolean</strong></td>
+<td align="center">true</td>
+<td align="center">default</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A constant which toggles one of the controllable behaviors of <code>getMouseEventTarget</code>. It is used to specify whether the method should search only lightweight components.  @see #getMouseEventTarget(int, int, boolean)</td>
+</tr>
+<tr>
+<td align="center"><strong>numOfHWComponents: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">Number of HW or LW components in this container (including all descendant containers).</td>
+</tr>
+<tr>
+<td align="center"><strong>numOfLWComponents: int</strong></td>
+<td align="center">0</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixingLog: PlatformLogger</strong></td>
+<td align="center">PlatformLogger.getLogger(“java.awt.mixing.Container”)</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isJavaAwtSmartInvalidate: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>descendUnconditionallyWhenValidating: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates whether valid containers should also traverse their children and call the validateTree() method on them.  Synchronization: TreeLock.  The field is allowed to be static as long as the TreeLock itself is static.  @see #validateUnconditionally()</td>
+</tr>
+<tr>
+<td align="center"><strong>modalComp: Component</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left">The following code was added to support modal JInternalFrames Unfortunately this code has to be added here so that we can get access to some private AWT classes like SequencedEvent.  The native container of the LW component has this field set to tell it that it should block Mouse events for all LW children except for the modal component.  In the case of nested Modal components, we store the previous modal component in the new modal components value of modalComp;</td>
+</tr>
+<tr>
+<td align="center"><strong>modalAppContext: AppContext</strong></td>
+<td align="center">null</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containerSerializedDataVersion: int</strong></td>
+<td align="center">1</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Container Serial Data Version.</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>initIDs(): void</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Initialize JNI field and method IDs for fields that may be</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>Container()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Constructs a new Container. Containers can be extended directly, but are lightweight in this case and must be contained by a parent somewhere higher up in the component tree that is native. (such as Frame for example).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>initializeFocusTraversalKeys(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponentCount(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the number of components in this panel. <p> Note: This method should be called under AWT tree lock.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countComponents(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponent(int n): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the nth component in this container. <p> Note: This method should be called under AWT tree lock.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponents(): Component[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets all the components in this container. <p> Note: This method should be called under AWT tree lock.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponents_NoClientCode(): Component[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponentsSync(): Component[]</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Wrapper for getComponents() method with a proper synchronization.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getInsets(): Insets</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Determines the insets of this container, which indicate the size of the container’s border. <p> A <code>Frame</code> object, for example, has a top inset that corresponds to the height of the frame’s title bar.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>insets(): Insets</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(Component comp): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Appends the specified component to the end of this container. This is a convenience method for ‘#addImpl’. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to display the added component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(String name, Component comp): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified component to this container. This is a convenience method for ‘#addImpl’. <p> This method is obsolete as of 1.1.  Please use the method <code>add(Component, Object)</code> instead. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to display the added component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(Component comp, int index): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified component to this container at the given position. This is a convenience method for ‘#addImpl’. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to display the added component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAddToSelf(Component comp): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that the component isn’t supposed to be added into itself.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkNotAWindow(Component comp): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that the component is not a Window instance.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkAdding(Component comp, int index): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that the component comp can be added to this container Checks :  index in bounds of container’s size, comp is not one of this container’s parents, and comp is not a window. Comp and container must be on the same GraphicsDevice. if comp is container, all sub-components must be on same GraphicsDevice.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeDelicately(Component comp, Container newParent, int newIndex): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes component comp from this container without making unneccessary changes and generating unneccessary events. This function intended to perform optimized remove, for example, if newParent and current parent are the same it just changes index without calling removeNotify. Note: Should be called while holding treeLock Returns whether removeNotify was invoked</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>canContainFocusOwner(Component focusOwnerCandidate): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks whether this container can contain component which is focus owner. Verifies that container is enable and showing, and if it is focus cycle root its FTP allows component to be focus owner</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasHeavyweightDescendants(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks whether or not this container has heavyweight children. Note: Should be called while holding tree lock</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>hasLightweightDescendants(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks whether or not this container has lightweight children. Note: Should be called while holding tree lock</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getHeavyweightContainer(): Container</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns closest heavyweight component to this container. If this container is heavyweight returns this.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isRemoveNotifyNeeded(Component comp, Container oldContainer, Container newContainer): boolean</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Detects whether or not remove from current parent and adding to new parent requires call of removeNotify on the component. Since removeNotify destroys native window this might (not) be required. For example, if new container and old containers are the same we don’t need to destroy native window.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setComponentZOrder(Component comp, int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Moves the specified component to the specified z-order index in the container. The z-order determines the order that components are painted; the component with the highest z-order paints first and the component with the lowest z-order paints last. Where components overlap, the component with the lower z-order paints over the component with the higher z-order. <p> If the component is a child of some other container, it is removed from that container before being added to this container. The important difference between this method and <code>java.awt.Container.add(Component, int)</code> is that this method doesn’t call <code>removeNotify</code> on the component while removing it from its previous container unless necessary and when allowed by the underlying native windowing system. This way, if the component has the keyboard focus, it maintains the focus when moved to the new position. <p> This property is guaranteed to apply only to lightweight non-<code>Container</code> components. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. <p> <b>Note</b>: Not all platforms support changing the z-order of heavyweight components from one container into another without the call to <code>removeNotify</code>. There is no way to detect whether a platform supports this, so developers shouldn’t make any assumptions.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reparentTraverse(ContainerPeer parentPeer, Container child): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Traverses the tree of components and reparents children heavyweight component to new heavyweight parent.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>reparentChild(Component comp): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Reparents child component peer to this container peer. Container must be heavyweight.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addDelicately(Component comp, Container curParent, int index): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds component to this container. Tries to minimize side effects of this adding - doesn’t call remove notify if it is not required.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponentZOrder(Component comp): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the z-order index of the component inside the container. The higher a component is in the z-order hierarchy, the lower its index.  The component with the lowest z-order index is painted last, above all other child components.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(Component comp, Object constraints): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified component to the end of this container. Also notifies the layout manager to add the component to this container’s layout using the specified constraints object. This is a convenience method for ‘#addImpl’. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to display the added component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>add(Component comp, Object constraints, int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified component to this container with the specified constraints at the specified index.  Also notifies the layout manager to add the component to the this container’s layout using the specified constraints object. This is a convenience method for ‘#addImpl’. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to display the added component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addImpl(Component comp, Object constraints, int index): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified component to this container at the specified index. This method also notifies the layout manager to add the component to this container’s layout using the specified constraints object via the <code>addLayoutComponent</code> method. <p> The constraints are defined by the particular layout manager being used.  For example, the <code>BorderLayout</code> class defines five constraints: <code>BorderLayout.NORTH</code>, <code>BorderLayout.SOUTH</code>, <code>BorderLayout.EAST</code>, <code>BorderLayout.WEST</code>, and <code>BorderLayout.CENTER</code>. <p> The <code>GridBagLayout</code> class requires a <code>GridBagConstraints</code> object.  Failure to pass the correct type of constraints object results in an <code>IllegalArgumentException</code>. <p> If the current layout manager implements ‘LayoutManager2’, then ‘LayoutManager2#addLayoutComponent(Component,Object)’ is invoked on it. If the current layout manager does not implement ‘LayoutManager2’, and constraints is a ‘String’, then ‘LayoutManager#addLayoutComponent(String,Component)’ is invoked on it. <p> If the component is not an ancestor of this container and has a non-null parent, it is removed from its current parent before it is added to this container. <p> This is the method to override if a program needs to track every add request to a container as all other add methods defer to this one. An overriding method should usually include a call to the superclass’s version of the method:  <blockquote> <code>super.addImpl(comp, constraints, index)</code> </blockquote> <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to display the added component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>updateGraphicsData(GraphicsConfiguration gc): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>checkGD(String stringID): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks that all Components that this Container contains are on the same GraphicsDevice as this Container.  If not, throws an IllegalArgumentException.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>remove(int index): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the component, specified by <code>index</code>, from this container. This method also notifies the layout manager to remove the component from this container’s layout via the <code>removeLayoutComponent</code> method. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to reflect the changes.</td>
+<td align="left">ArrayIndexOutOfBoundsException</td>
+</tr>
+<tr>
+<td align="center"><strong>remove(Component comp): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified component from this container. This method also notifies the layout manager to remove the component from this container’s layout via the <code>removeLayoutComponent</code> method. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to reflect the changes.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>removeAll(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes all the components from this container. This method also notifies the layout manager to remove the components from this container’s layout via the <code>removeLayoutComponent</code> method. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy. If the container has already been displayed, the hierarchy must be validated thereafter in order to reflect the changes.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>numListening(long mask): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>adjustListeningChildren(long mask, int num): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>adjustDescendants(int num): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>adjustDecendantsOnParent(int num): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>countHierarchyMembers(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getListenersCount(int id, boolean enabledOnToolkit): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createHierarchyEvents(int id, Component changed, Container changedParent, long changeFlags, boolean enabledOnToolkit): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>createChildHierarchyEvents(int id, long changeFlags, boolean enabledOnToolkit): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getLayout(): LayoutManager</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the layout manager for this container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setLayout(LayoutManager mgr): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the layout manager for this container. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>doLayout(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Causes this container to lay out its components.  Most programs should not call this method directly, but should invoke the <code>validate</code> method instead.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>layout(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isValidateRoot(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Indicates if this container is a <i>validate root</i>. <p> Layout-related changes, such as bounds of the validate root descendants, do not affect the layout of the validate root parent. This peculiarity enables the ‘invalidate()’ method to stop invalidating the component hierarchy when the method encounters a validate root. However, to preserve backward compatibility this new optimized behavior is enabled only when the ‘java.awt.smartInvalidate’ system property value is set to ‘true’. <p> If a component hierarchy contains validate roots and the new optimized ‘invalidate()’ behavior is enabled, the ‘validate()’ method must be invoked on the validate root of a previously invalidated component to restore the validity of the hierarchy later. Otherwise, calling the ‘validate()’ method on the top-level container (such as a ‘Frame’ object) should be used to restore the validity of the component hierarchy. <p> The ‘Window’ class and the ‘Applet’ class are the validate roots in AWT.  Swing introduces more validate roots.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>invalidateParent(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invalidates the parent of the container unless the container is a validate root.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>invalidate(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Invalidates the container. <p> If the ‘LayoutManager’ installed on this container is an instance of the ‘LayoutManager2’ interface, then the ‘LayoutManager2#invalidateLayout(Container)’ method is invoked on it supplying this ‘Container’ as the argument. <p> Afterwards this method marks this container invalid, and invalidates its ancestors. See the ‘Component#invalidate’ method for more details.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validate(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Validates this container and all of its subcomponents. <p> Validating a container means laying out its subcomponents. Layout-related changes, such as setting the bounds of a component, or adding a component to the container, invalidate the container automatically.  Note that the ancestors of the container may be invalidated also (see ‘Component#invalidate’ for details.) Therefore, to restore the validity of the hierarchy, the ‘validate()’ method should be invoked on the top-most invalid container of the hierarchy. <p> Validating the container may be a quite time-consuming operation. For performance reasons a developer may postpone the validation of the hierarchy till a set of layout-related operations completes, e.g. after adding all the children to the container. <p> If this ‘Container’ is not valid, this method invokes the ‘validateTree’ method and marks this ‘Container’ as valid. Otherwise, no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validateUnconditionally(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Unconditionally validate the component hierarchy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>validateTree(): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recursively descends the container tree and recomputes the layout for any subtrees marked as needing it (those marked as invalid).  Synchronization should be provided by the method that calls this one:  <code>validate</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>invalidateTree(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Recursively descends the container tree and invalidates all contained components.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFont(Font f): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the font of this container. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getPreferredSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the preferred size of this container.  If the preferred size has not been set explicitly by ‘Component#setPreferredSize(Dimension)’ and this ‘Container’ has a ‘non-null’ ‘LayoutManager’, then ‘LayoutManager#preferredLayoutSize(Container)’ is used to calculate the preferred size.  <p>Note: some implementations may cache the value returned from the ‘LayoutManager’.  Implementations that cache need not invoke ‘preferredLayoutSize’ on the ‘LayoutManager’ every time this method is invoked, rather the ‘LayoutManager’ will only be queried after the ‘Container’ becomes invalid.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preferredSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMinimumSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the minimum size of this container.  If the minimum size has not been set explicitly by ‘Component#setMinimumSize(Dimension)’ and this ‘Container’ has a ‘non-null’ ‘LayoutManager’, then ‘LayoutManager#minimumLayoutSize(Container)’ is used to calculate the minimum size.  <p>Note: some implementations may cache the value returned from the ‘LayoutManager’.  Implementations that cache need not invoke ‘minimumLayoutSize’ on the ‘LayoutManager’ every time this method is invoked, rather the ‘LayoutManager’ will only be queried after the ‘Container’ becomes invalid.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>minimumSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMaximumSize(): Dimension</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the maximum size of this container.  If the maximum size has not been set explicitly by ‘Component#setMaximumSize(Dimension)’ and the ‘LayoutManager’ installed on this ‘Container’ is an instance of ‘LayoutManager2’, then ‘LayoutManager2#maximumLayoutSize(Container)’ is used to calculate the maximum size.  <p>Note: some implementations may cache the value returned from the ‘LayoutManager2’.  Implementations that cache need not invoke ‘maximumLayoutSize’ on the ‘LayoutManager2’ every time this method is invoked, rather the ‘LayoutManager2’ will only be queried after the ‘Container’ becomes invalid.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAlignmentX(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the alignment along the x axis.  This specifies how the component would like to be aligned relative to other components.  The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from the origin, 0.5 is centered, etc.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAlignmentY(): float</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the alignment along the y axis.  This specifies how the component would like to be aligned relative to other components.  The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from the origin, 0.5 is centered, etc.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paint(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Paints the container. This forwards the paint to any lightweight components that are children of this container. If this method is reimplemented, super.paint(g) should be called so that lightweight components are properly rendered. If a child component is entirely clipped by the current clipping setting in g, paint() will not be forwarded to that child.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>update(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Updates the container.  This forwards the update to any lightweight components that are children of this container.  If this method is reimplemented, super.update(g) should be called so that lightweight components are properly rendered.  If a child component is entirely clipped by the current clipping setting in g, update() will not be forwarded to that child.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>print(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints the container. This forwards the print to any lightweight components that are children of this container. If this method is reimplemented, super.print(g) should be called so that lightweight components are properly rendered. If a child component is entirely clipped by the current clipping setting in g, print() will not be forwarded to that child.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paintComponents(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Paints each of the components in this container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lightweightPaint(Graphics g): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Simulates the peer callbacks into java.awt for printing of lightweight Containers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paintHeavyweightComponents(Graphics g): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints all the heavyweight subcomponents.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>printComponents(Graphics g): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints each of the components in this container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>lightweightPrint(Graphics g): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Simulates the peer callbacks into java.awt for printing of lightweight Containers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>printHeavyweightComponents(Graphics g): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints all the heavyweight subcomponents.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addContainerListener(ContainerListener l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds the specified container listener to receive container events from this container. If l is null, no exception is thrown and no action is performed. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeContainerListener(ContainerListener l): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Removes the specified container listener so it no longer receives container events from this container. If l is null, no exception is thrown and no action is performed. <p>Refer to <a href="doc-files/AWTThreadIssues.html#ListenersThreads" >AWT Threading Issues</a> for details on AWT’s threading model.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getContainerListeners(): ContainerListener[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the container listeners registered on this container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getListeners(Class&lt;T&gt; listenerType): T[]</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns an array of all the objects currently registered as <code><em>Foo</em>Listener</code>s upon this <code>Container</code>. <code><em>Foo</em>Listener</code>s are registered using the <code>add<em>Foo</em>Listener</code> method.  <p> You can specify the <code>listenerType</code> argument with a class literal, such as <code><em>Foo</em>Listener.class</code>. For example, you can query a <code>Container</code> <code>c</code> for its container listeners with the following code:  <pre>ContainerListener[] cls = (ContainerListener[])(c.getListeners(ContainerListener.class));</pre>  If no such listeners exist, this method returns an empty array.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>eventEnabled(AWTEvent e): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processEvent(AWTEvent e): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Processes events on this container. If the event is a <code>ContainerEvent</code>, it invokes the <code>processContainerEvent</code> method, else it invokes its superclass’s <code>processEvent</code>. <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>processContainerEvent(ContainerEvent e): void</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Processes container events occurring on this container by dispatching them to any registered ContainerListener objects. NOTE: This method will not be called unless container events are enabled for this component; this happens when one of the following occurs: <ul> <li>A ContainerListener object is registered via <code>addContainerListener</code> <li>Container events are enabled via <code>enableEvents</code> </ul> <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchEventImpl(AWTEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Dispatches an event to this component or one of its sub components. Create ANCESTOR_RESIZED and ANCESTOR_MOVED events in response to COMPONENT_RESIZED and COMPONENT_MOVED events. We have to do this here instead of in processComponentEvent because ComponentEvents may not be enabled for this Container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>dispatchEventToSelf(AWTEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Dispatches an event to this component, without trying to forward it to any subcomponents</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMouseEventTarget(int x, int y, boolean includeSelf): Component</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fetchs the top-most (deepest) lightweight component that is interested in receiving mouse events.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getDropTargetEventTarget(int x, int y, boolean includeSelf): Component</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Fetches the top-most (deepest) component to receive SunDropTargetEvents.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMouseEventTarget(int x, int y, boolean includeSelf, EventTargetFilter filter, boolean searchHeavyweights): Component</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A private version of getMouseEventTarget which has two additional controllable behaviors. This method searches for the top-most descendant of this container that contains the given coordinates and is accepted by the given filter. The search will be constrained to lightweight descendants if the last argument is <code>false</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMouseEventTargetImpl(int x, int y, boolean includeSelf, EventTargetFilter filter, boolean searchHeavyweightChildren, boolean searchHeavyweightDescendants): Component</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">A private version of getMouseEventTarget which has three additional controllable behaviors. This method searches for the top-most descendant of this container that contains the given coordinates and is accepted by the given filter. The search will be constrained to descendants of only lightweight children or only heavyweight children of this container depending on searchHeavyweightChildren. The search will be constrained to only lightweight descendants of the searched children of this container if searchHeavyweightDescendants is <code>false</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>proxyEnableEvents(long events): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This is called by lightweight components that want the containing windowed parent to enable some kind of events on their behalf. This is needed for events that are normally only dispatched to windows to be accepted so that they can be forwarded downward to the lightweight component that has enabled them.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>deliverEvent(Event e): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponentAt(int x, int y): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Locates the component that contains the x,y position.  The top-most child component is returned in the case where there is overlap in the components.  This is determined by finding the component closest to the index 0 that claims to contain the given point via Component.contains(), except that Components which have native peers take precedence over those which do not (i.e., lightweight Components).</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>locate(int x, int y): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getComponentAt(Point p): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Gets the component that contains the specified point.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getMousePosition(boolean allowChildren): Point</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the position of the mouse pointer in this <code>Container</code>‘s coordinate space if the <code>Container</code> is under the mouse pointer, otherwise returns <code>null</code>. This method is similar to ‘Component#getMousePosition()’ with the exception that it can take the <code>Container</code>‘s children into account. If <code>allowChildren</code> is <code>false</code>, this method will return a non-null value only if the mouse pointer is above the <code>Container</code> directly, not above the part obscured by children. If <code>allowChildren</code> is <code>true</code>, this method returns a non-null value if the mouse pointer is above <code>Container</code> or any of its descendants.</td>
+<td align="left">HeadlessException</td>
+</tr>
+<tr>
+<td align="center"><strong>isSameOrAncestorOf(Component comp, boolean allowChildren): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findComponentAt(int x, int y): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Locates the visible child component that contains the specified position.  The top-most child component is returned in the case where there is overlap in the components.  If the containing child component is a Container, this method will continue searching for the deepest nested child component.  Components which are not visible are ignored during the search.<p>  The findComponentAt method is different from getComponentAt in that getComponentAt only searches the Container’s immediate children; if the containing component is a Container, findComponentAt will search that child to find a nested component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findComponentAt(int x, int y, boolean ignoreEnabled): Component</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Private version of findComponentAt which has a controllable behavior. Setting ‘ignoreEnabled’ to ‘false’ bypasses disabled Components during the search. This behavior is used by the lightweight cursor support in sun.awt.GlobalCursorManager.  The addition of this feature is temporary, pending the adoption of new, public API which exports this feature.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findComponentAtImpl(int x, int y, boolean ignoreEnabled): Component</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getChildAt(Component comp, int x, int y, boolean ignoreEnabled): Component</strong></td>
+<td align="center">private</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Helper method for findComponentAtImpl. Finds a child component using findComponentAtImpl for Container and getComponentAt for Component.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findComponentAt(Point p): Component</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Locates the visible child component that contains the specified point.  The top-most child component is returned in the case where there is overlap in the components.  If the containing child component is a Container, this method will continue searching for the deepest nested child component.  Components which are not visible are ignored during the search.<p>  The findComponentAt method is different from getComponentAt in that getComponentAt only searches the Container’s immediate children; if the containing component is a Container, findComponentAt will search that child to find a nested component.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>addNotify(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Makes this Container displayable by connecting it to a native screen resource.  Making a container displayable will cause all of its children to be made displayable. This method is called internally by the toolkit and should not be called directly by programs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>removeNotify(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Makes this Container undisplayable by removing its connection to its native screen resource.  Making a container undisplayable will cause all of its children to be made undisplayable. This method is called by the toolkit internally and should not be called directly by programs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isAncestorOf(Component c): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the component is contained in the component hierarchy of this container.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>startLWModal(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>stopLWModal(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>paramString(): String</strong></td>
+<td align="center">protected</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns a string representing the state of this <code>Container</code>. This method is intended to be used only for debugging purposes, and the content and format of the returned string may vary between implementations. The returned string may be empty but may not be <code>null</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>list(PrintStream out, int indent): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints a listing of this container to the specified output stream. The listing starts at the specified indentation. <p> The immediate children of the container are printed with an indentation of <code>indent+1</code>.  The children of those children are printed at <code>indent+2</code> and so on.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>list(PrintWriter out, int indent): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Prints out a list, starting at the specified indentation, to the specified print writer. <p> The immediate children of the container are printed with an indentation of <code>indent+1</code>.  The children of those children are printed at <code>indent+2</code> and so on.</td>
+<td align="left">NullPointerException</td>
+</tr>
+<tr>
+<td align="center"><strong>setFocusTraversalKeys(int id, Set&lt;? extends AWTKeyStroke&gt; keystrokes): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the focus traversal keys for a given traversal operation for this Container. <p> The default values for a Container’s focus traversal keys are implementation-dependent. Sun recommends that all implementations for a particular native platform use the same default values. The recommendations for Windows and Unix are listed below. These recommendations are used in the Sun AWT implementations.  <table border=1 summary="Recommended default values for a Container's focus traversal keys"> <tr> <th>Identifier</th> <th>Meaning</th> <th>Default</th> </tr> <tr> <td>KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS</td> <td>Normal forward keyboard traversal</td> <td>TAB on KEY_PRESSED, CTRL-TAB on KEY_PRESSED</td> </tr> <tr> <td>KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS</td> <td>Normal reverse keyboard traversal</td> <td>SHIFT-TAB on KEY_PRESSED, CTRL-SHIFT-TAB on KEY_PRESSED</td> </tr> <tr> <td>KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS</td> <td>Go up one focus traversal cycle</td> <td>none</td> </tr> <tr> <td>KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS<td> <td>Go down one focus traversal cycle</td> <td>none</td> </tr> </table>  To disable a traversal key, use an empty Set; Collections.EMPTY_SET is recommended. <p> Using the AWTKeyStroke API, client code can specify on which of two specific KeyEvents, KEY_PRESSED or KEY_RELEASED, the focus traversal operation will occur. Regardless of which KeyEvent is specified, however, all KeyEvents related to the focus traversal key, including the associated KEY_TYPED event, will be consumed, and will not be dispatched to any Container. It is a runtime error to specify a KEY_TYPED event as mapping to a focus traversal operation, or to map the same event to multiple default focus traversal operations. <p> If a value of null is specified for the Set, this Container inherits the Set from its parent. If all ancestors of this Container have null specified for the Set, then the current KeyboardFocusManager’s default Set is used. <p> This method may throw a ‘ClassCastException’ if any ‘Object’ in ‘keystrokes’ is not an ‘AWTKeyStroke’.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>getFocusTraversalKeys(int id): Set<AWTKeyStroke></strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the Set of focus traversal keys for a given traversal operation for this Container. (See <code>setFocusTraversalKeys</code> for a full description of each key.) <p> If a Set of traversal keys has not been explicitly defined for this Container, then this Container’s parent’s Set is returned. If no Set has been explicitly defined for any of this Container’s ancestors, then the current KeyboardFocusManager’s default Set is returned.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>areFocusTraversalKeysSet(int id): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the Set of focus traversal keys for the given focus traversal operation has been explicitly defined for this Container. If this method returns <code>false</code>, this Container is inheriting the Set from an ancestor, or from the current KeyboardFocusManager.</td>
+<td align="left">IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>isFocusCycleRoot(Container container): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the specified Container is the focus cycle root of this Container’s focus traversal cycle. Each focus traversal cycle has only a single focus cycle root and each Container which is not a focus cycle root belongs to only a single focus traversal cycle. Containers which are focus cycle roots belong to two cycles: one rooted at the Container itself, and one rooted at the Container’s nearest focus-cycle-root ancestor. This method will return <code>true</code> for both such Containers in this case.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>findTraversalRoot(): Container</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>containsFocus(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isParentOf(Component comp): boolean</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Check if this component is the child of this container or its children. Note: this function acquires treeLock Note: this function traverses children tree only in one Window.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearMostRecentFocusOwnerOnHide(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>clearCurrentFocusCycleRootOnHide(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTraversalRoot(): Container</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFocusTraversalPolicy(FocusTraversalPolicy policy): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the focus traversal policy that will manage keyboard traversal of this Container’s children, if this Container is a focus cycle root. If the argument is null, this Container inherits its policy from its focus- cycle-root ancestor. If the argument is non-null, this policy will be inherited by all focus-cycle-root children that have no keyboard- traversal policy of their own (as will, recursively, their focus-cycle- root children). <p> If this Container is not a focus cycle root, the policy will be remembered, but will not be used or inherited by this or any other Containers until this Container is made a focus cycle root.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getFocusTraversalPolicy(): FocusTraversalPolicy</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the focus traversal policy that will manage keyboard traversal of this Container’s children, or null if this Container is not a focus cycle root. If no traversal policy has been explicitly set for this Container, then this Container’s focus-cycle-root ancestor’s policy is returned.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isFocusTraversalPolicySet(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether the focus traversal policy has been explicitly set for this Container. If this method returns <code>false</code>, this Container will inherit its focus traversal policy from an ancestor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFocusCycleRoot(boolean focusCycleRoot): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether this Container is the root of a focus traversal cycle. Once focus enters a traversal cycle, typically it cannot leave it via focus traversal unless one of the up- or down-cycle keys is pressed. Normal traversal is limited to this Container, and all of this Container’s descendants that are not descendants of inferior focus cycle roots. Note that a FocusTraversalPolicy may bend these restrictions, however. For example, ContainerOrderFocusTraversalPolicy supports implicit down-cycle traversal. <p> The alternative way to specify the traversal order of this Container’s children is to make this Container a <a href="doc-files/FocusSpec.html#FocusTraversalPolicyProviders">focus traversal policy provider</a>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isFocusCycleRoot(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether this Container is the root of a focus traversal cycle. Once focus enters a traversal cycle, typically it cannot leave it via focus traversal unless one of the up- or down-cycle keys is pressed. Normal traversal is limited to this Container, and all of this Container’s descendants that are not descendants of inferior focus cycle roots. Note that a FocusTraversalPolicy may bend these restrictions, however. For example, ContainerOrderFocusTraversalPolicy supports implicit down-cycle traversal.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>setFocusTraversalPolicyProvider(boolean provider): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets whether this container will be used to provide focus traversal policy. Container with this property as <code>true</code> will be used to acquire focus traversal policy instead of closest focus cycle root ancestor.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isFocusTraversalPolicyProvider(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns whether this container provides focus traversal policy. If this property is set to <code>true</code> then when keyboard focus manager searches container hierarchy for focus traversal policy and encounters this container before any other container with this property as true or focus cycle roots then its focus traversal policy will be used instead of focus cycle root’s policy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>transferFocusDownCycle(): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Transfers the focus down one focus traversal cycle. If this Container is a focus cycle root, then the focus owner is set to this Container’s default Component to focus, and the current focus cycle root is set to this Container. If this Container is not a focus cycle root, then no focus traversal operation occurs.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>preProcessKeyEvent(KeyEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postProcessKeyEvent(KeyEvent e): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>postsOldMouseEvents(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>applyComponentOrientation(ComponentOrientation o): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sets the <code>ComponentOrientation</code> property of this container and all components contained within it. <p> This method changes layout-related information, and therefore, invalidates the component hierarchy.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyChangeListener(PropertyChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a PropertyChangeListener to the listener list. The listener is registered for all bound properties of this class, including the following: <ul> <li>this Container’s font (“font”)</li> <li>this Container’s background color (“background”)</li> <li>this Container’s foreground color (“foreground”)</li> <li>this Container’s focusability (“focusable”)</li> <li>this Container’s focus traversal keys enabled state (“focusTraversalKeysEnabled”)</li> <li>this Container’s Set of FORWARD_TRAVERSAL_KEYS (“forwardFocusTraversalKeys”)</li> <li>this Container’s Set of BACKWARD_TRAVERSAL_KEYS (“backwardFocusTraversalKeys”)</li> <li>this Container’s Set of UP_CYCLE_TRAVERSAL_KEYS (“upCycleFocusTraversalKeys”)</li> <li>this Container’s Set of DOWN_CYCLE_TRAVERSAL_KEYS (“downCycleFocusTraversalKeys”)</li> <li>this Container’s focus traversal policy (“focusTraversalPolicy”) </li> <li>this Container’s focus-cycle-root state (“focusCycleRoot”)</li> </ul> Note that if this Container is inheriting a bound property, then no event will be fired in response to a change in the inherited property. <p> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>addPropertyChangeListener(String propertyName, PropertyChangeListener listener): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Adds a PropertyChangeListener to the listener list for a specific property. The specified property may be user-defined, or one of the following defaults: <ul> <li>this Container’s font (“font”)</li> <li>this Container’s background color (“background”)</li> <li>this Container’s foreground color (“foreground”)</li> <li>this Container’s focusability (“focusable”)</li> <li>this Container’s focus traversal keys enabled state (“focusTraversalKeysEnabled”)</li> <li>this Container’s Set of FORWARD_TRAVERSAL_KEYS (“forwardFocusTraversalKeys”)</li> <li>this Container’s Set of BACKWARD_TRAVERSAL_KEYS (“backwardFocusTraversalKeys”)</li> <li>this Container’s Set of UP_CYCLE_TRAVERSAL_KEYS (“upCycleFocusTraversalKeys”)</li> <li>this Container’s Set of DOWN_CYCLE_TRAVERSAL_KEYS (“downCycleFocusTraversalKeys”)</li> <li>this Container’s focus traversal policy (“focusTraversalPolicy”) </li> <li>this Container’s focus-cycle-root state (“focusCycleRoot”)</li> <li>this Container’s focus-traversal-policy-provider state(“focusTraversalPolicyProvider”)</li> <li>this Container’s focus-traversal-policy-provider state(“focusTraversalPolicyProvider”)</li> </ul> Note that if this Container is inheriting a bound property, then no event will be fired in response to a change in the inherited property. <p> If listener is null, no exception is thrown and no action is performed.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>writeObject(ObjectOutputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Serializes this <code>Container</code> to the specified <code>ObjectOutputStream</code>. <ul> <li>Writes default serializable fields to the stream.</li> <li>Writes a list of serializable ContainerListener(s) as optional data. The non-serializable ContainerListner(s) are detected and no attempt is made to serialize them.</li> <li>Write this Container’s FocusTraversalPolicy if and only if it is Serializable; otherwise, <code>null</code> is written.</li> </ul></td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>readObject(ObjectInputStream s): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Deserializes this <code>Container</code> from the specified <code>ObjectInputStream</code>. <ul> <li>Reads default serializable fields from the stream.</li> <li>Reads a list of serializable ContainerListener(s) as optional data. If the list is null, no Listeners are installed.</li> <li>Reads this Container’s FocusTraversalPolicy, which may be null, as optional data.</li> </ul></td>
+<td align="left">IOException<br/>ClassNotFoundException</td>
+</tr>
+<tr>
+<td align="center"><strong>getAccessibleAt(Point p): Accessible</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the <code>Accessible</code> child contained at the local coordinate <code>Point</code>, if one exists.  Otherwise returns <code>null</code>.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAccessibleChildrenCount(): int</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the number of accessible children in the object.  If all of the children of this object implement <code>Accessible</code>, then this method should return the number of children of this object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getAccessibleChild(int i): Accessible</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Returns the nth <code>Accessible</code> child of the object.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>increaseComponentCount(Component c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>decreaseComponentCount(Component c): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getTopmostComponentIndex(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getBottommostComponentIndex(): int</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>getOpaqueShape(): Region</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">This method is overriden to handle opaque children in non-opaque containers.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveSubtractAndApplyShape(Region shape): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveSubtractAndApplyShape(Region shape, int fromZorder): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveSubtractAndApplyShape(Region shape, int fromZorder, int toZorder): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveApplyCurrentShape(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveApplyCurrentShape(int fromZorder): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveApplyCurrentShape(int fromZorder, int toZorder): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveShowHeavyweightChildren(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveHideHeavyweightChildren(): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>recursiveRelocateHeavyweightChildren(Point origin): void</strong></td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>isRecursivelyVisibleUpToHeavyweightContainer(): boolean</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center"><strong><font color='red'>是</font></strong></td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Checks if the container and its direct lightweight containers are visible.  Consider the heavyweight container hides or shows the HW descendants automatically. Therefore we care of LW containers’ visibility only.  This method MUST be invoked under the TreeLock.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixOnShowing(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixOnHiding(boolean isLightweight): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixOnReshaping(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixOnZOrderChanging(int oldZorder, int newZorder): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>mixOnValidating(): void</strong></td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="Container-EventTargetFilter"><a href="#Container-EventTargetFilter" class="headerlink" title="Container$EventTargetFilter"></a><a href="./Container$EventTargetFilter.html">Container$EventTargetFilter</a></h3><h3 id="Container-MouseEventTargetFilter"><a href="#Container-MouseEventTargetFilter" class="headerlink" title="Container$MouseEventTargetFilter"></a><a href="./Container$MouseEventTargetFilter.html">Container$MouseEventTargetFilter</a></h3><h3 id="Container-DropTargetEventTargetFilter"><a href="#Container-DropTargetEventTargetFilter" class="headerlink" title="Container$DropTargetEventTargetFilter"></a><a href="./Container$DropTargetEventTargetFilter.html">Container$DropTargetEventTargetFilter</a></h3><h3 id="Container-WakingRunnable"><a href="#Container-WakingRunnable" class="headerlink" title="Container$WakingRunnable"></a><a href="./Container$WakingRunnable.html">Container$WakingRunnable</a></h3><h3 id="Container-AccessibleAWTContainer"><a href="#Container-AccessibleAWTContainer" class="headerlink" title="Container$AccessibleAWTContainer"></a><a href="./Container$AccessibleAWTContainer.html">Container$AccessibleAWTContainer</a></h3><h3 id="Container-LightweightDispatcher"><a href="#Container-LightweightDispatcher" class="headerlink" title="Container$LightweightDispatcher"></a><a href="./Container$LightweightDispatcher.html">Container$LightweightDispatcher</a></h3>
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Java Source Code Analysis |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/java-source-code-analysis/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/java-source-code-analysis/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"java/net/MulticastSocket.html","title":""},"data":{"navigation":{"logo":{"text":"Java 源码分析","type":"link","path":"index.html"}}},"config":{"timezone":"Asia/Shanghai","root":"/java-source-code-analysis/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/java-source-code-analysis/index.html" class="doc-navbar__logo"><img src="/java-source-code-analysis/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Java 源码分析</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h2 id="MulticastSocket"><a href="#MulticastSocket" class="headerlink" title="MulticastSocket"></a>MulticastSocket</h2><table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">类型</th>
+<th align="center">父类</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>java.net.MulticastSocket</strong></td>
+<td align="center">class</td>
+<td align="center">DatagramSocket</td>
+<td align="center">default</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">默认值</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>interfaceSet: boolean</strong></td>
+<td align="center">false</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Used on some platforms to record if an outgoing interface has been set for this socket.</td>
+</tr>
+<tr>
+<td align="center"><strong>ttlLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The lock on the socket’s TTL. This is for set&#x2F;getTTL and send(packet,ttl).</td>
+</tr>
+<tr>
+<td align="center"><strong>infLock: Object</strong></td>
+<td align="center">new Object()</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The lock on the socket’s interface - used by setInterface and getInterface</td>
+</tr>
+<tr>
+<td align="center"><strong>infAddress: InetAddress</strong></td>
+<td align="center">null</td>
+<td align="center">private</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">The “last” interface set by setInterface on this MulticastSocket</td>
+</tr>
+</tbody></table>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">权限</th>
+<th align="center">static</th>
+<th align="center">final</th>
+<th align="center">volatile</th>
+<th align="center">synchronized</th>
+<th align="center">transient</th>
+<th align="center">abstract</th>
+<th align="left">描述</th>
+<th align="left">异常</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>MulticastSocket()</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create a multicast socket.  <p>If there is a security manager, its ‘checkListen’ method is first called with 0 as its argument to ensure the operation is allowed. This could result in a SecurityException. <p> When the socket is created the ‘DatagramSocket#setReuseAddress(boolean)’ method is called to enable the SO_REUSEADDR socket option.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>MulticastSocket(int port)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create a multicast socket and bind it to a specific port.  <p>If there is a security manager, its ‘checkListen’ method is first called with the ‘port’ argument as its argument to ensure the operation is allowed. This could result in a SecurityException. <p> When the socket is created the ‘DatagramSocket#setReuseAddress(boolean)’ method is called to enable the SO_REUSEADDR socket option.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>MulticastSocket(SocketAddress bindaddr)</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Create a MulticastSocket bound to the specified socket address. <p> Or, if the address is ‘null’, create an unbound socket.  <p>If there is a security manager, its ‘checkListen’ method is first called with the SocketAddress port as its argument to ensure the operation is allowed. This could result in a SecurityException. <p> When the socket is created the ‘DatagramSocket#setReuseAddress(boolean)’ method is called to enable the SO_REUSEADDR socket option.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>setTTL(byte ttl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the default time-to-live for multicast packets sent out on this ‘MulticastSocket’ in order to control the scope of the multicasts.  <p>The ttl is an <b>unsigned</b> 8-bit quantity, and so <B>must</B> be in the range ‘0 &lt;&#x3D; ttl &lt;&#x3D; 0xFF’.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>setTimeToLive(int ttl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the default time-to-live for multicast packets sent out on this ‘MulticastSocket’ in order to control the scope of the multicasts.  <P> The ttl <B>must</B> be in the range ‘0 &lt;&#x3D; ttl &lt;&#x3D; 255’ or an ‘IllegalArgumentException’ will be thrown. Multicast packets sent with a TTL of ‘0’ are not transmitted on the network but may be delivered locally.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTTL(): byte</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the default time-to-live for multicast packets sent out on the socket.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>getTimeToLive(): int</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the default time-to-live for multicast packets sent out on the socket.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>joinGroup(InetAddress mcastaddr): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Joins a multicast group. Its behavior may be affected by ‘setInterface’ or ‘setNetworkInterface’.  <p>If there is a security manager, this method first calls its ‘checkMulticast’ method with the ‘mcastaddr’ argument as its argument.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>leaveGroup(InetAddress mcastaddr): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Leave a multicast group. Its behavior may be affected by ‘setInterface’ or ‘setNetworkInterface’.  <p>If there is a security manager, this method first calls its ‘checkMulticast’ method with the ‘mcastaddr’ argument as its argument.</td>
+<td align="left">IOException</td>
+</tr>
+<tr>
+<td align="center"><strong>joinGroup(SocketAddress mcastaddr, NetworkInterface netIf): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Joins the specified multicast group at the specified interface.  <p>If there is a security manager, this method first calls its ‘checkMulticast’ method with the ‘mcastaddr’ argument as its argument.</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>leaveGroup(SocketAddress mcastaddr, NetworkInterface netIf): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Leave a multicast group on a specified local interface.  <p>If there is a security manager, this method first calls its ‘checkMulticast’ method with the ‘mcastaddr’ argument as its argument.</td>
+<td align="left">IOException<br/>IllegalArgumentException</td>
+</tr>
+<tr>
+<td align="center"><strong>setInterface(InetAddress inf): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Set the multicast network interface used by methods whose behavior would be affected by the value of the network interface. Useful for multihomed hosts.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>getInterface(): InetAddress</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Retrieve the address of the network interface used for multicast packets.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>setNetworkInterface(NetworkInterface netIf): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Specify the network interface for outgoing multicast datagrams sent on this socket.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>getNetworkInterface(): NetworkInterface</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the multicast network interface set.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>setLoopbackMode(boolean disable): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Disable&#x2F;Enable local loopback of multicast datagrams The option is used by the platform’s networking code as a hint for setting whether multicast data will be looped back to the local socket.  <p>Because this option is a hint, applications that want to verify what loopback mode is set to should call ‘#getLoopbackMode()’</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>getLoopbackMode(): boolean</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Get the setting for local loopback of multicast datagrams.</td>
+<td align="left">SocketException</td>
+</tr>
+<tr>
+<td align="center"><strong>send(DatagramPacket p, byte ttl): void</strong></td>
+<td align="center">public</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="left">Sends a datagram packet to the destination, with a TTL (time- to-live) other than the default for the socket.  This method need only be used in instances where a particular TTL is desired; otherwise it is preferable to set a TTL once on the socket, and use that default TTL for all packets.  This method does <B>not </B> alter the default TTL for the socket. Its behavior may be affected by ‘setInterface’.  <p>If there is a security manager, this method first performs some security checks. First, if ‘p.getAddress().isMulticastAddress()’ is true, this method calls the security manager’s ‘checkMulticast’ method with ‘p.getAddress()’ and ‘ttl’ as its arguments. If the evaluation of that expression is false, this method instead calls the security manager’s ‘checkConnect’ method with arguments ‘p.getAddress().getHostAddress()’ and ‘p.getPort()’. Each call to a security manager method could result in a SecurityException if the operation is not allowed.</td>
+<td align="left">IOException</td>
+</tr>
+</tbody></table>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/java-source-code-analysis/script/doc.js"></script>
+
+    
+
+  </body>
+</html>
