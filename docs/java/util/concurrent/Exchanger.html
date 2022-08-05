@@ -77,7 +77,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The byte distance (as a shift value) between any two used slots in the arena.  1 &lt;&lt; ASHIFT should be at least cacheline size.</td>
+<td align="left">竞技场中任意两个已用插槽之间的字节距离（作为移位值）。1＜＜ASHIFT应至少为缓存线大小。</td>
 </tr>
 <tr>
 <td align="center"><strong>MMASK: int</strong></td>
@@ -88,7 +88,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The maximum supported arena index. The maximum allocatable arena size is MMASK + 1. Must be a power of two minus one, less than (1&lt;&lt;(31-ASHIFT)). The cap of 255 (0xff) more than suffices for the expected scaling limits of the main algorithms.</td>
+<td align="left">支持的最大竞技场索引。最大可分配竞技场大小为MMASK+1。必须是二减一的幂，小于（1&lt;&lt;（31-ft））。255（0xff）的上限足以满足主要算法的预期缩放限制。</td>
 </tr>
 <tr>
 <td align="center"><strong>SEQ: int</strong></td>
@@ -99,7 +99,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unit for sequence&#x2F;version bits of bound field. Each successful change to the bound also adds SEQ.</td>
+<td align="left">绑定字段的序列&#x2F;版本位的单位。对边界的每次成功更改也会添加SEQ。</td>
 </tr>
 <tr>
 <td align="center"><strong>NCPU: int</strong></td>
@@ -110,7 +110,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The number of CPUs, for sizing and spin control</td>
+<td align="left">用于调整大小和旋转控制的CPU数</td>
 </tr>
 <tr>
 <td align="center"><strong>FULL: int</strong></td>
@@ -121,7 +121,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The maximum slot index of the arena: The number of slots that can in principle hold all threads without contention, or at most the maximum indexable value.</td>
+<td align="left">竞技场的最大插槽索引：原则上可以容纳所有线程而不发生争用的插槽数，或者最多为最大可索引值。</td>
 </tr>
 <tr>
 <td align="center"><strong>SPINS: int</strong></td>
@@ -132,7 +132,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The bound for spins while waiting for a match. The actual number of iterations will on average be about twice this value due to randomization. Note: Spinning is disabled when NCPU&#x3D;&#x3D;1.</td>
+<td align="left">等待比赛时旋转的边界。由于随机化，实际迭代次数平均约为该值的两倍。注：当NCPU&#x3D;&#x3D;1时，旋转被禁用。</td>
 </tr>
 <tr>
 <td align="center"><strong>NULL_ITEM: Object</strong></td>
@@ -143,7 +143,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Value representing null arguments&#x2F;returns from public methods. Needed because the API originally didn’t disallow null arguments, which it should have.</td>
+<td align="left">该值表示公共方法的null参数&#x2F;返回。需要，因为API最初不允许空参数，它应该有空参数。</td>
 </tr>
 <tr>
 <td align="center"><strong>TIMED_OUT: Object</strong></td>
@@ -154,7 +154,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sentinel value returned by internal exchange methods upon timeout, to avoid need for separate timed versions of these methods.</td>
+<td align="left">内部交换方法在超时时返回的Sentinel值，以避免需要这些方法的单独定时版本。</td>
 </tr>
 <tr>
 <td align="center"><strong>participant: Participant</strong></td>
@@ -165,7 +165,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Per-thread state</td>
+<td align="left">每线程状态</td>
 </tr>
 <tr>
 <td align="center"><strong>arena: Node[]</strong></td>
@@ -176,7 +176,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Elimination array; null until enabled (within slotExchange). Element accesses use emulation of volatile gets and CAS.</td>
+<td align="left">消除阵列；在启用之前为空（在slotExchange中）。元素访问使用易失性GET和CAS的仿真。</td>
 </tr>
 <tr>
 <td align="center"><strong>slot: Node</strong></td>
@@ -187,7 +187,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Slot used until contention detected.</td>
+<td align="left">在检测到争用之前一直使用该插槽。</td>
 </tr>
 <tr>
 <td align="center"><strong>bound: int</strong></td>
@@ -198,7 +198,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The index of the largest valid arena position, OR’ed with SEQ number in high bits, incremented on each update.  The initial update from 0 to SEQ is used to ensure that the arena array is constructed only once.</td>
+<td align="left">最大有效竞技场位置的索引，或用高位的序号表示，在每次更新时递增。从0到SEQ的初始更新用于确保竞技场阵列仅构建一次。</td>
 </tr>
 <tr>
 <td align="center"><strong>U: sun.misc.Unsafe</strong></td>
@@ -291,7 +291,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Exchange function when arenas enabled. See above for explanation.</td>
+<td align="left">启用竞技场时的交换功能。请参见上面的解释。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -303,7 +303,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Exchange function used until arenas enabled. See above for explanation.</td>
+<td align="left">交换功能在启用竞技场之前一直使用。请参见上面的解释。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -315,7 +315,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new Exchanger.</td>
+<td align="left">创建一个新的交换机。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -327,7 +327,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits for another thread to arrive at this exchange point (unless the current thread is ‘Thread#interrupt interrupted’), and then transfers the given object to it, receiving its object in return.  <p>If another thread is already waiting at the exchange point then it is resumed for thread scheduling purposes and receives the object passed in by the current thread.  The current thread returns immediately, receiving the object passed to the exchange by that other thread.  <p>If no other thread is already waiting at the exchange then the current thread is disabled for thread scheduling purposes and lies dormant until one of two things happens: <ul> <li>Some other thread enters the exchange; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread. </ul> <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting for the exchange, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.</td>
+<td align="left">等待另一个线程到达该交换点（除非当前线程是“线程中断”），然后将给定对象传输给它，并接收其对象作为回报<p> 如果另一个线程已经在交换点等待，那么为了线程调度的目的，它将被恢复，并接收当前线程传入的对象。当前线程立即返回，接收另一个线程传递给exchange的对象<p> 如果没有其他线程已在交换机上等待，则出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下两种情况之一：<ul><li>其他线程进入交换机；或＜li＞某个其他线程的“线程中断”中断当前线程</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待交换时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -339,7 +339,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits for another thread to arrive at this exchange point (unless the current thread is ‘Thread#interrupt interrupted’ or the specified waiting time elapses), and then transfers the given object to it, receiving its object in return.  <p>If another thread is already waiting at the exchange point then it is resumed for thread scheduling purposes and receives the object passed in by the current thread.  The current thread returns immediately, receiving the object passed to the exchange by that other thread.  <p>If no other thread is already waiting at the exchange then the current thread is disabled for thread scheduling purposes and lies dormant until one of three things happens: <ul> <li>Some other thread enters the exchange; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>The specified waiting time elapses. </ul> <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting for the exchange, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the specified waiting time elapses then ‘TimeoutException’ is thrown.  If the time is less than or equal to zero, the method will not wait at all.</td>
+<td align="left">等待另一个线程到达该交换点（除非当前线程是“线程中断中断”或经过指定的等待时间），然后将给定对象传输给它，并接收其对象作为回报<p> 如果另一个线程已经在交换点等待，那么为了线程调度的目的，它将被恢复，并接收当前线程传入的对象。当前线程立即返回，接收另一个线程传递给exchange的对象<p> 如果没有其他线程已在交换机上等待，则出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下三种情况之一：<ul><li>其他线程进入交换机；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞经过指定的等待时间</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待交换时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态<p> 如果指定的等待时间已过，则抛出“TimeoutException”。如果时间小于或等于零，则该方法将根本不等待。</td>
 <td align="left">InterruptedException<br/>TimeoutException</td>
 </tr>
 </tbody></table>

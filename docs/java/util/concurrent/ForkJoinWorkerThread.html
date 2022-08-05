@@ -77,7 +77,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">ForkJoinWorkerThreads are managed by ForkJoinPools and perform ForkJoinTasks. For explanation, see the internal documentation of class ForkJoinPool.  This class just maintains links to its pool and WorkQueue.  The pool field is set immediately upon construction, but the workQueue field is not set until a call to registerWorker completes. This leads to a visibility race, that is tolerated by requiring that the workQueue field is only accessed by the owning thread.  Support for (non-public) subclass InnocuousForkJoinWorkerThread requires that we break quite a lot of encapsulation (via Unsafe) both here and in the subclass to access and set Thread fields.</td>
+<td align="left">ForkJoinWorkerThreads由ForkJoin池管理并执行ForkJointTasks。有关说明，请参阅类ForkJoinPool的内部文档。此类仅维护到其池和工作队列的链接。池字段在构造时立即设置，但在对registerWorker的调用完成之前，不会设置workQueue字段。这导致了可见性竞争，要求工作队列字段仅由拥有线程访问，这是可以容忍的。对（非公共）子类InnocuousForkJoinWorkerThread的支持要求我们在这里和子类中破坏大量封装（通过不安全），以访问和设置线程字段。</td>
 </tr>
 <tr>
 <td align="center"><strong>workQueue: ForkJoinPool.WorkQueue</strong></td>
@@ -159,7 +159,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ForkJoinWorkerThread operating in the given pool.</td>
+<td align="left">创建在给定池中操作的ForkJoinWorkerThread。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -171,7 +171,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Version for InnocuousForkJoinWorkerThread</td>
+<td align="left">无害ForkJoinWorkerThread的版本</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -183,7 +183,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the pool hosting this thread.</td>
+<td align="left">返回承载此线程的池。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -195,7 +195,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the unique index number of this thread in its pool. The returned value ranges from zero to the maximum number of threads (minus one) that may exist in the pool, and does not change during the lifetime of the thread.  This method may be useful for applications that track status or collect results per-worker-thread rather than per-task.</td>
+<td align="left">返回此线程在其池中的唯一索引号。返回值的范围从零到池中可能存在的最大线程数（减1），并且在线程的生命周期内不会改变。此方法对于跟踪每个工作线程（而不是每个任务）的状态或收集结果的应用程序可能很有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -207,7 +207,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Initializes internal state after construction but before processing any tasks. If you override this method, you must invoke ‘super.onStart()’ at the beginning of the method. Initialization requires care: Most fields must have legal default values, to ensure that attempted accesses from other threads work correctly even before this thread starts processing tasks.</td>
+<td align="left">在构造之后但在处理任何任务之前初始化内部状态。如果重写此方法，则必须调用“super”。onStart（）’位于方法的开头。初始化需要小心：大多数字段必须具有合法的默认值，以确保即使在此线程开始处理任务之前，从其他线程尝试的访问也能正常工作。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -219,7 +219,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs cleanup associated with termination of this worker thread.  If you override this method, you must invoke ‘super.onTermination’ at the end of the overridden method.</td>
+<td align="left">执行与此工作线程的终止相关联的清理。如果重写此方法，则必须调用“super”。onTermination’位于重写方法的末尾。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -231,7 +231,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">This method is required to be public, but should never be called explicitly. It performs the main run loop to execute ‘ForkJoinTask’s.</td>
+<td align="left">此方法必须是公共的，但决不能显式调用。它执行主运行循环以执行“ForkJoinTask”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -243,7 +243,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Erases ThreadLocals by nulling out Thread maps.</td>
+<td align="left">通过清空线程映射来擦除线程局部变量。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -255,7 +255,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Non-public hook method for InnocuousForkJoinWorkerThread</td>
+<td align="left">无害ForkJoinWorkerThread的非公共钩子方法</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

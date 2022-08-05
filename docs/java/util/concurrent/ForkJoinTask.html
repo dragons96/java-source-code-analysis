@@ -79,7 +79,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The run status of this task</td>
+<td align="left">此任务的运行状态</td>
 </tr>
 <tr>
 <td align="center"><strong>DONE_MASK: int</strong></td>
@@ -156,7 +156,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Table of exceptions thrown by tasks, to enable reporting by callers. Because exceptions are rare, we don’t directly keep them with task objects, but instead use a weak ref table.  Note that cancellation exceptions don’t appear in the table, but are instead recorded as status values.  Note: These statics are initialized below in static block.</td>
+<td align="left">任务引发的异常表，以支持调用方的报告。由于异常非常罕见，我们不直接将它们保存在任务对象中，而是使用弱引用表。请注意，取消异常不会出现在表中，而是记录为状态值。注意：这些静态在下面的静态块中初始化。</td>
 </tr>
 <tr>
 <td align="center"><strong>exceptionTableLock: ReentrantLock</strong></td>
@@ -189,7 +189,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Fixed capacity for exceptionTable.</td>
+<td align="left">例外情况的固定容量。</td>
 </tr>
 <tr>
 <td align="center"><strong>serialVersionUID: long</strong></td>
@@ -249,7 +249,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Marks completion and wakes up threads waiting to join this task.</td>
+<td align="left">标记完成并唤醒等待加入此任务的线程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -261,7 +261,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Primary execution method for stolen tasks. Unless done, calls exec and records status if completed, but doesn’t wait for completion otherwise.</td>
+<td align="left">被盗任务的主要执行方法。除非完成，否则调用exec并在完成时记录状态，否则不等待完成。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -273,7 +273,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If not done, sets SIGNAL status and performs Object.wait(timeout). This task may or may not be done on exit. Ignores interrupts.</td>
+<td align="left">如果未完成，则设置信号状态并执行Object.wait（超时）。此任务可能在退出时完成，也可能不完成。忽略中断。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -285,7 +285,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Blocks a non-worker-thread until completion.</td>
+<td align="left">阻止非工作线程，直到完成。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -297,7 +297,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Blocks a non-worker-thread until completion or interruption.</td>
+<td align="left">阻塞非工作线程，直到完成或中断。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -309,7 +309,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implementation for join, get, quietlyJoin. Directly handles only cases of already-completed, external wait, and unfork+exec.  Others are relayed to ForkJoinPool.awaitJoin.</td>
+<td align="left">join、get和quietlyJoin的实现。仅直接处理已完成、外部等待和unfork+exec的情况。其他则中继到ForkJoinPool.awaitJoin。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -321,7 +321,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implementation for invoke, quietlyInvoke.</td>
+<td align="left">调用的实现，quietlynvoke。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -333,7 +333,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Records exception and sets status.</td>
+<td align="left">记录异常并设置状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -345,7 +345,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Records exception and possibly propagates.</td>
+<td align="left">记录异常并可能传播。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -357,7 +357,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Hook for exception propagation support for tasks with completers.</td>
+<td align="left">钩子，用于支持带有补足符的任务的异常传播。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Cancels, ignoring any exceptions thrown by cancel. Used during worker and pool shutdown. Cancel is spec’ed not to throw any exceptions, but if it does anyway, we have no recourse during shutdown, so guard against this case.</td>
+<td align="left">取消，忽略取消引发的任何异常。在工作线程和池关闭期间使用。Cancel被指定为不抛出任何异常，但如果它确实抛出异常，我们在关机期间没有追索权，所以要防止这种情况。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -381,7 +381,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes exception node and clears status.</td>
+<td align="left">删除异常节点并清除状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -393,7 +393,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a rethrowable exception for the given task, if available. To provide accurate stack traces, if the exception was not thrown by the current thread, we try to create a new exception of the same type as the one thrown, but with the recorded exception as its cause. If there is no such constructor, we instead try to use a no-arg constructor, followed by initCause, to the same effect. If none of these apply, or any fail due to other exceptions, we return the recorded exception, which is still correct, although it may contain a misleading stack trace.</td>
+<td align="left">返回给定任务的可重试异常（如果可用）。为了提供准确的堆栈跟踪，如果异常不是由当前线程引发的，我们尝试创建与引发的异常类型相同的新异常，但将记录的异常作为其原因。如果没有这样的构造函数，我们将尝试使用无参数构造函数，后跟initCause，以达到相同的效果。如果这些都不适用，或者由于其他异常导致任何失败，我们将返回记录的异常，该异常仍然正确，尽管它可能包含误导性的堆栈跟踪。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -405,7 +405,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Poll stale refs and remove them. Call only while holding lock.</td>
+<td align="left">轮询陈旧的引用并删除它们。只有在持有锁时才能调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -417,7 +417,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If lock is available, poll stale refs and remove them. Called from ForkJoinPool when pools become quiescent.</td>
+<td align="left">如果锁可用，则轮询过时的引用并将其删除。当池处于静止状态时，从ForkJoinPool调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -429,7 +429,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">A version of “sneaky throw” to relay exceptions</td>
+<td align="left">中继异常的“偷偷抛出”版本</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -441,7 +441,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The sneaky part of sneaky throw, relying on generics limitations to evade compiler complaints about rethrowing unchecked exceptions</td>
+<td align="left">鬼鬼祟祟抛出的鬼祟部分，依靠泛型限制来避免编译器抱怨重新抛出未经检查的异常</td>
 <td align="left">T</td>
 </tr>
 <tr>
@@ -453,7 +453,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Throws exception, if any, associated with the given status.</td>
+<td align="left">引发与给定状态关联的异常（如果有）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -465,7 +465,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Arranges to asynchronously execute this task in the pool the current task is running in, if applicable, or using the ‘ForkJoinPool#commonPool()’ if not ‘#inForkJoinPool’.  While it is not necessarily enforced, it is a usage error to fork a task more than once unless it has completed and been reinitialized.  Subsequent modifications to the state of this task or any data it operates on are not necessarily consistently observable by any thread other than the one executing it unless preceded by a call to ‘#join’ or related methods, or a call to ‘#isDone’ returning ‘true’.</td>
+<td align="left">安排在当前任务运行的池中异步执行此任务（如果适用），或者使用“ForkJoinPool#commonPool（）”或“如果不是”#InforkJoinPooll”。虽然不一定强制执行，但如果任务未完成并重新初始化，则多次分叉任务是一种使用错误。除执行该任务的线程外，对该任务状态或其操作的任何数据的后续修改不一定能够被任何线程一致地观察到，除非之前调用了“#join”或相关方法，或者调用了返回“true”的“isDone”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -477,7 +477,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the result of the computation when it ‘#isDone is done’.  This method differs from ‘#get()’ in that abnormal completion results in ‘RuntimeException’ or ‘Error’, not ‘ExecutionException’, and that interrupts of the calling thread do <em>not</em> cause the method to abruptly return by throwing ‘InterruptedException’.</td>
+<td align="left">在“#isDone完成”时返回计算结果。此方法与“#get（）”的不同之处在于，异常完成会导致“RuntimeException”或“Error”，而不是“ExecutionException”，并且调用线程的中断不会导致方法通过抛出“InterruptedException”（中断异常）而突然返回。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -489,7 +489,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Commences performing this task, awaits its completion if necessary, and returns its result, or throws an (unchecked) ‘RuntimeException’ or ‘Error’ if the underlying computation did so.</td>
+<td align="left">开始执行此任务，如有必要，等待其完成，并返回其结果，如果基础计算执行，则抛出（未经检查的）“RuntimeException”或“Error”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -501,7 +501,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Forks the given tasks, returning when ‘isDone’ holds for each task or an (unchecked) exception is encountered, in which case the exception is rethrown. If more than one task encounters an exception, then this method throws any one of these exceptions. If any task encounters an exception, the other may be cancelled. However, the execution status of individual tasks is not guaranteed upon exceptional return. The status of each task may be obtained using ‘#getException()’ and related methods to check if they have been cancelled, completed normally or exceptionally, or left unprocessed.</td>
+<td align="left">分叉给定的任务，当每个任务的“isDone”保持不变或遇到（未检查的）异常时返回，在这种情况下，异常被重新抛出。如果多个任务遇到异常，则此方法将抛出其中任何一个异常。如果任何任务遇到异常，则可以取消另一个任务。但是，在异常返回时，无法保证单个任务的执行状态。可以使用“#getException（）”和相关方法获取每个任务的状态，以检查它们是否已被取消、正常完成或异常完成，或未被处理。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -513,7 +513,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Forks the given tasks, returning when ‘isDone’ holds for each task or an (unchecked) exception is encountered, in which case the exception is rethrown. If more than one task encounters an exception, then this method throws any one of these exceptions. If any task encounters an exception, others may be cancelled. However, the execution status of individual tasks is not guaranteed upon exceptional return. The status of each task may be obtained using ‘#getException()’ and related methods to check if they have been cancelled, completed normally or exceptionally, or left unprocessed.</td>
+<td align="left">分叉给定的任务，当每个任务的“isDone”保持不变或遇到（未检查的）异常时返回，在这种情况下，异常被重新抛出。如果多个任务遇到异常，则此方法将抛出其中任何一个异常。如果任何任务遇到异常，其他任务可能会被取消。但是，在异常返回时，无法保证单个任务的执行状态。可以使用“#getException（）”和相关方法获取每个任务的状态，以检查它们是否已被取消、正常完成或异常完成，或未被处理。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -525,7 +525,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Forks all tasks in the specified collection, returning when ‘isDone’ holds for each task or an (unchecked) exception is encountered, in which case the exception is rethrown. If more than one task encounters an exception, then this method throws any one of these exceptions. If any task encounters an exception, others may be cancelled. However, the execution status of individual tasks is not guaranteed upon exceptional return. The status of each task may be obtained using ‘#getException()’ and related methods to check if they have been cancelled, completed normally or exceptionally, or left unprocessed.</td>
+<td align="left">分叉指定集合中的所有任务，在每个任务的’isDone’保持不变或遇到（未检查的）异常时返回，在这种情况下，异常被重试。如果多个任务遇到异常，则此方法将抛出其中任何一个异常。如果任何任务遇到异常，其他任务可能会被取消。但是，在异常返回时，无法保证单个任务的执行状态。可以使用“#getException（）”和相关方法获取每个任务的状态，以检查它们是否已被取消、正常完成或异常完成，或未被处理。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -537,7 +537,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to cancel execution of this task. This attempt will fail if the task has already completed or could not be cancelled for some other reason. If successful, and this task has not started when ‘cancel’ is called, execution of this task is suppressed. After this method returns successfully, unless there is an intervening call to ‘#reinitialize’, subsequent calls to ‘#isCancelled’, ‘#isDone’, and ‘cancel’ will return ‘true’ and calls to ‘#join’ and related methods will result in ‘CancellationException’.  <p>This method may be overridden in subclasses, but if so, must still ensure that these properties hold. In particular, the ‘cancel’ method itself must not throw exceptions.  <p>This method is designed to be invoked by <em>other</em> tasks. To terminate the current task, you can just return or throw an unchecked exception from its computation method, or invoke ‘#completeExceptionally(Throwable)’.</td>
+<td align="left">尝试取消此任务的执行。如果任务已完成或由于其他原因无法取消，则此尝试将失败。如果成功，并且调用“取消”时此任务尚未启动，则此任务的执行将被抑制。此方法成功返回后，除非有对“#reinitialize”的中间调用，否则对“”isCancelled”、“isDone”和“cancel”的后续调用将返回“true”，对“Şjoin”和相关方法的调用将导致“CancelationException”<p> 此方法可以在子类中重写，但如果是这样，则必须确保这些属性仍然有效。特别是，“cancel”方法本身不能引发异常<p> 此方法设计用于<em>其他</em>任务调用。要终止当前任务，您可以从其计算方法返回或抛出未经检查的异常，或调用“#CompleteExceptionly（Throwable）”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -573,7 +573,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this task threw an exception or was cancelled.</td>
+<td align="left">如果此任务引发异常或被取消，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -585,7 +585,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this task completed without throwing an exception and was not cancelled.</td>
+<td align="left">如果此任务未引发异常且未取消，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -597,7 +597,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the exception thrown by the base computation, or a ‘CancellationException’ if cancelled, or ‘null’ if none or if the method has not yet completed.</td>
+<td align="left">返回由基计算引发的异常，如果已取消，则返回“CancellationException”，如果没有异常，或如果方法尚未完成，返回“null”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -609,7 +609,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Completes this task abnormally, and if not already aborted or cancelled, causes it to throw the given exception upon ‘join’ and related operations. This method may be used to induce exceptions in asynchronous tasks, or to force completion of tasks that would not otherwise complete.  Its use in other situations is discouraged.  This method is overridable, but overridden versions must invoke ‘super’ implementation to maintain guarantees.</td>
+<td align="left">异常完成此任务，如果尚未中止或取消，则会导致该任务在“加入”和相关操作时引发给定异常。此方法可用于在异步任务中引发异常，或强制完成否则无法完成的任务。不鼓励在其他情况下使用。此方法是可重写的，但被重写的版本必须调用“超级”实现来维护保证。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -621,7 +621,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Completes this task, and if not already aborted or cancelled, returning the given value as the result of subsequent invocations of ‘join’ and related operations. This method may be used to provide results for asynchronous tasks, or to provide alternative handling for tasks that would not otherwise complete normally. Its use in other situations is discouraged. This method is overridable, but overridden versions must invoke ‘super’ implementation to maintain guarantees.</td>
+<td align="left">完成此任务，如果尚未中止或取消，则返回给定值作为后续调用“join”和相关操作的结果。此方法可用于为异步任务提供结果，或为无法正常完成的任务提供替代处理。不鼓励在其他情况下使用。此方法是可重写的，但被重写的版本必须调用“超级”实现来维护保证。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -633,7 +633,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Completes this task normally without setting a value. The most recent value established by ‘#setRawResult’ (or ‘null’ by default) will be returned as the result of subsequent invocations of ‘join’ and related operations.</td>
+<td align="left">正常完成此任务，无需设置值。由“#setRawResult”（默认情况下为“null”）建立的最新值将作为后续调用“join”和相关操作的结果返回。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -645,8 +645,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits if necessary for the computation to complete, and then retrieves its result.</td>
-<td align="left">CancellationException<br/>InterruptedException<br/>ExecutionException</td>
+<td align="left">如果需要，等待计算完成，然后检索其结果。</td>
+<td align="left">InterruptedException<br/>ExecutionException<br/>CancellationException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(long timeout, TimeUnit unit): V</strong></td>
@@ -657,8 +657,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits if necessary for at most the given time for the computation to complete, and then retrieves its result, if available.</td>
-<td align="left">CancellationException<br/>InterruptedException<br/>TimeoutException<br/>ExecutionException</td>
+<td align="left">如果需要，最多等待给定时间以完成计算，然后检索其结果（如果可用）。</td>
+<td align="left">InterruptedException<br/>TimeoutException<br/>ExecutionException<br/>CancellationException</td>
 </tr>
 <tr>
 <td align="center"><strong>quietlyJoin(): void</strong></td>
@@ -669,7 +669,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Joins this task, without returning its result or throwing its exception. This method may be useful when processing collections of tasks when some have been cancelled or otherwise known to have aborted.</td>
+<td align="left">加入此任务，而不返回其结果或引发其异常。当任务集合被取消或已知已中止时，此方法在处理任务集合时可能很有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -681,7 +681,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Commences performing this task and awaits its completion if necessary, without returning its result or throwing its exception.</td>
+<td align="left">开始执行此任务，并在必要时等待其完成，而不返回其结果或引发其异常。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -693,7 +693,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Possibly executes tasks until the pool hosting the current task ‘ForkJoinPool#isQuiescent is quiescent’. This method may be of use in designs in which many tasks are forked, but none are explicitly joined, instead executing them until all are processed.</td>
+<td align="left">可能会执行任务，直到承载当前任务“ForkJoinPool#Isquisite”的池处于静止状态。这种方法可能适用于许多任务被分叉，但没有显式连接的设计，而是在所有任务都被处理之前执行它们。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -705,7 +705,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Resets the internal bookkeeping state of this task, allowing a subsequent ‘fork’. This method allows repeated reuse of this task, but only if reuse occurs when this task has either never been forked, or has been forked, then completed and all outstanding joins of this task have also completed. Effects under any other usage conditions are not guaranteed. This method may be useful when executing pre-constructed trees of subtasks in loops.  <p>Upon completion of this method, ‘isDone()’ reports ‘false’, and ‘getException()’ reports ‘null’. However, the value returned by ‘getRawResult’ is unaffected. To clear this value, you can invoke ‘setRawResult(null)’.</td>
+<td align="left">重置此任务的内部记账状态，允许后续“分叉”。此方法允许重复重用此任务，但仅当此任务从未分叉或分叉，然后完成且此任务的所有未完成连接也已完成时，才允许重用。不保证在任何其他使用条件下的效果。当在循环中执行预构造的子任务树时，此方法可能很有用<p> 完成此方法后，’isDone（）’报告’false’，’getException（）’报告’null’。但是，“getRawResult”返回的值不受影响。要清除此值，可以调用“setRawResult（null）”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -717,7 +717,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the pool hosting the current task execution, or null if this task is executing outside of any ForkJoinPool.</td>
+<td align="left">返回承载当前任务执行的池，如果此任务在任何ForkJoinPool之外执行，则返回null。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -729,7 +729,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if the current thread is a ‘ForkJoinWorkerThread’ executing as a ForkJoinPool computation.</td>
+<td align="left">如果当前线程是作为ForkJoinPool计算执行的“ForkJoinWorkerThread”，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -741,7 +741,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to unschedule this task for execution. This method will typically (but is not guaranteed to) succeed if this task is the most recently forked task by the current thread, and has not commenced executing in another thread.  This method may be useful when arranging alternative local processing of tasks that could have been, but were not, stolen.</td>
+<td align="left">尝试取消此任务的执行计划。如果此任务是当前线程最近分叉的任务，并且尚未开始在另一个线程中执行，则此方法通常（但不保证）会成功。当安排可能被盗但未被盗的任务的替代本地处理时，此方法可能很有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -753,7 +753,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of tasks that have been forked by the current worker thread but not yet executed. This value may be useful for heuristic decisions about whether to fork other tasks.</td>
+<td align="left">返回当前工作线程已分叉但尚未执行的任务数的估计值。该值对于是否分叉其他任务的启发式决策可能很有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -765,7 +765,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of how many more locally queued tasks are held by the current worker thread than there are other worker threads that might steal them, or zero if this thread is not operating in a ForkJoinPool. This value may be useful for heuristic decisions about whether to fork other tasks. In many usages of ForkJoinTasks, at steady state, each worker should aim to maintain a small constant surplus (for example, 3) of tasks, and to process computations locally if this threshold is exceeded.</td>
+<td align="left">返回当前工作线程持有的本地排队任务数比可能窃取它们的其他工作线程多的估计数，如果该线程未在ForkJoinPool中操作，则返回零。该值对于是否分叉其他任务的启发式决策可能很有用。在ForkJoinTasks的许多用途中，在稳定状态下，每个工作人员都应致力于保持任务的少量恒定盈余（例如，3），并在超过此阈值时在本地处理计算。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -777,7 +777,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Returns the result that would be returned by ‘#join’, even if this task completed abnormally, or ‘null’ if this task is not known to have been completed.  This method is designed to aid debugging, as well as to support extensions. Its use in any other context is discouraged.</td>
+<td align="left">返回“#join”将返回的结果，即使此任务异常完成，或者如果未知此任务已完成，返回“null”。此方法旨在帮助调试，并支持扩展。不鼓励在任何其他情况下使用它。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -789,7 +789,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Forces the given value to be returned as a result.  This method is designed to support extensions, and should not in general be called otherwise.</td>
+<td align="left">强制返回给定值作为结果。此方法旨在支持扩展，通常不应以其他方式调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -801,7 +801,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Immediately performs the base action of this task and returns true if, upon return from this method, this task is guaranteed to have completed normally. This method may return false otherwise, to indicate that this task is not necessarily complete (or is not known to be complete), for example in asynchronous actions that require explicit invocations of completion methods. This method may also throw an (unchecked) exception to indicate abnormal exit. This method is designed to support extensions, and should not in general be called otherwise.</td>
+<td align="left">立即执行该任务的基本操作，如果从该方法返回时，该任务保证已正常完成，则返回true。此方法可能返回false，否则表示此任务不一定完成（或不知道是否完成），例如在需要显式调用完成方法的异步操作中。此方法还可能引发（未检查的）异常以指示异常退出。此方法旨在支持扩展，通常不应以其他方式调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -813,7 +813,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns, but does not unschedule or execute, a task queued by the current thread but not yet executed, if one is immediately available. There is no guarantee that this task will actually be polled or executed next. Conversely, this method may return null even if a task exists but cannot be accessed without contention with other threads.  This method is designed primarily to support extensions, and is unlikely to be useful otherwise.</td>
+<td align="left">返回由当前线程排队但尚未执行的任务（如果该任务立即可用），但不取消该任务的调度或执行。无法保证下一步实际轮询或执行此任务。相反，即使任务存在，该方法也可能返回null，但如果没有与其他线程的争用，则无法访问该方法。此方法主要用于支持扩展，否则不太可能有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -825,7 +825,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unschedules and returns, without executing, the next task queued by the current thread but not yet executed, if the current thread is operating in a ForkJoinPool.  This method is designed primarily to support extensions, and is unlikely to be useful otherwise.</td>
+<td align="left">如果当前线程正在ForkJoinPool中操作，则取消调度并返回当前线程排队但尚未执行的下一个任务，而不执行该任务。此方法主要用于支持扩展，否则不太可能有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -837,7 +837,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If the current thread is operating in a ForkJoinPool, unschedules and returns, without executing, the next task queued by the current thread but not yet executed, if one is available, or if not available, a task that was forked by some other thread, if available. Availability may be transient, so a ‘null’ result does not necessarily imply quiescence of the pool this task is operating in.  This method is designed primarily to support extensions, and is unlikely to be useful otherwise.</td>
+<td align="left">如果当前线程正在ForkJoinPool中操作，则取消调度并返回当前线程排队但尚未执行的下一个任务（如果一个任务可用），或者如果不可用，返回由其他线程分叉的任务（如果可用）。可用性可能是暂时的，所以“空”结果不一定意味着此任务运行的池处于静止状态。此方法主要用于支持扩展，否则不太可能有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -849,7 +849,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the tag for this task.</td>
+<td align="left">返回此任务的标记。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -861,7 +861,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Atomically sets the tag value for this task.</td>
+<td align="left">自动设置此任务的标记值。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -873,7 +873,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Atomically conditionally sets the tag value for this task. Among other applications, tags can be used as visit markers in tasks operating on graphs, as in methods that check: ‘if (task.compareAndSetForkJoinTaskTag((short)0, (short)1))’ before processing, otherwise exiting because the node has already been visited.</td>
+<td align="left">原子地、有条件地设置此任务的标记值。在其他应用程序中，标记可以用作在图形上操作的任务中的访问标记，如在处理之前检查“if（task.compareAndSetForkJoinTaskTag（（短）0，（短）1））”的方法，否则将退出，因为节点已被访问。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -885,7 +885,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a new ‘ForkJoinTask’ that performs the ‘run’ method of the given ‘Runnable’ as its action, and returns a null result upon ‘#join’.</td>
+<td align="left">返回一个新的“ForkJoinTask”，该任务执行给定“Runnable”的“run”方法作为其操作，并在“#join”时返回空结果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -897,7 +897,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a new ‘ForkJoinTask’ that performs the ‘run’ method of the given ‘Runnable’ as its action, and returns the given result upon ‘#join’.</td>
+<td align="left">返回一个新的“ForkJoinTask”，该任务执行给定“Runnable”的“run”方法作为其操作，并在“#join”时返回给定结果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -909,7 +909,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a new ‘ForkJoinTask’ that performs the ‘call’ method of the given ‘Callable’ as its action, and returns its result upon ‘#join’, translating any checked exceptions encountered into ‘RuntimeException’.</td>
+<td align="left">返回一个新的“ForkJoinTask”，该任务执行给定“Callable”的“call”方法作为其操作，并在“#join”时返回其结果，将遇到的任何已检查异常转换为“RuntimeException”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -921,7 +921,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Saves this task to a stream (that is, serializes it).</td>
+<td align="left">将此任务保存到流（即，将其序列化）。</td>
 <td align="left">java.io.IOException</td>
 </tr>
 <tr>
@@ -933,8 +933,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Reconstitutes this task from a stream (that is, deserializes it).</td>
-<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+<td align="left">从流中重新配置此任务（即，将其反序列化）。</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
 </tr>
 </tbody></table>
 <h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><h3 id="ForkJoinTask-ExceptionNode"><a href="#ForkJoinTask-ExceptionNode" class="headerlink" title="ForkJoinTask$ExceptionNode"></a><a href="./ForkJoinTask$ExceptionNode.html">ForkJoinTask$ExceptionNode</a></h3><h3 id="ForkJoinTask-AdaptedRunnable"><a href="#ForkJoinTask-AdaptedRunnable" class="headerlink" title="ForkJoinTask$AdaptedRunnable"></a><a href="./ForkJoinTask$AdaptedRunnable.html">ForkJoinTask$AdaptedRunnable</a></h3><h3 id="ForkJoinTask-AdaptedRunnableAction"><a href="#ForkJoinTask-AdaptedRunnableAction" class="headerlink" title="ForkJoinTask$AdaptedRunnableAction"></a><a href="./ForkJoinTask$AdaptedRunnableAction.html">ForkJoinTask$AdaptedRunnableAction</a></h3><h3 id="ForkJoinTask-RunnableExecuteAction"><a href="#ForkJoinTask-RunnableExecuteAction" class="headerlink" title="ForkJoinTask$RunnableExecuteAction"></a><a href="./ForkJoinTask$RunnableExecuteAction.html">ForkJoinTask$RunnableExecuteAction</a></h3><h3 id="ForkJoinTask-AdaptedCallable"><a href="#ForkJoinTask-AdaptedCallable" class="headerlink" title="ForkJoinTask$AdaptedCallable"></a><a href="./ForkJoinTask$AdaptedCallable.html">ForkJoinTask$AdaptedCallable</a></h3>

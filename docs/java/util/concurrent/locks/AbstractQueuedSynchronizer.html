@@ -90,7 +90,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Head of the wait queue, lazily initialized.  Except for initialization, it is modified only via method setHead.  Note: If head exists, its waitStatus is guaranteed not to be CANCELLED.</td>
+<td align="left">等待队列的头，延迟初始化。除初始化外，它仅通过方法setHead进行修改。注意：如果head存在，则保证不会取消其waitStatus。</td>
 </tr>
 <tr>
 <td align="center"><strong>tail: Node</strong></td>
@@ -101,7 +101,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Tail of the wait queue, lazily initialized.  Modified only via method enq to add new wait node.</td>
+<td align="left">等待队列的尾部，延迟初始化。仅通过方法enq修改以添加新的等待节点。</td>
 </tr>
 <tr>
 <td align="center"><strong>state: int</strong></td>
@@ -112,7 +112,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The synchronization state.</td>
+<td align="left">同步状态。</td>
 </tr>
 <tr>
 <td align="center"><strong>spinForTimeoutThreshold: long</strong></td>
@@ -123,7 +123,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The number of nanoseconds for which it is faster to spin rather than to use timed park. A rough estimate suffices to improve responsiveness with very short timeouts.</td>
+<td align="left">旋转比使用定时驻车更快的纳秒数。粗略估计足以在很短的超时时间内提高响应能力。</td>
 </tr>
 <tr>
 <td align="center"><strong>unsafe: Unsafe</strong></td>
@@ -134,7 +134,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Setup to support compareAndSet. We need to natively implement this here: For the sake of permitting future enhancements, we cannot explicitly subclass AtomicInteger, which would be efficient and useful otherwise. So, as the lesser of evils, we natively implement using hotspot intrinsics API. And while we are at it, we do the same for other CASable fields (which could otherwise be done with atomic field updaters).</td>
+<td align="left">设置为支持compareAndSet。我们需要在这里原生地实现这一点：为了允许将来的增强，我们不能显式地将AtomicInteger子类化，否则这将是高效和有用的。因此，作为较小的缺点，我们本机使用hotspot intrinsics API实现。当我们这样做的时候，我们对其他CASable字段也做了同样的事情（这可以通过原子字段更新程序来完成）。</td>
 </tr>
 <tr>
 <td align="center"><strong>stateOffset: long</strong></td>
@@ -216,7 +216,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘AbstractQueuedSynchronizer’ instance with initial synchronization state of zero.</td>
+<td align="left">创建初始同步状态为零的新“AbstractQueuedSynchronizer”实例。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -228,7 +228,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current value of synchronization state. This operation has memory semantics of a ‘volatile’ read.</td>
+<td align="left">返回同步状态的当前值。此操作具有“易失性”读取的内存语义。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -240,7 +240,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the value of synchronization state. This operation has memory semantics of a ‘volatile’ write.</td>
+<td align="left">设置同步状态的值。此操作具有“易失性”写入的内存语义。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -252,7 +252,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Atomically sets synchronization state to the given updated value if the current state value equals the expected value. This operation has memory semantics of a ‘volatile’ read and write.</td>
+<td align="left">如果当前状态值等于预期值，则自动将同步状态设置为给定的更新值。此操作具有“易失性”读写的内存语义。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -264,7 +264,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts node into queue, initializing if necessary. See picture above.</td>
+<td align="left">将节点插入队列，必要时进行初始化。见上图。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -276,7 +276,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates and enqueues node for current thread and given mode.</td>
+<td align="left">为当前线程和给定模式创建节点并将其排队。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -288,7 +288,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets head of queue to be node, thus dequeuing. Called only by acquire methods.  Also nulls out unused fields for sake of GC and to suppress unnecessary signals and traversals.</td>
+<td align="left">将队列头设置为节点，从而退出队列。仅由获取方法调用。为了GC和抑制不必要的信号和遍历，还将未使用的字段置零。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -300,7 +300,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Wakes up node’s successor, if one exists.</td>
+<td align="left">唤醒节点的后继节点（如果存在）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -312,7 +312,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Release action for shared mode – signals successor and ensures propagation. (Note: For exclusive mode, release just amounts to calling unparkSuccessor of head if it needs signal.)</td>
+<td align="left">共享模式的释放动作——发出后续信号并确保传播。（注意：对于独占模式，如果需要信号，release相当于调用head的unparkSuccessor。）</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -324,7 +324,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets head of queue, and checks if successor may be waiting in shared mode, if so propagating if either propagate &gt; 0 or PROPAGATE status was set.</td>
+<td align="left">设置队列头，并检查后续队列是否可以在共享模式下等待，如果是，则在设置了“传播&gt;0”或“传播状态”时进行传播。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -336,7 +336,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Cancels an ongoing attempt to acquire.</td>
+<td align="left">取消正在进行的获取的尝试。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -348,7 +348,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Checks and updates status for a node that failed to acquire. Returns true if thread should block. This is the main signal control in all acquire loops.  Requires that pred &#x3D;&#x3D; node.prev.</td>
+<td align="left">检查并更新未能获取的节点的状态。如果线程应该阻塞，则返回true。这是所有采集回路中的主要信号控制。要求pred&#x3D;&#x3D;node.prev。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -360,7 +360,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Convenience method to interrupt current thread.</td>
+<td align="left">中断当前线程的简便方法。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -372,7 +372,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Convenience method to park and then check if interrupted</td>
+<td align="left">方便的停车方法，然后检查是否中断</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -384,7 +384,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in exclusive uninterruptible mode for thread already in queue. Used by condition wait methods as well as acquire.</td>
+<td align="left">以独占不间断模式获取队列中已存在的线程。用于条件等待方法以及获取。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -396,7 +396,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in exclusive interruptible mode.</td>
+<td align="left">以独占可中断模式获取。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -408,7 +408,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in exclusive timed mode.</td>
+<td align="left">以独占定时模式获取。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -420,7 +420,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in shared uninterruptible mode.</td>
+<td align="left">以共享不间断模式获取。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -432,7 +432,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in shared interruptible mode.</td>
+<td align="left">以共享可中断模式获取。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -444,7 +444,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in shared timed mode.</td>
+<td align="left">以共享定时模式获取。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -456,8 +456,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to acquire in exclusive mode. This method should query if the state of the object permits it to be acquired in the exclusive mode, and if so to acquire it.  <p>This method is always invoked by the thread performing acquire.  If this method reports failure, the acquire method may queue the thread, if it is not already queued, until it is signalled by a release from some other thread. This can be used to implement method ‘Lock#tryLock()’.  <p>The default implementation throws ‘UnsupportedOperationException’.</td>
-<td align="left">IllegalMonitorStateException<br/>UnsupportedOperationException</td>
+<td align="left">尝试以独占模式获取。此方法应查询对象的状态是否允许以独占模式获取对象，如果允许，则应获取对象<p> 此方法始终由执行获取的线程调用。如果此方法报告失败，则如果线程尚未排队，则acquire方法可以将其排队，直到其他线程发出释放信号。这可用于实现方法“Lock#tryLock（）”<p> 默认实现抛出“UnsupportedOperationException”。</td>
+<td align="left">UnsupportedOperationException<br/>IllegalMonitorStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>tryRelease(int arg): boolean</strong></td>
@@ -468,8 +468,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to set the state to reflect a release in exclusive mode.  <p>This method is always invoked by the thread performing release.  <p>The default implementation throws ‘UnsupportedOperationException’.</td>
-<td align="left">IllegalMonitorStateException<br/>UnsupportedOperationException</td>
+<td align="left">尝试将状态设置为以独占模式反映发布<p> 此方法始终由执行发布的线程调用<p> 默认实现抛出“UnsupportedOperationException”。</td>
+<td align="left">UnsupportedOperationException<br/>IllegalMonitorStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>tryAcquireShared(int arg): int</strong></td>
@@ -480,8 +480,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to acquire in shared mode. This method should query if the state of the object permits it to be acquired in the shared mode, and if so to acquire it.  <p>This method is always invoked by the thread performing acquire.  If this method reports failure, the acquire method may queue the thread, if it is not already queued, until it is signalled by a release from some other thread.  <p>The default implementation throws ‘UnsupportedOperationException’.</td>
-<td align="left">IllegalMonitorStateException<br/>UnsupportedOperationException</td>
+<td align="left">尝试以共享模式获取。此方法应查询对象的状态是否允许在共享模式下获取对象，如果允许，则应获取对象<p> 此方法始终由执行获取的线程调用。如果此方法报告失败，则如果线程尚未排队，则acquire方法可以将其排队，直到其他线程发出释放信号<p> 默认实现抛出“UnsupportedOperationException”。</td>
+<td align="left">UnsupportedOperationException<br/>IllegalMonitorStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>tryReleaseShared(int arg): boolean</strong></td>
@@ -492,8 +492,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to set the state to reflect a release in shared mode.  <p>This method is always invoked by the thread performing release.  <p>The default implementation throws ‘UnsupportedOperationException’.</td>
-<td align="left">IllegalMonitorStateException<br/>UnsupportedOperationException</td>
+<td align="left">尝试设置状态以反映共享模式下的版本<p> 此方法始终由执行发布的线程调用<p> 默认实现抛出“UnsupportedOperationException”。</td>
+<td align="left">UnsupportedOperationException<br/>IllegalMonitorStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>isHeldExclusively(): boolean</strong></td>
@@ -504,7 +504,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if synchronization is held exclusively with respect to the current (calling) thread.  This method is invoked upon each call to a non-waiting ‘ConditionObject’ method. (Waiting methods instead invoke ‘#release’.)  <p>The default implementation throws ‘UnsupportedOperationException’. This method is invoked internally only within ‘ConditionObject’ methods, so need not be defined if conditions are not used.</td>
+<td align="left">如果仅针对当前（调用）线程保持同步，则返回“true”。每次调用非等待的“ConditionObject”方法时都会调用此方法。（等待方法调用“#release”。）<p>默认实现抛出“UnsupportedOperationException”。此方法仅在“ConditionObject”方法内部调用，因此如果不使用条件，则无需定义。</td>
 <td align="left">UnsupportedOperationException</td>
 </tr>
 <tr>
@@ -516,7 +516,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in exclusive mode, ignoring interrupts.  Implemented by invoking at least once ‘#tryAcquire’, returning on success.  Otherwise the thread is queued, possibly repeatedly blocking and unblocking, invoking ‘#tryAcquire’ until success.  This method can be used to implement method ‘Lock#lock’.</td>
+<td align="left">以独占模式获取，忽略中断。通过调用至少一次“#tryAcquire”来实现，并在成功时返回。否则，线程将排队，可能会重复阻塞和取消阻塞，调用“#tryAcquire”，直到成功。此方法可用于实现方法“Lock#Lock”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -528,7 +528,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in exclusive mode, aborting if interrupted. Implemented by first checking interrupt status, then invoking at least once ‘#tryAcquire’, returning on success.  Otherwise the thread is queued, possibly repeatedly blocking and unblocking, invoking ‘#tryAcquire’ until success or the thread is interrupted.  This method can be used to implement method ‘Lock#lockInterruptibly’.</td>
+<td align="left">以独占模式获取，如果中断则中止。通过首先检查中断状态，然后调用至少一次“#tryAcquire”，并在成功时返回来实现。否则，线程将排队，可能会重复阻塞和取消阻塞，调用“#tryAcquire”，直到成功或线程中断。此方法可用于实现方法“锁定可中断”。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -540,7 +540,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to acquire in exclusive mode, aborting if interrupted, and failing if the given timeout elapses.  Implemented by first checking interrupt status, then invoking at least once ‘#tryAcquire’, returning on success.  Otherwise, the thread is queued, possibly repeatedly blocking and unblocking, invoking ‘#tryAcquire’ until success or the thread is interrupted or the timeout elapses.  This method can be used to implement method ‘Lock#tryLock(long, TimeUnit)’.</td>
+<td align="left">尝试以独占模式获取，如果中断则中止，如果给定的超时已过则失败。通过首先检查中断状态，然后调用至少一次“#tryAcquire”，并在成功时返回来实现。否则，线程将排队，可能会重复阻塞和取消阻塞，调用“#tryAcquire”，直到成功或线程中断或超时。此方法可用于实现方法“Lock#tryLock（long，TimeUnit）”。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -552,7 +552,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Releases in exclusive mode.  Implemented by unblocking one or more threads if ‘#tryRelease’ returns true. This method can be used to implement method ‘Lock#unlock’.</td>
+<td align="left">以独占模式发布。如果“#tryRelease”返回true，则通过取消阻止一个或多个线程来实现。此方法可用于实现方法“锁定#unlock”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -564,7 +564,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in shared mode, ignoring interrupts.  Implemented by first invoking at least once ‘#tryAcquireShared’, returning on success.  Otherwise the thread is queued, possibly repeatedly blocking and unblocking, invoking ‘#tryAcquireShared’ until success.</td>
+<td align="left">以共享模式获取，忽略中断。通过首先调用至少一次“#tryAcquireShared”来实现，并在成功时返回。否则，线程将排队，可能会重复阻塞和取消阻塞，调用“#tryAcquireShared”，直到成功。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -576,7 +576,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires in shared mode, aborting if interrupted.  Implemented by first checking interrupt status, then invoking at least once ‘#tryAcquireShared’, returning on success.  Otherwise the thread is queued, possibly repeatedly blocking and unblocking, invoking ‘#tryAcquireShared’ until success or the thread is interrupted.</td>
+<td align="left">在共享模式下获取，如果中断将中止。通过首先检查中断状态，然后调用至少一次“#tryAcquireShared”，并在成功时返回来实现。否则，线程将排队，可能会重复阻塞和取消阻塞，调用“#tryAcquireShared”，直到成功或线程中断。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -588,7 +588,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to acquire in shared mode, aborting if interrupted, and failing if the given timeout elapses.  Implemented by first checking interrupt status, then invoking at least once ‘#tryAcquireShared’, returning on success.  Otherwise, the thread is queued, possibly repeatedly blocking and unblocking, invoking ‘#tryAcquireShared’ until success or the thread is interrupted or the timeout elapses.</td>
+<td align="left">尝试在共享模式下获取，如果中断则中止，如果给定的超时已过则失败。通过首先检查中断状态，然后调用至少一次“#tryAcquireShared”，并在成功时返回来实现。否则，线程将排队，可能会重复阻塞和取消阻塞，调用“#tryAcquireShared”，直到成功或线程中断或超时。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -600,7 +600,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Releases in shared mode.  Implemented by unblocking one or more threads if ‘#tryReleaseShared’ returns true.</td>
+<td align="left">以共享模式发布。如果“#tryReleaseShared”返回true，则通过取消阻止一个或多个线程来实现。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -612,7 +612,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads are waiting to acquire. Note that because cancellations due to interrupts and timeouts may occur at any time, a ‘true’ return does not guarantee that any other thread will ever acquire.  <p>In this implementation, this operation returns in constant time.</td>
+<td align="left">查询是否有线程正在等待获取。请注意，由于中断和超时导致的取消可能随时发生，“true”返回并不保证任何其他线程都会获取<p> 在此实现中，此操作以恒定时间返回。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -624,7 +624,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads have ever contended to acquire this synchronizer; that is if an acquire method has ever blocked.  <p>In this implementation, this operation returns in constant time.</td>
+<td align="left">询问是否有任何线程曾争夺获取此同步器；也就是说，如果acquire方法曾经被阻止<p> 在此实现中，此操作以恒定时间返回。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -636,7 +636,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the first (longest-waiting) thread in the queue, or ‘null’ if no threads are currently queued.  <p>In this implementation, this operation normally returns in constant time, but may iterate upon contention if other threads are concurrently modifying the queue.</td>
+<td align="left">返回队列中的第一个（等待时间最长）线程，如果当前没有线程排队，则返回“null”<p> 在此实现中，此操作通常以恒定时间返回，但如果其他线程同时修改队列，则可能会在争用时迭代。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -648,7 +648,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Version of getFirstQueuedThread called when fastpath fails</td>
+<td align="left">fastpath失败时调用的getFirstQueuedThread版本</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -660,7 +660,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if the given thread is currently queued.  <p>This implementation traverses the queue to determine presence of the given thread.</td>
+<td align="left">如果给定线程当前处于队列中，则返回true<p> 此实现遍历队列以确定给定线程的存在。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -672,7 +672,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if the apparent first queued thread, if one exists, is waiting in exclusive mode.  If this method returns ‘true’, and the current thread is attempting to acquire in shared mode (that is, this method is invoked from ‘#tryAcquireShared’) then it is guaranteed that the current thread is not the first queued thread.  Used only as a heuristic in ReentrantReadWriteLock.</td>
+<td align="left">如果明显的第一个排队线程（如果存在）正在以独占模式等待，则返回“true”。如果此方法返回“true”，并且当前线程正在尝试以共享模式获取（即，此方法从“#tryAcquireShared”调用），则可以保证当前线程不是第一个排队线程。仅在ReentrantReadWriteLock中用作启发式。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -684,7 +684,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads have been waiting to acquire longer than the current thread.  <p>An invocation of this method is equivalent to (but may be more efficient than): <pre> 'getFirstQueuedThread() != Thread.currentThread() && hasQueuedThreads()'</pre>  <p>Note that because cancellations due to interrupts and timeouts may occur at any time, a ‘true’ return does not guarantee that some other thread will acquire before the current thread.  Likewise, it is possible for another thread to win a race to enqueue after this method has returned ‘false’, due to the queue being empty.  <p>This method is designed to be used by a fair synchronizer to avoid <a href="AbstractQueuedSynchronizer#barging">barging</a>. Such a synchronizer’s ‘#tryAcquire’ method should return ‘false’, and its ‘#tryAcquireShared’ method should return a negative value, if this method returns ‘true’ (unless this is a reentrant acquire).  For example, the ‘tryAcquire’ method for a fair, reentrant, exclusive mode synchronizer might look like this:  <pre> 'protected boolean tryAcquire(int arg) { if (isHeldExclusively()) {  return true;' else if (hasQueuedPredecessors()) { return false; } else {  } }}</pre></td>
+<td align="left">查询是否有线程等待获取的时间长于当前线程<p> 此方法的调用等同于（但可能比）：<pre>“getFirstQueuedThread（）！=线currentThread（）&&hasQueuedThreads（）“</pre><p>请注意，由于中断和超时导致的取消可能随时发生，“true”返回并不保证其他线程将在当前线程之前获取。同样，由于队列为空，在该方法返回“false”后，另一个线程也可能赢得排队竞赛<p> 此方法旨在由公平同步器使用，以避免冲突</a>。这种同步器的‘#tryAcquire‘方法应返回‘false’，如果该方法返回‘true’（除非这是可重入获取），则其‘TryAcquered’方法应返回负值。例如，用于公平、可重入、独占模式同步器的“tryAcquire”方法可能如下：＜pre＞“受保护的布尔tryacquere（int-arg）｛if（ISHELDExclusive（））｛返回true；‘else if（HasQueuedPrecessors（））｛｛返回false；｝否则｛｝</pre></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -696,7 +696,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads waiting to acquire.  The value is only an estimate because the number of threads may change dynamically while this method traverses internal data structures.  This method is designed for use in monitoring system state, not for synchronization control.</td>
+<td align="left">返回等待获取的线程数的估计值。该值只是一个估计值，因为当该方法遍历内部数据结构时，线程的数量可能会动态变化。此方法设计用于监视系统状态，而不是同步控制。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -708,7 +708,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing threads that may be waiting to acquire.  Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate.  The elements of the returned collection are in no particular order.  This method is designed to facilitate construction of subclasses that provide more extensive monitoring facilities.</td>
+<td align="left">返回包含可能正在等待获取的线程的集合。因为在构造此结果时，实际的线程集可能会动态变化，所以返回的集合只是一个尽力而为的估计。返回集合的元素没有特定顺序。该方法旨在促进提供更广泛监测设施的子类的构建。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -720,7 +720,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing threads that may be waiting to acquire in exclusive mode. This has the same properties as ‘#getQueuedThreads’ except that it only returns those threads waiting due to an exclusive acquire.</td>
+<td align="left">返回包含线程的集合，这些线程可能正在以独占模式等待获取。它具有与“#getQueuedThreads”相同的属性，只是它只返回那些由于独占获取而等待的线程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -732,7 +732,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing threads that may be waiting to acquire in shared mode. This has the same properties as ‘#getQueuedThreads’ except that it only returns those threads waiting due to a shared acquire.</td>
+<td align="left">返回一个集合，其中包含可能正在共享模式下等待获取的线程。这与“#getQueuedThreads”具有相同的属性，只是它只返回由于共享获取而等待的线程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -744,7 +744,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this synchronizer, as well as its state. The state, in brackets, includes the String ‘“State &#x3D;”‘ followed by the current value of ‘#getState’, and either ‘“nonempty”‘ or ‘“empty”‘ depending on whether the queue is empty.</td>
+<td align="left">返回标识此同步器及其状态的字符串。括号中的状态包括字符串“state&#x3D;”后跟当前值“#getState”，以及“nonempty”或“empty”，具体取决于队列是否为空。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -756,7 +756,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if a node, always one that was initially placed on a condition queue, is now waiting to reacquire on sync queue.</td>
+<td align="left">如果一个节点（始终是最初放置在条件队列中的节点）正在等待重新获取同步队列，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -768,7 +768,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if node is on sync queue by searching backwards from tail. Called only when needed by isOnSyncQueue.</td>
+<td align="left">如果节点位于同步队列上，则通过从尾部向后搜索返回true。仅当IsonSync UE需要时调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -780,7 +780,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Transfers a node from a condition queue onto sync queue. Returns true if successful.</td>
+<td align="left">将节点从条件队列传输到同步队列。如果成功，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -792,7 +792,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Transfers node, if necessary, to sync queue after a cancelled wait. Returns true if thread was cancelled before being signalled.</td>
+<td align="left">在取消等待后，如有必要，将节点传输到同步队列。如果线程在发出信号之前被取消，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -804,7 +804,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Invokes release with current state value; returns saved state. Cancels node and throws exception on failure.</td>
+<td align="left">使用当前状态值调用release；返回保存状态。取消节点并在失败时引发异常。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -816,7 +816,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether the given ConditionObject uses this synchronizer as its lock.</td>
+<td align="left">查询给定的ConditionObject是否使用此同步器作为其锁。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -828,8 +828,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads are waiting on the given condition associated with this synchronizer. Note that because timeouts and interrupts may occur at any time, a ‘true’ return does not guarantee that a future ‘signal’ will awaken any threads.  This method is designed primarily for use in monitoring of the system state.</td>
-<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">查询是否有任何线程正在等待与此同步器关联的给定条件。请注意，由于超时和中断可能随时发生，“true”返回并不保证将来的“信号”将唤醒任何线程。该方法主要用于监控系统状态。</td>
+<td align="left">IllegalArgumentException<br/>IllegalMonitorStateException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>getWaitQueueLength(ConditionObject condition): int</strong></td>
@@ -840,8 +840,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads waiting on the given condition associated with this synchronizer. Note that because timeouts and interrupts may occur at any time, the estimate serves only as an upper bound on the actual number of waiters.  This method is designed for use in monitoring of the system state, not for synchronization control.</td>
-<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">返回在与此同步器关联的给定条件下等待的线程数的估计值。请注意，由于超时和中断可能随时发生，因此估计值仅作为实际服务员人数的上限。此方法设计用于监视系统状态，而不是用于同步控制。</td>
+<td align="left">IllegalArgumentException<br/>IllegalMonitorStateException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>getWaitingThreads(ConditionObject condition): Collection<Thread></strong></td>
@@ -852,8 +852,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing those threads that may be waiting on the given condition associated with this synchronizer.  Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate. The elements of the returned collection are in no particular order.</td>
-<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">返回一个集合，其中包含可能正在等待与此同步器关联的给定条件的线程。因为在构造此结果时，实际的线程集可能会动态变化，所以返回的集合只是一个尽力而为的估计。返回集合的元素没有特定顺序。</td>
+<td align="left">IllegalArgumentException<br/>IllegalMonitorStateException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>compareAndSetHead(Node update): boolean</strong></td>
@@ -864,7 +864,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">CAS head field. Used only by enq.</td>
+<td align="left">中科院是该领域的负责人。仅由enq使用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -876,7 +876,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">CAS tail field. Used only by enq.</td>
+<td align="left">中科院尾场。仅由enq使用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -888,7 +888,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">CAS waitStatus field of a node.</td>
+<td align="left">节点的CAS waitStatus字段。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -900,7 +900,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">CAS next field of a node.</td>
+<td align="left">CAS是节点的下一个字段。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

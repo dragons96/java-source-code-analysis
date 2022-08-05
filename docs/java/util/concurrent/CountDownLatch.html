@@ -75,7 +75,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Synchronization control For CountDownLatch. Uses AQS state to represent count.</td>
+<td align="left">倒计时锁存器的同步控制。使用AQS状态表示计数。</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -102,7 +102,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructs a ‘CountDownLatch’ initialized with the given count.</td>
+<td align="left">构造一个用给定计数初始化的“CountDownLatch”。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -114,7 +114,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Causes the current thread to wait until the latch has counted down to zero, unless the thread is ‘Thread#interrupt interrupted’.  <p>If the current count is zero then this method returns immediately.  <p>If the current count is greater than zero then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happen: <ul> <li>The count reaches zero due to invocations of the ‘#countDown’ method; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.</td>
+<td align="left">导致当前线程等待，直到锁存器已倒计时为零，除非该线程为“线程中断”<p> 如果当前计数为零，则此方法立即返回<p> 如果当前计数大于零，则出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下两种情况之一：<ul><li>由于调用“#countDown”方法，计数达到零；或＜li＞某个其他线程的“线程中断”中断当前线程</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -126,7 +126,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Causes the current thread to wait until the latch has counted down to zero, unless the thread is ‘Thread#interrupt interrupted’, or the specified waiting time elapses.  <p>If the current count is zero then this method returns immediately with the value ‘true’.  <p>If the current count is greater than zero then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happen: <ul> <li>The count reaches zero due to invocations of the ‘#countDown’ method; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>The specified waiting time elapses. </ul>  <p>If the count reaches zero then the method returns with the value ‘true’.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the specified waiting time elapses then the value ‘false’ is returned.  If the time is less than or equal to zero, the method will not wait at all.</td>
+<td align="left">导致当前线程等待，直到锁存器已倒计时为零，除非该线程为“线程中断”，或者经过了指定的等待时间<p> 如果当前计数为零，则此方法立即返回值“true”<p> 如果当前计数大于零，则出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下三种情况之一：<ul><li>由于调用“#countDown”方法，计数达到零；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞经过指定的等待时间</ul><p>如果计数达到零，则该方法返回值“true”<p> 如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态<p> 如果经过指定的等待时间，则返回值“false”。如果时间小于或等于零，则该方法将根本不等待。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -138,7 +138,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Decrements the count of the latch, releasing all waiting threads if the count reaches zero.  <p>If the current count is greater than zero then it is decremented. If the new count is zero then all waiting threads are re-enabled for thread scheduling purposes.  <p>If the current count equals zero then nothing happens.</td>
+<td align="left">递减锁存器的计数，如果计数为零，则释放所有等待的线程<p> 如果当前计数大于零，则其递减。如果新计数为零，则出于线程调度目的，将重新启用所有等待线程<p> 如果当前计数等于零，则什么也不发生。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -150,7 +150,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current count.  <p>This method is typically used for debugging and testing purposes.</td>
+<td align="left">返回当前计数<p> 此方法通常用于调试和测试目的。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -162,7 +162,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this latch, as well as its state. The state, in brackets, includes the String ‘“Count &#x3D;”‘ followed by the current count.</td>
+<td align="left">返回标识此锁存器及其状态的字符串。括号中的状态包括字符串“Count&#x3D;”和当前计数。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

@@ -80,8 +80,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Transfers the element to a waiting consumer immediately, if possible.  <p>More precisely, transfers the specified element immediately if there exists a consumer already waiting to receive it (in ‘#take’ or timed ‘#poll(long,TimeUnit) poll’), otherwise returning ‘false’ without enqueuing the element.</td>
-<td align="left">ClassCastException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">如果可能，立即将元素传输给等待的使用者<p> 更准确地说，如果存在正在等待接收指定元素的消费者（在“#take”或定时“35poll（long，TimeUnit）poll”）中），则立即传输该元素，否则返回“false”，而不将该元素排队。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException<br/>ClassCastException</td>
 </tr>
 <tr>
 <td align="center"><strong>transfer(E e): void</strong></td>
@@ -92,8 +92,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Transfers the element to a consumer, waiting if necessary to do so.  <p>More precisely, transfers the specified element immediately if there exists a consumer already waiting to receive it (in ‘#take’ or timed ‘#poll(long,TimeUnit) poll’), else waits until the element is received by a consumer.</td>
-<td align="left">ClassCastException<br/>NullPointerException<br/>InterruptedException<br/>IllegalArgumentException</td>
+<td align="left">将元素传输给使用者，必要时等待<p> 更准确地说，如果存在正在等待接收指定元素的使用者（在“#take”或定时“35poll（long，TimeUnit）poll”）中），则立即传输指定元素，否则等待直到该元素被使用者接收。</td>
+<td align="left">IllegalArgumentException<br/>InterruptedException<br/>NullPointerException<br/>ClassCastException</td>
 </tr>
 <tr>
 <td align="center"><strong>tryTransfer(E e, long timeout, TimeUnit unit): boolean</strong></td>
@@ -104,8 +104,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Transfers the element to a consumer if it is possible to do so before the timeout elapses.  <p>More precisely, transfers the specified element immediately if there exists a consumer already waiting to receive it (in ‘#take’ or timed ‘#poll(long,TimeUnit) poll’), else waits until the element is received by a consumer, returning ‘false’ if the specified wait time elapses before the element can be transferred.</td>
-<td align="left">ClassCastException<br/>NullPointerException<br/>InterruptedException<br/>IllegalArgumentException</td>
+<td align="left">如果可以在超时时间过去之前将元素传输到使用者<p> 更准确地说，如果存在正在等待接收指定元素的消费者（在“#take”或定时“35poll（long，TimeUnit）poll”）中），则立即传输指定元素，否则等待直到消费者接收到该元素，如果在传输元素之前经过了指定的等待时间，则返回“false”。</td>
+<td align="left">IllegalArgumentException<br/>InterruptedException<br/>NullPointerException<br/>ClassCastException</td>
 </tr>
 <tr>
 <td align="center"><strong>hasWaitingConsumer(): boolean</strong></td>
@@ -116,7 +116,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Returns ‘true’ if there is at least one consumer waiting to receive an element via ‘#take’ or timed ‘#poll(long,TimeUnit) poll’. The return value represents a momentary state of affairs.</td>
+<td align="left">如果至少有一个使用者等待通过“#take”或定时“35poll（long，TimeUnit）poll”接收元素，则返回“true”。返回值表示事件的瞬时状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Returns an estimate of the number of consumers waiting to receive elements via ‘#take’ or timed ‘#poll(long,TimeUnit) poll’.  The return value is an approximation of a momentary state of affairs, that may be inaccurate if consumers have completed or given up waiting. The value may be useful for monitoring and heuristics, but not for synchronization control.  Implementations of this method are likely to be noticeably slower than those for ‘#hasWaitingConsumer’.</td>
+<td align="left">返回等待通过“#take”或定时“35poll（long，TimeUnit）poll”接收元素的消费者数量的估计值。返回值是瞬时状态的近似值，如果消费者已完成或放弃等待，该值可能不准确。该值可能对监视和启发式有用，但对同步控制无效。此方法的实现可能明显慢于#hasWaitingConsumer。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

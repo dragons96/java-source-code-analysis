@@ -75,7 +75,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Capacity of work-stealing queue array upon initialization. Must be a power of two; at least 4, but should be larger to reduce or eliminate cacheline sharing among queues. Currently, it is much larger, as a partial workaround for the fact that JVMs often place arrays in locations that share GC bookkeeping (especially cardmarks) such that per-write accesses encounter serious memory contention.</td>
+<td align="left">初始化时窃取工作队列数组的容量。必须是二的幂；至少4个，但应更大以减少或消除队列之间的缓存线共享。目前，它要大得多，这是JVM经常将数组放在共享GC簿记（特别是cardmarks）的位置的一个部分解决方案，这样每次写入访问都会遇到严重的内存争用。</td>
 </tr>
 <tr>
 <td align="center"><strong>MAXIMUM_QUEUE_CAPACITY: int</strong></td>
@@ -86,7 +86,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Maximum size for queue arrays. Must be a power of two less than or equal to 1 &lt;&lt; (31 - width of array entry) to ensure lack of wraparound of index calculations, but defined to a value a bit less than this to help users trap runaway programs before saturating systems.</td>
+<td align="left">队列数组的最大大小。必须是小于或等于1&lt;&lt;（31-数组入口宽度）的二次幂，以确保索引计算不受限制，但定义为略小于此值的值，以帮助用户在系统饱和之前捕获失控的程序。</td>
 </tr>
 <tr>
 <td align="center"><strong>scanState: int</strong></td>
@@ -345,7 +345,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an exportable index (used by ForkJoinWorkerThread).</td>
+<td align="left">返回可导出索引（由ForkJoinWorkerThread使用）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -357,7 +357,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the approximate number of tasks in the queue.</td>
+<td align="left">返回队列中任务的大致数量。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Provides a more accurate estimate of whether this queue has any tasks than does queueSize, by checking whether a near-empty queue has at least one unclaimed task.</td>
+<td align="left">通过检查接近空的队列是否至少有一个无人认领的任务，可以更准确地估计此队列是否有任何任务，而不是队列大小。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -381,7 +381,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Pushes a task. Call only by owner in unshared queues.  (The shared-queue version is embedded in method externalPush.)</td>
+<td align="left">推动一项任务。在非共享队列中仅由所有者调用。（共享队列版本嵌入在方法externalPush中。）</td>
 <td align="left">RejectedExecutionException</td>
 </tr>
 <tr>
@@ -393,7 +393,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Initializes or doubles the capacity of array. Call either by owner or with lock held – it is OK for base, but not top, to move while resizings are in progress.</td>
+<td align="left">初始化或加倍阵列的容量。可以由所有者调用，也可以在锁定的情况下调用——在调整大小的过程中，可以移动底部，但不能移动顶部。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -405,7 +405,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Takes next task, if one exists, in LIFO order.  Call only by owner in unshared queues.</td>
+<td align="left">按后进先出顺序执行下一个任务（如果存在）。在非共享队列中仅由所有者调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -417,7 +417,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Takes a task in FIFO order if b is base of queue and a task can be claimed without contention. Specialized versions appear in ForkJoinPool methods scan and helpStealer.</td>
+<td align="left">如果b是队列的基，则按FIFO顺序接收任务，并且可以在无争用的情况下声明任务。专门的版本出现在ForkJoinPool方法scan和helpStealer中。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -429,7 +429,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Takes next task, if one exists, in FIFO order.</td>
+<td align="left">按先进先出顺序执行下一个任务（如果存在）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -441,7 +441,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Takes next task, if one exists, in order specified by mode.</td>
+<td align="left">按模式指定的顺序接受下一个任务（如果存在）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -453,7 +453,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns next task, if one exists, in order specified by mode.</td>
+<td align="left">按模式指定的顺序返回下一个任务（如果存在）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -465,7 +465,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Pops the given task only if it is at the current top. (A shared version is available only via FJP.tryExternalUnpush)</td>
+<td align="left">仅当给定任务处于当前顶部时，才会弹出该任务。（共享版本仅通过FJP.tryExternalUnpush提供）</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -477,7 +477,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and cancels all known tasks, ignoring any exceptions.</td>
+<td align="left">删除和取消所有已知任务，忽略任何异常。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -489,7 +489,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Polls and runs tasks until empty.</td>
+<td align="left">轮询并运行任务，直到任务为空。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -501,7 +501,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and executes all local tasks. If LIFO, invokes pollAndExecAll. Otherwise implements a specialized pop loop to exec until empty.</td>
+<td align="left">删除并执行所有本地任务。如果是LIFO，则调用pollAndExecAll。否则，执行一个专门的pop循环直到为空。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -513,7 +513,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Executes the given task and any remaining local tasks.</td>
+<td align="left">执行给定任务和任何剩余的本地任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -525,7 +525,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Adds steal count to pool stealCounter if it exists, and resets.</td>
+<td align="left">将偷取计数添加到池偷取计数器（如果存在），并重置。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -537,7 +537,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If present, removes from queue and executes the given task, or any other cancelled task. Used only by awaitJoin.</td>
+<td align="left">如果存在，则从队列中移除并执行给定任务或任何其他已取消的任务。仅由awaitJoin使用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -549,7 +549,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Pops task if in the same CC computation as the given task, in either shared or owned mode. Used only by helpComplete.</td>
+<td align="left">如果在共享或拥有模式下，与给定任务处于相同的CC计算中，则Pops任务。仅由helpComplete使用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -561,7 +561,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Steals and runs a task in the same CC computation as the given task if one exists and can be taken without contention. Otherwise returns a checksum&#x2F;control value for use by method helpComplete.</td>
+<td align="left">在与给定任务相同的CC计算中窃取并运行任务（如果存在），并且可以在没有争用的情况下执行任务。否则，返回一个校验和&#x2F;控制值，供方法helpComplete使用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -573,7 +573,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if owned and not known to be blocked.</td>
+<td align="left">如果已拥有且未知被阻止，则返回true。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

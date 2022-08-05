@@ -88,7 +88,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Synchronizer providing all implementation mechanics</td>
+<td align="left">同步器提供了所有的实现机制</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -115,7 +115,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates an instance of ‘ReentrantLock’. This is equivalent to using ‘ReentrantLock(false)’.</td>
+<td align="left">创建“ReentrantLock”的实例。这相当于使用“ReentrantLock（false）”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -127,7 +127,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates an instance of ‘ReentrantLock’ with the given fairness policy.</td>
+<td align="left">使用给定的公平策略创建“ReentrantLock”实例。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -139,7 +139,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the lock.  <p>Acquires the lock if it is not held by another thread and returns immediately, setting the lock hold count to one.  <p>If the current thread already holds the lock then the hold count is incremented by one and the method returns immediately.  <p>If the lock is held by another thread then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired, at which time the lock hold count is set to one.</td>
+<td align="left">获取锁<p> 如果锁未被另一个线程持有，则获取该锁并立即返回，将锁持有计数设置为1<p> 如果当前线程已经持有锁，那么持有计数将增加1，并且方法立即返回<p> 如果锁由另一个线程持有，则当前线程出于线程调度目的将被禁用，并处于休眠状态，直到获得锁为止，此时锁持有计数设置为1。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the lock unless the current thread is ‘Thread#interrupt interrupted’.  <p>Acquires the lock if it is not held by another thread and returns immediately, setting the lock hold count to one.  <p>If the current thread already holds this lock then the hold count is incremented by one and the method returns immediately.  <p>If the lock is held by another thread then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens:  <ul>  <li>The lock is acquired by the current thread; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread.  </ul>  <p>If the lock is acquired by the current thread then the lock hold count is set to one.  <p>If the current thread:  <ul>  <li>has its interrupted status set on entry to this method; or  <li>is ‘Thread#interrupt interrupted’ while acquiring the lock,  </ul>  then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>In this implementation, as this method is an explicit interruption point, preference is given to responding to the interrupt over normal or reentrant acquisition of the lock.</td>
+<td align="left">获取锁，除非当前线程为“线程中断”<p> 如果锁未被另一个线程持有，则获取该锁并立即返回，将锁持有计数设置为1<p> 如果当前线程已经持有该锁，那么持有计数将增加1，并且该方法立即返回<p> 如果锁由另一个线程持有，则当前线程出于线程调度目的将被禁用，并处于休眠状态，直到发生以下两种情况之一：<ul><li>锁由当前线程获取；或＜li＞某个其他线程的“线程中断”中断当前线程</ul><p>如果锁是由当前线程获取的，则锁保持计数设置为1<p> 如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在获取锁时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态<p> 在该实现中，由于该方法是一个显式中断点，因此与锁的正常或可重入获取相比，优先响应中断。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -163,7 +163,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the lock only if it is not held by another thread at the time of invocation.  <p>Acquires the lock if it is not held by another thread and returns immediately with the value ‘true’, setting the lock hold count to one. Even when this lock has been set to use a fair ordering policy, a call to ‘tryLock()’ <em>will</em> immediately acquire the lock if it is available, whether or not other threads are currently waiting for the lock. This &quot;barging&quot; behavior can be useful in certain circumstances, even though it breaks fairness. If you want to honor the fairness setting for this lock, then use ‘#tryLock(long, TimeUnit) tryLock(0, TimeUnit.SECONDS)’ which is almost equivalent (it also detects interruption).  <p>If the current thread already holds this lock then the hold count is incremented by one and the method returns ‘true’.  <p>If the lock is held by another thread then this method will return immediately with the value ‘false’.</td>
+<td align="left">仅当调用时锁未被另一个线程持有时，才获取该锁<p> 如果锁未被另一个线程持有，则获取该锁，并立即返回值“true”，将锁持有计数设置为1。即使将此锁设置为使用公平排序策略，调用“tryLock（）”<em>也将</em>立即获取可用的锁，无论当前是否有其他线程在等待该锁。这是一个“错误”；“驳船”；行为在某些情况下是有用的，即使它破坏了公平。如果您想遵守此锁的公平性设置，请使用“#tryLock（long，TimeUnit）tryLock”（0，timeunits.SECONDS），这几乎是等效的（它还检测中断）<p> 如果当前线程已经持有该锁，那么持有计数将增加1，并且该方法返回“true”<p> 如果锁由另一个线程持有，则此方法将立即返回值“false”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -175,7 +175,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the lock if it is not held by another thread within the given waiting time and the current thread has not been ‘Thread#interrupt interrupted’.  <p>Acquires the lock if it is not held by another thread and returns immediately with the value ‘true’, setting the lock hold count to one. If this lock has been set to use a fair ordering policy then an available lock <em>will not</em> be acquired if any other threads are waiting for the lock. This is in contrast to the ‘#tryLock()’ method. If you want a timed ‘tryLock’ that does permit barging on a fair lock then combine the timed and un-timed forms together:  <pre> 'if (lock.tryLock()</td>
+<td align="left">如果在给定等待时间内未被另一个线程持有，并且当前线程未被“线程中断”，则获取锁<p> 如果锁未被另一个线程持有，则获取该锁，并立即返回值“true”，将锁持有计数设置为1。如果此锁已设置为使用公平排序策略，则如果任何其他线程正在等待该锁，则不会获取可用锁<em>。这与“#tryLock（）”方法相反。如果你想要一个定时的’tryLock’，它允许在一个公平锁上闯入，然后将定时和非定时表单组合在一起：＜pre＞If（lock.tryLock（）</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -187,7 +187,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to release this lock.  <p>If the current thread is the holder of this lock then the hold count is decremented.  If the hold count is now zero then the lock is released.  If the current thread is not the holder of this lock then 'IllegalMonitorStateException' is thrown.</td>
+<td align="left">试图释放此锁<p> 如果当前线程是该锁的持有人，则持有计数将递减。如果保持计数现在为零，则释放锁。如果当前线程不是此锁的持有者，则抛出“IllegalMonitorStateException”。</td>
 <td align="left">IllegalMonitorStateException</td>
 </tr>
 <tr>
@@ -199,7 +199,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a 'Condition' instance for use with this 'Lock' instance.  <p>The returned 'Condition' instance supports the same usages as do the 'Object' monitor methods ('Object#wait() wait', 'Object#notify notify', and 'Object#notifyAll notifyAll') when used with the built-in monitor lock.  <ul>  <li>If this lock is not held when any of the 'Condition' 'Condition#await() waiting' or 'Condition#signal signalling' methods are called, then an 'IllegalMonitorStateException' is thrown.  <li>When the condition 'Condition#await() waiting' methods are called the lock is released and, before they return, the lock is reacquired and the lock hold count restored to what it was when the method was called.  <li>If a thread is 'Thread#interrupt interrupted' while waiting then the wait will terminate, an 'InterruptedException' will be thrown, and the thread's interrupted status will be cleared.  <li> Waiting threads are signalled in FIFO order.  <li>The ordering of lock reacquisition for threads returning from waiting methods is the same as for threads initially acquiring the lock, which is in the default case not specified, but for <em>fair</em> locks favors those threads that have been waiting the longest.  </ul></td>
+<td align="left">返回与此“锁”实例一起使用的“条件”实例<p> 返回的“条件”实例支持与内置监视器锁一起使用时的“对象”监视器方法（“对象#wait（）wait”、“对象”notify”和“对象ŞnotifyAll notifyAll”）相同的用法<ul><li>如果在调用任何“条件”或“条件#wait（）waiting”或“信号信令”方法时未保持此锁，则会引发“IllegalMonitorStateException”<li>当调用条件“condition#await（）waiting”方法时，锁被释放，在它们返回之前，锁被重新获取，锁保持计数恢复到调用该方法时的状态<li>如果线程在等待时为“thread#interrupt interrupt”，则等待将终止，抛出“InterruptedException”，线程的中断状态将被清除<li>等待线程按FIFO顺序发出信号<li>对于从等待方法返回的线程，锁重新获取的顺序与最初获取锁的线程相同，在默认情况下未指定，但对于<em>公平</em>锁，优先选择等待时间最长的线程</ul></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -211,7 +211,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries the number of holds on this lock by the current thread.  <p>A thread has a hold on a lock for each lock action that is not matched by an unlock action.  <p>The hold count information is typically only used for testing and debugging purposes. For example, if a certain section of code should not be entered with the lock already held then we can assert that fact:  <pre> 'class X { ReentrantLock lock = new ReentrantLock();  public void m() { assert lock.getHoldCount() == 0; lock.lock(); try {' finally { lock.unlock(); } } }}</pre></td>
+<td align="left">查询当前线程对此锁的保留次数<p> 对于每个锁定操作，线程都会保持锁定，而解锁操作不匹配<p> 保持计数信息通常仅用于测试和调试目的。例如，如果某段代码不应在锁已被持有的情况下输入，那么我们可以断言这一事实：＜pre＞“class X{ReentrantLock&#x3D;new ReentrantLock（）；public void m（）｛assert lock.getHoldCount（）＝＝0；lock.lock（）；try｛最终｛lock.unlock（）；｝｝</pre></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries if this lock is held by the current thread.  <p>Analogous to the ‘Thread#holdsLock(Object)’ method for built-in monitor locks, this method is typically used for debugging and testing. For example, a method that should only be called while a lock is held can assert that this is the case:  <pre> 'class X { ReentrantLock lock = new ReentrantLock();   public void m() { assert lock.isHeldByCurrentThread();' }}</pre>  <p>It can also be used to ensure that a reentrant lock is used in a non-reentrant manner, for example:  <pre> 'class X { ReentrantLock lock = new ReentrantLock();   public void m() { assert !lock.isHeldByCurrentThread(); lock.lock(); try {' finally { lock.unlock(); } } }}</pre></td>
+<td align="left">查询此锁是否由当前线程持有<p> 类似于内置监控器锁的“Thread#holdsLock（Object）”方法，此方法通常用于调试和测试。例如，一个只应在持有锁时调用的方法可以断言这种情况：＜pre＞‘class X｛ReentrantLock＝new ReentrantLock（）；public void m（）｛assert lock.isHeldByCurrentThread（）；‘｝｝</pre>＜p＞它还可以用于确保以非重入方式使用重入锁，例如：＜pre＞“类X{ReentrantLock lock&#x3D;new reentrontlock（）；公共void m（）{assert！lock.isHeldByCurrentThread（）；lock.lock（）；try{finally{lock.unlock（）；}”</pre></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -235,7 +235,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries if this lock is held by any thread. This method is designed for use in monitoring of the system state, not for synchronization control.</td>
+<td align="left">查询此锁是否由任何线程持有。此方法设计用于监视系统状态，而不是用于同步控制。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -247,7 +247,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this lock has fairness set true.</td>
+<td align="left">如果此锁的公平性设置为true，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -259,7 +259,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the thread that currently owns this lock, or ‘null’ if not owned. When this method is called by a thread that is not the owner, the return value reflects a best-effort approximation of current lock status. For example, the owner may be momentarily ‘null’ even if there are threads trying to acquire the lock but have not yet done so. This method is designed to facilitate construction of subclasses that provide more extensive lock monitoring facilities.</td>
+<td align="left">返回当前拥有此锁的线程，如果不拥有，则返回“null”。当此方法由非所有者的线程调用时，返回值反映当前锁状态的最佳近似值。例如，即使有线程试图获取锁，但尚未获取，所有者也可能暂时为“null”。该方法旨在促进提供更广泛锁监控设施的子类的构建。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -271,7 +271,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads are waiting to acquire this lock. Note that because cancellations may occur at any time, a ‘true’ return does not guarantee that any other thread will ever acquire this lock.  This method is designed primarily for use in monitoring of the system state.</td>
+<td align="left">查询是否有线程正在等待获取此锁。请注意，由于取消可能随时发生，“true”返回并不保证任何其他线程都会获取此锁。该方法主要用于监控系统状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -283,7 +283,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether the given thread is waiting to acquire this lock. Note that because cancellations may occur at any time, a ‘true’ return does not guarantee that this thread will ever acquire this lock.  This method is designed primarily for use in monitoring of the system state.</td>
+<td align="left">查询给定线程是否正在等待获取此锁。请注意，由于取消可能随时发生，“true”返回并不保证此线程将获得此锁。该方法主要用于监控系统状态。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads waiting to acquire this lock.  The value is only an estimate because the number of threads may change dynamically while this method traverses internal data structures.  This method is designed for use in monitoring of the system state, not for synchronization control.</td>
+<td align="left">返回等待获取此锁的线程数的估计值。该值只是一个估计值，因为当该方法遍历内部数据结构时，线程的数量可能会动态变化。此方法设计用于监视系统状态，而不是用于同步控制。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -307,7 +307,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing threads that may be waiting to acquire this lock.  Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate.  The elements of the returned collection are in no particular order.  This method is designed to facilitate construction of subclasses that provide more extensive monitoring facilities.</td>
+<td align="left">返回包含可能正在等待获取此锁的线程的集合。因为在构造此结果时，实际的线程集可能会动态变化，所以返回的集合只是一个尽力而为的估计。返回集合的元素没有特定顺序。该方法旨在促进提供更广泛监测设施的子类的构建。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -319,8 +319,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads are waiting on the given condition associated with this lock. Note that because timeouts and interrupts may occur at any time, a ‘true’ return does not guarantee that a future ‘signal’ will awaken any threads.  This method is designed primarily for use in monitoring of the system state.</td>
-<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">查询是否有任何线程正在等待与此锁关联的给定条件。请注意，由于超时和中断可能随时发生，“true”返回并不保证将来的“信号”将唤醒任何线程。该方法主要用于监控系统状态。</td>
+<td align="left">IllegalArgumentException<br/>IllegalMonitorStateException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>getWaitQueueLength(Condition condition): int</strong></td>
@@ -331,8 +331,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads waiting on the given condition associated with this lock. Note that because timeouts and interrupts may occur at any time, the estimate serves only as an upper bound on the actual number of waiters. This method is designed for use in monitoring of the system state, not for synchronization control.</td>
-<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">返回等待与此锁关联的给定条件的线程数的估计值。请注意，由于超时和中断可能随时发生，因此估计值仅作为实际服务员人数的上限。此方法设计用于监视系统状态，而不是用于同步控制。</td>
+<td align="left">IllegalArgumentException<br/>IllegalMonitorStateException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>getWaitingThreads(Condition condition): Collection<Thread></strong></td>
@@ -343,8 +343,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing those threads that may be waiting on the given condition associated with this lock. Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate. The elements of the returned collection are in no particular order.  This method is designed to facilitate construction of subclasses that provide more extensive condition monitoring facilities.</td>
-<td align="left">IllegalMonitorStateException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">返回一个集合，其中包含可能正在等待与此锁关联的给定条件的线程。因为在构造此结果时，实际的线程集可能会动态变化，所以返回的集合只是一个尽力而为的估计。返回集合的元素没有特定顺序。该方法旨在促进提供更广泛的状态监测设施的子类的构建。</td>
+<td align="left">IllegalArgumentException<br/>IllegalMonitorStateException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>toString(): String</strong></td>
@@ -355,7 +355,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this lock, as well as its lock state. The state, in brackets, includes either the String ‘“Unlocked”‘ or the String ‘“Locked by”‘ followed by the ‘Thread#getName name’ of the owning thread.</td>
+<td align="left">返回标识此锁及其锁状态的字符串。括号中的状态包括字符串“Unlocked”或字符串“Locked by”，后跟所属线程的“Thread#getName”。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

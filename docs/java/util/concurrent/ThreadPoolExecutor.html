@@ -77,7 +77,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The main pool control state, ctl, is an atomic integer packing two conceptual fields workerCount, indicating the effective number of threads runState,    indicating whether running, shutting down etc  In order to pack them into one int, we limit workerCount to (2^29)-1 (about 500 million) threads rather than (2^31)-1 (2 billion) otherwise representable. If this is ever an issue in the future, the variable can be changed to be an AtomicLong, and the shift&#x2F;mask constants below adjusted. But until the need arises, this code is a bit faster and simpler using an int.  The workerCount is the number of workers that have been permitted to start and not permitted to stop.  The value may be transiently different from the actual number of live threads, for example when a ThreadFactory fails to create a thread when asked, and when exiting threads are still performing bookkeeping before terminating. The user-visible pool size is reported as the current size of the workers set.  The runState provides the main lifecycle control, taking on values:  RUNNING:  Accept new tasks and process queued tasks SHUTDOWN: Don’t accept new tasks, but process queued tasks STOP:     Don’t accept new tasks, don’t process queued tasks, and interrupt in-progress tasks TIDYING:  All tasks have terminated, workerCount is zero, the thread transitioning to state TIDYING will run the terminated() hook method TERMINATED: terminated() has completed  The numerical order among these values matters, to allow ordered comparisons. The runState monotonically increases over time, but need not hit each state. The transitions are:  RUNNING -&gt; SHUTDOWN On invocation of shutdown(), perhaps implicitly in finalize() (RUNNING or SHUTDOWN) -&gt; STOP On invocation of shutdownNow() SHUTDOWN -&gt; TIDYING When both queue and pool are empty STOP -&gt; TIDYING When pool is empty TIDYING -&gt; TERMINATED When the terminated() hook method has completed  Threads waiting in awaitTermination() will return when the state reaches TERMINATED.  Detecting the transition from SHUTDOWN to TIDYING is less straightforward than you’d like because the queue may become empty after non-empty and vice versa during SHUTDOWN state, but we can only terminate if, after seeing that it is empty, we see that workerCount is 0 (which sometimes entails a recheck – see below).</td>
+<td align="left">主池控制状态ctl是一个原子整数，包含两个概念字段workerCount，指示线程的有效数量runState，指示是否正在运行、关闭等。为了将它们打包为一个int，我们将WorkerCounts限制为（2^29）-1（约5亿）个线程，而不是（2^31）-1（20亿）个其他可表示的线程。如果这是将来的问题，可以将变量更改为原子长度，并调整下面的移位&#x2F;掩码常数。但在需要之前，此代码使用int会更快更简单。workerCount是允许启动和不允许停止的工作人员数。该值可能暂时不同于活动线程的实际数量，例如当ThreadFactory在请求时无法创建线程，并且退出线程在终止前仍在执行记账时。用户可见池大小报告为workers集的当前大小。运行状态提供主要的生命周期控制，具有以下值：运行：接受新任务和处理排队任务关闭：不接受新任务，但处理排队任务停止：不接受新建任务、不处理排队任务和中断进行中任务整理：所有任务都已终止，workerCount为零，转换到状态整理的线程将运行terminated（）钩子方法terminateed:terminated（）已完成这些值之间的数字顺序，以允许有序比较。运行状态随时间单调增加，但不需要命中每个状态。转换为：调用SHUTDOWN（）时运行-&gt;关闭，也许在finalize（）（RUNNING或SHUTDOWN）-&gt;调用shutdownNow（）时停止shutdownlow-&gt;当队列和池都为空时清理停止-&gt;当池为空时整理-&gt;在终止（）钩子方法完成时终止等待终止（）的线程将在状态达到终止时返回。检测从关闭到整理的转换并不像您希望的那样简单，因为队列在非空状态下可能变为空，在关闭状态下也可能变为空白，但只有在看到workerCount为空后，我们才能终止它（这有时需要重新检查——见下文）。</td>
 </tr>
 <tr>
 <td align="center"><strong>COUNT_BITS: int</strong></td>
@@ -165,7 +165,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The queue used for holding tasks and handing off to worker threads.  We do not require that workQueue.poll() returning null necessarily means that workQueue.isEmpty(), so rely solely on isEmpty to see if the queue is empty (which we must do for example when deciding whether to transition from SHUTDOWN to TIDYING).  This accommodates special-purpose queues such as DelayQueues for which poll() is allowed to return null even if it may later return non-null when delays expire.</td>
+<td align="left">用于保存任务并将其传递给工作线程的队列。我们不需要那个工作队列。poll（）返回null必然意味着工作队列。isEmpty（），因此仅依靠isEmpty来查看队列是否为空（例如，在决定是否从关闭转换为清理时，我们必须这样做）。这适用于特殊用途队列，例如允许poll（）返回null的DelayQueues，即使延迟过期后poll（）可能返回非null。</td>
 </tr>
 <tr>
 <td align="center"><strong>mainLock: ReentrantLock</strong></td>
@@ -176,7 +176,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Lock held on access to workers set and related bookkeeping. While we could use a concurrent set of some sort, it turns out to be generally preferable to use a lock. Among the reasons is that this serializes interruptIdleWorkers, which avoids unnecessary interrupt storms, especially during shutdown. Otherwise exiting threads would concurrently interrupt those that have not yet interrupted. It also simplifies some of the associated statistics bookkeeping of largestPoolSize etc. We also hold mainLock on shutdown and shutdownNow, for the sake of ensuring workers set is stable while separately checking permission to interrupt and actually interrupting.</td>
+<td align="left">锁定工人集合和相关簿记的访问权限。虽然我们可以使用某种类型的并发集，但事实证明，通常最好使用锁。其中一个原因是它序列化了中断工人，从而避免了不必要的中断风暴，尤其是在关机期间。否则，退出线程将同时中断那些尚未中断的线程。它还简化了一些与最大池大小等相关的统计数据簿记。我们还在shutdown和shutdownNow上保持主锁，以确保workers集稳定，同时分别检查中断和实际中断的权限。</td>
 </tr>
 <tr>
 <td align="center"><strong>workers: HashSet&lt;Worker&gt;</strong></td>
@@ -187,7 +187,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Set containing all worker threads in pool. Accessed only when holding mainLock.</td>
+<td align="left">包含池中所有工作线程的集合。仅在持有主锁时访问。</td>
 </tr>
 <tr>
 <td align="center"><strong>termination: Condition</strong></td>
@@ -198,7 +198,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Wait condition to support awaitTermination</td>
+<td align="left">等待条件支持等待终止</td>
 </tr>
 <tr>
 <td align="center"><strong>largestPoolSize: int</strong></td>
@@ -209,7 +209,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tracks largest attained pool size. Accessed only under mainLock.</td>
+<td align="left">这条赛道是游泳池规模最大的赛道。只能在主锁下访问。</td>
 </tr>
 <tr>
 <td align="center"><strong>completedTaskCount: long</strong></td>
@@ -220,7 +220,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Counter for completed tasks. Updated only on termination of worker threads. Accessed only under mainLock.</td>
+<td align="left">已完成任务的计数器。仅在工作线程终止时更新。只能在主锁下访问。</td>
 </tr>
 <tr>
 <td align="center"><strong>threadFactory: ThreadFactory</strong></td>
@@ -231,7 +231,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Factory for new threads. All threads are created using this factory (via method addWorker).  All callers must be prepared for addWorker to fail, which may reflect a system or user’s policy limiting the number of threads.  Even though it is not treated as an error, failure to create threads may result in new tasks being rejected or existing ones remaining stuck in the queue.  We go further and preserve pool invariants even in the face of errors such as OutOfMemoryError, that might be thrown while trying to create threads.  Such errors are rather common due to the need to allocate a native stack in Thread.start, and users will want to perform clean pool shutdown to clean up.  There will likely be enough memory available for the cleanup code to complete without encountering yet another OutOfMemoryError.</td>
+<td align="left">新螺纹的工厂。所有线程都是使用此工厂创建的（通过方法addWorker）。所有调用者都必须为addWorker失败做好准备，这可能反映了系统或用户限制线程数量的策略。即使不将其视为错误，创建线程的失败也可能会导致新任务被拒绝或现有任务仍停留在队列中。我们更进一步，保留池不变量，即使在遇到错误（如OutOfMemoryError）时也是如此，这些错误可能会在尝试创建线程时抛出。由于需要在线程中分配本机堆栈，此类错误非常常见。启动后，用户将希望执行清理池关闭以进行清理。可能会有足够的内存来完成清理代码，而不会遇到另一个OutOfMemoryError。</td>
 </tr>
 <tr>
 <td align="center"><strong>handler: RejectedExecutionHandler</strong></td>
@@ -242,7 +242,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Handler called when saturated or shutdown in execute.</td>
+<td align="left">在execute中饱和或关闭时调用处理程序。</td>
 </tr>
 <tr>
 <td align="center"><strong>keepAliveTime: long</strong></td>
@@ -253,7 +253,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Timeout in nanoseconds for idle threads waiting for work. Threads use this timeout when there are more than corePoolSize present or if allowCoreThreadTimeOut. Otherwise they wait forever for new work.</td>
+<td align="left">空闲线程等待工作的超时（纳秒）。当存在超过corePoolSize或allowCoreThreadTimeOut时，线程使用此超时。否则，他们将永远等待新的工作。</td>
 </tr>
 <tr>
 <td align="center"><strong>allowCoreThreadTimeOut: boolean</strong></td>
@@ -264,7 +264,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If false (default), core threads stay alive even when idle. If true, core threads use keepAliveTime to time out waiting for work.</td>
+<td align="left">如果为false（默认），则核心线程即使在空闲时也保持活动状态。如果为true，则核心线程使用keepAliveTime超时等待工作。</td>
 </tr>
 <tr>
 <td align="center"><strong>corePoolSize: int</strong></td>
@@ -275,7 +275,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Core pool size is the minimum number of workers to keep alive (and not allow to time out etc) unless allowCoreThreadTimeOut is set, in which case the minimum is zero.</td>
+<td align="left">Core pool size是保持活动的最小工作线程数（不允许超时等），除非设置了allowCoreThreadTimeOut，在这种情况下，最小值为零。</td>
 </tr>
 <tr>
 <td align="center"><strong>maximumPoolSize: int</strong></td>
@@ -286,7 +286,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Maximum pool size. Note that the actual maximum is internally bounded by CAPACITY.</td>
+<td align="left">最大池大小。请注意，实际最大值由容量内部限定。</td>
 </tr>
 <tr>
 <td align="center"><strong>defaultHandler: RejectedExecutionHandler</strong></td>
@@ -297,7 +297,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The default rejected execution handler</td>
+<td align="left">默认的被拒绝执行处理程序</td>
 </tr>
 <tr>
 <td align="center"><strong>shutdownPerm: RuntimePermission</strong></td>
@@ -308,7 +308,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Permission required for callers of shutdown and shutdownNow. We additionally require (see checkShutdownAccess) that callers have permission to actually interrupt threads in the worker set (as governed by Thread.interrupt, which relies on ThreadGroup.checkAccess, which in turn relies on SecurityManager.checkAccess). Shutdowns are attempted only if these checks pass.  All actual invocations of Thread.interrupt (see interruptIdleWorkers and interruptWorkers) ignore SecurityExceptions, meaning that the attempted interrupts silently fail. In the case of shutdown, they should not fail unless the SecurityManager has inconsistent policies, sometimes allowing access to a thread and sometimes not. In such cases, failure to actually interrupt threads may disable or delay full termination. Other uses of interruptIdleWorkers are advisory, and failure to actually interrupt will merely delay response to configuration changes so is not handled exceptionally.</td>
+<td align="left">shutdown和ShutddownNow的调用方需要权限。我们还要求（请参见checkShutdownAccess）调用方有权实际中断工作集中的线程（由Thread.interrupt控制，它依赖于ThreadGroup.checkAccess，而ThreadGroup.checkAccess又依赖于SecurityManager.checkAccess）。只有当这些检查通过时才尝试关闭。所有线程的实际调用。中断（请参阅中断工人和中断工人）忽略安全异常，这意味着尝试的中断会以静默方式失败。在关机的情况下，它们不应该失败，除非SecurityManager具有不一致的策略，有时允许访问线程，有时不允许。在这种情况下，未能实际中断线程可能会禁用或延迟完全终止。中断工人的其他用途是建议性的，而实际中断的失败只会延迟对配置更改的响应，因此不会异常处理。</td>
 </tr>
 <tr>
 <td align="center"><strong>acc: AccessControlContext</strong></td>
@@ -319,7 +319,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The context to be used when executing the finalizer, or null.</td>
+<td align="left">执行终结器时要使用的上下文，或null。</td>
 </tr>
 <tr>
 <td align="center"><strong>ONLY_ONE: boolean</strong></td>
@@ -393,7 +393,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Bit field accessors that don’t require unpacking ctl. These depend on the bit layout and on workerCount being never negative.</td>
+<td align="left">不需要解包ctl的位字段访问器。这取决于位布局和workerCount从不为负。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -429,7 +429,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to CAS-increment the workerCount field of ctl.</td>
+<td align="left">尝试CAS递增ctl的workerCount字段。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -441,7 +441,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to CAS-decrement the workerCount field of ctl.</td>
+<td align="left">尝试CAS递减ctl的workerCount字段。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -453,7 +453,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Decrements the workerCount field of ctl. This is called only on abrupt termination of a thread (see processWorkerExit). Other decrements are performed within getTask.</td>
+<td align="left">递减ctl的workerCount字段。这仅在线程突然终止时调用（请参见processWorkerExit）。在getTask中执行其他递减。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -465,7 +465,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Transitions runState to given target, or leaves it alone if already at least the given target.</td>
+<td align="left">将运行状态转换到给定目标，或者至少在给定目标上保留运行状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -477,7 +477,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Transitions to TERMINATED state if either (SHUTDOWN and pool and queue empty) or (STOP and pool empty).  If otherwise eligible to terminate but workerCount is nonzero, interrupts an idle worker to ensure that shutdown signals propagate. This method must be called following any action that might make termination possible – reducing worker count or removing tasks from the queue during shutdown. The method is non-private to allow access from ScheduledThreadPoolExecutor.</td>
+<td align="left">如果（关闭且池和队列为空）或（停止且池为空），则转换为终止状态。如果有资格终止，但workerCount不为零，则中断空闲工作进程，以确保停机信号传播。必须在可能导致终止的任何操作之后调用此方法——减少工作人员计数或在关机期间从队列中删除任务。该方法是非私有的，允许从ScheduledThreadPoolExecutor进行访问。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -489,7 +489,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If there is a security manager, makes sure caller has permission to shut down threads in general (see shutdownPerm). If this passes, additionally makes sure the caller is allowed to interrupt each worker thread. This might not be true even if first check passed, if the SecurityManager treats some threads specially.</td>
+<td align="left">如果有安全管理器，则确保调用者具有关闭线程的权限（请参阅shutdownPerm）。如果通过，还确保允许调用方中断每个工作线程。即使第一次检查通过，如果SecurityManager特别对待某些线程，这也可能不是真的。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -501,7 +501,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Interrupts all threads, even if active. Ignores SecurityExceptions (in which case some threads may remain uninterrupted).</td>
+<td align="left">中断所有线程，即使处于活动状态。忽略SecurityExceptions（在这种情况下，某些线程可能保持不间断）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -513,7 +513,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Interrupts threads that might be waiting for tasks (as indicated by not being locked) so they can check for termination or configuration changes. Ignores SecurityExceptions (in which case some threads may remain uninterrupted).</td>
+<td align="left">中断可能正在等待任务的线程（如未锁定所示），以便它们可以检查终止或配置更改。忽略SecurityExceptions（在这种情况下，某些线程可能保持不间断）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -525,7 +525,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Common form of interruptIdleWorkers, to avoid having to remember what the boolean argument means.</td>
+<td align="left">常见的中断形式，以避免记住布尔参数的含义。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -537,7 +537,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Invokes the rejected execution handler for the given command. Package-protected for use by ScheduledThreadPoolExecutor.</td>
+<td align="left">为给定命令调用被拒绝的执行处理程序。受ScheduledThreadPoolExecutor保护的包。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -549,7 +549,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs any further cleanup following run state transition on invocation of shutdown.  A no-op here, but used by ScheduledThreadPoolExecutor to cancel delayed tasks.</td>
+<td align="left">在调用shutdown时执行运行状态转换后的任何进一步清理。此处为no-op，但ScheduledThreadPoolExecutor使用它来取消延迟的任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -561,7 +561,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">State check needed by ScheduledThreadPoolExecutor to enable running tasks during shutdown.</td>
+<td align="left">ScheduledThreadPoolExecutor需要进行状态检查，以在关机期间启用正在运行的任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -573,7 +573,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Drains the task queue into a new list, normally using drainTo. But if the queue is a DelayQueue or any other kind of queue for which poll or drainTo may fail to remove some elements, it deletes them one by one.</td>
+<td align="left">将任务队列排入新列表，通常使用drainTo。但是，如果队列是延迟队列或任何其他类型的队列，轮询或拖拽可能无法删除其中的某些元素，则它会逐个删除它们。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -585,7 +585,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Checks if a new worker can be added with respect to current pool state and the given bound (either core or maximum). If so, the worker count is adjusted accordingly, and, if possible, a new worker is created and started, running firstTask as its first task. This method returns false if the pool is stopped or eligible to shut down. It also returns false if the thread factory fails to create a thread when asked.  If the thread creation fails, either due to the thread factory returning null, or due to an exception (typically OutOfMemoryError in Thread.start()), we roll back cleanly.</td>
+<td align="left">检查是否可以根据当前池状态和给定边界（核心或最大值）添加新工作线程。如果是这样，将相应地调整工作人员计数，如果可能，将创建并启动一个新的工作人员，将firstTask作为其第一个任务运行。如果池已停止或有资格关闭，则此方法返回false。如果线程工厂在被请求时未能创建线程，它也会返回false。如果由于线程工厂返回null或由于异常（通常是thread.start（）中的OutOfMemoryError），线程创建失败，我们将完全回滚。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -597,7 +597,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Rolls back the worker thread creation. - removes worker from workers, if present - decrements worker count - rechecks for termination, in case the existence of this worker was holding up termination</td>
+<td align="left">回滚工作线程创建。-从工作人员中移除工作人员，如果存在-减少工作人员计数-如果该工作人员的存在阻碍了终止，则重新检查是否终止</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -609,7 +609,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs cleanup and bookkeeping for a dying worker. Called only from worker threads. Unless completedAbruptly is set, assumes that workerCount has already been adjusted to account for exit.  This method removes thread from worker set, and possibly terminates the pool or replaces the worker if either it exited due to user task exception or if fewer than corePoolSize workers are running or queue is non-empty but there are no workers.</td>
+<td align="left">为垂死的工人执行清理和记账。仅从工作线程调用。除非设置了“突然完成”，否则假定workerCount已被调整以考虑退出。此方法从工作线程集中删除线程，如果由于用户任务异常退出工作线程，或者如果正在运行的工作线程少于corePoolSize，或者队列为非空但没有工作线程，则可能终止池或替换工作线程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -621,7 +621,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs blocking or timed wait for a task, depending on current configuration settings, or returns null if this worker must exit because of any of: 1. There are more than maximumPoolSize workers (due to a call to setMaximumPoolSize). 2. The pool is stopped. 3. The pool is shutdown and the queue is empty. 4. This worker timed out waiting for a task, and timed-out workers are subject to termination (that is, ‘allowCoreThreadTimeOut</td>
+<td align="left">根据当前的配置设置，执行阻塞或定时等待任务，或者如果此工作线程由于以下任何原因必须退出，则返回null：1.存在多个maximumPoolSize工作线程（由于调用setMaximumPoolSize）。2.停止游泳池。3.池已关闭，队列为空。4.此工作线程在等待任务时超时，超时工作线程在超时等待前后都会终止（即“allowCoreThreadTimeOut</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -633,7 +633,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Main worker run loop.  Repeatedly gets tasks from queue and executes them, while coping with a number of issues:  1. We may start out with an initial task, in which case we don’t need to get the first one. Otherwise, as long as pool is running, we get tasks from getTask. If it returns null then the worker exits due to changed pool state or configuration parameters.  Other exits result from exception throws in external code, in which case completedAbruptly holds, which usually leads processWorkerExit to replace this thread.  2. Before running any task, the lock is acquired to prevent other pool interrupts while the task is executing, and then we ensure that unless pool is stopping, this thread does not have its interrupt set.  3. Each task run is preceded by a call to beforeExecute, which might throw an exception, in which case we cause thread to die (breaking loop with completedAbruptly true) without processing the task.  4. Assuming beforeExecute completes normally, we run the task, gathering any of its thrown exceptions to send to afterExecute. We separately handle RuntimeException, Error (both of which the specs guarantee that we trap) and arbitrary Throwables. Because we cannot rethrow Throwables within Runnable.run, we wrap them within Errors on the way out (to the thread’s UncaughtExceptionHandler).  Any thrown exception also conservatively causes thread to die.  5. After task.run completes, we call afterExecute, which may also throw an exception, which will also cause thread to die. According to JLS Sec 14.20, this exception is the one that will be in effect even if task.run throws.  The net effect of the exception mechanics is that afterExecute and the thread’s UncaughtExceptionHandler have as accurate information as we can provide about any problems encountered by user code.</td>
+<td align="left">主要工作人员运行循环。重复地从队列中获取任务并执行它们，同时处理许多问题：1.我们可以从初始任务开始，在这种情况下，我们不需要获取第一个任务。否则，只要池在运行，我们就可以从getTask获取任务。如果返回null，则工作进程将由于池状态或配置参数的更改而退出。其他退出源于外部代码中的异常抛出，在这种情况下，CompletedJustly保持不变，这通常会导致processWorkerExit替换此线程。2.在运行任何任务之前，获取锁以防止在任务执行时发生其他池中断，然后我们确保除非池停止，否则此线程没有中断集。3.每次任务运行之前都会调用beforeExecute，这可能会引发异常，在这种情况下，我们会导致线程死亡（使用CompletedArjustly true中断循环），而不处理任务。4.假设beforeExecute正常完成，我们运行任务，收集其抛出的任何异常以发送给afterExecute。我们分别处理RuntimeException、Error（这两个规范都保证我们可以捕获）和任意可丢弃文件。因为我们无法在Runnable内回收和丢弃。运行时，我们将它们包装在退出时的错误中（到线程的UncaughtExceptionHandler）。任何抛出的异常也会保守地导致线程死亡。5.完成任务后。运行完成后，我们调用afterExecute，它也可能引发异常，这也会导致线程死亡。根据JLS第14.20节，此例外情况将有效，即使任务已完成。奔跑和投掷。异常机制的最终效果是，afterExecute和线程的UncaughtExceptionHandler具有我们所能提供的关于用户代码遇到的任何问题的准确信息。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -645,8 +645,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ThreadPoolExecutor’ with the given initial parameters and default thread factory and rejected execution handler. It may be more convenient to use one of the ‘Executors’ factory methods instead of this general purpose constructor.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数和默认线程工厂以及被拒绝的执行处理程序创建新的“ThreadPoolExecutor”。使用“执行器”工厂方法之一而不是此通用构造函数可能更方便。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue, ThreadFactory threadFactory)</strong></td>
@@ -657,8 +657,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ThreadPoolExecutor’ with the given initial parameters and default rejected execution handler.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数和默认拒绝执行处理程序创建新的“ThreadPoolExecutor”。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue, RejectedExecutionHandler handler)</strong></td>
@@ -669,8 +669,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ThreadPoolExecutor’ with the given initial parameters and default thread factory.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数和默认线程工厂创建新的“ThreadPoolExecutor”。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler)</strong></td>
@@ -681,8 +681,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ThreadPoolExecutor’ with the given initial parameters.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数创建新的“ThreadPoolExecutor”。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>execute(Runnable command): void</strong></td>
@@ -693,8 +693,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Executes the given task sometime in the future.  The task may execute in a new thread or in an existing pooled thread.  If the task cannot be submitted for execution, either because this executor has been shutdown or because its capacity has been reached, the task is handled by the current ‘RejectedExecutionHandler’.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">在将来的某个时候执行给定的任务。任务可以在新线程或现有池线程中执行。如果由于此执行器已关闭或已达到其容量而无法提交任务执行，则该任务将由当前的“RejectedExecutionHandler”处理。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>shutdown(): void</strong></td>
@@ -705,7 +705,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no additional effect if already shut down.  <p>This method does not wait for previously submitted tasks to complete execution.  Use ‘#awaitTermination awaitTermination’ to do that.</td>
+<td align="left">启动有序关机，执行以前提交的任务，但不接受新任务。如果调用已经关闭，则调用没有额外的效果<p> 此方法不会等待以前提交的任务完成执行。使用“#awaitTermination”完成此操作。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -717,7 +717,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns a list of the tasks that were awaiting execution. These tasks are drained (removed) from the task queue upon return from this method.  <p>This method does not wait for actively executing tasks to terminate.  Use ‘#awaitTermination awaitTermination’ to do that.  <p>There are no guarantees beyond best-effort attempts to stop processing actively executing tasks.  This implementation cancels tasks via ‘Thread#interrupt’, so any task that fails to respond to interrupts may never terminate.</td>
+<td align="left">尝试停止所有正在执行的任务，停止正在等待的任务的处理，并返回正在等待执行的任务列表。从该方法返回时，这些任务将从任务队列中排出（删除）<p> 此方法不会等待主动执行的任务终止。使用“#awaitTermination”完成此操作<p> 除了尽最大努力尝试停止处理正在积极执行的任务之外，没有其他保证。此实现通过“线程中断”取消任务，因此任何无法响应中断的任务都可能永远不会终止。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -741,7 +741,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if this executor is in the process of terminating after ‘#shutdown’ or ‘#shutdownNow’ but has not completely terminated.  This method may be useful for debugging. A return of ‘true’ reported a sufficient period after shutdown may indicate that submitted tasks have ignored or suppressed interruption, causing this executor not to properly terminate.</td>
+<td align="left">如果此执行器在‘#shutdown‘或‘＃shutdownNow‘之后正在终止，但尚未完全终止，则返回true。此方法可能对调试有用。关闭后足够长时间内报告的“true”返回可能表示提交的任务忽略或抑制了中断，导致此执行器无法正确终止。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -777,7 +777,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Invokes ‘shutdown’ when this executor is no longer referenced and it has no threads.</td>
+<td align="left">当此执行器不再被引用且没有线程时调用“shutdown”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -789,7 +789,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the thread factory used to create new threads.</td>
+<td align="left">设置用于创建新线程的线程工厂。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -801,7 +801,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the thread factory used to create new threads.</td>
+<td align="left">返回用于创建新线程的线程工厂。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -813,7 +813,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets a new handler for unexecutable tasks.</td>
+<td align="left">为不可执行的任务设置新处理程序。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -825,7 +825,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current handler for unexecutable tasks.</td>
+<td align="left">返回不可执行任务的当前处理程序。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -837,7 +837,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the core number of threads.  This overrides any value set in the constructor.  If the new value is smaller than the current value, excess existing threads will be terminated when they next become idle.  If larger, new threads will, if needed, be started to execute any queued tasks.</td>
+<td align="left">设置线程的核心数。这将覆盖构造函数中设置的任何值。如果新值小于当前值，则多余的现有线程将在下次空闲时终止。如果较大，如果需要，将启动新线程以执行任何排队任务。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -849,7 +849,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the core number of threads.</td>
+<td align="left">返回核心线程数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -861,7 +861,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Starts a core thread, causing it to idly wait for work. This overrides the default policy of starting core threads only when new tasks are executed. This method will return ‘false’ if all core threads have already been started.</td>
+<td align="left">启动核心线程，使其空闲等待工作。这将覆盖仅在执行新任务时启动核心线程的默认策略。如果所有核心线程都已启动，此方法将返回“false”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -873,7 +873,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Same as prestartCoreThread except arranges that at least one thread is started even if corePoolSize is 0.</td>
+<td align="left">与prestartCoreThread相同，不同之处在于即使corePoolSize为0，也安排至少启动一个线程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -885,7 +885,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Starts all core threads, causing them to idly wait for work. This overrides the default policy of starting core threads only when new tasks are executed.</td>
+<td align="left">启动所有核心线程，使它们空闲等待工作。这将覆盖仅在执行新任务时启动核心线程的默认策略。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -897,7 +897,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if this pool allows core threads to time out and terminate if no tasks arrive within the keepAlive time, being replaced if needed when new tasks arrive. When true, the same keep-alive policy applying to non-core threads applies also to core threads. When false (the default), core threads are never terminated due to lack of incoming tasks.</td>
+<td align="left">如果此池允许核心线程超时，并在keepAlive时间内没有任务到达时终止，则返回true，如果新任务到达时需要替换。如果为true，应用于非核心线程的相同保持活动策略也适用于核心线程。如果为false（默认值），则核心线程永远不会因缺少传入任务而终止。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -909,7 +909,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the policy governing whether core threads may time out and terminate if no tasks arrive within the keep-alive time, being replaced if needed when new tasks arrive. When false, core threads are never terminated due to lack of incoming tasks. When true, the same keep-alive policy applying to non-core threads applies also to core threads. To avoid continual thread replacement, the keep-alive time must be greater than zero when setting ‘true’. This method should in general be called before the pool is actively used.</td>
+<td align="left">设置控制核心线程是否可能超时并在保持活动时间内没有任务到达时终止的策略，如果需要，在新任务到达时替换。如果为false，则核心线程永远不会因缺少传入任务而终止。如果为true，应用于非核心线程的相同保持活动策略也适用于核心线程。为避免连续更换线程，设置“true”时，保持活动时间必须大于零。通常应在主动使用池之前调用此方法。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -921,7 +921,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the maximum allowed number of threads. This overrides any value set in the constructor. If the new value is smaller than the current value, excess existing threads will be terminated when they next become idle.</td>
+<td align="left">设置允许的最大线程数。这将覆盖构造函数中设置的任何值。如果新值小于当前值，则多余的现有线程将在下次空闲时终止。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -933,7 +933,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the maximum allowed number of threads.</td>
+<td align="left">返回允许的最大线程数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -945,7 +945,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the time limit for which threads may remain idle before being terminated.  If there are more than the core number of threads currently in the pool, after waiting this amount of time without processing a task, excess threads will be terminated.  This overrides any value set in the constructor.</td>
+<td align="left">设置线程在终止前保持空闲的时间限制。如果池中的线程数超过了当前的核心数，则在等待这段时间而不处理任务后，多余的线程将被终止。这将覆盖构造函数中设置的任何值。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -957,7 +957,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the thread keep-alive time, which is the amount of time that threads in excess of the core pool size may remain idle before being terminated.</td>
+<td align="left">返回线程保持活动时间，即超过核心池大小的线程在终止前可能保持空闲的时间量。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -969,7 +969,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the task queue used by this executor. Access to the task queue is intended primarily for debugging and monitoring. This queue may be in active use.  Retrieving the task queue does not prevent queued tasks from executing.</td>
+<td align="left">返回此执行器使用的任务队列。对任务队列的访问主要用于调试和监视。此队列可能正在使用中。检索任务队列不会阻止队列中的任务执行。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -981,7 +981,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes this task from the executor’s internal queue if it is present, thus causing it not to be run if it has not already started.  <p>This method may be useful as one part of a cancellation scheme.  It may fail to remove tasks that have been converted into other forms before being placed on the internal queue. For example, a task entered using ‘submit’ might be converted into a form that maintains ‘Future’ status. However, in such cases, method ‘#purge’ may be used to remove those Futures that have been cancelled.</td>
+<td align="left">如果存在此任务，则将其从执行器的内部队列中移除，从而导致尚未启动的任务无法运行<p> 该方法可以用作抵消方案的一部分。它可能无法删除在放入内部队列之前已转换为其他形式的任务。例如，使用“提交”输入的任务可能会转换为维护“未来”状态的表单。然而，在这种情况下，可以使用方法“#purge”删除已取消的期货。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -993,7 +993,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to remove from the work queue all ‘Future’ tasks that have been cancelled. This method can be useful as a storage reclamation operation, that has no other impact on functionality. Cancelled tasks are never executed, but may accumulate in work queues until worker threads can actively remove them. Invoking this method instead tries to remove them now. However, this method may fail to remove tasks in the presence of interference by other threads.</td>
+<td align="left">尝试从工作队列中删除所有已取消的“未来”任务。此方法可用于存储回收操作，对功能没有其他影响。取消的任务永远不会执行，但可能会累积在工作队列中，直到工作线程可以主动删除它们。调用此方法会尝试立即删除它们。但是，如果存在其他线程的干扰，此方法可能无法删除任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1005,7 +1005,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current number of threads in the pool.</td>
+<td align="left">返回池中当前线程数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1017,7 +1017,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the approximate number of threads that are actively executing tasks.</td>
+<td align="left">返回正在积极执行任务的线程的近似数目。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1029,7 +1029,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the largest number of threads that have ever simultaneously been in the pool.</td>
+<td align="left">返回池中同时存在的最大线程数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1041,7 +1041,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the approximate total number of tasks that have ever been scheduled for execution. Because the states of tasks and threads may change dynamically during computation, the returned value is only an approximation.</td>
+<td align="left">返回计划执行的任务的大致总数。由于任务和线程的状态在计算过程中可能会动态变化，因此返回值仅为近似值。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1053,7 +1053,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the approximate total number of tasks that have completed execution. Because the states of tasks and threads may change dynamically during computation, the returned value is only an approximation, but one that does not ever decrease across successive calls.</td>
+<td align="left">返回已完成执行的任务的大致总数。由于任务和线程的状态在计算过程中可能会动态变化，因此返回值只是一个近似值，但在连续调用中不会减少。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1065,7 +1065,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this pool, as well as its state, including indications of run state and estimated worker and task counts.</td>
+<td align="left">返回标识此池及其状态的字符串，包括运行状态的指示以及估计的工作线程和任务计数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1077,7 +1077,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Method invoked prior to executing the given Runnable in the given thread.  This method is invoked by thread ‘t’ that will execute task ‘r’, and may be used to re-initialize ThreadLocals, or to perform logging.  <p>This implementation does nothing, but may be customized in subclasses. Note: To properly nest multiple overridings, subclasses should generally invoke ‘super.beforeExecute’ at the end of this method.</td>
+<td align="left">方法在给定线程中执行给定Runnable之前调用。此方法由执行任务“r”的线程“t”调用，可用于重新初始化ThreadLocals或执行日志记录<p> 这个实现什么都不做，但可以在子类中自定义。注意：为了正确嵌套多个重写，子类通常应该调用’super’。在此方法结尾处的“beforeExecute”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1089,7 +1089,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Method invoked upon completion of execution of the given Runnable. This method is invoked by the thread that executed the task. If non-null, the Throwable is the uncaught ‘RuntimeException’ or ‘Error’ that caused execution to terminate abruptly.  <p>This implementation does nothing, but may be customized in subclasses. Note: To properly nest multiple overridings, subclasses should generally invoke ‘super.afterExecute’ at the beginning of this method.  <p><b>Note:</b> When actions are enclosed in tasks (such as ‘FutureTask’) either explicitly or via methods such as ‘submit’, these task objects catch and maintain computational exceptions, and so they do not cause abrupt termination, and the internal exceptions are <em>not</em> passed to this method. If you would like to trap both kinds of failures in this method, you can further probe for such cases, as in this sample subclass that prints either the direct cause or the underlying exception if a task has been aborted:  <pre> 'class ExtendedExecutor extends ThreadPoolExecutor {  protected void afterExecute(Runnable r, Throwable t) { super.afterExecute(r, t); if (t == null && r instanceof Future<?>) { try { Object result = ((Future<?>) r).get();' catch (CancellationException ce) { t = ce; } catch (ExecutionException ee) { t = ee.getCause(); } catch (InterruptedException ie) { Thread.currentThread().interrupt(); } } if (t != null) System.out.println(t); } }}</pre></td>
+<td align="left">方法在给定Runnable的执行完成时调用。此方法由执行任务的线程调用。如果非空，则可丢弃的是导致执行突然终止的未捕获的“RuntimeException”或“Error”<p> 这个实现什么都不做，但可以在子类中自定义。注意：为了正确嵌套多个重写，子类通常应该调用’super’。此方法开头的“afterExecute”<p> <b>注意：</b>当操作显式或通过“提交”等方法包含在任务中（如“FutureTask”）时，这些任务对象捕捉并维护计算异常，因此它们不会导致突然终止，内部异常不会传递给此方法。如果您想在这种方法中捕获这两种故障，您可以进一步探索这种情况，在这个示例子类中，如果任务已中止，则打印直接原因或底层异常：＜pre＞‘类ExtendedExecutor扩展ThreadPoolExecutor｛protected void afterExecute（Runnable r，Throwable t）｛super.afterExeuction（r，t）；if（t&#x3D;&#x3D;null&amp;&amp;r instanceof Future＜？＞）｛try｛Object result&#x3D;（（Future＞？＞）r.get（）；‘catch（CancelationException ce）｛t&#x3D;ce；｝catch（ExecutionException ee）{t&#x3D;ee.getCause（）；}捕捉（中断异常ie）{Thread.currentThread（）.interrupt（）；}如果（t！&#x3D;null）System.out。println（t）；}}</pre></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1101,7 +1101,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Method invoked when the Executor has terminated.  Default implementation does nothing. Note: To properly nest multiple overridings, subclasses should generally invoke ‘super.terminated’ within this method.</td>
+<td align="left">方法在执行器终止时调用。默认实现不执行任何操作。注意：为了正确嵌套多个重写，子类通常应该调用’super’。在该方法中终止。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

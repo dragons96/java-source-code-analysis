@@ -79,7 +79,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">A DelayedWorkQueue is based on a heap-based data structure like those in DelayQueue and PriorityQueue, except that every ScheduledFutureTask also records its index into the heap array. This eliminates the need to find a task upon cancellation, greatly speeding up removal (down from O(n) to O(log n)), and reducing garbage retention that would otherwise occur by waiting for the element to rise to top before clearing. But because the queue may also hold RunnableScheduledFutures that are not ScheduledFutureTasks, we are not guaranteed to have such indices available, in which case we fall back to linear search. (We expect that most tasks will not be decorated, and that the faster cases will be much more common.)  All heap operations must record index changes – mainly within siftUp and siftDown. Upon removal, a task’s heapIndex is set to -1. Note that ScheduledFutureTasks can appear at most once in the queue (this need not be true for other kinds of tasks or work queues), so are uniquely identified by heapIndex.</td>
+<td align="left">DelayedWorkQueue基于基于堆的数据结构，与DelayQueue和PriorityQueue中的数据结构类似，只是每个ScheduledFutureTask也将其索引记录到堆数组中。这消除了在取消时查找任务的需要，大大加快了删除速度（从O（n）降低到O（logn）），并减少了垃圾保留，否则，在清除之前等待元素上升到顶部会发生垃圾保留。但由于队列也可能包含非调度未来任务的可运行的调度未来，因此我们不能保证此类索引可用，在这种情况下，我们会退回到线性搜索。（我们期望大多数任务不会被修饰，更快的情况会更常见。）所有堆操作都必须记录索引更改——主要是在siftUp和siftDown中。删除后，任务的heapIndex设置为-1。请注意，ScheduledFutureTasks最多可以在队列中出现一次（对于其他类型的任务或工作队列，这不一定是真的），因此由heapIndix唯一标识。</td>
 </tr>
 <tr>
 <td align="center"><strong>queue: RunnableScheduledFuture&lt;?&gt;[]</strong></td>
@@ -123,7 +123,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Thread designated to wait for the task at the head of the queue.  This variant of the Leader-Follower pattern (http: minimize unnecessary timed waiting.  When a thread becomes the leader, it waits only for the next delay to elapse, but other threads await indefinitely.  The leader thread must signal some other thread before returning from take() or poll(…), unless some other thread becomes leader in the interim.  Whenever the head of the queue is replaced with a task with an earlier expiration time, the leader field is invalidated by being reset to null, and some waiting thread, but not necessarily the current leader, is signalled.  So waiting threads must be prepared to acquire and lose leadership while waiting.</td>
+<td align="left">指定在队列头等待任务的线程。领导者-跟随者模式的这种变体（http：最小化不必要的定时等待。当一个线程成为领导者时，它只等待下一个延迟过去，但其他线程无限期地等待。领导者线程必须在从take（）或poll（）返回前发信号通知其他线程，除非其他线程在此期间成为领导者。每当队列的头被过期时间较早的任务替换时，leader字段将被重置为null而无效，并向某些等待线程发出信号，但不一定是当前的leader。因此，等待线程必须做好准备，在等待过程中获得并失去领导地位。</td>
 </tr>
 <tr>
 <td align="center"><strong>available: Condition</strong></td>
@@ -134,7 +134,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Condition signalled when a newer task becomes available at the head of the queue or a new thread may need to become leader.</td>
+<td align="left">当一个较新的任务在队列的前端可用，或者一个新线程可能需要成为队列的领导者时，发出条件信号。</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -161,7 +161,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets f’s heapIndex if it is a ScheduledFutureTask.</td>
+<td align="left">如果是ScheduledFutureTask，则设置f的heapIndex。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -173,7 +173,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sifts element added at bottom up to its heap-ordered spot. Call only when holding lock.</td>
+<td align="left">筛选从下到上添加到其堆排序点的元素。只有在持有锁时才调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -185,7 +185,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sifts element added at top down to its heap-ordered spot. Call only when holding lock.</td>
+<td align="left">筛选自上而下添加到其堆排序点的元素。只有在持有锁时才调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Resizes the heap array.  Call only when holding lock.</td>
+<td align="left">调整堆数组的大小。只有在持有锁时才调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -209,7 +209,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Finds index of given object, or -1 if absent.</td>
+<td align="left">查找给定对象的索引，如果不存在，则查找-1。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -341,7 +341,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs common bookkeeping for poll and take: Replaces first element with last and sifts it down.  Call only when holding lock.</td>
+<td align="left">对轮询和获取执行常规簿记：将第一个元素替换为最后一个元素，并对其进行筛选。只有在持有锁时才调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -401,7 +401,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns first element only if it is expired. Used only by drainTo.  Call only when holding lock.</td>
+<td align="left">仅当第一个元素过期时返回该元素。仅由drainTo使用。只有在持有锁时才调用。</td>
 <td align="left"></td>
 </tr>
 <tr>

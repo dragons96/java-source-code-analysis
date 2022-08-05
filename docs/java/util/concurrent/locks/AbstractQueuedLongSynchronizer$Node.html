@@ -75,7 +75,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Marker to indicate a node is waiting in shared mode</td>
+<td align="left">用于指示节点正在共享模式下等待的标记</td>
 </tr>
 <tr>
 <td align="center"><strong>EXCLUSIVE: Node</strong></td>
@@ -86,7 +86,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Marker to indicate a node is waiting in exclusive mode</td>
+<td align="left">用于指示节点正在独占模式下等待的标记</td>
 </tr>
 <tr>
 <td align="center"><strong>CANCELLED: int</strong></td>
@@ -97,7 +97,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">waitStatus value to indicate thread has cancelled</td>
+<td align="left">waitStatus值，指示线程已取消</td>
 </tr>
 <tr>
 <td align="center"><strong>SIGNAL: int</strong></td>
@@ -108,7 +108,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">waitStatus value to indicate successor’s thread needs unparking</td>
+<td align="left">waitStatus值，用于指示后续线程需要取消连接</td>
 </tr>
 <tr>
 <td align="center"><strong>CONDITION: int</strong></td>
@@ -119,7 +119,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">waitStatus value to indicate thread is waiting on condition</td>
+<td align="left">waitStatus值，指示线程正在等待条件</td>
 </tr>
 <tr>
 <td align="center"><strong>PROPAGATE: int</strong></td>
@@ -130,7 +130,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">waitStatus value to indicate the next acquireShared should unconditionally propagate</td>
+<td align="left">waitStatus值，指示下一个acquireShared应无条件传播</td>
 </tr>
 <tr>
 <td align="center"><strong>waitStatus: int</strong></td>
@@ -141,7 +141,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Status field, taking on only the values: SIGNAL:     The successor of this node is (or will soon be) blocked (via park), so the current node must unpark its successor when it releases or cancels. To avoid races, acquire methods must first indicate they need a signal, then retry the atomic acquire, and then, on failure, block. CANCELLED:  This node is cancelled due to timeout or interrupt. Nodes never leave this state. In particular, a thread with cancelled node never again blocks. CONDITION:  This node is currently on a condition queue. It will not be used as a sync queue node until transferred, at which time the status will be set to 0. (Use of this value here has nothing to do with the other uses of the field, but simplifies mechanics.) PROPAGATE:  A releaseShared should be propagated to other nodes. This is set (for head node only) in doReleaseShared to ensure propagation continues, even if other operations have since intervened. 0:          None of the above  The values are arranged numerically to simplify use. Non-negative values mean that a node doesn’t need to signal. So, most code doesn’t need to check for particular values, just for sign.  The field is initialized to 0 for normal sync nodes, and CONDITION for condition nodes.  It is modified using CAS (or when possible, unconditional volatile writes).</td>
+<td align="left">状态字段，仅接受值：信号：此节点的后续节点已（或即将）被阻止（通过park），因此当前节点必须在释放或取消时取消其后续节点的解析。为了避免竞争，采集方法必须首先指示它们需要信号，然后重试原子采集，然后在失败时阻塞。取消：由于超时或中断，此节点被取消。节点永远不会离开此状态。特别是，取消节点的线程不会再次阻塞。条件：此节点当前在条件队列中。在传输之前，它不会用作同步队列节点，此时状态将设置为0。（此处使用此值与字段的其他用途无关，但简化了机制。）传播：应将releaseShared传播到其他节点。这是在doReleaseShared中设置的（仅针对头节点），以确保传播继续，即使其他操作已经介入。0：上述值均未按数字排列以简化使用。非负值表示节点不需要发送信号。因此，大多数代码不需要检查特定值，只需要检查符号。对于正常同步节点，字段初始化为0，对于条件节点，字段被初始化为条件。它使用CAS（或在可能的情况下，使用无条件易失性写入）进行修改。</td>
 </tr>
 <tr>
 <td align="center"><strong>prev: Node</strong></td>
@@ -152,7 +152,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Link to predecessor node that current node&#x2F;thread relies on for checking waitStatus. Assigned during enqueuing, and nulled out (for sake of GC) only upon dequeuing.  Also, upon cancellation of a predecessor, we short-circuit while finding a non-cancelled one, which will always exist because the head node is never cancelled: A node becomes head only as a result of successful acquire. A cancelled thread never succeeds in acquiring, and a thread only cancels itself, not any other node.</td>
+<td align="left">链接到当前节点&#x2F;线程检查等待状态所依赖的前置节点。在排队期间分配，并且仅在退队时将其置零（为了GC）。此外，在取消前一个节点时，我们会短路，同时找到一个未取消的节点，该节点将始终存在，因为头节点从未取消：一个节点仅因成功获取而成为头节点。被取消的线程永远不会成功获取，线程只取消自身，而不取消任何其他节点。</td>
 </tr>
 <tr>
 <td align="center"><strong>next: Node</strong></td>
@@ -163,7 +163,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Link to the successor node that the current node&#x2F;thread unparks upon release. Assigned during enqueuing, adjusted when bypassing cancelled predecessors, and nulled out (for sake of GC) when dequeued.  The enq operation does not assign next field of a predecessor until after attachment, so seeing a null next field does not necessarily mean that node is at end of queue. However, if a next field appears to be null, we can scan prev’s from the tail to double-check.  The next field of cancelled nodes is set to point to the node itself instead of null, to make life easier for isOnSyncQueue.</td>
+<td align="left">链接到当前节点&#x2F;线程在发布时取消连接的后续节点。在排队过程中分配，在绕过取消的前导时调整，并在排队时取消（为了GC）。enq操作直到连接之后才分配前置节点的下一个字段，所以看到空的下一字段并不一定意味着节点在队列的末尾。然而，如果下一个字段显示为空，我们可以从尾部扫描上一个字段以进行双重检查。取消节点的下一个字段设置为指向节点本身，而不是null，以使isOnSyncQueue的工作更轻松。</td>
 </tr>
 <tr>
 <td align="center"><strong>thread: Thread</strong></td>
@@ -174,7 +174,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The thread that enqueued this node.  Initialized on construction and nulled out after use.</td>
+<td align="left">使此节点排队的线程。构造时初始化，使用后为空。</td>
 </tr>
 <tr>
 <td align="center"><strong>nextWaiter: Node</strong></td>
@@ -185,7 +185,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Link to next node waiting on condition, or the special value SHARED.  Because condition queues are accessed only when holding in exclusive mode, we just need a simple linked queue to hold nodes while they are waiting on conditions. They are then transferred to the queue to re-acquire. And because conditions can only be exclusive, we save a field by using special value to indicate shared mode.</td>
+<td align="left">链接到下一个节点等待条件，或共享特殊值。因为只有在独占模式下保持时才访问条件队列，所以我们只需要一个简单的链接队列来保持等待条件的节点。然后将它们转移到队列以重新获取。由于条件只能是独占的，我们通过使用特殊值来指示共享模式来保存字段。</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -212,7 +212,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if node is waiting in shared mode.</td>
+<td align="left">如果节点正在共享模式下等待，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -224,7 +224,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns previous node, or throws NullPointerException if null. Use when predecessor cannot be null.  The null check could be elided, but is present to help the VM.</td>
+<td align="left">返回上一个节点，如果为null，则抛出NullPointerException。当前置项不能为空时使用。可以省略空检查，但它的存在是为了帮助VM。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>

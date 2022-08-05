@@ -77,7 +77,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Index to look for new nextItem; NONE at end</td>
+<td align="left">寻找新nextItem的索引；最后没有</td>
 </tr>
 <tr>
 <td align="center"><strong>nextItem: E</strong></td>
@@ -88,7 +88,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Element to be returned by next call to next(); null if none</td>
+<td align="left">下一次调用next（）将返回的元素；如果无，则为空</td>
 </tr>
 <tr>
 <td align="center"><strong>nextIndex: int</strong></td>
@@ -99,7 +99,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Index of nextItem; NONE if none, REMOVED if removed elsewhere</td>
+<td align="left">nextItem指数；如果没有，则为无；如果在其他位置删除，则为删除</td>
 </tr>
 <tr>
 <td align="center"><strong>lastItem: E</strong></td>
@@ -110,7 +110,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Last element returned; null if none or not detached.</td>
+<td align="left">返回的最后一个元素；如果无或未分离，则为null。</td>
 </tr>
 <tr>
 <td align="center"><strong>lastRet: int</strong></td>
@@ -121,7 +121,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Index of lastItem, NONE if none, REMOVED if removed elsewhere</td>
+<td align="left">lastItem索引，如果无，则无，如果在其他位置删除，则删除</td>
 </tr>
 <tr>
 <td align="center"><strong>prevTakeIndex: int</strong></td>
@@ -132,7 +132,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Previous value of takeIndex, or DETACHED when detached</td>
+<td align="left">takeIndex的上一个值，或在分离时分离</td>
 </tr>
 <tr>
 <td align="center"><strong>prevCycles: int</strong></td>
@@ -143,7 +143,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Previous value of iters.cycles</td>
+<td align="left">iters.cycles的先前值</td>
 </tr>
 <tr>
 <td align="center"><strong>NONE: int</strong></td>
@@ -154,7 +154,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Special index value indicating “not available” or “undefined”</td>
+<td align="left">指示“不可用”或“未定义”的特殊索引值</td>
 </tr>
 <tr>
 <td align="center"><strong>REMOVED: int</strong></td>
@@ -165,7 +165,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Special index value indicating “removed elsewhere”, that is, removed by some operation other than a call to this.remove().</td>
+<td align="left">指示“已在别处删除”的特殊索引值，即通过调用this.remove（）以外的操作删除。</td>
 </tr>
 <tr>
 <td align="center"><strong>DETACHED: int</strong></td>
@@ -176,7 +176,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Special value for prevTakeIndex indicating “detached mode”</td>
+<td align="left">指示“分离模式”的prevTakeIndex的特殊值</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -239,7 +239,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if index is invalidated by the given number of dequeues, starting from prevTakeIndex.</td>
+<td align="left">如果从prevTakeIndex开始，给定的出列次数使索引无效，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -251,7 +251,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Adjusts indices to incorporate all dequeues since the last operation on this iterator.  Call only from iterating thread.</td>
+<td align="left">调整索引以合并自上次在此迭代器上执行操作以来的所有出列。仅从迭代线程调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -263,7 +263,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Called when itrs should stop tracking this iterator, either because there are no more indices to update (cursor &lt; 0 &amp;&amp; nextIndex &lt; 0 &amp;&amp; lastRet &lt; 0) or as a special exception, when lastRet &gt;&#x3D; 0, because hasNext() is about to return false for the first time.  Call only from iterating thread.</td>
+<td align="left">当itrs应该停止跟踪此迭代器时调用，因为没有更多的索引要更新（游标&lt;0&amp;&amp;nextIndex&lt;0&amp;&amp;lastRet&lt;0），或者作为特殊例外，当lastRet&gt;&#x3D;0时，因为hasNext（）将首次返回false。仅从迭代线程调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -275,7 +275,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">For performance reasons, we would like not to acquire a lock in hasNext in the common case.  To allow for this, we only access fields (i.e. nextItem) that are not modified by update operations triggered by queue modifications.</td>
+<td align="left">出于性能原因，在常见情况下，我们不希望在hasNext中获得锁。为了实现这一点，我们只访问未被队列修改触发的更新操作修改的字段（即nextItem）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -323,7 +323,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Called to notify the iterator that the queue is empty, or that it has fallen hopelessly behind, so that it should abandon any further iteration, except possibly to return one more element from next(), as promised by returning true from hasNext().</td>
+<td align="left">调用以通知迭代器队列是空的，或者它已经无可救药地落后，因此它应该放弃任何进一步的迭代，除了可能从next（）返回一个元素之外，正如从hasNext（）返回true所承诺的那样。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -347,7 +347,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Called whenever an interior remove (not at takeIndex) occurred.</td>
+<td align="left">每当发生内部移除（而不是takeIndex）时调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -359,7 +359,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Called whenever takeIndex wraps around to zero.</td>
+<td align="left">每当takeIndex变为零时调用。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

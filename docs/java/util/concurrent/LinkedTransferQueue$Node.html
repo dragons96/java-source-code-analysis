@@ -214,7 +214,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructs a new node.  Uses relaxed write because item can only be seen after publication via casNext.</td>
+<td align="left">构造一个新节点。使用松弛写入，因为只有在通过casNext发布后才能看到项。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -226,7 +226,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Links node to itself to avoid garbage retention.  Called only after CASing head field, so uses relaxed write.</td>
+<td align="left">将节点链接到自身以避免垃圾保留。仅在套管头字段之后调用，因此使用松弛写入。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -238,7 +238,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets item to self and waiter to null, to avoid garbage retention after matching or cancelling. Uses relaxed writes because order is already constrained in the only calling contexts: item is forgotten only after volatile&#x2F;atomic mechanics that extract items.  Similarly, clearing waiter follows either CAS or return from park (if ever parked; else we don’t care).</td>
+<td align="left">将项设置为self，将侍者设置为null，以避免匹配或取消后的垃圾保留。使用松弛写入，因为顺序已经在唯一调用上下文中受到约束：只有在提取项的易失性&#x2F;原子机制之后，项才会被遗忘。同样，清场服务员要么跟着CAS，要么从停车场回来（如果停过的话；否则我们不在乎）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -250,7 +250,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if this node has been matched, including the case of artificial matches due to cancellation.</td>
+<td align="left">如果此节点已匹配（包括由于取消而进行的人工匹配），则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -262,7 +262,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if this is an unmatched request node.</td>
+<td align="left">如果这是不匹配的请求节点，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -274,7 +274,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if a node with the given mode cannot be appended to this node because this node is unmatched and has opposite data mode.</td>
+<td align="left">如果具有给定模式的节点无法追加到此节点，因为此节点不匹配且具有相反的数据模式，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -286,7 +286,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to artificially match a data node – used by remove.</td>
+<td align="left">尝试人工匹配数据节点——由remove使用。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

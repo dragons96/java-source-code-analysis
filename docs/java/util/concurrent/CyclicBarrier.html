@@ -75,7 +75,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The lock for guarding barrier entry</td>
+<td align="left">用于保护障碍物进入的锁</td>
 </tr>
 <tr>
 <td align="center"><strong>trip: Condition</strong></td>
@@ -86,7 +86,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Condition to wait on until tripped</td>
+<td align="left">等待直到跳闸的条件</td>
 </tr>
 <tr>
 <td align="center"><strong>parties: int</strong></td>
@@ -97,7 +97,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The number of parties</td>
+<td align="left">缔约方数目</td>
 </tr>
 <tr>
 <td align="center"><strong>barrierCommand: Runnable</strong></td>
@@ -108,7 +108,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The command to run when tripped</td>
+<td align="left">跳闸时运行的命令</td>
 </tr>
 <tr>
 <td align="center"><strong>generation: Generation</strong></td>
@@ -119,7 +119,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The current generation</td>
+<td align="left">当代</td>
 </tr>
 <tr>
 <td align="center"><strong>count: int</strong></td>
@@ -130,7 +130,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Number of parties still waiting. Counts down from parties to 0 on each generation.  It is reset to parties on each new generation or when broken.</td>
+<td align="left">仍在等待的缔约方数目。每一代从参与方倒数到0。它在每一代或每一代出现故障时都会重置给各方。</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -157,7 +157,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Updates state on barrier trip and wakes up everyone. Called only while holding lock.</td>
+<td align="left">更新barrier trip的状态并唤醒所有人。仅在持有锁时调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -169,7 +169,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets current barrier generation as broken and wakes up everyone. Called only while holding lock.</td>
+<td align="left">将当前的屏障生成设置为已打破，并唤醒所有人。仅在持有锁时调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -181,7 +181,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Main barrier code, covering the various policies.</td>
+<td align="left">主要障碍代码，涵盖各种政策。</td>
 <td align="left">InterruptedException<br/>TimeoutException<br/>BrokenBarrierException</td>
 </tr>
 <tr>
@@ -193,7 +193,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘CyclicBarrier’ that will trip when the given number of parties (threads) are waiting upon it, and which will execute the given barrier action when the barrier is tripped, performed by the last thread entering the barrier.</td>
+<td align="left">创建一个新的“CyclicBarrier”，当给定数量的参与方（线程）正在等待它时，该“Cyclic barrier”将跳闸，并在屏障跳闸时执行给定的屏障操作，由进入屏障的最后一个线程执行。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘CyclicBarrier’ that will trip when the given number of parties (threads) are waiting upon it, and does not perform a predefined action when the barrier is tripped.</td>
+<td align="left">创建一个新的“CyclicBarrier”，当给定数量的参与方（线程）在其上等待时，该“Cyclic barrier”将跳闸，并且在屏障跳闸时不执行预定义的操作。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -217,7 +217,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of parties required to trip this barrier.</td>
+<td align="left">返回跳过此障碍所需的参与方数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -229,7 +229,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits until all ‘#getParties parties’ have invoked ‘await’ on this barrier.  <p>If the current thread is not the last to arrive then it is disabled for thread scheduling purposes and lies dormant until one of the following things happens: <ul> <li>The last thread arrives; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>Some other thread ‘Thread#interrupt interrupts’ one of the other waiting threads; or <li>Some other thread times out while waiting for barrier; or <li>Some other thread invokes ‘#reset’ on this barrier. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the barrier is ‘#reset’ while any thread is waiting, or if the barrier ‘#isBroken is broken’ when ‘await’ is invoked, or while any thread is waiting, then ‘BrokenBarrierException’ is thrown.  <p>If any thread is ‘Thread#interrupt interrupted’ while waiting, then all other waiting threads will throw ‘BrokenBarrierException’ and the barrier is placed in the broken state.  <p>If the current thread is the last thread to arrive, and a non-null barrier action was supplied in the constructor, then the current thread runs the action before allowing the other threads to continue. If an exception occurs during the barrier action then that exception will be propagated in the current thread and the barrier is placed in the broken state.</td>
+<td align="left">等待直到所有“#getParties”在此屏障上调用了“await”<p> 如果当前线程不是最后一个到达的线程，则出于线程调度目的，它将被禁用，并处于休眠状态，直到发生以下情况之一：<ul><li>最后一个线程到达；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞某个其他线程的“线程#中断”会中断其他等待线程之一；或＜li＞其他线程在等待屏障时超时；或者＜li＞某个其他线程在该屏障上调用“#reset”</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或＜li＞在等待时为“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态<p> 如果在任何线程等待时屏障被“#reset”，或者如果在调用“等待”时屏障被打破，或者在任何线程等候时屏障被破坏，则抛出“BrokenBarrierException”<p> 如果任何线程在等待时被“thread#interrupt interrupted”，则所有其他等待线程将抛出“BrokenBarrierException”，并且屏障处于断开状态<p> 如果当前线程是最后一个到达的线程，并且构造函数中提供了非空屏障操作，则当前线程在允许其他线程继续之前运行该操作。如果在屏障操作期间发生异常，则该异常将在当前线程中传播，屏障将处于断开状态。</td>
 <td align="left">InterruptedException<br/>BrokenBarrierException</td>
 </tr>
 <tr>
@@ -241,7 +241,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits until all ‘#getParties parties’ have invoked ‘await’ on this barrier, or the specified waiting time elapses.  <p>If the current thread is not the last to arrive then it is disabled for thread scheduling purposes and lies dormant until one of the following things happens: <ul> <li>The last thread arrives; or <li>The specified timeout elapses; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>Some other thread ‘Thread#interrupt interrupts’ one of the other waiting threads; or <li>Some other thread times out while waiting for barrier; or <li>Some other thread invokes ‘#reset’ on this barrier. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the specified waiting time elapses then ‘TimeoutException’ is thrown. If the time is less than or equal to zero, the method will not wait at all.  <p>If the barrier is ‘#reset’ while any thread is waiting, or if the barrier ‘#isBroken is broken’ when ‘await’ is invoked, or while any thread is waiting, then ‘BrokenBarrierException’ is thrown.  <p>If any thread is ‘Thread#interrupt interrupted’ while waiting, then all other waiting threads will throw ‘BrokenBarrierException’ and the barrier is placed in the broken state.  <p>If the current thread is the last thread to arrive, and a non-null barrier action was supplied in the constructor, then the current thread runs the action before allowing the other threads to continue. If an exception occurs during the barrier action then that exception will be propagated in the current thread and the barrier is placed in the broken state.</td>
+<td align="left">等待，直到所有“#getParties”在此屏障上调用了“await”，或者经过了指定的等待时间<p> 如果当前线程不是最后一个到达的线程，则出于线程调度目的，它将被禁用，并处于休眠状态，直到发生以下情况之一：<ul><li>最后一个线程到达；或＜li＞指定的超时时间已过；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞某个其他线程的“线程#中断”会中断其他等待线程之一；或＜li＞其他线程在等待屏障时超时；或者＜li＞某个其他线程在该屏障上调用“#reset”</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或＜li＞在等待时为“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态<p> 如果指定的等待时间已过，则抛出“TimeoutException”。如果时间小于或等于零，该方法将根本不等待<p> 如果在任何线程等待时屏障被“#reset”，或者如果在调用“等待”时屏障被打破，或者在任何线程等候时屏障被破坏，则抛出“BrokenBarrierException”<p> 如果任何线程在等待时被“thread#interrupt interrupted”，则所有其他等待线程将抛出“BrokenBarrierException”，并且屏障处于断开状态<p> 如果当前线程是最后一个到达的线程，并且构造函数中提供了非空屏障操作，则当前线程在允许其他线程继续之前运行该操作。如果在屏障操作期间发生异常，则该异常将在当前线程中传播，屏障将处于断开状态。</td>
 <td align="left">InterruptedException<br/>TimeoutException<br/>BrokenBarrierException</td>
 </tr>
 <tr>
@@ -253,7 +253,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries if this barrier is in a broken state.</td>
+<td align="left">查询此屏障是否处于断开状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -265,7 +265,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Resets the barrier to its initial state.  If any parties are currently waiting at the barrier, they will return with a ‘BrokenBarrierException’. Note that resets <em>after</em> a breakage has occurred for other reasons can be complicated to carry out; threads need to re-synchronize in some other way, and choose one to perform the reset.  It may be preferable to instead create a new barrier for subsequent use.</td>
+<td align="left">将屏障重置为其初始状态。如果任何一方目前正在隔离墙等待，他们将返回“BrokenBarrierException”。请注意，在</em>因其他原因发生破损后重置<em>，可能会使执行变得复杂；线程需要以其他方式重新同步，并选择一种方式执行重置。替代地，可以优选地创建新的屏障以供后续使用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -277,7 +277,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of parties currently waiting at the barrier. This method is primarily useful for debugging and assertions.</td>
+<td align="left">返回当前在屏障处等待的参与方数。此方法主要用于调试和断言。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

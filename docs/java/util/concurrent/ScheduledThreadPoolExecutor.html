@@ -79,7 +79,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">False if should cancel&#x2F;suppress periodic tasks on shutdown.</td>
+<td align="left">如果应在关机时取消&#x2F;禁止定期任务，则为False。</td>
 </tr>
 <tr>
 <td align="center"><strong>executeExistingDelayedTasksAfterShutdown: boolean</strong></td>
@@ -90,7 +90,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">False if should cancel non-periodic tasks on shutdown.</td>
+<td align="left">如果应在关机时取消非定期任务，则为False。</td>
 </tr>
 <tr>
 <td align="center"><strong>removeOnCancel: boolean</strong></td>
@@ -101,7 +101,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">True if ScheduledFutureTask.cancel should remove from queue</td>
+<td align="left">如果ScheduledFutureTask为True。取消应该从队列中删除</td>
 </tr>
 <tr>
 <td align="center"><strong>sequencer: AtomicLong</strong></td>
@@ -112,7 +112,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sequence number to break scheduling ties, and in turn to guarantee FIFO order among tied entries.</td>
+<td align="left">序列号以打破调度联系，进而保证联系条目之间的FIFO顺序。</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -139,7 +139,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns current nanosecond time.</td>
+<td align="left">返回当前纳秒时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if can run a task given current run state and run-after-shutdown parameters.</td>
+<td align="left">如果给定当前运行状态和关机后运行参数，可以运行任务，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -163,7 +163,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Main execution method for delayed or periodic tasks.  If pool is shut down, rejects the task. Otherwise adds task to queue and starts a thread, if necessary, to run it.  (We cannot prestart the thread to run the task because the task (probably) shouldn’t be run yet.)  If the pool is shut down while the task is being added, cancel and remove it if required by state and run-after-shutdown parameters.</td>
+<td align="left">延迟或周期性任务的主要执行方法。如果池关闭，则拒绝该任务。否则，将任务添加到队列中，并在必要时启动线程来运行它。（我们无法预启动线程来运行任务，因为任务（可能）还不应该运行。）如果在添加任务时关闭了池，请根据状态和关机后运行参数的要求取消并删除它。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -175,7 +175,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Requeues a periodic task unless current run state precludes it. Same idea as delayedExecute except drops task rather than rejecting.</td>
+<td align="left">重新请求周期性任务，除非当前运行状态排除它。与delayedExecute的想法相同，只是放弃任务而不是拒绝。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -187,7 +187,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Cancels and clears the queue of all tasks that should not be run due to shutdown policy.  Invoked within super.shutdown.</td>
+<td align="left">取消并清除由于关机策略而不应运行的所有任务的队列。在super.shutdown中调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -199,7 +199,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Modifies or replaces the task used to execute a runnable. This method can be used to override the concrete class used for managing internal tasks. The default implementation simply returns the given task.</td>
+<td align="left">修改或替换用于执行可运行任务的任务。此方法可用于重写用于管理内部任务的具体类。默认实现只返回给定的任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -211,7 +211,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Modifies or replaces the task used to execute a callable. This method can be used to override the concrete class used for managing internal tasks. The default implementation simply returns the given task.</td>
+<td align="left">修改或替换用于执行可调用任务的任务。此方法可用于重写用于管理内部任务的具体类。默认实现只返回给定的任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ScheduledThreadPoolExecutor’ with the given core pool size.</td>
+<td align="left">创建具有给定核心池大小的新“ScheduledThreadPoolExecutor”。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -235,8 +235,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ScheduledThreadPoolExecutor’ with the given initial parameters.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数创建新的“ScheduledThreadPoolExecutor”。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>ScheduledThreadPoolExecutor(int corePoolSize, RejectedExecutionHandler handler)</strong></td>
@@ -247,8 +247,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ScheduledThreadPoolExecutor with the given initial parameters.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数创建新的ScheduledThreadPoolExecutor。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>ScheduledThreadPoolExecutor(int corePoolSize, ThreadFactory threadFactory, RejectedExecutionHandler handler)</strong></td>
@@ -259,8 +259,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ScheduledThreadPoolExecutor with the given initial parameters.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定的初始参数创建新的ScheduledThreadPoolExecutor。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>triggerTime(long delay, TimeUnit unit): long</strong></td>
@@ -271,7 +271,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the trigger time of a delayed action.</td>
+<td align="left">返回延迟操作的触发时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -283,7 +283,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the trigger time of a delayed action.</td>
+<td align="left">返回延迟操作的触发时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constrains the values of all delays in the queue to be within Long.MAX_VALUE of each other, to avoid overflow in compareTo. This may occur if a task is eligible to be dequeued, but has not yet been, while some other task is added with a delay of Long.MAX_VALUE.</td>
+<td align="left">将队列中所有延迟的值限制在Long范围内。以避免在比较中溢出。如果一个任务有资格退出队列，但尚未退出，而另一个任务添加了Long.MAX_VALUE延迟，则可能会发生这种情况。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -308,7 +308,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>schedule(Callable&lt;V&gt; callable, long delay, TimeUnit unit): ScheduledFuture<V></strong></td>
@@ -320,7 +320,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit): ScheduledFuture&lt;?&gt;</strong></td>
@@ -332,7 +332,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException<br/>IllegalArgumentException</td>
+<td align="left">IllegalArgumentException<br/>RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit): ScheduledFuture&lt;?&gt;</strong></td>
@@ -344,7 +344,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException<br/>IllegalArgumentException</td>
+<td align="left">IllegalArgumentException<br/>RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>execute(Runnable command): void</strong></td>
@@ -355,8 +355,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Executes ‘command’ with zero required delay. This has effect equivalent to ‘#schedule(Runnable,long,TimeUnit) schedule(command, 0, anyUnit)’. Note that inspections of the queue and of the list returned by ‘shutdownNow’ will access the zero-delayed ‘ScheduledFuture’, not the ‘command’ itself.  <p>A consequence of the use of ‘ScheduledFuture’ objects is that ‘ThreadPoolExecutor#afterExecute afterExecute’ is always called with a null second ‘Throwable’ argument, even if the ‘command’ terminated abruptly.  Instead, the ‘Throwable’ thrown by such a task can be obtained via ‘Future#get’.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">以零所需延迟执行“命令”。这相当于‘#schedule（可运行、长时间、时间单位）schedule（“命令”、“0”、“任意单位”）。请注意，对“shutdownNow”返回的队列和列表的检查将访问零延迟的“ScheduledFuture”，而不是“command”本身<p> 使用“ScheduledFuture”对象的结果是，即使“命令”突然终止，“ThreadPoolExecutor#afterExecute”始终使用空秒“Throwable”参数调用。相反，可以通过“Future#get”获得此类任务抛出的“可丢弃”属性。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Runnable task): Future&lt;?&gt;</strong></td>
@@ -368,7 +368,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Runnable task, T result): Future<T></strong></td>
@@ -380,7 +380,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Callable&lt;T&gt; task): Future<T></strong></td>
@@ -392,7 +392,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>setContinueExistingPeriodicTasksAfterShutdownPolicy(boolean value): void</strong></td>
@@ -403,7 +403,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the policy on whether to continue executing existing periodic tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’ or after setting the policy to ‘false’ when already shutdown. This value is by default ‘false’.</td>
+<td align="left">设置是否继续执行现有定期任务的策略，即使此执行器已“关闭”。在这种情况下，这些任务仅在“shutdownNow”时或在已关闭时将策略设置为“false”后终止。该值默认为“false”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -415,7 +415,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Gets the policy on whether to continue executing existing periodic tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’ or after setting the policy to ‘false’ when already shutdown. This value is by default ‘false’.</td>
+<td align="left">获取有关即使此执行器已“关闭”也是否继续执行现有定期任务的策略。在这种情况下，这些任务仅在“shutdownNow”时或在已关闭时将策略设置为“false”后终止。该值默认为“false”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -427,7 +427,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the policy on whether to execute existing delayed tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’, or after setting the policy to ‘false’ when already shutdown. This value is by default ‘true’.</td>
+<td align="left">设置是否执行现有延迟任务的策略，即使此执行器已“关闭”。在这种情况下，这些任务仅在“Shutdownow”时终止，或者在已关闭时将策略设置为“false”后终止。该值默认为“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -439,7 +439,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Gets the policy on whether to execute existing delayed tasks even when this executor has been ‘shutdown’. In this case, these tasks will only terminate upon ‘shutdownNow’, or after setting the policy to ‘false’ when already shutdown. This value is by default ‘true’.</td>
+<td align="left">获取有关即使此执行器已“关闭”也是否执行现有延迟任务的策略。在这种情况下，这些任务仅在“Shutdownow”时终止，或者在已关闭时将策略设置为“false”后终止。该值默认为“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -451,7 +451,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the policy on whether cancelled tasks should be immediately removed from the work queue at time of cancellation.  This value is by default ‘false’.</td>
+<td align="left">设置在取消时是否应立即从工作队列中删除已取消的任务的策略。该值默认为“false”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -463,7 +463,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Gets the policy on whether cancelled tasks should be immediately removed from the work queue at time of cancellation.  This value is by default ‘false’.</td>
+<td align="left">获取有关取消时是否应立即从工作队列中删除已取消任务的策略。该值默认为“false”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -475,7 +475,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no additional effect if already shut down.  <p>This method does not wait for previously submitted tasks to complete execution.  Use ‘#awaitTermination awaitTermination’ to do that.  <p>If the ‘ExecuteExistingDelayedTasksAfterShutdownPolicy’ has been set ‘false’, existing delayed tasks whose delays have not yet elapsed are cancelled.  And unless the ‘ContinueExistingPeriodicTasksAfterShutdownPolicy’ has been set ‘true’, future executions of existing periodic tasks will be cancelled.</td>
+<td align="left">启动有序关机，执行以前提交的任务，但不接受新任务。如果调用已经关闭，则调用没有额外的效果<p> 此方法不会等待以前提交的任务完成执行。使用“#awaitTermination”完成此操作<p> 如果“ExecuteExistingDelayedTaskAftershutdownPolicy”设置为“false”，则延迟尚未过去的现有延迟任务将被取消。并且，除非“ContinueExistingPeriodicTasksAfterShutdownPolicy”设置为“true”，否则将取消现有定期任务的未来执行。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -487,7 +487,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns a list of the tasks that were awaiting execution.  <p>This method does not wait for actively executing tasks to terminate.  Use ‘#awaitTermination awaitTermination’ to do that.  <p>There are no guarantees beyond best-effort attempts to stop processing actively executing tasks.  This implementation cancels tasks via ‘Thread#interrupt’, so any task that fails to respond to interrupts may never terminate.</td>
+<td align="left">尝试停止所有正在执行的任务，停止正在等待的任务的处理，并返回正在等待执行的任务列表<p> 此方法不会等待主动执行的任务终止。使用“#awaitTermination”完成此操作<p> 除了尽最大努力尝试停止处理正在积极执行的任务之外，没有其他保证。此实现通过“线程中断”取消任务，因此任何无法响应中断的任务都可能永远不会终止。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -499,7 +499,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the task queue used by this executor.  Each element of this queue is a ‘ScheduledFuture’, including those tasks submitted using ‘execute’ which are for scheduling purposes used as the basis of a zero-delay ‘ScheduledFuture’.  Iteration over this queue is <em>not</em> guaranteed to traverse tasks in the order in which they will execute.</td>
+<td align="left">返回此执行器使用的任务队列。该队列的每个元素都是“ScheduledFuture”，包括使用“execute”提交的任务，这些任务用于调度目的，用作零延迟“ScheduleFuture”的基础。该队列上的迭代<em>不能保证按任务执行的顺序遍历任务。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

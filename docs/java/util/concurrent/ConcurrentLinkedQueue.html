@@ -92,7 +92,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">A node from which the first live (non-deleted) node (if any) can be reached in O(1) time. Invariants: - all live nodes are reachable from head via succ() - head !&#x3D; null - (tmp &#x3D; head).next !&#x3D; tmp</td>
+<td align="left">可以在O（1）时间内到达第一个活动（未删除）节点（如果有的话）的节点。不变量：-所有活动节点都可以通过succ（）从head访问。-head！＝null-（tmp&#x3D;head）。下一个！＝tmp</td>
 </tr>
 <tr>
 <td align="center"><strong>tail: Node&lt;E&gt;</strong></td>
@@ -103,7 +103,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">A node from which the last node on list (that is, the unique node with node.next &#x3D;&#x3D; null) can be reached in O(1) time. Invariants: - the last node is always reachable from tail via succ() - tail !&#x3D; null Non-invariants: - tail.item may or may not be null. - it is permitted for tail to lag behind head, that is, for tail to not be reachable from head! - tail.next may or may not be self-pointing to tail.</td>
+<td align="left">可以在O（1）时间内到达列表中最后一个节点（即node.next&#x3D;&#x3D;null的唯一节点）的节点。不变量：-最后一个节点始终可以通过suc（）从tail访问-tail！＝空非不变量：-tail。项可以为空，也可以不为空。-允许尾巴落后于头部，也就是说，尾巴不能从头部到达！-尾next可能会也可能不会自动指向尾部。</td>
 </tr>
 <tr>
 <td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
@@ -163,7 +163,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘ConcurrentLinkedQueue’ that is initially empty.</td>
+<td align="left">创建初始为空的“ConcurrentLinkedQueue”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -175,7 +175,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘ConcurrentLinkedQueue’ initially containing the elements of the given collection, added in traversal order of the collection’s iterator.</td>
+<td align="left">创建一个“ConcurrentLinkedQueue”，最初包含给定集合的元素，按集合迭代器的遍历顺序添加。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -187,7 +187,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the tail of this queue. As the queue is unbounded, this method will never throw ‘IllegalStateException’ or return ‘false’.</td>
+<td align="left">在此队列末尾插入指定的元素。由于队列是无界的，此方法永远不会抛出“IllegalStateException”或返回“false”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -199,7 +199,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to CAS head to p. If successful, repoint old head to itself as sentinel for succ(), below.</td>
+<td align="left">尝试将头CAS到p。如果成功，将旧头重新定位到自身，作为成功的哨兵（），如下所示。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -211,7 +211,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the successor of p, or the head node if p.next has been linked to self, which will only be true if traversing with a stale pointer that is now off the list.</td>
+<td align="left">返回p的后继节点，如果p.next已链接到self，则返回头节点，仅当使用现在不在列表中的过时指针进行遍历时才为真。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the tail of this queue. As the queue is unbounded, this method will never return ‘false’.</td>
+<td align="left">在此队列末尾插入指定的元素。由于队列是无界的，因此此方法永远不会返回“false”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -259,7 +259,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the first live (non-deleted) node on list, or null if none. This is yet another variant of poll&#x2F;peek; here returning the first node, not element.  We could make peek() a wrapper around first(), but that would cost an extra volatile read of item, and the need to add a retry loop to deal with the possibility of losing a race to a concurrent poll().</td>
+<td align="left">返回列表中第一个活动（未删除）节点，如果没有，则返回null。这是poll&#x2F;peek的又一变体；这里返回第一个节点，而不是元素。我们可以使peek（）成为first（）的包装器，但这将导致对item的额外易变读取，并且需要添加重试循环来处理由于并发轮询（）而失去竞争的可能性。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -271,7 +271,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this queue contains no elements.</td>
+<td align="left">如果此队列不包含元素，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -283,7 +283,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of elements in this queue.  If this queue contains more than ‘Integer.MAX_VALUE’ elements, returns ‘Integer.MAX_VALUE’.  <p>Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation. Because of the asynchronous nature of these queues, determining the current number of elements requires an O(n) traversal. Additionally, if elements are added or removed during execution of this method, the returned result may be inaccurate.  Thus, this method is typically not very useful in concurrent applications.</td>
+<td align="left">返回此队列中的元素数。如果此队列包含大于“整数”。对于“MAX_VALUE”元素，返回“Integer.MAX_VALUE”<p> 请注意，与大多数集合不同，此方法不是</em>恒定时间操作。由于这些队列的异步性质，确定当前元素数需要O（n）遍历。此外，如果在此方法执行期间添加或删除元素，则返回的结果可能不准确。因此，这种方法在并发应用程序中通常不是很有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this queue contains the specified element. More formally, returns ‘true’ if and only if this queue contains at least one element ‘e’ such that ‘o.equals(e)’.</td>
+<td align="left">如果此队列包含指定元素，则返回“true”。更正式地说，当且仅当此队列包含至少一个元素“e”，使得“o.equals（e）”，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -307,7 +307,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes a single instance of the specified element from this queue, if it is present.  More formally, removes an element ‘e’ such that ‘o.equals(e)’, if this queue contains one or more such elements. Returns ‘true’ if this queue contained the specified element (or equivalently, if this queue changed as a result of the call).</td>
+<td align="left">从该队列中移除指定元素的单个实例（如果存在）。更正式地说，删除元素“e”，使得“o”。如果此队列包含一个或多个此类元素，则等于（e）”。如果此队列包含指定的元素，则返回“true”（或者等效地，如果此队列因调用而更改）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -319,8 +319,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Appends all of the elements in the specified collection to the end of this queue, in the order that they are returned by the specified collection’s iterator.  Attempts to ‘addAll’ of a queue to itself result in ‘IllegalArgumentException’.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">按照指定集合迭代器返回的顺序，将指定集合中的所有元素追加到此队列的末尾。尝试将队列的“addAll”添加到自身会导致“IllegalArgumentException”。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>toArray(): Object[]</strong></td>
@@ -331,7 +331,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an array containing all of the elements in this queue, in proper sequence.  <p>The returned array will be “safe” in that no references to it are maintained by this queue.  (In other words, this method must allocate a new array).  The caller is thus free to modify the returned array.  <p>This method acts as bridge between array-based and collection-based APIs.</td>
+<td align="left">返回一个数组，该数组包含此队列中的所有元素，顺序正确<p> 返回的数组将是“安全的”，因为此队列不维护对它的引用。（换句话说，此方法必须分配一个新数组）。因此，调用方可以自由修改返回的数组<p> 此方法充当基于阵列和基于集合的API之间的桥梁。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -343,8 +343,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an array containing all of the elements in this queue, in proper sequence; the runtime type of the returned array is that of the specified array.  If the queue fits in the specified array, it is returned therein.  Otherwise, a new array is allocated with the runtime type of the specified array and the size of this queue.  <p>If this queue fits in the specified array with room to spare (i.e., the array has more elements than this queue), the element in the array immediately following the end of the queue is set to ‘null’.  <p>Like the ‘#toArray()’ method, this method acts as bridge between array-based and collection-based APIs.  Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs.  <p>Suppose ‘x’ is a queue known to contain only strings. The following code can be used to dump the queue into a newly allocated array of ‘String’:  <pre> 'String[] y = x.toArray(new String[0]);'</pre>  Note that ‘toArray(new Object[0])’ is identical in function to ‘toArray()’.</td>
-<td align="left">NullPointerException<br/>ArrayStoreException</td>
+<td align="left">返回一个数组，该数组包含此队列中的所有元素，顺序正确；返回数组的运行时类型是指定数组的运行时间类型。如果队列符合指定的数组，则返回其中。否则，将使用指定数组的运行时类型和此队列的大小分配新数组<p> 如果此队列适合具有空闲空间的指定数组（即数组中的元素多于此队列），则紧跟在队列末尾的数组元素将设置为“null”<p> 与“#toArray（）”方法一样，此方法充当基于数组和基于集合的API之间的桥梁。此外，该方法允许对输出数组的运行时类型进行精确控制，并且在某些情况下可用于节省分配成本<p> 假设“x”是一个已知仅包含字符串的队列。以下代码可用于将队列转储到新分配的“字符串”数组中：<pre>“字符串[]y=x.toArray（新字符串[0]）；”</请注意，“toArray（新对象[0]）在函数上与“toArray（）”相同。</td>
+<td align="left">ArrayStoreException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>iterator(): Iterator<E></strong></td>
@@ -355,7 +355,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an iterator over the elements in this queue in proper sequence. The elements will be returned in order from first (head) to last (tail).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left">按正确的顺序返回此队列中元素的迭代器。元素将按从第一个（头）到最后一个（尾）的顺序返回<p> 返回的迭代器是<a href=“package summary.html35;弱”><i>弱一致的</i></a>。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -367,7 +367,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Saves this queue to a stream (that is, serializes it).</td>
+<td align="left">将此队列保存到流中（即，将其序列化）。</td>
 <td align="left">java.io.IOException</td>
 </tr>
 <tr>
@@ -379,8 +379,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Reconstitutes this queue from a stream (that is, deserializes it).</td>
-<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+<td align="left">从流中重构此队列（即，将其反序列化）。</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>spliterator(): Spliterator<E></strong></td>
@@ -391,7 +391,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a ‘Spliterator’ over the elements in this queue.  <p>The returned spliterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The ‘Spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#ORDERED’, and ‘Spliterator#NONNULL’.</td>
+<td align="left">在此队列中的元素上返回一个“拆分器”<p> 返回的拆分器是<a href=“package summary.html35;弱”><i>弱一致的</i></a><p> “拆分器”报告“拆分器并发”、“拆分器有序”和“拆分器非空”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -403,7 +403,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Throws NullPointerException if argument is null.</td>
+<td align="left">如果参数为null，则引发NullPointerException。</td>
 <td align="left"></td>
 </tr>
 <tr>

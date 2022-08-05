@@ -75,7 +75,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Primary state representation, holding four bit-fields:  unarrived  – the number of parties yet to hit barrier (bits  0-15) parties    – the number of parties to wait            (bits 16-31) phase      – the generation of the barrier            (bits 32-62) terminated – set if barrier is terminated             (bit  63 &#x2F; sign)  Except that a phaser with no registered parties is distinguished by the otherwise illegal state of having zero parties and one unarrived parties (encoded as EMPTY below).  To efficiently maintain atomicity, these values are packed into a single (atomic) long. Good performance relies on keeping state decoding and encoding simple, and keeping race windows short.  All state updates are performed via CAS except initial registration of a sub-phaser (i.e., one with a non-null parent).  In this (relatively rare) case, we use built-in synchronization to lock while first registering with its parent.  The phase of a subphaser is allowed to lag that of its ancestors until it is actually accessed – see method reconcileState.</td>
+<td align="left">主状态表示，保留四个位字段：未出错——尚未命中障碍物的参与方数量（位0-15）参与方——等待（位16-31）阶段的参与方人数——终止障碍物的生成（位32-62）——如果障碍物终止（位63&#x2F;符号）则设置，除非没有注册参与方的移相器由其他非法状态区分具有零个参与方和一个无误参与方（下面编码为空）。为了有效地保持原子性，将这些值打包到单个（原子）长文件中。良好的性能依赖于保持状态解码和编码简单，并保持竞争窗口短。除了子相位器的初始注册（即具有非空父级的子相位器），所有状态更新都通过CAS执行。在这种（相对罕见的）情况下，我们使用内置同步来锁定，同时首先向其父级注册。允许子相位器的相位滞后于其祖先的相位，直到它被实际访问为止——请参阅方法。</td>
 </tr>
 <tr>
 <td align="center"><strong>MAX_PARTIES: int</strong></td>
@@ -218,7 +218,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The parent of this phaser, or null if none</td>
+<td align="left">此移相器的父级，如果没有，则为空</td>
 </tr>
 <tr>
 <td align="center"><strong>root: Phaser</strong></td>
@@ -229,7 +229,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The root of phaser tree. Equals this if not in a tree.</td>
+<td align="left">相位树的根。如果不是在树上，等于这个。</td>
 </tr>
 <tr>
 <td align="center"><strong>evenQ: AtomicReference&lt;QNode&gt;</strong></td>
@@ -240,7 +240,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Heads of Treiber stacks for waiting threads. To eliminate contention when releasing some threads while adding others, we use two of them, alternating across even and odd phases. Subphasers share queues with root to speed up releases.</td>
+<td align="left">等待线程的Treiber堆栈头。为了在释放一些线程同时添加其他线程时消除争用，我们使用了其中两个线程，在偶数和奇数阶段交替使用。子阶段与root共享队列以加快发布速度。</td>
 </tr>
 <tr>
 <td align="center"><strong>oddQ: AtomicReference&lt;QNode&gt;</strong></td>
@@ -262,7 +262,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The number of CPUs, for spin control</td>
+<td align="left">用于旋转控制的CPU数</td>
 </tr>
 <tr>
 <td align="center"><strong>SPINS_PER_ARRIVAL: int</strong></td>
@@ -273,7 +273,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The number of times to spin before blocking while waiting for advance, per arrival while waiting. On multiprocessors, fully blocking and waking up a large number of threads all at once is usually a very slow process, so we use rechargeable spins to avoid it when threads regularly arrive: When a thread in internalAwaitAdvance notices another arrival before blocking, and there appear to be enough CPUs available, it spins SPINS_PER_ARRIVAL more times before blocking. The value trades off good-citizenship vs big unnecessary slowdowns.</td>
+<td align="left">等待前进时阻塞前的旋转次数，以及等待时每次到达的旋转次数。在多处理器上，完全阻塞和同时唤醒大量线程通常是一个非常缓慢的过程，因此我们使用可再充电的旋转来避免线程定期到达：当一个线程在阻塞之前提前通知另一个到达，并且似乎有足够的CPU可用时，它会在阻塞之前旋转更多次spins_PER_arrival。这一价值观权衡了良好的公民身份与不必要的大幅减速。</td>
 </tr>
 <tr>
 <td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
@@ -284,7 +284,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Wait nodes for Treiber stack representing wait queue</td>
+<td align="left">表示等待队列的Treiber堆栈的等待节点</td>
 </tr>
 <tr>
 <td align="center"><strong>stateOffset: long</strong></td>
@@ -382,7 +382,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns message string for bounds exceptions on arrival.</td>
+<td align="left">返回到达时边界异常的消息字符串。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -394,7 +394,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns message string for bounds exceptions on registration.</td>
+<td align="left">返回注册时边界异常的消息字符串。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -406,7 +406,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Main implementation for methods arrive and arriveAndDeregister. Manually tuned to speed up and minimize race windows for the common case of just decrementing unarrived field.</td>
+<td align="left">主要实现方法到达和到达以及注销。手动调整，以加快和最小化竞赛窗口，用于减少未出错字段的常见情况。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -418,7 +418,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implementation of register, bulkRegister</td>
+<td align="left">寄存器、批量寄存器的实现</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -430,7 +430,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Resolves lagged phase propagation from root if necessary. Reconciliation normally occurs when root has advanced but subphasers have not yet done so, in which case they must finish their own advance by setting unarrived to parties (or if parties is zero, resetting to unregistered EMPTY state).</td>
+<td align="left">如有必要，解决根传播的滞后相位。对账通常发生在根用户已提前但子相位器尚未提前的情况下，在这种情况下，他们必须通过将未出错设置为参与方来完成自己的提前（或者如果参与方为零，则重置为未注册的空状态）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -442,7 +442,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new phaser with no initially registered parties, no parent, and initial phase number 0. Any thread using this phaser will need to first register for it.</td>
+<td align="left">创建一个新的相位器，没有初始注册方，没有父级，初始相位号为0。任何使用此相位器的线程都需要首先为其注册。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -454,7 +454,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new phaser with the given number of registered unarrived parties, no parent, and initial phase number 0.</td>
+<td align="left">创建一个新的相位器，该相位器具有给定数量的已注册未出错方，无父级，初始相位号为0。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -466,7 +466,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Equivalent to ‘#Phaser(Phaser, int) Phaser(parent, 0)’.</td>
+<td align="left">等效于“#Phaser（Phaser，int）Phaser（parent，0）”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -478,7 +478,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new phaser with the given parent and number of registered unarrived parties.  When the given parent is non-null and the given number of parties is greater than zero, this child phaser is registered with its parent.</td>
+<td align="left">创建具有给定父级和已注册未出错方数的新相位器。当给定父级为非空且给定参与方数大于零时，该子相位器将向其父级注册。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -490,7 +490,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Adds a new unarrived party to this phaser.  If an ongoing invocation of ‘#onAdvance’ is in progress, this method may await its completion before returning.  If this phaser has a parent, and this phaser previously had no registered parties, this child phaser is also registered with its parent. If this phaser is terminated, the attempt to register has no effect, and a negative value is returned.</td>
+<td align="left">将新的未出错方添加到此移相器。如果正在进行对“#onAdvance”的调用，则此方法可能会在返回之前等待其完成。如果该移相器有一个父移相器，并且该移相者以前没有注册方，则该子移相器也将在其母移相器中注册。如果此移相器终止，则尝试注册无效，并返回负值。</td>
 <td align="left">IllegalStateException</td>
 </tr>
 <tr>
@@ -502,8 +502,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Adds the given number of new unarrived parties to this phaser. If an ongoing invocation of ‘#onAdvance’ is in progress, this method may await its completion before returning.  If this phaser has a parent, and the given number of parties is greater than zero, and this phaser previously had no registered parties, this child phaser is also registered with its parent. If this phaser is terminated, the attempt to register has no effect, and a negative value is returned.</td>
-<td align="left">IllegalStateException<br/>IllegalArgumentException</td>
+<td align="left">将给定数量的新未出错方添加到此移相器。如果正在进行对“#onAdvance”的调用，则此方法可能会在返回之前等待其完成。如果该移相器有一个父级，且给定的参与方数量大于零，且该移相者以前没有注册参与方，则该子移相器也向其父级注册。如果此移相器终止，则尝试注册无效，并返回负值。</td>
+<td align="left">IllegalArgumentException<br/>IllegalStateException</td>
 </tr>
 <tr>
 <td align="center"><strong>arrive(): int</strong></td>
@@ -514,7 +514,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Arrives at this phaser, without waiting for others to arrive.  <p>It is a usage error for an unregistered party to invoke this method.  However, this error may result in an ‘IllegalStateException’ only upon some subsequent operation on this phaser, if ever.</td>
+<td align="left">到达该相位器，而不等待其他相位器到达<p> 未注册方调用此方法是一个使用错误。然而，只有在此相位器上进行某些后续操作时，此错误才可能导致“非法状态异常”。</td>
 <td align="left">IllegalStateException</td>
 </tr>
 <tr>
@@ -526,7 +526,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Arrives at this phaser and deregisters from it without waiting for others to arrive. Deregistration reduces the number of parties required to advance in future phases.  If this phaser has a parent, and deregistration causes this phaser to have zero parties, this phaser is also deregistered from its parent.  <p>It is a usage error for an unregistered party to invoke this method.  However, this error may result in an ‘IllegalStateException’ only upon some subsequent operation on this phaser, if ever.</td>
+<td align="left">到达此移相器并从中注销，而无需等待其他移相器到达。撤销登记减少了未来阶段需要推进的缔约方数量。如果此移相器具有父级，并且取消注册导致此移相者具有零参与方，则此移相r也将从其父级取消注册<p> 未注册方调用此方法是一个使用错误。然而，只有在此相位器上进行某些后续操作时，此错误才可能导致“非法状态异常”。</td>
 <td align="left">IllegalStateException</td>
 </tr>
 <tr>
@@ -538,7 +538,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Arrives at this phaser and awaits others. Equivalent in effect to ‘awaitAdvance(arrive())’.  If you need to await with interruption or timeout, you can arrange this with an analogous construction using one of the other forms of the ‘awaitAdvance’ method.  If instead you need to deregister upon arrival, use ‘awaitAdvance(arriveAndDeregister())’.  <p>It is a usage error for an unregistered party to invoke this method.  However, this error may result in an ‘IllegalStateException’ only upon some subsequent operation on this phaser, if ever.</td>
+<td align="left">到达该相位器并等待其他相位器。等效于“等待提前（到达（））”。如果需要中断或超时等待，可以使用其他形式的“awaitAdvance”方法之一，通过类似的构造进行安排。如果您需要在到达时取消注册，请使用“awaitAdvance（arriveAndDeregister（））”<p> 未注册方调用此方法是一个使用错误。然而，只有在此相位器上进行某些后续操作时，此错误才可能导致“非法状态异常”。</td>
 <td align="left">IllegalStateException</td>
 </tr>
 <tr>
@@ -550,7 +550,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Awaits the phase of this phaser to advance from the given phase value, returning immediately if the current phase is not equal to the given phase value or this phaser is terminated.</td>
+<td align="left">等待该相位器的相位从给定相位值提前，如果当前相位不等于给定相位值或该相位器终止，则立即返回。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -562,7 +562,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Awaits the phase of this phaser to advance from the given phase value, throwing ‘InterruptedException’ if interrupted while waiting, or returning immediately if the current phase is not equal to the given phase value or this phaser is terminated.</td>
+<td align="left">等待该相位器的相位从给定相位值提前，如果在等待期间中断，则抛出“中断异常”，或者如果当前相位不等于给定相位值或该相位器终止，则立即返回。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -574,7 +574,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Awaits the phase of this phaser to advance from the given phase value or the given timeout to elapse, throwing ‘InterruptedException’ if interrupted while waiting, or returning immediately if the current phase is not equal to the given phase value or this phaser is terminated.</td>
+<td align="left">等待该移相器的相位从给定相位值提前或经过给定超时，如果在等待时中断，则抛出“中断异常”，如果当前相位不等于给定相位值或该移相仪终止，则立即返回。</td>
 <td align="left">InterruptedException<br/>TimeoutException</td>
 </tr>
 <tr>
@@ -586,7 +586,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Forces this phaser to enter termination state.  Counts of registered parties are unaffected.  If this phaser is a member of a tiered set of phasers, then all of the phasers in the set are terminated.  If this phaser is already terminated, this method has no effect.  This method may be useful for coordinating recovery after one or more tasks encounter unexpected exceptions.</td>
+<td align="left">强制该移相器进入终止状态。注册方的数量不受影响。如果该相位器是一组分层相位器的成员，则该组中的所有相位器都将终止。如果此移相器已终止，则此方法无效。在一个或多个任务遇到意外异常后，此方法可能有助于协调恢复。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -598,7 +598,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current phase number. The maximum phase number is ‘Integer.MAX_VALUE’, after which it restarts at zero. Upon termination, the phase number is negative, in which case the prevailing phase prior to termination may be obtained via ‘getPhase() + Integer.MIN_VALUE’.</td>
+<td align="left">返回当前相位号。最大相位数为“整数”。MAX_VALUE’，之后它重新开始为零。终止时，相位号为负，在这种情况下，终止前的主导相位可通过“getPhase（）+Integer.MIN_VALUE”获得。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -610,7 +610,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of parties registered at this phaser.</td>
+<td align="left">返回在此相位器上注册的参与方数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -622,7 +622,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of registered parties that have arrived at the current phase of this phaser. If this phaser has terminated, the returned value is meaningless and arbitrary.</td>
+<td align="left">返回已到达此移相器当前阶段的注册参与方数。如果此移相器已终止，则返回值无意义且任意。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -634,7 +634,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of registered parties that have not yet arrived at the current phase of this phaser. If this phaser has terminated, the returned value is meaningless and arbitrary.</td>
+<td align="left">返回尚未到达此移相器当前阶段的注册方数。如果此移相器已终止，则返回值无意义且任意。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -646,7 +646,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the parent of this phaser, or ‘null’ if none.</td>
+<td align="left">返回此移相器的父级，如果没有，则返回“null”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -658,7 +658,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the root ancestor of this phaser, which is the same as this phaser if it has no parent.</td>
+<td align="left">返回此相位器的根祖先，如果没有父级，则与此相位器相同。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -670,7 +670,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this phaser has been terminated.</td>
+<td align="left">如果此移相器已终止，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -682,7 +682,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Overridable method to perform an action upon impending phase advance, and to control termination. This method is invoked upon arrival of the party advancing this phaser (when all other waiting parties are dormant).  If this method returns ‘true’, this phaser will be set to a final termination state upon advance, and subsequent calls to ‘#isTerminated’ will return true. Any (unchecked) Exception or Error thrown by an invocation of this method is propagated to the party attempting to advance this phaser, in which case no advance occurs.  <p>The arguments to this method provide the state of the phaser prevailing for the current transition.  The effects of invoking arrival, registration, and waiting methods on this phaser from within ‘onAdvance’ are unspecified and should not be relied on.  <p>If this phaser is a member of a tiered set of phasers, then ‘onAdvance’ is invoked only for its root phaser on each advance.  <p>To support the most common use cases, the default implementation of this method returns ‘true’ when the number of registered parties has become zero as the result of a party invoking ‘arriveAndDeregister’.  You can disable this behavior, thus enabling continuation upon future registrations, by overriding this method to always return ‘false’:  <pre> 'Phaser phaser = new Phaser() { protected boolean onAdvance(int phase, int parties) { return false;' }}</pre></td>
+<td align="left">在即将到来的阶段提前时执行操作并控制终止的可重写方法。此方法在推进此移相器的一方到达时调用（当所有其他等待方处于休眠状态时）。如果此方法返回“true”，则此移相器将预先设置为最终终止状态，随后对“#isTerminated”的调用将返回true。调用此方法引发的任何（未经检查的）异常或错误都会传播给试图推进此移相器的一方，在这种情况下，不会发生任何推进<p> 该方法的参数提供了当前转换中占主导地位的移相器状态。从“onAdvance”中调用此相位器上的到达、注册和等待方法的效果未指定，不应依赖。<p>如果此相位器是一组分层相位器的成员，则仅在每次提前时为其根相位器调用“OnAdvence”<p> 为了支持最常见的用例，当一方调用“arriveAndDeregister”导致注册方的数量变为零时，该方法的默认实现返回“true”。您可以禁用此行为，从而在将来注册时启用继续，方法是重写此方法以始终返回“false”：＜pre＞“Phaser-Phaser&#x3D;new-Phaser（）｛protected boolean-onAdvance（int-phase，int-parties）｛return-false；‘｝｝</pre></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -694,7 +694,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this phaser, as well as its state.  The state, in brackets, includes the String ‘“phase &#x3D; “‘ followed by the phase number, ‘“parties &#x3D; “‘ followed by the number of registered parties, and ‘“arrived &#x3D; “‘ followed by the number of arrived parties.</td>
+<td align="left">返回标识此移相器及其状态的字符串。括号中的状态包括字符串“phase&#x3D;”和“parties&#x3D;”后接阶段号，“parties&#x3D;”，后接注册方数，“arrized&#x3D;”和到达方数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -706,7 +706,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implementation of toString and string-based error messages</td>
+<td align="left">toString和基于字符串的错误消息的实现</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -718,7 +718,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and signals threads from queue for phase.</td>
+<td align="left">从队列中移除线程并发出信号以进行阶段。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -730,7 +730,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Variant of releaseWaiters that additionally tries to remove any nodes no longer waiting for advance due to timeout or interrupt. Currently, nodes are removed only if they are at head of queue, which suffices to reduce memory footprint in most usages.</td>
+<td align="left">releaseWaiters的一种变体，它还尝试删除由于超时或中断而不再等待advance的任何节点。目前，只有当节点位于队列的最前面时，才会删除节点，这在大多数情况下足以减少内存占用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -742,7 +742,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Possibly blocks and waits for phase to advance unless aborted. Call only on root phaser.</td>
+<td align="left">可能阻塞并等待相位前进，除非中止。只调用根移相器。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

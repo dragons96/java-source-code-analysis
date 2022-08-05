@@ -77,7 +77,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Number of CPUS, to place bound on table size</td>
+<td align="left">要根据表大小放置边界的CPU数</td>
 </tr>
 <tr>
 <td align="center"><strong>cells: Cell[]</strong></td>
@@ -88,7 +88,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Table of cells. When non-null, size is a power of 2.</td>
+<td align="left">单元格表。非空时，大小为2的幂。</td>
 </tr>
 <tr>
 <td align="center"><strong>base: long</strong></td>
@@ -99,7 +99,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Base value, used mainly when there is no contention, but also as a fallback during table initialization races. Updated via CAS.</td>
+<td align="left">基本值，主要在没有争用时使用，但在表初始化竞争期间也用作回退。通过CAS更新。</td>
 </tr>
 <tr>
 <td align="center"><strong>cellsBusy: int</strong></td>
@@ -110,7 +110,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Spinlock (locked via CAS) used when resizing and&#x2F;or creating Cells.</td>
+<td align="left">调整单元格大小和&#x2F;或创建单元格时使用的自旋锁（通过CAS锁定）。</td>
 </tr>
 <tr>
 <td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
@@ -181,7 +181,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Package-private default constructor</td>
+<td align="left">包是私有的默认构造函数</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -193,7 +193,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">CASes the base field.</td>
+<td align="left">在基本字段中。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">CASes the cellsBusy field from 0 to 1 to acquire lock.</td>
+<td align="left">将cellsBusy字段的大小写从0到1以获取锁定。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -217,7 +217,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the probe value for the current thread. Duplicated from ThreadLocalRandom because of packaging restrictions.</td>
+<td align="left">返回当前线程的探测值。由于打包限制，从ThreadLocalRandom复制。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -229,7 +229,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Pseudo-randomly advances and records the given probe value for the given thread. Duplicated from ThreadLocalRandom because of packaging restrictions.</td>
+<td align="left">伪随机前进并记录给定线程的给定探测值。由于打包限制，从ThreadLocalRandom复制。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -241,7 +241,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Handles cases of updates involving initialization, resizing, creating new Cells, and&#x2F;or contention. See above for explanation. This method suffers the usual non-modularity problems of optimistic retry code, relying on rechecked sets of reads.</td>
+<td align="left">处理涉及初始化、调整大小、创建新单元格和&#x2F;或争用的更新情况。请参见上面的解释。这种方法存在乐观重试代码的常见非模块化问题，依赖于重新检查的读取集。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -253,7 +253,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Same as longAccumulate, but injecting long&#x2F;double conversions in too many places to sensibly merge with long version, given the low-overhead requirements of this class. So must instead be maintained by copy&#x2F;paste&#x2F;adapt.</td>
+<td align="left">与LongAccountage相同，但由于此类的低开销要求，在太多的地方注入长&#x2F;双转换，无法与长版本合理地合并。因此必须通过复制&#x2F;粘贴&#x2F;调整来维护。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

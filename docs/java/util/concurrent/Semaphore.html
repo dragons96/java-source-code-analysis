@@ -88,7 +88,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">All mechanics via AbstractQueuedSynchronizer subclass</td>
+<td align="left">通过AbstractQueuedSynchronizer子类实现的所有机制</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -115,7 +115,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘Semaphore’ with the given number of permits and nonfair fairness setting.</td>
+<td align="left">创建具有给定许可数和非空中公平设置的“信号量”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -127,7 +127,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘Semaphore’ with the given number of permits and the given fairness setting.</td>
+<td align="left">创建具有给定许可数量和给定公平性设置的“信号量”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -139,7 +139,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires a permit from this semaphore, blocking until one is available, or the thread is ‘Thread#interrupt interrupted’.  <p>Acquires a permit, if one is available and returns immediately, reducing the number of available permits by one.  <p>If no permit is available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens: <ul> <li>Some other thread invokes the ‘#release’ method for this semaphore and the current thread is next to be assigned a permit; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting for a permit, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.</td>
+<td align="left">从该信号量获取许可，阻塞直到一个信号量可用，或者线程为“线程中断”<p> 获得许可证（如果有），并立即返回，将可用许可证数量减少一个<p> 如果没有可用的许可证，则当前线程出于线程调度目的被禁用，并处于休眠状态，直到发生以下两种情况之一：＜ul＞＜li＞其他一些线程为此信号量调用“#release”方法，并且下一步将为当前线程分配许可证；或＜li＞某个其他线程的“线程中断”中断当前线程</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待许可证时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires a permit from this semaphore, blocking until one is available.  <p>Acquires a permit, if one is available and returns immediately, reducing the number of available permits by one.  <p>If no permit is available then the current thread becomes disabled for thread scheduling purposes and lies dormant until some other thread invokes the ‘#release’ method for this semaphore and the current thread is next to be assigned a permit.  <p>If the current thread is ‘Thread#interrupt interrupted’ while waiting for a permit then it will continue to wait, but the time at which the thread is assigned a permit may change compared to the time it would have received the permit had no interruption occurred.  When the thread does return from this method its interrupt status will be set.</td>
+<td align="left">从该信号量获取许可证，直到有许可证可用为止<p> 获得许可证（如果有），并立即返回，将可用许可证数量减少一个<p> 如果没有可用的许可证，则当前线程出于线程调度目的被禁用，并处于休眠状态，直到其他线程为此信号量调用“#release”方法，并且当前线程下一个将被分配许可证<p> 如果当前线程在等待许可证时为“线程中断中断”，则它将继续等待，但分配许可证的时间可能会与未发生中断时接收许可的时间相比发生变化。当线程从该方法返回时，将设置其中断状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -163,7 +163,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires a permit from this semaphore, only if one is available at the time of invocation.  <p>Acquires a permit, if one is available and returns immediately, with the value ‘true’, reducing the number of available permits by one.  <p>If no permit is available then this method will return immediately with the value ‘false’.  <p>Even when this semaphore has been set to use a fair ordering policy, a call to ‘tryAcquire()’ <em>will</em> immediately acquire a permit if one is available, whether or not other threads are currently waiting. This &quot;barging&quot; behavior can be useful in certain circumstances, even though it breaks fairness. If you want to honor the fairness setting, then use ‘#tryAcquire(long, TimeUnit) tryAcquire(0, TimeUnit.SECONDS)’ which is almost equivalent (it also detects interruption).</td>
+<td align="left">仅当在调用时有一个信号量可用时，才从该信号量获取许可<p> 获取许可证（如果有），并立即返回，值为“true”，将可用许可证的数量减少一个<p> 如果没有可用的许可证，则此方法将立即返回值“false”<p> 即使将此信号量设置为使用公平排序策略，调用“tryAcquire（）”<em>也将</em>立即获得许可证（如果有），无论其他线程当前是否正在等待。这是一个“错误”；“驳船”；行为在某些情况下是有用的，即使它破坏了公平。如果您希望遵守公平性设置，则使用“#tryAcquire（长，时间单位）tryAcquire（0，时间单位.秒）”，这几乎是等效的（它还检测中断）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -175,7 +175,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires a permit from this semaphore, if one becomes available within the given waiting time and the current thread has not been ‘Thread#interrupt interrupted’.  <p>Acquires a permit, if one is available and returns immediately, with the value ‘true’, reducing the number of available permits by one.  <p>If no permit is available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens: <ul> <li>Some other thread invokes the ‘#release’ method for this semaphore and the current thread is next to be assigned a permit; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>The specified waiting time elapses. </ul>  <p>If a permit is acquired then the value ‘true’ is returned.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting to acquire a permit, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared.  <p>If the specified waiting time elapses then the value ‘false’ is returned.  If the time is less than or equal to zero, the method will not wait at all.</td>
+<td align="left">如果在给定等待时间内信号量变为可用且当前线程未被“线程中断”，则从该信号量获取许可<p> 获取许可证（如果有），并立即返回，值为“true”，将可用许可证的数量减少一个<p> 如果没有可用的许可证，则当前线程出于线程调度目的被禁用，并处于休眠状态，直到发生以下三种情况之一：＜ul＞＜li＞某些其他线程为此信号量调用“#release”方法，并且下一步将为当前线程分配许可证；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞经过指定的等待时间</ul><p>如果获取了许可证，则返回值“true”<p> 如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待获取许可证时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态<p> 如果经过指定的等待时间，则返回值“false”。如果时间小于或等于零，则该方法将根本不等待。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -187,7 +187,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Releases a permit, returning it to the semaphore.  <p>Releases a permit, increasing the number of available permits by one.  If any threads are trying to acquire a permit, then one is selected and given the permit that was just released.  That thread is (re)enabled for thread scheduling purposes.  <p>There is no requirement that a thread that releases a permit must have acquired that permit by calling ‘#acquire’. Correct usage of a semaphore is established by programming convention in the application.</td>
+<td align="left">释放许可证，将其返回到信号量<p> 释放许可证，将可用许可证的数量增加一个。如果有任何线程试图获取许可证，则会选择一个线程并提供刚刚发布的许可证。为了线程调度的目的，（重新）启用该线程<p> 不要求释放许可的线程必须通过调用“#acquire”获取该许可。信号量的正确使用是通过应用程序中的编程约定确定的。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -199,8 +199,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the given number of permits from this semaphore, blocking until all are available, or the thread is ‘Thread#interrupt interrupted’.  <p>Acquires the given number of permits, if they are available, and returns immediately, reducing the number of available permits by the given amount.  <p>If insufficient permits are available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens: <ul> <li>Some other thread invokes one of the ‘#release() release’ methods for this semaphore, the current thread is next to be assigned permits and the number of available permits satisfies this request; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread. </ul>  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting for a permit, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. Any permits that were to be assigned to this thread are instead assigned to other threads trying to acquire permits, as if permits had been made available by a call to ‘#release()’.</td>
-<td align="left">InterruptedException<br/>IllegalArgumentException</td>
+<td align="left">从该信号量获取给定数量的许可，阻塞直到所有许可都可用，或者线程为“线程中断”<p> 获取给定数量的许可证（如果可用），并立即返回，将可用许可证数量减少给定数量<p> 如果没有足够的许可证可用，则当前线程出于线程调度目的将被禁用，并处于休眠状态，直到发生以下两种情况之一：<ul><li>其他线程为此信号量调用“#release（）release”方法之一，当前线程下一个将被分配许可证，可用许可证的数量满足此请求；或＜li＞某个其他线程的“线程中断”中断当前线程</ul><p>如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待许可证时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态。将分配给此线程的任何许可证都将分配给试图获取许可证的其他线程，就好像通过调用“#release（）”使许可证可用一样。</td>
+<td align="left">IllegalArgumentException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>acquireUninterruptibly(int permits): void</strong></td>
@@ -211,7 +211,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the given number of permits from this semaphore, blocking until all are available.  <p>Acquires the given number of permits, if they are available, and returns immediately, reducing the number of available permits by the given amount.  <p>If insufficient permits are available then the current thread becomes disabled for thread scheduling purposes and lies dormant until some other thread invokes one of the ‘#release() release’ methods for this semaphore, the current thread is next to be assigned permits and the number of available permits satisfies this request.  <p>If the current thread is ‘Thread#interrupt interrupted’ while waiting for permits then it will continue to wait and its position in the queue is not affected.  When the thread does return from this method its interrupt status will be set.</td>
+<td align="left">从该信号量获取给定数量的许可证，直到所有许可证都可用为止<p> 获取给定数量的许可证（如果可用），并立即返回，将可用许可证数量减少给定数量<p> 如果没有足够的许可证可用，则当前线程出于线程调度目的将被禁用，并处于休眠状态，直到其他线程为此信号量调用其中一个“#release（）release”方法，当前线程下一个将被分配许可证，且可用许可证的数量满足此请求<p> 如果当前线程在等待许可时为“线程中断”，则它将继续等待，并且其在队列中的位置不受影响。当线程从该方法返回时，将设置其中断状态。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the given number of permits from this semaphore, only if all are available at the time of invocation.  <p>Acquires the given number of permits, if they are available, and returns immediately, with the value ‘true’, reducing the number of available permits by the given amount.  <p>If insufficient permits are available then this method will return immediately with the value ‘false’ and the number of available permits is unchanged.  <p>Even when this semaphore has been set to use a fair ordering policy, a call to ‘tryAcquire’ <em>will</em> immediately acquire a permit if one is available, whether or not other threads are currently waiting.  This &quot;barging&quot; behavior can be useful in certain circumstances, even though it breaks fairness. If you want to honor the fairness setting, then use ‘#tryAcquire(int, long, TimeUnit) tryAcquire(permits, 0, TimeUnit.SECONDS)’ which is almost equivalent (it also detects interruption).</td>
+<td align="left">仅当在调用时所有许可证都可用时，才从该信号量获取给定数量的许可证<p> 获取给定数量的许可证（如果可用），并立即返回值“true”，将可用许可证数量减少给定数量<p> 如果可用许可证不足，则此方法将立即返回值“false”，可用许可证的数量不变<p> 即使将此信号量设置为使用公平排序策略，调用“tryAcquire”<em>也将</em>立即获得许可证（如果有），无论其他线程当前是否正在等待。这是一个“错误”；“驳船”；行为在某些情况下是有用的，即使它破坏了公平。如果您希望遵守公平性设置，则使用“#tryAcquire（int，long，TimeUnit）tryacquere（permissions，0，TimeUnit.SECONDS）”，这几乎是等效的（它还检测到中断）。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -235,8 +235,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the given number of permits from this semaphore, if all become available within the given waiting time and the current thread has not been ‘Thread#interrupt interrupted’.  <p>Acquires the given number of permits, if they are available and returns immediately, with the value ‘true’, reducing the number of available permits by the given amount.  <p>If insufficient permits are available then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens: <ul> <li>Some other thread invokes one of the ‘#release() release’ methods for this semaphore, the current thread is next to be assigned permits and the number of available permits satisfies this request; or <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or <li>The specified waiting time elapses. </ul>  <p>If the permits are acquired then the value ‘true’ is returned.  <p>If the current thread: <ul> <li>has its interrupted status set on entry to this method; or <li>is ‘Thread#interrupt interrupted’ while waiting to acquire the permits, </ul> then ‘InterruptedException’ is thrown and the current thread’s interrupted status is cleared. Any permits that were to be assigned to this thread, are instead assigned to other threads trying to acquire permits, as if the permits had been made available by a call to ‘#release()’.  <p>If the specified waiting time elapses then the value ‘false’ is returned.  If the time is less than or equal to zero, the method will not wait at all.  Any permits that were to be assigned to this thread, are instead assigned to other threads trying to acquire permits, as if the permits had been made available by a call to ‘#release()’.</td>
-<td align="left">InterruptedException<br/>IllegalArgumentException</td>
+<td align="left">如果在给定等待时间内所有许可证都可用且当前线程未被“线程中断”，则从该信号量获取给定数量的许可证<p> 获取给定数量的许可证（如果可用），并立即返回值“true”，将可用许可证数量减少给定数量<p> 如果没有足够的许可证可用，则当前线程出于线程调度目的将被禁用，并处于休眠状态，直到发生以下三种情况之一：<ul><li>其他线程为此信号量调用“#release（）release”方法之一，当前线程下一个将被分配许可证，可用许可证的数量满足此请求；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞经过指定的等待时间</ul><p>如果获取了许可，则返回值“true”<p> 如果当前线程：<ul><li>在进入此方法时设置了其中断状态；或者＜li＞在等待获取许可证时是“线程中断”，然后抛出“中断异常”，清除当前线程的中断状态。任何要分配给该线程的许可证都会被分配给试图获取许可证的其他线程，就像通过调用“#release（）”使许可证可用一样<p> 如果经过指定的等待时间，则返回值“false”。如果时间小于或等于零，则该方法将根本不等待。任何要分配给该线程的许可证都会被分配给试图获取许可证的其他线程，就像通过调用“#release（）”使许可证可用一样。</td>
+<td align="left">IllegalArgumentException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>release(int permits): void</strong></td>
@@ -247,7 +247,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Releases the given number of permits, returning them to the semaphore.  <p>Releases the given number of permits, increasing the number of available permits by that amount. If any threads are trying to acquire permits, then one is selected and given the permits that were just released. If the number of available permits satisfies that thread’s request then that thread is (re)enabled for thread scheduling purposes; otherwise the thread will wait until sufficient permits are available. If there are still permits available after this thread’s request has been satisfied, then those permits are assigned in turn to other threads trying to acquire permits.  <p>There is no requirement that a thread that releases a permit must have acquired that permit by calling ‘Semaphore#acquire acquire’. Correct usage of a semaphore is established by programming convention in the application.</td>
+<td align="left">释放给定数量的许可证，并将其返回到信号量<p> 释放给定数量的许可证，将可用许可证数量增加该数量。如果有任何线程试图获取许可证，则选择一个线程并提供刚刚发布的许可证。如果可用许可证的数量满足该线程的请求，则该线程将（重新）启用以进行线程调度；否则，线程将等待足够的许可证可用。如果在满足该线程的请求后仍然有许可证可用，那么这些许可证将依次分配给试图获取许可证的其他线程<p> 不要求释放许可的线程必须通过调用“信号量#acquire”获取该许可。信号量的正确使用是通过应用程序中的编程约定确定的。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -259,7 +259,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current number of permits available in this semaphore.  <p>This method is typically used for debugging and testing purposes.</td>
+<td align="left">返回此信号量中当前可用的许可证数<p> 此方法通常用于调试和测试目的。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -271,7 +271,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires and returns all permits that are immediately available.</td>
+<td align="left">获取并返回所有立即可用的许可证。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -283,7 +283,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Shrinks the number of available permits by the indicated reduction. This method can be useful in subclasses that use semaphores to track resources that become unavailable. This method differs from ‘acquire’ in that it does not block waiting for permits to become available.</td>
+<td align="left">将可用许可证的数量减少指定的数量。这种方法在使用信号量跟踪不可用资源的子类中非常有用。此方法不同于“获取”，因为它不会阻止等待许可证可用。</td>
 <td align="left">IllegalArgumentException</td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this semaphore has fairness set true.</td>
+<td align="left">如果此信号量的公平性设置为true，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -307,7 +307,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads are waiting to acquire. Note that because cancellations may occur at any time, a ‘true’ return does not guarantee that any other thread will ever acquire.  This method is designed primarily for use in monitoring of the system state.</td>
+<td align="left">查询是否有线程正在等待获取。请注意，由于取消操作可能随时发生，“true”返回并不保证任何其他线程都会获取。该方法主要用于监控系统状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -319,7 +319,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads waiting to acquire. The value is only an estimate because the number of threads may change dynamically while this method traverses internal data structures.  This method is designed for use in monitoring of the system state, not for synchronization control.</td>
+<td align="left">返回等待获取的线程数的估计值。该值只是一个估计值，因为当该方法遍历内部数据结构时，线程的数量可能会动态变化。此方法设计用于监视系统状态，而不是用于同步控制。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -331,7 +331,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing threads that may be waiting to acquire. Because the actual set of threads may change dynamically while constructing this result, the returned collection is only a best-effort estimate.  The elements of the returned collection are in no particular order.  This method is designed to facilitate construction of subclasses that provide more extensive monitoring facilities.</td>
+<td align="left">返回包含可能正在等待获取的线程的集合。因为在构造此结果时，实际的线程集可能会动态变化，所以返回的集合只是一个尽力而为的估计。返回集合的元素没有特定顺序。该方法旨在促进提供更广泛监测设施的子类的构建。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -343,7 +343,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this semaphore, as well as its state. The state, in brackets, includes the String ‘“Permits &#x3D;”‘ followed by the number of permits.</td>
+<td align="left">返回标识此信号量及其状态的字符串。括号中的状态包括字符串“permissions&#x3D;”，后跟许可数量。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

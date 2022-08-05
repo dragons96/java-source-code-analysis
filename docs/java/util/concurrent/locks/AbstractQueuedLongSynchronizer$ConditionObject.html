@@ -88,7 +88,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">First node of condition queue.</td>
+<td align="left">条件队列的第一个节点。</td>
 </tr>
 <tr>
 <td align="center"><strong>lastWaiter: Node</strong></td>
@@ -99,7 +99,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Last node of condition queue.</td>
+<td align="left">条件队列的最后一个节点。</td>
 </tr>
 <tr>
 <td align="center"><strong>REINTERRUPT: int</strong></td>
@@ -110,7 +110,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Mode meaning to reinterrupt on exit from wait</td>
+<td align="left">模式，意味着退出等待时重新中断</td>
 </tr>
 <tr>
 <td align="center"><strong>THROW_IE: int</strong></td>
@@ -121,7 +121,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Mode meaning to throw InterruptedException on exit from wait</td>
+<td align="left">模式，意味着在退出等待时抛出InterruptedException</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -148,7 +148,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ‘ConditionObject’ instance.</td>
+<td align="left">创建新的“条件对象”实例。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -160,7 +160,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Adds a new waiter to wait queue.</td>
+<td align="left">添加一个新的等待队列。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -172,7 +172,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and transfers nodes until hit non-cancelled one or null. Split out from signal in part to encourage compilers to inline the case of no waiters.</td>
+<td align="left">删除和传输节点，直到命中未取消的一个或null。从信号中分离出来，部分是为了鼓励编译器在没有等待器的情况下内联。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -184,7 +184,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and transfers all nodes.</td>
+<td align="left">删除并传输所有节点。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -196,7 +196,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unlinks cancelled waiter nodes from condition queue. Called only while holding lock. This is called when cancellation occurred during condition wait, and upon insertion of a new waiter when lastWaiter is seen to have been cancelled. This method is needed to avoid garbage retention in the absence of signals. So even though it may require a full traversal, it comes into play only when timeouts or cancellations occur in the absence of signals. It traverses all nodes rather than stopping at a particular target to unlink all pointers to garbage nodes without requiring many re-traversals during cancellation storms.</td>
+<td align="left">将取消的服务者节点从条件队列中取消链接。仅在持有锁时调用。当在条件等待期间发生取消时，以及当LastWayer被视为已取消时插入新的服务生时，调用此函数。需要这种方法来避免在没有信号的情况下的垃圾保留。因此，尽管它可能需要完全遍历，但它仅在没有信号的情况下发生超时或取消时起作用。它遍历所有节点，而不是在特定目标处停止，以取消所有指向垃圾节点的指针的链接，而无需在取消风暴期间进行多次重新遍历。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -208,7 +208,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Moves the longest-waiting thread, if one exists, from the wait queue for this condition to the wait queue for the owning lock.</td>
+<td align="left">将等待时间最长的线程（如果存在）从该条件的等待队列移动到拥有锁的等待队列。</td>
 <td align="left">IllegalMonitorStateException</td>
 </tr>
 <tr>
@@ -220,7 +220,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Moves all threads from the wait queue for this condition to the wait queue for the owning lock.</td>
+<td align="left">将所有线程从该条件的等待队列移动到所属锁的等待队列。</td>
 <td align="left">IllegalMonitorStateException</td>
 </tr>
 <tr>
@@ -232,7 +232,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implements uninterruptible condition wait. <ol> <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. </ol></td>
+<td align="left">它实现了不间断的等待条件<ol><li>保存由“#getState”返回的锁定状态<li>以保存的状态作为参数调用“#release”，如果失败，则抛出IllegalMonitorStateException&lt;阻塞，直到发出信号<li>通过调用特殊版本的“#acquire”并将保存的状态作为参数来重新获取</ol></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -244,7 +244,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Checks for interrupt, returning THROW_IE if interrupted before signalled, REINTERRUPT if after signalled, or 0 if not interrupted.</td>
+<td align="left">检查中断，如果在发出信号之前中断，返回THROW_ IE，如果发出信号之后重新中断，或者如果未中断，返回0。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -256,7 +256,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Throws InterruptedException, reinterrupts current thread, or does nothing, depending on mode.</td>
+<td align="left">根据模式，引发InterruptedException、重新中断当前线程或不执行任何操作。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -268,7 +268,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implements interruptible condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled or interrupted. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. </ol></td>
+<td align="left">它实现了一个可中断的等待条件<ol><li>如果当前线程被中断，则抛出InterruptedException<li>保存由“#getState”返回的锁状态<li>以保存的状态作为参数调用“#release”，如果失败，则抛出IllegalMonitorStateException<li>阻塞，直到发出信号或中断<li>通过调用特殊版本的“#acquire”并将保存的状态作为参数来重新获取<li>如果在步骤4中被阻塞时被中断，则抛出InterruptedException</ol></td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -280,7 +280,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implements timed condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled, interrupted, or timed out. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. </ol></td>
+<td align="left">它实现了一个定时等待条件<ol><li>如果当前线程被中断，则抛出InterruptedException<li>保存由“#getState”返回的锁状态<li>以保存的状态作为参数调用“#release”，如果失败，则抛出IllegalMonitorStateException<li>阻塞，直到发出信号、中断或超时<li>通过调用特殊版本的“#acquire”并将保存的状态作为参数来重新获取<li>如果在步骤4中被阻塞时被中断，则抛出InterruptedException</ol></td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -292,7 +292,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implements absolute timed condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled, interrupted, or timed out. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. <li> If timed out while blocked in step 4, return false, else true. </ol></td>
+<td align="left">它实现了等待的绝对定时条件<ol><li>如果当前线程被中断，则抛出InterruptedException<li>保存由“#getState”返回的锁状态<li>以保存的状态作为参数调用“#release”，如果失败，则抛出IllegalMonitorStateException<li>阻塞，直到发出信号、中断或超时<li>通过调用特殊版本的“#acquire”并将保存的状态作为参数来重新获取<li>如果在步骤4中被阻塞时被中断，则抛出InterruptedException<li>如果在步骤4中被阻止时超时，则返回false，否则返回true</ol></td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -304,7 +304,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implements timed condition wait. <ol> <li> If current thread is interrupted, throw InterruptedException. <li> Save lock state returned by ‘#getState’. <li> Invoke ‘#release’ with saved state as argument, throwing IllegalMonitorStateException if it fails. <li> Block until signalled, interrupted, or timed out. <li> Reacquire by invoking specialized version of ‘#acquire’ with saved state as argument. <li> If interrupted while blocked in step 4, throw InterruptedException. <li> If timed out while blocked in step 4, return false, else true. </ol></td>
+<td align="left">它实现了一个定时等待条件<ol><li>如果当前线程被中断，则抛出InterruptedException<li>保存由“#getState”返回的锁状态<li>以保存的状态作为参数调用“#release”，如果失败，则抛出IllegalMonitorStateException<li>阻塞，直到发出信号、中断或超时<li>通过调用特殊版本的“#acquire”并将保存的状态作为参数来重新获取<li>如果在步骤4中被阻塞时被中断，则抛出InterruptedException<li>如果在步骤4中被阻止时超时，则返回false，否则返回true</ol></td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -316,7 +316,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns true if this condition was created by the given synchronization object.</td>
+<td align="left">如果此条件是由给定同步对象创建的，则返回true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -328,7 +328,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Queries whether any threads are waiting on this condition. Implements ‘AbstractQueuedLongSynchronizer#hasWaiters(ConditionObject)’.</td>
+<td align="left">查询是否有线程在此条件下等待。实现“AbstractQueuedLongSynchronizer#hasWaiters（ConditionObject）”。</td>
 <td align="left">IllegalMonitorStateException</td>
 </tr>
 <tr>
@@ -340,7 +340,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads waiting on this condition. Implements ‘AbstractQueuedLongSynchronizer#getWaitQueueLength(ConditionObject)’.</td>
+<td align="left">返回在此条件下等待的线程数的估计值。实现“AbstractQueuedLongSynchronizer#getWaitQueueLength（ConditionObject）”。</td>
 <td align="left">IllegalMonitorStateException</td>
 </tr>
 <tr>
@@ -352,7 +352,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a collection containing those threads that may be waiting on this Condition. Implements ‘AbstractQueuedLongSynchronizer#getWaitingThreads(ConditionObject)’.</td>
+<td align="left">返回包含可能在此条件下等待的线程的集合。实现“AbstractQueuedLongSynchronizer#getWaitingThreads（ConditionObject）”。</td>
 <td align="left">IllegalMonitorStateException</td>
 </tr>
 </tbody></table>

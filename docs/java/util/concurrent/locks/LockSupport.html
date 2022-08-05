@@ -170,7 +170,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Makes available the permit for the given thread, if it was not already available.  If the thread was blocked on ‘park’ then it will unblock.  Otherwise, its next call to ‘park’ is guaranteed not to block. This operation is not guaranteed to have any effect at all if the given thread has not been started.</td>
+<td align="left">使给定线程的许可证可用（如果尚未可用）。如果线程在“park”上被阻塞，则它将解除阻塞。否则，它对“公园”的下一次调用保证不会阻塞。如果给定线程尚未启动，则不能保证此操作具有任何效果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -182,7 +182,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Disables the current thread for thread scheduling purposes unless the permit is available.  <p>If the permit is available then it is consumed and the call returns immediately; otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens:  <ul> <li>Some other thread invokes ‘#unpark unpark’ with the current thread as the target; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or  <li>The call spuriously (that is, for no reason) returns. </ul>  <p>This method does <em>not</em> report which of these caused the method to return. Callers should re-check the conditions which caused the thread to park in the first place. Callers may also determine, for example, the interrupt status of the thread upon return.</td>
+<td align="left">出于线程调度目的禁用当前线程，除非许可证可用<p> 如果许可证可用，则该许可证被消耗，并且调用立即返回；否则，出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下三种情况之一：＜ul＞＜li＞其他线程以当前线程为目标调用“#unpark unpark”；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞错误（即，无原因）返回呼叫</ul><p>此方法不报告导致方法返回的原因。调用方应重新检查导致线程首先停止的条件。例如，调用方还可以在返回时确定线程的中断状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -194,7 +194,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Disables the current thread for thread scheduling purposes, for up to the specified waiting time, unless the permit is available.  <p>If the permit is available then it is consumed and the call returns immediately; otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of four things happens:  <ul> <li>Some other thread invokes ‘#unpark unpark’ with the current thread as the target; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or  <li>The specified waiting time elapses; or  <li>The call spuriously (that is, for no reason) returns. </ul>  <p>This method does <em>not</em> report which of these caused the method to return. Callers should re-check the conditions which caused the thread to park in the first place. Callers may also determine, for example, the interrupt status of the thread, or the elapsed time upon return.</td>
+<td align="left">出于线程调度目的禁用当前线程，直到指定的等待时间，除非许可证可用<p> 如果许可证可用，则该许可证被消耗，并且调用立即返回；否则，出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下四种情况之一：＜ul＞＜li＞其他线程以当前线程为目标调用“#unpark unpark”；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞经过指定的等待时间；或＜li＞错误（即，无原因）返回呼叫</ul><p>此方法不报告导致方法返回的原因。调用方应重新检查导致线程首先停止的条件。调用方还可以确定线程的中断状态或返回时的经过时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -206,7 +206,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Disables the current thread for thread scheduling purposes, until the specified deadline, unless the permit is available.  <p>If the permit is available then it is consumed and the call returns immediately; otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of four things happens:  <ul> <li>Some other thread invokes ‘#unpark unpark’ with the current thread as the target; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or  <li>The specified deadline passes; or  <li>The call spuriously (that is, for no reason) returns. </ul>  <p>This method does <em>not</em> report which of these caused the method to return. Callers should re-check the conditions which caused the thread to park in the first place. Callers may also determine, for example, the interrupt status of the thread, or the current time upon return.</td>
+<td align="left">出于线程调度目的禁用当前线程，直到指定的截止日期，除非许可证可用<p> 如果许可证可用，则该许可证被消耗，并且调用立即返回；否则，出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下四种情况之一：＜ul＞＜li＞其他线程以当前线程为目标调用“#unpark unpark”；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞指定的截止日期已过；或＜li＞错误（即，无原因）返回呼叫</ul><p>此方法不报告导致方法返回的原因。调用方应重新检查导致线程首先停止的条件。调用方还可以确定线程的中断状态或返回时的当前时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -218,7 +218,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the blocker object supplied to the most recent invocation of a park method that has not yet unblocked, or null if not blocked.  The value returned is just a momentary snapshot – the thread may have since unblocked or blocked on a different blocker object.</td>
+<td align="left">返回提供给最近一次调用尚未解除阻止的park方法的阻止程序对象，如果未被阻止，则返回null。返回的值只是一个瞬时快照——线程可能已经在不同的阻塞器对象上解除阻塞或阻塞。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -230,7 +230,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Disables the current thread for thread scheduling purposes unless the permit is available.  <p>If the permit is available then it is consumed and the call returns immediately; otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens:  <ul>  <li>Some other thread invokes ‘#unpark unpark’ with the current thread as the target; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or  <li>The call spuriously (that is, for no reason) returns. </ul>  <p>This method does <em>not</em> report which of these caused the method to return. Callers should re-check the conditions which caused the thread to park in the first place. Callers may also determine, for example, the interrupt status of the thread upon return.</td>
+<td align="left">出于线程调度目的禁用当前线程，除非许可证可用<p> 如果许可证可用，则该许可证被消耗，并且调用立即返回；否则，出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下三种情况之一：＜ul＞＜li＞其他线程以当前线程为目标调用“#unpark unpark”；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞错误（即，无原因）返回呼叫</ul><p>此方法不报告导致方法返回的原因。调用方应重新检查导致线程首先停止的条件。例如，调用方还可以在返回时确定线程的中断状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -242,7 +242,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Disables the current thread for thread scheduling purposes, for up to the specified waiting time, unless the permit is available.  <p>If the permit is available then it is consumed and the call returns immediately; otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of four things happens:  <ul> <li>Some other thread invokes ‘#unpark unpark’ with the current thread as the target; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or  <li>The specified waiting time elapses; or  <li>The call spuriously (that is, for no reason) returns. </ul>  <p>This method does <em>not</em> report which of these caused the method to return. Callers should re-check the conditions which caused the thread to park in the first place. Callers may also determine, for example, the interrupt status of the thread, or the elapsed time upon return.</td>
+<td align="left">出于线程调度目的禁用当前线程，直到指定的等待时间，除非许可证可用<p> 如果许可证可用，则该许可证被消耗，并且调用立即返回；否则，出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下四种情况之一：＜ul＞＜li＞其他线程以当前线程为目标调用“#unpark unpark”；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞经过指定的等待时间；或＜li＞错误（即，无原因）返回呼叫</ul><p>此方法不报告导致方法返回的原因。调用方应重新检查导致线程首先停止的条件。调用方还可以确定线程的中断状态或返回时的经过时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -254,7 +254,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Disables the current thread for thread scheduling purposes, until the specified deadline, unless the permit is available.  <p>If the permit is available then it is consumed and the call returns immediately; otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of four things happens:  <ul> <li>Some other thread invokes ‘#unpark unpark’ with the current thread as the target; or  <li>Some other thread ‘Thread#interrupt interrupts’ the current thread; or  <li>The specified deadline passes; or  <li>The call spuriously (that is, for no reason) returns. </ul>  <p>This method does <em>not</em> report which of these caused the method to return. Callers should re-check the conditions which caused the thread to park in the first place. Callers may also determine, for example, the interrupt status of the thread, or the current time upon return.</td>
+<td align="left">出于线程调度目的禁用当前线程，直到指定的截止日期，除非许可证可用<p> 如果许可证可用，则该许可证被消耗，并且调用立即返回；否则，出于线程调度目的，当前线程将被禁用，并处于休眠状态，直到发生以下四种情况之一：＜ul＞＜li＞其他线程以当前线程为目标调用“#unpark unpark”；或＜li＞某个其他线程的“线程中断”中断当前线程；或＜li＞指定的截止日期已过；或＜li＞错误（即，无原因）返回呼叫</ul><p>此方法不报告导致方法返回的原因。调用方应重新检查导致线程首先停止的条件。调用方还可以确定线程的中断状态或返回时的当前时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -266,7 +266,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the pseudo-randomly initialized or updated secondary seed. Copied from ThreadLocalRandom due to package access restrictions.</td>
+<td align="left">返回伪随机初始化或更新的次种子。由于包访问限制，从ThreadLocalRandom复制。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

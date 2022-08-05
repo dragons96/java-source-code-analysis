@@ -79,7 +79,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The run state of this task, initially NEW.  The run state transitions to a terminal state only in methods set, setException, and cancel.  During completion, state may take on transient values of COMPLETING (while outcome is being set) or INTERRUPTING (only while interrupting the runner to satisfy a cancel(true)). Transitions from these intermediate to final states use cheaper ordered&#x2F;lazy writes because values are unique and cannot be further modified.  Possible state transitions: NEW -&gt; COMPLETING -&gt; NORMAL NEW -&gt; COMPLETING -&gt; EXCEPTIONAL NEW -&gt; CANCELLED NEW -&gt; INTERRUPTING -&gt; INTERRUPTED</td>
+<td align="left">此任务的运行状态，最初是新的。运行状态仅在方法set、setException和cancel中转换为终端状态。在完成期间，状态可能具有完成（当设置结果时）或中断（仅当中断运行程序以满足取消（true）时）的瞬态值。从这些中间状态到最终状态的转换使用更便宜的有序&#x2F;延迟写入，因为值是唯一的，无法进一步修改。可能的状态转换：新建-&gt;完成-&gt;正常新建-&gt;正在完成-&gt;异常新建-&gt;取消新建-&gt;中断-&gt;中断</td>
 </tr>
 <tr>
 <td align="center"><strong>NEW: int</strong></td>
@@ -167,7 +167,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The underlying callable; nulled out after running</td>
+<td align="left">底层可调用；运行后将其清空</td>
 </tr>
 <tr>
 <td align="center"><strong>outcome: Object</strong></td>
@@ -178,7 +178,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The result to return or exception to throw from get()</td>
+<td align="left">从get（）返回的结果或引发的异常</td>
 </tr>
 <tr>
 <td align="center"><strong>runner: Thread</strong></td>
@@ -189,7 +189,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The thread running the callable; CASed during run()</td>
+<td align="left">运行可调用线程的线程；在运行期间设置了大小写（）</td>
 </tr>
 <tr>
 <td align="center"><strong>waiters: WaitNode</strong></td>
@@ -200,7 +200,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Treiber stack of waiting threads</td>
+<td align="left">等待线程的Treiber堆栈</td>
 </tr>
 <tr>
 <td align="center"><strong>UNSAFE: sun.misc.Unsafe</strong></td>
@@ -271,7 +271,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns result or throws exception for completed task.</td>
+<td align="left">返回结果或引发已完成任务的异常。</td>
 <td align="left">ExecutionException</td>
 </tr>
 <tr>
@@ -283,7 +283,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘FutureTask’ that will, upon running, execute the given ‘Callable’.</td>
+<td align="left">创建一个“FutureTask”，它将在运行时执行给定的“Callable”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘FutureTask’ that will, upon running, execute the given ‘Runnable’, and arrange that ‘get’ will return the given result on successful completion.</td>
+<td align="left">创建一个“FutureTask”，在运行时执行给定的“Runnable”，并安排“get”在成功完成时返回给定结果。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -344,7 +344,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">CancellationException<br/>InterruptedException<br/>ExecutionException</td>
+<td align="left">InterruptedException<br/>ExecutionException<br/>CancellationException</td>
 </tr>
 <tr>
 <td align="center"><strong>get(long timeout, TimeUnit unit): V</strong></td>
@@ -356,7 +356,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">CancellationException<br/>InterruptedException<br/>TimeoutException<br/>ExecutionException</td>
+<td align="left">InterruptedException<br/>TimeoutException<br/>ExecutionException<br/>CancellationException</td>
 </tr>
 <tr>
 <td align="center"><strong>done(): void</strong></td>
@@ -367,7 +367,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Protected method invoked when this task transitions to state ‘isDone’ (whether normally or via cancellation). The default implementation does nothing.  Subclasses may override this method to invoke completion callbacks or perform bookkeeping. Note that you can query status inside the implementation of this method to determine whether this task has been cancelled.</td>
+<td align="left">当此任务转换到状态“isDone”（正常或通过取消）时调用受保护的方法。默认实现不执行任何操作。子类可以重写此方法以调用完成回调或执行簿记。请注意，您可以查询此方法实现内部的状态，以确定此任务是否已取消。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -379,7 +379,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the result of this future to the given value unless this future has already been set or has been cancelled.  <p>This method is invoked internally by the ‘#run’ method upon successful completion of the computation.</td>
+<td align="left">将此未来的结果设置为给定值，除非此未来已设置或已取消<p> 该方法在成功完成计算后由“#run”方法在内部调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -391,7 +391,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Causes this future to report an ‘ExecutionException’ with the given throwable as its cause, unless this future has already been set or has been cancelled.  <p>This method is invoked internally by the ‘#run’ method upon failure of the computation.</td>
+<td align="left">导致此future报告一个“ExecutionException”，并将给定的throwable作为其原因，除非此future已设置或已取消<p> 该方法在计算失败时由“#run”方法在内部调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -415,7 +415,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Executes the computation without setting its result, and then resets this future to initial state, failing to do so if the computation encounters an exception or is cancelled.  This is designed for use with tasks that intrinsically execute more than once.</td>
+<td align="left">执行计算而不设置其结果，然后将此future重置为初始状态，如果计算遇到异常或被取消，则无法执行此操作。这是为与本质上执行多次的任务一起使用而设计的。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -427,7 +427,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Ensures that any interrupt from a possible cancel(true) is only delivered to a task while in run or runAndReset.</td>
+<td align="left">确保来自可能取消（true）的任何中断仅在运行或设置时传递给任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -439,7 +439,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and signals all waiting threads, invokes done(), and nulls out callable.</td>
+<td align="left">移除所有等待的线程并发出信号，调用done（），并将可调用线程置空。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -451,7 +451,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Awaits completion or aborts on interrupt or timeout.</td>
+<td align="left">等待完成或在中断或超时时中止。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -463,7 +463,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to unlink a timed-out or interrupted wait node to avoid accumulating garbage.  Internal nodes are simply unspliced without CAS since it is harmless if they are traversed anyway by releasers.  To avoid effects of unsplicing from already removed nodes, the list is retraversed in case of an apparent race.  This is slow when there are a lot of nodes, but we don’t expect lists to be long enough to outweigh higher-overhead schemes.</td>
+<td align="left">尝试取消与超时或中断的等待节点的链接，以避免累积垃圾。内部节点在没有CAS的情况下被简单地取消许可，因为如果发布者无论如何都要遍历它们，这是无害的。为了避免已经删除的节点的未显示的影响，在出现明显竞争的情况下，将重新遍历列表。当有很多节点时，这是很慢的，但我们不希望列表足够长，超过更高开销的方案。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

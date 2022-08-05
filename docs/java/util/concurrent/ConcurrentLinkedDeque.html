@@ -92,7 +92,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">A node from which the first node on list (that is, the unique node p with p.prev &#x3D;&#x3D; null &amp;&amp; p.next !&#x3D; p) can be reached in O(1) time. Invariants: - the first node is always O(1) reachable from head via prev links - all live nodes are reachable from the first node via succ() - head !&#x3D; null - (tmp &#x3D; head).next !&#x3D; tmp</td>
+<td align="left">从中可以在O（1）时间内到达列表上的第一个节点（即p.prev&#x3D;&#x3D;null和p.next！&#x3D;p的唯一节点p）的节点。不变量：-第一个节点始终是O（1）可通过上一个链接从头部到达-所有活动节点都可通过succ（）从第一个节点到达-头部！＝null-（tmp&#x3D;head）。下一个！＝tmp</td>
 </tr>
 <tr>
 <td align="center"><strong>tail: Node&lt;E&gt;</strong></td>
@@ -103,7 +103,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">A node from which the last node on list (that is, the unique node p with p.next &#x3D;&#x3D; null &amp;&amp; p.prev !&#x3D; p) can be reached in O(1) time. Invariants: - the last node is always O(1) reachable from tail via next links - all live nodes are reachable from the last node via pred() - tail !&#x3D; null - tail is never gc-unlinked (but may be unlinked) Non-invariants: - tail.item may or may not be null - tail may not be reachable from the first or last node, or from head</td>
+<td align="left">从中可以在O（1）时间内到达列表中最后一个节点（即p.next&#x3D;&#x3D;null&amp;&amp;p.prev！&#x3D;p的唯一节点p）的节点。不变量：-最后一个节点总是O（1）可通过下一个链接从尾部到达-所有活动节点都可通过pred（）从最后一个结点到达-尾部！＝null-tail永远不会被gc取消链接（但可能被取消链接）。非不变量：-tail。项可能为空，也可能不为空-从第一个或最后一个节点或从头部可能无法访问尾部</td>
 </tr>
 <tr>
 <td align="center"><strong>NEXT_TERMINATOR: Node&lt;Object&gt;</strong></td>
@@ -209,7 +209,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Links e as first element.</td>
+<td align="left">链接e作为第一元素。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -221,7 +221,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Links e as last element.</td>
+<td align="left">链接e作为最后一个元素。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -233,7 +233,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unlinks non-null node x.</td>
+<td align="left">取消与非空节点x的链接。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -245,7 +245,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unlinks non-null first node.</td>
+<td align="left">取消与第一个节点的非空链接。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -257,7 +257,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unlinks non-null last node.</td>
+<td align="left">取消与最后一个节点的非空链接。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -269,7 +269,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Guarantees that any node which was unlinked before a call to this method will be unreachable from head after it returns. Does not guarantee to eliminate slack, only that head will point to a node that was active while this method was running.</td>
+<td align="left">保证在调用此方法之前未链接的任何节点在返回后都无法从head访问。不能保证消除松弛，只有头部将指向此方法运行时处于活动状态的节点。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -281,7 +281,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Guarantees that any node which was unlinked before a call to this method will be unreachable from tail after it returns. Does not guarantee to eliminate slack, only that tail will point to a node that was active while this method was running.</td>
+<td align="left">保证在调用此方法之前未链接的任何节点在返回后都无法从尾部访问。不保证消除松弛，仅尾部将指向此方法运行时处于活动状态的节点。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -317,7 +317,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the successor of p, or the first node if p.next has been linked to self, which will only be true if traversing with a stale pointer that is now off the list.</td>
+<td align="left">返回p的后继节点，如果p.next已链接到self，则返回第一个节点，仅当使用现在不在列表中的过时指针进行遍历时才为真。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -329,7 +329,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the predecessor of p, or the last node if p.prev has been linked to self, which will only be true if traversing with a stale pointer that is now off the list.</td>
+<td align="left">返回p的前一个节点，如果p.prev已链接到self，则返回最后一个节点。仅当使用现在不在列表中的过时指针进行遍历时，该值才为真。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -341,7 +341,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the first node, the unique node p for which: p.prev &#x3D;&#x3D; null &amp;&amp; p.next !&#x3D; p The returned node may or may not be logically deleted. Guarantees that head is set to the returned node.</td>
+<td align="left">返回第一个节点，即唯一节点p，其：p.prev&#x3D;&#x3D;null&amp;&amp;p.next！&#x3D;p返回的节点可以被逻辑删除，也可以不被逻辑删除。保证将head设置为返回的节点。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -353,7 +353,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the last node, the unique node p for which: p.next &#x3D;&#x3D; null &amp;&amp; p.prev !&#x3D; p The returned node may or may not be logically deleted. Guarantees that tail is set to the returned node.</td>
+<td align="left">返回最后一个节点，即唯一节点p，其：p.next&#x3D;&#x3D;null&amp;&amp;p.prev！&#x3D;p返回的节点可以被逻辑删除，也可以不被逻辑删除。保证将tail设置为返回的节点。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -365,7 +365,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Throws NullPointerException if argument is null.</td>
+<td align="left">如果参数为null，则引发NullPointerException。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -377,7 +377,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns element unless it is null, in which case throws NoSuchElementException.</td>
+<td align="left">返回元素，除非它为null，在这种情况下抛出NoTouchElementException。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -389,7 +389,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates an array list and fills it with elements of this list. Used by toArray.</td>
+<td align="left">创建数组列表并用该列表的元素填充。用于toArray。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -401,7 +401,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructs an empty deque.</td>
+<td align="left">构造一个空的deque。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -413,7 +413,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructs a deque initially containing the elements of the given collection, added in traversal order of the collection’s iterator.</td>
+<td align="left">构造一个deque，最初包含给定集合的元素，按集合迭代器的遍历顺序添加。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -425,7 +425,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Initializes head and tail, ensuring invariants hold.</td>
+<td align="left">初始化头部和尾部，确保不变量成立。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -437,7 +437,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the front of this deque. As the deque is unbounded, this method will never throw ‘IllegalStateException’.</td>
+<td align="left">将指定的元素插入此三角形的前面。由于deque是无界的，因此该方法永远不会抛出“IllegalStateException”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -449,7 +449,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the end of this deque. As the deque is unbounded, this method will never throw ‘IllegalStateException’.  <p>This method is equivalent to ‘#add’.</td>
+<td align="left">在此deque的末尾插入指定的元素。由于deque是无界的，因此该方法永远不会抛出“IllegalStateException”<p> 此方法等效于“#add”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -461,7 +461,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the front of this deque. As the deque is unbounded, this method will never return ‘false’.</td>
+<td align="left">将指定的元素插入此三角形的前面。由于deque是无界的，因此该方法永远不会返回“false”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -473,7 +473,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the end of this deque. As the deque is unbounded, this method will never return ‘false’.  <p>This method is equivalent to ‘#add’.</td>
+<td align="left">在此deque的末尾插入指定的元素。由于deque是无界的，因此该方法永远不会返回“false”<p> 此方法等效于“#add”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -581,7 +581,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the tail of this deque. As the deque is unbounded, this method will never return ‘false’.</td>
+<td align="left">在此deque的尾部插入指定的元素。由于deque是无界的，因此该方法永远不会返回“false”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -593,7 +593,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Inserts the specified element at the tail of this deque. As the deque is unbounded, this method will never throw ‘IllegalStateException’ or return ‘false’.</td>
+<td align="left">在此deque的尾部插入指定的元素。由于deque是无界的，因此该方法永远不会抛出“IllegalStateException”或返回“false”。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -677,7 +677,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes the first element ‘e’ such that ‘o.equals(e)’, if such an element exists in this deque. If the deque does not contain the element, it is unchanged.</td>
+<td align="left">删除第一个元素“e”，使得“o”。等于（e）‘，如果此deque中存在此类元素。如果deque不包含该元素，它将保持不变。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -689,7 +689,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes the last element ‘e’ such that ‘o.equals(e)’, if such an element exists in this deque. If the deque does not contain the element, it is unchanged.</td>
+<td align="left">删除最后一个元素“e”，使“o”。等于（e）‘，如果此deque中存在此类元素。如果deque不包含该元素，它将保持不变。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -701,7 +701,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this deque contains at least one element ‘e’ such that ‘o.equals(e)’.</td>
+<td align="left">如果此deque至少包含一个元素“e”，使得“o.equals（e）”，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -713,7 +713,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this collection contains no elements.</td>
+<td align="left">如果此集合不包含元素，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -725,7 +725,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of elements in this deque.  If this deque contains more than ‘Integer.MAX_VALUE’ elements, it returns ‘Integer.MAX_VALUE’.  <p>Beware that, unlike in most collections, this method is <em>NOT</em> a constant-time operation. Because of the asynchronous nature of these deques, determining the current number of elements requires traversing them all to count them. Additionally, it is possible for the size to change during execution of this method, in which case the returned result will be inaccurate. Thus, this method is typically not very useful in concurrent applications.</td>
+<td align="left">返回此deque中的元素数。如果此deque包含大于“整数”。对于“MAX_VALUE”元素，它返回“Integer.MAX_VALUE”<p> 请注意，与大多数集合不同，此方法不是</em>恒定时间操作。由于这些DEQ的异步特性，确定当前元素数需要遍历它们以对其进行计数。此外，在执行此方法期间，大小可能会更改，在这种情况下，返回的结果将不准确。因此，这种方法在并发应用程序中通常不是很有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -737,7 +737,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes the first element ‘e’ such that ‘o.equals(e)’, if such an element exists in this deque. If the deque does not contain the element, it is unchanged.</td>
+<td align="left">删除第一个元素“e”，使得“o”。等于（e）‘，如果此deque中存在此类元素。如果deque不包含该元素，它将保持不变。</td>
 <td align="left">NullPointerException</td>
 </tr>
 <tr>
@@ -749,8 +749,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Appends all of the elements in the specified collection to the end of this deque, in the order that they are returned by the specified collection’s iterator.  Attempts to ‘addAll’ of a deque to itself result in ‘IllegalArgumentException’.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">按照指定集合迭代器返回的顺序，将指定集合中的所有元素追加到此deque的末尾。尝试将deque的“addAll”添加到自身会导致“IllegalArgumentException”。</td>
+<td align="left">IllegalArgumentException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>clear(): void</strong></td>
@@ -761,7 +761,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes all of the elements from this deque.</td>
+<td align="left">从该deque中删除所有元素。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -773,7 +773,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an array containing all of the elements in this deque, in proper sequence (from first to last element).  <p>The returned array will be “safe” in that no references to it are maintained by this deque.  (In other words, this method must allocate a new array).  The caller is thus free to modify the returned array.  <p>This method acts as bridge between array-based and collection-based APIs.</td>
+<td align="left">返回一个数组，该数组包含此deque中的所有元素，顺序正确（从第一个元素到最后一个元素）<p> 返回的数组将是“安全的”，因为此deque不维护对它的引用。（换句话说，此方法必须分配一个新数组）。因此，调用方可以自由修改返回的数组<p> 此方法充当基于阵列和基于集合的API之间的桥梁。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -785,8 +785,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an array containing all of the elements in this deque, in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.  If the deque fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this deque.  <p>If this deque fits in the specified array with room to spare (i.e., the array has more elements than this deque), the element in the array immediately following the end of the deque is set to ‘null’.  <p>Like the ‘#toArray()’ method, this method acts as bridge between array-based and collection-based APIs.  Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs.  <p>Suppose ‘x’ is a deque known to contain only strings. The following code can be used to dump the deque into a newly allocated array of ‘String’:  <pre> 'String[] y = x.toArray(new String[0]);'</pre>  Note that ‘toArray(new Object[0])’ is identical in function to ‘toArray()’.</td>
-<td align="left">NullPointerException<br/>ArrayStoreException</td>
+<td align="left">返回一个数组，该数组包含此deque中的所有元素，顺序正确（从第一个元素到最后一个元素）；返回数组的运行时类型是指定数组的运行时间类型。如果deque适合指定的数组，则返回其中。否则，将使用指定数组的运行时类型和此deque的大小分配一个新数组<p> 如果此deque适合具有空闲空间的指定数组（即，该数组的元素数超过此deque），则deque结束后的数组中的元素将设置为“null”<p> 与“#toArray（）”方法一样，此方法充当基于数组和基于集合的API之间的桥梁。此外，该方法允许对输出数组的运行时类型进行精确控制，并且在某些情况下可用于节省分配成本<p> 假设“x”是已知仅包含字符串的deque。以下代码可用于将deque转储到新分配的“字符串”数组中：<pre>“字符串[]y=x.toArray（新字符串[0]）；”</请注意，“toArray（新对象[0]）在函数上与“toArray（）”相同。</td>
+<td align="left">ArrayStoreException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>iterator(): Iterator<E></strong></td>
@@ -797,7 +797,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an iterator over the elements in this deque in proper sequence. The elements will be returned in order from first (head) to last (tail).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left">以正确的顺序返回此deque中元素的迭代器。元素将按从第一个（头）到最后一个（尾）的顺序返回<p> 返回的迭代器是<a href=“package summary.html35;弱”><i>弱一致的</i></a>。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -809,7 +809,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an iterator over the elements in this deque in reverse sequential order.  The elements will be returned in order from last (tail) to first (head).  <p>The returned iterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</td>
+<td align="left">按相反顺序返回此deque中元素的迭代器。元素将按从最后一个（尾部）到第一个（头部）的顺序返回<p> 返回的迭代器是<a href=“package summary.html35;弱”><i>弱一致的</i></a>。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -821,7 +821,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a ‘Spliterator’ over the elements in this deque.  <p>The returned spliterator is <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.  <p>The ‘Spliterator’ reports ‘Spliterator#CONCURRENT’, ‘Spliterator#ORDERED’, and ‘Spliterator#NONNULL’.</td>
+<td align="left">在该deque中的元素上返回一个“拆分器”<p> 返回的拆分器是<a href=“package summary.html35;弱”><i>弱一致的</i></a><p> “拆分器”报告“拆分器并发”、“拆分器有序”和“拆分器非空”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -833,7 +833,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Saves this deque to a stream (that is, serializes it).</td>
+<td align="left">将此deque保存为流（即，将其序列化）。</td>
 <td align="left">java.io.IOException</td>
 </tr>
 <tr>
@@ -845,8 +845,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Reconstitutes this deque from a stream (that is, deserializes it).</td>
-<td align="left">java.io.IOException<br/>ClassNotFoundException</td>
+<td align="left">从流中重新构造此deque（即，将其反序列化）。</td>
+<td align="left">ClassNotFoundException<br/>java.io.IOException</td>
 </tr>
 <tr>
 <td align="center"><strong>casHead(Node&lt;E&gt; cmp, Node&lt;E&gt; val): boolean</strong></td>

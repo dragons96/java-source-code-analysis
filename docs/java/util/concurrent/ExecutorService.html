@@ -78,7 +78,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no additional effect if already shut down.  <p>This method does not wait for previously submitted tasks to complete execution.  Use ‘#awaitTermination awaitTermination’ to do that.</td>
+<td align="left">启动有序关机，执行以前提交的任务，但不接受新任务。如果调用已经关闭，则调用没有额外的效果<p> 此方法不会等待以前提交的任务完成执行。使用“#awaitTermination”完成此操作。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns a list of the tasks that were awaiting execution.  <p>This method does not wait for actively executing tasks to terminate.  Use ‘#awaitTermination awaitTermination’ to do that.  <p>There are no guarantees beyond best-effort attempts to stop processing actively executing tasks.  For example, typical implementations will cancel via ‘Thread#interrupt’, so any task that fails to respond to interrupts may never terminate.</td>
+<td align="left">尝试停止所有正在执行的任务，停止正在等待的任务的处理，并返回正在等待执行的任务列表<p> 此方法不会等待主动执行的任务终止。使用“#awaitTermination”完成此操作<p> 除了尽最大努力尝试停止处理正在积极执行的任务之外，没有其他保证。例如，典型的实现将通过“线程中断”取消，因此任何无法响应中断的任务可能永远不会终止。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -102,7 +102,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Returns ‘true’ if this executor has been shut down.</td>
+<td align="left">如果此执行器已关闭，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -114,7 +114,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Returns ‘true’ if all tasks have completed following shut down. Note that ‘isTerminated’ is never ‘true’ unless either ‘shutdown’ or ‘shutdownNow’ was called first.</td>
+<td align="left">如果关闭后所有任务都已完成，则返回“true”。请注意，“isTerminated”永远不会为“true”，除非先调用了“shutdown”或“shutdownNow”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -126,7 +126,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first.</td>
+<td align="left">阻塞，直到所有任务在关机请求后完成执行，或超时发生，或当前线程中断，以先发生的为准。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -138,8 +138,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Submits a value-returning task for execution and returns a Future representing the pending results of the task. The Future’s ‘get’ method will return the task’s result upon successful completion.  <p> If you would like to immediately block waiting for a task, you can use constructions of the form ‘result &#x3D; exec.submit(aCallable).get();’  <p>Note: The ‘Executors’ class includes a set of methods that can convert some other common closure-like objects, for example, ‘java.security.PrivilegedAction’ to ‘Callable’ form so they can be submitted.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">提交一个返回值的任务以供执行，并返回一个表示任务挂起结果的未来。Future的“get”方法将在成功完成后返回任务的结果<p> 如果要立即阻止等待任务，可以使用“result&#x3D;exec.submit（aCallable）”形式的构造。get（）；’<p> 注意：“Executors”类包括一组方法，可以转换其他一些常见的闭包类对象，例如“java.security”。“可调用”表单的“特权”，以便提交。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Runnable task, T result): Future<T></strong></td>
@@ -150,8 +150,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Submits a Runnable task for execution and returns a Future representing that task. The Future’s ‘get’ method will return the given result upon successful completion.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">提交可运行任务以供执行，并返回表示该任务的未来。Future的“get”方法将在成功完成后返回给定结果。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Runnable task): Future&lt;?&gt;</strong></td>
@@ -162,8 +162,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Submits a Runnable task for execution and returns a Future representing that task. The Future’s ‘get’ method will return ‘null’ upon <em>successful</em> completion.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">提交可运行任务以供执行，并返回表示该任务的未来。Future的“get”方法在<em>成功完成后将返回“null”。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks): List&lt;Future<T>&gt;</strong></td>
@@ -174,8 +174,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Executes the given tasks, returning a list of Futures holding their status and results when all complete. ‘Future#isDone’ is ‘true’ for each element of the returned list. Note that a <em>completed</em> task could have terminated either normally or by throwing an exception. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">NullPointerException<br/>InterruptedException<br/>RejectedExecutionException</td>
+<td align="left">执行给定的任务，返回一个未来列表，在所有任务完成后保存其状态和结果。”对于返回列表的每个元素，Future#isDone’都是true。请注意，<em>已完成的</em>任务可以正常终止，也可以通过引发异常终止。如果在执行此操作时修改了给定集合，则此方法的结果是未定义的。</td>
+<td align="left">InterruptedException<br/>NullPointerException<br/>RejectedExecutionException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks, long timeout, TimeUnit unit): List&lt;Future<T>&gt;</strong></td>
@@ -186,8 +186,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Executes the given tasks, returning a list of Futures holding their status and results when all complete or the timeout expires, whichever happens first. ‘Future#isDone’ is ‘true’ for each element of the returned list. Upon return, tasks that have not completed are cancelled. Note that a <em>completed</em> task could have terminated either normally or by throwing an exception. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">NullPointerException<br/>InterruptedException<br/>RejectedExecutionException</td>
+<td align="left">执行给定的任务，当所有任务完成或超时过期时（以先发生的为准），返回保存其状态和结果的未来列表对于返回列表的每个元素，Future#isDone’都是true。返回后，未完成的任务将被取消。请注意，<em>已完成的</em>任务可以正常终止，也可以通过引发异常终止。如果在执行此操作时修改了给定集合，则此方法的结果是未定义的。</td>
+<td align="left">InterruptedException<br/>NullPointerException<br/>RejectedExecutionException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks): T</strong></td>
@@ -198,8 +198,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Executes the given tasks, returning the result of one that has completed successfully (i.e., without throwing an exception), if any do. Upon normal or exceptional return, tasks that have not completed are cancelled. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">NullPointerException<br/>IllegalArgumentException<br/>InterruptedException<br/>RejectedExecutionException<br/>ExecutionException</td>
+<td align="left">执行给定的任务，返回已成功完成的任务的结果（即，不引发异常），如果有的话。在正常或异常返回时，未完成的任务将被取消。如果在执行此操作时修改了给定集合，则此方法的结果是未定义的。</td>
+<td align="left">IllegalArgumentException<br/>RejectedExecutionException<br/>ExecutionException<br/>NullPointerException<br/>InterruptedException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks, long timeout, TimeUnit unit): T</strong></td>
@@ -210,8 +210,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Executes the given tasks, returning the result of one that has completed successfully (i.e., without throwing an exception), if any do before the given timeout elapses. Upon normal or exceptional return, tasks that have not completed are cancelled. The results of this method are undefined if the given collection is modified while this operation is in progress.</td>
-<td align="left">NullPointerException<br/>InterruptedException<br/>RejectedExecutionException<br/>TimeoutException<br/>ExecutionException</td>
+<td align="left">执行给定的任务，返回成功完成的任务的结果（即，不引发异常），如果在给定的超时时间过去之前执行。在正常或异常返回时，未完成的任务将被取消。如果在执行此操作时修改了给定集合，则此方法的结果是未定义的。</td>
+<td align="left">RejectedExecutionException<br/>TimeoutException<br/>ExecutionException<br/>NullPointerException<br/>InterruptedException</td>
 </tr>
 </tbody></table>
 

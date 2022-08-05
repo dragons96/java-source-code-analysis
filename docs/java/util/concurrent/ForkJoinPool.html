@@ -77,7 +77,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Class for artificial tasks that are used to replace the target of local joins if they are removed from an interior queue slot in WorkQueue.tryRemoveAndExec. We don’t need the proxy to actually do anything beyond having a unique identity.</td>
+<td align="left">用于人工任务的类，如果从WorkQueue.tryRemoveAndExec中的内部队列槽中删除了本地联接的目标，则这些任务用于替换这些目标。除了拥有唯一身份之外，我们不需要代理来实际执行任何操作。</td>
 </tr>
 <tr>
 <td align="center"><strong>MAX_CAP: int</strong></td>
@@ -198,7 +198,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new ForkJoinWorkerThread. This factory is used unless overridden in ForkJoinPool constructors.</td>
+<td align="left">创建新的ForkJoinWorkerThread。除非在ForkJoinPool构造函数中重写，否则将使用此工厂。</td>
 </tr>
 <tr>
 <td align="center"><strong>modifyThreadPermission: RuntimePermission</strong></td>
@@ -209,7 +209,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Permission required for callers of methods that may start or kill threads.</td>
+<td align="left">可能启动或终止线程的方法调用方所需的权限。</td>
 </tr>
 <tr>
 <td align="center"><strong>common: ForkJoinPool</strong></td>
@@ -220,7 +220,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Common (static) pool. Non-null for public use unless a static construction exception, but internal usages null-check on use to paranoically avoid potential initialization circularities as well as to simplify generated code.</td>
+<td align="left">公共（静态）池。非空用于公共用途，除非静态构造异常，但内部使用空检查来偏执地避免潜在的初始化循环，并简化生成的代码。</td>
 </tr>
 <tr>
 <td align="center"><strong>commonParallelism: int</strong></td>
@@ -231,7 +231,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Common pool parallelism. To allow simpler use and management when common pool threads are disabled, we allow the underlying common.parallelism field to be zero, but in that case still report parallelism as 1 to reflect resulting caller-runs mechanics.</td>
+<td align="left">公共池并行性。为了在禁用公共池线程时更简单地使用和管理，我们允许使用底层公共池。parallelism字段为零，但在这种情况下，仍将并行度报告为1，以反映结果调用方运行机制。</td>
 </tr>
 <tr>
 <td align="center"><strong>commonMaxSpares: int</strong></td>
@@ -242,7 +242,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Limit on spare thread construction in tryCompensate.</td>
+<td align="left">tryCompensate中的备用螺纹构造限制。</td>
 </tr>
 <tr>
 <td align="center"><strong>poolNumberSequence: int</strong></td>
@@ -253,7 +253,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sequence number for creating workerNamePrefix.</td>
+<td align="left">用于创建workerNamePrefix的序列号。</td>
 </tr>
 <tr>
 <td align="center"><strong>IDLE_TIMEOUT: long</strong></td>
@@ -264,7 +264,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Initial timeout value (in nanoseconds) for the thread triggering quiescence to park waiting for new work. On timeout, the thread will instead try to shrink the number of workers. The value should be large enough to avoid overly aggressive shrinkage during most transient stalls (long GCs etc).</td>
+<td align="left">触发静止的线程暂停等待新工作的初始超时值（纳秒）。超时时，线程将尝试减少工作线程的数量。该值应足够大，以避免在大多数瞬态失速（长GC等）期间过度收缩。</td>
 </tr>
 <tr>
 <td align="center"><strong>TIMEOUT_SLOP: long</strong></td>
@@ -275,7 +275,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tolerance for idle timeouts, to cope with timer undershoots</td>
+<td align="left">空闲超时的容差，以应对定时器下冲</td>
 </tr>
 <tr>
 <td align="center"><strong>DEFAULT_COMMON_MAX_SPARES: int</strong></td>
@@ -286,7 +286,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The initial value for commonMaxSpares during static initialization. The value is far in excess of normal requirements, but also far short of MAX_CAP and typical OS thread limits, so allows JVMs to catch misuse&#x2F;abuse before running out of resources needed to do so.</td>
+<td align="left">静态初始化期间commonMaxSpares的初始值。该值远远超出正常需求，但也远远低于MAX_CAP和典型的OS线程限制，因此允许JVM在耗尽所需资源之前捕获误用&#x2F;滥用。</td>
 </tr>
 <tr>
 <td align="center"><strong>SPINS: int</strong></td>
@@ -297,7 +297,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Number of times to spin-wait before blocking. The spins (in awaitRunStateLock and awaitWork) currently use randomized spins. Currently set to zero to reduce CPU usage.  If greater than zero the value of SPINS must be a power of two, at least 4.  A value of 2048 causes spinning for a small fraction of typical context-switch times.  If&#x2F;when MWAIT-like intrinsics becomes available, they may allow quieter spinning.</td>
+<td align="left">阻塞前旋转等待的次数。自旋（在awaitRunStateLock和awaitWork中）当前使用随机自旋。当前设置为零以减少CPU使用。如果大于零，则旋转值必须为2的幂，至少为4。2048的值会导致旋转，仅占典型上下文切换时间的一小部分。如果&#x2F;当类似MWAIT的Intrinsic可用时，它们可能允许更安静的旋转。</td>
 </tr>
 <tr>
 <td align="center"><strong>SEED_INCREMENT: int</strong></td>
@@ -308,7 +308,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Increment for seed generators. See class ThreadLocal for explanation.</td>
+<td align="left">种子生成器的增量。有关说明，请参见类ThreadLocal。</td>
 </tr>
 <tr>
 <td align="center"><strong>SP_MASK: long</strong></td>
@@ -319,7 +319,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Bits and masks for field ctl, packed with 4 16 bit subfields: AC: Number of active running workers minus target parallelism TC: Number of total workers minus target parallelism SS: version count and status of top waiting thread ID: poolIndex of top of Treiber stack of waiters  When convenient, we can extract the lower 32 stack top bits (including version bits) as sp&#x3D;(int)ctl.  The offsets of counts by the target parallelism and the positionings of fields makes it possible to perform the most common checks via sign tests of fields: When ac is negative, there are not enough active workers, when tc is negative, there are not enough total workers.  When sp is non-zero, there are waiting workers.  To deal with possibly negative fields, we use casts in and out of “short” and&#x2F;or signed shifts to maintain signedness.  Because it occupies uppermost bits, we can add one active count using getAndAddLong of AC_UNIT, rather than CAS, when returning from a blocked join.  Other updates entail multiple subfields and masking, requiring CAS.</td>
+<td align="left">字段ctl的位和掩码，包含4个16位子字段：AC：活动运行的工作线程数减去目标并行度TC：总工作线程数减目标并行度SS：版本计数和顶部等待线程状态ID：等待线程的Treiber堆栈顶部的Poolidex如果方便，我们可以提取较低的32个堆栈顶部位（包括版本位）作为sp&#x3D;（int）ctl。通过目标平行度的计数偏移和字段的位置，可以通过字段的符号测试执行最常见的检查：当ac为负时，没有足够的活动工作线程；当tc为负时。当sp为非零时，有等待的工作线程。为了处理可能的负字段，我们使用“短”和&#x2F;或有符号移位的强制转换来保持有符号性。因为它占用最高位，所以当从阻塞连接返回时，我们可以使用AC_UNIT的GetAndAndLong而不是CAS添加一个活动计数。其他更新需要多个子字段和屏蔽，需要CAS。</td>
 </tr>
 <tr>
 <td align="center"><strong>UC_MASK: long</strong></td>
@@ -742,7 +742,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If there is a security manager, makes sure caller has permission to modify threads.</td>
+<td align="left">如果有安全管理器，则确保调用方具有修改线程的权限。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -754,7 +754,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the next sequence number. We don’t expect this to ever contend, so use simple builtin sync.</td>
+<td align="left">返回下一个序列号。我们不希望这种情况发生，所以使用简单的内置同步。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -766,7 +766,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Acquires the runState lock; returns current (locked) runState.</td>
+<td align="left">获取运行状态锁；返回当前（锁定）运行状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -778,7 +778,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Spins and&#x2F;or blocks until runstate lock is available.  See above for explanation.</td>
+<td align="left">旋转和&#x2F;或阻止，直到运行状态锁定可用。请参见上面的解释。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -790,7 +790,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Unlocks and sets runState to newRunState.</td>
+<td align="left">解锁并将runState设置为newRunState。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -802,7 +802,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to construct and start one worker. Assumes that total count has already been incremented as a reservation.  Invokes deregisterWorker on any failure.</td>
+<td align="left">尝试构造并启动一个worker。假设总计数已作为保留增加。在任何失败时调用deregisterWorker。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -814,7 +814,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to add one worker, incrementing ctl counts before doing so, relying on createWorker to back out on failure.</td>
+<td align="left">尝试添加一个worker，在添加之前增加ctl计数，在失败时依靠createWorker退出。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -826,7 +826,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Callback from ForkJoinWorkerThread constructor to establish and record its WorkQueue.</td>
+<td align="left">从ForkJoinWorkerThread构造函数回调以建立并记录其工作队列。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -838,7 +838,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Final callback from terminating worker, as well as upon failure to construct or start a worker.  Removes record of worker from array, and adjusts counts. If pool is shutting down, tries to complete termination.</td>
+<td align="left">终止工作进程的最终回调，以及构造或启动工作进程失败时的回调。从数组中删除工作进程的记录，并调整计数。如果池正在关闭，则尝试完成终止。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -850,7 +850,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to create or activate a worker if too few are active.</td>
+<td align="left">如果活动的工作线程太少，则尝试创建或激活工作线程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -862,7 +862,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Signals and releases worker v if it is top of idle worker stack.  This performs a one-shot version of signalWork only if there is (apparently) at least one idle worker.</td>
+<td align="left">如果工人v位于空闲工人堆栈的顶部，则发出信号并释放工人v。仅当（显然）至少有一名空闲工作人员时，该系统才执行信号工作的一次性版本。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -874,7 +874,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Top-level runloop for workers, called by ForkJoinWorkerThread.run.</td>
+<td align="left">Worker的顶级运行循环，由ForkJoinWorkerThread.run调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -886,7 +886,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Scans for and tries to steal a top-level task. Scans start at a random location, randomly moving on apparent contention, otherwise continuing linearly until reaching two consecutive empty passes over all queues with the same checksum (summing each base index of each queue, that moves on each steal), at which point the worker tries to inactivate and then re-scans, attempting to re-activate (itself or some other worker) if finding a task; otherwise returning null to await work.  Scans otherwise touch as little memory as possible, to reduce disruption on other scanning threads.</td>
+<td align="left">扫描并试图窃取顶级任务。扫描从一个随机位置开始，在明显的争用中随机移动，否则线性继续，直到使用相同的校验和（对每个队列的每个基本索引求和，在每次窃取时移动）在所有队列上达到两次连续的空传递，此时工作人员尝试停用，然后重新扫描，如果找到任务，则尝试重新激活（自身或其他工作人员）；否则返回null以等待工作。否则，扫描将尽可能少地占用内存，以减少对其他扫描线程的中断。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -898,7 +898,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Possibly blocks worker w waiting for a task to steal, or returns false if the worker should terminate.  If inactivating w has caused the pool to become quiescent, checks for pool termination, and, so long as this is not the only worker, waits for up to a given duration.  On timeout, if ctl has not changed, terminates the worker, which will in turn wake up another worker to possibly repeat this process.</td>
+<td align="left">可能会阻止等待任务窃取的worker w，或者如果worker应该终止，则返回false。如果禁用w导致池处于静止状态，则会检查池是否终止，并且只要这不是唯一的工作线程，就会等待一段时间。在超时时，如果ctl没有更改，则终止工作进程，这将唤醒另一个工作进程，以可能重复此过程。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -910,7 +910,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to steal and run tasks within the target’s computation. Uses a variant of the top-level algorithm, restricted to tasks with the given task as ancestor: It prefers taking and running eligible tasks popped from the worker’s own queue (via popCC). Otherwise it scans others, randomly moving on contention or execution, deciding to give up based on a checksum (via return codes frob pollAndExecCC). The maxTasks argument supports external usages; internal calls use zero, allowing unbounded steps (external calls trap non-positive values).</td>
+<td align="left">试图窃取并运行目标计算中的任务。使用顶级算法的一个变体，仅限于以给定任务为祖先的任务：它更喜欢接受并运行从工作者自己的队列中弹出的合格任务（通过popCC）。否则，它会扫描其他人，在争用或执行时随机移动，并根据校验和（通过来自POLLANDEXECC的返回码）决定放弃。maxTasks参数支持外部用法；内部调用使用零，允许无限步长（外部调用捕获非正值）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -922,7 +922,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to locate and execute tasks for a stealer of the given task, or in turn one of its stealers, Traces currentSteal -&gt; currentJoin links looking for a thread working on a descendant of the given task and with a non-empty queue to steal back and execute tasks from. The first call to this method upon a waiting join will often entail scanning&#x2F;search, (which is OK because the joiner has nothing better to do), but this method leaves hints in workers to speed up subsequent calls.</td>
+<td align="left">尝试为给定任务的窃取者（或其窃取者之一）定位和执行任务，跟踪currentSteal-&gt;currentJoin链接，寻找在给定任务的子代上工作的线程，并使用非空队列从中窃取并执行任务。在等待连接时对该方法的第一次调用通常需要扫描&#x2F;搜索（这是可以的，因为加入者没有更好的事情要做），但该方法会在worker中留下提示，以加快后续调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -934,7 +934,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to decrement active count (sometimes implicitly) and possibly release or create a compensating worker in preparation for blocking. Returns false (retryable by caller), on contention, detected staleness, instability, or termination.</td>
+<td align="left">尝试减少活动计数（有时是隐式的），并可能释放或创建一个补偿工作线程以准备阻塞。在发生争用、检测到过时、不稳定或终止时返回false（可由调用方检索）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -946,7 +946,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Helps and&#x2F;or blocks until the given task is done or timeout.</td>
+<td align="left">帮助和&#x2F;或阻止，直到给定任务完成或超时。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -958,7 +958,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a (probably) non-empty steal queue, if one is found during a scan, else null.  This method must be retried by caller if, by the time it tries to use the queue, it is empty.</td>
+<td align="left">返回（可能）非空的窃取队列（如果在扫描期间发现），否则为空。如果调用方在尝试使用队列时队列为空，则该方法必须由调用方重试。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -970,7 +970,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Runs tasks until ‘isQuiescent()’. We piggyback on active count ctl maintenance, but rather than blocking when tasks cannot be found, we rescan until all others cannot find tasks either.</td>
+<td align="left">运行任务直到“isquisite（）”。我们依靠活动计数ctl维护，但不是在找不到任务时阻塞，而是重新扫描，直到所有其他任务都找不到为止。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -982,7 +982,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Gets and removes a local or stolen task for the given worker.</td>
+<td align="left">获取并删除给定工作进程的本地或被盗任务。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -994,7 +994,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a cheap heuristic guide for task partitioning when programmers, frameworks, tools, or languages have little or no idea about task granularity.  In essence, by offering this method, we ask users only about tradeoffs in overhead vs expected throughput and its variance, rather than how finely to partition tasks.  In a steady state strict (tree-structured) computation, each thread makes available for stealing enough tasks for other threads to remain active. Inductively, if all threads play by the same rules, each thread should make available only a constant number of tasks.  The minimum useful constant is just 1. But using a value of 1 would require immediate replenishment upon each steal to maintain enough tasks, which is infeasible.  Further, partitionings&#x2F;granularities of offered tasks should minimize steal rates, which in general means that threads nearer the top of computation tree should generate more than those nearer the bottom. In perfect steady state, each thread is at approximately the same level of computation tree. However, producing extra tasks amortizes the uncertainty of progress and diffusion assumptions.  So, users will want to use values larger (but not much larger) than 1 to both smooth over transient shortages and hedge against uneven progress; as traded off against the cost of extra task overhead. We leave the user to pick a threshold value to compare with the results of this call to guide decisions, but recommend values such as 3.  When all threads are active, it is on average OK to estimate surplus strictly locally. In steady-state, if one thread is maintaining say 2 surplus tasks, then so are others. So we can just use estimated queue length.  However, this strategy alone leads to serious mis-estimates in some non-steady-state conditions (ramp-up, ramp-down, other stalls). We can detect many of these by further considering the number of “idle” threads, that are known to have zero queued tasks, so compensate by a factor of (#idle&#x2F;#active) threads.</td>
+<td align="left">当程序员、框架、工具或语言对任务粒度知之甚少或一无所知时，返回任务划分的廉价启发式指南。本质上，通过提供这种方法，我们只询问用户开销与预期吞吐量及其变化之间的权衡，而不是任务划分的精细程度。在稳态严格（树结构）计算中，每个线程都可以窃取足够的任务，以使其他线程保持活动状态。归纳地说，如果所有线程都遵循相同的规则，那么每个线程应该只提供恒定数量的任务。最小有用常数仅为1。但使用值1需要在每次偷窃时立即补充，以维持足够的任务，这是不可行的。此外，所提供任务的划分&#x2F;粒度应使窃取率最小化，这通常意味着更接近计算树顶部的线程应比更接近底部的线程生成更多。在完全稳定状态下，每个线程都处于近似相同的计算树级别。然而，产生额外任务会摊销进度和扩散假设的不确定性。因此，用户希望使用大于1（但不太大）的值来缓解暂时性短缺，并对冲不平衡的进展；与额外任务开销的成本进行权衡。我们让用户选择一个阈值，与此调用的结果进行比较，以指导决策，但建议使用3这样的值。当所有线程都处于活动状态时，平均而言，可以严格地在本地估计剩余。在稳定状态下，如果一个线程正在维护例如2个剩余任务，那么其他线程也是如此。所以我们可以使用估计的队列长度。然而，在某些非稳态条件下（上升、下降和其他失速），仅此策略就会导致严重的错误估计。我们可以通过进一步考虑“空闲”线程的数量来检测其中的许多线程，已知这些线程的队列任务数为零，因此可以通过（#idle&#x2F;#active）线程的因数进行补偿。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1006,7 +1006,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Possibly initiates and&#x2F;or completes termination.</td>
+<td align="left">可能发起和&#x2F;或完成终止。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1018,7 +1018,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Full version of externalPush, handling uncommon cases, as well as performing secondary initialization upon the first submission of the first task to the pool.  It also detects first submission by an external thread and creates a new shared queue if the one at index if empty or contended.</td>
+<td align="left">externalPush的完整版本，处理不常见的情况，并在第一次向池提交第一个任务时执行二次初始化。它还检测外部线程的第一次提交，如果索引中的队列为空或已竞争，则创建一个新的共享队列。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1030,7 +1030,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Tries to add the given task to a submission queue at submitter’s current queue. Only the (vastly) most common path is directly handled in this method, while screening for need for externalSubmit.</td>
+<td align="left">尝试将给定任务添加到提交者当前队列的提交队列中。该方法仅直接处理（非常）常见的路径，同时筛选是否需要外部提交。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1042,7 +1042,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns common pool queue for an external thread.</td>
+<td align="left">返回外部线程的公共池队列。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1054,7 +1054,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs tryUnpush for an external submitter: Finds queue, locks if apparently non-empty, validates upon locking, and adjusts top. Each check can fail but rarely does.</td>
+<td align="left">为外部提交者执行tryUnpush：查找队列，如果明显为非空则锁定，锁定后验证，并调整顶部。每次检查都可能失败，但很少失败。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1066,7 +1066,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs helpComplete for an external submitter.</td>
+<td align="left">为外部提交者执行helpComplete。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1078,7 +1078,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘ForkJoinPool’ with parallelism equal to ‘java.lang.Runtime#availableProcessors’, using the ‘#defaultForkJoinWorkerThreadFactory default thread factory’, no UncaughtExceptionHandler, and non-async LIFO processing mode.</td>
+<td align="left">使用“#defaultForkJoinWorkerThreadFactory默认线程工厂”、无UncaughtExceptionHandler和非异步后进先出处理模式创建并行度等于“java.lang.Runtime#availableProcessors”的“ForkJointPool”。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -1090,8 +1090,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘ForkJoinPool’ with the indicated parallelism level, the ‘#defaultForkJoinWorkerThreadFactory default thread factory’, no UncaughtExceptionHandler, and non-async LIFO processing mode.</td>
-<td align="left">SecurityException<br/>IllegalArgumentException</td>
+<td align="left">创建具有指定并行度级别的“ForkJoinPool”、“默认ForkJoinerThreadFactory默认线程工厂”、“无UncaughtExceptionHandler”和非异步后进先出处理模式。</td>
+<td align="left">IllegalArgumentException<br/>SecurityException</td>
 </tr>
 <tr>
 <td align="center"><strong>ForkJoinPool(int parallelism, ForkJoinWorkerThreadFactory factory, UncaughtExceptionHandler handler, boolean asyncMode)</strong></td>
@@ -1102,8 +1102,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘ForkJoinPool’ with the given parameters.</td>
-<td align="left">SecurityException<br/>NullPointerException<br/>IllegalArgumentException</td>
+<td align="left">使用给定参数创建“ForkJoinPool”。</td>
+<td align="left">IllegalArgumentException<br/>SecurityException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>checkParallelism(int parallelism): int</strong></td>
@@ -1126,7 +1126,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a ‘ForkJoinPool’ with the given parameters, without any security checks or parameter validation.  Invoked directly by makeCommonPool.</td>
+<td align="left">使用给定参数创建“ForkJoinPool”，无需任何安全检查或参数验证。由MakeComonPool直接调用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1138,7 +1138,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the common pool instance. This pool is statically constructed; its run state is unaffected by attempts to ‘#shutdown’ or ‘#shutdownNow’. However this pool and any ongoing processing are automatically terminated upon program ‘System#exit’.  Any program that relies on asynchronous task processing to complete before program termination should invoke ‘commonPool().’’#awaitQuiescence awaitQuiescence’, before exit.</td>
+<td align="left">返回公共池实例。该池是静态构造的；其运行状态不受“#shutdown”或“shutdownNow”尝试的影响。然而，该池和任何正在进行的处理在程序“System#exit”时自动终止。任何依赖异步任务处理在程序终止前完成的程序都应调用“commonPool（）”#等待静止等待静止’，然后退出。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1150,8 +1150,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs the given task, returning its result upon completion. If the computation encounters an unchecked Exception or Error, it is rethrown as the outcome of this invocation.  Rethrown exceptions behave in the same way as regular exceptions, but, when possible, contain stack traces (as displayed for example using ‘ex.printStackTrace()’) of both the current thread as well as the thread actually encountering the exception; minimally only the latter.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">执行给定任务，完成后返回其结果。如果计算遇到未经检查的异常或错误，它将作为此调用的结果重新调用。Rethrown异常的行为方式与常规异常相同，但在可能的情况下，包含当前线程和实际遇到异常的线程的堆栈跟踪（例如使用“ex.printStackTrace（）”显示）；至少仅后者。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>execute(ForkJoinTask&lt;?&gt; task): void</strong></td>
@@ -1162,8 +1162,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Arranges for (asynchronous) execution of the given task.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">安排给定任务的（异步）执行。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>execute(Runnable task): void</strong></td>
@@ -1175,7 +1175,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(ForkJoinTask&lt;T&gt; task): ForkJoinTask<T></strong></td>
@@ -1186,8 +1186,8 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Submits a ForkJoinTask for execution.</td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">提交ForkJoinTask以供执行。</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Callable&lt;T&gt; task): ForkJoinTask<T></strong></td>
@@ -1199,7 +1199,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Runnable task, T result): ForkJoinTask<T></strong></td>
@@ -1211,7 +1211,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>submit(Runnable task): ForkJoinTask&lt;?&gt;</strong></td>
@@ -1223,7 +1223,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks): List&lt;Future<T>&gt;</strong></td>
@@ -1235,7 +1235,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="left"></td>
-<td align="left">NullPointerException<br/>RejectedExecutionException</td>
+<td align="left">RejectedExecutionException<br/>NullPointerException</td>
 </tr>
 <tr>
 <td align="center"><strong>getFactory(): ForkJoinWorkerThreadFactory</strong></td>
@@ -1246,7 +1246,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the factory used for constructing new workers.</td>
+<td align="left">返回用于构造新工人的工厂。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1258,7 +1258,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the handler for internal worker threads that terminate due to unrecoverable errors encountered while executing tasks.</td>
+<td align="left">返回由于执行任务时遇到不可恢复错误而终止的内部工作线程的处理程序。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1270,7 +1270,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the targeted parallelism level of this pool.</td>
+<td align="left">返回此池的目标并行级别。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1282,7 +1282,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the targeted parallelism level of the common pool.</td>
+<td align="left">返回公共池的目标并行级别。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1294,7 +1294,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the number of worker threads that have started but not yet terminated.  The result returned by this method may differ from ‘#getParallelism’ when threads are created to maintain parallelism when others are cooperatively blocked.</td>
+<td align="left">返回已启动但尚未终止的工作线程数。此方法返回的结果可能与创建线程以在其他线程被协作阻止时保持并行性时的“#getParallelism”不同。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1306,7 +1306,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this pool uses local first-in-first-out scheduling mode for forked tasks that are never joined.</td>
+<td align="left">如果此池对从未加入的分叉任务使用本地先进先出调度模式，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1318,7 +1318,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of worker threads that are not blocked waiting to join tasks or for other managed synchronization. This method may overestimate the number of running threads.</td>
+<td align="left">返回等待加入任务或其他托管同步而未被阻止的工作线程数的估计值。此方法可能会高估正在运行的线程数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1330,7 +1330,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of threads that are currently stealing or executing tasks. This method may overestimate the number of active threads.</td>
+<td align="left">返回当前正在窃取或执行任务的线程数的估计值。此方法可能高估了活动线程的数量。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1342,7 +1342,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if all worker threads are currently idle. An idle worker is one that cannot obtain a task to execute because none are available to steal from other threads, and there are no pending submissions to the pool. This method is conservative; it might not return ‘true’ immediately upon idleness of all threads, but will eventually become true if threads remain inactive.</td>
+<td align="left">如果所有工作线程当前处于空闲状态，则返回“true”。空闲工作线程是无法获得要执行的任务的工作线程，因为没有任何线程可以从其他线程中窃取，并且池中没有挂起的提交。这种方法是保守的；它可能不会在所有线程空闲时立即返回“true”，但如果线程保持不活动，它最终将变为true。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1354,7 +1354,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the total number of tasks stolen from one thread’s work queue by another. The reported value underestimates the actual total number of steals when the pool is not quiescent. This value may be useful for monitoring and tuning fork&#x2F;join programs: in general, steal counts should be high enough to keep threads busy, but low enough to avoid overhead and contention across threads.</td>
+<td align="left">返回从一个线程的工作队列中被另一个线程窃取的任务总数的估计值。报告的值低估了池不静止时的实际盗窃总数。这个值对于监视和调优fork&#x2F;join程序可能很有用：一般来说，窃取计数应该足够高，以保持线程繁忙，但足够低，以避免线程间的开销和争用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1366,7 +1366,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the total number of tasks currently held in queues by worker threads (but not including tasks submitted to the pool that have not begun executing). This value is only an approximation, obtained by iterating across all threads in the pool. This method may be useful for tuning task granularities.</td>
+<td align="left">返回工作线程当前保留在队列中的任务总数的估计值（但不包括提交到池中尚未开始执行的任务）。该值只是一个近似值，通过在池中的所有线程上迭代获得。此方法可能有助于调整任务粒度。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1378,7 +1378,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns an estimate of the number of tasks submitted to this pool that have not yet begun executing.  This method may take time proportional to the number of submissions.</td>
+<td align="left">返回提交到此池中尚未开始执行的任务数的估计值。此方法可能需要与提交数量成比例的时间。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1390,7 +1390,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if there are any tasks submitted to this pool that have not yet begun executing.</td>
+<td align="left">如果提交到此池的任何任务尚未开始执行，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1402,7 +1402,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes and returns the next unexecuted submission if one is available.  This method may be useful in extensions to this class that re-assign work in systems with multiple pools.</td>
+<td align="left">删除并返回下一个未执行的提交（如果有）。此方法在此类的扩展中可能很有用，该类可以在具有多个池的系统中重新分配工作。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1414,7 +1414,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Removes all available unexecuted submitted and forked tasks from scheduling queues and adds them to the given collection, without altering their execution status. These may include artificially generated or wrapped tasks. This method is designed to be invoked only when the pool is known to be quiescent. Invocations at other times may not remove all tasks. A failure encountered while attempting to add elements to collection ‘c’ may result in elements being in neither, either or both collections when the associated exception is thrown.  The behavior of this operation is undefined if the specified collection is modified while the operation is in progress.</td>
+<td align="left">从调度队列中删除所有可用的未执行、提交和分叉任务，并将它们添加到给定集合中，而不改变其执行状态。这些可能包括人工生成或包装的任务。此方法设计为仅在已知池处于静态时调用。其他时间的调用可能不会删除所有任务。尝试将元素添加到集合“c”时遇到的失败可能会导致在引发关联异常时元素既不在集合中，也不在集合或集合中。如果在操作进行过程中修改了指定的集合，则此操作的行为未定义。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1426,7 +1426,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a string identifying this pool, as well as its state, including indications of run state, parallelism level, and worker and task counts.</td>
+<td align="left">返回标识此池及其状态的字符串，包括运行状态、并行级别以及工作线程和任务计数的指示。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1438,7 +1438,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Possibly initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no effect on execution state if this is the ‘#commonPool()’, and no additional effect if already shut down.  Tasks that are in the process of being submitted concurrently during the course of this method may or may not be rejected.</td>
+<td align="left">可能会启动有序关机，其中执行以前提交的任务，但不会接受新任务。如果这是“#commonPool（）”，则调用对执行状态没有影响，如果已经关闭，则不会产生额外影响。在此方法过程中同时提交的任务可能会被拒绝，也可能不会被拒绝。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -1450,7 +1450,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Possibly attempts to cancel and&#x2F;or stop all tasks, and reject all subsequently submitted tasks.  Invocation has no effect on execution state if this is the ‘#commonPool()’, and no additional effect if already shut down. Otherwise, tasks that are in the process of being submitted or executed concurrently during the course of this method may or may not be rejected. This method cancels both existing and unexecuted tasks, in order to permit termination in the presence of task dependencies. So the method always returns an empty list (unlike the case for some other Executors).</td>
+<td align="left">可能会尝试取消和&#x2F;或停止所有任务，并拒绝所有随后提交的任务。如果这是“#commonPool（）”，则调用对执行状态没有影响，如果已经关闭，则不会产生额外影响。否则，在此方法过程中同时提交或执行的任务可能会被拒绝，也可能不会被拒绝。此方法取消现有和未执行的任务，以便在存在任务相关性时终止。因此，该方法总是返回一个空列表（与其他一些执行器的情况不同）。</td>
 <td align="left">SecurityException</td>
 </tr>
 <tr>
@@ -1462,7 +1462,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if all tasks have completed following shut down.</td>
+<td align="left">如果关闭后所有任务都已完成，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1474,7 +1474,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if the process of termination has commenced but not yet completed.  This method may be useful for debugging. A return of ‘true’ reported a sufficient period after shutdown may indicate that submitted tasks have ignored or suppressed interruption, or are waiting for I&#x2F;O, causing this executor not to properly terminate. (See the advisory notes for class ‘ForkJoinTask’ stating that tasks should not normally entail blocking operations.  But if they do, they must abort them on interrupt.)</td>
+<td align="left">如果终止过程已开始但尚未完成，则返回“true”。此方法可能对调试有用。关闭后足够长时间内报告的“true”返回可能表示提交的任务忽略或抑制了中断，或正在等待I&#x2F;O，导致此执行器无法正确终止。（参见“ForkJoinTask”类的建议注释，说明任务通常不应包含阻塞操作。但如果包含阻塞操作，则必须在中断时中止它们。）</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1486,7 +1486,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns ‘true’ if this pool has been shut down.</td>
+<td align="left">如果此池已关闭，则返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1498,7 +1498,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first. Because the ‘#commonPool()’ never terminates until program shutdown, when applied to the common pool, this method is equivalent to ‘#awaitQuiescence(long, TimeUnit)’ but always returns ‘false’.</td>
+<td align="left">阻塞，直到所有任务在关机请求后完成执行，或超时发生，或当前线程中断，以先发生的为准。由于“#commonPool（）”在程序关闭之前从未终止，因此当应用于公共池时，此方法等同于“35Awaitquiesion（long，TimeUnit）”，但始终返回“false”。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -1510,7 +1510,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If called by a ForkJoinTask operating in this pool, equivalent in effect to ‘ForkJoinTask#helpQuiesce’. Otherwise, waits and&#x2F;or attempts to assist performing tasks until this pool ‘#isQuiescent’ or the indicated timeout elapses.</td>
+<td align="left">如果由在此池中操作的ForkJoinTask调用，则实际上相当于“ForkJointTask#helpQuiesce”。否则，等待和&#x2F;或尝试协助执行任务，直到该池“#isquisite”或指示的超时时间过去。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1522,7 +1522,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Waits and&#x2F;or attempts to assist performing tasks indefinitely until the ‘#commonPool()’ ‘#isQuiescent’.</td>
+<td align="left">等待和&#x2F;或尝试无限期协助执行任务，直到“#commonPool（）”处于静止状态。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -1534,7 +1534,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Runs the given possibly blocking task.  When ‘ForkJoinTask#inForkJoinPool() running in a ForkJoinPool’, this method possibly arranges for a spare thread to be activated if necessary to ensure sufficient parallelism while the current thread is blocked in ‘ManagedBlocker#block blocker.block()’.  <p>This method repeatedly calls ‘blocker.isReleasable()’ and ‘blocker.block()’ until either method returns ‘true’. Every call to ‘blocker.block()’ is preceded by a call to ‘blocker.isReleasable()’ that returned ‘false’.  <p>If not running in a ForkJoinPool, this method is behaviorally equivalent to <pre> 'while (!blocker.isReleasable()) if (blocker.block()) break;'</pre>  If running in a ForkJoinPool, the pool may first be expanded to ensure sufficient parallelism available during the call to ‘blocker.block()’.</td>
+<td align="left">运行给定的可能阻塞任务。当“ForkJoinTask#inForkJoinPool（）在ForkJointPool中运行”时，此方法可能会在必要时安排激活备用线程，以确保在“ManagedBlocker#block blocker.block（）中阻塞当前线程时具有足够的并行性<p> 此方法反复调用“拦截器”。isReleasable（）’和’blocker’。block（），直到任一方法返回“true”。每次呼叫“拦截器”。block（）’前面是对’blocker’的调用。返回“false”的isReleasable（）<p> 如果未在ForkJoinPool中运行，则此方法在行为上等同于＜pre＞，而（！blocker.isReleasable（））如果（blocker.block（））中断；’</pre>如果在ForkJoinPool中运行，可以首先扩展该池，以确保在调用“blocker.block（）”期间有足够的并行性。</td>
 <td align="left">InterruptedException</td>
 </tr>
 <tr>
@@ -1570,7 +1570,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates and returns the common pool, respecting user settings specified via system properties.</td>
+<td align="left">根据通过系统属性指定的用户设置，创建并返回公共池。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

@@ -79,7 +79,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Default target factor of leaf tasks for parallel decomposition. To allow load balancing, we over-partition, currently to approximately four tasks per processor, which enables others to help out if leaf tasks are uneven or some processors are otherwise busy.</td>
+<td align="left">并行分解叶任务的默认目标因子。为了实现负载平衡，我们对每个处理器进行了过度分区，目前约为四个任务，这使其他处理器能够在叶任务不均衡或某些处理器繁忙时提供帮助。</td>
 </tr>
 <tr>
 <td align="center"><strong>helper: PipelineHelper&lt;P_OUT&gt;</strong></td>
@@ -90,7 +90,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The pipeline helper, common to all tasks in a computation</td>
+<td align="left">管道辅助程序，对计算中的所有任务通用</td>
 </tr>
 <tr>
 <td align="center"><strong>spliterator: Spliterator&lt;P_IN&gt;</strong></td>
@@ -101,7 +101,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The spliterator for the portion of the input associated with the subtree rooted at this task</td>
+<td align="left">与此任务根子树相关联的输入部分的拆分器</td>
 </tr>
 <tr>
 <td align="center"><strong>targetSize: long</strong></td>
@@ -112,7 +112,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Target leaf size, common to all tasks in a computation</td>
+<td align="left">目标叶大小，计算中所有任务通用</td>
 </tr>
 <tr>
 <td align="center"><strong>leftChild: K</strong></td>
@@ -123,7 +123,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The left child. null if no children if non-null rightChild is non-null</td>
+<td align="left">左撇子。如果没有子项，则为null如果非null rightChild为非null</td>
 </tr>
 <tr>
 <td align="center"><strong>rightChild: K</strong></td>
@@ -134,7 +134,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The right child. null if no children if non-null leftChild is non-null</td>
+<td align="left">正确的孩子。如果没有子项，则为null如果非null，则leftChild为非null</td>
 </tr>
 <tr>
 <td align="center"><strong>localResult: R</strong></td>
@@ -145,7 +145,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The result of this node, if completed</td>
+<td align="left">此节点的结果（如果完成）</td>
 </tr>
 </tbody></table>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><table>
@@ -172,7 +172,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructor for root nodes.</td>
+<td align="left">根节点的构造函数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -184,7 +184,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Constructor for non-root nodes.</td>
+<td align="left">非根节点的构造函数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -196,7 +196,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Constructs a new node of type T whose parent is the receiver; must call the AbstractTask(T, Spliterator) constructor with the receiver and the provided Spliterator.</td>
+<td align="left">构造类型为T的新节点，其父节点是接收器；必须使用接收方和提供的拆分器调用AbstractTask（T，拆分器）构造函数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -208,7 +208,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">Computes the result associated with a leaf node.  Will be called by ‘compute()’ and the result passed to</td>
+<td align="left">计算与叶节点关联的结果。将由“compute（）”调用，并将结果传递给</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -220,7 +220,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns a suggested target leaf size based on the initial size estimate.</td>
+<td align="left">基于初始大小估计返回建议的目标叶大小。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -232,7 +232,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the targetSize, initializing it via the supplied size estimate if not already initialized.</td>
+<td align="left">返回targetSize，如果尚未初始化，则通过提供的大小估计值初始化它。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -244,7 +244,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the local result, if any. Subclasses should use ‘#setLocalResult(Object)’ and ‘#getLocalResult()’ to manage results.  This returns the local result so that calls from within the fork-join framework will return the correct result.</td>
+<td align="left">返回本地结果（如果有）。子类应该使用“#setLocalResult（Object）”和“35GetLocalResult（）”来管理结果。这将返回本地结果，以便来自fork-join框架内的调用将返回正确的结果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -256,7 +256,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Does nothing; instead, subclasses should use ‘#setLocalResult(Object)’} to manage results.</td>
+<td align="left">什么也不做；相反，子类应该使用“#setLocalResult（Object）”来管理结果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -268,7 +268,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Retrieves a result previously stored with ‘#setLocalResult’</td>
+<td align="left">检索以前使用“#setLocalResult”存储的结果</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -280,7 +280,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Associates the result with the task, can be retrieved with ‘#getLocalResult’</td>
+<td align="left">将结果与任务关联，可使用“#getLocalResult”检索</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -292,7 +292,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Indicates whether this task is a leaf node.  (Only valid after ‘#compute’ has been called on this node).  If the node is not a leaf node, then children will be non-null and numChildren will be positive.</td>
+<td align="left">指示此任务是否为叶节点。（仅在此节点上调用“#compute”后有效）。如果节点不是叶节点，则子节点将为非null，而numChildren将为正。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -304,7 +304,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Indicates whether this task is the root node</td>
+<td align="left">指示此任务是否为根节点</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -316,7 +316,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the parent of this task, or null if this task is the root</td>
+<td align="left">返回此任务的父级，如果此任务是根，则返回null</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -328,7 +328,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Decides whether or not to split a task further or compute it directly. If computing directly, calls ‘doLeaf’ and pass the result to ‘setRawResult’. Otherwise splits off subtasks, forking one and continuing as the other.  <p> The method is structured to conserve resources across a range of uses.  The loop continues with one of the child tasks when split, to avoid deep recursion. To cope with spliterators that may be systematically biased toward left-heavy or right-heavy splits, we alternate which child is forked versus continued in the loop.</td>
+<td align="left">决定是否进一步拆分任务或直接计算任务。如果直接计算，则调用“doLeaf”并将结果传递给“setRawResult”。否则会拆分子任务，将其中一个子任务分叉，并继续作为另一个子任务<p> 该方法的结构可在一系列用途中节约资源。拆分时，循环将继续执行其中一个子任务，以避免深度递归。为了应对可能系统地偏向左重分裂或右重分裂的分裂器，我们在循环中交替选择哪个子级是分叉的还是继续的。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -340,7 +340,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">‘inheritDoc’</td>
+<td align="left">“继承文档”</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -352,7 +352,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns whether this node is a “leftmost” node – whether the path from the root to this node involves only traversing leftmost child links.  For a leaf node, this means it is the first leaf node in the encounter order.</td>
+<td align="left">返回此节点是否为“最左端”节点——从根节点到此节点的路径是否仅涉及遍历最左端子链接。对于叶节点，这意味着它是相遇顺序中的第一个叶节点。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>

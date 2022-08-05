@@ -90,7 +90,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">This task’s completer, or null if none</td>
+<td align="left">此任务的完成器，如果没有，则为null</td>
 </tr>
 <tr>
 <td align="center"><strong>pending: int</strong></td>
@@ -101,7 +101,7 @@
 <td align="center"><strong><font color='red'>是</font></strong></td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">The number of pending tasks until completion</td>
+<td align="left">完成前的挂起任务数</td>
 </tr>
 <tr>
 <td align="center"><strong>U: sun.misc.Unsafe</strong></td>
@@ -150,7 +150,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new CountedCompleter with the given completer and initial pending count.</td>
+<td align="left">使用给定的完成符和初始挂起计数创建新的CountedCompleter。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -162,7 +162,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new CountedCompleter with the given completer and an initial pending count of zero.</td>
+<td align="left">创建一个新的CountedCompleter，其中给定的完成符和初始挂起计数为零。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -174,7 +174,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Creates a new CountedCompleter with no completer and an initial pending count of zero.</td>
+<td align="left">创建一个新的CountedCompleter，其中没有completer且初始挂起计数为零。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -186,7 +186,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center"><strong><font color='red'>是</font></strong></td>
-<td align="left">The main computation performed by this task.</td>
+<td align="left">此任务执行的主要计算。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -198,7 +198,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs an action when method ‘#tryComplete’ is invoked and the pending count is zero, or when the unconditional method ‘#complete’ is invoked.  By default, this method does nothing. You can distinguish cases by checking the identity of the given caller argument. If not equal to ‘this’, then it is typically a subtask that may contain results (and&#x2F;or links to other results) to combine.</td>
+<td align="left">当调用方法“#tryComplete”且挂起计数为零时，或当调用无条件方法“”complete时，执行操作。默认情况下，此方法不执行任何操作。您可以通过检查给定调用方参数的标识来区分情况。如果不等于“this”，则它通常是一个子任务，可能包含要组合的结果（和&#x2F;或指向其他结果的链接）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Performs an action when method ‘#completeExceptionally(Throwable)’ is invoked or method ‘#compute’ throws an exception, and this task has not already otherwise completed normally. On entry to this method, this task ‘ForkJoinTask#isCompletedAbnormally’.  The return value of this method controls further propagation: If ‘true’ and this task has a completer that has not completed, then that completer is also completed exceptionally, with the same exception as this completer.  The default implementation of this method does nothing except return ‘true’.</td>
+<td align="left">当调用方法“#CompleteExceptionly（Throwable）”，或方法“”compute”引发异常，并且此任务尚未正常完成时，执行操作。在输入此方法时，此任务“ForkJoinTask#isCompletedAbnormally”。此方法的返回值控制进一步的传播：如果“true”且此任务有一个尚未完成的完成符，则该完成符也会异常完成，与此完成符的异常情况相同。此方法的默认实现只返回“true”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -222,7 +222,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the completer established in this task’s constructor, or ‘null’ if none.</td>
+<td align="left">返回在此任务的构造函数中建立的完成符，如果没有，则返回“null”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -234,7 +234,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the current pending count.</td>
+<td align="left">返回当前挂起计数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -246,7 +246,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets the pending count to the given value.</td>
+<td align="left">将挂起计数设置为给定值。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -258,7 +258,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Adds (atomically) the given value to the pending count.</td>
+<td align="left">将给定值（原子地）添加到挂起计数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -270,7 +270,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Sets (atomically) the pending count to the given count only if it currently holds the given expected value.</td>
+<td align="left">仅当挂起计数当前保持给定的预期值时，才会（原子地）将其设置为给定计数。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -282,7 +282,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If the pending count is nonzero, (atomically) decrements it.</td>
+<td align="left">如果挂起计数非零，（原子地）递减它。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -294,7 +294,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the root of the current computation; i.e., this task if it has no completer, else its completer’s root.</td>
+<td align="left">返回当前计算的根；i、 例如，如果此任务没有完成符，则返回其完成符的根。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -306,7 +306,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If the pending count is nonzero, decrements the count; otherwise invokes ‘#onCompletion(CountedCompleter)’ and then similarly tries to complete this task’s completer, if one exists, else marks this task as complete.</td>
+<td align="left">如果挂起计数非零，则递减计数；否则调用“#onCompletion（CountedCompleter）”，然后类似地尝试完成此任务的完成器（如果存在），否则将此任务标记为完成。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -318,7 +318,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Equivalent to ‘#tryComplete’ but does not invoke ‘#onCompletion(CountedCompleter)’ along the completion path: If the pending count is nonzero, decrements the count; otherwise, similarly tries to complete this task’s completer, if one exists, else marks this task as complete. This method may be useful in cases where ‘onCompletion’ should not, or need not, be invoked for each completer in a computation.</td>
+<td align="left">等同于“#tryComplete”，但不沿完成路径调用“35OnCompletion（CountedCompleter）”：如果挂起计数为非零，则递减计数；否则，也会尝试完成此任务的完成器（如果存在），否则会将此任务标记为完成。如果不应该或不需要为计算中的每个完成器调用“onCompletion”，则此方法可能非常有用。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -330,7 +330,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Regardless of pending count, invokes ‘#onCompletion(CountedCompleter)’, marks this task as complete and further triggers ‘#tryComplete’ on this task’s completer, if one exists.  The given rawResult is used as an argument to ‘#setRawResult’ before invoking ‘#onCompletion(CountedCompleter)’ or marking this task as complete; its value is meaningful only for classes overriding ‘setRawResult’.  This method does not modify the pending count.  <p>This method may be useful when forcing completion as soon as any one (versus all) of several subtask results are obtained. However, in the common (and recommended) case in which ‘setRawResult’ is not overridden, this effect can be obtained more simply using ‘quietlyCompleteRoot();’.</td>
+<td align="left">无论挂起计数如何，都会调用“#onCompletion（CountedCompleter）”，将此任务标记为已完成，并在该任务的完成器上进一步触发“35TryComplete”（如果存在）。在调用“#onCompletion（CountedCompleter）”或将此任务标记为已完成之前，给定的rawResult用作“”setRawResult”的参数；其值仅对重写“setRawResult”的类有意义。此方法不修改挂起计数<p> 当获得多个子任务结果中的任何一个（或全部）后强制完成时，此方法可能很有用。但是，在未重写“setRawResult”的常见（和推荐）情况下，可以更简单地使用“quietlyCompleteRoot（）；”获得此效果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -342,7 +342,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If this task’s pending count is zero, returns this task; otherwise decrements its pending count and returns ‘null’. This method is designed to be used with ‘#nextComplete’ in completion traversal loops.</td>
+<td align="left">如果此任务的挂起计数为零，则返回此任务；否则，递减其挂起计数并返回“null”。此方法设计用于完成遍历循环中的“#nextComplete”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -354,7 +354,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If this task does not have a completer, invokes ‘ForkJoinTask#quietlyComplete’ and returns ‘null’.  Or, if the completer’s pending count is non-zero, decrements that pending count and returns ‘null’.  Otherwise, returns the completer.  This method can be used as part of a completion traversal loop for homogeneous task hierarchies:  <pre> 'for (CountedCompleter<?> c = firstComplete(); c != null; c = c.nextComplete()) {'}</pre></td>
+<td align="left">如果此任务没有完成符，则调用“ForkJoinTask#quietlyComplete”并返回“null”。或者，如果完成器的挂起计数为非零，则递减该挂起计数并返回“null”。否则，返回完成符。此方法可以用作同构任务层次结构的完成遍历循环的一部分：＜pre＞‘for（CountedCompleter＜？＞c&#x3D;firstComplete（）；c！&#x3D;无效的c&#x3D;c.nextComplete（））｛‘｝</pre></td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Equivalent to ‘getRoot().quietlyComplete()’.</td>
+<td align="left">等效于“getRoot（）.quietlyComplete（）”。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -378,7 +378,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">If this task has not completed, attempts to process at most the given number of other unprocessed tasks for which this task is on the completion path, if any are known to exist.</td>
+<td align="left">如果此任务尚未完成，则尝试最多处理此任务位于完成路径上的给定数量的其他未处理任务（如果已知存在）。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -390,7 +390,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Supports ForkJoinTask exception propagation.</td>
+<td align="left">支持ForkJoinTask异常传播。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -402,7 +402,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Implements execution conventions for CountedCompleters.</td>
+<td align="left">实现CountedCompleter的执行约定。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -414,7 +414,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">Returns the result of the computation. By default returns ‘null’, which is appropriate for ‘Void’ actions, but in other cases should be overridden, almost always to return a field or function of a field that holds the result upon completion.</td>
+<td align="left">返回计算结果。默认情况下，返回“null”，这适用于“Void”操作，但在其他情况下应被重写，几乎总是返回一个字段或一个字段的函数，该字段在完成时保存结果。</td>
 <td align="left"></td>
 </tr>
 <tr>
@@ -426,7 +426,7 @@
 <td align="center">否</td>
 <td align="center">否</td>
 <td align="center">否</td>
-<td align="left">A method that result-bearing CountedCompleters may optionally use to help maintain result data.  By default, does nothing. Overrides are not recommended. However, if this method is overridden to update existing objects or fields, then it must in general be defined to be thread-safe.</td>
+<td align="left">一种方法，结果承载CountedCompleter可以选择使用该方法来帮助维护结果数据。默认情况下，它不执行任何操作。不建议使用覆盖。但是，如果重写此方法以更新现有对象或字段，则通常必须将其定义为线程安全的。</td>
 <td align="left"></td>
 </tr>
 </tbody></table>
